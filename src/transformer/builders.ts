@@ -235,11 +235,13 @@ export const buildComment = (
 
 export const buildNote = (
   target: string,
+  source: 'EMAIL' | 'EDITOR' | 'DASHBOARD',
   contents = ''
 ): Build<ManuscriptNote> => ({
   _id: generateID(ObjectTypes.ManuscriptNote),
   objectType: ObjectTypes.ManuscriptNote,
   target,
+  source,
   contents,
 })
 

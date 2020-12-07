@@ -1106,10 +1106,10 @@
   resolved "https://registry.npmjs.org/@manuscripts/examples/-/examples-0.0.7.tgz#f7f0cef173fb2c83fbf283a2c2962b5d6ea32874"
   integrity sha512-7a1y6H/wnvn4hTh7S+TEyC8R5tLHHNiWYJnbeS43JCMYS/6qhMCzJTS0PwQynoep7PWwi2LdgaSZ3qALxzgg0g==
 
-"@manuscripts/manuscripts-json-schema@^1.38.0":
-  version "1.38.0"
-  resolved "https://registry.yarnpkg.com/@manuscripts/manuscripts-json-schema/-/manuscripts-json-schema-1.38.0.tgz#8ec4288e209f4cde47965efd4079e49f917c1ee1"
-  integrity sha512-MxjIliuQI2g4bUGn6jv749KVr/ZNCR7Kx2dlnlzbKL5u62WxQBaJ4IK3AzbmeYN5e9kONyX2pdbRezea+C4cDg==
+"@manuscripts/manuscripts-json-schema@^1.42.0":
+  version "1.42.0"
+  resolved "https://registry.npmjs.org/@manuscripts/manuscripts-json-schema/-/manuscripts-json-schema-1.42.0.tgz#bc63dfdf829dc00687204378707df81b43a1ea8d"
+  integrity sha512-JuELsmldgxRbL2nGlMNbO4qGeg/cXZ1LVgE6CajUQYYcKRBMunHqPDUUrj2P/lujsVahf+59GN7kWV4O3h507Q==
   dependencies:
     ajv "^6.10.0"
     deepmerge "^3.2.0"
