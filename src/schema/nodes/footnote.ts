@@ -20,15 +20,16 @@ import { ManuscriptNode } from '../types'
 
 type Kind = 'footnote' | 'endnote'
 
-const placeholderText: { [key in Kind]: string } = {
-  endnote: 'Endnote',
-  footnote: 'Footnote',
-}
+// const placeholderText: { [key in Kind]: string } = {
+//   endnote: 'Endnote',
+//   footnote: 'Footnote',
+// }
 
 interface Attrs {
   id: string
-  contents: string
   kind: Kind
+  paragraphStyle?: string
+  placeholder?: string
 }
 
 export interface FootnoteNode extends ManuscriptNode {
@@ -37,50 +38,63 @@ export interface FootnoteNode extends ManuscriptNode {
 
 export const footnote: NodeSpec = {
   group: 'block',
-  content: 'inline*',
+  content: 'paragraph+',
   attrs: {
     id: { default: '' },
-    contents: { default: '' },
-    kind: { default: '' },
+    kind: { default: 'footnote' },
+    paragraphStyle: { default: '' },
+    placeholder: { default: '' },
   },
-  selectable: false,
   parseDOM: [
     {
-      tag: 'div.footnote-contents',
+      tag: 'div.footnote-text', // TODO: footnote-contents wrapper?
       getAttrs: (p) => {
         const dom = p as HTMLDivElement
 
-        const inner = dom.querySelector('p')
-
-        return {
-          id: dom.getAttribute('id'),
-          contents: inner ? inner.innerHTML : '',
+        const attrs: Partial<Attrs> = {
+          id: dom.getAttribute('id') || undefined,
+          kind: (dom.getAttribute('data-kind') || 'footnote') as Kind,
         }
+
+        const placeholder = dom.getAttribute('data-placeholder-text')
+
+        if (placeholder) {
+          attrs.placeholder = placeholder
+        }
+
+        return attrs
       },
     },
   ],
   toDOM: (node) => {
     const footnoteNode = node as FootnoteNode
 
-    return [
-      'div',
-      {
-        class: 'footnote-contents',
-      },
-      [
-        'div',
-        {
-          class: 'footnote-text',
-        },
-        [
-          // TODO: multiple paragraphs?
-          'p',
-          {
-            'placeholder-text': placeholderText[footnoteNode.attrs.kind],
-          },
-          0,
-        ],
-      ],
-    ]
+    // TODO: footnote-contents wrapper?
+
+    // TODO: default kind
+    const { kind, paragraphStyle, placeholder, id } = footnoteNode.attrs
+
+    const attrs: Record<string, string> = { class: 'footnote-text', id: '' }
+
+    if (kind) {
+      attrs['data-kind'] = kind
+    }
+
+    if (id) {
+      attrs.id = id
+    }
+
+    if (paragraphStyle) {
+      attrs.paragraphStyle = paragraphStyle
+    }
+
+    if (placeholder) {
+      attrs['data-placeholder-text'] = placeholder
+    }
+
+    return ['div', attrs, 0]
   },
 }
+
+export const isFootnoteNode = (node: ManuscriptNode): node is FootnoteNode =>
+  node.type === node.type.schema.nodes.footnote

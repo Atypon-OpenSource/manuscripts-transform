@@ -42,6 +42,7 @@ import { figure } from './nodes/figure'
 import { figureElement } from './nodes/figure_element'
 import { footnote } from './nodes/footnote'
 import { footnotesElement } from './nodes/footnotes_element'
+import { footnotesSection } from './nodes/footnotes_section'
 import { hardBreak } from './nodes/hard_break'
 import { highlightMarker } from './nodes/highlight_marker'
 import { inlineEquation } from './nodes/inline_equation'
@@ -83,6 +84,7 @@ export * from './nodes/figure'
 export * from './nodes/figure_element'
 export * from './nodes/footnote'
 export * from './nodes/footnotes_element'
+export * from './nodes/footnotes_section'
 export * from './nodes/hard_break'
 export * from './nodes/highlight_marker'
 export * from './nodes/inline_equation'
@@ -135,6 +137,7 @@ export const schema = new Schema<Nodes, Marks>({
     figure_element: figureElement,
     footnote,
     footnotes_element: footnotesElement,
+    footnotes_section: footnotesSection,
     hard_break: hardBreak,
     highlight_marker: highlightMarker,
     inline_equation: inlineEquation,

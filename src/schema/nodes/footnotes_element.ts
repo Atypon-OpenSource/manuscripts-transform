@@ -16,46 +16,36 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { nodeFromHTML } from '../../lib/html'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  contents: string
-  paragraphStyle: string
+  kind?: string
+  paragraphStyle?: string
 }
 
 export interface FootnotesElementNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-const createBodyElement = (node: FootnotesElementNode) => {
-  const dom = document.createElement('div')
-  dom.className = 'manuscript-footnotes'
-  dom.id = node.attrs.id
-
-  return dom
-}
-
 export const footnotesElement: NodeSpec = {
-  atom: true,
   attrs: {
     id: { default: '' },
-    // collateByKind: { default: 'footnote' },
-    contents: { default: '' },
+    kind: { default: 'footnote' },
     paragraphStyle: { default: '' },
   },
+  content: 'footnote*',
   group: 'block element',
   selectable: false,
   parseDOM: [
     {
-      tag: 'div.footnotes',
+      tag: 'div.footnotes', // TODO: endnotes?
       getAttrs: (p) => {
         const dom = p as HTMLDivElement
 
         return {
-          // collateByKind: dom.getAttribute('collateByKind'),
-          contents: dom.innerHTML,
+          kind: dom.getAttribute('data-kind') || 'footnote',
+          // paragraphStyle: dom.getAttribute('data-paragraph-style'),
         }
       },
     },
@@ -63,9 +53,23 @@ export const footnotesElement: NodeSpec = {
   toDOM: (node) => {
     const footnotesElementNode = node as FootnotesElementNode
 
-    return (
-      nodeFromHTML(footnotesElementNode.attrs.contents) ||
-      createBodyElement(footnotesElementNode)
-    )
+    const { id, kind, paragraphStyle } = footnotesElementNode.attrs
+
+    const attrs: Record<string, string> = { class: 'footnotes', id }
+
+    if (kind) {
+      attrs['data-kind'] = kind
+    }
+
+    if (paragraphStyle) {
+      attrs['paragraphStyle'] = paragraphStyle
+    }
+
+    return ['div', attrs, 0]
   },
 }
+
+export const isFootnotesElementNode = (
+  node: ManuscriptNode
+): node is FootnotesElementNode =>
+  node.type === node.type.schema.nodes.footnotes_element

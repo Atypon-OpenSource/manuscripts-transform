@@ -315,14 +315,28 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'fn',
-    node: 'footnote',
+    tag: 'fn-group',
+    node: 'footnotes_element',
+    context: 'footnotes_section/', // TODO: in table footer
     getAttrs: (node) => {
       const element = node as HTMLElement
 
       return {
         id: element.getAttribute('id'),
-        contents: element.textContent,
+        kind: 'footnote', // TODO: 'endnote' depending on position or attribute?
+      }
+    },
+  },
+  {
+    tag: 'fn',
+    node: 'footnote',
+    context: 'footnotes_element/', // TODO: in table footer
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      return {
+        id: element.getAttribute('id'),
+        kind: 'footnote', // TODO: 'endnote' depending on position or attribute?
       }
     },
   },
@@ -430,8 +444,20 @@ const nodes: NodeRule[] = [
     node: 'paragraph',
   },
   {
+    tag: 'sec[sec-type="notes"]',
+    node: 'footnotes_section', // NOTE: higher priority than 'section'
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      return {
+        id: element.getAttribute('id'),
+        // category: chooseSectionCategory(element), // 'MPSectionCategory:endnotes',
+      }
+    },
+  },
+  {
     tag: 'sec',
-    node: 'section', // TODO: id
+    node: 'section',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
@@ -491,7 +517,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'title',
     node: 'section_title',
-    context: 'section/',
+    context: 'section/|footnotes_section/',
   },
   {
     tag: 'tr',
@@ -514,6 +540,18 @@ const nodes: NodeRule[] = [
       return {
         rid: element.getAttribute('rid'),
         contents: element.textContent, // TODO: innerHTML?
+      }
+    },
+  },
+  {
+    tag: 'xref[ref-type="fn"]',
+    node: 'inline_footnote',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      return {
+        rid: element.getAttribute('rid'),
+        contents: element.textContent,
       }
     },
   },
@@ -770,6 +808,33 @@ const moveSectionsToBody = (doc: Document) => {
       // TODO: generate bibliography?
 
       body.appendChild(section)
+    }
+
+    // check for footnotes and check if the section for them created
+    let footnotesSection = doc.querySelector('sec[sec-type="notes"]')
+    // move footnotes without fn-type from back to body section
+    const footnoteGroups = doc.querySelectorAll(
+      'back > fn-group:not([fn-type])'
+    )
+
+    if (!footnotesSection && footnoteGroups.length) {
+      footnotesSection = doc.createElement('sec')
+      footnotesSection.setAttribute('sec-type', 'notes')
+    }
+
+    if (footnotesSection) {
+      let title = doc.querySelector('fn-group title')
+      if (!title) {
+        title = doc.createElement('title')
+        title.textContent = 'Footnotes'
+        footnotesSection.appendChild(title)
+      }
+    }
+    if (footnoteGroups.length && footnotesSection) {
+      for (const footnoteGroup of footnoteGroups) {
+        footnotesSection.appendChild(footnoteGroup)
+      }
+      body.appendChild(footnotesSection)
     }
   }
 }
@@ -1148,7 +1213,6 @@ export const parseJATSBack = (doc: Document, addModel: AddModel): void => {
   }
 
   // TODO: appendices (app-group/app)
-  // TODO: footnotes (fn-group/fn)
   // TODO: notes (notes)
 
   // references
@@ -1298,6 +1362,13 @@ export const parseJATSBack = (doc: Document, addModel: AddModel): void => {
           }
           break
 
+        case 'fn':
+          // 1. Create a footnotes section if isnt created yet
+          // 2. Create a footnote and populate with the content
+          // const footnote = buildFootnote('footnote')
+          // addModel(footnote)
+          //doc.querySelectorAll(`fn[id=${rid}]`)
+          break
         default:
           {
             const auxiliaryObjectReference = buildAuxiliaryObjectReference(

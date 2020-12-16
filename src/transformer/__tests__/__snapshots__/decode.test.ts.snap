@@ -1369,10 +1369,37 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
-            "contents": "<div id=\\"MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E\\" class=\\"footnotes\\"></div>",
             "id": "MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E",
+            "kind": "footnote",
             "paragraphStyle": "MPParagraphStyle:76353811-8E1D-4D11-A1B5-C960C9EEEFCD",
           },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+                "kind": "footnote",
+                "paragraphStyle": "",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "id": "",
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "This is a footnote.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "footnote",
+            },
+          ],
           "type": "footnotes_element",
         },
       ],
@@ -2586,10 +2613,37 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
-            "contents": "<div id=\\"MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E\\" class=\\"footnotes\\"></div>",
             "id": "MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E",
+            "kind": "footnote",
             "paragraphStyle": "MPParagraphStyle:76353811-8E1D-4D11-A1B5-C960C9EEEFCD",
           },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+                "kind": "footnote",
+                "paragraphStyle": "",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "id": "",
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "This is a footnote.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "footnote",
+            },
+          ],
           "type": "footnotes_element",
         },
       ],
@@ -3995,10 +4049,37 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
-            "contents": "<div id=\\"MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E\\" class=\\"footnotes\\"></div>",
             "id": "MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E",
+            "kind": "footnote",
             "paragraphStyle": "MPParagraphStyle:76353811-8E1D-4D11-A1B5-C960C9EEEFCD",
           },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+                "kind": "footnote",
+                "paragraphStyle": "",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "id": "",
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "This is a footnote.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "footnote",
+            },
+          ],
           "type": "footnotes_element",
         },
       ],

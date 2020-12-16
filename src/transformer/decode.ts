@@ -21,6 +21,7 @@ import {
   EquationElement,
   Figure,
   FigureElement,
+  Footnote,
   FootnotesElement,
   HighlightMarker,
   KeywordsElement,
@@ -49,6 +50,7 @@ import {
   FigCaptionNode,
   FigureElementNode,
   FigureNode,
+  FootnoteNode,
   FootnotesElementNode,
   ListingElementNode,
   ListingNode,
@@ -202,6 +204,8 @@ export const isManuscriptNode = (
 const isParagraphElement = hasObjectType<ParagraphElement>(
   ObjectTypes.ParagraphElement
 )
+
+const isFootnote = hasObjectType<Footnote>(ObjectTypes.Footnote)
 
 const hasParentSection = (id: string) => (section: Section) =>
   section.path &&
@@ -374,13 +378,54 @@ export class Decoder {
     [ObjectTypes.FootnotesElement]: (data) => {
       const model = data as FootnotesElement
 
-      return schema.nodes.footnotes_element.create({
+      const collateByKind = model.collateByKind || 'footnote'
+
+      const footnotesOfKind = []
+
+      for (const model of this.modelMap.values()) {
+        if (isFootnote(model) && model.kind === collateByKind) {
+          const footnote = this.parseContents(
+            'contents',
+            model.contents || '<div></div>',
+            undefined,
+            model.highlightMarkers,
+            {
+              topNode: schema.nodes.footnote.create({
+                id: model._id,
+                kind: model.kind,
+                // placeholder: model.placeholderText
+                // paragraphStyle: model.paragraphStyle,
+              }),
+            }
+          ) as FootnoteNode
+
+          footnotesOfKind.push(footnote)
+        }
+      }
+
+      // TODO: footnotesElement doesn't reference footnotes by id, so what happens if one is updated remotely?
+
+      return schema.nodes.footnotes_element.create(
+        {
+          id: model._id,
+          kind: model.collateByKind,
+          // placeholder: model.placeholderInnerHTML,
+          paragraphStyle: model.paragraphStyle,
+        },
+        footnotesOfKind
+      ) as FootnotesElementNode
+
+      // TODO: collect and add footnotes?
+    },
+    [ObjectTypes.Footnote]: (data) => {
+      const model = data as Footnote
+
+      return schema.nodes.footnote.create({
         id: model._id,
-        contents: model.contents
-          ? model.contents.replace(/\s+xmlns=".+?"/, '')
-          : '',
-        paragraphStyle: model.paragraphStyle,
-      }) as FootnotesElementNode
+        kind: model.kind,
+        // placeholder: model.placeholderText
+        // paragraphStyle: model.paragraphStyle,
+      }) as FootnoteNode
     },
     [ObjectTypes.KeywordsElement]: (data) => {
       const model = data as KeywordsElement

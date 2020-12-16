@@ -20,6 +20,7 @@ import {
   MarkType,
   Node as ProsemirrorNode,
   NodeType,
+  ResolvedPos,
   Schema,
   Slice,
 } from 'prosemirror-model'
@@ -60,6 +61,7 @@ export type Nodes =
   | 'figure_element'
   | 'footnote'
   | 'footnotes_element'
+  | 'footnotes_section'
   | 'hard_break'
   | 'highlight_marker'
   | 'inline_equation'
@@ -98,6 +100,7 @@ export type ManuscriptTextSelection = TextSelection<ManuscriptSchema>
 export type ManuscriptMarkType = MarkType<ManuscriptSchema>
 export type ManuscriptNodeType = NodeType<ManuscriptSchema>
 export type ManuscriptNodeView = NodeView<ManuscriptSchema>
+export type ManuscriptResolvedPos = ResolvedPos<ManuscriptSchema>
 export type ManuscriptPlugin = Plugin<ManuscriptSchema>
 export type ManuscriptSlice = Slice<ManuscriptSchema>
 export type ManuscriptTransaction = Transaction<ManuscriptSchema>

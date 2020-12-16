@@ -25,6 +25,8 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.cross_reference, 'Cross Reference'],
   [schema.nodes.equation_element, 'Equation'],
   [schema.nodes.figure_element, 'Figure'],
+  [schema.nodes.footnote, 'Footnote'],
+  [schema.nodes.footnotes_element, 'Notes'],
   // [schema.nodes.figure, 'Figure'],
   [schema.nodes.bullet_list, 'Bullet List'],
   [schema.nodes.ordered_list, 'Ordered List'],

@@ -28,7 +28,6 @@ import {
   Listing,
   ListingElement,
   Model,
-  ObjectTypes,
   ParagraphElement,
   QuoteElement,
   Section,
@@ -61,7 +60,15 @@ const serializer = DOMSerializer.fromSchema(schema)
 
 const contents = (node: ManuscriptNode): string => {
   const output = serializer.serializeNode(node) as HTMLElement
+  return serializeToXML(output)
+}
 
+const footnoteContents = (node: ManuscriptNode): string => {
+  const output = serializer.serializeNode(node) as HTMLElement
+  output.querySelectorAll('p').forEach((element) => {
+    element.removeAttribute('class')
+    element.removeAttribute('data-object-type')
+  })
   return serializeToXML(output)
 }
 
@@ -335,12 +342,22 @@ const encoders: NodeEncoderMap = {
   }),
   footnote: (node, parent): Partial<Footnote> => ({
     containingObject: parent.attrs.id,
-    contents: contents(node),
+    contents: footnoteContents(node), // TODO: needed?
+    kind: node.attrs.kind || 'footnote',
   }),
   footnotes_element: (node): Partial<FootnotesElement> => ({
-    contents: contents(node),
-    // elementType: 'div', // TODO: https://gitlab.com/mpapp-private/manuscripts-json-schema/issues/47
+    contents: '<div></div>', // contents(node), // TODO: empty div instead?
+    elementType: 'div',
     paragraphStyle: node.attrs.paragraphStyle || undefined,
+  }),
+  footnotes_section: (node, parent, path, priority): Partial<Section> => ({
+    category: buildSectionCategory(node),
+    priority: priority.value++,
+    title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
+    path: path.concat([node.attrs.id]),
+    elementIDs: childElements(node)
+      .map((childNode) => childNode.attrs.id)
+      .filter((id) => id),
   }),
   inline_equation: (node, parent): Partial<InlineMathFragment> => ({
     containingObject: parent.attrs.id,
@@ -449,10 +466,22 @@ export const modelFromNode = (
 ): Model => {
   // TODO: in handlePaste, filter out non-standard IDs
 
+  const objectType = nodeTypesMap.get(node.type)
+
+  if (!objectType) {
+    throw new Error(`No objectType is defined for ${node.type.name}`)
+  }
+
+  const { id } = node.attrs
+
+  if (!id) {
+    throw new Error(`No id is defined for this ${node.type.name}`)
+  }
+
   const data = {
     ...modelData(node, parent, path, priority),
-    _id: node.attrs.id,
-    objectType: nodeTypesMap.get(node.type) as ObjectTypes,
+    _id: id,
+    objectType: objectType,
   }
 
   const model = data as Model

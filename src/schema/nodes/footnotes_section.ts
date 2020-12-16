@@ -18,39 +18,43 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export interface ActualManuscriptNode extends ManuscriptNode {
-  attrs: {
-    id: string
-  }
+interface Attrs {
+  id: string
 }
 
-export const manuscript: NodeSpec = {
-  content: '(section | sections)+', // sections is a group of elements that have group: sections
+// TODO: endnotes section?
+
+export interface FootnotesSectionNode extends ManuscriptNode {
+  attrs: Attrs
+}
+
+export const footnotesSection: NodeSpec = {
+  content: 'section_title (footnotes_element | placeholder_element)+',
   attrs: {
     id: { default: '' },
   },
-  group: 'block',
+  group: 'block sections',
+  selectable: false,
   parseDOM: [
     {
-      tag: 'article',
-      getAttrs: (p) => {
-        const dom = p as HTMLElement
-
-        return {
-          id: dom.getAttribute('id'),
-        }
-      },
+      tag: 'section.footnotes',
     },
   ],
   toDOM: (node) => {
-    const manuscriptNode = node as ActualManuscriptNode
+    const footnotesSectionNode = node as FootnotesSectionNode
 
     return [
-      'article',
+      'section',
       {
-        id: manuscriptNode.attrs.id,
+        id: footnotesSectionNode.attrs.id,
+        class: 'footnotes',
       },
       0,
     ]
   },
 }
+
+export const isFootnotesSectionNode = (
+  node: ManuscriptNode
+): node is FootnotesSectionNode =>
+  node.type === node.type.schema.nodes.footnotes_section

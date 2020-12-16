@@ -21,7 +21,6 @@ import {
   Citation,
   Contributor,
   ContributorRole,
-  Footnote,
   InlineStyle,
   Keyword,
   Model,
@@ -531,7 +530,6 @@ export class JATSExporter {
 
   protected buildBody = (fragment: ManuscriptFragment) => {
     const content = this.serializeFragment(fragment)
-
     const body = this.document.createElement('body')
     body.appendChild(content)
 
@@ -543,55 +541,24 @@ export class JATSExporter {
   protected buildBack = () => {
     const back = this.document.createElement('back')
 
-    // footnotes element
-    const footnotesElement = this.document.querySelector('fn-group')
+    // footnotes elements in footnotes section (i.e. not in table footer)
+    const footnotesElements = this.document.querySelectorAll('sec > fn-group')
 
-    if (footnotesElement) {
+    for (const footnotesElement of footnotesElements) {
       // move fn-group from body to back
+      const previousParent = footnotesElement.parentElement
       back.appendChild(footnotesElement)
 
-      const footnoteIDsSet: Set<string> = new Set()
-
-      const xrefs = this.document.querySelectorAll('xref[ref-type=fn][rid]')
-
-      for (const xref of xrefs) {
-        const attribute = xref.getAttribute('rid')
-
-        if (attribute) {
-          for (const rid of attribute.split(/\s+/)) {
-            footnoteIDsSet.add(rid)
-          }
+      if (previousParent) {
+        const title = previousParent.querySelector('title')
+        if (title) {
+          footnotesElement.insertBefore(
+            title,
+            footnotesElement.firstElementChild
+          )
         }
-      }
-
-      const footnotes = this.models.filter(
-        hasObjectType<Footnote>(ObjectTypes.Footnote)
-      )
-
-      for (const footnoteID of footnoteIDsSet) {
-        const footnote = footnotes.find(
-          (footnote) => normalizeID(footnote._id) === footnoteID
-        )
-
-        if (footnote) {
-          const fn = this.document.createElement('fn')
-          fn.setAttribute('id', normalizeID(footnote._id))
-
-          const p = this.document.createElement('p')
-          // TODO: convert markup to JATS?
-          // p.innerHTML = footnote.contents
-
-          if (footnote.contents) {
-            const text = textFromHTML(footnote.contents)
-
-            if (text !== null && text.length) {
-              p.textContent = text
-            }
-          }
-
-          fn.appendChild(p)
-
-          footnotesElement.appendChild(fn)
+        if (!previousParent.childElementCount) {
+          previousParent.remove()
         }
       }
     }
@@ -994,7 +961,16 @@ export class JATSExporter {
       footnotes_element: (node) => [
         'fn-group',
         { id: normalizeID(node.attrs.id) },
+        0,
       ],
+      footnotes_section: (node) => {
+        const attrs: { [key: string]: string } = {
+          id: normalizeID(node.attrs.id),
+          'sec-type': 'notes', // chooseSecType(node.attrs.category),
+        }
+
+        return ['sec', attrs, 0]
+      },
       hard_break: () => ['break'],
       highlight_marker: () => '',
       inline_equation: (node) => {

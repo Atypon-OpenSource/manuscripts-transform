@@ -38,25 +38,30 @@ export const inlineFootnote: NodeSpec = {
   group: 'inline',
   parseDOM: [
     {
-      tag: 'span.footnote',
+      tag: 'span.footnote', // TODO: span.endnote?
       getAttrs: (p) => {
         const dom = p as HTMLSpanElement
 
         return {
-          rid: dom.getAttribute('id'),
+          rid: dom.getAttribute('data-reference-id'),
           contents: dom.textContent,
         }
       },
     },
   ],
   toDOM: (node) => {
-    const inlineFootnodeNode = node as InlineFootnoteNode
+    const inlineFootnoteNode = node as InlineFootnoteNode
 
     const dom = document.createElement('span')
     dom.className = 'footnote'
-    dom.setAttribute('id', inlineFootnodeNode.attrs.rid)
-    dom.textContent = inlineFootnodeNode.attrs.contents
+    dom.setAttribute('data-reference-id', inlineFootnoteNode.attrs.rid)
+    dom.textContent = inlineFootnoteNode.attrs.contents
 
     return dom
   },
 }
+
+export const isInlineFootnoteNode = (
+  node: ManuscriptNode
+): node is InlineFootnoteNode =>
+  node.type === node.type.schema.nodes.inline_footnote

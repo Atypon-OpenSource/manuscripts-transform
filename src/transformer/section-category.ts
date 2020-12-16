@@ -20,6 +20,7 @@ import { ManuscriptNode, ManuscriptNodeType, schema } from '../schema'
 
 const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.bibliography_section,
+  schema.nodes.footnotes_section,
   schema.nodes.keywords_section,
   schema.nodes.section,
   schema.nodes.toc_section,
@@ -35,6 +36,7 @@ export type SectionCategory =
   | 'MPSectionCategory:bibliography'
   | 'MPSectionCategory:conclusions'
   | 'MPSectionCategory:discussion'
+  | 'MPSectionCategory:endnotes'
   | 'MPSectionCategory:introduction'
   | 'MPSectionCategory:keywords'
   | 'MPSectionCategory:materials-method'
@@ -49,6 +51,7 @@ export type SecType =
   | 'conclusions'
   | 'data-availability'
   | 'discussion'
+  | 'notes'
   | 'intro'
   | 'keywords'
   | 'materials'
@@ -62,6 +65,9 @@ export const chooseSectionNodeType = (
   switch (category) {
     case 'MPSectionCategory:bibliography':
       return schema.nodes.bibliography_section
+
+    case 'MPSectionCategory:endnotes':
+      return schema.nodes.footnotes_section
 
     case 'MPSectionCategory:keywords':
       return schema.nodes.keywords_section
@@ -86,6 +92,9 @@ export const guessSectionCategory = (
     case ObjectTypes.BibliographyElement:
       return 'MPSectionCategory:bibliography'
 
+    case ObjectTypes.FootnotesElement:
+      return 'MPSectionCategory:endnotes'
+
     case ObjectTypes.KeywordsElement:
       return 'MPSectionCategory:keywords'
 
@@ -103,6 +112,9 @@ export const buildSectionCategory = (
   switch (node.type) {
     case schema.nodes.bibliography_section:
       return 'MPSectionCategory:bibliography'
+
+    case schema.nodes.footnotes_section:
+      return 'MPSectionCategory:endnotes'
 
     case schema.nodes.keywords_section:
       return 'MPSectionCategory:keywords'
@@ -122,6 +134,9 @@ export const chooseSecType = (sectionCategory: SectionCategory): SecType => {
   switch (suffix) {
     case 'acknowledgement':
       return 'acknowledgments'
+
+    case 'endnotes':
+      return 'notes'
 
     case 'introduction':
       return 'intro'
@@ -158,6 +173,9 @@ export const chooseSectionCategory = (
 
     case 'discussion':
       return 'MPSectionCategory:discussion'
+
+    case 'notes':
+      return 'MPSectionCategory:endnotes'
 
     case 'intro':
       return 'MPSectionCategory:introduction'

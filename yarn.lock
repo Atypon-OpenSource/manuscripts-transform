@@ -1101,10 +1101,10 @@
     eslint-config-prettier "^6.11.0"
     typescript "^3.9.5"
 
-"@manuscripts/examples@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.npmjs.org/@manuscripts/examples/-/examples-0.0.7.tgz#f7f0cef173fb2c83fbf283a2c2962b5d6ea32874"
-  integrity sha512-7a1y6H/wnvn4hTh7S+TEyC8R5tLHHNiWYJnbeS43JCMYS/6qhMCzJTS0PwQynoep7PWwi2LdgaSZ3qALxzgg0g==
+"@manuscripts/examples@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@manuscripts/examples/-/examples-0.0.8.tgz#877effcbf22b11c3b24e162284665042f4125192"
+  integrity sha512-hCmYSKgflejywcX1A8eTwU3MnKTaq5fHgTA7EciYG8HFm3qIST4rk+tTPvNhZ/JkwbZqs2hSTPhKbUR3IwwcDQ==
 
 "@manuscripts/manuscripts-json-schema@^1.42.0":
   version "1.42.0"

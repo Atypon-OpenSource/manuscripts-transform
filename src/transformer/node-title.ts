@@ -56,13 +56,18 @@ export const nodeTitle = (node: ManuscriptNode) => {
   switch (node.type) {
     case nodes.section:
     case nodes.bibliography_section:
+    case nodes.footnotes_section:
     case nodes.keywords_section:
     case nodes.toc_section:
       return snippetOfNodeType(node, nodes.section_title)
 
+    case nodes.footnotes_element:
+      return node.attrs.collateByKind === 'footnote' ? 'Footnotes' : 'Endnotes' // TODO
+
     case nodes.ordered_list:
     case nodes.bullet_list:
     case nodes.blockquote_element:
+    case nodes.footnote:
     case nodes.pullquote_element:
       return snippetOfNodeType(node, nodes.paragraph)
 
