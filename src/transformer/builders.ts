@@ -32,6 +32,7 @@ import {
   Figure,
   Footnote,
   Highlight,
+  HighlightMarker,
   InlineMathFragment,
   InlineStyle,
   Keyword,
@@ -314,6 +315,20 @@ export const buildColor = (value: string, priority: number): Build<Color> => ({
 export const buildHighlight = (): Build<Highlight> => ({
   _id: generateID(ObjectTypes.Highlight),
   objectType: ObjectTypes.Highlight,
+})
+
+export const buildHighlightMarker = (
+  highlightID: string,
+  start: boolean,
+  offset: number,
+  field: 'caption' | 'contents' | 'title'
+): Build<HighlightMarker> => ({
+  highlightID,
+  objectType: ObjectTypes.HighlightMarker,
+  _id: generateID(ObjectTypes.HighlightMarker),
+  start,
+  offset,
+  field,
 })
 
 export const buildContribution = (profileID: string): Contribution => ({
