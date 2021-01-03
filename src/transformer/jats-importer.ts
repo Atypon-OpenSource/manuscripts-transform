@@ -841,16 +841,26 @@ const moveSectionsToBody = (doc: Document) => {
 
 const ensureSection = (body: Element) => {
   const doc = body.ownerDocument as Document
-
-  if (!body.querySelector('sec')) {
-    const section = doc.createElement('sec')
-
-    while (body.firstChild) {
-      section.appendChild(body.firstChild)
-    }
-
-    body.appendChild(section)
+  // Create and add a section if there is no section the content can be appended into
+  let section = doc.createElement('sec') as Element
+  const { firstElementChild } = body
+  if (firstElementChild && firstElementChild.tagName === 'sec') {
+    section = firstElementChild
+  } else {
+    body.insertBefore(section, body.firstChild)
   }
+
+  // Move any element without a section to the previous section
+  body.childNodes.forEach((child) => {
+    if (child.nodeType === doc.ELEMENT_NODE) {
+      const element = child as Element
+      if (element.tagName !== 'sec') {
+        section.appendChild(element)
+      } else {
+        section = element
+      }
+    }
+  })
 }
 
 export const parseJATSBody = (
