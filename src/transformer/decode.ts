@@ -41,6 +41,7 @@ import { RxDocument } from '@manuscripts/rxdb'
 import debug from 'debug'
 import { DOMParser, ParseOptions } from 'prosemirror-model'
 
+import { MissingElement } from '../errors'
 import {
   BibliographyElementNode,
   BlockquoteElementNode,
@@ -214,6 +215,7 @@ const hasParentSection = (id: string) => (section: Section) =>
 
 export class Decoder {
   private readonly modelMap: Map<string, Model>
+  private readonly allowMissingElements: boolean
 
   private creators: NodeCreatorMap = {
     [ObjectTypes.BibliographyElement]: (data) => {
@@ -306,12 +308,17 @@ export class Decoder {
       if (model.listingID) {
         const listingModel = this.getModel<Listing>(model.listingID)
 
-        const listing = listingModel
-          ? (this.decode(listingModel) as ListingNode)
-          : (schema.nodes.placeholder.create({
-              id: model.listingID,
-              label: 'A listing',
-            }) as PlaceholderNode)
+        let listing: ListingNode | PlaceholderNode
+        if (listingModel) {
+          listing = this.decode(listingModel) as ListingNode
+        } else if (this.allowMissingElements) {
+          listing = schema.nodes.placeholder.create({
+            id: model.listingID,
+            label: 'A listing',
+          }) as PlaceholderNode
+        } else {
+          throw new MissingElement(model.listingID)
+        }
 
         content.push(listing)
       } else {
@@ -345,13 +352,18 @@ export class Decoder {
       const model = data as EquationElement
 
       const equationModel = this.getModel<Equation>(model.containedObjectID)
+      let equation: EquationNode | PlaceholderNode
 
-      const equation: EquationNode | PlaceholderNode = equationModel
-        ? (this.decode(equationModel) as EquationNode)
-        : (schema.nodes.placeholder.create({
-            id: model.containedObjectID,
-            label: 'An equation',
-          }) as PlaceholderNode)
+      if (equationModel) {
+        equation = this.decode(equationModel) as EquationNode
+      } else if (this.allowMissingElements) {
+        equation = schema.nodes.placeholder.create({
+          id: model.containedObjectID,
+          label: 'An equation',
+        }) as PlaceholderNode
+      } else {
+        throw new MissingElement(model.containedObjectID)
+      }
 
       const figcaptionNode: FigCaptionNode = schema.nodes.figcaption.create()
 
@@ -491,12 +503,17 @@ export class Decoder {
 
       const listingModel = this.getModel<Listing>(model.containedObjectID)
 
-      const listing: ListingNode | PlaceholderNode = listingModel
-        ? (this.decode(listingModel) as ListingNode)
-        : (schema.nodes.placeholder.create({
-            id: model.containedObjectID,
-            label: 'A listing',
-          }) as PlaceholderNode)
+      let listing: ListingNode | PlaceholderNode
+      if (listingModel) {
+        listing = this.decode(listingModel) as ListingNode
+      } else if (this.allowMissingElements) {
+        listing = schema.nodes.placeholder.create({
+          id: model.containedObjectID,
+          label: 'A listing',
+        }) as PlaceholderNode
+      } else {
+        throw new MissingElement(model.containedObjectID)
+      }
 
       const figcaptionNode: FigCaptionNode = schema.nodes.figcaption.create()
 
@@ -594,7 +611,7 @@ export class Decoder {
             }
 
             elements.push(element)
-          } else {
+          } else if (this.allowMissingElements) {
             const placeholderElement: PlaceholderElement = {
               _id: id,
               containerID: model._id,
@@ -605,6 +622,8 @@ export class Decoder {
             }
 
             elements.push(placeholderElement)
+          } else {
+            throw new MissingElement(id)
           }
         }
       }
@@ -676,12 +695,17 @@ export class Decoder {
 
       const tableModel = this.getModel<Table>(model.containedObjectID)
 
-      const table: TableNode | PlaceholderNode = tableModel
-        ? (this.decode(tableModel) as TableNode)
-        : (schema.nodes.placeholder.create({
-            id: model.containedObjectID,
-            label: 'A table',
-          }) as PlaceholderNode)
+      let table: TableNode | PlaceholderNode
+      if (tableModel) {
+        table = this.decode(tableModel) as TableNode
+      } else if (this.allowMissingElements) {
+        table = schema.nodes.placeholder.create({
+          id: model.containedObjectID,
+          label: 'A table',
+        }) as PlaceholderNode
+      } else {
+        throw new MissingElement(model.containedObjectID)
+      }
 
       const figcaptionNode: FigCaptionNode = schema.nodes.figcaption.create()
 
@@ -701,13 +725,18 @@ export class Decoder {
 
       if (model.listingID) {
         const listingModel = this.getModel<Listing>(model.listingID)
+        let listing: ListingNode | PlaceholderNode
 
-        const listing = listingModel
-          ? (this.decode(listingModel) as ListingNode)
-          : (schema.nodes.placeholder.create({
-              id: model.listingID,
-              label: 'A listing',
-            }) as PlaceholderNode)
+        if (listingModel) {
+          listing = this.decode(listingModel) as ListingNode
+        } else if (this.allowMissingElements) {
+          listing = schema.nodes.placeholder.create({
+            id: model.listingID,
+            label: 'A listing',
+          }) as PlaceholderNode
+        } else {
+          throw new MissingElement(model.listingID)
+        }
 
         content.push(listing)
       } else {
@@ -741,8 +770,9 @@ export class Decoder {
     },
   }
 
-  constructor(modelMap: Map<string, Model>) {
+  constructor(modelMap: Map<string, Model>, allowMissingElements = false) {
     this.modelMap = modelMap
+    this.allowMissingElements = allowMissingElements
   }
 
   public decode = (model: Model): ManuscriptNode | null => {

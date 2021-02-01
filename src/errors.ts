@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2021 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export * from './mathjax'
-export * from './schema'
-export * from './transformer'
-export * from './types'
-export * from './errors'
+export class MissingElement extends Error {
+  constructor(elementID: string) {
+    super(`${elementID} not found in the manuscripts data`)
+    this.name = 'MissingElement'
+  }
+}

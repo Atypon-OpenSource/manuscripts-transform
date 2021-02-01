@@ -54,7 +54,6 @@ import { hasObjectType } from './object-types'
 import {
   findLatestManuscriptSubmission,
   findManuscript,
-  // findManuscriptModelByType,
 } from './project-bundle'
 import { chooseSecType } from './section-category'
 
@@ -1057,10 +1056,10 @@ export class JATSExporter {
         return ['p', attrs, 0]
       },
       placeholder: () => {
-        throw new Error('Placeholder!')
+        return this.document.createElement('boxed-text')
       },
       placeholder_element: () => {
-        throw new Error('Placeholder element!')
+        return this.document.createElement('boxed-text')
       },
       pullquote_element: () => [
         'disp-quote',

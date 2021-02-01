@@ -20,6 +20,7 @@ import {
   Section,
 } from '@manuscripts/manuscripts-json-schema'
 
+import { MissingElement } from '../../errors'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../../schema'
 import { Decoder, getModelData, sortSectionsByPriority } from '../decode'
 import { createTestModelMapWithCitations } from './__helpers__/citations'
@@ -45,8 +46,11 @@ const countDescendantsOfType = (
   return count
 }
 
-const createDoc = (modelMap: Map<string, Model>) => {
-  const decoder = new Decoder(modelMap)
+const createDoc = (
+  modelMap: Map<string, Model>,
+  allowMissingElements = true
+) => {
+  const decoder = new Decoder(modelMap, allowMissingElements)
 
   return decoder.createArticleNode()
 }
@@ -80,6 +84,14 @@ describe('decoder', () => {
       countDescendantsOfType(afterDoc, schema.nodes.placeholder_element)
     ).toBe(2)
     expect(afterDoc).toMatchSnapshot('decoded-with-placeholders')
+  })
+
+  test('create test doc disallowing a missing data', async () => {
+    const modelMap = createTestModelMap()
+
+    modelMap.delete('MPParagraphElement:05A0ED43-8928-4C69-A17C-0A98795001CD')
+
+    expect(() => createDoc(modelMap, false)).toThrowError(MissingElement)
   })
 
   test('getModelData', () => {
