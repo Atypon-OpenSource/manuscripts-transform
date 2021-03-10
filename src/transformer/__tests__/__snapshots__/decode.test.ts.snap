@@ -536,6 +536,8 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "footerRows": 1,
+                "headerRows": 1,
                 "id": "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
               },
               "content": Array [
@@ -546,11 +548,11 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -562,11 +564,11 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -586,11 +588,11 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -602,51 +604,11 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Table Data",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Table Data",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -666,11 +628,51 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Table Data",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Table Data",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -682,11 +684,11 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -739,6 +741,8 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "footerRows": 1,
+                "headerRows": 1,
                 "id": "MPTable:7E83812B-A759-4D38-C1C5-F6507D2FC2A9",
               },
               "content": Array [
@@ -749,11 +753,11 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -765,11 +769,11 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -783,49 +787,21 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -839,21 +815,49 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -900,6 +904,8 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "footerRows": 1,
+                "headerRows": 1,
                 "id": "MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8",
               },
               "content": Array [
@@ -910,21 +916,21 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -938,49 +944,21 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -994,21 +972,49 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -1055,6 +1061,8 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "footerRows": 1,
+                "headerRows": 1,
                 "id": "MPTable:6C045963-404A-4E1E-FF81-B40E9772A6A6",
               },
               "content": Array [
@@ -1065,21 +1073,21 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -1093,49 +1101,21 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -1149,21 +1129,49 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -1893,6 +1901,8 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "footerRows": 1,
+                "headerRows": 1,
                 "id": "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
               },
               "content": Array [
@@ -1903,11 +1913,11 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -1919,11 +1929,11 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -1943,11 +1953,11 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -1959,51 +1969,11 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Table Data",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Table Data",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -2023,11 +1993,51 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Table Data",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Table Data",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -2039,11 +2049,11 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -2096,6 +2106,8 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "footerRows": 1,
+                "headerRows": 1,
                 "id": "MPTable:7E83812B-A759-4D38-C1C5-F6507D2FC2A9",
               },
               "content": Array [
@@ -2106,11 +2118,11 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -2122,11 +2134,11 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -2140,49 +2152,21 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -2196,21 +2180,49 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -2299,6 +2311,8 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "footerRows": 1,
+                "headerRows": 1,
                 "id": "MPTable:6C045963-404A-4E1E-FF81-B40E9772A6A6",
               },
               "content": Array [
@@ -2309,21 +2323,21 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -2337,49 +2351,21 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -2393,21 +2379,49 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -3216,6 +3230,8 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "footerRows": 1,
+                "headerRows": 1,
                 "id": "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
               },
               "content": Array [
@@ -3226,11 +3242,11 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -3242,11 +3258,11 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -3266,11 +3282,11 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -3282,51 +3298,11 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Table Data",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Table Data",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -3346,11 +3322,51 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Table Data",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Table Data",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -3362,11 +3378,11 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -3419,6 +3435,8 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "footerRows": 1,
+                "headerRows": 1,
                 "id": "MPTable:7E83812B-A759-4D38-C1C5-F6507D2FC2A9",
               },
               "content": Array [
@@ -3429,11 +3447,11 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "content": Array [
                         Object {
@@ -3445,11 +3463,11 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -3463,49 +3481,21 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -3519,21 +3509,49 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -3580,6 +3598,8 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "footerRows": 1,
+                "headerRows": 1,
                 "id": "MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8",
               },
               "content": Array [
@@ -3590,21 +3610,21 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -3618,49 +3638,21 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -3674,21 +3666,49 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -3735,6 +3755,8 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "footerRows": 1,
+                "headerRows": 1,
                 "id": "MPTable:6C045963-404A-4E1E-FF81-B40E9772A6A6",
               },
               "content": Array [
@@ -3745,21 +3767,21 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -3773,49 +3795,21 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "background": null,
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
@@ -3829,21 +3823,49 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "background": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "styles": Object {},
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
-                        "background": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "styles": Object {},
                       },
                       "type": "table_cell",
                     },

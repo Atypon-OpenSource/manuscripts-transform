@@ -18,6 +18,11 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
+import {
+  AllowedTableCellStyles,
+  getTableCellStyles,
+  serializeTableCellStyles,
+} from '../../lib/table-cell-styles'
 import { ManuscriptNode } from '../types'
 
 // NOTE: keep this method as close to the original as possible, for ease of updating
@@ -35,8 +40,8 @@ const getCellAttrs = (p: Node | string) => {
     colspan,
     rowspan: Number(dom.getAttribute('rowspan') || 1),
     colwidth: widths && widths.length === colspan ? widths : null,
-    background: dom.style.backgroundColor || null,
     placeholder: dom.getAttribute('data-placeholder-text') || '',
+    styles: getTableCellStyles(dom.style),
   }
 }
 
@@ -47,17 +52,21 @@ interface TableNodeSpec extends NodeSpec {
 export interface TableNode extends ManuscriptNode {
   attrs: {
     id: string
+    headerRows: number
+    footerRows: number
   }
 }
 
 export const table: TableNodeSpec = {
-  content: 'table_row{3,}',
+  content: 'table_row+',
   tableRole: 'table',
   isolating: true,
   group: 'block',
   selectable: false,
   attrs: {
     id: { default: '' },
+    headerRows: { default: 1 },
+    footerRows: { default: 1 },
   },
   parseDOM: [
     {
@@ -67,6 +76,8 @@ export const table: TableNodeSpec = {
 
         return {
           id: dom.getAttribute('id'),
+          headerRows: dom.dataset && dom.dataset['header-rows'],
+          footerRows: dom.dataset && dom.dataset['footer-rows'],
         }
       },
     },
@@ -78,6 +89,8 @@ export const table: TableNodeSpec = {
       'table',
       {
         id: tableNode.attrs.id,
+        'data-header-rows': String(node.attrs.headerRows),
+        'data-footer-rows': String(node.attrs.footerRows),
       },
       ['tbody', 0],
     ]
@@ -123,8 +136,8 @@ export interface TableCellNode extends ManuscriptNode {
     colspan: number | null
     rowspan: number | null
     colwidth: number[] | null
-    background: string | null
     placeholder: string | null
+    styles: { [key in AllowedTableCellStyles]?: string | null }
   }
 }
 
@@ -134,8 +147,8 @@ export const tableCell: TableNodeSpec = {
     colspan: { default: 1 },
     rowspan: { default: 1 },
     colwidth: { default: null },
-    background: { default: null },
     placeholder: { default: 'Data' }, // TODO: depends on cell type and position
+    styles: { default: {} },
   },
   tableRole: 'cell',
   isolating: true,
@@ -156,10 +169,6 @@ export const tableCell: TableNodeSpec = {
       attrs.rowspan = String(tableCellNode.attrs.rowspan)
     }
 
-    if (tableCellNode.attrs.background) {
-      attrs.style = `backgroundColor: ${tableCellNode.attrs.background}`
-    }
-
     if (tableCellNode.attrs.colwidth) {
       attrs['data-colwidth'] = tableCellNode.attrs.colwidth.join(',')
     }
@@ -170,6 +179,11 @@ export const tableCell: TableNodeSpec = {
 
     if (!tableCellNode.textContent) {
       attrs.class = 'placeholder'
+    }
+
+    const styleString = serializeTableCellStyles(tableCellNode.attrs.styles)
+    if (styleString) {
+      attrs.style = styleString
     }
 
     return ['td', attrs, 0]
