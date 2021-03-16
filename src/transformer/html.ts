@@ -44,6 +44,7 @@ import {
 import { IDGenerator, MediaPathGenerator } from '../types'
 import { generateAttachmentFilename } from './filename'
 import { createCounter } from './jats-exporter'
+import { buildTargets, Target } from './labels'
 import { isNodeType } from './node-types'
 import { hasObjectType } from './object-types'
 import { findManuscript } from './project-bundle'
@@ -111,7 +112,7 @@ export interface HTMLExporterOptions {
 export class HTMLTransformer {
   private document: Document
   private modelMap: Map<string, Model>
-
+  private labelTargets?: Map<string, Target>
   public serializeToHTML = async (
     fragment: ManuscriptFragment,
     modelMap: Map<string, Model>,
@@ -120,7 +121,8 @@ export class HTMLTransformer {
     const { idGenerator, mediaPathGenerator } = options
 
     this.modelMap = modelMap
-
+    const manuscript = findManuscript(this.modelMap)
+    this.labelTargets = buildTargets(fragment, manuscript)
     this.document = document.implementation.createDocument(
       'http://www.w3.org/1999/xhtml',
       'html',
@@ -623,8 +625,15 @@ export class HTMLTransformer {
             }
           }
         }
-
-        // TODO: add labels from plugin state to figures, tables, etc?
+        const element = this.document.querySelector(`${selector}`)
+        if (element && this.labelTargets) {
+          const target = this.labelTargets.get(node.attrs.id)
+          if (target) {
+            const label = this.document.createElement('label')
+            label.textContent = target.label
+            element.appendChild(label)
+          }
+        }
       }
     })
   }
