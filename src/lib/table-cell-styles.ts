@@ -18,15 +18,6 @@ import _pickBy from 'lodash.pickby'
 
 // TODO: fix all the tests and test this unit
 
-export type AllowedTableCellStyles =
-  | 'backgroundColor'
-  | 'borderTop'
-  | 'borderRight'
-  | 'borderBottom'
-  | 'borderLeft'
-  | 'verticalAlign'
-  | 'textAlign'
-
 export const TABLE_CELL_STYLES = [
   'backgroundColor',
   'borderTop',
@@ -35,7 +26,9 @@ export const TABLE_CELL_STYLES = [
   'borderLeft',
   'verticalAlign',
   'textAlign',
-]
+] as const
+
+export type TableCellStyleKey = typeof TABLE_CELL_STYLES[number]
 
 const dashify = (str: string) => {
   return str
@@ -47,17 +40,19 @@ const dashify = (str: string) => {
 }
 
 export const serializeTableCellStyles = (
-  styles: { [key in AllowedTableCellStyles]?: string | null }
+  styles: {
+    [key in TableCellStyleKey]?: string | null
+  }
 ) => {
-  return (Object.keys(styles) as Array<AllowedTableCellStyles>)
+  return (Object.keys(styles) as Array<TableCellStyleKey>)
     .map((key) => styles[key] && `${dashify(key)}: ${styles[key]}`)
     .filter(Boolean)
     .join('; ')
 }
 
+const isStyleKey = (key: string): key is TableCellStyleKey =>
+  TABLE_CELL_STYLES.includes(key as TableCellStyleKey)
+
 export const getTableCellStyles = (styles: CSSStyleDeclaration) => {
-  return _pickBy(
-    styles,
-    (value, key) => TABLE_CELL_STYLES.includes(key) && value
-  )
+  return _pickBy(styles, (value, key) => isStyleKey(key) && value)
 }

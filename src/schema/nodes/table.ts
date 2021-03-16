@@ -19,9 +19,9 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import {
-  AllowedTableCellStyles,
   getTableCellStyles,
   serializeTableCellStyles,
+  TableCellStyleKey,
 } from '../../lib/table-cell-styles'
 import { ManuscriptNode } from '../types'
 
@@ -131,13 +131,15 @@ export const tableRow: TableNodeSpec = {
   },
 }
 
+export type TableCellStyles = { [key in TableCellStyleKey]?: string | null }
+
 export interface TableCellNode extends ManuscriptNode {
   attrs: {
     colspan: number | null
     rowspan: number | null
     colwidth: number[] | null
     placeholder: string | null
-    styles: { [key in AllowedTableCellStyles]?: string | null }
+    styles: TableCellStyles
   }
 }
 
