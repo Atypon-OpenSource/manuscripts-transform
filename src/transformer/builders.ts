@@ -43,6 +43,8 @@ import {
   ObjectTypes,
   ParagraphElement,
   Project,
+  RequirementsValidation,
+  RequirementsValidationData,
   Section,
   StatusLabel,
   Submission,
@@ -243,6 +245,14 @@ export const buildNote = (
   target,
   source,
   contents,
+})
+
+export const buildValidation = (
+  results: RequirementsValidationData[]
+): Build<RequirementsValidation> => ({
+  _id: generateID(ObjectTypes.RequirementsValidation),
+  objectType: ObjectTypes.RequirementsValidation,
+  results,
 })
 
 export const buildInlineMathFragment = (
