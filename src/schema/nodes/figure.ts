@@ -41,6 +41,7 @@ export const figure: NodeSpec = {
     listingAttachment: { default: undefined },
     embedURL: { default: undefined },
     originalURL: { default: undefined },
+    externalFileReferences: { default: undefined },
   },
   selectable: false,
   group: 'block',

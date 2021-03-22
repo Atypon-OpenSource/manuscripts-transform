@@ -289,17 +289,33 @@ const nodes: NodeRule[] = [
       const labelNode = element.querySelector('label')
       const graphicNode = element.querySelector('graphic')
       const mediaNode = element.querySelector('media')
+      const externalFileReferences: Array<{ url: string; kind?: string }> = []
+
+      const originalURL = graphicNode
+        ? graphicNode.getAttributeNS(XLINK_NAMESPACE, 'href')
+        : undefined
+      if (originalURL) {
+        externalFileReferences.push({ url: originalURL })
+      }
+
+      const embedURL = mediaNode
+        ? mediaNode.getAttributeNS(XLINK_NAMESPACE, 'href')
+        : undefined
+
+      if (embedURL) {
+        externalFileReferences.push({ url: embedURL })
+      }
 
       return {
         id: element.getAttribute('id'),
         label: labelNode?.textContent?.trim() ?? '',
         contentType: chooseContentType(graphicNode || undefined) || '',
-        originalURL: graphicNode
-          ? graphicNode.getAttributeNS(XLINK_NAMESPACE, 'href')
-          : '',
-        embedURL: mediaNode
-          ? mediaNode.getAttributeNS(XLINK_NAMESPACE, 'href')
-          : undefined,
+        originalURL,
+        embedURL,
+        externalFileReferences:
+          externalFileReferences.length > 0
+            ? externalFileReferences
+            : undefined,
       }
     },
   },

@@ -235,6 +235,7 @@ Map {
     "_id": "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0",
     "contentType": "image/png",
     "embedURL": undefined,
+    "externalFileReferences": undefined,
     "listingAttachment": undefined,
     "objectType": "MPFigure",
     "originalURL": undefined,
@@ -259,6 +260,7 @@ Map {
     "_id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
     "contentType": "image/png",
     "embedURL": undefined,
+    "externalFileReferences": undefined,
     "listingAttachment": undefined,
     "objectType": "MPFigure",
     "originalURL": undefined,
@@ -564,6 +566,7 @@ Map {
     "_id": "MPFigure:1",
     "contentType": undefined,
     "embedURL": undefined,
+    "externalFileReferences": undefined,
     "highlightMarkers": Array [
       Object {
         "_id": "MPHighlightMarker:7",

@@ -328,6 +328,7 @@ const encoders: NodeEncoderMap = {
     embedURL: node.attrs.embedURL || undefined,
     originalURL: node.attrs.originalURL || undefined,
     listingAttachment: node.attrs.listingAttachment || undefined,
+    externalFileReferences: node.attrs.externalFileReferences || undefined,
   }),
   figure_element: (node): Partial<FigureElement> => ({
     containedObjectIDs: containedFigureIDs(node),

@@ -495,6 +495,7 @@ Object {
                     "attrs": Object {
                       "contentType": "image/png",
                       "embedURL": undefined,
+                      "externalFileReferences": undefined,
                       "id": "MPFigure:F3D684D3-1C53-44FE-9E66-B927340D571F",
                       "label": "",
                       "listingAttachment": undefined,
@@ -1478,6 +1479,7 @@ Object {
                     "attrs": Object {
                       "contentType": "image/png",
                       "embedURL": undefined,
+                      "externalFileReferences": undefined,
                       "id": "MPFigure:F3D684D3-1C53-44FE-9E66-B927340D571F",
                       "label": "",
                       "listingAttachment": undefined,

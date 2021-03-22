@@ -203,6 +203,11 @@ Array [
   Object {
     "_id": "MPFigure:test",
     "contentType": "image/jpeg",
+    "externalFileReferences": Array [
+      Object {
+        "url": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
+      },
+    ],
     "objectType": "MPFigure",
     "originalURL": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
   },
@@ -617,6 +622,11 @@ Object {
                                       "attrs": Object {
                                         "contentType": "",
                                         "embedURL": undefined,
+                                        "externalFileReferences": Array [
+                                          Object {
+                                            "url": "123412341234.fig1",
+                                          },
+                                        ],
                                         "label": "Figure 1",
                                         "listingAttachment": undefined,
                                         "originalURL": "123412341234.fig1",
@@ -4754,6 +4764,11 @@ Object {
                   "attrs": Object {
                     "contentType": "image/jpeg",
                     "embedURL": undefined,
+                    "externalFileReferences": Array [
+                      Object {
+                        "url": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
+                      },
+                    ],
                     "label": "",
                     "listingAttachment": undefined,
                     "originalURL": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
