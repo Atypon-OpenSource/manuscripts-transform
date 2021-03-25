@@ -253,6 +253,13 @@ export class HTMLTransformer {
     }
     articleMeta.appendChild(articleTitle)
 
+    if (manuscript.DOI) {
+      const articleID = this.document.createElement('article-id')
+      articleID.setAttribute('pub-id-type', 'doi')
+      articleID.innerHTML = manuscript.DOI
+      articleMeta.append(articleID)
+    }
+
     this.buildContributors(articleMeta)
 
     // if (manuscript.keywordIDs) {
