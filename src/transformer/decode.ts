@@ -253,11 +253,15 @@ export class Decoder {
           )
         : figcaptionNode
 
+      const externalFilesSrc = model.externalFileReferences?.find(
+        (file) => file.kind === 'imageRepresentation'
+      )
+      const src = model.src || externalFilesSrc?.url
       return schema.nodes.figure.create(
         {
           id: model._id,
           contentType: model.contentType,
-          src: model.src,
+          src,
           listingAttachment: model.listingAttachment,
           embedURL: model.embedURL,
         },
