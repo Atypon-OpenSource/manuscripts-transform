@@ -28,6 +28,10 @@ export interface FigureNode extends ManuscriptNode {
     listingAttachment?: ListingAttachmentReference
     embedURL?: string
     originalURL?: string
+    externalFileReferences?: {
+      url: string
+      kind?: 'imageRepresentation' | 'interactiveRepresentation' | 'dataset'
+    }[]
   }
 }
 
