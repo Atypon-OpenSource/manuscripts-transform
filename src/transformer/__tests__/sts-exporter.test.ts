@@ -31,7 +31,7 @@ describe('STS exporter', () => {
   test('exports valid XML', async () => {
     const input = await fs.promises.readFile(
       __dirname + '/data/sts-example.xml',
-      'UTF-8'
+      'utf-8'
     )
 
     const standard = new DOMParser().parseFromString(

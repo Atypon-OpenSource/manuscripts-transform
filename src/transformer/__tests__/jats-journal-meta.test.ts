@@ -21,7 +21,7 @@ describe('JATS journal metadata', () => {
   test('extracts journal metadata from JATS XML', async () => {
     const xml = await readFile(
       __dirname + '/data/jats-example-full.xml',
-      'UTF-8'
+      'utf-8'
     )
     const doc = new DOMParser().parseFromString(xml, 'application/xml')
 

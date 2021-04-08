@@ -21,7 +21,7 @@ import { parseTEIGROBIDArticle } from '../tei-grobid-importer'
 const loadFixture = async (filename: string) => {
   const xml = await fs.promises.readFile(
     __dirname + '/data/' + filename,
-    'UTF-8'
+    'utf-8'
   )
 
   return new DOMParser().parseFromString(xml as string, 'application/xml')
