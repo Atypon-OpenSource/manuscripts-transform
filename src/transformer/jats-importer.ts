@@ -344,6 +344,18 @@ const nodes: NodeRule[] = [
     },
   },
   {
+    tag: 'table-wrap-foot',
+    node: 'footnotes_element',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      return {
+        id: element.getAttribute('id'),
+        kind: 'table_footnote', // TODO: 'table_endnote' depending on position or attribute?
+      }
+    },
+  },
+  {
     tag: 'fn',
     node: 'footnote',
     context: 'footnotes_element/', // TODO: in table footer

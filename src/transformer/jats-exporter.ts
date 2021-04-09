@@ -957,11 +957,16 @@ export class JATSExporter {
       figure_element: (node) =>
         createFigureElement(node, 'fig-group', node.type.schema.nodes.figure),
       footnote: (node) => ['fn', { id: normalizeID(node.attrs.id) }, 0],
-      footnotes_element: (node) => [
-        'fn-group',
-        { id: normalizeID(node.attrs.id) },
-        0,
-      ],
+      footnotes_element: (node) => {
+        const kind = node.attrs.kind
+        let tag = 'fn-group'
+
+        if (kind && kind.includes('table')) {
+          tag = 'table-wrap-foot'
+        }
+
+        return [tag, { id: normalizeID(node.attrs.id) }, 0]
+      },
       footnotes_section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
@@ -1146,6 +1151,15 @@ export class JATSExporter {
 
       if (figcaptionNode) {
         element.appendChild(this.serializeNode(figcaptionNode))
+      }
+
+      const footnotesNode = findChildNodeOfType(
+        node,
+        node.type.schema.nodes.footnotes_element
+      )
+
+      if (footnotesNode) {
+        element.appendChild(this.serializeNode(footnotesNode))
       }
 
       node.forEach((childNode) => {
