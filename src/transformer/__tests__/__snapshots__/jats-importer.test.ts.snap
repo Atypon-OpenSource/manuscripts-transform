@@ -205,6 +205,7 @@ Array [
     "contentType": "image/jpeg",
     "externalFileReferences": Array [
       Object {
+        "kind": "imageRepresentation",
         "url": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
       },
     ],
@@ -624,6 +625,7 @@ Object {
                                         "embedURL": undefined,
                                         "externalFileReferences": Array [
                                           Object {
+                                            "kind": "imageRepresentation",
                                             "url": "123412341234.fig1",
                                           },
                                         ],
@@ -4779,6 +4781,7 @@ Object {
                     "embedURL": undefined,
                     "externalFileReferences": Array [
                       Object {
+                        "kind": "imageRepresentation",
                         "url": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
                       },
                     ],

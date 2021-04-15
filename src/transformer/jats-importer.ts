@@ -295,7 +295,10 @@ const nodes: NodeRule[] = [
         ? graphicNode.getAttributeNS(XLINK_NAMESPACE, 'href')
         : undefined
       if (originalURL) {
-        externalFileReferences.push({ url: originalURL })
+        externalFileReferences.push({
+          url: originalURL,
+          kind: 'imageRepresentation',
+        })
       }
 
       const embedURL = mediaNode
