@@ -58,7 +58,7 @@ export interface TableNode extends ManuscriptNode {
 }
 
 export const table: TableNodeSpec = {
-  content: 'table_row+',
+  content: 'table_row{3,}',
   tableRole: 'table',
   isolating: true,
   group: 'block',
