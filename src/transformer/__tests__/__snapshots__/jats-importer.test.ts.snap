@@ -4851,6 +4851,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "externalFileReferences": undefined,
                     "footerRows": 1,
                     "headerRows": 1,
                   },

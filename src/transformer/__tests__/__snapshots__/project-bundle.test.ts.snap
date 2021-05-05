@@ -69,6 +69,7 @@ Object {
                 "content": Array [
                   Object {
                     "attrs": Object {
+                      "externalFileReferences": undefined,
                       "footerRows": 1,
                       "headerRows": 1,
                       "id": "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
@@ -1053,6 +1054,7 @@ Object {
                 "content": Array [
                   Object {
                     "attrs": Object {
+                      "externalFileReferences": undefined,
                       "footerRows": 1,
                       "headerRows": 1,
                       "id": "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
