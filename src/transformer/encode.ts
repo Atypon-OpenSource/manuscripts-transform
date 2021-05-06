@@ -416,6 +416,7 @@ const encoders: NodeEncoderMap = {
   table: (node, parent): Partial<Table> => ({
     contents: tableContents(node, parent as TableElementNode),
     listingAttachment: node.attrs.listingAttachment || undefined,
+    externalFileReferences: node.attrs.externalFileReferences || undefined,
   }),
   table_element: (node): Partial<TableElement> => ({
     containedObjectID: attributeOfNodeType(node, 'table', 'id'),
