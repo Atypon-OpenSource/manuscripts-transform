@@ -38,12 +38,17 @@ describe('STS exporter', () => {
       input as string,
       'application/xml'
     )
+    const front = standard.querySelector('front') as Element
+    const body = standard.querySelector('body') as Element
 
-    const modelMap = parseSTSFront(standard)
-    const doc = await parseSTSBody(standard, modelMap)
+    const frontModels = parseSTSFront(front)
+    const doc = await parseSTSBody(standard, body, [])
 
     const transformer = new STSExporter()
-    const xml = transformer.serializeToSTS(doc.content, modelMap)
+    const xml = transformer.serializeToSTS(
+      doc.content,
+      new Map(frontModels.map((m) => [m._id, m]))
+    )
 
     expect(xml).not.toBeNull()
 

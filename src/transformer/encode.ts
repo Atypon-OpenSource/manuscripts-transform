@@ -421,6 +421,7 @@ const encoders: NodeEncoderMap = {
   table_element: (node): Partial<TableElement> => ({
     containedObjectID: attributeOfNodeType(node, 'table', 'id'),
     caption: inlineContentsOfNodeType(node, node.type.schema.nodes.figcaption),
+    // TODO is defined as 'figure' HTML element in schema but is more or less a wrapper eg a div
     elementType: 'table',
     listingID: attributeOfNodeType(node, 'listing', 'id') || undefined,
     paragraphStyle: node.attrs.paragraphStyle || undefined,
@@ -489,6 +490,8 @@ export const modelFromNode = (
   const model = data as Model
 
   if (isHighlightableModel(model)) {
+    // TODO 30.4.2021
+    // This method doubles the execution time with large documents, such as sts-example.xml (from 1s to 2s)
     extractHighlightMarkers(model)
   }
 
@@ -507,7 +510,6 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
   }
 
   const placeholders = ['placeholder', 'placeholder_element']
-
   // TODO: parents array, to get closest parent with an id for containingObject
   const addModel = (path: string[], parent: ManuscriptNode) => (
     child: ManuscriptNode
@@ -521,10 +523,13 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
     if (placeholders.includes(child.type.name)) {
       return
     }
-
     const model = modelFromNode(child, parent, path, priority)
+    if (models.has(model._id)) {
+      throw Error(
+        `Encountered duplicate ids in models map while encoding: ${model._id}`
+      )
+    }
     models.set(model._id, model)
-
     child.forEach(addModel(path.concat(child.attrs.id), child))
   }
 

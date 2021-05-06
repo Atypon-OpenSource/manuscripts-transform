@@ -1,0 +1,2044 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.2 20190208//EN" "JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="other" dtd-version="1.2" xml:lang="en">
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="publisher-id">HON</journal-id>
+      <journal-id journal-id-type="nlm-ta">Hematological Oncology</journal-id>
+      <journal-id journal-id-type="doi" />
+      <journal-title-group>
+        <journal-title>Hematological Oncology</journal-title>
+        <abbrev-journal-title abbrev-type="pubmed">Hematological Oncology</abbrev-journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0278-0232</issn>
+      <issn pub-type="epub">1540-1233</issn>
+      <publisher>
+        <publisher-name>John Wiley and Sons</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="publisher-id">HON-20-0144</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Original Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Low-dose pembrolizumab and nivolumab were efficacious and safe in relapsed and refractory classical Hodgkin lymphoma: experience in a resource-constrained setting</article-title>
+        <alt-title alt-title-type="right-running">low-dose anti-PD1 antibodies in cHL</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chan</surname>
+            <given-names>Thomas S.Y.</given-names>
+          </name>
+          <email xlink:href="thomas28@netvigator.com">thomas28@netvigator.com</email>
+          <xref ref-type="aff" rid="HON-20-0144-aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hwang</surname>
+            <given-names>Yu-Yan</given-names>
+          </name>
+          <email xlink:href="yyhwang922@gmail.com">yyhwang922@gmail.com</email>
+          <xref ref-type="aff" rid="HON-20-0144-aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Khong</surname>
+            <given-names>Pek-Lan</given-names>
+          </name>
+          <email xlink:href="plkhong@hku.hk">plkhong@hku.hk</email>
+          <xref ref-type="aff" rid="HON-20-0144-aff2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Leung</surname>
+            <given-names>Anskar Y.H.</given-names>
+          </name>
+          <email xlink:href="ayhleung@hku.hk">ayhleung@hku.hk</email>
+          <xref ref-type="aff" rid="HON-20-0144-aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <contrib-id contrib-id-type="orcid" authenticated="true">https://orcid.org/0000-0003-2427-915X</contrib-id>
+          <name>
+            <surname>Chim</surname>
+            <given-names>Chor-Sang</given-names>
+          </name>
+          <email xlink:href="jcschim@hku.hk">jcschim@hku.hk</email>
+          <xref ref-type="aff" rid="HON-20-0144-aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Tse</surname>
+            <given-names>Eric</given-names>
+          </name>
+          <email xlink:href="ewctse@hku.hk">ewctse@hku.hk</email>
+          <xref ref-type="aff" rid="HON-20-0144-aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <contrib-id contrib-id-type="orcid" authenticated="true">https://orcid.org/0000-0001-8156-6978</contrib-id>
+          <name>
+            <surname>Kwong</surname>
+            <given-names>Yok-Lam</given-names>
+          </name>
+          <email xlink:href="mzerkani+Author3@atypon.com">mzerkani+Author3@atypon.com</email>
+          <xref ref-type="aff" rid="HON-20-0144-aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <aff id="HON-20-0144-aff1">
+          <label>1</label>
+          <institution content-type="dept">Department of Medicine</institution>,
+          <institution>Queen Mary Hospital</institution>,
+          <country country="hk">Hong Kong</country>
+        </aff>
+        <aff id="HON-20-0144-aff2">
+          <label>2</label>
+          <institution content-type="dept">Department of Diagnostic Radiology</institution>,
+          <institution>Queen Mary Hospital</institution>,
+          <country country="hk">Hong Kong</country>
+        </aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="HON-20-0144-cor1">
+          <bold>Correspondence</bold>Y.L. Kwong, Department of Medicine, Professorial Block, Queen Mary Hospital, Pokfulam Road, Hong Kong, China, Email:
+          <email xlink:href="ylkwong@hkucc.hku.hk">ylkwong@hkucc.hku.hk</email>
+        </corresp>
+        <fn id="HON-20-0144-afn-0001">
+          <p>Manuscript information</p>
+        </fn>
+        <fn fn-type="con">
+          <p content-type="fn-title">AUTHOR CONTRIBUTIONS</p>
+          <p>Thomas S.Y. Chan: treated the patients, wrote and approved the manuscript</p>
+          <p>Yu-Yan Hwang: treated the patients, wrote and approved the manuscript</p>
+          <p>Pek-Lan Khong: performed the radiologic diagnosis, and approved the manuscript</p>
+          <p>Anskar Y.H. Leung: treated the patients, and approved the manuscript</p>
+          <p>Chor-Sang Chim: treated the patients, and approved the manuscript</p>
+          <p>Eric Tse: treated the patients, and approved the manuscript</p>
+          <p>Yok-Lam Kwong: treated the patients, wrote and approved the manuscript</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <year />
+      </pub-date>
+      <volume />
+      <history>
+        <date date-type="received">
+          <day>04</day>
+          <month>04</month>
+          <year>2020</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>26</day>
+          <month>06</month>
+          <year>2020</year>
+        </date>
+        <date date-type="accepted">
+          <day>02</day>
+          <month>08</month>
+          <year>2020</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>© 2020 John Wiley &amp; Sons, Ltd.</copyright-statement>
+      </permissions>
+      <abstract>
+        <p>The efficacy and safety of low-dose anti-PD1 antibodies in relapsed/refractory classical Hodgkin lymphoma (cHL) require confirmation. Pembrolizumab (100 mg every 3 weeks, Q3W) or nivolumab (40 mg Q2W) were administered to patients with relapsed/refractory cHL. In the pembrolizumab cohort (
+          <italic>N</italic> = 11), who had failed a median of 3 (1–6) therapies (brentuximab vedotin, BV: 91%; autologous hematopoietic stem cell transplantation, auto-HSCT: 18%), the overall-response rate (ORR) by positron emission tomography computed tomography was 100% (metabolic complete response, mCR: 73%; partial response, PR: 27%). Median cumulative dose for achieving best response was 400 (300–800) mg. Median progression-free-survival (PFS) was 35 months. Median overall-survival (OS) was not reached. Adverse events (AEs) of grade 1–2 were observed in 3 patients. In the nivolumab cohort (
+          <italic>N</italic> = 6), who had failed a median of 3 (2–6) therapies (BV: 50%; auto-HSCT: 17%, allogeneic HSCT: 34%), the ORR was 100% (mCR: 67%; PR: 17%; indeterminate response: 17%). Median cumulative dose for achieving best response was 160 (160–360) mg. Median PFS was 33 months. Median OS was not reached. AEs of grade 1–2 were observed in 4 patients, 2 of whom had pre-existing autoimmune conditions. Five patients with Epstein-Barr virus (EBV) positive Reed-Sternberg cells underwent monitoring of plasma EBV DNA, which became negative in four mCR patients but remained positive in one PR patient who died ultimately from refractory lymphoma. Low-dose pembrolizumab and nivolumab were highly efficacious and safe in relapsed/refractory cHL. These observations have significant financial implications in resource-constrained settings.
+        </p>
+      </abstract>
+      <kwd-group kwd-group-type="author">
+        <title>KEYWORDS: </title>
+        <kwd>pembrolizumab</kwd>
+        <kwd>nivolumab</kwd>
+        <kwd>low-dose</kwd>
+        <kwd>relapsed</kwd>
+        <kwd>refractory</kwd>
+        <kwd>Hodgkin lymphoma</kwd>
+      </kwd-group>
+      <counts>
+        <count count-type="box" count="0" />
+        <fig-count count="3" />
+        <table-count count="3" />
+        <equation-count count="0" />
+        <ref-count count="21" />
+        <page-count count="13" />
+        <word-count count="6069" />
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro">
+      <title>INTRODUCTION</title>
+      <p>Amplification of chromosome 9p24.1 and JAK/STAT pathway activation are characteristic of the neoplastic Reed-Sternberg cells of classical Hodgkin lymphoma (cHL).
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0001">
+          <sup>1</sup>
+        </xref> These aberrations result in overexpression of two proteins, programmed death ligand 1 (PD-L1) and PD-L2, cognate ligands for the T-cell immune checkpoint programmed cell death protein 1 (PD1). Ligation of PDL1 and PDL2 on Reed-Sternberg cells with PD1 on effector T-cells leads to suppression of anti-lymphoma cell-mediated immunity.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0002">
+          <sup>2</sup>
+        </xref> Accordingly, PD1 blockade restores anti-lymphoma immunity, and has become a highly effective treatment for relapsed/refractory cHL.
+      </p>
+      <p>Two anti-PD1 antibodies nivolumab and pembrolizumab are approved for relapsed/refractory cHL. During their development, different dosing schedules had been employed. For nivolumab, in its phase 1 study in different malignancies, doses from 0.1 to 10 mg/kg every 2 weeks (Q2W) were used.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0003">
+          <sup>3</sup>
+        </xref> In its phase 1 in cHL, 1–3 mg/kg Q2W was used.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0004">
+          <sup>4</sup>
+        </xref> Its currently approved dose for cHL is 240 mg Q2W or 480 mg Q4W. For pembrolizumab, 2–10 mg/kg Q2W was used in its phase 1 study in melanoma.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0005">
+          <sup>5</sup>
+        </xref> In the ensuing phase 1b study in cHL, 10 mg/kg Q2W was used.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0006">
+          <sup>6</sup>
+        </xref> In a later phase 2 study, pembrolizumab was used at 200 mg Q3W.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0007">
+          <sup>7</sup>
+        </xref> Its currently approved dose for cHL is 200 mg Q3W. Interestingly, a direct dose–response relationship has not been demonstrated for anti-PD1 antibodies, with escalations above currently recommended dosing not associated with improved efficacy. Nevertheless, in translational studies using preclinical modeling, with receptor occupancy regarded as driving tumor inhibition, pembrolizumb at 2mg/kg Q3W was observed to be efficacious.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0008">
+          <sup>8</sup>
+        </xref>
+      </p>
+      <p>Reimbursement of expensive novel drugs is typically slow in resource-constrained regions. Very few Asian countries reimburse nivolumab or pembrolizumab for relapsed/refractory cHL. Outside trials, these drugs are available only to patients of means. Non-affluent patients have to settle for toxic and often ineffective salvage chemotherapies.</p>
+      <p>In Hong Kong, neither pembrolizumab nor nivolumab is reimbursed for cHL. In order that needy patients might receive these expensive drugs, we initially treated relapsed/refractory cHL with low-dose pembrolizumab (100 mg, the smallest vial available, Q3W),
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0009">
+          <sup>9</sup>
+        </xref> at a time when published data suggested dosing with 10 mg/kg Q2W.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0007">
+          <sup>7</sup>
+        </xref> Subsequent small case series showed that low-dose pembrolizuamb (100 mg Q3W) resulted in high response rates.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0009 HON-20-0144-bib-0010">
+          <sup>9,10</sup>
+        </xref> Similarly, we showed that low-dose nivolumab at 40 mg (smallest vial available) Q2W was also effective in relapsed/refractory cHL.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0011">
+          <sup>11</sup>
+        </xref>
+      </p>
+      <p>In this report, we described the use of low-dose anti-PD1 antibodies in a larger cohort of relapsed/refractory cHL.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>MATERIALS AND METHODS</title>
+      <sec sec-type="subjects">
+        <title>Patients</title>
+        <p>This retrospective single-center study included all consecutive patients with relapsed/refractory cHL treated with low-dose anti-PD1 antibodies in a 4.8-year period (May 2015 to February 2020), who had at least one radiologic response assessment after treatment. There were otherwise no inclusion or exclusion criteria. Patients gave informed consent to treatment. The study was approved by the institute review board. Data were censored on February 29, 2020.</p>
+      </sec>
+      <sec>
+        <title>Treatment and monitoring</title>
+        <p>Patients received pembrolizumab at 100 mg Q3W or nivolumab at 40 mg Q2W. The choice was determined by affordability (nivolumab was less expensive than pembrolizumab at the doses administered), and the choice of patients or physicians. Blood counts, glucose and serum biochemistry, chest radiograph, morning cortisol level and thyroid function test were monitored regularly. Additional endocrine tests were instituted as appropriate. Responding patients were offered autologous hematopoietic stem cell transplantation (auto-HSCT) if not previously performed. Patients not consenting to auto-HSCT were treated with anti-PD1 antibody for up to 2 years, followed by observation. Immune-related adverse events (AE) were monitored for, and if present were treated according to standard recommendations.
+          <xref ref-type="bibr" rid="HON-20-0144-bib-0012">
+            <sup>12</sup>
+          </xref>
+        </p>
+      </sec>
+      <sec>
+        <title>Response assessment</title>
+        <p>Responses were assessed with 18-F fluorodeoxyglucose (FDG) positron emission tomography computed tomography (PET/CT) according to the 5-point Deauville score.
+          <xref ref-type="bibr" rid="HON-20-0144-bib-0013 HON-20-0144-bib-0014">
+            <sup>13,14</sup>
+          </xref> The first post-treatment PET/CT scan was performed after 4–6 cycles of treatment. Subsequent frequencies of PET/CT scan were determined by the attending physicians. Metabolic complete response (mCR) required a Deauville score of ≤ 3. For patients whose lymphoma showed Reed-Sternberg cells positive for Epstein Barr virus (EBV) encoded early RNA (EBER) on
+          <italic>in</italic>-
+          <italic>situ</italic> hybridization (ISH), plasma EBV DNA was quantified by quantitative polymerase chain reaction (Q-PCR) as a surrogate biomarker of lymphoma load.
+          <xref ref-type="bibr" rid="HON-20-0144-bib-0015">
+            <sup>15</sup>
+          </xref> Briefly, plasma samples were collected during follow-up visits (usually at 4-weekly intervals). Cell-free plasma DNA was extracted, and EBV DNA was quantified with reference to a World Health Organization standard (NIBSC code: 09/260) as reported.
+          <xref ref-type="bibr" rid="HON-20-0144-bib-0015">
+            <sup>15</sup>
+          </xref> Complete molecular response required undetectable plasma EBV DNA on ≥ 2 consecutive occasions.
+        </p>
+      </sec>
+      <sec>
+        <title>Survivals</title>
+        <p>Overall-survival (OS) was defined as time from initiation of treatment to last follow-up or death from all causes. Progression-free-survival (PFS) was defined as time from initiation of treatment to the date of disease progression, relapse, last follow-up or death from all cause. Survivals were analyzed by the Kaplan-Meier method.</p>
+      </sec>
+    </sec>
+    <sec sec-type="results">
+      <title>RESULTS</title>
+      <sec sec-type="subjects">
+        <title>Patients</title>
+        <p>In study period, 17 patients with relapsed/refractory cHL were treated with low-dose anti-PD1 antibodies pembrolizumab (
+          <italic>N</italic> = 11) (
+          <xref ref-type="table" rid="HON-20-0144-tbl-0001">Table 1</xref>) and nivolumab (
+          <italic>N</italic> = 6) (
+          <xref ref-type="table" rid="HON-20-0144-tbl-0002">Table 2</xref>). The two cohorts contained similar patients (
+          <xref ref-type="table" rid="HON-20-0144-tbl-0003">Table 3</xref>). Preliminary findings of five patients had been described;
+          <xref ref-type="bibr" rid="HON-20-0144-bib-0009 HON-20-0144-bib-0010 HON-20-0144-bib-0011 HON-20-0144-bib-0016 HON-20-0144-bib-0017">
+            <sup>9–11,16,17</sup>
+          </xref> with data of their extended follow-up presented here.
+        </p>
+        <table-wrap id="HON-20-0144-tbl-0001" position="float">
+          <label>TABLE 1</label>
+          <caption>
+            <title>Eleven patients with relapsed/refractory Hodgkin lymphoma treated with low-dose pembrolizumab</title>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <col width="3%" />
+            <col width="4.19%" />
+            <col width="2.36%" />
+            <col width="1.18%" />
+            <col width="1.77%" />
+            <col width="23.68%" />
+            <col width="6.51%" />
+            <col width="3.55%" />
+            <col width="1.77%" />
+            <col width="10.06%" />
+            <col width="4.14%" />
+            <col width="19.53%" />
+            <col width="18.26%" />
+            <thead>
+              <tr>
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th colspan="2" valign="top" align="center" scope="colgroup" style="border-top: solid 0.50pt">
+                  <bold>Stage</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th colspan="2" valign="top" align="center" scope="colgroup" style="border-top: solid 0.50pt">
+                  <bold>Best response</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+              </tr>
+              <tr>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Case</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Sex/age</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Dx</bold>
+                </th>
+                <th colspan="2" valign="top" align="left" scope="colgroup" style="border-bottom: solid 0.50pt">
+                  <bold>CPI</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Previous regimens (number of cycles)</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Response</bold>
+                  <xref ref-type="bibr" rid="HON-20-0144-bib-0001">
+                    <sup>1</sup>
+                  </xref>
+                </th>
+                <th colspan="2" valign="top" align="left" scope="colgroup" style="border-bottom: solid 0.50pt">
+                  <bold>Dose</bold>
+                  <xref ref-type="bibr" rid="HON-20-0144-bib-0002">
+                    <sup>2</sup>
+                  </xref>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>irAE (grade)</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Cycles</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Clinical course</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Status / survivals (time)</bold>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="top" align="left" style="border-top: solid 0.50pt" scope="col" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td colspan="2" valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td colspan="2" valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">P1</td>
+                <td valign="top" align="left">M/20</td>
+                <td valign="top" align="left">II</td>
+                <td colspan="2" valign="top" align="left">IV</td>
+                <td valign="top" align="left">ABVD (6), DHAP (2), Benda (6), BV (6), AHSCT, BV + Gem (3)</td>
+                <td valign="top" align="left">CR</td>
+                <td colspan="2" valign="top" align="left">300 mg</td>
+                <td valign="top" align="left">nil</td>
+                <td valign="top" align="left">32</td>
+                <td valign="top" align="left">completed 2 years of treatment
+                  <break />relapsed 11 months afterwards
+                </td>
+                <td valign="top" align="left">CR (33 m); PFS (35 m)
+                  <break />Relapsed
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" />
+                <td valign="top" align="left">M/24</td>
+                <td valign="top" align="left" />
+                <td colspan="2" valign="top" align="left" />
+                <td valign="top" align="left">Pembrolizumab (32)</td>
+                <td valign="top" align="left">CR</td>
+                <td colspan="2" valign="top" align="left">1500 mg</td>
+                <td valign="top" align="left">nil</td>
+                <td valign="top" align="left">25</td>
+                <td valign="top" align="left">ongoing CR</td>
+                <td valign="top" align="left">CR (11 m); PFS (22 m); OS (57 m)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)" scope="row">P2</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">F/38</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">IV</td>
+                <td colspan="2" valign="top" align="left" style="background-color:rgb(191,191,191)">III</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">ABVD (3), BEACOPP (4), BV + Gem (4)</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">CR</td>
+                <td colspan="2" valign="top" align="left" style="background-color:rgb(191,191,191)">800 mg</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">colitis (1)</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">17</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">gave birth to a daughter 33 m after stopping pembrolizumab, ongoing CR</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">CR (42 m); PFS (49 m), OS (49 m)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">P3</td>
+                <td valign="top" align="left">M/32</td>
+                <td valign="top" align="left">IV</td>
+                <td colspan="2" valign="top" align="justify">IV</td>
+                <td valign="top" align="justify">ABVD (6), DHAP (3), BV (3)</td>
+                <td valign="top" align="left">CR</td>
+                <td colspan="2" valign="top" align="left">390 mg
+                  <sup>3</sup>
+                </td>
+                <td valign="top" align="left">eczema(1)
+                  <break />hypothyroidism (2)
+                </td>
+                <td valign="top" align="left">36</td>
+                <td valign="top" align="left">Ongoing CR</td>
+                <td valign="top" align="left">CR (46 m); PFS (48 m); OS (48 m)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)" scope="row">P4</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">F/39</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">III</td>
+                <td colspan="2" valign="top" align="left" style="background-color:rgb(191,191,191)">IV</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">ABVD (4), DHAP (2), BV (3), AHSCT</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">PR</td>
+                <td colspan="2" valign="top" align="left" style="background-color:rgb(191,191,191)">400 mg</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">nil</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">25</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">PR for 24 m, then PD;
+                  <break />switched to nivolumab
+                </td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">PFS (26 m); OS (39 m)
+                  <break />SD (8 m)
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">P5</td>
+                <td valign="top" align="left">M/71</td>
+                <td valign="top" align="left">IV</td>
+                <td colspan="2" valign="top" align="left">IV</td>
+                <td valign="top" align="left">BV + Benda (6)</td>
+                <td valign="top" align="left">CR</td>
+                <td colspan="2" valign="top" align="left">300 mg</td>
+                <td valign="top" align="left">nil</td>
+                <td valign="top" align="left">33</td>
+                <td valign="top" align="left">Ongoing CR</td>
+                <td valign="top" align="left">CR (29 m); PFS (32 m); OS (32 m)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)" scope="row">P6</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">F/47</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">II</td>
+                <td colspan="2" valign="top" align="left" style="background-color:rgb(191,191,191)">II</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">ABVD (2), BEACOPP (2), DHAP (2)</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">PR</td>
+                <td colspan="2" valign="top" align="left" style="background-color:rgb(191,191,191)">300 mg</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">nil</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">17</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">PR for 11 m, then PD;
+                  <break />No response to BV and GDP
+                </td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">PR (11 m); PFS (14 m); OS (22 m)
+                  <break />Died of disease
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">P7</td>
+                <td valign="top" align="left">F/26</td>
+                <td valign="top" align="left">III</td>
+                <td colspan="2" valign="top" align="left">III</td>
+                <td valign="top" align="left">ABVD (6), GDP (2), BV (7)</td>
+                <td valign="top" align="left">CR</td>
+                <td colspan="2" valign="top" align="left">400 mg</td>
+                <td valign="top" align="left">nil</td>
+                <td valign="top" align="left">34</td>
+                <td valign="top" align="left">CR for 32 m; then relapsed</td>
+                <td valign="top" align="left">CR (32 m); PFS (35m)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row" />
+                <td valign="top" align="left">F/29</td>
+                <td valign="top" align="left">III</td>
+                <td colspan="2" valign="top" align="left" />
+                <td valign="top" align="left">Pembrolizumab (34)</td>
+                <td valign="top" align="left">CR</td>
+                <td colspan="2" valign="top" align="left">200 mg</td>
+                <td valign="top" align="left">nil</td>
+                <td valign="top" align="left">10</td>
+                <td valign="top" align="left">CR after 2 cycles of Pem + BV
+                  <break />Ongoing CR, still on BV + Pem
+                </td>
+                <td valign="top" align="left">CR (4 m); PFS (7 m); OS (41 m)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)" scope="row">P8</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">M/19</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">IV</td>
+                <td colspan="2" valign="top" align="left" style="background-color:rgb(191,191,191)">IV</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">ABVD (4), BEACOPP (2), BV + Gem (3)</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">CR</td>
+                <td colspan="2" valign="top" align="left" style="background-color:rgb(191,191,191)">400 mg</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">urticaria (1)</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">10</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">CR for 6 m</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">CR (6 m); PFS (9 m); OS (9 m)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">P9</td>
+                <td valign="top" align="justify">M/35</td>
+                <td valign="top" align="justify">III</td>
+                <td colspan="2" valign="top" align="justify">IV</td>
+                <td valign="top" align="justify">BV(8)</td>
+                <td valign="top" align="left">CR</td>
+                <td colspan="2" valign="top" align="left">600 mg</td>
+                <td valign="top" align="left">nil</td>
+                <td valign="top" align="left">8</td>
+                <td valign="top" align="left">Changed to nivolumab because of cost concerns</td>
+                <td valign="top" align="left">CR (13 m); PFS (19 m); OS (19 m)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)" scope="row">P10</td>
+                <td valign="top" align="justify" style="background-color:rgb(191,191,191)">M/34</td>
+                <td valign="top" align="justify" style="background-color:rgb(191,191,191)">IV</td>
+                <td colspan="2" valign="top" align="justify" style="background-color:rgb(191,191,191)">IV</td>
+                <td valign="top" align="justify" style="background-color:rgb(191,191,191)">ABVD (2), AAVD (4)</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">PR</td>
+                <td colspan="2" valign="top" align="left" style="background-color:rgb(191,191,191)">300 mg</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">nil</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">24</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">In PR for 12 m</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">PR (12 m); PFS (16 m); OS (16 m)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt" scope="row">P11</td>
+                <td valign="top" align="justify" style="border-bottom: solid 0.50pt">F/23</td>
+                <td valign="top" align="justify" style="border-bottom: solid 0.50pt">IV</td>
+                <td colspan="2" valign="top" align="justify" style="border-bottom: solid 0.50pt">IV</td>
+                <td valign="top" align="justify" style="border-bottom: solid 0.50pt">AAVD (6), GDP (3)</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt">CR</td>
+                <td colspan="2" valign="top" align="left" style="border-bottom: solid 0.50pt">600 mg</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt">nil</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt">16</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt">Ongoing CR</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt">CR (10 m); PFS (14 m); OS (14 m)</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p>Dx: stage at diagnosis; CPI: stage at the start of checkpoint inhibitor; 1: response determined by positron emission tomography computed tomography; 2: total dose at the time of best response; 3: dose of pembrolizumab at 2 mg/kg and hence 130 mg per cycle; CR: complete response; PR: partial response; PD: progressive disease; SD: stable disease; ABVD: adriamycin, bleomcyin, vinblastine, dacarbazine; DHAP: cytarabine, cisplatinum, dexamethasone; Benda: bendamustine; BV: brentuximab vedotin; AHSCT: autologous hematopoietic stem cell transplantation; Gem: gemcitabine; BEACOPP: bleomycin, etoposide, adriamycin, cyclophosphamide, vincristine, procarbazine, prednisolone; GDP: gemcitabine, cisplatinum, dexamethasone; AAVD: brentuximab, adriamycin, vinblastine, dacarbazine; pem: pembrolizumab; CR: complete response; PR: partial response; m: months;</p>
+          </table-wrap-foot>
+        </table-wrap>
+        <table-wrap id="HON-20-0144-tbl-0002" position="float">
+          <label>TABLE 2</label>
+          <caption>
+            <title>Six patients with relapsed/refractory Hodgkin lymphoma treated with low-dose nivolumab</title>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <col width="3.22%" />
+            <col width="5.03%" />
+            <col width="3.14%" />
+            <col width="1.25%" />
+            <col width="1.88%" />
+            <col width="27.69%" />
+            <col width="6.92%" />
+            <col width="4.37%" />
+            <col width="1.92%" />
+            <col width="13.21%" />
+            <col width="5.66%" />
+            <col width="10.07%" />
+            <col width="15.64%" />
+            <thead>
+              <tr>
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th colspan="2" valign="top" align="center" scope="colgroup" style="border-top: solid 0.50pt">
+                  <bold>Stage</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th colspan="2" valign="top" align="center" scope="colgroup" style="border-top: solid 0.50pt">
+                  <bold>Best response</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt" />
+              </tr>
+              <tr>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Case</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Sex/age</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Dx</bold>
+                </th>
+                <th colspan="2" valign="top" align="left" scope="colgroup" style="border-bottom: solid 0.50pt">
+                  <bold>CPI</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Previous regimens (number of cycles)</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Response</bold>
+                  <xref ref-type="bibr" rid="HON-20-0144-bib-0001">
+                    <sup>1</sup>
+                  </xref>
+                </th>
+                <th colspan="2" valign="top" align="left" scope="colgroup" style="border-bottom: solid 0.50pt">
+                  <bold>dose</bold>
+                  <xref ref-type="bibr" rid="HON-20-0144-bib-0002">
+                    <sup>2</sup>
+                  </xref>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>irAE (grade)</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Cycles</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Clinical course</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-bottom: solid 0.50pt">
+                  <bold>Status / survivals (time)</bold>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="top" align="left" style="border-top: solid 0.50pt" scope="col" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td colspan="2" valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td colspan="2" valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+                <td valign="top" align="left" style="border-top: solid 0.50pt" />
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">N1</td>
+                <td valign="top" align="left">F/44</td>
+                <td valign="top" align="left">II</td>
+                <td colspan="2" valign="top" align="left">II</td>
+                <td valign="top" align="left">ABVD (6), BV + Benda (1)</td>
+                <td valign="top" align="justify">CR</td>
+                <td colspan="2" valign="top" align="justify">160 mg</td>
+                <td valign="top" align="justify">eczema (1)
+                  <break />hypocortisolism (1)
+                </td>
+                <td valign="top" align="left">52</td>
+                <td valign="top" align="left">Ongoing CR</td>
+                <td valign="top" align="left">CR (28 m); PFS (30 m);
+                  <break />OS (30 m)
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)" scope="row">N2</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">M/36</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">III</td>
+                <td colspan="2" valign="top" align="left" style="background-color:rgb(191,191,191)">III</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">ABVD (8), DHAP (3), AHSCT</td>
+                <td valign="top" align="justify" style="background-color:rgb(191,191,191)">CR</td>
+                <td colspan="2" valign="top" align="justify" style="background-color:rgb(191,191,191)">160 mg</td>
+                <td valign="top" align="justify" style="background-color:rgb(191,191,191)">ITP (4)
+                  <break />Hypophysitis (2) with
+                  <break />diabetes insipidus
+                </td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">52</td>
+                <td valign="top" align="justify" style="background-color:rgb(191,191,191)">CR for 30 m,
+                  <break />then relapsed
+                </td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">CR (30 m); PFS (33 m)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)" scope="row" />
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)" />
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)" />
+                <td colspan="2" valign="top" align="left" style="background-color:rgb(191,191,191)" />
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">Nivolumab</td>
+                <td valign="top" align="justify" style="background-color:rgb(191,191,191)">CR</td>
+                <td colspan="2" valign="top" align="justify" style="background-color:rgb(191,191,191)">360 mg</td>
+                <td valign="top" align="justify" style="background-color:rgb(191,191,191)">Hypophysitis (2)</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">10</td>
+                <td valign="top" align="justify" style="background-color:rgb(191,191,191)">Ongoing CR</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">CR (1 m); PFS (5 m);
+                  <break />OS (38 m)
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">N3</td>
+                <td valign="top" align="left">F/64</td>
+                <td valign="top" align="left">IV</td>
+                <td colspan="2" valign="top" align="left">I</td>
+                <td valign="top" align="left">ABVD (6), DHAP (2), COPP (2), Allo-HSCT, GDP (6), Benda (4), radiotherapy</td>
+                <td valign="top" align="justify">CR</td>
+                <td colspan="2" valign="top" align="justify">160 mg</td>
+                <td valign="top" align="justify">Nil</td>
+                <td valign="top" align="left">23</td>
+                <td valign="top" align="justify">Ongoing CR</td>
+                <td valign="top" align="left">CR (20 m); PFS (22 m);
+                  <break />OS (22 m)
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)" scope="row">N4</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">F/34</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">IV</td>
+                <td colspan="2" valign="top" align="left" style="background-color:rgb(191,191,191)">III</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">ABVD (6), BV (2)</td>
+                <td valign="top" align="justify" style="background-color:rgb(191,191,191)">CR</td>
+                <td colspan="2" valign="top" align="justify" style="background-color:rgb(191,191,191)">160 mg</td>
+                <td valign="top" align="justify" style="background-color:rgb(191,191,191)">Thyroiditis (1)
+                  <break />Hypocortisolism (1)
+                  <break />Rash (1)
+                </td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">23</td>
+                <td valign="top" align="justify" style="background-color:rgb(191,191,191)">Ongoing CR</td>
+                <td valign="top" align="left" style="background-color:rgb(191,191,191)">CR (8 m); PFS (10 m);
+                  <break />OS (10 m)
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">N5</td>
+                <td valign="top" align="left">M/37</td>
+                <td valign="top" align="left">IV</td>
+                <td colspan="2" valign="top" align="left">IV</td>
+                <td valign="top" align="left">ABVD (8), DHAP (2), GDP(3), BV (3), Allo-HSCT</td>
+                <td valign="top" align="justify">PR</td>
+                <td colspan="2" valign="top" align="justify">240mg</td>
+                <td valign="top" align="justify">Nil</td>
+                <td valign="top" align="left">15</td>
+                <td valign="top" align="justify">Ongoing PR</td>
+                <td valign="top" align="left">PR (4 m); PFS (6 m); OS (6 m)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt; background-color:rgb(191,191,191)" scope="row">N6</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt; background-color:rgb(191,191,191)">M/57</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt; background-color:rgb(191,191,191)">II</td>
+                <td colspan="2" valign="top" align="left" style="border-bottom: solid 0.50pt; background-color:rgb(191,191,191)">IV</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt; background-color:rgb(191,191,191)">RT, ABVD (2)</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt; background-color:rgb(191,191,191)">IR</td>
+                <td colspan="2" valign="top" align="left" style="border-bottom: solid 0.50pt; background-color:rgb(191,191,191)">360 mg</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt; background-color:rgb(191,191,191)">Hypothyroidism (2)</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt; background-color:rgb(191,191,191)">20</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt; background-color:rgb(191,191,191)">Ongoing IR</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt; background-color:rgb(191,191,191)">IR (1 m); PFS (10 m);
+                  <break />OS (10 m)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p>Dx: stage at diagnosis; CPI: stage at the start of checkpoint inhibitor; 1: response determined by positron emission tomography computed tomography; 2: total dose at the time of best response; CR: complete response; PR: partial response; PD: progressive disease; SD: stable disease; IR: indeterminate response; ABVD: adriamycin, bleomcyin, vinblastine, dacarbazine; DHAP: cytarabine, cisplatinum, dexamethasone; COPP: cyclophosphamide, vincristine, procarbazine, prednisolone; allo-HSCT: allogeneic hematopoietic stem cell transplantation; Benda: bendamustine; BV: brentuximab vedotin; RT: radiotherapy; AHSCT: autologous hematopoietic stem cell transplantation; Gem: gemcitabine; BEACOPP: bleomycin, etoposide, adriamycin, cyclophosphamide, vincristine, procarbazine, prednisolone; GDP: gemcitabine, cisplatinum, dexamethasone</p>
+          </table-wrap-foot>
+        </table-wrap>
+        <table-wrap id="HON-20-0144-tbl-0003" position="float">
+          <label>TABLE 3</label>
+          <caption>
+            <title>Clinicopathologic features and treatment outcome of patients with relapsed/refractory classical Hodgkin lymphoma treated by pembrolizumab and nivolumab</title>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <col width="64.16%" />
+            <col width="18.86%" />
+            <col width="16.98%" />
+            <thead>
+              <tr>
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt">
+                  <bold>Clinicopathologic features and outcome</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt">
+                  <bold>Pembrolizumab</bold>
+                </th>
+                <th valign="top" align="left" scope="col" style="border-top: solid 0.50pt">
+                  <bold>Nivolumab</bold>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt" scope="col" />
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt" />
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt" />
+              </tr>
+              <tr>
+                <td valign="top" align="left" style="border-top: solid 0.50pt" scope="row">Number</td>
+                <td valign="top" align="left" style="border-top: solid 0.50pt">11</td>
+                <td valign="top" align="left" style="border-top: solid 0.50pt">6</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Gender (male: female)</td>
+                <td valign="top" align="left">6: 5</td>
+                <td valign="top" align="left">3: 3</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Age, median (range) in years</td>
+                <td valign="top" align="left">34 (20–71)</td>
+                <td valign="top" align="left">40.5 (34–57)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="col">
+                  <underline>Histology</underline>
+                </td>
+                <td valign="top" align="left" />
+                <td valign="top" align="left" />
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Nodular sclerosing</td>
+                <td valign="top" align="left">9 (82%)</td>
+                <td valign="top" align="left">4 (67%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Mixed cellularity</td>
+                <td valign="top" align="left">1 (9%)</td>
+                <td valign="top" align="left">1 (17%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Lymphocyte-rich</td>
+                <td valign="top" align="left">0</td>
+                <td valign="top" align="left">1 (17%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Not specified</td>
+                <td valign="top" align="left">1 (9%)</td>
+                <td valign="top" align="left">0</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="col">
+                  <underline>At initial diagnosis</underline>
+                </td>
+                <td valign="top" align="left" />
+                <td valign="top" align="left" />
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Stage I/II</td>
+                <td valign="top" align="left">2 (81%)</td>
+                <td valign="top" align="left">2 (33%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Stage III/IV</td>
+                <td valign="top" align="left">9 (82%)</td>
+                <td valign="top" align="left">4 (67%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">B symptoms</td>
+                <td valign="top" align="left">7 (64%)</td>
+                <td valign="top" align="left">0</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Extra-nodal involvement</td>
+                <td valign="top" align="left">4 (36%)</td>
+                <td valign="top" align="left">3 (50%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Frontline therapy with ABVD</td>
+                <td valign="top" align="left">8 (72%)</td>
+                <td valign="top" align="left">5 (83%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Refractoriness to frontline therapy</td>
+                <td valign="top" align="left">8 (73%)</td>
+                <td valign="top" align="left">2 (33%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">PET2-adapted approach</td>
+                <td valign="top" align="left">3 (27%)</td>
+                <td valign="top" align="left">1 (17%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="col">
+                  <underline>At start of checkpoint inhibitor</underline>
+                </td>
+                <td valign="top" align="left" />
+                <td valign="top" align="left" />
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Stage I/II</td>
+                <td valign="top" align="left">1 (9%)</td>
+                <td valign="top" align="left">2 (33%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Stage III/IV</td>
+                <td valign="top" align="left">10 (91%)</td>
+                <td valign="top" align="left">4 (67%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">B symptoms</td>
+                <td valign="top" align="left">6 (55%)</td>
+                <td valign="top" align="left">0</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Extra-nodal involvement</td>
+                <td valign="top" align="left">8 (73%)</td>
+                <td valign="top" align="left">2 (33%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Prior lines of regimens, median (range)</td>
+                <td valign="top" align="left">3 (1–6)</td>
+                <td valign="top" align="left">2.5 (2–7)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Prior exposure to brentuximab vedotin</td>
+                <td valign="top" align="left">10 (91%)</td>
+                <td valign="top" align="left">3 (50%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Prior autologous HSCT</td>
+                <td valign="top" align="left">2 (18%)</td>
+                <td valign="top" align="left">1 (17%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Prior allogeneic HSCT</td>
+                <td valign="top" align="left">0</td>
+                <td valign="top" align="left">2 (34%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Refractoriness to last regimen</td>
+                <td valign="top" align="left">8 (73%)</td>
+                <td valign="top" align="left">3 (50%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Time from last regimen, median (range) in months</td>
+                <td valign="top" align="left">1 (1–30)</td>
+                <td valign="top" align="left">6.5 (1–59)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Time from initial diagnosis, median, (range) in months</td>
+                <td valign="top" align="left">14 (5–72)</td>
+                <td valign="top" align="left">64 (12–118)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="col">
+                  <underline>Best outcome to checkpoint inhibitor</underline>
+                </td>
+                <td valign="top" align="left" />
+                <td valign="top" align="left" />
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Complete response</td>
+                <td valign="top" align="left">8 (73%)</td>
+                <td valign="top" align="left">4 (67%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Partial response</td>
+                <td valign="top" align="left">3 (27%)</td>
+                <td valign="top" align="left">1 (17%)</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt" scope="row">Indeterminate response</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt">0</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt">1 (17%)</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p>ABVD: adriamycin, bleomycin, vinblastine, dacarbazine; PET2-adpated approach: treatment approach based on positron emission tomography computed tomography data after two cycles of treatment; HSCT: hematopoietic stem cell transplantation</p>
+          </table-wrap-foot>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>Pembrolizumab cohort</title>
+        <p>Six men and five women at a median age of 34 (range: 19–71) years were treated. On presentation, nine patients had advanced (stage III/IV) disease, and two patients had early (stage II) disease. At relapsed/refractory disease, 10 patients had advanced disease. There was a median of 3 (range: 1–6) lines of prior therapy, including brentuximab vedotin (BV) in 10 patients (91%), and auto-HSCT in two patients (18%). Median time from last regimen to treatment was 1 (range: 1–30) months (
+          <xref ref-type="table" rid="HON-20-0144-tbl-0003">Table 3</xref>). Ten patients received 100 mg Q3W, whereas one case (patient P3) received 130 mg (at 2 mg/kg) Q3W.
+        </p>
+      </sec>
+      <sec>
+        <title>Response to pembrolizumab</title>
+        <p>The best radiologic response was mCR in eight patients (73%) (Deauville score: 1,
+          <italic>N</italic> = 3; 2,
+          <italic>N</italic> = 5; all with &gt; 50% shrinkage of tumors), and partial response (PR) in three patients (27%) (
+          <xref ref-type="fig" rid="HON-20-0144-fig-0001">Figure 1 A–D</xref>), giving an overall response rate (ORR) of 100%. The median cumulative dose of pembrolizumab leading to best response was 400 mg (range: 300–800 mg).
+        </p>
+        <fig id="HON-20-0144-fig-0001" position="float" fig-type="figure">
+          <label>FIGURE 1</label>
+          <caption>
+            <p>Radiologic response assessed by positron emission tomography computed tomography in patients with classical Hodgkin lymphoma treated by low-dose anti-PD1 antibodies pembrolizumab and nivolumab.</p>
+          </caption>
+          <p>A. Patient P4, pembrolizumab cohort. Relapse with cervical lymphadenopathy (arrowhead), bilateral axillary lymphadenopathy (vertical arrows), multiple pulmonary nodules (open arrows), splenic nodules (open arrow), and para-aortic lymphadenopathy (open arrow) (left panel). Resolution of most of the lesions after 400 mg of pembrolizumab, except the right axillary lymphadenopathy (vertical arrow), splenic nodules and para-aortic lymphadenopathy (open arrows) (middle left panel). Further improvement in lesions after a cumulative dose of 1300 mg of pembrolizumab, with persistence of minimally hypermetabolic lesions (open arrows) (middle right panel). Disease progression after a cumulative dose of 2600 mg of pembrolizumab, with re-appearance of right axillary lymphadenopathy (arrow), porta hepatis lymphadenopathy and para-aortic lymphadenopathy (open arrows). There was new-onset left cervical lymhadenopathy (arrowhead).</p>
+          <p>B. Patient P6, pembrolizumab cohort. Relapse with mediastinal lymphadenopathy (arrow), together with two lesions in the chest and left internal mammary region (open arrows) (right panel). Resolution of most of the lesions, with persistence of minimally hypermetabolic mediastinal lymphoadenopathy (arrow) after 300 mg of pembrolizumab (middle panel). Disease progression after 1400 mg of pembrolizumab, with multiple lung nodules, the more prominent ones being indicated by open arrows (right panel).</p>
+          <p>C. Patient P7, pembrolizumab cohort. Refractory disease with large right and left cervical lymphadenopathy (arrows) (left panel). Complete response of all lesions after 400 mg of pembrolizumab (middle left panel). Relapse with right cervical lymphadenopathy and left peri-parotid lesion (arrows) (middle right panel). Complete response of lesions after two cycles of pembrolizumab (100 mg/cycle) and brentuximab vedotin (100 mg/cycle) (right panel).</p>
+          <p>D. Patient P11, pembrolizumab cohort. Refractory disease with persistent lesion in the C1 and S1 vertebrae (arrows) (left panel). Complete response of all lesions after 400 mg of pembrolizumab (middle left panel). Enlarged views of the two lesions and their complete response (right two panels).</p>
+          <p>E. Patient N2, nivolumab cohort. Complete response of cervical, axillary, mediastinal, abdominal and pelvic lymphadenopathy after 160 mg of nivolumab (images before treatment not available) (left panel). Disease relapse after completion of 2 years of nivolumab treatment, showing left cervical lymphadenopathy (arrows) (middle panel). Complete response after 320 mg of nivolumab (right panel).</p>
+          <p>F. Patient N4, nivolumab cohort. Refractory disease with left cervical, multiple mediastinal and left hilar lymphadenopathy (arrows). Complete response after 160 mg of nivolumab.</p>
+          <p>G. Patient N6. Refractory disease, showing peri-pancreatic and para-aortic lymphadenopathy (arrows), together with osseous involvement in the left humerus, sternum and left acetabulum (open arrows) (left panel). Resolution of these lesions after 360 mg of nivolumab. A right axillary lymph node of mild activity was noted (arrow) (middle panel). Right axillary lymph node of uncertain nature and minimal activity was still present, after 840 mg of nivolumab (arrow) (right panel).</p>
+          <graphic xlink:href="https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&amp;name=figure+1+revised.tif" />
+        </fig>
+      </sec>
+      <sec>
+        <title>Outcome of mCR patients</title>
+        <p>Of eight mCR cases, two cases had relapsed after completion of 2 years of treatment (
+          <xref ref-type="fig" rid="HON-20-0144-fig-0002">Figure 2</xref>). Patient P1 relapsed 11 months after stopping pembrolizumab. The relapsed lymphoma showed EBV-positive Reed-Sternberg cells, whereas the original lymphoma was EBV-negative.
+          <xref ref-type="bibr" rid="HON-20-0144-bib-0016">
+            <sup>16</sup>
+          </xref> Patient P7 relapsed 9 months after stopping pembrolizumab. The other six patients had remained in continuous mCR, for a median of 21 (range: 6–46) months, with three of whom already off treatment. Patient P9 achieved mCR after 6 cycles, received two more cycles, and then changed to the less expensive nivolumab (40 mg Q2W) for financial reasons. Patient P2 delivered a healthy baby girl 33 months after stopping pembrolizumab. Pregnancy was uncomplicated.
+        </p>
+        <fig id="HON-20-0144-fig-0002" position="float" fig-type="figure">
+          <label>FIGURE 2</label>
+          <caption>
+            <p>
+              <bold>Swimmer plot of patients in the pembrolizumab and nivolumab cohorts.</bold> mCR: metabolic complete response; PR: partial remission; IR: indeterminate response. Drug cessation (blue circle) in seven patients (P1, P3, P4, P5, P7, N1, N2) represented completion of 2 years of treatment. In patient P2, drug cessation represented truncation of treatment in an attempt to conceive. In patient P9, drug cessation was because of financial constraints.
+            </p>
+          </caption>
+          <graphic xlink:href="https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&amp;name=figure+2.jpg" />
+        </fig>
+      </sec>
+      <sec>
+        <title>Outcome of PR patients</title>
+        <p>Patient P4 was in PR for 24 months, before disease progression occurred. Treatment was changed to nivolumab (40 mg Q2W), and she has since remained in stable disease for 8 months, pending the next radiologic assessment. Patient P6 remained in PR for 11 months before disease progression. She did not respond to BV and salvage chemotherapy (gemcitabine, cisplatin, dexamethasone), and died 8 months afterwards. Patient 10 has been in PR for 12 months, pending the next radiologic reassessment.</p>
+      </sec>
+      <sec>
+        <title>Re-treatment of relapses with pembrolizumab</title>
+        <p>Both relapsed patients were re-treated with pembrolizumab at 100 mg Q3W. Patient P1 achieved mCR again, after a cumulative dose of 1500 mg.
+          <xref ref-type="bibr" rid="HON-20-0144-bib-0016">
+            <sup>16</sup>
+          </xref> Patient P7 achieved mCR after two cycles of pembrolizumab (100 mg Q3W) combined with BV (100 mg Q3W) (
+          <xref ref-type="table" rid="HON-20-0144-tbl-0001">Table 1</xref>). Both patients have remained in continuous mCR.
+        </p>
+      </sec>
+      <sec>
+        <title>Adverse events of pembrolizumab treatment</title>
+        <p>After 287 treatment cycles, AEs were only observed in three cases (
+          <xref ref-type="table" rid="HON-20-0144-tbl-0001">Table 1</xref>). Patient P2 developed grade 1 diarrhea after 17 cycles (1700 mg). Sigmoidoscopy revealed minimal inflammation, and colonic biopsy showed mild acute inflammation. The diarrhea subsided with budesonide. Pembrolizumab was truncated at that point because the patient wanted to conceive. Patient P3 developed intermittent grade 1 eczema. After 25 cycles (2500 mg), he developed grade 1 hypothyroidism (elevated thyroid stimulating hormone, TSH), which progressed to grade 2 hypothyroidism (decreased thyroxine, requiring replacement) after 28 cycles (2800 mg). There were no detectable anti-thyroid antibodies. Patient P8 had intermittent grade 1 urticaria, which responded to symptomatic treatment. In both cases, therapy was uninterrupted.
+        </p>
+      </sec>
+      <sec>
+        <title>Nivolumab cohort</title>
+        <p>Three men and three women at a median age of 40.5 (range: 34–57) years were treated (
+          <xref ref-type="table" rid="HON-20-0144-tbl-0002">Table 2</xref>). On presentation, two patients had early (stage I/II) disease, and four patients had advanced (stage III/IV) disease. At relapsed/refractory disease, four patients had advanced disease. There was a median of 3 (range: 2–7) lines of prior therapy, which included BV in three cases (50%), auto-HSCT in one case (17%), and allogeneic HSCT (allo-HSCT) in two cases (33%). Median time from last regimen to treatment was 6.5 (range: 1–59) months (
+          <xref ref-type="table" rid="HON-20-0144-tbl-0003">Table 3</xref>). All patients received a flat-dose of 40 mg Q2W.
+        </p>
+      </sec>
+      <sec>
+        <title>Response to nivolumab</title>
+        <p>The best radiologic response was mCR in four cases (67%) (Deauville score: 1,
+          <italic>N</italic> = 2; 3,
+          <italic>N</italic> = 2; two cases with &gt; 50% shrinkage of tumor) and partial response in one case (17%) (
+          <xref ref-type="fig" rid="HON-20-0144-fig-0001">Figure 1 E–G</xref>). One case (patient N6) showed resolution of all index lesions on PET/CT scan performed after 9 cycles (360 mg) (
+          <xref ref-type="fig" rid="HON-20-0144-fig-0001">Figure 1 G</xref>), except for a small minimally FDG-avid right axillary lymph node, which was an involved site on presentation but not at refractory disease. The lesion further decreased in size and metabolic activity 6 months later, suggesting that it represented pseudo-progression. At that juncture and before the next radiologic assessment, the patient was best considered to have an indeterminate response (IR).
+          <xref ref-type="bibr" rid="HON-20-0144-bib-0014">
+            <sup>14</sup>
+          </xref> The median dose of nivolumab required to give the best response was 160 (range: 160–360) mg.
+        </p>
+      </sec>
+      <sec>
+        <title>Outcome of CR patients</title>
+        <p>One case (patient N2) completed 2 years of treatment, and relapsed 8 months later (
+          <xref ref-type="fig" rid="HON-20-0144-fig-0002">Figure 2</xref>). The other three patients have remained in continuous mCR for a median of 20 (range: 8–28) months, with one of them already off treatment.
+        </p>
+      </sec>
+      <sec>
+        <title>Outcome of PR/IR patients</title>
+        <p>Patient N5 has remained in PR, pending the next radiologic reassessment. Patient N6 has remained asymptomatic, with his IR status to be re-examined in 3 months.</p>
+      </sec>
+      <sec>
+        <title>Re-treatment with nivolumab</title>
+        <p>Patient N2 achieved mCR again after a cumulative dose of 320 mg. He has remained in mCR for about 2 months.</p>
+      </sec>
+      <sec>
+        <title>Adverse events of nivolumab treatment</title>
+        <p>After 195 treatment cycles, AEs were observed in four cases (
+          <xref ref-type="table" rid="HON-20-0144-tbl-0002">Table 2</xref>). Patient N1 developed intermittent grade 1 eczema, which responded to symptomatic treatment. Persistently depressed morning cortisol levels occurred after nine cycles (360 mg) (nadir: 88 nmol/L; reference range: 130–600 nmol/L). There was no evidence of hypoadrenalism clinically (hypotension, asthenia) or biochemically (hyponatremia, hyperkalemia). One month after completion of 2 years of treatment, morning cortisol levels became normal. Patient N3 had a history of immune thrombocytopenia, and nivolumab expectedly resulted in exacerbation (nadir platelet count: 4 × 10
+          <sup>9</sup>/L). Immune thrombocytopenia responded fully to corticosteroid therapy, and did not recur afterwards. Grade 1 hypoadrenalism developed after 19 cycles (760 mg) (nadir morning cortisol: 69 nmol/L). Symptoms of hypogonadism and diabetes insipidus appeared after the first 2 years of treatment. With relapse and after the second cycle (80 mg) of re-treatment, hypogonadism and diabetes insipidus were documented biochemically, requiring hormonal replacement. Overall features were consistent with grade 2 hypophysitis. Patient N4 developed grade 1 hypoadrenalism after four cycles (160 mg) (nadir morning cortisol: 77 nmol/L). There was immunological evidence of thyroiditis (elevated anti-thyroid peroxidase antibody) and a transient increase in thyroxine after seven cycles (280 mg), but thyroxine/TSH levels became normal spontaneously 4 months later. Patient N6 had subclinical hypothyroidism (elevated TSH) at baseline before nivolumab treatment. After 20 cycles (800 mg) of treatment, grade 2 hypothyroidism occurred, requiring thyroxine replacement.
+        </p>
+      </sec>
+      <sec>
+        <title>Molecular responses</title>
+        <p>EBER-ISH was performed in 16 cases, with six cases (patients P1, P3, P5, P6, P9, N2) showing EBER-positive Reed-Sternberg cells. Plasma EBV DNA was serially monitored in five cases (patients P1, P5, P6, P9, N2). In four cases reaching mCR (patients P1, P5, P9, N2), molecular remission with undetectable plasma EBV DNA was also achieved. In patient P6, who only achieved PR, plasma EBV DNA remained persistently quantifiable. Terminally, her pleural fluid also contained high levels of cell-free EBV DNA, confirming lymphomatous involvement, although cytologically no neoplastic cells were evident.</p>
+      </sec>
+      <sec>
+        <title>Survivals</title>
+        <p>The median PFS of the pembrolizumab and nivolumab cohorts were 35 and 33 months respectively (
+          <xref ref-type="fig" rid="HON-20-0144-fig-0003">Figure 3 A-C</xref>). The median OS has not been reached for the two cohorts.
+        </p>
+        <fig id="HON-20-0144-fig-0003" position="float" fig-type="figure">
+          <label>FIGURE 3</label>
+          <caption>
+            <p>
+              <bold>Survivals of patients in the pembrolizumab and nivolumab cohorts.</bold> A. Progression free survival of the pembrolizumab cohort. B: Overall survival of the pembrolizumab cohort. C: Progression free survival for the nivolumab cohort. Overall survival of the nivolumab cohort is not shown, as there were no events associated with overall survival in the Kaplan-Meier plot.
+            </p>
+          </caption>
+          <graphic xlink:href="https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&amp;name=figure+3.jpg" />
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="discussion">
+      <title>DISCUSSION</title>
+      <p>This study describes our experience of low-dose anti-PD1 antibodies in relapsed/refractory cHL. We used pembrolizumab at one-half and nivolumab at one-sixth of the approved doses. This strategy has hitherto not been tried in other studies.</p>
+      <p>With pembrolizumab used at 100 mg Q3W (2 mg/kg Q3W in one case), ORR was 100%, with CR at 73%. A previous phase 1 study used pembrolizumab at 10 mg/kg Q2W (about 10 times our dose).
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0007">
+          <sup>7</sup>
+        </xref> In 31 patients failing BV with or without previous auto-HSCT, ORR was 65%, with CR only at 16%. A subsequent phase 2 study used pembrolizumab at 200 mg Q3W (twice our dose).
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0008">
+          <sup>8</sup>
+        </xref> ORR was 75%, with CR also low at 23%. A recent update of 210 patients (receiving pembrolizumab at 200 mg Q3W) reported an ORR of 72%, with CR at 28%.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0018">
+          <sup>18</sup>
+        </xref> We observed a high ORR with particularly a high CR rate in our cohort. This is unlikely related to differences in prior therapies, which in fact had not been shown to significantly impact on ORR/CR.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0008 HON-20-0144-bib-0018">
+          <sup>8,18</sup>
+        </xref> Furthermore, the median cumulative dose required for best response was merely 400 mg in our patients; as compared with 50 mg/kg (8–10 times our dose) in the phase 1 study;
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0007">
+          <sup>7</sup>
+        </xref> and 1200 mg (three times our dose) in the phase 2 study.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0008">
+          <sup>8</sup>
+        </xref>
+      </p>
+      <p>After 287 treatment cycles, only three patients developed AEs, all grade 1–2. Conversely, in the high-dose phase 1 study,
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0007">
+          <sup>7</sup>
+        </xref> the frequency of AEs was very high at 68% (grade 3/4: 16%), with a drug discontinuation rate of 6.5%. In the phase 2 study using a lower dose,
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0008">
+          <sup>8</sup>
+        </xref> the frequency of AEs was less at 30%, with a drug discontinuation rate of 1%. In the latest update of this phase 2 cohort, the frequency of AEs was 73% (grade 3/4: 12%), with a drug discontinuation rate of 6.7%.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0018">
+          <sup>18</sup>
+        </xref> Hence, AEs were dose-related. Our use of low-dose pembrolizumab significantly decreased AEs and their severity, wtih no drug discontinuation.
+      </p>
+      <p>With nivolumab used at 40 mg Q2W, ORR was 100%, with CR at 67%. A previous phase 1 study used nivolumab at 3 mg/kg Q2W (about 6 times our dose).
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0005">
+          <sup>5</sup>
+        </xref> In 23 patients, 80% of whom had failed BV, auto-HSCT and radiotherapy, the ORR was 87%, with CR only at 17%. A subsequent phase 2 study also used nivolumab at 3 mg/kg Q2W.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0019">
+          <sup>19</sup>
+        </xref> In 80 patients failing auto-HSCT and BV, the ORR was 73%, with CR at 28%. A more recent update of a larger combined cohort of 243 patients treated with nivolumab at 3 mg/kg Q2W showed an ORR of 69%, with CR at 16%.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0020">
+          <sup>20</sup>
+        </xref> In our low-dose nivolumab cohort, there was high ORR and CR rate. Again, this was unlikely attributable to prior therapies, which had not been shown to impact significantly on responses.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0020">
+          <sup>20</sup>
+        </xref> The median cumulative dose needed to achieve best responses was also much lower in our approach (160 mg), as compared with 12 mg/kg (about six times our dose) in both the phase 1 and phase 2 studies.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0005 HON-20-0144-bib-0019 HON-20-0144-bib-0020">
+          <sup>5,19,20</sup>
+        </xref>
+      </p>
+      <p>After 195 treatment cycles, AEs were observed in four cases. However, two cases (patients N3 and N6) had pre-existing autoimmune conditions, and they would typically be excluded from previous clinical trials. Hence, in patients without autoimmune diseases, AEs were observed only in two cases (50%), all merely grade 1. Conversely, in the phase 1 nivolumab study,
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0005">
+          <sup>5</sup>
+        </xref> the AE frequency was 78% (grade 3/4: 22%), with a drug discontinuation rate of 8.7%. In another phase 2 study, rates of grade 3/4 AEs and grade 5 AE (death) were 41% and 1%.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0019">
+          <sup>19</sup>
+        </xref> Hence, our low-dose approach decreased the frequency and severity of AEs, with no drug discontinuation.
+      </p>
+      <p>In most countries, approvals for anti-PD1 antibodies in cHL stipulate failure after several lines of therapy, including BV and auto-HSCT. BV is not reimbursed in Hong Kong. On a per-dose basis, depending on bodyweight, BV at 1.8 mg/kg is more expensive than pembrolizumab (100 mg) by 5–7.5 times, and nivolumab (40 mg) by 20–30 times. In four of our patients, anti-PD1 antibodies were used before BV, which was unaffordable to them. Because of good responses, none of our patients opted for auto-HSCT. Our approach of continuing anti-PD1 antibodies differs from conventional HSCT-based strategies, where auto-HSCT is recommended after successful BV treatment, and allo-HSCT is recommended for failed auto-HSCT.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0021">
+          <sup>21</sup>
+        </xref> In our cohort, 71% (12/17) of patients were less than 40 years old. In such young patients, maintenance with anti-PD1 antibodies avoids the long-term toxicities of high-dose chemotherapy. Fertility may be preserved in selected cases, exemplified by the successful pregnancy in patient P2.
+      </p>
+      <p>Re-treatment with anti-PD1 antibodies has not been extensively studied. Three patients in our series relapsed after completion of 2 years of anti-PD1 antibody treatment. Re-treatment with the original anti-PD1 antibodies at the same dose led to mCR in all of them. Longer follow-up will be needed to determine if such remissions are durable.</p>
+      <p>This was a retrospective analysis involving a relatively limited number of patients. Therefore, the long-term efficacy of low-dose pembrolizumab and nivolumab requires validation prospectively in comparison with standard doses of these drugs. Furthermore, it should be noted that autologous HSCT is potentially curative for over half of eligible patients with relapsed/refractory cHL.
+        <xref ref-type="bibr" rid="HON-20-0144-bib-0021">
+          <sup>21</sup>
+        </xref> Whether such durable results are achievable with anti-PD1 antibodies will need longer observations.
+      </p>
+      <p>In conclusion, low-dose anti-PD1 antibodies were highly efficacious and safe in relapsed/refractory cHL. In resource-constrained regions, this approach has far-reaching financial implications. It significantly economizes on medication expenses, so underprivileged patients will not be barred from receiving these important drugs because of unaffordability. By minimizing AEs, the costs of managing complications of PD1 blockade are also reduced. Finally, with longer follow-up, it remains to be determined if auto-HSCT might be obviated in some cases, thereby further reducing immediate and long-term healthcare costs.</p>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn fn-type="conflict">
+        <p content-type="fn-title">Acknowledgment and conflicts of interests</p>
+        <p>The authors have no acknowledgment to make and no conflicts of interests to declare.</p>
+      </fn>
+    </fn-group>
+    <ref-list>
+      <title>REFERENCES</title>
+      <ref id="HON-20-0144-bib-0001">
+        <label>1</label>
+        <?AuthorQuery id="Q1" queryProcess="eXtyles PubMed Check" queryText="Medline reports the journal title should be &quot;Journal of clinical oncology : official journal of the American Society of Clinical Oncology or J Clin Oncol&quot;, not &quot;Journal of Clinical Oncology&quot;. (Ref. 1 &quot;Roemer, Advani, Ligon, Natkunam, Redd, Homer, Shipp, &#x2026;, 2016&quot;)"?>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Roemer</surname>,
+              <given-names>M. G.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Advani</surname>,
+              <given-names>R. H.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Ligon</surname>,
+              <given-names>A. H.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Natkunam</surname>,
+              <given-names>Y.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Redd</surname>,
+              <given-names>R. A.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Homer</surname>,
+              <given-names>H.</given-names>
+            </string-name>,
+            <etal>…</etal>
+            <string-name>
+              <surname>Shipp</surname>,
+              <given-names>M. A.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2016</year>).
+          <article-title>PD-L1 and PD-L2 Genetic Alterations Define Classical Hodgkin Lymphoma and Predict Outcome.</article-title>
+          <source>Journal of Clinical Oncology</source>
+          <italic>,</italic>
+          <volume>34</volume>(
+          <issue>23</issue>),
+          <fpage>2690</fpage>–
+          <lpage>2697</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1200/JCO.2016.66.4482</pub-id>
+          <pub-id pub-id-type="pmid">27069084</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0002">
+        <label>2</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Liu</surname>,
+              <given-names>W. R.</given-names>
+            </string-name>, &amp;
+            <string-name>
+              <surname>Shipp</surname>,
+              <given-names>M. A.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2017</year>).
+          <article-title>Signaling pathways and immune evasion mechanisms in classical Hodgkin lymphoma.</article-title>
+          <source>Blood</source>
+          <italic>,</italic>
+          <volume>130</volume>(
+          <issue>21</issue>),
+          <fpage>2265</fpage>–
+          <lpage>2270</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1182/blood-2017-06-781989</pub-id>
+          <pub-id pub-id-type="pmid">29167175</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0003">
+        <label>3</label>
+        <?AuthorQuery id="Q2" queryProcess="eXtyles PubMed Check" queryText="Medline reports the journal title should be &quot;Journal of clinical oncology : official journal of the American Society of Clinical Oncology or J Clin Oncol&quot;, not &quot;Journal of Clinical Oncology&quot;. (Ref. 3 &quot;Brahmer, Drake, Wollner, Powderly, Picus, Sharfman, Topalian, &#x2026;, 2010&quot;)"?>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Brahmer</surname>,
+              <given-names>J. R.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Drake</surname>,
+              <given-names>C. G.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Wollner</surname>,
+              <given-names>I.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Powderly</surname>,
+              <given-names>J. D.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Picus</surname>,
+              <given-names>J.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Sharfman</surname>,
+              <given-names>W. H.</given-names>
+            </string-name>,
+            <etal>…</etal>
+            <string-name>
+              <surname>Topalian</surname>,
+              <given-names>S. L.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2010</year>).
+          <article-title>Phase I study of single-agent anti-programmed death-1 (MDX-1106) in refractory solid tumors: Safety, clinical activity, pharmacodynamics, and immunologic correlates.</article-title>
+          <source>Journal of Clinical Oncology</source>
+          <italic>,</italic>
+          <volume>28</volume>(
+          <issue>19</issue>),
+          <fpage>3167</fpage>–
+          <lpage>3175</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1200/JCO.2009.26.7609</pub-id>
+          <pub-id pub-id-type="pmid">20516446</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0004">
+        <label>4</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Ansell</surname>,
+              <given-names>S. M.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Lesokhin</surname>,
+              <given-names>A. M.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Borrello</surname>,
+              <given-names>I.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Halwani</surname>,
+              <given-names>A.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Scott</surname>,
+              <given-names>E. C.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Gutierrez</surname>,
+              <given-names>M.</given-names>
+            </string-name>,
+            <etal>…</etal>
+            <string-name>
+              <surname>Armand</surname>,
+              <given-names>P.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2015</year>).
+          <article-title>PD-1 blockade with nivolumab in relapsed or refractory Hodgkin’s lymphoma.</article-title>
+          <source>The New England Journal of Medicine</source>
+          <italic>,</italic>
+          <volume>372</volume>(
+          <issue>4</issue>),
+          <fpage>311</fpage>–
+          <lpage>319</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1056/NEJMoa1411087</pub-id>
+          <pub-id pub-id-type="pmid">25482239</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0005">
+        <label>5</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Hamid</surname>,
+              <given-names>O.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Robert</surname>,
+              <given-names>C.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Daud</surname>,
+              <given-names>A.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Hodi</surname>,
+              <given-names>F. S.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Hwu</surname>,
+              <given-names>W. J.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Kefford</surname>,
+              <given-names>R.</given-names>
+            </string-name>,
+            <etal>…</etal>
+            <string-name>
+              <surname>Ribas</surname>,
+              <given-names>A.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2013</year>).
+          <article-title>Safety and tumor responses with lambrolizumab (anti-PD-1) in melanoma.</article-title>
+          <source>The New England Journal of Medicine</source>
+          <italic>,</italic>
+          <volume>369</volume>(
+          <issue>2</issue>),
+          <fpage>134</fpage>–
+          <lpage>144</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1056/NEJMoa1305133</pub-id>
+          <pub-id pub-id-type="pmid">23724846</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0006">
+        <label>6</label>
+        <?AuthorQuery id="Q3" queryProcess="eXtyles PubMed Check" queryText="Medline reports the journal title should be &quot;Journal of clinical oncology : official journal of the American Society of Clinical Oncology or J Clin Oncol&quot;, not &quot;Journal of Clinical Oncology&quot;. (Ref. 6 &quot;Armand, Shipp, Ribrag, Michot, Zinzani, Kuruvilla, Moskowitz, &#x2026;, 2016&quot;)"?>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Armand</surname>,
+              <given-names>P.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Shipp</surname>,
+              <given-names>M. A.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Ribrag</surname>,
+              <given-names>V.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Michot</surname>,
+              <given-names>J. M.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Zinzani</surname>,
+              <given-names>P. L.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Kuruvilla</surname>,
+              <given-names>J.</given-names>
+            </string-name>,
+            <etal>…</etal>
+            <string-name>
+              <surname>Moskowitz</surname>,
+              <given-names>C. H.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2016</year>).
+          <article-title>Programmed Death-1 Blockade With Pembrolizumab in Patients With Classical Hodgkin Lymphoma After Brentuximab Vedotin Failure.</article-title>
+          <source>Journal of Clinical Oncology</source>
+          <italic>,</italic>
+          <volume>34</volume>(
+          <issue>31</issue>),
+          <fpage>3733</fpage>–
+          <lpage>3739</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1200/JCO.2016.67.3467</pub-id>
+          <pub-id pub-id-type="pmid">27354476</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0007">
+        <label>7</label>
+        <?AuthorQuery id="Q4" queryProcess="eXtyles CrossRef Check" queryText="eXtyles has not updated this reference because the article title in CrossRef significantly differs from the author&apos;s original. The CrossRef reference is Chen, R., Zinzani, P. L., Fanale, M. A., Armand, P., Johnson, N. A., Brice, P., &#x2026; Moskowitz, C. H. (2017). Phase II Study of the Efficacy and Safety of Pembrolizumab for Relapsed/Refractory Classic Hodgkin Lymphoma.
+        <italic>Journal of Clinical Oncology</italic>
+        <italic>, </italic>
+        <italic>35</italic>(19), 2125&#x2013;2132. (Ref. 7 &quot;Chen, Zinzani, Fanale, &#x2026;, 2017&quot;)"?>
+        <?AuthorQuery id="Q5" queryProcess="eXtyles PubMed Check" queryText="eXtyles has not updated this reference because the article title in Medline significantly differs from the author&apos;s original. The Medline reference is Chen, R., Zinzani, P. L., Fanale, M. A., Armand, P., Johnson, N. A., Brice, P., &#x2026; Moskowitz, C. H., &amp; the KEYNOTE-087. (2017). Phase II Study of the Efficacy and Safety of Pembrolizumab for Relapsed/Refractory Classic Hodgkin Lymphoma.
+        <italic>Journal of clinical oncology : official journal of the American Society of Clinical Oncology</italic>
+        <italic>, </italic>
+        <italic>35</italic>(19), 2125&#x2013;2132. (Ref. 7 &quot;Chen, Zinzani, Fanale, &#x2026;, 2017&quot;)"?>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Chen</surname>,
+              <given-names>R.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Zinzani</surname>,
+              <given-names>P. L.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Fanale</surname>,
+              <given-names>M. A.</given-names>
+            </string-name>,
+            <etal>…</etal>
+          </person-group>. (
+          <year>2017</year>).
+          <article-title>KEYNOTE-087. Phase II Study of the Efficacy and Safety of Pembrolizumab for Relapsed/Refractory Classic Hodgkin Lymphoma.</article-title>
+          <source>Journal of Clinical Oncology</source>
+          <italic>,</italic>
+          <volume>35</volume>(
+          <issue>19</issue>),
+          <fpage>2125</fpage>–
+          <lpage>2132</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1200/JCO.2016.72.1316</pub-id>
+          <pub-id pub-id-type="pmid">28441111</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0008">
+        <label>8</label>
+        <?AuthorQuery id="Q6" queryProcess="eXtyles PubMed Check" queryText="eXtyles has not updated the article title because Medline&apos;s is slightly different and Title Case. The Medline article title is Translational Pharmacokinetic/Pharmacodynamic Modeling of Tumor Growth Inhibition Supports Dose-Range Selection of the Anti-PD-1 Antibody Pembrolizumab.. (Ref. 8 &quot;Lindauer, Valiathan, Mehta, Sriram, de Greef, Elassaiss-Schaap, de Alwis, 2017&quot;)"?>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Lindauer</surname>,
+              <given-names>A.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Valiathan</surname>,
+              <given-names>C. R.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Mehta</surname>,
+              <given-names>K.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Sriram</surname>,
+              <given-names>V.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>de Greef</surname>,
+              <given-names>R.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Elassaiss-Schaap</surname>,
+              <given-names>J.</given-names>
+            </string-name>, &amp;
+            <string-name>
+              <surname>de Alwis</surname>,
+              <given-names>D. P.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2017</year>).
+          <article-title>Translational pharmacokinetic / pharmacodynamic modeling of tumor growth inhibition supports dose-range selection of the anti-PD-1 antibody pembrolizumab.</article-title>
+          <source>CPT: Pharmacometrics and Systems Pharmacology</source>
+          <italic>,</italic>
+          <volume>6</volume>(
+          <issue>1</issue>),
+          <fpage>11</fpage>–
+          <lpage>20</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1002/psp4.12130</pub-id>
+          <pub-id pub-id-type="pmid">27863176</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0009">
+        <label>9</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Kwong</surname>,
+              <given-names>Y. L.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Lopes</surname>,
+              <given-names>D.</given-names>
+            </string-name>, &amp;
+            <string-name>
+              <surname>Khong</surname>,
+              <given-names>P. L.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2017</year>).
+          <article-title>Low-dose pembrolizumab induced remission in patients with refractory classical Hodgkin lymphoma.</article-title>
+          <source>British Journal of Haematology</source>
+          <italic>,</italic>
+          <volume>176</volume>(
+          <issue>1</issue>),
+          <fpage>131</fpage>–
+          <lpage>132</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1111/bjh.13920</pub-id>
+          <pub-id pub-id-type="pmid">26773814</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0010">
+        <label>10</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Chan</surname>,
+              <given-names>T. S.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Luk</surname>,
+              <given-names>T. H.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Lau</surname>,
+              <given-names>J. S.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Khong</surname>,
+              <given-names>P. L.</given-names>
+            </string-name>, &amp;
+            <string-name>
+              <surname>Kwong</surname>,
+              <given-names>Y. L.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2017</year>).
+          <article-title>Low-dose pembrolizumab for relapsed/refractory Hodgkin lymphoma: High efficacy with minimal toxicity.</article-title>
+          <source>Annals of Hematology</source>
+          <italic>,</italic>
+          <volume>96</volume>(
+          <issue>4</issue>),
+          <fpage>647</fpage>–
+          <lpage>651</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1007/s00277-017-2931-z</pub-id>
+          <pub-id pub-id-type="pmid">28138786</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0011">
+        <label>11</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Hwang</surname>,
+              <given-names>Y. Y.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Khong</surname>,
+              <given-names>P. L.</given-names>
+            </string-name>, &amp;
+            <string-name>
+              <surname>Kwong</surname>,
+              <given-names>Y. L.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2017</year>).
+          <article-title>Low-dose nivolumab induced remission in refractory classical Hodgkin lymphoma.</article-title>
+          <source>Annals of Hematology</source>
+          <italic>,</italic>
+          <volume>96</volume>(
+          <issue>7</issue>),
+          <fpage>1219</fpage>–
+          <lpage>1220</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1007/s00277-017-3007-9</pub-id>
+          <pub-id pub-id-type="pmid">28434018</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0012">
+        <label>12</label>
+        <?AuthorQuery id="Q7" queryProcess="eXtyles PubMed Check" queryText="Medline reports the journal title should be &quot;Journal of clinical oncology : official journal of the American Society of Clinical Oncology or J Clin Oncol&quot;, not &quot;Journal of Clinical Oncology&quot;. (Ref. 12 &quot;Brahmer, Lacchetti, Schneider, Atkins, Brassil, Caterino, Thompson, &#x2026;, 2018&quot;)"?>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Brahmer</surname>,
+              <given-names>J. R.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Lacchetti</surname>,
+              <given-names>C.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Schneider</surname>,
+              <given-names>B. J.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Atkins</surname>,
+              <given-names>M. B.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Brassil</surname>,
+              <given-names>K. J.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Caterino</surname>,
+              <given-names>J. M.</given-names>
+            </string-name>,
+            <etal>…</etal>
+            <string-name>
+              <surname>Thompson</surname>,
+              <given-names>J. A.</given-names>
+            </string-name>, &amp; the
+            <collab>National Comprehensive Cancer Network</collab>
+          </person-group>. (
+          <year>2018</year>).
+          <article-title>Management of Immune-Related Adverse Events in Patients Treated With Immune Checkpoint Inhibitor Therapy: American Society of Clinical Oncology Clinical Practice Guideline.</article-title>
+          <source>Journal of Clinical Oncology</source>
+          <italic>,</italic>
+          <volume>36</volume>(
+          <issue>17</issue>),
+          <fpage>1714</fpage>–
+          <lpage>1768</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1200/JCO.2017.77.6385</pub-id>
+          <pub-id pub-id-type="pmid">29442540</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0013">
+        <label>13</label>
+        <?AuthorQuery id="Q8" queryProcess="eXtyles CrossRef Check" queryText="CrossRef reports the last page should be &quot;3067&quot;, not &quot;3068&quot;. (Ref. 13 &quot;Cheson, Fisher, Barrington, Cavalli, Schwartz, Zucca, Lister, 2014&quot;)"?>
+        <?AuthorQuery id="Q9" queryProcess="eXtyles PubMed Check" queryText="The title was updated but differs from the author&apos;s original: Alliance, Australasian Leukaemia and Lymphoma Group; Eastern Cooperative Oncology Group; European Mantle Cell Lymphoma Consortium; Italian Lymphoma Foundation; European Organisation for Research; Treatment of Cancer/Dutch Hemato-Oncology Group; Grupo Espa&#x00F1;ol de M&#x00E9;dula &#x00D3;sea; German High-Grade Lymphoma Study Group; German Hodgkin&#x2019;s Study Group; Japanese Lymphorra Study Group; Lymphoma Study Association; NCIC Clinical Trials Group; Nordic Lymphoma Study Group; Southwest Oncology Group; United Kingdom National Cancer Research Institute. Recommendations for initial evaluation, staging, and response assessment of Hodgkin and non-Hodgkin lymphoma: The Lugano classification.. (Ref. 13 &quot;Cheson, Fisher, Barrington, Cavalli, Schwartz, Zucca, Lister, 2014&quot;)"?>
+        <?AuthorQuery id="Q10" queryProcess="eXtyles PubMed Check" queryText="Medline reports the journal title should be &quot;Journal of clinical oncology : official journal of the American Society of Clinical Oncology or J Clin Oncol&quot;, not &quot;Journal of Clinical Oncology&quot;. (Ref. 13 &quot;Cheson, Fisher, Barrington, Cavalli, Schwartz, Zucca, Lister, 2014&quot;)"?>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Cheson</surname>,
+              <given-names>B. D.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Fisher</surname>,
+              <given-names>R. I.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Barrington</surname>,
+              <given-names>S. F.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Cavalli</surname>,
+              <given-names>F.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Schwartz</surname>,
+              <given-names>L. H.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Zucca</surname>,
+              <given-names>E.</given-names>
+            </string-name>, &amp;
+            <string-name>
+              <surname>Lister</surname>,
+              <given-names>T. A.</given-names>
+            </string-name>, &amp; the
+            <collab>Alliance, Australasian Leukaemia and Lymphoma Group</collab>, &amp; the
+            <collab>Eastern Cooperative Oncology Group</collab>, &amp; the
+            <collab>European Mantle Cell Lymphoma Consortium</collab>, &amp; the
+            <collab>Italian Lymphoma Foundation</collab>, &amp; the
+            <collab>European Organisation for Research</collab>, &amp; the
+            <collab>Treatment of Cancer/Dutch Hemato-Oncology Group</collab>, &amp; the
+            <collab>Grupo Español de Médula Ósea</collab>, &amp; the
+            <collab>German High-Grade Lymphoma Study Group</collab>, &amp; the
+            <collab>German Hodgkin’s Study Group</collab>, &amp; the
+            <collab>Japanese Lymphorra Study Group</collab>, &amp; the
+            <collab>Lymphoma Study Association</collab>, &amp; the
+            <collab>NCIC Clinical Trials Group</collab>, &amp; the
+            <collab>Nordic Lymphoma Study Group</collab>, &amp; the
+            <collab>Southwest Oncology Group</collab>, &amp; the
+            <collab>United Kingdom National Cancer Research Institute</collab>
+          </person-group>. (
+          <year>2014</year>).
+          <article-title>Recommendations for initial evaluation, staging, and response assessment of Hodgkin and non-Hodgkin lymphoma: The Lugano classification.</article-title>
+          <source>Journal of Clinical Oncology</source>
+          <italic>,</italic>
+          <volume>32</volume>(
+          <issue>27</issue>),
+          <fpage>3059</fpage>–
+          <lpage>3068</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1200/JCO.2013.54.8800</pub-id>
+          <pub-id pub-id-type="pmid">25113753</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0014">
+        <label>14</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Cheson</surname>,
+              <given-names>B. D.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Ansell</surname>,
+              <given-names>S.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Schwartz</surname>,
+              <given-names>L.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Gordon</surname>,
+              <given-names>L. I.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Advani</surname>,
+              <given-names>R.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Jacene</surname>,
+              <given-names>H. A.</given-names>
+            </string-name>,
+            <etal>…</etal>
+            <string-name>
+              <surname>Armand</surname>,
+              <given-names>P.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2016</year>).
+          <article-title>Refinement of the Lugano Classification lymphoma response criteria in the era of immunomodulatory therapy.</article-title>
+          <source>Blood</source>
+          <italic>,</italic>
+          <volume>128</volume>(
+          <issue>21</issue>),
+          <fpage>2489</fpage>–
+          <lpage>2496</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1182/blood-2016-05-718528</pub-id>
+          <pub-id pub-id-type="pmid">27574190</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0015">
+        <label>15</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Kwong</surname>,
+              <given-names>Y. L.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Pang</surname>,
+              <given-names>A. W.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Leung</surname>,
+              <given-names>A. Y.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Chim</surname>,
+              <given-names>C. S.</given-names>
+            </string-name>, &amp;
+            <string-name>
+              <surname>Tse</surname>,
+              <given-names>E.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2014</year>).
+          <article-title>Quantification of circulating Epstein-Barr virus DNA in NK/T-cell lymphoma treated with the SMILE protocol: Diagnostic and prognostic significance.</article-title>
+          <source>Leukemia</source>
+          <italic>,</italic>
+          <volume>28</volume>(
+          <issue>4</issue>),
+          <fpage>865</fpage>–
+          <lpage>870</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1038/leu.2013.212</pub-id>
+          <pub-id pub-id-type="pmid">23842425</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0016">
+        <label>16</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Kwong</surname>,
+              <given-names>Y. L.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Loong</surname>,
+              <given-names>F.</given-names>
+            </string-name>, &amp;
+            <string-name>
+              <surname>Khong</surname>,
+              <given-names>P. L.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2019</year>).
+          <article-title>Low-dose pembrolizumab re-treatment induced complete radiologic and molecular remission in Hodgkin lymphoma recurring from a previous relapse successfully treated by pembrolizumab.</article-title>
+          <source>Annals of Hematology</source>
+          <italic>,</italic>
+          <volume>98</volume>(
+          <issue>10</issue>),
+          <fpage>2451</fpage>–
+          <lpage>2455</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1007/s00277-019-03762-3</pub-id>
+          <pub-id pub-id-type="pmid">31332470</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0017">
+        <label>17</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Sim</surname>,
+              <given-names>J. P. Y.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Au-Yeung</surname>,
+              <given-names>R.</given-names>
+            </string-name>, &amp;
+            <string-name>
+              <surname>Kwong</surname>,
+              <given-names>Y. L.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2020</year>).
+          <article-title>Low-dose pembrolizumab induced complete radiologic and molecular response of posttransplant lymphoproliferative disorder presenting as classical Hodgkin lymphoma.</article-title>
+          <source>Annals of Hematology</source>
+          <italic>,</italic>
+          <volume>99</volume>(
+          <issue>2</issue>),
+          <fpage>385</fpage>–
+          <lpage>388</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1007/s00277-019-03856-y</pub-id>
+          <pub-id pub-id-type="pmid">31773213</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0018">
+        <label>18</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Chen</surname>,
+              <given-names>R.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Zinzani</surname>,
+              <given-names>P. L.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Lee</surname>,
+              <given-names>H. J.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Armand</surname>,
+              <given-names>P.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Johnson</surname>,
+              <given-names>N. A.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Brice</surname>,
+              <given-names>P.</given-names>
+            </string-name>,
+            <etal>…</etal>
+            <string-name>
+              <surname>Moskowitz</surname>,
+              <given-names>C. H.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2019</year>).
+          <article-title>Pembrolizumab in relapsed or refractory Hodgkin lymphoma: 2-year follow-up of KEYNOTE-087.</article-title>
+          <source>Blood</source>
+          <italic>,</italic>
+          <volume>134</volume>(
+          <issue>14</issue>),
+          <fpage>1144</fpage>–
+          <lpage>1153</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1182/blood.2019000324</pub-id>
+          <pub-id pub-id-type="pmid">31409671</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0019">
+        <label>19</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Younes</surname>,
+              <given-names>A.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Santoro</surname>,
+              <given-names>A.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Shipp</surname>,
+              <given-names>M.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Zinzani</surname>,
+              <given-names>P. L.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Timmerman</surname>,
+              <given-names>J. M.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Ansell</surname>,
+              <given-names>S.</given-names>
+            </string-name>,
+            <etal>…</etal>
+            <string-name>
+              <surname>Engert</surname>,
+              <given-names>A.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2016</year>).
+          <article-title>Nivolumab for classical Hodgkin’s lymphoma after failure of both autologous stem-cell transplantation and brentuximab vedotin: A multicentre, multicohort, single-arm phase 2 trial.</article-title>
+          <source>The Lancet. Oncology</source>
+          <italic>,</italic>
+          <volume>17</volume>(
+          <issue>9</issue>),
+          <fpage>1283</fpage>–
+          <lpage>1294</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1016/S1470-2045(16)30167-X</pub-id>
+          <pub-id pub-id-type="pmid">27451390</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0020">
+        <label>20</label>
+        <?AuthorQuery id="Q11" queryProcess="eXtyles CrossRef Check" queryText="CrossMark reports an erratum (or similar issue). The CrossMark type is &quot;correction&quot;. Additional information can be found at https://doi.org/10.1200/JCO.2018.79.3547. (Ref. 20 &quot;Armand, Engert, Younes, Fanale, Santoro, Zinzani, Ansell, &#x2026;, 2018&quot;)"?>
+        <?AuthorQuery id="Q12" queryProcess="eXtyles PubMed Check" queryText="Medline reports the journal title should be &quot;Journal of clinical oncology : official journal of the American Society of Clinical Oncology or J Clin Oncol&quot;, not &quot;Journal of Clinical Oncology&quot;. (Ref. 20 &quot;Armand, Engert, Younes, Fanale, Santoro, Zinzani, Ansell, &#x2026;, 2018&quot;)"?>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Armand</surname>,
+              <given-names>P.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Engert</surname>,
+              <given-names>A.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Younes</surname>,
+              <given-names>A.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Fanale</surname>,
+              <given-names>M.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Santoro</surname>,
+              <given-names>A.</given-names>
+            </string-name>,
+            <string-name>
+              <surname>Zinzani</surname>,
+              <given-names>P. L.</given-names>
+            </string-name>,
+            <etal>…</etal>
+            <string-name>
+              <surname>Ansell</surname>,
+              <given-names>S. M.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2018</year>).
+          <article-title>Nivolumab for Relapsed/Refractory Classic Hodgkin Lymphoma After Failure of Autologous Hematopoietic Cell Transplantation: Extended Follow-Up of the Multicohort Single-Arm Phase II CheckMate 205 Trial.</article-title>
+          <source>Journal of Clinical Oncology</source>
+          <italic>,</italic>
+          <volume>36</volume>(
+          <issue>14</issue>),
+          <fpage>1428</fpage>–
+          <lpage>1439</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1200/JCO.2017.76.0793</pub-id>
+          <pub-id pub-id-type="pmid">29584546</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="HON-20-0144-bib-0021">
+        <label>21</label>
+        <mixed-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <string-name>
+              <surname>Shah</surname>,
+              <given-names>G. L.</given-names>
+            </string-name>, &amp;
+            <string-name>
+              <surname>Moskowitz</surname>,
+              <given-names>C. H.</given-names>
+            </string-name>
+          </person-group> (
+          <year>2018</year>).
+          <article-title>Transplant strategies in relapsed/refractory Hodgkin lymphoma.</article-title>
+          <source>Blood</source>
+          <italic>,</italic>
+          <volume>131</volume>(
+          <issue>15</issue>),
+          <fpage>1689</fpage>–
+          <lpage>1697</lpage>.
+          <pub-id pub-id-type="doi">https://doi.org/10.1182/blood-2017-09-772673</pub-id>
+          <pub-id pub-id-type="pmid">29500170</pub-id>
+        </mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>

@@ -47,6 +47,7 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.keywords_section, ObjectTypes.Section],
   [schema.nodes.listing, ObjectTypes.Listing],
   [schema.nodes.listing_element, ObjectTypes.ListingElement],
+  [schema.nodes.manuscript, ObjectTypes.Manuscript],
   [schema.nodes.ordered_list, ObjectTypes.ListElement],
   [schema.nodes.paragraph, ObjectTypes.ParagraphElement],
   [schema.nodes.pullquote_element, ObjectTypes.QuoteElement],

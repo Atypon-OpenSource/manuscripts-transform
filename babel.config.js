@@ -1,9 +1,7 @@
 module.exports = {
   env: {
     test: {
-      plugins: [
-        'transform-es2015-modules-commonjs',
-      ],
+      plugins: ['transform-es2015-modules-commonjs'],
     },
   },
   plugins: [
@@ -12,8 +10,5 @@ module.exports = {
     '@babel/proposal-object-rest-spread',
     '@babel/proposal-optional-chaining',
   ],
-  presets: [
-    '@babel/preset-env',
-    '@babel/preset-typescript',
-  ],
+  presets: ['@babel/preset-env', '@babel/preset-typescript'],
 }

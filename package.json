@@ -19,6 +19,7 @@
     "build:es": "tsc --outDir dist/es --declarationDir dist/types --declaration --project tsconfig.build.json",
     "dev": "npm-run-all --parallel \"build:* --watch\"",
     "lint": "eslint src --ext .js,.ts",
+    "lint:fix": "eslint src --fix --ext .js,.ts",
     "prebuild": "rimraf dist",
     "prettier": "prettier --write \"src/**/*.{ts,tsx}\" \"*.{js,json}\"",
     "preversion": "npm-run-all --parallel typecheck lint test",

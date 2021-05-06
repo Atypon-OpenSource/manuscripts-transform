@@ -16,58 +16,41 @@
 
 import { Model, ObjectTypes } from '@manuscripts/manuscripts-json-schema'
 
-import { buildManuscript } from './builders'
+import { parseJATSBody } from '../jats/importer'
+import { ManuscriptNode } from '../schema'
+import { Build, buildManuscript } from './builders'
 import { encode } from './encode'
 import { generateID } from './id'
-import { parseJATSBody } from './jats-importer'
+
+export const parseSTSFront = (front: Element) => {
+  const title = front.querySelector(
+    'std-doc-meta > title-wrap > main-title-wrap > main'
+  )?.textContent
+  return generateModelIDs([buildManuscript(title || undefined)])
+}
 
 // https://www.niso-sts.org/TagLibrary/niso-sts-TL-1-0-html/index.html
-
 // TODO: STS-specific rules
+export const parseSTSBody = (
+  document: Document,
+  body: Element,
+  refModels: Model[]
+): ManuscriptNode => parseJATSBody(document, body, refModels)
 
-export const parseSTSBody = async (
-  doc: Document,
-  modelMap: Map<string, Model>
-) => {
-  return parseJATSBody(doc, modelMap)
-}
-
-export const parseSTSFront = (doc: Document) => {
-  const front = doc.querySelector('front')
-
-  if (!front) {
-    throw new Error('No front element found!')
-  }
-
-  const modelMap = new Map<string, Model>()
-
-  const addModel = <T extends Model>(data: Partial<T>) => {
-    data._id = generateID(data.objectType as ObjectTypes)
-
-    modelMap.set(data._id, data as T)
-  }
-
-  // manuscript
-
-  const titleNode = front.querySelector(
-    'std-doc-meta > title-wrap > main-title-wrap > main'
-  )
-
-  addModel(buildManuscript(titleNode?.innerHTML))
-
-  return modelMap
-}
+const generateModelIDs = (models: Build<Model>[]) =>
+  models.map((m) =>
+    m._id ? m : { ...m, _id: generateID(m.objectType as ObjectTypes) }
+  ) as Model[]
 
 export const parseSTSStandard = async (doc: Document): Promise<Model[]> => {
-  const modelMap = parseSTSFront(doc)
-
-  const node = await parseSTSBody(doc, modelMap)
-
-  if (!node.firstChild) {
-    throw new Error('No content was parsed from the article body')
+  const front = doc.querySelector('front')
+  const body = doc.querySelector('body')
+  if (!front || !body) {
+    throw Error('Invalid STS format! Missing body or front element')
   }
+  const frontModels = parseSTSFront(front)
+  const node = parseSTSBody(doc, body, frontModels)
+  const bodyModels = encode(node).values()
 
-  const body = encode(node.firstChild)
-
-  return [...modelMap.values(), ...body.values()]
+  return [...frontModels, ...bodyModels]
 }

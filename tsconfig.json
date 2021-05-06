@@ -17,7 +17,5 @@
     "strictPropertyInitialization": false,
     "target": "es2017"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

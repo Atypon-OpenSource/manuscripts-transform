@@ -31,34 +31,41 @@ const loadFixture = async (filename: string) => {
 describe('STS importer', () => {
   test('parses STS front to Manuscripts models', async () => {
     const standard = await loadFixture('sts-example.xml')
+    const front = standard.querySelector('front') as Element
 
-    const modelMap = parseSTSFront(standard)
-    const models = [...modelMap.values()]
+    const models = parseSTSFront(front)
 
     expect(models).toHaveLength(1)
   })
 
   test('parses STS body to a ProseMirror doc', async () => {
     const standard = await loadFixture('sts-example.xml')
+    const body = standard.querySelector('body') as Element
 
-    const modelMap = new Map()
-    const body = await parseSTSBody(standard, modelMap)
+    const start = performance.now()
+    const bodyDoc = parseSTSBody(standard, body, [])
 
-    body.descendants((node) => {
+    bodyDoc.descendants((node) => {
       // TODO: validate ids before deleting them
       delete node.attrs.id
       delete node.attrs.rid
     })
+    delete bodyDoc.attrs.id
+    const end = performance.now()
 
-    expect(body).toMatchSnapshot()
+    expect(end - start).toBeLessThan(5000)
+    expect(bodyDoc).toMatchSnapshot()
   })
 
   test('parses STS article to Manuscripts models', async () => {
     const standard = await loadFixture('sts-example.xml')
 
-    const modelMap = await parseSTSStandard(standard)
-    const models = [...modelMap.values()]
+    const start = performance.now()
+    const models = await parseSTSStandard(standard)
+    const end = performance.now()
 
+    // TODO this takes forever
+    expect(end - start).toBeLessThan(15500)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 })

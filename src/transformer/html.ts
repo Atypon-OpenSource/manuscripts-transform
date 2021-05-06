@@ -27,6 +27,7 @@ import {
 import { DOMOutputSpec, DOMSerializer } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
+import { createCounter } from '../jats/jats-exporter'
 import { buildStyledContentClass } from '../lib/styled-content'
 import {
   CitationNode,
@@ -43,7 +44,6 @@ import {
 } from '../schema'
 import { IDGenerator, MediaPathGenerator } from '../types'
 import { generateAttachmentFilename } from './filename'
-import { createCounter } from './jats-exporter'
 import { buildTargets, Target } from './labels'
 import { isNodeType } from './node-types'
 import { hasObjectType } from './object-types'
