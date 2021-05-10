@@ -24,6 +24,14 @@ export const jatsBodyTransformations = {
   ) {
     // Create and add a section if there is no section the content can be appended into
     let section = createElement('sec') as Element
+
+    const title = section.querySelector('title')
+    if (!title) {
+      const title = createElement('title')
+      title.textContent = ''
+      section.appendChild(title)
+    }
+
     const { firstElementChild } = body
     if (firstElementChild && firstElementChild.tagName === 'sec') {
       section = firstElementChild
