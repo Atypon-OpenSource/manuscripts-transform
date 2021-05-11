@@ -140,6 +140,58 @@ const nodes: NodeRule[] = [
     },
   },
   {
+    tag: 'inline-formula, p > disp-formula',
+    node: 'inline_equation',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      const attrs: {
+        id: string | null
+        MathMLRepresentation: string // NOTE: not MathMLStringRepresentation
+        SVGRepresentation: string // NOTE: not SVGStringRepresentation
+        TeXRepresentation: string
+      } = {
+        id: element.getAttribute('id'),
+        MathMLRepresentation: '', // default
+        SVGRepresentation: '',
+        TeXRepresentation: '', // default
+      }
+
+      const container = element.querySelector('alternatives') ?? element
+
+      for (const child of container.childNodes) {
+        // remove namespace prefix
+        // TODO: real namespaces
+        const nodeName = child.nodeName.replace(/^[a-z]:/, '')
+
+        switch (nodeName) {
+          case 'tex-math':
+            attrs.TeXRepresentation = child.textContent?.trim() ?? ''
+            if (attrs.TeXRepresentation) {
+              attrs.SVGRepresentation =
+                convertTeXToSVG(attrs.TeXRepresentation, true) ?? ''
+            }
+            break
+
+          case 'mml:math':
+            ;(child as Element).removeAttribute('id')
+            // FIXME: remove namespace?
+            attrs.MathMLRepresentation = xmlSerializer.serializeToString(child)
+            // TODO: convert MathML to TeX with mml2tex?
+            if (attrs.MathMLRepresentation) {
+              attrs.SVGRepresentation =
+                convertMathMLToSVG(attrs.MathMLRepresentation, true) ?? ''
+            }
+            // TODO: add format property (TeX or MathML)
+            // TODO: make MathMLRepresentation editable
+            break
+        }
+      }
+
+      return attrs
+    },
+  },
+  {
     tag: 'disp-formula',
     node: 'equation_element',
     getAttrs: (node) => {
@@ -365,58 +417,6 @@ const nodes: NodeRule[] = [
   {
     tag: 'front',
     ignore: true,
-  },
-  {
-    tag: 'inline-formula',
-    node: 'inline_equation',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      const attrs: {
-        id: string | null
-        MathMLRepresentation: string // NOTE: not MathMLStringRepresentation
-        SVGRepresentation: string // NOTE: not SVGStringRepresentation
-        TeXRepresentation: string
-      } = {
-        id: element.getAttribute('id'),
-        MathMLRepresentation: '', // default
-        SVGRepresentation: '',
-        TeXRepresentation: '', // default
-      }
-
-      const container = element.querySelector('alternatives') ?? element
-
-      for (const child of container.childNodes) {
-        // remove namespace prefix
-        // TODO: real namespaces
-        const nodeName = child.nodeName.replace(/^[a-z]:/, '')
-
-        switch (nodeName) {
-          case 'tex-math':
-            attrs.TeXRepresentation = child.textContent?.trim() ?? ''
-            if (attrs.TeXRepresentation) {
-              attrs.SVGRepresentation =
-                convertTeXToSVG(attrs.TeXRepresentation, true) ?? ''
-            }
-            break
-
-          case 'mml:math':
-            ;(child as Element).removeAttribute('id')
-            // FIXME: remove namespace?
-            attrs.MathMLRepresentation = xmlSerializer.serializeToString(child)
-            // TODO: convert MathML to TeX with mml2tex?
-            if (attrs.MathMLRepresentation) {
-              attrs.SVGRepresentation =
-                convertMathMLToSVG(attrs.MathMLRepresentation, true) ?? ''
-            }
-            // TODO: add format property (TeX or MathML)
-            // TODO: make MathMLRepresentation editable
-            break
-        }
-      }
-
-      return attrs
-    },
   },
   {
     tag: 'list[list-type=bullet]',
