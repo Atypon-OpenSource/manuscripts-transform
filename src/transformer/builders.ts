@@ -35,6 +35,7 @@ import {
   HighlightMarker,
   InlineMathFragment,
   InlineStyle,
+  Journal,
   Keyword,
   LibraryCollection,
   Manuscript,
@@ -372,6 +373,11 @@ export const buildAttribution = (): Build<Attribution> => ({
 export const buildSubmission = (): Build<Submission> => ({
   _id: generateID(ObjectTypes.Submission),
   objectType: ObjectTypes.Submission,
+})
+
+export const buildJournal = (): Build<Journal> => ({
+  _id: generateID(ObjectTypes.Journal),
+  objectType: ObjectTypes.Journal,
 })
 
 export const buildStatusLabel = (name: string): Build<StatusLabel> => ({

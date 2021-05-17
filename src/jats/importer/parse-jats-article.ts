@@ -15,35 +15,42 @@
  */
 
 import {
+  Journal,
   Manuscript,
   Model,
   ObjectTypes,
 } from '@manuscripts/manuscripts-json-schema'
 
 import { ManuscriptNode } from '../../schema'
-import { Build, buildManuscript } from '../../transformer/builders'
+import {
+  Build,
+  buildJournal,
+  buildManuscript,
+} from '../../transformer/builders'
 import { encode } from '../../transformer/encode'
 import { generateID } from '../../transformer/id'
 import { jatsBodyDOMParser } from './jats-body-dom-parser'
 import { jatsBodyTransformations } from './jats-body-transformations'
 import { jatsFrontParser } from './jats-front-parser'
+import { ISSN } from './jats-journal-meta-parser'
 import { fixBodyPMNode } from './jats-parser-utils'
 import { jatsReferenceParser } from './jats-reference-parser'
 
 export const parseJATSFront = async (front: Element) => {
-  const journal = jatsFrontParser.parseJournal(
+  const journalMeta = jatsFrontParser.parseJournal(
     front.querySelector('journal-meta')
   )
 
-  // if (journal) {
-  //   addModel<Journal>(journal) // TODO: store read-only Journal object for display?
-  // }
+  const journal = {
+    ...buildJournal(),
+    ...journalMeta,
+  } as Journal
 
   // manuscript bundle (CSL style)
   const {
     manuscript_bundle,
     bundleNodes,
-  } = await jatsFrontParser.loadJournalBundles(journal.issns)
+  } = await jatsFrontParser.loadJournalBundles(journal.ISSNs as ISSN[])
 
   const articleMeta = front.querySelector('article-meta')
   const manuscriptMeta = {
@@ -96,6 +103,7 @@ export const parseJATSFront = async (front: Element) => {
     ...keywords,
     ...affiliations,
     ...authors,
+    journal,
   ])
 }
 

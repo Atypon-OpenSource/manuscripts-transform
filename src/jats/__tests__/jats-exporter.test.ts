@@ -27,6 +27,7 @@ import {
 } from '@manuscripts/manuscripts-json-schema'
 import { Element as XMLElement, parseXml } from 'libxmljs2'
 
+import { journalMeta } from '../../transformer/__tests__/__helpers__/journal-meta'
 import { submissions } from '../../transformer/__tests__/__helpers__/submissions'
 import { isFigure, isManuscript } from '../../transformer/object-types'
 import {
@@ -200,6 +201,31 @@ describe('JATS exporter', () => {
     expect(output.get<XMLElement>('//journal-id')!.text()).toBe('bar')
     expect(output.get<XMLElement>('//journal-title')!.text()).toBe('Bar')
     expect(output.get<XMLElement>('//issn')!.text()).toBe('2222-2222')
+  })
+
+  test('journal metadata', async () => {
+    const projectBundle = cloneProjectBundle(input)
+
+    const { doc, modelMap } = parseProjectBundle(projectBundle)
+
+    modelMap.set(journalMeta._id, journalMeta)
+
+    const transformer = new JATSExporter()
+    const xml = await transformer.serializeToJATS(doc.content, modelMap, {
+      version: '1.2',
+      doi: '10.0000/123',
+      id: '123',
+    })
+
+    expect(xml).toMatchSnapshot('jats-export-journal-meta')
+
+    const output = parseXMLWithDTD(xml)
+
+    expect(output.get<XMLElement>('//journal-id')!.text()).toBe('Some id')
+    expect(output.get<XMLElement>('//journal-title')!.text()).toBe(
+      'journal title'
+    )
+    expect(output.get<XMLElement>('//issn')!.text()).toBe('123-45')
   })
 
   test('DTD validation', async () => {

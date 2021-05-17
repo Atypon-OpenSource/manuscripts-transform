@@ -21,6 +21,13 @@ Array [
     "role": "author",
   },
   Object {
+    "ISSNs": Array [],
+    "_id": "MPJournal:test",
+    "abbreviatedTitles": Array [],
+    "journalIdentifiers": Array [],
+    "objectType": "MPJournal",
+  },
+  Object {
     "_id": "MPSection:test",
     "elementIDs": Array [
       "MPParagraphElement:test",
@@ -594,6 +601,42 @@ Array [
     "objectType": "MPContributor",
     "priority": 6,
     "role": "author",
+  },
+  Object {
+    "ISSNs": Array [
+      Object {
+        "ISSN": "0278-0232",
+        "publicationType": "ppub",
+      },
+      Object {
+        "ISSN": "1540-1233",
+        "publicationType": "epub",
+      },
+    ],
+    "_id": "MPJournal:test",
+    "abbreviatedTitles": Array [
+      Object {
+        "abbrevType": "pubmed",
+        "abbreviatedTitle": "Hematological Oncology",
+      },
+    ],
+    "journalIdentifiers": Array [
+      Object {
+        "journalID": "HON",
+        "journalIDType": "publisher-id",
+      },
+      Object {
+        "journalID": "Hematological Oncology",
+        "journalIDType": "nlm-ta",
+      },
+      Object {
+        "journalID": "",
+        "journalIDType": "doi",
+      },
+    ],
+    "objectType": "MPJournal",
+    "publisherName": "John Wiley and Sons",
+    "title": "Hematological Oncology",
   },
   Object {
     "_id": "MPSection:test",
@@ -3352,6 +3395,13 @@ Array [
     "priority": 0,
     "role": "author",
   },
+  Object {
+    "ISSNs": Array [],
+    "_id": "MPJournal:test",
+    "abbreviatedTitles": Array [],
+    "journalIdentifiers": Array [],
+    "objectType": "MPJournal",
+  },
 ]
 `;
 
@@ -4487,6 +4537,33 @@ Array [
     "objectType": "MPContributor",
     "priority": 1,
     "role": "author",
+  },
+  Object {
+    "ISSNs": Array [
+      Object {
+        "ISSN": "1878-108X",
+      },
+    ],
+    "_id": "MPJournal:test",
+    "abbreviatedTitles": Array [
+      Object {
+        "abbrevType": "pubmed",
+        "abbreviatedTitle": "NLM-Export",
+      },
+    ],
+    "journalIdentifiers": Array [
+      Object {
+        "journalID": "NLM-Export",
+        "journalIDType": "publisher-id",
+      },
+      Object {
+        "journalID": "NLM-Export",
+        "journalIDType": "nlm-ta",
+      },
+    ],
+    "objectType": "MPJournal",
+    "publisherName": "Inera",
+    "title": "NLM-Export",
   },
   Object {
     "_id": "MPSection:test",

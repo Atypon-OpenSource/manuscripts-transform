@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { Bundle } from '@manuscripts/manuscripts-json-schema'
+import { Bundle, Journal } from '@manuscripts/manuscripts-json-schema'
 
 import {
   buildAffiliation,
@@ -27,15 +27,13 @@ import {
   loadBundlesMap,
   loadIssnBundleIndex,
 } from '../../transformer/bundles-data'
-import { parseJournalMeta, TypedValue } from './jats-journal-meta-parser'
+import { ISSN, parseJournalMeta } from './jats-journal-meta-parser'
 
-const chooseBundle = async (
-  issns: TypedValue[]
-): Promise<string | undefined> => {
+const chooseBundle = async (issns: ISSN[]): Promise<string | undefined> => {
   const issnBundleIndex = await loadIssnBundleIndex()
 
-  for (const { value: issn } of issns) {
-    const normalizedIssn = issn.toUpperCase().replace(/[^0-9X]/g, '')
+  for (const { ISSN } of issns) {
+    const normalizedIssn = ISSN.toUpperCase().replace(/[^0-9X]/g, '')
 
     if (normalizedIssn in issnBundleIndex) {
       return issnBundleIndex[normalizedIssn]
@@ -44,7 +42,7 @@ const chooseBundle = async (
 }
 
 export const jatsFrontParser = {
-  async loadJournalBundles(issns: TypedValue[]) {
+  async loadJournalBundles(issns: ISSN[]) {
     if (issns.length === 0) {
       return {
         manuscript_bundle: undefined,
@@ -68,12 +66,12 @@ export const jatsFrontParser = {
       ) as Bundle[],
     }
   },
-  parseJournal(journalMeta: Element | null) {
+  parseJournal(journalMeta: Element | null): Partial<Journal> {
     if (!journalMeta) {
       return {
+        journalIdentifiers: [],
         abbreviatedTitles: [],
-        identifiers: [],
-        issns: [],
+        ISSNs: [],
         publisherName: undefined,
         title: undefined,
       }

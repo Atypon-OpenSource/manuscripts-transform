@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Journal, parseJournalMeta } from '../importer/jats-journal-meta-parser'
-import { readAndParseFixture } from './files'
+import { Journal } from '@manuscripts/manuscripts-json-schema'
 
+import { parseJournalMeta } from '../importer/jats-journal-meta-parser'
+import { readAndParseFixture } from './files'
 describe('JATS journal metadata', () => {
   test('extracts journal metadata from JATS XML', async () => {
     const article = await readAndParseFixture('jats-example-full.xml')
-
     // journal meta
     const journalMeta = article.querySelector('journal-meta')
 
@@ -32,11 +32,11 @@ describe('JATS journal metadata', () => {
     expect(journal.title).toBe('Journal Title')
     expect(journal.abbreviatedTitles).toHaveLength(1)
     expect(journal.abbreviatedTitles![0]).toStrictEqual({
-      type: 'pubmed',
-      value: 'PubMed Abbreviated Journal Title',
+      abbrevType: 'pubmed',
+      abbreviatedTitle: 'PubMed Abbreviated Journal Title',
     })
-    expect(journal.issns).toHaveLength(1)
-    expect(journal.issns![0]).toStrictEqual({ type: null, value: '1234-5678' })
+    expect(journal.ISSNs).toHaveLength(1)
+    expect(journal.ISSNs![0]).toStrictEqual({ ISSN: '1234-5678' })
     expect(journal.publisherName).toBe('Publisher Name')
   })
 })

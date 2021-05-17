@@ -14,29 +14,34 @@
  * limitations under the License.
  */
 
-export type TypedValue = { type?: string | null; value: string }
-
-export interface Journal {
-  abbreviatedTitles?: TypedValue[]
-  identifiers?: TypedValue[]
-  issns?: TypedValue[]
-  publisherName?: string
-  title?: string
+export type ISSN = {
+  ISSN: string
+  publicationType?: string
 }
 
+export type AbbreviatedTitle = {
+  abbreviatedTitle: string
+  abbrevType?: string
+}
+export type JournalIdentifier = {
+  journalID: string
+  journalIDType?: string
+}
 export const parseJournalIdentifiers = (
   journalMeta: Element
-): Array<TypedValue> => {
-  const output: Array<TypedValue> = []
+): Array<JournalIdentifier> => {
+  const output: Array<JournalIdentifier> = []
 
   const elements = journalMeta.querySelectorAll('journal-id')
 
   for (const element of elements) {
-    const type = element.getAttribute('journal-id-type')
-    const value = element.textContent
+    const journalIDType = element.getAttribute('journal-id-type')
+    const journalID = element.textContent
 
-    if (value !== null) {
-      output.push({ type, value })
+    if (journalID !== null && journalIDType != null) {
+      output.push({ journalIDType, journalID })
+    } else if (journalID !== null) {
+      output.push({ journalID })
     }
   }
 
@@ -45,36 +50,38 @@ export const parseJournalIdentifiers = (
 
 export const parseJournalAbbreviatedTitles = (
   journalMeta: Element
-): Array<TypedValue> => {
-  const output: Array<TypedValue> = []
+): Array<AbbreviatedTitle> => {
+  const output: Array<AbbreviatedTitle> = []
 
   const elements = journalMeta.querySelectorAll(
     'journal-title-group > abbrev-journal-title'
   )
 
   for (const element of elements) {
-    const type = element.getAttribute('abbrev-type')
-    const value = element.textContent
-
-    if (value !== null) {
-      output.push({ type, value })
+    const abbrevType = element.getAttribute('abbrev-type')
+    const abbreviatedTitle = element.textContent
+    if (abbreviatedTitle !== null && abbrevType !== null) {
+      output.push({ abbreviatedTitle, abbrevType })
+    } else if (abbreviatedTitle !== null) {
+      output.push({ abbreviatedTitle })
     }
   }
 
   return output
 }
 
-export const parseJournalISSNs = (journalMeta: Element): Array<TypedValue> => {
-  const output: Array<TypedValue> = []
+export const parseJournalISSNs = (journalMeta: Element): Array<ISSN> => {
+  const output: Array<ISSN> = []
 
   const elements = journalMeta.querySelectorAll('issn')
 
   for (const element of elements) {
-    const type = element.getAttribute('pub-type')
-    const value = element.textContent
-
-    if (value) {
-      output.push({ type, value })
+    const publicationType = element.getAttribute('pub-type')
+    const ISSN = element.textContent
+    if (publicationType !== null && ISSN !== null) {
+      output.push({ publicationType, ISSN })
+    } else if (ISSN !== null) {
+      output.push({ ISSN })
     }
   }
 
@@ -84,8 +91,8 @@ export const parseJournalISSNs = (journalMeta: Element): Array<TypedValue> => {
 export const parseJournalMeta = (journalMeta: Element) => {
   return {
     abbreviatedTitles: parseJournalAbbreviatedTitles(journalMeta),
-    identifiers: parseJournalIdentifiers(journalMeta),
-    issns: parseJournalISSNs(journalMeta),
+    journalIdentifiers: parseJournalIdentifiers(journalMeta),
+    ISSNs: parseJournalISSNs(journalMeta),
     publisherName:
       journalMeta.querySelector('publisher > publisher-name')?.textContent ??
       undefined,

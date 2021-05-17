@@ -22,6 +22,7 @@ import {
   Contributor,
   ContributorRole,
   InlineStyle,
+  Journal,
   Keyword,
   Model,
   ObjectTypes,
@@ -52,6 +53,7 @@ import { hasObjectType } from '../transformer/object-types'
 import {
   findLatestManuscriptSubmission,
   findManuscript,
+  findManuscriptModelByType,
 } from '../transformer/project-bundle'
 import { chooseSecType } from '../transformer/section-category'
 import { IDGenerator, MediaPathGenerator } from '../types'
@@ -384,104 +386,104 @@ export class JATSExporter {
     const articleMeta = this.document.createElement('article-meta')
     front.appendChild(articleMeta)
 
-    // const journal = findManuscriptModelByType<Journal>(
-    //   this.modelMap,
-    //   manuscript,
-    //   ObjectTypes.Journal
-    // )
+    const journal = findManuscriptModelByType<Journal>(
+      this.modelMap,
+      manuscript,
+      ObjectTypes.Journal
+    )
 
-    // if (journal) {
-    //   if (journal.identifiers) {
-    //     for (const item of journal.identifiers) {
-    //       const element = this.document.createElement('journal-id')
-    //       if (item.type) {
-    //         element.setAttribute('journal-id-type', item.type)
-    //       }
-    //       element.textContent = item.value
-    //       journalMeta.appendChild(element)
-    //     }
-    //   }
-    //
-    //   if (journal.title || journal.abbreviatedTitle) {
-    //     const parentElement = this.document.createElement('journal-title-group')
-    //     journalMeta.appendChild(parentElement)
-    //
-    //     if (journal.title) {
-    //       const element = this.document.createElement('journal-title')
-    //       element.textContent = journal.title
-    //       parentElement.appendChild(element)
-    //     }
-    //
-    //     if (journal.abbreviatedTitle) {
-    //       for (const item of journal.abbreviatedTitle) {
-    //         const element = this.document.createElement('abbrev-journal-title')
-    //         if (item.type) {
-    //           element.setAttribute('abbrev-type', item.type)
-    //         }
-    //         element.textContent = item.value
-    //         parentElement.appendChild(element)
-    //       }
-    //     }
-    //   }
-    //
-    //   if (journal.issn) {
-    //     for (const item of journal.issn) {
-    //       const element = this.document.createElement('issn')
-    //       if (item.type) {
-    //         element.setAttribute('pub-type', item.type)
-    //       }
-    //       element.textContent = item.value
-    //       journalMeta.appendChild(element)
-    //     }
-    //   }
-    //
-    //   if (journal.publisher) {
-    //     const element = this.document.createElement('publisher')
-    //     element.textContent = journal.publisher
-    //     journalMeta.appendChild(element)
-    //   }
-    // } else {
-    if (submission) {
-      if (submission.journalCode) {
-        const journalID = this.document.createElement('journal-id')
-        journalID.setAttribute('journal-id-type', 'publisher-id')
-        journalID.textContent = submission.journalCode
-        journalMeta.appendChild(journalID)
+    if (journal) {
+      if (journal.journalIdentifiers) {
+        for (const item of journal.journalIdentifiers) {
+          const element = this.document.createElement('journal-id')
+          if (item.journalIDType) {
+            element.setAttribute('journal-id-type', item.journalIDType)
+          }
+          element.textContent = item.journalID
+          journalMeta.appendChild(element)
+        }
       }
 
-      if (submission.journalTitle) {
-        const journalTitleGroup = this.document.createElement(
-          'journal-title-group'
-        )
-        journalMeta.appendChild(journalTitleGroup)
+      if (journal.title || journal.abbreviatedTitles) {
+        const parentElement = this.document.createElement('journal-title-group')
+        journalMeta.appendChild(parentElement)
 
-        const journalTitle = this.document.createElement('journal-title')
-        journalTitle.textContent = submission.journalTitle
-        journalTitleGroup.appendChild(journalTitle)
+        if (journal.title) {
+          const element = this.document.createElement('journal-title')
+          element.textContent = journal.title
+          parentElement.appendChild(element)
+        }
+
+        if (journal.abbreviatedTitles) {
+          for (const item of journal.abbreviatedTitles) {
+            const element = this.document.createElement('abbrev-journal-title')
+            if (item.abbrevType) {
+              element.setAttribute('abbrev-type', item.abbrevType)
+            }
+            element.textContent = item.abbreviatedTitle
+            parentElement.appendChild(element)
+          }
+        }
       }
 
-      if (submission.issn) {
-        const issn = this.document.createElement('issn')
-        issn.setAttribute('pub-type', 'epub')
-        issn.textContent = submission.issn
-        journalMeta.appendChild(issn)
+      if (journal.ISSNs) {
+        for (const item of journal.ISSNs) {
+          const element = this.document.createElement('issn')
+          if (item.publicationType) {
+            element.setAttribute('pub-type', item.publicationType)
+          }
+          element.textContent = item.ISSN
+          journalMeta.appendChild(element)
+        }
+      }
+
+      if (journal.publisherName) {
+        const element = this.document.createElement('publisher')
+        element.textContent = journal.publisherName
+        journalMeta.appendChild(element)
+      }
+    } else {
+      if (submission) {
+        if (submission.journalCode) {
+          const journalID = this.document.createElement('journal-id')
+          journalID.setAttribute('journal-id-type', 'publisher-id')
+          journalID.textContent = submission.journalCode
+          journalMeta.appendChild(journalID)
+        }
+
+        if (submission.journalTitle) {
+          const journalTitleGroup = this.document.createElement(
+            'journal-title-group'
+          )
+          journalMeta.appendChild(journalTitleGroup)
+
+          const journalTitle = this.document.createElement('journal-title')
+          journalTitle.textContent = submission.journalTitle
+          journalTitleGroup.appendChild(journalTitle)
+        }
+
+        if (submission.issn) {
+          const issn = this.document.createElement('issn')
+          issn.setAttribute('pub-type', 'epub')
+          issn.textContent = submission.issn
+          journalMeta.appendChild(issn)
+        }
+      }
+
+      if (id) {
+        const articleID = this.document.createElement('article-id')
+        articleID.setAttribute('pub-id-type', 'publisher-id')
+        articleID.textContent = id
+        articleMeta.appendChild(articleID)
+      }
+
+      if (doi) {
+        const articleID = this.document.createElement('article-id')
+        articleID.setAttribute('pub-id-type', 'doi')
+        articleID.textContent = doi
+        articleMeta.appendChild(articleID)
       }
     }
-
-    if (id) {
-      const articleID = this.document.createElement('article-id')
-      articleID.setAttribute('pub-id-type', 'publisher-id')
-      articleID.textContent = id
-      articleMeta.appendChild(articleID)
-    }
-
-    if (doi) {
-      const articleID = this.document.createElement('article-id')
-      articleID.setAttribute('pub-id-type', 'doi')
-      articleID.textContent = doi
-      articleMeta.appendChild(articleID)
-    }
-    // }
 
     const titleGroup = this.document.createElement('title-group')
     articleMeta.appendChild(titleGroup)
