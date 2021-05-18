@@ -14,13 +14,20 @@
  * limitations under the License.
  */
 
-import { Bundle, Journal } from '@manuscripts/manuscripts-json-schema'
+import {
+  Bundle,
+  Journal,
+  Keyword,
+  KeywordGroup,
+} from '@manuscripts/manuscripts-json-schema'
 
 import {
+  Build,
   buildAffiliation,
   buildBibliographicName,
   buildContributor,
   buildKeyword,
+  buildKeywordGroup,
 } from '../../transformer/builders'
 import { createNewBundle, createParentBundle } from '../../transformer/bundles'
 import {
@@ -78,23 +85,36 @@ export const jatsFrontParser = {
     }
     return parseJournalMeta(journalMeta)
   },
-  parseKeywords(keywordGroupNode?: Element | null) {
-    if (!keywordGroupNode) {
-      return []
+  parseKeywords(keywordGroupNodes?: NodeListOf<Element> | null) {
+    if (!keywordGroupNodes) {
+      return { groups: [], keywords: [] }
     }
 
     let keywordPriority = 1
-    const keywords = []
+    const keywordGroups: {
+      groups: Build<KeywordGroup>[]
+      keywords: Build<Keyword>[]
+    } = { groups: [], keywords: [] }
 
-    for (const keywordNode of keywordGroupNode.querySelectorAll('kwd')) {
-      if (keywordNode.textContent) {
-        const keyword = buildKeyword(keywordNode.textContent)
-        keyword.priority = keywordPriority
-        keywordPriority++
-        keywords.push(keyword)
+    for (const keywordGroupNode of keywordGroupNodes) {
+      const manuscriptKeywordGroup = buildKeywordGroup({
+        title: keywordGroupNode.querySelector('title')?.innerText,
+        label: keywordGroupNode.querySelector('label')?.innerText,
+        type: keywordGroupNode.getAttribute('kwd-group-type') || undefined,
+      })
+      keywordGroups.groups.push(manuscriptKeywordGroup)
+
+      for (const keywordNode of keywordGroupNode.querySelectorAll('kwd')) {
+        if (keywordNode.textContent) {
+          const keyword = buildKeyword(keywordNode.textContent)
+          keyword.priority = keywordPriority++
+          keyword.containedGroup = manuscriptKeywordGroup._id
+          keywordGroups.keywords.push(keyword)
+        }
       }
     }
-    return keywords
+
+    return keywordGroups
   },
   parseAffiliationNodes(affiliationNodes: Element[]) {
     const affiliationIDs = new Map<string, string>()

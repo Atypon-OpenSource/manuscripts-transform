@@ -24,6 +24,7 @@ import {
   InlineStyle,
   Journal,
   Keyword,
+  KeywordGroup,
   Model,
   ObjectTypes,
 } from '@manuscripts/manuscripts-json-schema'
@@ -1517,9 +1518,36 @@ export class JATSExporter {
       .map((id) => this.modelMap.get(id) as Keyword | undefined)
       .filter((model) => model && model.name) as Keyword[]
 
-    if (keywords.length) {
+    const keywordGroups = new Map<string, Array<Keyword>>()
+
+    keywords.forEach((keyword) => {
+      const containedGroup = keyword.containedGroup || ''
+      const group = keywordGroups.get(containedGroup)
+      if (group) {
+        group.push(keyword)
+      } else {
+        keywordGroups.set(containedGroup, [keyword])
+      }
+    })
+
+    for (const [groupID, keywords] of keywordGroups) {
+      const keywordGroup = (this.modelMap.get(groupID) || {}) as KeywordGroup
       const kwdGroup = this.document.createElement('kwd-group')
-      kwdGroup.setAttribute('kwd-group-type', 'author')
+
+      if (keywordGroup.type) {
+        kwdGroup.setAttribute('kwd-group-type', keywordGroup.type)
+      }
+      if (keywordGroup.label) {
+        const label = this.document.createElement('label')
+        label.textContent = keywordGroup.label
+        kwdGroup.appendChild(label)
+      }
+      if (keywordGroup.title) {
+        const title = this.document.createElement('title')
+        title.textContent = keywordGroup.title
+        kwdGroup.appendChild(title)
+      }
+
       articleMeta.appendChild(kwdGroup)
 
       for (const keyword of keywords) {

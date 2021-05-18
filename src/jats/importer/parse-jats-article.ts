@@ -62,10 +62,11 @@ export const parseJATSFront = async (front: Element) => {
     )?.textContent,
   }
 
-  const keywordGroupNode =
-    articleMeta?.querySelector('kwd-group[kwd-group-type="author"]') ||
-    articleMeta?.querySelector('kwd-group')
-  const keywords = jatsFrontParser.parseKeywords(keywordGroupNode)
+  const keywordGroupNodes = articleMeta?.querySelectorAll('kwd-group')
+  const { keywords, groups: keywordGroups } = jatsFrontParser.parseKeywords(
+    keywordGroupNodes
+  )
+
   const manuscript_keywordIDs =
     keywords.length > 0 ? keywords.map((k) => k._id) : undefined
 
@@ -103,6 +104,7 @@ export const parseJATSFront = async (front: Element) => {
     ...keywords,
     ...affiliations,
     ...authors,
+    ...keywordGroups,
     journal,
   ])
 }
@@ -201,7 +203,6 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
 
   const bodyDoc = parseJATSBody(doc, body, refModels)
   const bodyModels = [...encode(bodyDoc).values()]
-
   // TODO: use ISSN from journal-meta to choose a template
   return [...frontModels, ...bodyModels, ...refModels]
 }

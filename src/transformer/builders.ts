@@ -37,6 +37,7 @@ import {
   InlineStyle,
   Journal,
   Keyword,
+  KeywordGroup,
   LibraryCollection,
   Manuscript,
   ManuscriptKeyword,
@@ -51,6 +52,7 @@ import {
   Submission,
   UserProfileAffiliation,
 } from '@manuscripts/manuscripts-json-schema'
+import { identity, pickBy } from 'lodash'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { generateID } from './id'
@@ -170,6 +172,16 @@ export const buildKeyword = (name: string): Build<Keyword> => ({
   _id: generateID(ObjectTypes.Keyword),
   objectType: ObjectTypes.Keyword,
   name,
+})
+
+export const buildKeywordGroup = (attributes: {
+  type?: string
+  title?: string
+  label?: string
+}): Build<KeywordGroup> => ({
+  _id: generateID(ObjectTypes.KeywordGroup),
+  objectType: ObjectTypes.KeywordGroup,
+  ...pickBy(attributes, identity),
 })
 
 export const buildManuscriptKeyword = (

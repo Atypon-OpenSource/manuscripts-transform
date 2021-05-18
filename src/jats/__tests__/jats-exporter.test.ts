@@ -31,6 +31,7 @@ import { journalMeta } from '../../transformer/__tests__/__helpers__/journal-met
 import { submissions } from '../../transformer/__tests__/__helpers__/submissions'
 import { isFigure, isManuscript } from '../../transformer/object-types'
 import {
+  findManuscript,
   parseProjectBundle,
   ProjectBundle,
 } from '../../transformer/project-bundle'
@@ -272,6 +273,43 @@ describe('JATS exporter', () => {
     expect(xml).toMatch(/<self-uri content-type="pdf" xlink:href="123.pdf"\/>/)
   })
 
+  test('Export keywords groups', async () => {
+    const projectBundle = cloneProjectBundle(input)
+
+    const { doc, modelMap } = parseProjectBundle(projectBundle)
+    const keywords = [
+      {
+        _id: 'MPKeywordGroup:test',
+        objectType: 'MPKeywordGroup',
+        type: 'author',
+        title: 'test title',
+        label: 'label',
+      },
+      {
+        _id: 'MPKeyword:test',
+        objectType: 'MPKeyword',
+        name: 'suicide attempters',
+        containedGroup: 'MPKeywordGroup:test',
+        priority: 5,
+      },
+    ]
+    findManuscript(modelMap).keywordIDs = ['MPKeyword:test']
+
+    for (const value of keywords) {
+      modelMap.set(value._id, value as any)
+    }
+    const transformer = new JATSExporter()
+    const xml = await transformer.serializeToJATS(doc.content, modelMap, {
+      version: '1.2',
+    })
+
+    const { errors } = parseXMLWithDTD(xml)
+
+    expect(errors).toHaveLength(0)
+
+    expect(xml).toMatchSnapshot()
+  })
+
   test('Export link', async () => {
     const projectBundle = cloneProjectBundle(input)
 
@@ -469,9 +507,7 @@ describe('JATS exporter', () => {
 
     const output = parseXMLWithDTD(xml)
 
-    const kwds = output.find<XMLElement>(
-      '//kwd-group[@kwd-group-type="author"]/kwd'
-    )
+    const kwds = output.find<XMLElement>('//kwd-group/kwd')
 
     expect(kwds).toHaveLength(2)
     expect(kwds[0]!.text()).toBe('Foo')
