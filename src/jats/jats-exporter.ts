@@ -265,6 +265,7 @@ export class JATSExporter {
 
       this.moveAbstract(front, body)
       this.moveSectionsToBack(back, body)
+      this.moveFloatsGroup(body, article)
     }
 
     await this.rewriteIDs(idGenerator)
@@ -1783,6 +1784,19 @@ export class JATSExporter {
       }
 
       back.insertBefore(ack, back.firstChild)
+    }
+  }
+
+  private moveFloatsGroup = (body: HTMLElement, article: HTMLElement) => {
+    const floatsGroup = this.document.createElement('floats-group')
+    const section = body.querySelector('sec[sec-type="floating-element"]')
+    if (section) {
+      floatsGroup.append(...section.children)
+
+      if (section?.parentNode) {
+        section.parentNode.removeChild(section)
+      }
+      article.appendChild(floatsGroup)
     }
   }
 

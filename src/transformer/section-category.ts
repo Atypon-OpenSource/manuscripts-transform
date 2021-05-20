@@ -42,6 +42,7 @@ export type SectionCategory =
   | 'MPSectionCategory:materials-method'
   | 'MPSectionCategory:results'
   | 'MPSectionCategory:toc'
+  | 'MPSectionCategory:floating-element'
 
 export type SecType =
   | 'abstract'
@@ -58,6 +59,7 @@ export type SecType =
   | 'methods'
   | 'results'
   | 'toc'
+  | 'floating-element'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -192,6 +194,9 @@ export const chooseSectionCategory = (
 
     case 'toc':
       return 'MPSectionCategory:toc'
+
+    case 'floating-element':
+      return 'MPSectionCategory:floating-element'
 
     default: {
       const titleNode = section.firstElementChild

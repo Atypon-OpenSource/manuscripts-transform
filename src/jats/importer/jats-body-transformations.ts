@@ -127,6 +127,20 @@ export const jatsBodyTransformations = {
 
     return section
   },
+  createFloatsGroupSection(
+    floatsGroup: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const section = createElement('sec')
+    section.setAttribute('sec-type', 'floating-element')
+
+    const title = createElement('title')
+    title.textContent = 'Floating Group'
+    section.appendChild(title)
+
+    section.append(...floatsGroup.children)
+    return section
+  },
   moveSectionsToBody(
     doc: Document,
     body: Element,
@@ -251,6 +265,21 @@ export const jatsBodyTransformations = {
           paragraphNode.parentNode.removeChild(paragraphNode)
         }
       })
+    }
+  },
+  moveFloatsGroupToBody(
+    doc: Document,
+    body: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const floatsGroup = doc.querySelector('floats-group')
+    if (floatsGroup) {
+      const floatsGroupSection = this.createFloatsGroupSection(
+        floatsGroup,
+        createElement
+      )
+      removeNodeFromParent(floatsGroup)
+      body.appendChild(floatsGroupSection)
     }
   },
 }

@@ -135,6 +135,7 @@ export const parseJATSBody = (
   refModels: Model[]
 ): ManuscriptNode => {
   const createElement = createElementFn(document)
+  jatsBodyTransformations.moveFloatsGroupToBody(document, body, createElement)
   jatsBodyTransformations.ensureSection(body, createElement)
   jatsBodyTransformations.moveSectionsToBody(document, body, createElement)
   jatsBodyTransformations.wrapFigures(body, createElement)
