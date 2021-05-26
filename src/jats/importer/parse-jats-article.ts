@@ -15,6 +15,13 @@
  */
 
 import {
+  CitationProvider,
+  createBibliographyElementContents,
+  loadCitationStyle,
+} from '@manuscripts/library'
+import {
+  BibliographyItem,
+  Bundle,
   Journal,
   Manuscript,
   Model,
@@ -26,6 +33,7 @@ import {
   Build,
   buildJournal,
   buildManuscript,
+  DEFAULT_BUNDLE,
 } from '../../transformer/builders'
 import { encode } from '../../transformer/encode'
 import { generateID } from '../../transformer/id'
@@ -98,15 +106,18 @@ export const parseJATSFront = async (front: Element) => {
     keywordIDs?: string[]
   }
 
-  return generateModelIDs([
-    manuscript,
-    ...bundleNodes,
-    ...keywords,
-    ...affiliations,
-    ...authors,
-    ...keywordGroups,
-    journal,
-  ])
+  return {
+    models: generateModelIDs([
+      manuscript,
+      ...bundleNodes,
+      ...keywords,
+      ...affiliations,
+      ...authors,
+      ...keywordGroups,
+      journal,
+    ]),
+    bundles: bundleNodes,
+  }
 }
 
 export const parseJATSReferences = (
@@ -126,18 +137,27 @@ export const parseJATSReferences = (
     referenceIDs
   )
 
-  return generateModelIDs([...references, ...crossReferences])
+  return {
+    references: generateModelIDs(references),
+    crossReferences: generateModelIDs(crossReferences),
+  }
 }
 
 export const parseJATSBody = (
   document: Document,
   body: Element,
+  bibliography: Element | null,
   refModels: Model[]
 ): ManuscriptNode => {
   const createElement = createElementFn(document)
   jatsBodyTransformations.moveFloatsGroupToBody(document, body, createElement)
   jatsBodyTransformations.ensureSection(body, createElement)
-  jatsBodyTransformations.moveSectionsToBody(document, body, createElement)
+  jatsBodyTransformations.moveSectionsToBody(
+    document,
+    body,
+    bibliography,
+    createElement
+  )
   jatsBodyTransformations.wrapFigures(body, createElement)
   jatsBodyTransformations.moveCaptionsToEnd(body)
   jatsBodyTransformations.unwrapParagraphsInCaptions(body)
@@ -151,6 +171,23 @@ export const parseJATSBody = (
   //   console.debug(warnings)
   // }
   return node.firstChild
+}
+
+const createBibliography = async (
+  citations: BibliographyItem[],
+  bundles: Bundle[]
+) => {
+  const styleOpts = { bundle: bundles[0], bundleID: DEFAULT_BUNDLE }
+  const citationStyle = await loadCitationStyle(styleOpts)
+  const [
+    bibmeta,
+    bibliographyItems,
+  ] = CitationProvider.makeBibliographyFromCitations(citations, citationStyle)
+
+  if (bibmeta.bibliography_errors.length) {
+    console.error(bibmeta.bibliography_errors)
+  }
+  return createBibliographyElementContents(bibliographyItems)
 }
 
 const transformTables = (
@@ -197,13 +234,21 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
     throw Error('Invalid JATS format! Missing front, body or back element')
   }
   const createElement = createElementFn(document)
-  const frontModels = await parseJATSFront(front)
-  const refModels = parseJATSReferences(back, body, createElement)
+  const { models: frontModels, bundles } = await parseJATSFront(front)
+  const { references, crossReferences } = parseJATSReferences(
+    back,
+    body,
+    createElement
+  )
 
   transformTables(doc.querySelectorAll('table-wrap > table'), createElement)
+  const bibliography = await createBibliography(
+    references as BibliographyItem[],
+    bundles
+  )
 
-  const bodyDoc = parseJATSBody(doc, body, refModels)
+  const bodyDoc = parseJATSBody(doc, body, bibliography, crossReferences)
   const bodyModels = [...encode(bodyDoc).values()]
   // TODO: use ISSN from journal-meta to choose a template
-  return [...frontModels, ...bodyModels, ...refModels]
+  return [...frontModels, ...bodyModels, ...references, ...crossReferences]
 }

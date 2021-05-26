@@ -34,8 +34,9 @@ export const parseSTSFront = (front: Element) => {
 export const parseSTSBody = (
   document: Document,
   body: Element,
+  bibliography: Element | null,
   refModels: Model[]
-): ManuscriptNode => parseJATSBody(document, body, refModels)
+): ManuscriptNode => parseJATSBody(document, body, bibliography, refModels)
 
 const generateModelIDs = (models: Build<Model>[]) =>
   models.map((m) =>
@@ -49,7 +50,7 @@ export const parseSTSStandard = async (doc: Document): Promise<Model[]> => {
     throw Error('Invalid STS format! Missing body or front element')
   }
   const frontModels = parseSTSFront(front)
-  const node = parseSTSBody(doc, body, frontModels)
+  const node = parseSTSBody(doc, body, null, frontModels)
   const bodyModels = encode(node).values()
 
   return [...frontModels, ...bodyModels]

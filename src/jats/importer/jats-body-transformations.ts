@@ -90,13 +90,12 @@ export const jatsBodyTransformations = {
     return section
   },
   createBibliography(
-    refList: Element,
+    titleNode: Element | null,
+    bibliography: Element | null,
     createElement: (tagName: string) => HTMLElement
   ) {
     const section = createElement('sec')
     section.setAttribute('sec-type', 'bibliography')
-
-    const titleNode = refList.querySelector('title')
 
     if (titleNode) {
       section.appendChild(titleNode)
@@ -106,7 +105,11 @@ export const jatsBodyTransformations = {
       section.appendChild(title)
     }
 
-    // TODO: generate bibliography?
+    if (bibliography) {
+      const bib = createElement('bibliography')
+      bib.appendChild(bibliography)
+      section.appendChild(bib)
+    }
 
     return section
   },
@@ -152,6 +155,7 @@ export const jatsBodyTransformations = {
   moveSectionsToBody(
     doc: Document,
     body: Element,
+    bibliographyEl: Element | null,
     createElement: (tagName: string) => HTMLElement
   ) {
     const abstractNode = doc.querySelector('front > article-meta > abstract')
@@ -181,7 +185,11 @@ export const jatsBodyTransformations = {
     // move bibliography from back to body section
     const refList = doc.querySelector('back > ref-list')
     if (refList) {
-      const bibliography = this.createBibliography(refList, createElement)
+      const bibliography = this.createBibliography(
+        refList.querySelector('title'),
+        bibliographyEl,
+        createElement
+      )
       removeNodeFromParent(refList)
       body.appendChild(bibliography)
     }

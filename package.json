@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@manuscripts/data": "^0.1.3",
+    "@manuscripts/library": "^0.6.0",
     "@manuscripts/manuscripts-json-schema": "^1.46.7",
     "debug": "^4.1.1",
     "lodash.pickby": "^4.6.0",

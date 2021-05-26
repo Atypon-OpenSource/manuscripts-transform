@@ -42,7 +42,7 @@ describe('STS exporter', () => {
     const body = standard.querySelector('body') as Element
 
     const frontModels = parseSTSFront(front)
-    const doc = await parseSTSBody(standard, body, [])
+    const doc = await parseSTSBody(standard, body, null, [])
 
     const transformer = new STSExporter()
     const xml = transformer.serializeToSTS(

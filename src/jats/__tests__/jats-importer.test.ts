@@ -23,7 +23,7 @@ describe('JATS importer', () => {
     const article = await readAndParseFixture('jats-example.xml')
 
     const body = article.querySelector('body') as Element
-    const doc = parseJATSBody(article, body, [])
+    const doc = parseJATSBody(article, body, null, [])
 
     doc.descendants((node) => {
       // TODO: validate ids before deleting them
@@ -39,7 +39,7 @@ describe('JATS importer', () => {
     const article = await readAndParseFixture('jats-example-full.xml')
 
     const body = article.querySelector('body') as Element
-    const doc = parseJATSBody(article, body, [])
+    const doc = parseJATSBody(article, body, null, [])
 
     doc.descendants((node) => {
       // TODO: validate ids before deleting them
@@ -64,7 +64,7 @@ describe('JATS importer', () => {
   test('parses JATS front to Manuscripts models', async () => {
     const article = await readAndParseFixture('jats-example.xml')
     const front = article.querySelector('front') as Element
-    const models = await parseJATSFront(front)
+    const { models } = await parseJATSFront(front)
 
     expect(normalizeIDs(models)).toMatchSnapshot()
   })

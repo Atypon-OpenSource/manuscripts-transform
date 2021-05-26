@@ -43,7 +43,7 @@ describe('STS importer', () => {
     const body = standard.querySelector('body') as Element
 
     const start = performance.now()
-    const bodyDoc = parseSTSBody(standard, body, [])
+    const bodyDoc = parseSTSBody(standard, body, null, [])
 
     bodyDoc.descendants((node) => {
       // TODO: validate ids before deleting them

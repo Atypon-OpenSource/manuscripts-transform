@@ -21,6 +21,7 @@ import projectDump from '@manuscripts/examples/data/project-dump.json'
 import {
   Keyword,
   Manuscript,
+  Model,
   ObjectTypes,
   ParagraphElement,
   Section,
@@ -296,7 +297,7 @@ describe('JATS exporter', () => {
     findManuscript(modelMap).keywordIDs = ['MPKeyword:test']
 
     for (const value of keywords) {
-      modelMap.set(value._id, value as any)
+      modelMap.set(value._id, (value as unknown) as Model)
     }
     const transformer = new JATSExporter()
     const xml = await transformer.serializeToJATS(doc.content, modelMap, {
