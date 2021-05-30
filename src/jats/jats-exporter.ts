@@ -54,7 +54,6 @@ import { hasObjectType } from '../transformer/object-types'
 import {
   findLatestManuscriptSubmission,
   findManuscript,
-  findManuscriptModelByType,
 } from '../transformer/project-bundle'
 import { chooseSecType } from '../transformer/section-category'
 import { IDGenerator, MediaPathGenerator } from '../types'
@@ -388,11 +387,9 @@ export class JATSExporter {
     const articleMeta = this.document.createElement('article-meta')
     front.appendChild(articleMeta)
 
-    const journal = findManuscriptModelByType<Journal>(
-      this.modelMap,
-      manuscript,
-      ObjectTypes.Journal
-    )
+    const journal = [...this.modelMap.values()].find(
+      (model) => model.objectType === ObjectTypes.Journal
+    ) as Journal | undefined
 
     if (journal) {
       if (journal.journalIdentifiers) {
