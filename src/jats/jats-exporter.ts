@@ -1266,11 +1266,21 @@ export class JATSExporter {
       .filter((contributor) => contributor.role === 'author')
       .sort(sortContributors)
 
+    const affiliationLabels = new Map<string, number>()
+    const creatAffiliationLabel = (rid: string) => {
+      let label = affiliationLabels.get(rid)
+      if (!label) {
+        label = affiliationLabels.size + 1
+        affiliationLabels.set(rid, label)
+      }
+      const sup = this.document.createElement('sup')
+      sup.textContent = String(label)
+      return sup
+    }
     if (authorContributors.length) {
       const contribGroup = this.document.createElement('contrib-group')
       contribGroup.setAttribute('content-type', 'authors')
       articleMeta.appendChild(contribGroup)
-
       authorContributors.forEach((contributor) => {
         try {
           this.validateContributor(contributor)
@@ -1324,12 +1334,12 @@ export class JATSExporter {
             }
           })
         }
-
         if (contributor.affiliations) {
           contributor.affiliations.forEach((rid) => {
             const xref = this.document.createElement('xref')
             xref.setAttribute('ref-type', 'aff')
             xref.setAttribute('rid', normalizeID(rid))
+            xref.appendChild(creatAffiliationLabel(rid))
             contrib.appendChild(xref)
           })
         }
@@ -1393,6 +1403,7 @@ export class JATSExporter {
               const xref = this.document.createElement('xref')
               xref.setAttribute('ref-type', 'aff')
               xref.setAttribute('rid', normalizeID(rid))
+              xref.appendChild(creatAffiliationLabel(rid))
               contrib.appendChild(xref)
             })
           }
@@ -1471,6 +1482,12 @@ export class JATSExporter {
             const country = this.document.createElement('country')
             country.textContent = affiliation.country
             aff.appendChild(country)
+          }
+          const labelNumber = affiliationLabels.get(affiliation._id)
+          if (labelNumber) {
+            const label = this.document.createElement('label')
+            label.textContent = String(labelNumber)
+            aff.appendChild(label)
           }
         })
       }
