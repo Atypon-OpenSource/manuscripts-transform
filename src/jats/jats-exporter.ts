@@ -21,6 +21,7 @@ import {
   Citation,
   Contributor,
   ContributorRole,
+  FigureElement,
   InlineStyle,
   Journal,
   Keyword,
@@ -849,11 +850,16 @@ export class JATSExporter {
             warn(`Unset ref-type for objectType ${referencedObject.objectType}`)
           }
         }
-
-        xref.setAttribute(
-          'rid',
-          normalizeID(auxiliaryObjectReference.referencedObject)
-        )
+        let rid = normalizeID(auxiliaryObjectReference.referencedObject)
+        const referencedObjectId = auxiliaryObjectReference.referencedObject
+        const refObjectModel = getModel<FigureElement>(referencedObjectId)
+        if (refObjectModel && refObjectModel.containedObjectIDs) {
+          const objectId = refObjectModel.containedObjectIDs.find(Boolean)
+          if (objectId) {
+            rid = normalizeID(objectId)
+          }
+        }
+        xref.setAttribute('rid', rid)
 
         xref.textContent = node.attrs.label
 
