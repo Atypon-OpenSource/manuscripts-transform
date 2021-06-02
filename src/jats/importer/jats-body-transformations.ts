@@ -138,6 +138,15 @@ export const jatsBodyTransformations = {
 
     return section
   },
+  createAppendixSection(
+    app: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const section = createElement('sec')
+    section.setAttribute('sec-type', 'appendices')
+    section.append(...app.children)
+    return section
+  },
   createFloatsGroupSection(
     floatsGroup: Element,
     createElement: (tagName: string) => HTMLElement
@@ -182,6 +191,14 @@ export const jatsBodyTransformations = {
       body.appendChild(acknowledgements)
     }
 
+    //move appendices from back to body
+    const appGroup = doc.querySelectorAll('back > app-group > app')
+
+    for (const app of appGroup) {
+      const appendix = this.createAppendixSection(app, createElement)
+      removeNodeFromParent(app)
+      body.appendChild(appendix)
+    }
     // move bibliography from back to body section
     const refList = doc.querySelector('back > ref-list')
     if (refList) {

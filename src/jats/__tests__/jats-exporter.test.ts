@@ -121,6 +121,33 @@ describe('JATS exporter', () => {
     expect(result).not.toBeNull()
   })
 
+  test('move appendices to back by section category', async () => {
+    const projectBundle = cloneProjectBundle(input)
+
+    const model: Section = {
+      _id: 'MPSection:123',
+      objectType: 'MPSection',
+      createdAt: 0,
+      updatedAt: 0,
+      category: 'MPSectionCategory:appendices',
+      title: 'Foo',
+      label: 'Bar',
+      manuscriptID: 'MPManuscript:1',
+      containerID: 'MPProject:1',
+      path: ['MPSection:123'],
+      sessionID: 'foo',
+      priority: 0,
+    }
+
+    projectBundle.data.push(model)
+
+    const { doc, modelMap } = parseProjectBundle(projectBundle)
+
+    const transformer = new JATSExporter()
+    const xml = await transformer.serializeToJATS(doc.content, modelMap)
+    expect(xml).toMatchSnapshot()
+  })
+
   test('move abstract to front by title', async () => {
     const projectBundle = cloneProjectBundle(input)
 

@@ -1782,6 +1782,22 @@ export class JATSExporter {
 
       back.insertBefore(ack, back.firstChild)
     }
+    const appendicesSections = body.querySelectorAll(
+      'sec[sec-type="appendices"]'
+    )
+
+    if (appendicesSections) {
+      const appGroup = this.document.createElement('app-group')
+      appendicesSections.forEach((section) => {
+        if (section.parentNode) {
+          section.parentNode.removeChild(section)
+        }
+        const app = this.document.createElement('app')
+        app.appendChild(section)
+        appGroup.appendChild(app)
+      })
+      back.insertBefore(appGroup, back.firstChild)
+    }
   }
 
   private moveFloatsGroup = (body: HTMLElement, article: HTMLElement) => {

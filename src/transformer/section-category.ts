@@ -43,6 +43,7 @@ export type SectionCategory =
   | 'MPSectionCategory:results'
   | 'MPSectionCategory:toc'
   | 'MPSectionCategory:floating-element'
+  | 'MPSectionCategory:appendices'
 
 export type SecType =
   | 'abstract'
@@ -60,6 +61,7 @@ export type SecType =
   | 'results'
   | 'toc'
   | 'floating-element'
+  | 'appendices'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -197,7 +199,8 @@ export const chooseSectionCategory = (
 
     case 'floating-element':
       return 'MPSectionCategory:floating-element'
-
+    case 'appendices':
+      return 'MPSectionCategory:appendices'
     default: {
       const titleNode = section.firstElementChild
 

@@ -4342,6 +4342,76 @@ Object {
     },
     Object {
       "attrs": Object {
+        "category": "MPSectionCategory:appendices",
+        "pageBreakStyle": undefined,
+        "titleSuppressed": false,
+      },
+      "content": Array [
+        Object {
+          "content": Array [
+            Object {
+              "text": "This is an appendix",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "category": "",
+            "pageBreakStyle": undefined,
+            "titleSuppressed": false,
+          },
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "text": "Appendix_Head_1",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "category": "",
+                "pageBreakStyle": undefined,
+                "titleSuppressed": false,
+              },
+              "content": Array [
+                Object {
+                  "content": Array [
+                    Object {
+                      "text": "Appendix_Head_2",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "section_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Appendix_Text",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "section",
+            },
+          ],
+          "type": "section",
+        },
+      ],
+      "type": "section",
+    },
+    Object {
+      "attrs": Object {
         "category": "MPSectionCategory:bibliography",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
@@ -5817,6 +5887,65 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
+    "category": "MPSectionCategory:appendices",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+      "MPFootnotesElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 13,
+    "title": "Exporter EU exporter HIC exporter Average number of employed (log) 1.4904***",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><br />(.0107) .6878***<br />(.0225) .6473***<br />(.0222) Average number of female employed (log) 1.0341***<br />(.0104) .6266***<br />(.0220) .5870***<br />(.0219) Female employment share -.1245***<br />(.0023) .0271***<br />(.0036) .0355***<br />(.0036) Average wages (log) .9177***<br />(.0089) .2975***<br />(.0138) .2755***<br />(.0136) Average female wages (log) .8062***<br />(.0089) .2322***<br />(.0142) .2103***<br />(.0141) Female-to-male wage ratio -.0572***<br />(.0122) -.0316<br />(.0194) -.0488**<br />(.0192) Average turnover (log) 2.5000***<br />(.0171) .9636***<br />(.0292) .9103***<br />(.0288)</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPFootnotesElement:test",
+    "contents": "<div></div>",
+    "elementType": "div",
+    "objectType": "MPFootnotesElement",
+  },
+  Object {
+    "_id": "MPFootnote:test",
+    "containingObject": "MPFootnotesElement:test",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">Source: GEOSTAT Statistics Survey of Enterprises for 2006-2017.</p><p id=\\"MPParagraphElement:test\\">Notes: HIC = high income country. Exporters are firms that exported in at least 1 year of the sample. EU / HIC exporters are firms that exported to the EU / high income country in at least 1 year of the sample. Column 2: difference in means in log workers, log wages, log turnover between exporters and non-exporters, controlling for year and 1-digit industry. Column 3: difference in means between firms that export to at least one EU destination and non-EU exporters, controlling for year and 1-digit industry. Column 4: difference in means between firms that export to at least one HIC destination and non-HIC exporters, controlling for year and 1-digit industry. ***Significant at the 1% level, **Significant at the 5% level, *Significant at the 10% level.</p></div>",
+    "kind": "footnote",
+    "objectType": "MPFootnote",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Source: GEOSTAT Statistics Survey of Enterprises for 2006-2017.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Notes: HIC = high income country. Exporters are firms that exported in at least 1 year of the sample. EU / HIC exporters are firms that exported to the EU / high income country in at least 1 year of the sample. Column 2: difference in means in log workers, log wages, log turnover between exporters and non-exporters, controlling for year and 1-digit industry. Column 3: difference in means between firms that export to at least one EU destination and non-EU exporters, controlling for year and 1-digit industry. Column 4: difference in means between firms that export to at least one HIC destination and non-HIC exporters, controlling for year and 1-digit industry. ***Significant at the 1% level, **Significant at the 5% level, *Significant at the 10% level.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+      "MPSection:test",
+    ],
+    "priority": 14,
+    "title": "Difference between exporting vs. non-exporting firms",
+  },
+  Object {
+    "_id": "MPSection:test",
     "category": "MPSectionCategory:bibliography",
     "elementIDs": Array [
       "MPBibliographyElement:test",
@@ -5825,7 +5954,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 15,
     "title": "References",
   },
   Object {
@@ -5993,7 +6122,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 16,
     "title": "Footnotes",
   },
   Object {
