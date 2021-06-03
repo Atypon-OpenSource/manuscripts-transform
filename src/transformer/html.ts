@@ -440,7 +440,10 @@ export class HTMLTransformer {
         crossReferenceNode.attrs.rid
       )
 
-      if (auxiliaryObjectReference) {
+      if (
+        auxiliaryObjectReference &&
+        auxiliaryObjectReference.referencedObject
+      ) {
         element.setAttribute(
           'href',
           `#${auxiliaryObjectReference.referencedObject}`
@@ -448,6 +451,7 @@ export class HTMLTransformer {
 
         element.setAttribute('data-reference-ids', crossReferenceNode.attrs.rid)
       }
+      // TODO:: handle multiple reference
 
       element.textContent = crossReferenceNode.attrs.label
 

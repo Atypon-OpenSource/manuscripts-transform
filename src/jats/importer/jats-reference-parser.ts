@@ -203,9 +203,10 @@ export const jatsReferenceParser = {
             break
           default:
             {
+              const rids = rid.trim().split(/\s+/)
               const auxiliaryObjectReference = buildAuxiliaryObjectReference(
                 '', // TODO: closest id
-                rid // TODO: new figure id
+                rids // TODO: new figure id
               )
 
               modelNodes.push(auxiliaryObjectReference)

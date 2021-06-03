@@ -838,7 +838,9 @@ export class JATSExporter {
 
         const xref = this.document.createElement('xref')
         const referencedObject = getModel<Model>(
-          auxiliaryObjectReference.referencedObject
+          auxiliaryObjectReference.referencedObject ||
+            (auxiliaryObjectReference?.referencedObjects &&
+              auxiliaryObjectReference.referencedObjects[0])
         )
 
         if (referencedObject) {
@@ -850,16 +852,31 @@ export class JATSExporter {
             warn(`Unset ref-type for objectType ${referencedObject.objectType}`)
           }
         }
-        let rid = normalizeID(auxiliaryObjectReference.referencedObject)
-        const referencedObjectId = auxiliaryObjectReference.referencedObject
-        const refObjectModel = getModel<FigureElement>(referencedObjectId)
-        if (refObjectModel && refObjectModel.containedObjectIDs) {
-          const objectId = refObjectModel.containedObjectIDs.find(Boolean)
-          if (objectId) {
-            rid = normalizeID(objectId)
+
+        const getReferencedObjectId = (referencedObject: string) => {
+          let rid = normalizeID(referencedObject)
+          const refObjectModel = getModel<FigureElement>(referencedObject)
+          if (refObjectModel && refObjectModel.containedObjectIDs) {
+            const objectId = refObjectModel.containedObjectIDs.find(Boolean)
+            if (objectId) {
+              rid = normalizeID(objectId)
+            }
           }
+          return rid
         }
-        xref.setAttribute('rid', rid)
+
+        if (auxiliaryObjectReference.referencedObjects) {
+          const rid = auxiliaryObjectReference.referencedObjects
+            ?.map((referencedObject) => getReferencedObjectId(referencedObject))
+            .join(' ')
+          xref.setAttribute('rid', rid)
+        }
+        if (auxiliaryObjectReference.referencedObject) {
+          const rid = getReferencedObjectId(
+            auxiliaryObjectReference.referencedObject
+          )
+          xref.setAttribute('rid', rid)
+        }
 
         xref.textContent = node.attrs.label
 

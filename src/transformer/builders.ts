@@ -141,13 +141,22 @@ export const buildBibliographicDate = (
 
 export const buildAuxiliaryObjectReference = (
   containingObject: string,
-  referencedObject: string
-): Build<AuxiliaryObjectReference> => ({
-  _id: generateID(ObjectTypes.AuxiliaryObjectReference),
-  objectType: ObjectTypes.AuxiliaryObjectReference,
-  containingObject: containingObject || undefined,
-  referencedObject,
-})
+  rids: string[]
+): Build<AuxiliaryObjectReference> => {
+  const auxiliaryObjectReference = {
+    _id: generateID(ObjectTypes.AuxiliaryObjectReference),
+    objectType: ObjectTypes.AuxiliaryObjectReference,
+    containingObject: containingObject || undefined,
+  }
+
+  if (rids.length < 2) {
+    Object.assign(auxiliaryObjectReference, { referencedObject: rids[0] })
+  } else {
+    Object.assign(auxiliaryObjectReference, { referencedObjects: rids })
+  }
+
+  return auxiliaryObjectReference
+}
 
 export const buildEmbeddedCitationItem = (
   bibliographyItem: string

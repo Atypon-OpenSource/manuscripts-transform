@@ -116,7 +116,7 @@ describe('commands', () => {
   })
 
   test('build auxiliary object reference', () => {
-    const auxRef = buildAuxiliaryObjectReference('x', 'y')
+    const auxRef = buildAuxiliaryObjectReference('x', ['y'])
     expect(auxRef._id).toMatch(/MPAuxiliaryObjectReference:\S+/)
     expect(auxRef.objectType).toMatch(ObjectTypes.AuxiliaryObjectReference)
     expect(auxRef.containingObject).toMatch('x')

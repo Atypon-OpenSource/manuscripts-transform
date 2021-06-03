@@ -107,15 +107,31 @@ const addMissingRID = (
  */
 const fixReferences = (models: Model[], replacements: Map<string, string>) => {
   const warnings: string[] = []
+
+  const getReferenceId = (referencedObject: string) => {
+    const newReferencedId = replacements.get(referencedObject)
+    if (newReferencedId) {
+      return newReferencedId
+    } else {
+      warnings.push(
+        `Missing replacement for model.referencedObject ${referencedObject}`
+      )
+    }
+  }
+
   models.forEach((model) => {
     if (isAuxiliaryObjectReference(model)) {
-      const newReferencedId = replacements.get(model.referencedObject)
-      if (newReferencedId) {
-        model.referencedObject = newReferencedId
+      if (model.referencedObject) {
+        model.referencedObject = getReferenceId(model.referencedObject)
       } else {
-        warnings.push(
-          `Missing replacement for model.referencedObject ${model.referencedObject}`
-        )
+        const referencedObjects: string[] = []
+        model.referencedObjects?.map((reference) => {
+          const referenceId = getReferenceId(reference)
+          if (referenceId) {
+            referencedObjects.push(referenceId)
+          }
+        })
+        model.referencedObjects = referencedObjects
       }
     }
   })
