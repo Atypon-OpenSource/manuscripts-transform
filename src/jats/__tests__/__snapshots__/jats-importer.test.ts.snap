@@ -630,6 +630,7 @@ Array [
   Object {
     "_id": "MPKeywordGroup:test",
     "objectType": "MPKeywordGroup",
+    "title": "KEYWORDS: ",
     "type": "author",
   },
   Object {
@@ -4776,11 +4777,13 @@ Array [
   Object {
     "_id": "MPKeywordGroup:test",
     "objectType": "MPKeywordGroup",
+    "title": "JEL Classification: ",
     "type": "author",
   },
   Object {
     "_id": "MPKeywordGroup:test",
     "objectType": "MPKeywordGroup",
+    "title": "KEYWORDS: ",
     "type": "author",
   },
   Object {
