@@ -98,8 +98,10 @@ export const jatsFrontParser = {
 
     for (const keywordGroupNode of keywordGroupNodes) {
       const manuscriptKeywordGroup = buildKeywordGroup({
-        title: keywordGroupNode.querySelector('title')?.textContent || undefined,
-        label: keywordGroupNode.querySelector('label')?.textContent || undefined,
+        title:
+          keywordGroupNode.querySelector('title')?.textContent || undefined,
+        label:
+          keywordGroupNode.querySelector('label')?.textContent || undefined,
         type: keywordGroupNode.getAttribute('kwd-group-type') || undefined,
       })
       keywordGroups.groups.push(manuscriptKeywordGroup)
