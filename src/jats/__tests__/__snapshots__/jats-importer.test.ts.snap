@@ -4,8 +4,19 @@ exports[`JATS importer parses JATS article to Manuscripts models 1`] = `
 Array [
   Object {
     "_id": "MPManuscript:test",
+    "equationCount": "0",
+    "figureCount": "0",
+    "genericCounts": Array [
+      Object {
+        "count": "0",
+        "countType": "box",
+      },
+    ],
     "objectType": "MPManuscript",
+    "referencesCount": "2",
+    "tableCount": "0",
     "title": "A complete manuscript",
+    "wordCount": "2910",
   },
   Object {
     "_id": "MPContributor:test",
@@ -449,6 +460,14 @@ exports[`JATS importer parses JATS article with tables and table footnotes 1`] =
 Array [
   Object {
     "_id": "MPManuscript:test",
+    "equationCount": "0",
+    "figureCount": "3",
+    "genericCounts": Array [
+      Object {
+        "count": "0",
+        "countType": "box",
+      },
+    ],
     "keywordIDs": Array [
       "MPKeyword:test",
       "MPKeyword:test",
@@ -458,8 +477,11 @@ Array [
       "MPKeyword:test",
     ],
     "objectType": "MPManuscript",
+    "referencesCount": "21",
     "runningTitle": "low-dose anti-PD1 antibodies in cHL",
+    "tableCount": "3",
     "title": "Low-dose pembrolizumab and nivolumab were efficacious and safe in relapsed and refractory classical Hodgkin lymphoma: experience in a resource-constrained setting",
+    "wordCount": "6069",
   },
   Object {
     "_id": "MPKeyword:test",
@@ -3501,8 +3523,19 @@ exports[`JATS importer parses JATS front to Manuscripts models 1`] = `
 Array [
   Object {
     "_id": "MPManuscript:test",
+    "equationCount": "0",
+    "figureCount": "0",
+    "genericCounts": Array [
+      Object {
+        "count": "0",
+        "countType": "box",
+      },
+    ],
     "objectType": "MPManuscript",
+    "referencesCount": "2",
+    "tableCount": "0",
     "title": "A complete manuscript",
+    "wordCount": "2910",
   },
   Object {
     "_id": "MPContributor:test",

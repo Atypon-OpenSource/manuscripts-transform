@@ -73,6 +73,36 @@ export const jatsFrontParser = {
       ) as Bundle[],
     }
   },
+  parseCounts(counts: Element | null | undefined) {
+    if (counts) {
+      const genericCounts = []
+      const countElements = counts.querySelectorAll('count')
+      for (const element of countElements.values()) {
+        const countType = element.getAttribute('count-type')
+        const count = element.getAttribute('count')
+        if (countType && count) {
+          const genericCount = { count, countType }
+          genericCounts.push(genericCount)
+        }
+      }
+      return {
+        wordCount:
+          counts.querySelector('word-count')?.getAttribute('count') ||
+          undefined,
+        figureCount:
+          counts.querySelector('fig-count')?.getAttribute('count') || undefined,
+        tableCount:
+          counts.querySelector('table-count')?.getAttribute('count') ||
+          undefined,
+        equationCount:
+          counts.querySelector('equation-count')?.getAttribute('count') ||
+          undefined,
+        referencesCount:
+          counts.querySelector('ref-count')?.getAttribute('count') || undefined,
+        genericCounts: genericCounts.length > 0 ? genericCounts : undefined,
+      }
+    }
+  },
   parseJournal(journalMeta: Element | null): Partial<Journal> {
     if (!journalMeta) {
       return {

@@ -68,6 +68,7 @@ export const parseJATSFront = async (front: Element) => {
     runningTitle: articleMeta?.querySelector(
       'title-group > alt-title[alt-title-type="right-running"]'
     )?.textContent,
+    ...jatsFrontParser.parseCounts(articleMeta?.querySelector('counts')),
   }
 
   const keywordGroupNodes = articleMeta?.querySelectorAll('kwd-group')

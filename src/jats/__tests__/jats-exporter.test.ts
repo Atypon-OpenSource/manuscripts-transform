@@ -338,6 +338,29 @@ describe('JATS exporter', () => {
     expect(xml).toMatchSnapshot()
   })
 
+  test('Manuscript Counts', async () => {
+    const projectBundle = cloneProjectBundle(input)
+
+    const { doc, modelMap } = parseProjectBundle(projectBundle)
+
+    const manuscript = findManuscript(modelMap)
+
+    manuscript.wordCount = 41
+    manuscript.tableCount = 12
+    manuscript.figureCount = 23
+    manuscript.genericCounts = [{ countType: 'foo', count: 17 }]
+    const transformer = new JATSExporter()
+    const xml = await transformer.serializeToJATS(doc.content, modelMap, {
+      version: '1.2',
+    })
+
+    const { errors } = parseXMLWithDTD(xml)
+
+    expect(errors).toHaveLength(0)
+
+    expect(xml).toMatchSnapshot()
+  })
+
   test('Export link', async () => {
     const projectBundle = cloneProjectBundle(input)
 

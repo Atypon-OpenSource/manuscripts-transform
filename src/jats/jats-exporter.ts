@@ -522,6 +522,47 @@ export class JATSExporter {
       this.buildKeywords(articleMeta, manuscript.keywordIDs)
     }
 
+    let countingElements = []
+    if (manuscript.genericCounts) {
+      const elements = manuscript.genericCounts.map(
+        (el: { count: number; countType: string }) => {
+          const countingElement = this.buildCountingElement('count', el.count)
+          if (countingElement) {
+            countingElement.setAttribute('count-type', el.countType)
+          }
+          return countingElement
+        }
+      )
+      countingElements.push(...elements)
+    }
+
+    countingElements.push(
+      this.buildCountingElement('fig-count', manuscript.figureCount)
+    )
+
+    countingElements.push(
+      this.buildCountingElement('table-count', manuscript.tableCount)
+    )
+
+    countingElements.push(
+      this.buildCountingElement('equation-count', manuscript.equationCount)
+    )
+
+    countingElements.push(
+      this.buildCountingElement('ref-count', manuscript.referencesCount)
+    )
+
+    countingElements.push(
+      this.buildCountingElement('word-count', manuscript.wordCount)
+    )
+
+    countingElements = countingElements.filter((el) => el) as Array<HTMLElement>
+    if (countingElements.length > 0) {
+      const counts = this.document.createElement('counts')
+      counts.append(...countingElements)
+      articleMeta.append(counts)
+    }
+
     if (!journalMeta.hasChildNodes()) {
       journalMeta.remove()
     }
@@ -529,6 +570,16 @@ export class JATSExporter {
     return front
   }
 
+  protected buildCountingElement = (
+    tagName: string,
+    count: number | undefined
+  ) => {
+    if (count) {
+      const wordCount = this.document.createElement(tagName)
+      wordCount.setAttribute('count', String(count))
+      return wordCount
+    }
+  }
   protected buildBody = (fragment: ManuscriptFragment) => {
     const content = this.serializeFragment(fragment)
     const body = this.document.createElement('body')
