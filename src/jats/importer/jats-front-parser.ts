@@ -20,6 +20,7 @@ import {
   Keyword,
   KeywordGroup,
 } from '@manuscripts/manuscripts-json-schema'
+import debug from 'debug'
 
 import {
   Build,
@@ -35,6 +36,8 @@ import {
   loadIssnBundleIndex,
 } from '../../transformer/bundles-data'
 import { ISSN, parseJournalMeta } from './jats-journal-meta-parser'
+
+const warn = debug('manuscripts-transform')
 
 const chooseBundle = async (issns: ISSN[]): Promise<string | undefined> => {
   const issnBundleIndex = await loadIssnBundleIndex()
@@ -75,30 +78,41 @@ export const jatsFrontParser = {
   },
   parseCounts(counts: Element | null | undefined) {
     if (counts) {
+      const parseCount = (count: string | null | undefined) => {
+        if (count && /^-?\d+$/.test(count)) {
+          return parseInt(count)
+        } else if (count) {
+          warn(`Invalid count number for ${count}`)
+        }
+      }
+
       const genericCounts = []
       const countElements = counts.querySelectorAll('count')
       for (const element of countElements.values()) {
         const countType = element.getAttribute('count-type')
-        const count = element.getAttribute('count')
-        if (countType && count) {
+        const count = parseCount(element.getAttribute('count'))
+        if (countType && typeof count === 'number') {
           const genericCount = { count, countType }
           genericCounts.push(genericCount)
         }
       }
+
       return {
-        wordCount:
-          counts.querySelector('word-count')?.getAttribute('count') ||
-          undefined,
-        figureCount:
-          counts.querySelector('fig-count')?.getAttribute('count') || undefined,
-        tableCount:
-          counts.querySelector('table-count')?.getAttribute('count') ||
-          undefined,
-        equationCount:
-          counts.querySelector('equation-count')?.getAttribute('count') ||
-          undefined,
-        referencesCount:
-          counts.querySelector('ref-count')?.getAttribute('count') || undefined,
+        wordCount: parseCount(
+          counts.querySelector('word-count')?.getAttribute('count')
+        ),
+        figureCount: parseCount(
+          counts.querySelector('fig-count')?.getAttribute('count')
+        ),
+        tableCount: parseCount(
+          counts.querySelector('table-count')?.getAttribute('count')
+        ),
+        equationCount: parseCount(
+          counts.querySelector('equation-count')?.getAttribute('count')
+        ),
+        referencesCount: parseCount(
+          counts.querySelector('ref-count')?.getAttribute('count')
+        ),
         genericCounts: genericCounts.length > 0 ? genericCounts : undefined,
       }
     }
