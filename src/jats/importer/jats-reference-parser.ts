@@ -135,6 +135,10 @@ export const jatsReferenceParser = {
           name.suffix = suffix
         }
 
+        if (authorNode.nodeName === 'collab') {
+          name.literal = authorNode.textContent
+        }
+
         authors.push(name)
       })
 

@@ -2353,6 +2353,7 @@ Array [
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "National Comprehensive Cancer Network",
         "objectType": "MPBibliographicName",
       },
     ],
@@ -2421,62 +2422,77 @@ Array [
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "Alliance, Australasian Leukaemia and Lymphoma Group",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "Eastern Cooperative Oncology Group",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "European Mantle Cell Lymphoma Consortium",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "Italian Lymphoma Foundation",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "European Organisation for Research",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "Treatment of Cancer/Dutch Hemato-Oncology Group",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "Grupo Español de Médula Ósea",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "German High-Grade Lymphoma Study Group",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "German Hodgkin’s Study Group",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "Japanese Lymphorra Study Group",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "Lymphoma Study Association",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "NCIC Clinical Trials Group",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "Nordic Lymphoma Study Group",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "Southwest Oncology Group",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
+        "literal": "United Kingdom National Cancer Research Institute",
         "objectType": "MPBibliographicName",
       },
     ],

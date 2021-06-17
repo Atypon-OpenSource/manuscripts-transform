@@ -701,7 +701,15 @@ export class JATSExporter {
               name.appendChild(node)
             }
 
-            personGroupNode.appendChild(name)
+            if (name.hasChildNodes()) {
+              personGroupNode.appendChild(name)
+            }
+
+            if (author.literal) {
+              const collab = this.document.createElement('collab')
+              collab.textContent = author.literal
+              personGroupNode.appendChild(collab)
+            }
           })
         }
 
