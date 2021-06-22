@@ -19,6 +19,7 @@ import { parseXml } from 'libxmljs2'
 import mime from 'mime'
 
 import { createCounter, JATSExporter } from '../../jats/jats-exporter'
+import { findManuscript } from '../../transformer'
 import { Decoder } from '../../transformer/decode'
 import { IDGenerator, MediaPathGenerator } from '../../types'
 import { parseJATSArticle } from '../importer'
@@ -137,11 +138,17 @@ describe.skip('JATS transformer', () => {
     const idGenerator = createIdGenerator(articleID as string)
 
     const exporter = new JATSExporter()
-    const output = await exporter.serializeToJATS(article.content, modelMap, {
-      version: version as Version,
-      idGenerator,
-      mediaPathGenerator,
-    })
+    const manuscript = findManuscript(modelMap)
+    const output = await exporter.serializeToJATS(
+      article.content,
+      modelMap,
+      manuscript._id,
+      {
+        version: version as Version,
+        idGenerator,
+        mediaPathGenerator,
+      }
+    )
 
     const parsedInput = parseXMLWithDTD(input)
     const parsedOutput = parseXMLWithDTD(output)

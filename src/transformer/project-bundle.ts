@@ -104,3 +104,18 @@ export const findLatestManuscriptSubmission = (
 
   return submissions.length ? submissions[0] : undefined
 }
+
+export const findManuscriptById = (
+  modelMap: Map<string, Model>,
+  manuscriptID: string
+): Manuscript => {
+  const manuscript: Model | undefined = modelMap.get(manuscriptID)
+
+  if (manuscript && isManuscript(manuscript)) {
+    return manuscript as Manuscript
+  }
+
+  throw new Error(
+    `There is no manuscript found for the following _id (${manuscriptID})`
+  )
+}

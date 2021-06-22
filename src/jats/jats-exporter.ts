@@ -26,6 +26,7 @@ import {
   Journal,
   Keyword,
   KeywordGroup,
+  Manuscript,
   Model,
   ObjectTypes,
 } from '@manuscripts/manuscripts-json-schema'
@@ -55,6 +56,7 @@ import { hasObjectType } from '../transformer/object-types'
 import {
   findLatestManuscriptSubmission,
   findManuscript,
+  findManuscriptById,
 } from '../transformer/project-bundle'
 import { chooseSecType } from '../transformer/section-category'
 import { IDGenerator, MediaPathGenerator } from '../types'
@@ -209,6 +211,7 @@ export class JATSExporter {
   public serializeToJATS = async (
     fragment: ManuscriptFragment,
     modelMap: Map<string, Model>,
+    manuscriptID: string,
     options: JATSExporterOptions = {}
   ): Promise<string> => {
     const {
@@ -250,7 +253,10 @@ export class JATSExporter {
     const front = this.buildFront(doi, id, links)
     article.appendChild(front)
 
-    const manuscript = findManuscript(this.modelMap)
+    const manuscript: Manuscript = findManuscriptById(
+      this.modelMap,
+      manuscriptID
+    )
 
     if (!frontMatterOnly) {
       // TODO: format citations using template if citationType === 'mixed'
