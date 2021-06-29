@@ -324,6 +324,46 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
+    "category": "MPSectionCategory:competing-interests",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 10,
+    "title": "CONFLICT OF INTEREST",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">No conflicts of interest have been declared.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:financial-disclosure",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 11,
+    "title": "FUNDING INFORMATION",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
     "category": "MPSectionCategory:bibliography",
     "elementIDs": Array [
       "MPBibliographyElement:test",
@@ -332,7 +372,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 12,
     "title": "Bibliography",
   },
   Object {
@@ -351,6 +391,25 @@ Array [
 </div>",
     "elementType": "div",
     "objectType": "MPBibliographyElement",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:endnotes",
+    "elementIDs": Array [
+      "MPFootnotesElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 13,
+    "title": "Footnotes",
+  },
+  Object {
+    "_id": "MPFootnotesElement:test",
+    "contents": "<div></div>",
+    "elementType": "div",
+    "objectType": "MPFootnotesElement",
   },
   Object {
     "_id": "MPBibliographyItem:test",
@@ -1546,6 +1605,26 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
+    "category": "MPSectionCategory:competing-interests",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 25,
+    "title": "Acknowledgment and conflicts of interests",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">The authors have no acknowledgment to make and no conflicts of interests to declare.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
     "category": "MPSectionCategory:bibliography",
     "elementIDs": Array [
       "MPBibliographyElement:test",
@@ -1554,7 +1633,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 25,
+    "priority": 26,
     "title": "REFERENCES",
   },
   Object {
@@ -1656,7 +1735,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 26,
+    "priority": 27,
     "title": "Footnotes",
   },
   Object {
@@ -1664,27 +1743,6 @@ Array [
     "contents": "<div></div>",
     "elementType": "div",
     "objectType": "MPFootnotesElement",
-  },
-  Object {
-    "_id": "MPFootnote:test",
-    "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">Acknowledgment and conflicts of interests</p><p id=\\"MPParagraphElement:test\\">The authors have no acknowledgment to make and no conflicts of interests to declare.</p></div>",
-    "kind": "footnote",
-    "objectType": "MPFootnote",
-  },
-  Object {
-    "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Acknowledgment and conflicts of interests</p>",
-    "elementType": "p",
-    "objectType": "MPParagraphElement",
-    "placeholderInnerHTML": "",
-  },
-  Object {
-    "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">The authors have no acknowledgment to make and no conflicts of interests to declare.</p>",
-    "elementType": "p",
-    "objectType": "MPParagraphElement",
-    "placeholderInnerHTML": "",
   },
   Object {
     "DOI": "https://doi.org/10.1200/JCO.2016.66.4482",
@@ -4328,6 +4386,44 @@ Object {
     },
     Object {
       "attrs": Object {
+        "category": "MPSectionCategory:competing-interests",
+        "pageBreakStyle": undefined,
+        "titleSuppressed": false,
+      },
+      "content": Array [
+        Object {
+          "content": Array [
+            Object {
+              "text": "This is information about Competing Interests.",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+      ],
+      "type": "section",
+    },
+    Object {
+      "attrs": Object {
+        "category": "MPSectionCategory:financial-disclosure",
+        "pageBreakStyle": undefined,
+        "titleSuppressed": false,
+      },
+      "content": Array [
+        Object {
+          "content": Array [
+            Object {
+              "text": "This is a Financial Disclosure.",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+      ],
+      "type": "section",
+    },
+    Object {
+      "attrs": Object {
         "category": "MPSectionCategory:availability",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
@@ -4495,80 +4591,6 @@ Object {
             "kind": "footnote",
             "paragraphStyle": "",
           },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "kind": "footnote",
-                "paragraphStyle": "",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "Competing Interests",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "paragraph",
-                },
-                Object {
-                  "attrs": Object {
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "This is information about Competing Interests.",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "paragraph",
-                },
-              ],
-              "type": "footnote",
-            },
-            Object {
-              "attrs": Object {
-                "kind": "footnote",
-                "paragraphStyle": "",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "Financial Disclosure",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "paragraph",
-                },
-                Object {
-                  "attrs": Object {
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "This is a Financial Disclosure.",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "paragraph",
-                },
-              ],
-              "type": "footnote",
-            },
-          ],
           "type": "footnotes_element",
         },
         Object {
@@ -9212,6 +9234,70 @@ Object {
     },
     Object {
       "attrs": Object {
+        "category": "MPSectionCategory:competing-interests",
+        "pageBreakStyle": undefined,
+        "titleSuppressed": false,
+      },
+      "content": Array [
+        Object {
+          "content": Array [
+            Object {
+              "text": "CONFLICT OF INTEREST",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "paragraphStyle": "",
+            "placeholder": "",
+          },
+          "content": Array [
+            Object {
+              "text": "No conflicts of interest have been declared.",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "section",
+    },
+    Object {
+      "attrs": Object {
+        "category": "MPSectionCategory:financial-disclosure",
+        "pageBreakStyle": undefined,
+        "titleSuppressed": false,
+      },
+      "content": Array [
+        Object {
+          "content": Array [
+            Object {
+              "text": "FUNDING INFORMATION",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "paragraphStyle": "",
+            "placeholder": "",
+          },
+          "content": Array [
+            Object {
+              "text": "This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "section",
+    },
+    Object {
+      "attrs": Object {
         "category": "MPSectionCategory:bibliography",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
@@ -9228,6 +9314,27 @@ Object {
         },
       ],
       "type": "section",
+    },
+    Object {
+      "content": Array [
+        Object {
+          "content": Array [
+            Object {
+              "text": "Footnotes",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "kind": "footnote",
+            "paragraphStyle": "",
+          },
+          "type": "footnotes_element",
+        },
+      ],
+      "type": "footnotes_section",
     },
   ],
   "type": "manuscript",

@@ -207,5 +207,15 @@
         </element-citation>
       </ref>
     </ref-list>
+    <fn-group>
+      <fn fn-type="conflict">
+        <p content-type="fn-title">CONFLICT OF INTEREST</p>
+        <p>No conflicts of interest have been declared.</p>
+      </fn>
+      <fn fn-type="financial-disclosure">
+        <p content-type="fn-title">FUNDING INFORMATION</p>
+        <p>This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).</p>
+      </fn>
+    </fn-group>
   </back>
 </article>

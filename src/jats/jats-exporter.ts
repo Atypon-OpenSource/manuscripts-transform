@@ -1903,8 +1903,51 @@ export class JATSExporter {
       })
       back.insertBefore(appGroup, back.firstChild)
     }
+    const footNotes = []
+    const competingInterests = body.querySelector(
+      'sec[sec-type="competing-interests"]'
+    )
+    if (competingInterests) {
+      footNotes.push(this.sectionToFootnote(competingInterests, 'conflict'))
+    }
+
+    const financialDisclosure = body.querySelector(
+      'sec[sec-type="financial-disclosure"]'
+    )
+    if (financialDisclosure) {
+      footNotes.push(
+        this.sectionToFootnote(financialDisclosure, 'financial-disclosure')
+      )
+    }
+    if (footNotes.length > 0) {
+      const existedFnGroup = back.querySelector('fn-group')
+      if (existedFnGroup) {
+        existedFnGroup.append(...footNotes)
+      } else {
+        const fnGroup = this.document.createElement('fn-group')
+        fnGroup.append(...footNotes)
+        back.append(fnGroup)
+      }
+    }
   }
 
+  sectionToFootnote = (section: Element, fnType: string) => {
+    const footNote = this.document.createElement('fn')
+    footNote.setAttribute('fn-type', fnType)
+    const title = section.querySelector('title')
+    if (title) {
+      const footNoteTitle = this.document.createElement('p')
+      footNoteTitle.setAttribute('content-type', 'fn-title')
+      footNoteTitle.textContent = title.textContent
+      section.removeChild(title)
+      footNote.append(footNoteTitle)
+    }
+    footNote.append(...section.children)
+    if (section.parentNode) {
+      section.parentNode.removeChild(section)
+    }
+    return footNote
+  }
   private moveFloatsGroup = (body: HTMLElement, article: HTMLElement) => {
     const floatsGroup = this.document.createElement('floats-group')
     const section = body.querySelector('sec[sec-type="floating-element"]')

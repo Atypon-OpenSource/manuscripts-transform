@@ -44,6 +44,8 @@ export type SectionCategory =
   | 'MPSectionCategory:toc'
   | 'MPSectionCategory:floating-element'
   | 'MPSectionCategory:appendices'
+  | 'MPSectionCategory:competing-interests'
+  | 'MPSectionCategory:financial-disclosure'
 
 export type SecType =
   | 'abstract'
@@ -62,6 +64,8 @@ export type SecType =
   | 'toc'
   | 'floating-element'
   | 'appendices'
+  | 'competing-interests'
+  | 'financial-disclosure'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -201,6 +205,10 @@ export const chooseSectionCategory = (
       return 'MPSectionCategory:floating-element'
     case 'appendices':
       return 'MPSectionCategory:appendices'
+    case 'competing-interests':
+      return 'MPSectionCategory:competing-interests'
+    case 'financial-disclosure':
+      return 'MPSectionCategory:financial-disclosure'
     default: {
       const titleNode = section.firstElementChild
 
@@ -219,7 +227,7 @@ export const chooseSectionCategory = (
   }
 }
 
-const chooseSectionCategoryFromTitle = (
+export const chooseSectionCategoryFromTitle = (
   title: string | null
 ): SectionCategory | undefined => {
   if (!title) {
@@ -259,5 +267,14 @@ const chooseSectionCategoryFromTitle = (
     case 'bibliography':
     case 'references':
       return 'MPSectionCategory:bibliography'
+
+    case 'conflict':
+    case 'conflict of interest':
+    case 'competing interests':
+      return 'MPSectionCategory:competing-interests'
+
+    case 'financial-disclosure':
+    case 'funding information':
+      return 'MPSectionCategory:financial-disclosure'
   }
 }
