@@ -1795,6 +1795,12 @@ export class JATSExporter {
       const thead = this.document.createElement('thead')
 
       for (const row of theadRows) {
+        // Iterate over row's (<tr>) children (<td>) since they should be <th> under <thead> element
+        for (const cell of row.childNodes) {
+          const headCell = this.document.createElement('th')
+          cell.childNodes.forEach((c) => headCell.appendChild(c))
+          row.replaceChild(headCell, cell)
+        }
         thead.appendChild(row)
       }
 
