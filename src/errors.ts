@@ -19,3 +19,10 @@ export class MissingElement extends Error {
     this.name = 'MissingElement'
   }
 }
+
+export class InvalidInput extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = 'InvalidInput'
+  }
+}

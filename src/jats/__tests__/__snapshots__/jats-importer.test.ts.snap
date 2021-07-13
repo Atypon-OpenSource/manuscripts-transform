@@ -3593,6 +3593,47 @@ Array [
 ]
 `;
 
+exports[`JATS importer parses JATS front only example to Manuscripts models 1`] = `
+Array [
+  Object {
+    "_id": "MPManuscript:test",
+    "equationCount": 0,
+    "figureCount": 0,
+    "genericCounts": Array [
+      Object {
+        "count": 0,
+        "countType": "box",
+      },
+    ],
+    "objectType": "MPManuscript",
+    "referencesCount": 2,
+    "tableCount": 0,
+    "title": "A complete manuscript",
+    "wordCount": 2910,
+  },
+  Object {
+    "_id": "MPContributor:test",
+    "affiliations": Array [],
+    "bibliographicName": Object {
+      "_id": "MPBibliographicName:test",
+      "family": "User",
+      "given": "Developer",
+      "objectType": "MPBibliographicName",
+    },
+    "objectType": "MPContributor",
+    "priority": 0,
+    "role": "author",
+  },
+  Object {
+    "ISSNs": Array [],
+    "_id": "MPJournal:test",
+    "abbreviatedTitles": Array [],
+    "journalIdentifiers": Array [],
+    "objectType": "MPJournal",
+  },
+]
+`;
+
 exports[`JATS importer parses JATS front to Manuscripts models 1`] = `
 Array [
   Object {
@@ -8335,6 +8376,425 @@ Array [
     "_id": "MPAuxiliaryObjectReference:test",
     "objectType": "MPAuxiliaryObjectReference",
     "referencedObject": "MPTableElement:test",
+  },
+]
+`;
+
+exports[`JATS importer parses full JATS no back example to Manuscripts models 1`] = `
+Array [
+  Object {
+    "_id": "MPManuscript:test",
+    "equationCount": 0,
+    "figureCount": 0,
+    "genericCounts": Array [
+      Object {
+        "count": 0,
+        "countType": "box",
+      },
+    ],
+    "objectType": "MPManuscript",
+    "referencesCount": 2,
+    "tableCount": 0,
+    "title": "A complete manuscript",
+    "wordCount": 2910,
+  },
+  Object {
+    "_id": "MPContributor:test",
+    "affiliations": Array [],
+    "bibliographicName": Object {
+      "_id": "MPBibliographicName:test",
+      "family": "User",
+      "given": "Developer",
+      "objectType": "MPBibliographicName",
+    },
+    "objectType": "MPContributor",
+    "priority": 0,
+    "role": "author",
+  },
+  Object {
+    "ISSNs": Array [],
+    "_id": "MPJournal:test",
+    "abbreviatedTitles": Array [],
+    "journalIdentifiers": Array [],
+    "objectType": "MPJournal",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 1,
+    "title": "Paragraphs",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">A paragraph.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [
+      "MPListElement:test",
+      "MPListElement:test",
+      "MPListElement:test",
+      "MPListElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 2,
+    "title": "Lists",
+  },
+  Object {
+    "_id": "MPListElement:test",
+    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol>",
+    "elementType": "ol",
+    "objectType": "MPListElement",
+  },
+  Object {
+    "_id": "MPListElement:test",
+    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list<ol id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ol>",
+    "elementType": "ol",
+    "objectType": "MPListElement",
+  },
+  Object {
+    "_id": "MPListElement:test",
+    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ul id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested bullet list</li><li data-placeholder-text=\\"List item\\">With two items</li></ul></li></ul>",
+    "elementType": "ul",
+    "objectType": "MPListElement",
+  },
+  Object {
+    "_id": "MPListElement:test",
+    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ol id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ul>",
+    "elementType": "ul",
+    "objectType": "MPListElement",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [
+      "MPFigureElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 3,
+    "title": "Figures",
+  },
+  Object {
+    "_id": "MPFigureElement:test",
+    "caption": "Test",
+    "containedObjectIDs": Array [
+      "MPFigure:test",
+    ],
+    "elementType": "figure",
+    "listingID": "MPListing:test",
+    "objectType": "MPFigureElement",
+  },
+  Object {
+    "_id": "MPFigure:test",
+    "contentType": "image/jpeg",
+    "externalFileReferences": Array [
+      Object {
+        "kind": "imageRepresentation",
+        "url": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
+      },
+    ],
+    "objectType": "MPFigure",
+    "originalURL": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
+  },
+  Object {
+    "_id": "MPListing:test",
+    "contents": "",
+    "languageKey": "null",
+    "objectType": "MPListing",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [
+      "MPTableElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 4,
+    "title": "Tables",
+  },
+  Object {
+    "_id": "MPTableElement:test",
+    "caption": "Test",
+    "containedObjectID": "MPTable:test",
+    "elementType": "table",
+    "listingID": "MPListing:test",
+    "objectType": "MPTableElement",
+  },
+  Object {
+    "_id": "MPTable:test",
+    "contents": "<table xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPTableElement:test\\" class=\\"MPElement\\" data-contained-object-id=\\"MPTable:test\\"><thead style=\\"display: table-header-group;\\"><tr><th data-placeholder-text=\\"Data\\">Test</th><th data-placeholder-text=\\"Data\\">Test</th></tr></thead><tbody><tr><td data-placeholder-text=\\"Data\\">Test</td><td data-placeholder-text=\\"Data\\" class=\\"placeholder\\"></td></tr><tr><td data-placeholder-text=\\"Data\\">Test</td><td data-placeholder-text=\\"Data\\" class=\\"placeholder\\"></td></tr></tbody><tfoot style=\\"display: table-footer-group;\\"><tr><td data-placeholder-text=\\"Data\\" class=\\"placeholder\\"></td><td data-placeholder-text=\\"Data\\">Test</td></tr></tfoot></table>",
+    "objectType": "MPTable",
+  },
+  Object {
+    "_id": "MPListing:test",
+    "contents": "",
+    "languageKey": "null",
+    "objectType": "MPListing",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+      "MPEquationElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 5,
+    "title": "Equations",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph contains an inline equation:<span class=\\"MPInlineMathFragment\\" id=\\"MPInlineMathFragment:test\\" data-tex-representation=\\"2+3=5\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" style=\\"vertical-align: -0.186ex;\\" width=\\"9.176ex\\" height=\\"1.692ex\\" role=\\"img\\" focusable=\\"false\\" viewBox=\\"0 -666 4056 748\\"><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"matrix(1 0 0 -1 0 0)\\"><g data-mml-node=\\"math\\"><g data-mml-node=\\"mn\\"><path data-c=\\"32\\" d=\\"M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z\\"/></g><g data-mml-node=\\"mo\\" transform=\\"translate(722.2, 0)\\"><path data-c=\\"2B\\" d=\\"M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z\\"/></g><g data-mml-node=\\"mn\\" transform=\\"translate(1722.4, 0)\\"><path data-c=\\"33\\" d=\\"M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z\\"/></g><g data-mml-node=\\"mo\\" transform=\\"translate(2500.2, 0)\\"><path data-c=\\"3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"/></g><g data-mml-node=\\"mn\\" transform=\\"translate(3556, 0)\\"><path data-c=\\"35\\" d=\\"M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z\\"/></g></g></g></svg></span></p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "SVGRepresentation": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" style=\\"vertical-align: -0.186ex;\\" width=\\"9.176ex\\" height=\\"1.692ex\\" role=\\"img\\" focusable=\\"false\\" viewBox=\\"0 -666 4056 748\\"><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"matrix(1 0 0 -1 0 0)\\"><g data-mml-node=\\"math\\"><g data-mml-node=\\"mn\\"><path data-c=\\"32\\" d=\\"M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z\\"/></g><g data-mml-node=\\"mo\\" transform=\\"translate(722.2, 0)\\"><path data-c=\\"2B\\" d=\\"M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z\\"/></g><g data-mml-node=\\"mn\\" transform=\\"translate(1722.4, 0)\\"><path data-c=\\"33\\" d=\\"M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z\\"/></g><g data-mml-node=\\"mo\\" transform=\\"translate(2500.2, 0)\\"><path data-c=\\"3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"/></g><g data-mml-node=\\"mn\\" transform=\\"translate(3556, 0)\\"><path data-c=\\"35\\" d=\\"M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z\\"/></g></g></g></svg>",
+    "TeXRepresentation": "2+3=5",
+    "_id": "MPInlineMathFragment:test",
+    "containingObject": "MPParagraphElement:test",
+    "objectType": "MPInlineMathFragment",
+  },
+  Object {
+    "_id": "MPEquationElement:test",
+    "caption": "",
+    "containedObjectID": "MPEquation:test",
+    "elementType": "p",
+    "objectType": "MPEquationElement",
+    "suppressCaption": true,
+  },
+  Object {
+    "SVGStringRepresentation": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" style=\\"vertical-align: -0.186ex;\\" width=\\"8.625ex\\" height=\\"2.185ex\\" role=\\"img\\" focusable=\\"false\\" viewBox=\\"0 -883.9 3812.1 965.9\\"><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"matrix(1 0 0 -1 0 0)\\"><g data-mml-node=\\"math\\"><g data-mml-node=\\"mi\\"><path data-c=\\"1D438\\" d=\\"M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z\\"/></g><g data-mml-node=\\"mo\\" transform=\\"translate(1041.8, 0)\\"><path data-c=\\"3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"/></g><g data-mml-node=\\"mi\\" transform=\\"translate(2097.6, 0)\\"><path data-c=\\"1D45A\\" d=\\"M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z\\"/></g><g data-mml-node=\\"msup\\" transform=\\"translate(2975.6, 0)\\"><g data-mml-node=\\"mi\\"><path data-c=\\"1D450\\" d=\\"M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z\\"/></g><g data-mml-node=\\"mn\\" transform=\\"translate(433, 413) scale(0.707)\\"><path data-c=\\"32\\" d=\\"M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z\\"/></g></g></g></g></svg>",
+    "TeXRepresentation": "E=mc^2",
+    "_id": "MPEquation:test",
+    "objectType": "MPEquation",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [
+      "MPListingElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 6,
+    "title": "Listings",
+  },
+  Object {
+    "_id": "MPListingElement:test",
+    "caption": "",
+    "containedObjectID": "MPListing:test",
+    "elementType": "figure",
+    "objectType": "MPListingElement",
+  },
+  Object {
+    "_id": "MPListing:test",
+    "contents": "",
+    "languageKey": "null",
+    "objectType": "MPListing",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 7,
+    "title": "Inline",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph contains <b>bold</b>, <i>italic</i>, <u>underlined</u>, <sup>superscript</sup> and <sub>subscript</sub> text.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph contains <a href=\\"https://example.com\\">a link</a>.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [
+      "MPQuoteElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 8,
+    "title": "Quotes",
+  },
+  Object {
+    "_id": "MPQuoteElement:test",
+    "contents": "<blockquote xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPQuoteElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPQuoteElement\\"><p id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This is a block quote.</p><footer>It came from here.</footer></blockquote>",
+    "elementType": "div",
+    "objectType": "MPQuoteElement",
+    "placeholderInnerHTML": "",
+    "quoteType": "block",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This is a block quote.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 9,
+    "title": "Citations",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph ends with a citation.<span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem_787BD4C1-3074-4076-9707-0227D29C1F10\\">1</span></p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph ends with two citations.<span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem_E9EFF971-4380-4DEB-83CF-B0CAA6C32BDF MPBibliographyItem_36EDAD5A-EBA0-47AE-88E6-EBAD385166AE\\">2,3</span></p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph ends with all three citations.<span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem_787BD4C1-3074-4076-9707-0227D29C1F10 MPBibliographyItem_36EDAD5A-EBA0-47AE-88E6-EBAD385166AE MPBibliographyItem_E9EFF971-4380-4DEB-83CF-B0CAA6C32BDF\\">1–3</span></p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+]
+`;
+
+exports[`JATS importer parses full JATS no body example to Manuscripts models 1`] = `
+Array [
+  Object {
+    "_id": "MPManuscript:test",
+    "equationCount": 0,
+    "figureCount": 0,
+    "genericCounts": Array [
+      Object {
+        "count": 0,
+        "countType": "box",
+      },
+    ],
+    "objectType": "MPManuscript",
+    "referencesCount": 2,
+    "tableCount": 0,
+    "title": "A complete manuscript",
+    "wordCount": 2910,
+  },
+  Object {
+    "_id": "MPContributor:test",
+    "affiliations": Array [],
+    "bibliographicName": Object {
+      "_id": "MPBibliographicName:test",
+      "family": "User",
+      "given": "Developer",
+      "objectType": "MPBibliographicName",
+    },
+    "objectType": "MPContributor",
+    "priority": 0,
+    "role": "author",
+  },
+  Object {
+    "ISSNs": Array [],
+    "_id": "MPJournal:test",
+    "abbreviatedTitles": Array [],
+    "journalIdentifiers": Array [],
+    "objectType": "MPJournal",
+  },
+  Object {
+    "_id": "MPBibliographyItem:test",
+    "container-title": "Cartographic Perspectives",
+    "issued": Object {
+      "_id": "MPBibliographicDate:test",
+      "date-parts": Array [
+        Array [
+          "2009",
+        ],
+      ],
+      "objectType": "MPBibliographicDate",
+    },
+    "objectType": "MPBibliographyItem",
+    "page": "52-54",
+    "title": "Creating Graphically Complex Indexes With InDesign",
+    "type": "article-journal",
+  },
+  Object {
+    "_id": "MPBibliographyItem:test",
+    "container-title": "The KIPS Transactions:PartD",
+    "issued": Object {
+      "_id": "MPBibliographicDate:test",
+      "date-parts": Array [
+        Array [
+          "2003",
+        ],
+      ],
+      "objectType": "MPBibliographicDate",
+    },
+    "objectType": "MPBibliographyItem",
+    "page": "603-612",
+    "title": "Technique for extracting reusable XML Schema from schema-less XML Documents",
+    "type": "article-journal",
+    "volume": "10D",
+  },
+  Object {
+    "_id": "MPBibliographyItem:test",
+    "container-title": "The KIPS Transactions:PartD",
+    "issued": Object {
+      "_id": "MPBibliographicDate:test",
+      "date-parts": Array [
+        Array [
+          "2009",
+        ],
+      ],
+      "objectType": "MPBibliographicDate",
+    },
+    "objectType": "MPBibliographyItem",
+    "page": "27-42",
+    "title": "XML Fragmentation for Resource-Efficient Query Processing over XML Fragment Stream",
+    "type": "article-journal",
+    "volume": "16D",
   },
 ]
 `;

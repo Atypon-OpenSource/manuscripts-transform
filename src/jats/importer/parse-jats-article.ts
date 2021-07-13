@@ -20,14 +20,17 @@ import {
   loadCitationStyle,
 } from '@manuscripts/library'
 import {
+  AuxiliaryObjectReference,
   BibliographyItem,
   Bundle,
+  Citation,
   Journal,
   Manuscript,
   Model,
   ObjectTypes,
 } from '@manuscripts/manuscripts-json-schema'
 
+import { InvalidInput } from '../../errors'
 import { ManuscriptNode } from '../../schema'
 import {
   Build,
@@ -122,24 +125,34 @@ export const parseJATSFront = async (front: Element) => {
 }
 
 export const parseJATSReferences = (
-  back: Element,
-  body: Element,
+  back: Element | null,
+  body: Element | null,
   createElement: (tagName: string) => HTMLElement
 ) => {
   // TODO: appendices (app-group/app)
   // TODO: notes (notes)
-  const { references, referenceIDs } = jatsReferenceParser.parseReferences(
-    [...back.querySelectorAll('ref-list > ref')],
-    createElement
-  )
+  const bibliographyItems: Array<Build<BibliographyItem>> = []
+  const crossReferences: Array<
+    Build<Citation> | Build<AuxiliaryObjectReference>
+  > = []
+  if (back) {
+    const { references, referenceIDs } = jatsReferenceParser.parseReferences(
+      [...back.querySelectorAll('ref-list > ref')],
+      createElement
+    )
+    bibliographyItems.push(...references)
 
-  const crossReferences = jatsReferenceParser.parseCrossReferences(
-    [...body.querySelectorAll('xref')],
-    referenceIDs
-  )
-
+    if (body) {
+      crossReferences.push(
+        ...jatsReferenceParser.parseCrossReferences(
+          [...body.querySelectorAll('xref')],
+          referenceIDs
+        )
+      )
+    }
+  }
   return {
-    references: generateModelIDs(references),
+    references: generateModelIDs(bibliographyItems),
     crossReferences: generateModelIDs(crossReferences),
   }
 }
@@ -232,8 +245,8 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
   const front = doc.querySelector('front')
   const body = doc.querySelector('body')
   const back = doc.querySelector('back')
-  if (!front || !body || !back) {
-    throw Error('Invalid JATS format! Missing front, body or back element')
+  if (!front) {
+    throw new InvalidInput('Invalid JATS format! Missing front element')
   }
   const createElement = createElementFn(document)
   const { models: frontModels, bundles } = await parseJATSFront(front)
@@ -248,9 +261,11 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
     references as BibliographyItem[],
     bundles
   )
-
-  const bodyDoc = parseJATSBody(doc, body, bibliography, crossReferences)
-  const bodyModels = [...encode(bodyDoc).values()]
+  const bodyModels: Array<Model> = []
+  if (body) {
+    const bodyDoc = parseJATSBody(doc, body, bibliography, crossReferences)
+    bodyModels.push(...encode(bodyDoc).values())
+  }
   // TODO: use ISSN from journal-meta to choose a template
   return [...frontModels, ...bodyModels, ...references, ...crossReferences]
 }

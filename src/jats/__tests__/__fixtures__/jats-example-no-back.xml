@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD with OASIS Tables with MathML3 v1.2 20190208//EN" "http://jats.nlm.nih.gov/archiving/1.2/JATS-archive-oasis-article1-mathml3.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink">
+  <front>
+    <article-meta>
+      <title-group>
+        <article-title>A complete manuscript</article-title>
+      </title-group>
+      <contrib-group content-type="authors">
+        <contrib contrib-type="author" id="MPContributor_975F60A6-2080-451B-A8E3-93F587BF3DEC">
+          <name>
+            <surname>User</surname>
+            <given-names>Developer</given-names>
+          </name>
+        </contrib>
+      </contrib-group>
+      <counts>
+        <count count-type="box" count="0" />
+        <fig-count count="0" />
+        <table-count count="0" />
+        <equation-count count="0" />
+        <ref-count count="2" />
+        <word-count count="2910" /></counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="MPSection_AB23BC7F-F0A3-46FB-AEDD-54405C032E5E">
+      <title>Paragraphs</title>
+      <p id="MPParagraphElement_5BF50210-0758-40D1-831A-DCD814577FD0">A paragraph.</p>
+    </sec>
+    <sec id="MPSection_A4926F2B-B6DF-4974-B18F-05FEC8CA8003">
+      <title>Lists</title>
+      <list list-type="order">
+        <list-item>
+          <p>An ordered list</p>
+        </list-item>
+        <list-item>
+          <p>With two items</p>
+        </list-item>
+      </list>
+      <list list-type="order">
+        <list-item>
+          <p>An ordered list</p>
+          <list list-type="order">
+            <list-item>
+              <p>With a nested ordered list</p>
+            </list-item>
+            <list-item>
+              <p>With two items</p>
+            </list-item>
+          </list>
+        </list-item>
+      </list>
+      <list list-type="bullet">
+        <list-item>
+          <p>A bullet list</p>
+          <list list-type="bullet">
+            <list-item>
+              <p>With a nested bullet list</p>
+            </list-item>
+            <list-item>
+              <p>With two items</p>
+            </list-item>
+          </list>
+        </list-item>
+      </list>
+      <list list-type="bullet">
+        <list-item>
+          <p>A bullet list</p>
+          <list list-type="order">
+            <list-item>
+              <p>With a nested ordered list</p>
+            </list-item>
+            <list-item>
+              <p>With two items</p>
+            </list-item>
+          </list>
+        </list-item>
+      </list>
+    </sec>
+    <sec id="MPSection_2E0A7E51-F531-47C3-B585-AA86506D3DE4">
+      <title>Figures</title>
+      <fig id="MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686">
+        <caption>
+          <p>Test</p>
+        </caption>
+        <graphic xlink:href="graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg" mimetype="image" mime-subtype="jpeg" />
+      </fig>
+    </sec>
+    <sec id="MPSection_66B42418-3457-4116-96F1-667D17CBA813">
+      <title>Tables</title>
+      <table-wrap id="MPTableElement_ED394766-2934-4B28-AEFE-EAF97D90D854">
+        <caption>
+          <p>Test</p>
+        </caption>
+        <table id="MPTable_2E556F94-DB53-413B-8592-58358A8DD8DD">
+          <thead>
+            <tr>
+              <td>Test</td>
+              <td>Test</td>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td>Test</td>
+              <td />
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr>
+              <td>Test</td>
+              <td />
+            </tr>
+            <tr>
+              <td />
+              <td>Test</td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </sec>
+    <sec id="MPSection_61643B99-F34D-46E2-8772-563BC4A7DDB6">
+      <title>Equations</title>
+      <p id="MPParagraphElement_A868D3F9-3F1A-4DA3-BE74-AEF9998A952F">This paragraph contains an inline equation:<inline-formula><tex-math>2+3=5</tex-math></inline-formula></p>
+      <fig id="MPEquationElement_0F637C49-DE6C-4702-974D-5016EC132A1A" fig-type="equation">
+        <disp-formula id="MPEquation_ED92F6D4-52EF-4C70-8C11-4F233B96D126">
+          <tex-math>E=mc^2</tex-math>
+        </disp-formula>
+      </fig>
+    </sec>
+    <sec id="MPSection_27394269-1EB9-47B0-B3F2-11657319C5E1">
+      <title>Listings</title>
+      <fig id="MPListingElement_6FC7712B-85CE-45D9-A6E7-EB2C48CD0F37" fig-type="listing">
+        <code id="MPListing_80FBEC35-C062-4351-A7E6-0515E9D3837D" language="javascript">2+3=5</code>
+      </fig>
+    </sec>
+    <sec id="MPSection_DBCB444D-2469-4EE4-AD80-49AA2E59FC0E">
+      <title>Inline</title>
+      <p id="MPParagraphElement_94310CD9-4A4B-4F98-9D92-DA957E862DA3">This paragraph contains <bold>bold</bold>, <italic>italic</italic>, <underline>underlined</underline>, <sup>superscript</sup> and <sub>subscript</sub> text.</p>
+      <p id="MPParagraphElement_8783E7FC-D562-479A-9BA2-61C6DCD31F35">This paragraph contains <ext-link ext-link-type="uri" xlink:href="https://example.com">a link</ext-link>.</p>
+    </sec>
+    <sec id="MPSection_15F7949D-0FC4-4EE9-BF35-F9BCB62ED54B">
+      <title>Quotes</title>
+      <disp-quote content-type="quote">
+        <p>This is a block quote.</p>
+        <attrib>It came from here.</attrib>
+      </disp-quote>
+    </sec>
+    <sec id="MPSection_A8F4E48A-32A4-4702-814C-F18D2A434EBB">
+      <title>Citations</title>
+      <p id="MPParagraphElement_3EF4BE66-BFE5-4BB4-A9B8-17130F9B3CA1">This paragraph ends with a citation.<xref ref-type="bibr" rid="MPBibliographyItem_787BD4C1-3074-4076-9707-0227D29C1F10">1</xref></p>
+      <p id="MPParagraphElement_51B71DB6-30CC-4273-9975-EA03E3244C8B">This paragraph ends with two citations.<xref ref-type="bibr" rid="MPBibliographyItem_E9EFF971-4380-4DEB-83CF-B0CAA6C32BDF MPBibliographyItem_36EDAD5A-EBA0-47AE-88E6-EBAD385166AE">2,3</xref></p>
+      <p id="MPParagraphElement_6887297E-F834-4F1E-9BC2-0C47F551541B">This paragraph ends with all three citations.<xref ref-type="bibr" rid="MPBibliographyItem_787BD4C1-3074-4076-9707-0227D29C1F10 MPBibliographyItem_36EDAD5A-EBA0-47AE-88E6-EBAD385166AE MPBibliographyItem_E9EFF971-4380-4DEB-83CF-B0CAA6C32BDF">1–3</xref></p>
+    </sec>
+  </body>
+</article>

@@ -61,6 +61,36 @@ describe('JATS importer', () => {
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 
+  test('parses JATS front only example to Manuscripts models', async () => {
+    const start = performance.now()
+    const models = await parseJATSArticle(
+      await readAndParseFixture('jats-example-front-only.xml')
+    )
+    const end = performance.now()
+    expect(end - start).toBeLessThan(4500)
+    expect(normalizeIDs(models)).toMatchSnapshot()
+  })
+
+  test('parses full JATS no back example to Manuscripts models', async () => {
+    const start = performance.now()
+    const models = await parseJATSArticle(
+      await readAndParseFixture('jats-example-no-back.xml')
+    )
+    const end = performance.now()
+    expect(end - start).toBeLessThan(4500)
+    expect(normalizeIDs(models)).toMatchSnapshot()
+  })
+
+  test('parses full JATS no body example to Manuscripts models', async () => {
+    const start = performance.now()
+    const models = await parseJATSArticle(
+      await readAndParseFixture('jats-example-no-body.xml')
+    )
+    const end = performance.now()
+    expect(end - start).toBeLessThan(4500)
+    expect(normalizeIDs(models)).toMatchSnapshot()
+  })
+
   test('parses JATS front to Manuscripts models', async () => {
     const article = await readAndParseFixture('jats-example.xml')
     const front = article.querySelector('front') as Element
