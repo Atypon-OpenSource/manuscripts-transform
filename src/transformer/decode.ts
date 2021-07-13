@@ -645,6 +645,19 @@ export class Decoder {
           )
         : schema.nodes.section_title.create()
 
+      let sectionLabelNode: SectionTitleNode | undefined = undefined
+      if (model.label) {
+        sectionLabelNode = this.parseContents(
+          'label',
+          model.label,
+          'label',
+          model.highlightMarkers,
+          {
+            topNode: schema.nodes.section_label.create(),
+          }
+        )
+      }
+
       const nestedSections = getSections(this.modelMap)
         .filter(hasParentSection(model._id))
         .map(this.creators[ObjectTypes.Section]) as ManuscriptNode[]
@@ -655,7 +668,10 @@ export class Decoder {
         sectionCategory as SectionCategory | undefined
       )
 
-      const content: ManuscriptNode[] = [sectionTitleNode]
+      const content: ManuscriptNode[] = (sectionLabelNode
+        ? [sectionLabelNode, sectionTitleNode]
+        : [sectionTitleNode]
+      )
         .concat(elementNodes)
         .concat(nestedSections)
 

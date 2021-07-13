@@ -406,6 +406,9 @@ const encoders: NodeEncoderMap = {
     category: buildSectionCategory(node),
     priority: priority.value++,
     title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
+    label:
+      inlineContentsOfNodeType(node, node.type.schema.nodes.section_label) ||
+      undefined,
     path: path.concat([node.attrs.id]),
     elementIDs: childElements(node)
       .map((childNode) => childNode.attrs.id)

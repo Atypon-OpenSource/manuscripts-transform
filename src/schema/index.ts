@@ -59,6 +59,7 @@ import { placeholder } from './nodes/placeholder'
 import { placeholderElement } from './nodes/placeholder_element'
 import { pullquoteElement } from './nodes/pullquote_element'
 import { section } from './nodes/section'
+import { sectionLabel } from './nodes/section_label'
 import { sectionTitle } from './nodes/section_title'
 import { table, tableCell, tableRow } from './nodes/table'
 import { tableElement } from './nodes/table_element'
@@ -155,6 +156,7 @@ export const schema = new Schema<Nodes, Marks>({
     placeholder_element: placeholderElement,
     pullquote_element: pullquoteElement,
     section,
+    section_label: sectionLabel,
     section_title: sectionTitle,
     table,
     table_cell: tableCell,

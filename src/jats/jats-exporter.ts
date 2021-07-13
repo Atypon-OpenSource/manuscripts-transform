@@ -1171,6 +1171,7 @@ export class JATSExporter {
 
         return ['sec', attrs, 0]
       },
+      section_label: () => ['label', 0],
       section_title: () => ['title', 0],
       table: (node) => ['table', { id: normalizeID(node.attrs.id) }, 0],
       table_element: (node) =>

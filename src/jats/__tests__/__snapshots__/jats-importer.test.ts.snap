@@ -4022,6 +4022,28 @@ Object {
             Object {
               "content": Array [
                 Object {
+                  "text": "Box 1",
+                  "type": "text",
+                },
+              ],
+              "type": "section_label",
+            },
+            Object {
+              "type": "section_title",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "",
+            "pageBreakStyle": undefined,
+            "titleSuppressed": false,
+          },
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
                   "text": "Box_Head_1",
                   "type": "text",
                 },
@@ -4166,121 +4188,145 @@ Object {
             },
             Object {
               "attrs": Object {
-                "paragraphStyle": "",
-                "placeholder": "",
+                "category": "",
+                "pageBreakStyle": undefined,
+                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
-                  "text": "This is a hypothesis.",
-                  "type": "text",
+                  "content": Array [
+                    Object {
+                      "text": "H",
+                      "type": "text",
+                    },
+                    Object {
+                      "marks": Array [
+                        Object {
+                          "type": "subscript",
+                        },
+                      ],
+                      "text": "1",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "section_label",
                 },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "paragraphStyle": "",
-              },
-              "content": Array [
+                Object {
+                  "content": Array [
+                    Object {
+                      "text": "This is a hypothesis.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "section_title",
+                },
                 Object {
                   "attrs": Object {
-                    "placeholder": "List item",
+                    "paragraphStyle": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "paragraphStyle": "",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Num_Bul_List_1",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "paragraphStyle": "",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "List_1_Continued",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "paragraphStyle": "",
+                        "placeholder": "List item",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
-                            "placeholder": "List item",
+                            "paragraphStyle": "",
+                            "placeholder": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Num_Bul_List_1",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "paragraph",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "paragraphStyle": "",
+                            "placeholder": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "List_1_Continued",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "paragraph",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "paragraphStyle": "",
                           },
                           "content": Array [
                             Object {
                               "attrs": Object {
-                                "paragraphStyle": "",
-                                "placeholder": "",
+                                "placeholder": "List item",
                               },
                               "content": Array [
                                 Object {
-                                  "text": "Num_Bul_List_2",
-                                  "type": "text",
+                                  "attrs": Object {
+                                    "paragraphStyle": "",
+                                    "placeholder": "",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "text": "Num_Bul_List_2",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "type": "paragraph",
                                 },
-                              ],
-                              "type": "paragraph",
-                            },
-                            Object {
-                              "attrs": Object {
-                                "paragraphStyle": "",
-                                "placeholder": "",
-                              },
-                              "content": Array [
                                 Object {
-                                  "text": "List_2_Continued",
-                                  "type": "text",
+                                  "attrs": Object {
+                                    "paragraphStyle": "",
+                                    "placeholder": "",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "text": "List_2_Continued",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "type": "paragraph",
                                 },
                               ],
-                              "type": "paragraph",
+                              "type": "list_item",
                             },
                           ],
-                          "type": "list_item",
+                          "type": "bullet_list",
                         },
                       ],
-                      "type": "bullet_list",
+                      "type": "list_item",
                     },
-                  ],
-                  "type": "list_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "List item",
-                  },
-                  "content": Array [
                     Object {
                       "attrs": Object {
-                        "paragraphStyle": "",
-                        "placeholder": "",
+                        "placeholder": "List item",
                       },
                       "content": Array [
                         Object {
-                          "text": "level 1, bullet 2",
-                          "type": "text",
+                          "attrs": Object {
+                            "paragraphStyle": "",
+                            "placeholder": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "level 1, bullet 2",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "paragraph",
                         },
                       ],
-                      "type": "paragraph",
+                      "type": "list_item",
                     },
                   ],
-                  "type": "list_item",
+                  "type": "bullet_list",
                 },
               ],
-              "type": "bullet_list",
+              "type": "section",
             },
           ],
           "type": "section",
@@ -4394,6 +4440,15 @@ Object {
         Object {
           "content": Array [
             Object {
+              "text": "Competing Interests",
+              "type": "text",
+            },
+          ],
+          "type": "section_label",
+        },
+        Object {
+          "content": Array [
+            Object {
               "text": "This is information about Competing Interests.",
               "type": "text",
             },
@@ -4410,6 +4465,15 @@ Object {
         "titleSuppressed": false,
       },
       "content": Array [
+        Object {
+          "content": Array [
+            Object {
+              "text": "Financial Disclosure",
+              "type": "text",
+            },
+          ],
+          "type": "section_label",
+        },
         Object {
           "content": Array [
             Object {
@@ -4493,6 +4557,15 @@ Object {
         "titleSuppressed": false,
       },
       "content": Array [
+        Object {
+          "content": Array [
+            Object {
+              "text": "Appendix A",
+              "type": "text",
+            },
+          ],
+          "type": "section_label",
+        },
         Object {
           "content": Array [
             Object {
@@ -4920,6 +4993,7 @@ Array [
       "MPParagraphElement:test",
       "MPParagraphElement:test",
     ],
+    "label": "I",
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
@@ -5021,6 +5095,7 @@ Array [
   Object {
     "_id": "MPSection:test",
     "elementIDs": Array [],
+    "label": "II",
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
@@ -5449,6 +5524,7 @@ Array [
       "MPEquationElement:test",
       "MPParagraphElement:test",
     ],
+    "label": "III",
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
@@ -5603,6 +5679,7 @@ Array [
     "_id": "MPSection:test",
     "category": "MPSectionCategory:results",
     "elementIDs": Array [],
+    "label": "IV",
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
@@ -5889,6 +5966,7 @@ Array [
       "MPParagraphElement:test",
       "MPFigureElement:test",
     ],
+    "label": "V",
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
@@ -5938,6 +6016,7 @@ Array [
       "MPParagraphElement:test",
       "MPParagraphElement:test",
     ],
+    "label": "VI",
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
@@ -5963,22 +6042,28 @@ Array [
     "_id": "MPSection:test",
     "category": "MPSectionCategory:appendices",
     "elementIDs": Array [
-      "MPParagraphElement:test",
-      "MPFootnotesElement:test",
+      "MPTableElement:test",
     ],
+    "label": "Appendix",
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
     ],
     "priority": 13,
-    "title": "Exporter EU exporter HIC exporter Average number of employed (log) 1.4904***",
+    "title": "Table A1",
   },
   Object {
-    "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><br />(.0107) .6878***<br />(.0225) .6473***<br />(.0222) Average number of female employed (log) 1.0341***<br />(.0104) .6266***<br />(.0220) .5870***<br />(.0219) Female employment share -.1245***<br />(.0023) .0271***<br />(.0036) .0355***<br />(.0036) Average wages (log) .9177***<br />(.0089) .2975***<br />(.0138) .2755***<br />(.0136) Average female wages (log) .8062***<br />(.0089) .2322***<br />(.0142) .2103***<br />(.0141) Female-to-male wage ratio -.0572***<br />(.0122) -.0316<br />(.0194) -.0488**<br />(.0192) Average turnover (log) 2.5000***<br />(.0171) .9636***<br />(.0292) .9103***<br />(.0288)</p>",
-    "elementType": "p",
-    "objectType": "MPParagraphElement",
-    "placeholderInnerHTML": "",
+    "_id": "MPTableElement:test",
+    "caption": "",
+    "containedObjectID": "MPTable:test",
+    "elementType": "table",
+    "listingID": "MPListing:test",
+    "objectType": "MPTableElement",
+  },
+  Object {
+    "_id": "MPTable:test",
+    "contents": "<table xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPTableElement:test\\" class=\\"MPElement\\" data-contained-object-id=\\"MPTable:test\\"><thead style=\\"display: table-header-group;\\"><tr><th data-placeholder-text=\\"Data\\" class=\\"placeholder\\"></th><th data-placeholder-text=\\"Data\\"><b>Exporter</b></th><th data-placeholder-text=\\"Data\\"><b>EU exporter</b></th><th data-placeholder-text=\\"Data\\"><b>HIC exporter</b></th></tr></thead><tbody><tr><td data-placeholder-text=\\"Data\\">Average number of employed (log)</td><td data-placeholder-text=\\"Data\\">1.4904***<br />(.0107)</td><td data-placeholder-text=\\"Data\\">.6878***<br />(.0225)</td><td data-placeholder-text=\\"Data\\">.6473***<br />(.0222)</td></tr><tr><td data-placeholder-text=\\"Data\\">Average number of female employed (log)</td><td data-placeholder-text=\\"Data\\">1.0341***<br />(.0104)</td><td data-placeholder-text=\\"Data\\">.6266***<br />(.0220)</td><td data-placeholder-text=\\"Data\\">.5870***<br />(.0219)</td></tr><tr><td data-placeholder-text=\\"Data\\">Female employment share</td><td data-placeholder-text=\\"Data\\">-.1245***<br />(.0023)</td><td data-placeholder-text=\\"Data\\">.0271***<br />(.0036)</td><td data-placeholder-text=\\"Data\\">.0355***<br />(.0036)</td></tr><tr><td data-placeholder-text=\\"Data\\">Average wages (log)</td><td data-placeholder-text=\\"Data\\">.9177***<br />(.0089)</td><td data-placeholder-text=\\"Data\\">.2975***<br />(.0138)</td><td data-placeholder-text=\\"Data\\">.2755***<br />(.0136)</td></tr><tr><td data-placeholder-text=\\"Data\\">Average female wages (log)</td><td data-placeholder-text=\\"Data\\">.8062***<br />(.0089)</td><td data-placeholder-text=\\"Data\\">.2322***<br />(.0142)</td><td data-placeholder-text=\\"Data\\">.2103***<br />(.0141)</td></tr><tr><td data-placeholder-text=\\"Data\\">Female-to-male wage ratio</td><td data-placeholder-text=\\"Data\\">-.0572***<br />(.0122)</td><td data-placeholder-text=\\"Data\\">-.0316<br />(.0194)</td><td data-placeholder-text=\\"Data\\">-.0488**<br />(.0192)</td></tr><tr><td data-placeholder-text=\\"Data\\">Average turnover (log)</td><td data-placeholder-text=\\"Data\\">2.5000***<br />(.0171)</td><td data-placeholder-text=\\"Data\\">.9636***<br />(.0292)</td><td data-placeholder-text=\\"Data\\">.9103***<br />(.0288)</td></tr></tbody><tfoot style=\\"display: table-footer-group;\\"><tr><td data-placeholder-text=\\"Data\\" class=\\"placeholder\\"></td></tr></tfoot></table>",
+    "objectType": "MPTable",
   },
   Object {
     "_id": "MPFootnotesElement:test",
@@ -6008,15 +6093,10 @@ Array [
     "placeholderInnerHTML": "",
   },
   Object {
-    "_id": "MPSection:test",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-      "MPSection:test",
-    ],
-    "priority": 14,
-    "title": "Difference between exporting vs. non-exporting firms",
+    "_id": "MPListing:test",
+    "contents": "",
+    "languageKey": "null",
+    "objectType": "MPListing",
   },
   Object {
     "_id": "MPSection:test",
@@ -6028,7 +6108,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 15,
+    "priority": 14,
     "title": "References",
   },
   Object {
@@ -6196,7 +6276,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 16,
+    "priority": 15,
     "title": "Footnotes",
   },
   Object {

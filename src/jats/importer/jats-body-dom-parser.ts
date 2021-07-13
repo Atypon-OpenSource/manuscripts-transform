@@ -505,7 +505,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'label',
     context: 'section/',
-    ignore: true, // TODO
+    node: 'section_label',
   },
   {
     tag: 'label',
