@@ -217,9 +217,17 @@ export const jatsBodyTransformations = {
     }
 
     // move footnotes without fn-type from back to body section
-    const footnoteGroups = [
+    let footnoteGroups = [
       ...doc.querySelectorAll('back > fn-group:not([fn-type])'),
     ]
+    // check if these groups don't have an fn-type because they are actually a mixed group and not a normal footnote group
+    footnoteGroups = footnoteGroups.filter((group) => {
+      // count check for if all the irrelevant fns as already been extracted
+      return group.childElementCount === 0
+        ? false
+        : !group.querySelector('fn[fn-type]')
+    })
+
     if (footnoteGroups.length > 0) {
       footnoteGroups.map((g) => removeNodeFromParent(g))
       const footnotes = this.createFootnotes(footnoteGroups, createElement)

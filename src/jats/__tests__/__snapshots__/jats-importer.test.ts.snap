@@ -393,25 +393,6 @@ Array [
     "objectType": "MPBibliographyElement",
   },
   Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:endnotes",
-    "elementIDs": Array [
-      "MPFootnotesElement:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 13,
-    "title": "Footnotes",
-  },
-  Object {
-    "_id": "MPFootnotesElement:test",
-    "contents": "<div></div>",
-    "elementType": "div",
-    "objectType": "MPFootnotesElement",
-  },
-  Object {
     "_id": "MPBibliographyItem:test",
     "container-title": "Cartographic Perspectives",
     "issued": Object {
@@ -1724,25 +1705,6 @@ Array [
 </div>",
     "elementType": "div",
     "objectType": "MPBibliographyElement",
-  },
-  Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:endnotes",
-    "elementIDs": Array [
-      "MPFootnotesElement:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 27,
-    "title": "Footnotes",
-  },
-  Object {
-    "_id": "MPFootnotesElement:test",
-    "contents": "<div></div>",
-    "elementType": "div",
-    "objectType": "MPFootnotesElement",
   },
   Object {
     "DOI": "https://doi.org/10.1200/JCO.2016.66.4482",
@@ -4699,13 +4661,6 @@ Object {
             },
           ],
           "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "kind": "footnote",
-            "paragraphStyle": "",
-          },
-          "type": "footnotes_element",
         },
         Object {
           "attrs": Object {
@@ -9854,27 +9809,6 @@ Object {
         },
       ],
       "type": "section",
-    },
-    Object {
-      "content": Array [
-        Object {
-          "content": Array [
-            Object {
-              "text": "Footnotes",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "kind": "footnote",
-            "paragraphStyle": "",
-          },
-          "type": "footnotes_element",
-        },
-      ],
-      "type": "footnotes_section",
     },
   ],
   "type": "manuscript",
