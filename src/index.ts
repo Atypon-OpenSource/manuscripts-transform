@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 export * from './lib/table-cell-styles'
+export { findNodePositions } from './lib/utils'
 export * from './mathjax'
 export * from './schema'
 export * from './transformer'

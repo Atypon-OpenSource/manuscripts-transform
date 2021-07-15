@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { ManuscriptNode } from '../schema'
+import { ManuscriptEditorState, ManuscriptNode } from '../schema'
 
 export function* iterateChildren(
   node: ManuscriptNode,
@@ -30,4 +30,18 @@ export function* iterateChildren(
       }
     }
   }
+}
+
+export const findNodePositions = (
+  state: ManuscriptEditorState,
+  predicate: (node: ManuscriptNode) => boolean
+) => {
+  const found: number[] = []
+  state.doc.descendants((node, nodePos) => {
+    if (predicate(node)) {
+      found.push(nodePos)
+    }
+    return true
+  })
+  return found
 }
