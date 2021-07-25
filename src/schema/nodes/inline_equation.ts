@@ -50,8 +50,8 @@ export const inlineEquation: NodeSpec = {
 
         return {
           id: dom.getAttribute('id'),
-          // MathMLRepresentation:
-          //   dom.getAttribute('data-mathml-representation') || '',
+          MathMLRepresentation:
+            dom.getAttribute('data-mathml-representation') || '',
           SVGRepresentation: dom.innerHTML || '',
           TeXRepresentation: dom.getAttribute('data-tex-representation') || '',
         }
@@ -69,12 +69,12 @@ export const inlineEquation: NodeSpec = {
       'data-tex-representation',
       inlineEquationNode.attrs.TeXRepresentation
     )
-    // if (inlineEquationNode.attrs.MathMLRepresentation) {
-    //   dom.setAttribute(
-    //     'data-mathml-representation',
-    //     inlineEquationNode.attrs.MathMLRepresentation
-    //   )
-    // }
+    if (inlineEquationNode.attrs.MathMLRepresentation) {
+      dom.setAttribute(
+        'data-mathml-representation',
+        inlineEquationNode.attrs.MathMLRepresentation
+      )
+    }
     dom.innerHTML = inlineEquationNode.attrs.SVGRepresentation
 
     return dom

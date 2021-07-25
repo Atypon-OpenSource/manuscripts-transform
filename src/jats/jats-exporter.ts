@@ -1073,8 +1073,13 @@ export class JATSExporter {
           const math = this.document.createElement('tex-math')
           math.textContent = node.attrs.TeXRepresentation
           formula.appendChild(math)
-        } else if (node.attrs.MathMLStringRepresentation) {
-          const math = nodeFromHTML(node.attrs.MathMLStringRepresentation)
+        } else if (node.attrs.MathMLRepresentation) {
+          const math = nodeFromHTML(node.attrs.MathMLRepresentation)
+          if (math) {
+            formula.appendChild(math)
+          }
+        } else if (node.attrs.SVGRepresentation) {
+          const math = nodeFromHTML(node.attrs.SVGRepresentation)
           if (math) {
             formula.appendChild(math)
           }
