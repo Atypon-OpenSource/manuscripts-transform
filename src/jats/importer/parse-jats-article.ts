@@ -29,16 +29,18 @@ import {
   Model,
   ObjectTypes,
 } from '@manuscripts/manuscripts-json-schema'
+import { DOMParser } from 'prosemirror-model'
 
 import { InvalidInput } from '../../errors'
-import { ManuscriptNode } from '../../schema'
+import { nodeFromHTML } from '../../lib/html'
+import { ManuscriptNode, schema } from '../../schema'
 import {
   Build,
   buildJournal,
   buildManuscript,
   DEFAULT_BUNDLE,
 } from '../../transformer/builders'
-import { encode } from '../../transformer/encode'
+import { encode, inlineContents } from '../../transformer/encode'
 import { generateID } from '../../transformer/id'
 import { jatsBodyDOMParser } from './jats-body-dom-parser'
 import { jatsBodyTransformations } from './jats-body-transformations'
@@ -46,6 +48,18 @@ import { jatsFrontParser } from './jats-front-parser'
 import { ISSN } from './jats-journal-meta-parser'
 import { fixBodyPMNode } from './jats-parser-utils'
 import { jatsReferenceParser } from './jats-reference-parser'
+
+const parser = DOMParser.fromSchema(schema)
+const inlineContentsFromJATSTitle = (htmlTitle: string): string => {
+  const node = nodeFromHTML(`<h1>${htmlTitle}</h1>`)
+  if (node) {
+    const titleNode = parser.parse(node, {
+      topNode: schema.nodes.section_title.create(),
+    })
+    return inlineContents(titleNode)
+  }
+  throw new InvalidInput('Invalid title content for: ' + htmlTitle)
+}
 
 export const parseJATSFront = async (front: Element) => {
   const journalMeta = jatsFrontParser.parseJournal(
@@ -64,13 +78,19 @@ export const parseJATSFront = async (front: Element) => {
   } = await jatsFrontParser.loadJournalBundles(journal.ISSNs as ISSN[])
 
   const articleMeta = front.querySelector('article-meta')
+  const title = articleMeta?.querySelector('title-group > article-title')
+    ?.innerHTML
+  const subtitle = articleMeta?.querySelector('title-group > subtitle')
+    ?.innerHTML
+  const runningTitle = articleMeta?.querySelector(
+    'title-group > alt-title[alt-title-type="right-running"]'
+  )?.innerHTML
   const manuscriptMeta = {
-    title: articleMeta?.querySelector('title-group > article-title')
-      ?.textContent,
-    subtitle: articleMeta?.querySelector('title-group > subtitle')?.textContent,
-    runningTitle: articleMeta?.querySelector(
-      'title-group > alt-title[alt-title-type="right-running"]'
-    )?.textContent,
+    title: title ? inlineContentsFromJATSTitle(title) : undefined,
+    subtitle: subtitle ? inlineContentsFromJATSTitle(subtitle) : undefined,
+    runningTitle: runningTitle
+      ? inlineContentsFromJATSTitle(runningTitle)
+      : undefined,
     ...jatsFrontParser.parseCounts(articleMeta?.querySelector('counts')),
   }
 
