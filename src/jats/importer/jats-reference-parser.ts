@@ -48,7 +48,16 @@ export const jatsReferenceParser = {
       const bibliographyItem = buildBibliographyItem({
         type: chooseBibliographyItemType(publicationType),
       })
-
+      const mixedCitation = referenceNode.querySelector('mixed-citation')
+      mixedCitation?.childNodes.forEach( (item) => {
+        if (
+          item.nodeType === Node.TEXT_NODE &&
+          item.textContent?.match(/[A-Za-z]+/g)
+        ) {
+          bibliographyItem.literal = item.textContent
+          return bibliographyItem
+        }
+      })
       const titleNode = referenceNode.querySelector('article-title')
 
       if (titleNode) {

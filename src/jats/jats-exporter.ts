@@ -680,137 +680,142 @@ export class JATSExporter {
         } else {
           citation.setAttribute('publication-type', 'journal')
         }
+        // in case a literal was found in a bibItem the rest of the attributes are ignored
+        // since the literal att should only be populated when the mixed-citation fails to parse
+        if (bibliographyItem.literal) {
+          citation.textContent = bibliographyItem.literal
+        } else {
+          if (bibliographyItem.author) {
+            const personGroupNode = this.document.createElement('person-group')
+            personGroupNode.setAttribute('person-group-type', 'author')
+            citation.appendChild(personGroupNode)
 
-        if (bibliographyItem.author) {
-          const personGroupNode = this.document.createElement('person-group')
-          personGroupNode.setAttribute('person-group-type', 'author')
-          citation.appendChild(personGroupNode)
+            bibliographyItem.author.forEach((author) => {
+              const name = this.document.createElement('name')
 
-          bibliographyItem.author.forEach((author) => {
-            const name = this.document.createElement('name')
+              if (author.family) {
+                const node = this.document.createElement('surname')
+                node.textContent = author.family
+                name.appendChild(node)
+              }
 
-            if (author.family) {
-              const node = this.document.createElement('surname')
-              node.textContent = author.family
-              name.appendChild(node)
-            }
+              if (author.given) {
+                const node = this.document.createElement('given-names')
+                node.textContent = author.given
+                name.appendChild(node)
+              }
 
-            if (author.given) {
-              const node = this.document.createElement('given-names')
-              node.textContent = author.given
-              name.appendChild(node)
-            }
+              if (name.hasChildNodes()) {
+                personGroupNode.appendChild(name)
+              }
 
-            if (name.hasChildNodes()) {
-              personGroupNode.appendChild(name)
-            }
+              if (author.literal) {
+                const collab = this.document.createElement('collab')
+                collab.textContent = author.literal
+                personGroupNode.appendChild(collab)
+              }
+            })
+          }
 
-            if (author.literal) {
-              const collab = this.document.createElement('collab')
-              collab.textContent = author.literal
-              personGroupNode.appendChild(collab)
-            }
-          })
-        }
+          if (bibliographyItem.issued) {
+            const dateParts = bibliographyItem.issued['date-parts']
 
-        if (bibliographyItem.issued) {
-          const dateParts = bibliographyItem.issued['date-parts']
+            if (dateParts && dateParts.length) {
+              const [[year, month, day]] = dateParts
 
-          if (dateParts && dateParts.length) {
-            const [[year, month, day]] = dateParts
+              if (year) {
+                const node = this.document.createElement('year')
+                node.textContent = String(year)
+                citation.appendChild(node)
+              }
 
-            if (year) {
-              const node = this.document.createElement('year')
-              node.textContent = String(year)
-              citation.appendChild(node)
-            }
+              if (month) {
+                const node = this.document.createElement('month')
+                node.textContent = String(month)
+                citation.appendChild(node)
+              }
 
-            if (month) {
-              const node = this.document.createElement('month')
-              node.textContent = String(month)
-              citation.appendChild(node)
-            }
-
-            if (day) {
-              const node = this.document.createElement('day')
-              node.textContent = String(day)
-              citation.appendChild(node)
+              if (day) {
+                const node = this.document.createElement('day')
+                node.textContent = String(day)
+                citation.appendChild(node)
+              }
             }
           }
-        }
 
-        if (bibliographyItem.title) {
-          const node = this.document.createElement('article-title')
-          this.setTitleContent(node, bibliographyItem.title)
-          citation.appendChild(node)
-        }
+          if (bibliographyItem.title) {
+            const node = this.document.createElement('article-title')
+            this.setTitleContent(node, bibliographyItem.title)
+            citation.appendChild(node)
+          }
 
-        if (bibliographyItem['container-title']) {
-          const node = this.document.createElement('source')
-          node.textContent = bibliographyItem['container-title']
-          citation.appendChild(node)
-        }
+          if (bibliographyItem['container-title']) {
+            const node = this.document.createElement('source')
+            node.textContent = bibliographyItem['container-title']
+            citation.appendChild(node)
+          }
 
-        if (bibliographyItem.volume) {
-          const node = this.document.createElement('volume')
-          node.textContent = String(bibliographyItem.volume)
-          citation.appendChild(node)
-        }
+          if (bibliographyItem.volume) {
+            const node = this.document.createElement('volume')
+            node.textContent = String(bibliographyItem.volume)
+            citation.appendChild(node)
+          }
 
-        if (bibliographyItem.issue) {
-          const node = this.document.createElement('issue')
-          node.textContent = String(bibliographyItem.issue)
-          citation.appendChild(node)
-        }
+          if (bibliographyItem.issue) {
+            const node = this.document.createElement('issue')
+            node.textContent = String(bibliographyItem.issue)
+            citation.appendChild(node)
+          }
 
-        if (bibliographyItem['page-first']) {
-          const node = this.document.createElement('fpage')
-          node.textContent = String(bibliographyItem['page-first'])
-          citation.appendChild(node)
-        } else if (bibliographyItem.page) {
-          const pageString = String(bibliographyItem.page)
-
-          if (/^\d+$/.test(pageString)) {
+          if (bibliographyItem['page-first']) {
             const node = this.document.createElement('fpage')
-            node.textContent = pageString
+            node.textContent = String(bibliographyItem['page-first'])
             citation.appendChild(node)
-          } else if (/^\d+-\d+$/.test(pageString)) {
-            const [fpage, lpage] = pageString.split('-')
+          } else if (bibliographyItem.page) {
+            const pageString = String(bibliographyItem.page)
 
-            const fpageNode = this.document.createElement('fpage')
-            fpageNode.textContent = fpage
-            citation.appendChild(fpageNode)
+            if (/^\d+$/.test(pageString)) {
+              const node = this.document.createElement('fpage')
+              node.textContent = pageString
+              citation.appendChild(node)
+            } else if (/^\d+-\d+$/.test(pageString)) {
+              const [fpage, lpage] = pageString.split('-')
 
-            const lpageNode = this.document.createElement('lpage')
-            lpageNode.textContent = lpage
-            citation.appendChild(lpageNode)
-          } else {
-            // TODO: check page-range contents?
-            const node = this.document.createElement('page-range')
-            node.textContent = pageString
+              const fpageNode = this.document.createElement('fpage')
+              fpageNode.textContent = fpage
+              citation.appendChild(fpageNode)
+
+              const lpageNode = this.document.createElement('lpage')
+              lpageNode.textContent = lpage
+              citation.appendChild(lpageNode)
+            } else {
+              // TODO: check page-range contents?
+              const node = this.document.createElement('page-range')
+              node.textContent = pageString
+              citation.appendChild(node)
+            }
+          }
+
+          if (bibliographyItem.DOI) {
+            const node = this.document.createElement('pub-id')
+            node.setAttribute('pub-id-type', 'doi')
+            node.textContent = String(bibliographyItem.DOI)
             citation.appendChild(node)
           }
-        }
 
-        if (bibliographyItem.DOI) {
-          const node = this.document.createElement('pub-id')
-          node.setAttribute('pub-id-type', 'doi')
-          node.textContent = String(bibliographyItem.DOI)
-          citation.appendChild(node)
-        }
+          if (bibliographyItem.PMID) {
+            const node = this.document.createElement('pub-id')
+            node.setAttribute('pub-id-type', 'pmid')
+            node.textContent = String(bibliographyItem.PMID)
+            citation.appendChild(node)
+          }
 
-        if (bibliographyItem.PMID) {
-          const node = this.document.createElement('pub-id')
-          node.setAttribute('pub-id-type', 'pmid')
-          node.textContent = String(bibliographyItem.PMID)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.PMCID) {
-          const node = this.document.createElement('pub-id')
-          node.setAttribute('pub-id-type', 'pmcid')
-          node.textContent = String(bibliographyItem.PMCID)
-          citation.appendChild(node)
+          if (bibliographyItem.PMCID) {
+            const node = this.document.createElement('pub-id')
+            node.setAttribute('pub-id-type', 'pmcid')
+            node.textContent = String(bibliographyItem.PMCID)
+            citation.appendChild(node)
+          }
         }
 
         ref.appendChild(citation)

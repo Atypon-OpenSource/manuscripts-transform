@@ -8025,6 +8025,7 @@ Array [
   },
   Object {
     "_id": "MPBibliographyItem:test",
+    "literal": "Pasquariello, P., and C. Zafeiridou, 2014, Political uncertainty and financial market liquidity, Working Paper, University of Michigan.",
     "objectType": "MPBibliographyItem",
     "type": "article-journal",
   },
@@ -8190,6 +8191,7 @@ Array [
   },
   Object {
     "_id": "MPBibliographyItem:test",
+    "literal": "Voth, H. J., 2002, Stock price volatility and political uncertainty: Evidence from the interwar period, Working Paper, University of Zurich.",
     "objectType": "MPBibliographyItem",
     "type": "article-journal",
   },
