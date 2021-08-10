@@ -32,6 +32,7 @@ import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographySection } from './nodes/bibliography_section'
 import { blockquoteElement } from './nodes/blockquote_element'
 import { caption } from './nodes/caption'
+import { captionTitle } from './nodes/caption_title'
 import { citation } from './nodes/citation'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
@@ -75,6 +76,7 @@ export * from './nodes/bibliography_element'
 export * from './nodes/bibliography_section'
 export * from './nodes/blockquote_element'
 export * from './nodes/caption'
+export * from './nodes/caption_title'
 export * from './nodes/citation'
 export * from './nodes/cross_reference'
 export * from './nodes/doc'
@@ -128,6 +130,7 @@ export const schema = new Schema<Nodes, Marks>({
     blockquote_element: blockquoteElement,
     bullet_list: bulletList,
     caption,
+    caption_title: captionTitle,
     citation,
     cross_reference: crossReference,
     doc,

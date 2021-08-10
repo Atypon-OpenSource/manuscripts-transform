@@ -840,7 +840,8 @@ export class JATSExporter {
       ],
       blockquote_element: () => ['disp-quote', { 'content-type': 'quote' }, 0],
       bullet_list: () => ['list', { 'list-type': 'bullet' }, 0],
-      caption: () => ['caption', ['p', 0]],
+      caption: () => ['p', 0],
+      caption_title: () => ['title', 0],
       citation: (node) => {
         if (!node.attrs.rid) {
           warn(`${node.attrs.id} has no rid`)
@@ -984,8 +985,7 @@ export class JATSExporter {
         if (!node.textContent) {
           return ''
         }
-
-        return ['caption', ['p', 0]]
+        return ['caption', 0]
       },
       figure: (node) => {
         const fig = this.document.createElement('fig')
@@ -1184,8 +1184,15 @@ export class JATSExporter {
       section_label: () => ['label', 0],
       section_title: () => ['title', 0],
       table: (node) => ['table', { id: normalizeID(node.attrs.id) }, 0],
-      table_element: (node) =>
-        createFigureElement(node, 'table-wrap', node.type.schema.nodes.table),
+      table_element: (node) => {
+        const element = createFigureElement(
+          node,
+          'table-wrap',
+          node.type.schema.nodes.table
+        )
+        element.setAttribute('position', 'anchor')
+        return element
+      },
       table_cell: () => ['td', 0],
       table_row: () => ['tr', 0],
       text: (node) => node.text as string,

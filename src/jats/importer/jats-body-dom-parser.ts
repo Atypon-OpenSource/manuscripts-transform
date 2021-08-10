@@ -555,6 +555,11 @@ const nodes: NodeRule[] = [
     context: 'section/|footnotes_section/',
   },
   {
+    tag: 'title',
+    node: 'caption_title',
+    context: 'figcaption/',
+  },
+  {
     tag: 'tr',
     node: 'table_row',
   },

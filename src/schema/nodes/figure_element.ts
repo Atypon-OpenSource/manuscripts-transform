@@ -28,6 +28,7 @@ interface Attrs {
   alignment?: string
   sizeFraction: number
   suppressCaption: boolean
+  suppressTitle?: boolean
   expandListing: boolean
 }
 
@@ -45,6 +46,7 @@ export const figureElement: NodeSpec = {
     sizeFraction: { default: 0 },
     alignment: { default: undefined },
     suppressCaption: { default: false },
+    suppressTitle: { default: undefined },
   },
   selectable: false,
   group: 'block element executable',

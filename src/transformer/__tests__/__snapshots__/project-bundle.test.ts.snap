@@ -64,6 +64,7 @@ Object {
                   "suppressCaption": false,
                   "suppressFooter": false,
                   "suppressHeader": false,
+                  "suppressTitle": true,
                   "tableStyle": "",
                 },
                 "content": Array [
@@ -235,8 +236,22 @@ Object {
                   Object {
                     "content": Array [
                       Object {
-                        "text": "Some comparisons",
-                        "type": "text",
+                        "attrs": Object {
+                          "placeholder": "Title...",
+                        },
+                        "type": "caption_title",
+                      },
+                      Object {
+                        "attrs": Object {
+                          "placeholder": "Caption...",
+                        },
+                        "content": Array [
+                          Object {
+                            "text": "Some comparisons",
+                            "type": "text",
+                          },
+                        ],
+                        "type": "caption",
                       },
                     ],
                     "type": "figcaption",
@@ -431,6 +446,7 @@ Object {
                 "attrs": Object {
                   "id": "MPListingElement:53F400DD-55BD-4F99-8C68-E9FB59B1E667",
                   "suppressCaption": true,
+                  "suppressTitle": true,
                 },
                 "content": Array [
                   Object {
@@ -455,6 +471,20 @@ Object {
                     "type": "listing",
                   },
                   Object {
+                    "content": Array [
+                      Object {
+                        "attrs": Object {
+                          "placeholder": "Title...",
+                        },
+                        "type": "caption_title",
+                      },
+                      Object {
+                        "attrs": Object {
+                          "placeholder": "Caption...",
+                        },
+                        "type": "caption",
+                      },
+                    ],
                     "type": "figcaption",
                   },
                 ],
@@ -464,6 +494,7 @@ Object {
                 "attrs": Object {
                   "id": "MPEquationElement:D562526E-431C-49DA-855D-F78CDD950FB9",
                   "suppressCaption": true,
+                  "suppressTitle": true,
                 },
                 "content": Array [
                   Object {
@@ -476,6 +507,20 @@ Object {
                     "type": "equation",
                   },
                   Object {
+                    "content": Array [
+                      Object {
+                        "attrs": Object {
+                          "placeholder": "Title...",
+                        },
+                        "type": "caption_title",
+                      },
+                      Object {
+                        "attrs": Object {
+                          "placeholder": "Caption...",
+                        },
+                        "type": "caption",
+                      },
+                    ],
                     "type": "figcaption",
                   },
                 ],
@@ -490,6 +535,7 @@ Object {
                   "label": "",
                   "sizeFraction": 0,
                   "suppressCaption": false,
+                  "suppressTitle": true,
                 },
                 "content": Array [
                   Object {
@@ -513,8 +559,22 @@ Object {
                   Object {
                     "content": Array [
                       Object {
-                        "text": "This is a figure",
-                        "type": "text",
+                        "attrs": Object {
+                          "placeholder": "Title...",
+                        },
+                        "type": "caption_title",
+                      },
+                      Object {
+                        "attrs": Object {
+                          "placeholder": "Caption...",
+                        },
+                        "content": Array [
+                          Object {
+                            "text": "This is a figure",
+                            "type": "text",
+                          },
+                        ],
+                        "type": "caption",
                       },
                     ],
                     "type": "figcaption",
@@ -1049,6 +1109,7 @@ Object {
                   "suppressCaption": false,
                   "suppressFooter": false,
                   "suppressHeader": false,
+                  "suppressTitle": true,
                   "tableStyle": "",
                 },
                 "content": Array [
@@ -1220,8 +1281,22 @@ Object {
                   Object {
                     "content": Array [
                       Object {
-                        "text": "Some comparisons",
-                        "type": "text",
+                        "attrs": Object {
+                          "placeholder": "Title...",
+                        },
+                        "type": "caption_title",
+                      },
+                      Object {
+                        "attrs": Object {
+                          "placeholder": "Caption...",
+                        },
+                        "content": Array [
+                          Object {
+                            "text": "Some comparisons",
+                            "type": "text",
+                          },
+                        ],
+                        "type": "caption",
                       },
                     ],
                     "type": "figcaption",
@@ -1416,6 +1491,7 @@ Object {
                 "attrs": Object {
                   "id": "MPListingElement:53F400DD-55BD-4F99-8C68-E9FB59B1E667",
                   "suppressCaption": true,
+                  "suppressTitle": true,
                 },
                 "content": Array [
                   Object {
@@ -1440,6 +1516,20 @@ Object {
                     "type": "listing",
                   },
                   Object {
+                    "content": Array [
+                      Object {
+                        "attrs": Object {
+                          "placeholder": "Title...",
+                        },
+                        "type": "caption_title",
+                      },
+                      Object {
+                        "attrs": Object {
+                          "placeholder": "Caption...",
+                        },
+                        "type": "caption",
+                      },
+                    ],
                     "type": "figcaption",
                   },
                 ],
@@ -1449,6 +1539,7 @@ Object {
                 "attrs": Object {
                   "id": "MPEquationElement:D562526E-431C-49DA-855D-F78CDD950FB9",
                   "suppressCaption": true,
+                  "suppressTitle": true,
                 },
                 "content": Array [
                   Object {
@@ -1461,6 +1552,20 @@ Object {
                     "type": "equation",
                   },
                   Object {
+                    "content": Array [
+                      Object {
+                        "attrs": Object {
+                          "placeholder": "Title...",
+                        },
+                        "type": "caption_title",
+                      },
+                      Object {
+                        "attrs": Object {
+                          "placeholder": "Caption...",
+                        },
+                        "type": "caption",
+                      },
+                    ],
                     "type": "figcaption",
                   },
                 ],
@@ -1475,6 +1580,7 @@ Object {
                   "label": "",
                   "sizeFraction": 0,
                   "suppressCaption": false,
+                  "suppressTitle": true,
                 },
                 "content": Array [
                   Object {
@@ -1498,8 +1604,22 @@ Object {
                   Object {
                     "content": Array [
                       Object {
-                        "text": "This is a figure",
-                        "type": "text",
+                        "attrs": Object {
+                          "placeholder": "Title...",
+                        },
+                        "type": "caption_title",
+                      },
+                      Object {
+                        "attrs": Object {
+                          "placeholder": "Caption...",
+                        },
+                        "content": Array [
+                          Object {
+                            "text": "This is a figure",
+                            "type": "text",
+                          },
+                        ],
+                        "type": "caption",
                       },
                     ],
                     "type": "figcaption",

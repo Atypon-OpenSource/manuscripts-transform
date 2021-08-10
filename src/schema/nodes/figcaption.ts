@@ -23,7 +23,7 @@ export interface FigCaptionNode extends ManuscriptNode {
 }
 
 export const figcaption: NodeSpec = {
-  content: 'inline*',
+  content: 'caption_title? caption*',
   group: 'block',
   isolating: true,
   selectable: false,

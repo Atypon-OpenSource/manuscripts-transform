@@ -19,8 +19,7 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
-  id: string
-  label: string
+  placeholder: string
 }
 
 export interface CaptionNode extends ManuscriptNode {
@@ -30,25 +29,40 @@ export interface CaptionNode extends ManuscriptNode {
 export const caption: NodeSpec = {
   content: 'inline*',
   attrs: {
-    id: { default: '' },
-    label: { default: '' },
+    placeholder: { default: 'Caption...' },
   },
   selectable: false,
+  isolating: true,
   group: 'block',
   parseDOM: [
     {
-      tag: 'caption',
+      tag: 'p',
+      getAttrs: (node) => {
+        const dom = node as HTMLParagraphElement
+
+        return {
+          placeholder: dom.getAttribute('data-placeholder-text'),
+        }
+      },
     },
   ],
   toDOM: (node) => {
     const captionNode = node as CaptionNode
 
-    return [
-      'caption',
-      {
-        id: captionNode.attrs.id,
-      },
-      0,
-    ]
+    const attrs: { [key: string]: string } = {}
+
+    attrs.class = 'caption-description'
+
+    if (captionNode.attrs.placeholder) {
+      attrs['data-placeholder-text'] = captionNode.attrs.placeholder
+    }
+
+    if (!captionNode.textContent) {
+      attrs.class = `${attrs.class} placeholder`
+    }
+
+    attrs.contenteditable = 'true'
+
+    return ['p', attrs, 0]
   },
 }

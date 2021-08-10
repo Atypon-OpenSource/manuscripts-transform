@@ -232,6 +232,8 @@ Map {
     "objectType": "MPFigureElement",
     "sizeFraction": undefined,
     "suppressCaption": undefined,
+    "suppressTitle": undefined,
+    "title": undefined,
   },
   "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0" => Object {
     "_id": "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0",
@@ -257,6 +259,8 @@ Map {
     "objectType": "MPFigureElement",
     "sizeFraction": undefined,
     "suppressCaption": true,
+    "suppressTitle": undefined,
+    "title": undefined,
   },
   "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557" => Object {
     "_id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
@@ -279,7 +283,9 @@ Map {
     "suppressCaption": undefined,
     "suppressFooter": undefined,
     "suppressHeader": undefined,
+    "suppressTitle": undefined,
     "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
+    "title": undefined,
   },
   "MPTable:509A944E-994C-4867-AE55-593628C5DBD5" => Object {
     "_id": "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
@@ -299,7 +305,9 @@ Map {
     "suppressCaption": undefined,
     "suppressFooter": undefined,
     "suppressHeader": true,
+    "suppressTitle": undefined,
     "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
+    "title": undefined,
   },
   "MPTable:7E83812B-A759-4D38-C1C5-F6507D2FC2A9" => Object {
     "_id": "MPTable:7E83812B-A759-4D38-C1C5-F6507D2FC2A9",
@@ -319,7 +327,9 @@ Map {
     "suppressCaption": undefined,
     "suppressFooter": true,
     "suppressHeader": undefined,
+    "suppressTitle": undefined,
     "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
+    "title": undefined,
   },
   "MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8" => Object {
     "_id": "MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8",
@@ -339,7 +349,9 @@ Map {
     "suppressCaption": undefined,
     "suppressFooter": undefined,
     "suppressHeader": undefined,
+    "suppressTitle": undefined,
     "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
+    "title": undefined,
   },
   "MPTable:6C045963-404A-4E1E-FF81-B40E9772A6A6" => Object {
     "_id": "MPTable:6C045963-404A-4E1E-FF81-B40E9772A6A6",
@@ -355,6 +367,8 @@ Map {
     "elementType": "p",
     "objectType": "MPEquationElement",
     "suppressCaption": true,
+    "suppressTitle": undefined,
+    "title": undefined,
   },
   "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403" => Object {
     "MathMLStringRepresentation": "<math xmlns=\\"http://www.w3.org/1998/Math/MathML\\" display=\\"block\\"><mn>2</mn><mi>x</mi><mn>3</mn><mo>=</mo><mn>6</mn></math>",
@@ -370,6 +384,8 @@ Map {
     "elementType": "figure",
     "objectType": "MPListingElement",
     "suppressCaption": false,
+    "suppressTitle": undefined,
+    "title": undefined,
   },
   "MPListing:4D688DCF-29CD-40CC-93BD-2B13CD883257" => Object {
     "_id": "MPListing:4D688DCF-29CD-40CC-93BD-2B13CD883257",
@@ -568,6 +584,8 @@ Map {
     "objectType": "MPFigureElement",
     "sizeFraction": undefined,
     "suppressCaption": undefined,
+    "suppressTitle": undefined,
+    "title": undefined,
   },
   "MPFigure:1" => Object {
     "_id": "MPFigure:1",

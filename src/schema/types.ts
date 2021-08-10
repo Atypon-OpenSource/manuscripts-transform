@@ -51,6 +51,7 @@ export type Nodes =
   | 'blockquote_element'
   | 'bullet_list'
   | 'caption'
+  | 'caption_title'
   | 'citation'
   | 'cross_reference'
   | 'doc'

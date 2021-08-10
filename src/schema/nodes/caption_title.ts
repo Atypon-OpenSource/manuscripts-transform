@@ -19,46 +19,49 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
-  id: string
-  suppressCaption: boolean
-  suppressTitle?: boolean
+  placeholder: string
 }
 
-export interface EquationElementNode extends ManuscriptNode {
+export interface CaptionTitleNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const equationElement: NodeSpec = {
-  content: '(equation | placeholder) figcaption',
-  attrs: {
-    id: { default: '' },
-    suppressCaption: { default: true },
-    suppressTitle: { default: undefined },
-  },
+export const captionTitle: NodeSpec = {
+  content: 'inline*',
+  group: 'block',
   selectable: false,
-  group: 'block element',
+  attrs: {
+    placeholder: { default: 'Title...' },
+  },
   parseDOM: [
     {
-      tag: 'figure.equation',
-      getAttrs: (p) => {
-        const dom = p as HTMLElement
+      tag: 'label',
+      getAttrs: (node) => {
+        const dom = node as HTMLSpanElement
 
         return {
-          id: dom.getAttribute('id'),
+          placeholder: dom.getAttribute('data-placeholder-text'),
         }
       },
     },
   ],
   toDOM: (node) => {
-    const equationElementNode = node as EquationElementNode
+    const captionTitleNode = node as CaptionTitleNode
 
-    return [
-      'figure',
-      {
-        class: 'equation', // TODO: suppress-caption?
-        id: equationElementNode.attrs.id,
-      },
-      0,
-    ]
+    const attrs: { [key: string]: string } = {}
+
+    attrs.class = 'caption-title'
+
+    if (captionTitleNode.attrs.placeholder) {
+      attrs['data-placeholder-text'] = captionTitleNode.attrs.placeholder
+    }
+
+    if (!captionTitleNode.textContent) {
+      attrs.class = `${attrs.class} placeholder`
+    }
+
+    attrs.contenteditable = 'true'
+
+    return ['label', attrs, 0]
   },
 }

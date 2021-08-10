@@ -429,6 +429,7 @@ Object {
             "label": "",
             "sizeFraction": 0,
             "suppressCaption": false,
+            "suppressTitle": true,
           },
           "content": Array [
             Object {
@@ -452,8 +453,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A figure with a caption",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A figure with a caption",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -481,6 +496,7 @@ Object {
             "label": "",
             "sizeFraction": 0,
             "suppressCaption": true,
+            "suppressTitle": true,
           },
           "content": Array [
             Object {
@@ -504,8 +520,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A figure with hidden caption",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A figure with hidden caption",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -533,6 +563,7 @@ Object {
             "suppressCaption": false,
             "suppressFooter": false,
             "suppressHeader": false,
+            "suppressTitle": true,
             "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
           },
           "content": Array [
@@ -710,8 +741,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A table",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A table",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -739,6 +784,7 @@ Object {
             "suppressCaption": false,
             "suppressFooter": false,
             "suppressHeader": true,
+            "suppressTitle": true,
             "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
           },
           "content": Array [
@@ -874,8 +920,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A table with hidden header",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A table with hidden header",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -903,6 +963,7 @@ Object {
             "suppressCaption": false,
             "suppressFooter": true,
             "suppressHeader": false,
+            "suppressTitle": true,
             "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
           },
           "content": Array [
@@ -1032,8 +1093,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A table with hidden footer",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A table with hidden footer",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -1061,6 +1136,7 @@ Object {
             "suppressCaption": false,
             "suppressFooter": false,
             "suppressHeader": false,
+            "suppressTitle": true,
             "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
           },
           "content": Array [
@@ -1190,8 +1266,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A table with hidden caption",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A table with hidden caption",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -1214,6 +1304,7 @@ Object {
           "attrs": Object {
             "id": "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1",
             "suppressCaption": true,
+            "suppressTitle": true,
           },
           "content": Array [
             Object {
@@ -1226,6 +1317,20 @@ Object {
               "type": "equation",
             },
             Object {
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "type": "caption",
+                },
+              ],
               "type": "figcaption",
             },
           ],
@@ -1235,6 +1340,7 @@ Object {
           "attrs": Object {
             "id": "MPListingElement:160785A9-4BC0-4C55-C4DE-AF5F4D858DCE",
             "suppressCaption": false,
+            "suppressTitle": true,
           },
           "content": Array [
             Object {
@@ -1251,6 +1357,20 @@ const x = 'y'",
               "type": "listing",
             },
             Object {
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "type": "caption",
+                },
+              ],
               "type": "figcaption",
             },
           ],
@@ -1851,6 +1971,7 @@ Object {
             "label": "",
             "sizeFraction": 0,
             "suppressCaption": true,
+            "suppressTitle": true,
           },
           "content": Array [
             Object {
@@ -1874,8 +1995,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A figure with hidden caption",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A figure with hidden caption",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -1903,6 +2038,7 @@ Object {
             "suppressCaption": false,
             "suppressFooter": false,
             "suppressHeader": false,
+            "suppressTitle": true,
             "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
           },
           "content": Array [
@@ -2080,8 +2216,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A table",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A table",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -2109,6 +2259,7 @@ Object {
             "suppressCaption": false,
             "suppressFooter": false,
             "suppressHeader": true,
+            "suppressTitle": true,
             "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
           },
           "content": Array [
@@ -2244,8 +2395,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A table with hidden header",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A table with hidden header",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -2273,6 +2438,7 @@ Object {
             "suppressCaption": false,
             "suppressFooter": true,
             "suppressHeader": false,
+            "suppressTitle": true,
             "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
           },
           "content": Array [
@@ -2286,8 +2452,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A table with hidden footer",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A table with hidden footer",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -2315,6 +2495,7 @@ Object {
             "suppressCaption": false,
             "suppressFooter": false,
             "suppressHeader": false,
+            "suppressTitle": true,
             "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
           },
           "content": Array [
@@ -2444,8 +2625,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A table with hidden caption",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A table with hidden caption",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -2468,6 +2663,7 @@ Object {
           "attrs": Object {
             "id": "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1",
             "suppressCaption": true,
+            "suppressTitle": true,
           },
           "content": Array [
             Object {
@@ -2480,6 +2676,20 @@ Object {
               "type": "equation",
             },
             Object {
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "type": "caption",
+                },
+              ],
               "type": "figcaption",
             },
           ],
@@ -2489,6 +2699,7 @@ Object {
           "attrs": Object {
             "id": "MPListingElement:160785A9-4BC0-4C55-C4DE-AF5F4D858DCE",
             "suppressCaption": false,
+            "suppressTitle": true,
           },
           "content": Array [
             Object {
@@ -2505,6 +2716,20 @@ const x = 'y'",
               "type": "listing",
             },
             Object {
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "type": "caption",
+                },
+              ],
               "type": "figcaption",
             },
           ],
@@ -3133,6 +3358,7 @@ Object {
             "label": "",
             "sizeFraction": 0,
             "suppressCaption": false,
+            "suppressTitle": true,
           },
           "content": Array [
             Object {
@@ -3156,8 +3382,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A figure with a caption",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A figure with a caption",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -3185,6 +3425,7 @@ Object {
             "label": "",
             "sizeFraction": 0,
             "suppressCaption": true,
+            "suppressTitle": true,
           },
           "content": Array [
             Object {
@@ -3208,8 +3449,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A figure with hidden caption",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A figure with hidden caption",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -3237,6 +3492,7 @@ Object {
             "suppressCaption": false,
             "suppressFooter": false,
             "suppressHeader": false,
+            "suppressTitle": true,
             "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
           },
           "content": Array [
@@ -3414,8 +3670,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A table",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A table",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -3443,6 +3713,7 @@ Object {
             "suppressCaption": false,
             "suppressFooter": false,
             "suppressHeader": true,
+            "suppressTitle": true,
             "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
           },
           "content": Array [
@@ -3578,8 +3849,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A table with hidden header",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A table with hidden header",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -3607,6 +3892,7 @@ Object {
             "suppressCaption": false,
             "suppressFooter": true,
             "suppressHeader": false,
+            "suppressTitle": true,
             "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
           },
           "content": Array [
@@ -3736,8 +4022,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A table with hidden footer",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A table with hidden footer",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -3765,6 +4065,7 @@ Object {
             "suppressCaption": false,
             "suppressFooter": false,
             "suppressHeader": false,
+            "suppressTitle": true,
             "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
           },
           "content": Array [
@@ -3894,8 +4195,22 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A table with hidden caption",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A table with hidden caption",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -3918,6 +4233,7 @@ Object {
           "attrs": Object {
             "id": "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1",
             "suppressCaption": true,
+            "suppressTitle": true,
           },
           "content": Array [
             Object {
@@ -3930,6 +4246,20 @@ Object {
               "type": "equation",
             },
             Object {
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "type": "caption",
+                },
+              ],
               "type": "figcaption",
             },
           ],
@@ -3939,6 +4269,7 @@ Object {
           "attrs": Object {
             "id": "MPListingElement:160785A9-4BC0-4C55-C4DE-AF5F4D858DCE",
             "suppressCaption": false,
+            "suppressTitle": true,
           },
           "content": Array [
             Object {
@@ -3955,6 +4286,20 @@ const x = 'y'",
               "type": "listing",
             },
             Object {
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "type": "caption",
+                },
+              ],
               "type": "figcaption",
             },
           ],
@@ -4332,6 +4677,7 @@ Object {
             "label": "",
             "sizeFraction": 0,
             "suppressCaption": false,
+            "suppressTitle": true,
           },
           "content": Array [
             Object {
@@ -4350,27 +4696,35 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "id": "MPHighlightMarker:7",
-                        "position": "start",
-                        "rid": "MPHighlight:4",
+                        "placeholder": "Caption...",
                       },
-                      "type": "highlight_marker",
-                    },
-                    Object {
-                      "text": "A",
-                      "type": "text",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "id": "MPHighlightMarker:8",
-                        "position": "end",
-                        "rid": "MPHighlight:4",
-                      },
-                      "type": "highlight_marker",
-                    },
-                    Object {
-                      "text": " figure",
-                      "type": "text",
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "id": "MPHighlightMarker:7",
+                            "position": "start",
+                            "rid": "MPHighlight:4",
+                          },
+                          "type": "highlight_marker",
+                        },
+                        Object {
+                          "text": "A",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "id": "MPHighlightMarker:8",
+                            "position": "end",
+                            "rid": "MPHighlight:4",
+                          },
+                          "type": "highlight_marker",
+                        },
+                        Object {
+                          "text": " figure",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
                     },
                   ],
                   "type": "figcaption",
@@ -4381,28 +4735,42 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "A figure with a ",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
-                    "id": "MPHighlightMarker:5",
-                    "position": "start",
-                    "rid": "MPHighlight:3",
+                    "placeholder": "Caption...",
                   },
-                  "type": "highlight_marker",
-                },
-                Object {
-                  "text": "caption",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "id": "MPHighlightMarker:6",
-                    "position": "end",
-                    "rid": "MPHighlight:3",
-                  },
-                  "type": "highlight_marker",
+                  "content": Array [
+                    Object {
+                      "text": "A figure with a ",
+                      "type": "text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPHighlightMarker:5",
+                        "position": "start",
+                        "rid": "MPHighlight:3",
+                      },
+                      "type": "highlight_marker",
+                    },
+                    Object {
+                      "text": "caption",
+                      "type": "text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPHighlightMarker:6",
+                        "position": "end",
+                        "rid": "MPHighlight:3",
+                      },
+                      "type": "highlight_marker",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",

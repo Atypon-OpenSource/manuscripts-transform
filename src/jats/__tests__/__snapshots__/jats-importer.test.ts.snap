@@ -964,7 +964,6 @@ Array [
   },
   Object {
     "_id": "MPTableElement:test",
-    "caption": "",
     "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
@@ -1008,7 +1007,6 @@ Array [
   },
   Object {
     "_id": "MPTableElement:test",
-    "caption": "",
     "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
@@ -1052,7 +1050,6 @@ Array [
   },
   Object {
     "_id": "MPTableElement:test",
-    "caption": "",
     "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
@@ -3838,6 +3835,7 @@ Object {
                                 "label": "",
                                 "sizeFraction": 0,
                                 "suppressCaption": false,
+                                "suppressTitle": undefined,
                               },
                               "content": Array [
                                 Object {
@@ -3859,8 +3857,16 @@ Object {
                                     Object {
                                       "content": Array [
                                         Object {
-                                          "text": "Source: Wikipedia.",
-                                          "type": "text",
+                                          "attrs": Object {
+                                            "placeholder": "Caption...",
+                                          },
+                                          "content": Array [
+                                            Object {
+                                              "text": "Source: Wikipedia.",
+                                              "type": "text",
+                                            },
+                                          ],
+                                          "type": "caption",
                                         },
                                       ],
                                       "type": "figcaption",
@@ -3871,8 +3877,16 @@ Object {
                                 Object {
                                   "content": Array [
                                     Object {
-                                      "text": "A picture on the kinds of figures.The Fig Caption continues.",
-                                      "type": "text",
+                                      "attrs": Object {
+                                        "placeholder": "Caption...",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "A picture on the kinds of figures.The Fig Caption continues.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "caption",
                                     },
                                   ],
                                   "type": "figcaption",
@@ -5429,7 +5443,6 @@ Array [
   },
   Object {
     "_id": "MPTableElement:test",
-    "caption": "",
     "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
@@ -6444,7 +6457,6 @@ Array [
   },
   Object {
     "_id": "MPTableElement:test",
-    "caption": "",
     "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
@@ -9515,6 +9527,7 @@ Object {
             "label": "",
             "sizeFraction": 0,
             "suppressCaption": false,
+            "suppressTitle": undefined,
           },
           "content": Array [
             Object {
@@ -9542,8 +9555,16 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "Test",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Test",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -9588,6 +9609,7 @@ Object {
             "suppressCaption": false,
             "suppressFooter": false,
             "suppressHeader": false,
+            "suppressTitle": undefined,
             "tableStyle": "",
           },
           "content": Array [
@@ -9746,8 +9768,16 @@ Object {
             Object {
               "content": Array [
                 Object {
-                  "text": "Test",
-                  "type": "text",
+                  "attrs": Object {
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Test",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "figcaption",
@@ -9808,6 +9838,7 @@ Object {
         Object {
           "attrs": Object {
             "suppressCaption": true,
+            "suppressTitle": undefined,
           },
           "content": Array [
             Object {
@@ -9846,6 +9877,7 @@ Object {
         Object {
           "attrs": Object {
             "suppressCaption": true,
+            "suppressTitle": undefined,
           },
           "content": Array [
             Object {

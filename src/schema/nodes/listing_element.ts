@@ -21,6 +21,7 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   id: string
   suppressCaption: boolean
+  suppressTitle?: boolean
 }
 
 export interface ListingElementNode extends ManuscriptNode {
@@ -32,6 +33,7 @@ export const listingElement: NodeSpec = {
   attrs: {
     id: { default: '' },
     suppressCaption: { default: true },
+    suppressTitle: { default: undefined },
   },
   group: 'block element',
   selectable: false,

@@ -24,6 +24,7 @@ interface Attrs {
   tableStyle: string
   label: string
   suppressCaption: boolean
+  suppressTitle?: boolean
   suppressFooter: boolean
   suppressHeader: boolean
   expandListing: boolean
@@ -42,6 +43,7 @@ export const tableElement: NodeSpec = {
     tableStyle: { default: '' },
     label: { default: '' },
     suppressCaption: { default: false },
+    suppressTitle: { default: undefined },
     suppressFooter: { default: false },
     suppressHeader: { default: false },
     expandListing: { default: false },

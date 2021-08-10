@@ -46,6 +46,7 @@ import {
   BibliographyElementNode,
   BlockquoteElementNode,
   BulletListNode,
+  CaptionNode,
   EquationElementNode,
   EquationNode,
   FigCaptionNode,
@@ -68,6 +69,7 @@ import {
   TableNode,
   TOCElementNode,
 } from '../schema'
+import { CaptionTitleNode } from '../schema/nodes/caption_title'
 import { insertHighlightMarkers } from './highlight-markers'
 import { generateNodeID } from './id'
 import { PlaceholderElement } from './models'
@@ -268,19 +270,7 @@ export class Decoder {
     [ObjectTypes.FigureElement]: (data) => {
       const model = data as FigureElement
 
-      const figcaptionNode: FigCaptionNode = schema.nodes.figcaption.create()
-
-      const figcaption: FigCaptionNode = model.caption
-        ? this.parseContents(
-            'caption',
-            model.caption,
-            'figcaption',
-            model.highlightMarkers,
-            {
-              topNode: figcaptionNode,
-            }
-          )
-        : figcaptionNode
+      const figcaption: FigCaptionNode = this.getFigcaption(model)
 
       // TODO: use layout to prefill figures?
 
@@ -335,6 +325,9 @@ export class Decoder {
           alignment: model.alignment,
           sizeFraction: model.sizeFraction,
           suppressCaption: Boolean(model.suppressCaption),
+          suppressTitle: Boolean(
+            model.suppressTitle === undefined ? true : model.suppressTitle
+          ),
         },
         content
       ) as FigureElementNode
@@ -366,24 +359,15 @@ export class Decoder {
         throw new MissingElement(model.containedObjectID)
       }
 
-      const figcaptionNode: FigCaptionNode = schema.nodes.figcaption.create()
-
-      const figcaption: FigCaptionNode = model.caption
-        ? this.parseContents(
-            'caption',
-            model.caption,
-            'figcaption',
-            model.highlightMarkers,
-            {
-              topNode: figcaptionNode,
-            }
-          )
-        : figcaptionNode
+      const figcaption: FigCaptionNode = this.getFigcaption(model)
 
       return schema.nodes.equation_element.createChecked(
         {
           id: model._id,
-          suppressCaption: model.suppressCaption,
+          suppressCaption: Boolean(model.suppressCaption),
+          suppressTitle: Boolean(
+            model.suppressTitle === undefined ? true : model.suppressTitle
+          ),
         },
         [equation, figcaption]
       ) as EquationElementNode
@@ -516,24 +500,15 @@ export class Decoder {
         throw new MissingElement(model.containedObjectID)
       }
 
-      const figcaptionNode: FigCaptionNode = schema.nodes.figcaption.create()
-
-      const figcaption: FigCaptionNode = model.caption
-        ? this.parseContents(
-            'caption',
-            model.caption,
-            'figcaption',
-            model.highlightMarkers,
-            {
-              topNode: figcaptionNode,
-            }
-          )
-        : figcaptionNode
+      const figcaption: FigCaptionNode = this.getFigcaption(model)
 
       return schema.nodes.listing_element.createChecked(
         {
           id: model._id,
           suppressCaption: model.suppressCaption,
+          suppressTitle: Boolean(
+            model.suppressTitle === undefined ? true : model.suppressTitle
+          ),
         },
         [listing, figcaption]
       ) as ListingElementNode
@@ -724,19 +699,7 @@ export class Decoder {
         throw new MissingElement(model.containedObjectID)
       }
 
-      const figcaptionNode: FigCaptionNode = schema.nodes.figcaption.create()
-
-      const figcaption: FigCaptionNode = model.caption
-        ? this.parseContents(
-            'caption',
-            model.caption,
-            'figcaption',
-            model.highlightMarkers,
-            {
-              topNode: figcaptionNode,
-            }
-          )
-        : figcaptionNode
+      const figcaption: FigCaptionNode = this.getFigcaption(model)
 
       const content: ManuscriptNode[] = [table, figcaption]
 
@@ -766,6 +729,9 @@ export class Decoder {
           id: model._id,
           table: model.containedObjectID,
           suppressCaption: model.suppressCaption,
+          suppressTitle: Boolean(
+            model.suppressTitle === undefined ? true : model.suppressTitle
+          ),
           suppressFooter: model.suppressFooter,
           suppressHeader: model.suppressHeader,
           tableStyle: model.tableStyle,
@@ -866,5 +832,39 @@ export class Decoder {
         return item._id
       }
     }
+  }
+
+  private getFigcaption = (
+    model: FigureElement | TableElement | EquationElement | ListingElement
+  ) => {
+    const captionNode = schema.nodes.caption.create() as CaptionNode
+
+    const caption = model.caption
+      ? this.parseContents(
+          'caption',
+          model.caption,
+          'caption',
+          model.highlightMarkers,
+          {
+            topNode: captionNode,
+          }
+        )
+      : captionNode
+
+    const TitleNode = schema.nodes.caption_title.create() as CaptionTitleNode
+
+    const captionTitle = model.title
+      ? this.parseContents(
+          'title',
+          model.title,
+          'caption_title',
+          model.highlightMarkers,
+          {
+            topNode: TitleNode,
+          }
+        )
+      : TitleNode
+
+    return schema.nodes.figcaption.create({}, [captionTitle, caption])
   }
 }

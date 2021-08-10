@@ -244,6 +244,23 @@ const inlineContentsOfNodeType = (
   return ''
 }
 
+const inlineContentOfChildNodeType = (
+  node: ManuscriptNode,
+  parentNodeType: ManuscriptNodeType,
+  childNodeType: ManuscriptNodeType,
+  empty = true
+): string | undefined => {
+  const parentNode = childElements(node).find(
+    (node) => node.type === parentNodeType && node
+  )
+
+  const content =
+    parentNode && inlineContentsOfNodeType(parentNode, childNodeType)
+
+  // TODO:: this is a workaround, until we update test data in manuscripts-examples
+  return content && content.length > 1 ? content : empty ? content : undefined
+}
+
 const containedFigureIDs = (node: ManuscriptNode): string[] => {
   const figureNodeType = node.type.schema.nodes.figure
 
@@ -303,9 +320,24 @@ const encoders: NodeEncoderMap = {
   }),
   listing_element: (node): Partial<ListingElement> => ({
     containedObjectID: attributeOfNodeType(node, 'listing', 'id'),
-    caption: inlineContentsOfNodeType(node, node.type.schema.nodes.figcaption),
+    caption: inlineContentOfChildNodeType(
+      node,
+      node.type.schema.nodes.figcaption,
+      node.type.schema.nodes.caption
+    ),
+    title: inlineContentOfChildNodeType(
+      node,
+      node.type.schema.nodes.figcaption,
+      node.type.schema.nodes.caption_title,
+      false
+    ),
     elementType: 'figure',
     suppressCaption: node.attrs.suppressCaption === true ? undefined : false,
+    suppressTitle:
+      node.attrs.suppressTitle === undefined ||
+      node.attrs.suppressTitle === true
+        ? undefined
+        : false,
   }),
   equation: (node): Partial<Equation> => ({
     MathMLStringRepresentation:
@@ -316,14 +348,32 @@ const encoders: NodeEncoderMap = {
   }),
   equation_element: (node): Partial<EquationElement> => ({
     containedObjectID: attributeOfNodeType(node, 'equation', 'id'),
-    caption: inlineContentsOfNodeType(node, node.type.schema.nodes.figcaption),
+    caption: inlineContentOfChildNodeType(
+      node,
+      node.type.schema.nodes.figcaption,
+      node.type.schema.nodes.caption
+    ),
+    title: inlineContentOfChildNodeType(
+      node,
+      node.type.schema.nodes.figcaption,
+      node.type.schema.nodes.caption_title,
+      false
+    ),
     elementType: 'p',
     suppressCaption: Boolean(node.attrs.suppressCaption) || undefined,
+    suppressTitle:
+      node.attrs.suppressTitle === undefined ||
+      node.attrs.suppressTitle === true
+        ? undefined
+        : false,
   }),
   figure: (node): Partial<Figure> => ({
     title:
-      inlineContentsOfNodeType(node, node.type.schema.nodes.figcaption) ||
-      undefined,
+      inlineContentOfChildNodeType(
+        node,
+        node.type.schema.nodes.figcaption,
+        node.type.schema.nodes.caption
+      ) || undefined,
     contentType: node.attrs.contentType || undefined,
     embedURL: node.attrs.embedURL || undefined,
     originalURL: node.attrs.originalURL || undefined,
@@ -332,12 +382,27 @@ const encoders: NodeEncoderMap = {
   }),
   figure_element: (node): Partial<FigureElement> => ({
     containedObjectIDs: containedFigureIDs(node),
-    caption: inlineContentsOfNodeType(node, node.type.schema.nodes.figcaption),
+    caption: inlineContentOfChildNodeType(
+      node,
+      node.type.schema.nodes.figcaption,
+      node.type.schema.nodes.caption
+    ),
+    title: inlineContentOfChildNodeType(
+      node,
+      node.type.schema.nodes.figcaption,
+      node.type.schema.nodes.caption_title,
+      false
+    ),
     elementType: 'figure',
     listingID: attributeOfNodeType(node, 'listing', 'id') || undefined,
     alignment: node.attrs.alignment || undefined,
     sizeFraction: node.attrs.sizeFraction || undefined,
     suppressCaption: Boolean(node.attrs.suppressCaption) || undefined,
+    suppressTitle:
+      node.attrs.suppressTitle === undefined ||
+      node.attrs.suppressTitle === true
+        ? undefined
+        : false,
     figureStyle: node.attrs.figureStyle || undefined,
     figureLayout: node.attrs.figureLayout || undefined,
   }),
@@ -423,12 +488,27 @@ const encoders: NodeEncoderMap = {
   }),
   table_element: (node): Partial<TableElement> => ({
     containedObjectID: attributeOfNodeType(node, 'table', 'id'),
-    caption: inlineContentsOfNodeType(node, node.type.schema.nodes.figcaption),
+    caption: inlineContentOfChildNodeType(
+      node,
+      node.type.schema.nodes.figcaption,
+      node.type.schema.nodes.caption
+    ),
+    title: inlineContentOfChildNodeType(
+      node,
+      node.type.schema.nodes.figcaption,
+      node.type.schema.nodes.caption_title,
+      false
+    ),
     // TODO is defined as 'figure' HTML element in schema but is more or less a wrapper eg a div
     elementType: 'table',
     listingID: attributeOfNodeType(node, 'listing', 'id') || undefined,
     paragraphStyle: node.attrs.paragraphStyle || undefined,
     suppressCaption: Boolean(node.attrs.suppressCaption) || undefined,
+    suppressTitle:
+      node.attrs.suppressTitle === undefined ||
+      node.attrs.suppressTitle === true
+        ? undefined
+        : false,
     suppressFooter: Boolean(node.attrs.suppressFooter) || undefined,
     suppressHeader: Boolean(node.attrs.suppressHeader) || undefined,
     tableStyle: node.attrs.tableStyle || undefined,
