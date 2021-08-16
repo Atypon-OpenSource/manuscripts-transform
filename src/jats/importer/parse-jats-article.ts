@@ -121,11 +121,16 @@ export const parseJATSFront = async (front: Element) => {
     affiliationIDs
   )
 
+  const history = jatsFrontParser.parseDates(
+    front.querySelector('article-meta > history')
+  )
+
   const manuscript = {
     ...buildManuscript(),
     ...manuscriptMeta,
     bundle: manuscript_bundle,
     keywordIDs: manuscript_keywordIDs,
+    ...history,
   } as Build<Manuscript> & {
     keywordIDs?: string[]
   }

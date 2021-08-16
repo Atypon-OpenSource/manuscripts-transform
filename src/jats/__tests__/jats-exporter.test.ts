@@ -576,6 +576,32 @@ describe('JATS exporter', () => {
     expect(figureGroups).toHaveLength(0)
   })
 
+  test('Export manuscript history', async () => {
+    const projectBundle = cloneProjectBundle(input)
+
+    const { doc, modelMap } = parseProjectBundle(projectBundle)
+
+    const transformer = new JATSExporter()
+    const manuscript = findManuscript(modelMap)
+    manuscript.revisionRequestDate = 1549312452
+    manuscript.correctionDate = 1549312452
+    manuscript.revisionReceiveDate = 839335536
+    manuscript.acceptanceDate = 1818419713
+
+    const xml = await transformer.serializeToJATS(
+      doc.content,
+      modelMap,
+      manuscript._id,
+      {
+        version: '1.2',
+        doi: '10.1234/5678',
+        id: '4567',
+        frontMatterOnly: true,
+      }
+    )
+    expect(xml).toMatchSnapshot()
+  })
+
   test('Only export front matter', async () => {
     const projectBundle = cloneProjectBundle(input)
 

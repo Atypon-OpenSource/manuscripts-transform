@@ -513,6 +513,45 @@ export class JATSExporter {
       titleGroup.appendChild(element)
     }
 
+    const history =
+      articleMeta.querySelector('history') ||
+      this.document.createElement('history')
+
+    if (manuscript.acceptanceDate) {
+      const date = this.buildDateElement(manuscript.acceptanceDate, 'accepted')
+      history.appendChild(date)
+    }
+    if (manuscript.correctionDate) {
+      const date = this.buildDateElement(manuscript.correctionDate, 'corrected')
+      history.appendChild(date)
+    }
+    if (manuscript.retractionDate) {
+      const date = this.buildDateElement(manuscript.retractionDate, 'retracted')
+      history.appendChild(date)
+    }
+    if (manuscript.receiveDate) {
+      const date = this.buildDateElement(manuscript.receiveDate, 'received')
+      history.appendChild(date)
+    }
+    if (manuscript.revisionReceiveDate) {
+      const date = this.buildDateElement(
+        manuscript.revisionReceiveDate,
+        'rev-recd'
+      )
+      history.appendChild(date)
+    }
+    if (manuscript.revisionRequestDate) {
+      const date = this.buildDateElement(
+        manuscript.revisionRequestDate,
+        'rev-request'
+      )
+      history.appendChild(date)
+    }
+
+    if (history.childElementCount) {
+      articleMeta.appendChild(history)
+    }
+
     this.buildContributors(articleMeta)
 
     if (links && links.self) {
@@ -576,6 +615,26 @@ export class JATSExporter {
     return front
   }
 
+  protected buildDateElement = (timestamp: number, type: string) => {
+    const dateElement = this.document.createElement('date')
+
+    dateElement.setAttribute('date-type', type)
+
+    const date = new Date(timestamp * 1000) // s => ms
+    const lookup = {
+      year: date.getUTCFullYear().toString(),
+      month: date.getUTCMonth().toString(),
+      day: date.getUTCDate().toString(),
+    }
+
+    for (const [key, value] of Object.entries(lookup)) {
+      const el = this.document.createElement(key)
+      el.textContent = value
+      dateElement.appendChild(el)
+    }
+
+    return dateElement
+  }
   protected buildCountingElement = (
     tagName: string,
     count: number | undefined

@@ -162,6 +162,65 @@ export const jatsFrontParser = {
 
     return keywordGroups
   },
+  parseDates(historyNode: Element | null) {
+    if (!historyNode) {
+      return undefined
+    }
+    const history: {
+      acceptanceDate?: number
+      correctionDate?: number
+      retractionDate?: number
+      revisionRequestDate?: number
+      revisionReceiveData?: number
+      receiveDate?: number
+    } = {}
+
+    const dateToTimestamp = (dateElement: Element) => {
+      const selectors = ['year', 'month', 'day']
+      const values: Array<number> = []
+      for (const selector of selectors) {
+        const value = dateElement.querySelector(selector)?.textContent?.trim()
+        if (!value || isNaN(+value)) {
+          return
+        }
+        values.push(+value)
+      }
+
+      // timestamp stored in seconds in manuscript schema
+      return Date.UTC(values[0], values[1], values[2]) / 1000 // ms => s
+    }
+
+    for (const date of historyNode.children) {
+      const dateType = date.getAttribute('date-type')
+      switch (dateType) {
+        case 'received': {
+          history.receiveDate = dateToTimestamp(date)
+          break
+        }
+        case 'rev-recd': {
+          history.revisionReceiveData = dateToTimestamp(date)
+          break
+        }
+        case 'accepted': {
+          history.acceptanceDate = dateToTimestamp(date)
+          break
+        }
+        case 'rev-request': {
+          history.revisionRequestDate = dateToTimestamp(date)
+          break
+        }
+        case 'retracted': {
+          history.retractionDate = dateToTimestamp(date)
+          break
+        }
+        case 'corrected': {
+          history.correctionDate = dateToTimestamp(date)
+          break
+        }
+      }
+    }
+    return history
+  },
   parseAffiliationNodes(affiliationNodes: Element[]) {
     const affiliationIDs = new Map<string, string>()
     const affiliations = affiliationNodes.map((affiliationNode, priority) => {

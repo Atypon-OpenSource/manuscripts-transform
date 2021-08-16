@@ -49,7 +49,7 @@ export const jatsReferenceParser = {
         type: chooseBibliographyItemType(publicationType),
       })
       const mixedCitation = referenceNode.querySelector('mixed-citation')
-      mixedCitation?.childNodes.forEach( (item) => {
+      mixedCitation?.childNodes.forEach((item) => {
         if (
           item.nodeType === Node.TEXT_NODE &&
           item.textContent?.match(/[A-Za-z]+/g)
