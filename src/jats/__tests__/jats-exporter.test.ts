@@ -300,7 +300,7 @@ describe('JATS exporter', () => {
     expect(xml).toMatchSnapshot('jats-export-journal-meta')
 
     const output = parseXMLWithDTD(xml)
-
+    expect(output.errors).toHaveLength(0)
     expect(output.get<XMLElement>('//journal-id')!.text()).toBe('Some id')
     expect(output.get<XMLElement>('//journal-title')!.text()).toBe(
       'journal title'

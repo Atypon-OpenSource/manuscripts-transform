@@ -444,9 +444,11 @@ export class JATSExporter {
       }
 
       if (journal.publisherName) {
-        const element = this.document.createElement('publisher')
-        element.textContent = journal.publisherName
-        journalMeta.appendChild(element)
+        const publisher = this.document.createElement('publisher')
+        const publisherName = this.document.createElement('publisher-name')
+        publisherName.textContent = journal.publisherName
+        publisher.appendChild(publisherName)
+        journalMeta.appendChild(publisher)
       }
     } else {
       if (submission) {
