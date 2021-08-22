@@ -171,7 +171,7 @@ export const jatsFrontParser = {
       correctionDate?: number
       retractionDate?: number
       revisionRequestDate?: number
-      revisionReceiveData?: number
+      revisionReceiveDate?: number
       receiveDate?: number
     } = {}
 
@@ -198,7 +198,7 @@ export const jatsFrontParser = {
           break
         }
         case 'rev-recd': {
-          history.revisionReceiveData = dateToTimestamp(date)
+          history.revisionReceiveDate = dateToTimestamp(date)
           break
         }
         case 'accepted': {
