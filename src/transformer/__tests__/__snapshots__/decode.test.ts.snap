@@ -434,6 +434,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "attribution": undefined,
                 "contentType": "image/png",
                 "embedURL": undefined,
                 "externalFileReferences": undefined,
@@ -501,6 +502,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "attribution": undefined,
                 "contentType": "image/png",
                 "embedURL": undefined,
                 "externalFileReferences": undefined,
@@ -1976,6 +1978,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "attribution": undefined,
                 "contentType": "image/png",
                 "embedURL": undefined,
                 "externalFileReferences": undefined,
@@ -3363,6 +3366,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "attribution": undefined,
                 "contentType": "image/png",
                 "embedURL": undefined,
                 "externalFileReferences": undefined,
@@ -3430,6 +3434,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "attribution": undefined,
                 "contentType": "image/png",
                 "embedURL": undefined,
                 "externalFileReferences": undefined,
@@ -4682,6 +4687,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "attribution": undefined,
                 "contentType": "",
                 "embedURL": undefined,
                 "externalFileReferences": undefined,

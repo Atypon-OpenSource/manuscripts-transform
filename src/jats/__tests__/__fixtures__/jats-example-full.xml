@@ -68,7 +68,7 @@
               <sec sec-type="ethics-statement">
                 <title>Ethics statement</title>
                 <p>Paragraph, see<xref ref-type="fn" rid="fn1"><sup>1</sup></xref> <xref ref-type="disp-formula" rid="eq1">Equation 1</xref> and <xref ref-type="fig" rid="fig1">Figure 1</xref>.</p>
-                <fig id="fig1" position="float" fig-type="figure"><label>Figure 1</label><caption><p>A picture on the kinds of figures.</p><p>The Fig Caption continues.</p></caption><graphic xlink:href="123412341234.fig1"></graphic>
+                <fig id="fig1" position="float" fig-type="figure"><label>Figure 1</label><caption><p>A picture on the kinds of figures.</p><p>The Fig Caption continues.</p></caption><p>test paragraph</p><graphic xlink:href="123412341234.fig1"></graphic>
                   <attrib>Source: Wikipedia.</attrib></fig>
               </sec>
             </sec>

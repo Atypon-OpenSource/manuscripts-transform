@@ -18,6 +18,7 @@ import { ListingAttachmentReference } from '@manuscripts/manuscripts-json-schema
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
+import { AttributionNode } from './attribution'
 
 export interface FigureNode extends ManuscriptNode {
   attrs: {
@@ -28,6 +29,7 @@ export interface FigureNode extends ManuscriptNode {
     listingAttachment?: ListingAttachmentReference
     embedURL?: string
     originalURL?: string
+    attribution?: AttributionNode
     externalFileReferences?: {
       url: string
       kind?: 'imageRepresentation' | 'interactiveRepresentation' | 'dataset'
@@ -36,7 +38,7 @@ export interface FigureNode extends ManuscriptNode {
 }
 
 export const figure: NodeSpec = {
-  content: 'figcaption',
+  content: 'figcaption* paragraph* attribution*',
   attrs: {
     id: { default: '' },
     label: { default: '' },
@@ -45,6 +47,7 @@ export const figure: NodeSpec = {
     listingAttachment: { default: undefined },
     embedURL: { default: undefined },
     originalURL: { default: undefined },
+    attribution: { default: undefined },
     externalFileReferences: { default: undefined },
   },
   selectable: false,

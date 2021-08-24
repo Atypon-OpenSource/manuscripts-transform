@@ -332,6 +332,7 @@ const nodes: NodeRule[] = [
       const labelNode = element.querySelector('label')
       const graphicNode = element.querySelector('graphic')
       const mediaNode = element.querySelector('media')
+      const attrib = element.querySelector('attrib')
       const externalFileReferences: Array<{ url: string; kind?: string }> = []
 
       const originalURL = graphicNode
@@ -352,12 +353,19 @@ const nodes: NodeRule[] = [
         externalFileReferences.push({ url: embedURL })
       }
 
+      const attribution = attrib
+        ? {
+            literal: attrib.textContent?.trim() ?? '',
+          }
+        : undefined
+
       return {
         id: element.getAttribute('id'),
         label: labelNode?.textContent?.trim() ?? '',
         contentType: chooseContentType(graphicNode || undefined) || '',
         originalURL,
         embedURL,
+        attribution: attribution,
         externalFileReferences:
           externalFileReferences.length > 0
             ? externalFileReferences

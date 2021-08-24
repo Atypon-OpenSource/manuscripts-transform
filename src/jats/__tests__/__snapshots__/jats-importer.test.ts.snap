@@ -1143,6 +1143,15 @@ Array [
   },
   Object {
     "_id": "MPFigure:test",
+    "containedObjectIDs": Array [
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+    ],
     "contentType": "image/tiff",
     "externalFileReferences": Array [
       Object {
@@ -1152,7 +1161,55 @@ Array [
     ],
     "objectType": "MPFigure",
     "originalURL": "https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&name=figure+1+revised.tif",
-    "title": "A. Patient P4, pembrolizumab cohort. Relapse with cervical lymphadenopathy (arrowhead), bilateral axillary lymphadenopathy (vertical arrows), multiple pulmonary nodules (open arrows), splenic nodules (open arrow), and para-aortic lymphadenopathy (open arrow) (left panel). Resolution of most of the lesions after 400&nbsp;mg of pembrolizumab, except the right axillary lymphadenopathy (vertical arrow), splenic nodules and para-aortic lymphadenopathy (open arrows) (middle left panel). Further improvement in lesions after a cumulative dose of 1300&nbsp;mg of pembrolizumab, with persistence of minimally hypermetabolic lesions (open arrows) (middle right panel). Disease progression after a cumulative dose of 2600&nbsp;mg of pembrolizumab, with re-appearance of right axillary lymphadenopathy (arrow), porta hepatis lymphadenopathy and para-aortic lymphadenopathy (open arrows). There was new-onset left cervical lymhadenopathy (arrowhead). B. Patient P6, pembrolizumab cohort. Relapse with mediastinal lymphadenopathy (arrow), together with two lesions in the chest and left internal mammary region (open arrows) (right panel). Resolution of most of the lesions, with persistence of minimally hypermetabolic mediastinal lymphoadenopathy (arrow) after 300&nbsp;mg of pembrolizumab (middle panel). Disease progression after 1400&nbsp;mg of pembrolizumab, with multiple lung nodules, the more prominent ones being indicated by open arrows (right panel). C. Patient P7, pembrolizumab cohort. Refractory disease with large right and left cervical lymphadenopathy (arrows) (left panel). Complete response of all lesions after 400&nbsp;mg of pembrolizumab (middle left panel). Relapse with right cervical lymphadenopathy and left peri-parotid lesion (arrows) (middle right panel). Complete response of lesions after two cycles of pembrolizumab (100&nbsp;mg/cycle) and brentuximab vedotin (100&nbsp;mg/cycle) (right panel). D. Patient P11, pembrolizumab cohort. Refractory disease with persistent lesion in the C1 and S1 vertebrae (arrows) (left panel). Complete response of all lesions after 400&nbsp;mg of pembrolizumab (middle left panel). Enlarged views of the two lesions and their complete response (right two panels). E. Patient N2, nivolumab cohort. Complete response of cervical, axillary, mediastinal, abdominal and pelvic lymphadenopathy after 160&nbsp;mg of nivolumab (images before treatment not available) (left panel). Disease relapse after completion of 2&nbsp;years of nivolumab treatment, showing left cervical lymphadenopathy (arrows) (middle panel). Complete response after 320&nbsp;mg of nivolumab (right panel). F. Patient N4, nivolumab cohort. Refractory disease with left cervical, multiple mediastinal and left hilar lymphadenopathy (arrows). Complete response after 160&nbsp;mg of nivolumab. G. Patient N6. Refractory disease, showing peri-pancreatic and para-aortic lymphadenopathy (arrows), together with osseous involvement in the left humerus, sternum and left acetabulum (open arrows) (left panel). Resolution of these lesions after 360&nbsp;mg of nivolumab. A right axillary lymph node of mild activity was noted (arrow) (middle panel). Right axillary lymph node of uncertain nature and minimal activity was still present, after 840&nbsp;mg of nivolumab (arrow) (right panel).",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">A. Patient P4, pembrolizumab cohort. Relapse with cervical lymphadenopathy (arrowhead), bilateral axillary lymphadenopathy (vertical arrows), multiple pulmonary nodules (open arrows), splenic nodules (open arrow), and para-aortic lymphadenopathy (open arrow) (left panel). Resolution of most of the lesions after 400 mg of pembrolizumab, except the right axillary lymphadenopathy (vertical arrow), splenic nodules and para-aortic lymphadenopathy (open arrows) (middle left panel). Further improvement in lesions after a cumulative dose of 1300 mg of pembrolizumab, with persistence of minimally hypermetabolic lesions (open arrows) (middle right panel). Disease progression after a cumulative dose of 2600 mg of pembrolizumab, with re-appearance of right axillary lymphadenopathy (arrow), porta hepatis lymphadenopathy and para-aortic lymphadenopathy (open arrows). There was new-onset left cervical lymhadenopathy (arrowhead).</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">B. Patient P6, pembrolizumab cohort. Relapse with mediastinal lymphadenopathy (arrow), together with two lesions in the chest and left internal mammary region (open arrows) (right panel). Resolution of most of the lesions, with persistence of minimally hypermetabolic mediastinal lymphoadenopathy (arrow) after 300 mg of pembrolizumab (middle panel). Disease progression after 1400 mg of pembrolizumab, with multiple lung nodules, the more prominent ones being indicated by open arrows (right panel).</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">C. Patient P7, pembrolizumab cohort. Refractory disease with large right and left cervical lymphadenopathy (arrows) (left panel). Complete response of all lesions after 400 mg of pembrolizumab (middle left panel). Relapse with right cervical lymphadenopathy and left peri-parotid lesion (arrows) (middle right panel). Complete response of lesions after two cycles of pembrolizumab (100 mg/cycle) and brentuximab vedotin (100 mg/cycle) (right panel).</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">D. Patient P11, pembrolizumab cohort. Refractory disease with persistent lesion in the C1 and S1 vertebrae (arrows) (left panel). Complete response of all lesions after 400 mg of pembrolizumab (middle left panel). Enlarged views of the two lesions and their complete response (right two panels).</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">E. Patient N2, nivolumab cohort. Complete response of cervical, axillary, mediastinal, abdominal and pelvic lymphadenopathy after 160 mg of nivolumab (images before treatment not available) (left panel). Disease relapse after completion of 2 years of nivolumab treatment, showing left cervical lymphadenopathy (arrows) (middle panel). Complete response after 320 mg of nivolumab (right panel).</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">F. Patient N4, nivolumab cohort. Refractory disease with left cervical, multiple mediastinal and left hilar lymphadenopathy (arrows). Complete response after 160 mg of nivolumab.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">G. Patient N6. Refractory disease, showing peri-pancreatic and para-aortic lymphadenopathy (arrows), together with osseous involvement in the left humerus, sternum and left acetabulum (open arrows) (left panel). Resolution of these lesions after 360 mg of nivolumab. A right axillary lymph node of mild activity was noted (arrow) (middle panel). Right axillary lymph node of uncertain nature and minimal activity was still present, after 840 mg of nivolumab (arrow) (right panel).</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
   },
   Object {
     "_id": "MPListing:test",
@@ -3843,6 +3900,9 @@ Object {
                               "content": Array [
                                 Object {
                                   "attrs": Object {
+                                    "attribution": Object {
+                                      "literal": "Source: Wikipedia.",
+                                    },
                                     "contentType": "",
                                     "embedURL": undefined,
                                     "externalFileReferences": Array [
@@ -3858,21 +3918,26 @@ Object {
                                   },
                                   "content": Array [
                                     Object {
+                                      "attrs": Object {
+                                        "paragraphStyle": "",
+                                        "placeholder": "",
+                                      },
                                       "content": Array [
                                         Object {
-                                          "attrs": Object {
-                                            "placeholder": "Caption...",
-                                          },
-                                          "content": Array [
-                                            Object {
-                                              "text": "Source: Wikipedia.",
-                                              "type": "text",
-                                            },
-                                          ],
-                                          "type": "caption",
+                                          "text": "test paragraph",
+                                          "type": "text",
                                         },
                                       ],
-                                      "type": "figcaption",
+                                      "type": "paragraph",
+                                    },
+                                    Object {
+                                      "content": Array [
+                                        Object {
+                                          "text": "Source: Wikipedia.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "attribution",
                                     },
                                   ],
                                   "type": "figure",
@@ -9539,6 +9604,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "attribution": undefined,
                 "contentType": "image/jpeg",
                 "embedURL": undefined,
                 "externalFileReferences": Array [
@@ -9552,11 +9618,6 @@ Object {
                 "originalURL": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
                 "src": "",
               },
-              "content": Array [
-                Object {
-                  "type": "figcaption",
-                },
-              ],
               "type": "figure",
             },
             Object {

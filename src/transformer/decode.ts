@@ -240,7 +240,14 @@ export class Decoder {
     },
     [ObjectTypes.Figure]: (data) => {
       const model = data as Figure
-
+      const paragraphs: Array<ParagraphNode> = []
+      model.containedObjectIDs?.forEach((id) => {
+        const paragraphModel = this.getModel<ParagraphElement>(id)
+        return (
+          paragraphModel &&
+          paragraphs.push(this.decode(paragraphModel) as ParagraphNode)
+        )
+      })
       const figcaptionNode: FigCaptionNode = schema.nodes.figcaption.create()
 
       const figcaption: FigCaptionNode = model.title
@@ -262,9 +269,10 @@ export class Decoder {
           src: model.src,
           listingAttachment: model.listingAttachment,
           embedURL: model.embedURL,
+          attribution: model.attribution,
           externalFileReferences: model.externalFileReferences,
         },
-        [figcaption]
+        [figcaption, ...paragraphs]
       )
     },
     [ObjectTypes.FigureElement]: (data) => {

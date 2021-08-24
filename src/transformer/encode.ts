@@ -263,13 +263,25 @@ const inlineContentOfChildNodeType = (
 
 const containedFigureIDs = (node: ManuscriptNode): string[] => {
   const figureNodeType = node.type.schema.nodes.figure
+  return containedObjectIDs(node, figureNodeType)
+}
 
+const containedParagraphIDs = (node: ManuscriptNode): string[] | undefined => {
+  const figureNodeType = node.type.schema.nodes.paragraph
+  const containedIDs = containedObjectIDs(node, figureNodeType)
+  return containedIDs.length ? containedIDs : undefined
+}
+
+const containedObjectIDs = (
+  node: ManuscriptNode,
+  nodeType: ManuscriptNodeType
+): string[] => {
   const ids: string[] = []
 
   for (let i = 0; i < node.childCount; i++) {
     const childNode = node.child(i)
 
-    if (childNode.type === figureNodeType) {
+    if (childNode.type === nodeType) {
       ids.push(childNode.attrs.id)
     }
   }
@@ -378,7 +390,9 @@ const encoders: NodeEncoderMap = {
     embedURL: node.attrs.embedURL || undefined,
     originalURL: node.attrs.originalURL || undefined,
     listingAttachment: node.attrs.listingAttachment || undefined,
+    attribution: node.attrs.attribution || undefined,
     externalFileReferences: node.attrs.externalFileReferences || undefined,
+    containedObjectIDs: containedParagraphIDs(node),
   }),
   figure_element: (node): Partial<FigureElement> => ({
     containedObjectIDs: containedFigureIDs(node),

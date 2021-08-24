@@ -237,6 +237,8 @@ Map {
   },
   "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0" => Object {
     "_id": "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0",
+    "attribution": undefined,
+    "containedObjectIDs": undefined,
     "contentType": "image/png",
     "embedURL": undefined,
     "externalFileReferences": undefined,
@@ -264,6 +266,8 @@ Map {
   },
   "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557" => Object {
     "_id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
+    "attribution": undefined,
+    "containedObjectIDs": undefined,
     "contentType": "image/png",
     "embedURL": undefined,
     "externalFileReferences": undefined,
@@ -589,6 +593,8 @@ Map {
   },
   "MPFigure:1" => Object {
     "_id": "MPFigure:1",
+    "attribution": undefined,
+    "containedObjectIDs": undefined,
     "contentType": undefined,
     "embedURL": undefined,
     "externalFileReferences": undefined,

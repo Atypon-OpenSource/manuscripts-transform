@@ -1059,9 +1059,13 @@ export class JATSExporter {
         }
 
         const figcaptionNodeType = node.type.schema.nodes.figcaption
+        const paragraphNodeType = node.type.schema.nodes.paragraph
 
         node.forEach((childNode) => {
-          if (childNode.type === figcaptionNodeType) {
+          if (
+            childNode.type === figcaptionNodeType ||
+            childNode.type === paragraphNodeType
+          ) {
             fig.appendChild(this.serializeNode(childNode))
           }
         })
@@ -1106,7 +1110,11 @@ export class JATSExporter {
 
           fig.appendChild(graphic)
         }
-
+        if (node.attrs.attribution && node.attrs.attribution.literal) {
+          const attrib = this.document.createElement('attrib')
+          attrib.textContent = node.attrs.attribution.literal
+          fig.appendChild(attrib)
+        }
         return fig
       },
       figure_element: (node) =>
