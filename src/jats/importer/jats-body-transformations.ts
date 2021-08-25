@@ -318,6 +318,15 @@ export const jatsBodyTransformations = {
       }
     }
   },
+  moveTableFooterToEnd(body: Element) {
+    const tableFooters = body.querySelectorAll('table-wrap-foot')
+
+    for (const tableFooter of tableFooters) {
+      if (tableFooter.parentNode) {
+        tableFooter.parentNode.appendChild(tableFooter)
+      }
+    }
+  },
   // unwrap paragraphs in captions
   unwrapParagraphsInCaptions(body: Element) {
     const captions = body.querySelectorAll('caption')

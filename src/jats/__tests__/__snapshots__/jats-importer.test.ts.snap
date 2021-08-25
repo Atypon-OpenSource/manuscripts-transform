@@ -967,11 +967,13 @@ Array [
   },
   Object {
     "_id": "MPTableElement:test",
+    "caption": "",
     "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
+    "title": "Eleven patients with relapsed/refractory Hodgkin lymphoma treated with low-dose pembrolizumab",
   },
   Object {
     "_id": "MPTable:test",
@@ -1010,11 +1012,13 @@ Array [
   },
   Object {
     "_id": "MPTableElement:test",
+    "caption": "",
     "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
+    "title": "Six patients with relapsed/refractory Hodgkin lymphoma treated with low-dose nivolumab",
   },
   Object {
     "_id": "MPTable:test",
@@ -1053,11 +1057,13 @@ Array [
   },
   Object {
     "_id": "MPTableElement:test",
+    "caption": "",
     "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
+    "title": "Clinicopathologic features and treatment outcome of patients with relapsed/refractory classical Hodgkin lymphoma treated by pembrolizumab and nivolumab",
   },
   Object {
     "_id": "MPTable:test",
@@ -4233,7 +4239,7 @@ Object {
                   "type": "cross_reference",
                 },
                 Object {
-                  "text": ". Table 1 Table_Head Table_Body* * Table_Footnote This is a table title continued paragraph Block_Quote Source: Wikipedia Paragraph_Continued with a graphic in the middle",
+                  "text": ". Table 1 Table_Head Table_Body* This is a table title continued paragraph * Table_Footnote Block_Quote Source: Wikipedia Paragraph_Continued with a graphic in the middle",
                   "type": "text",
                 },
                 Object {
@@ -5515,11 +5521,13 @@ Array [
   },
   Object {
     "_id": "MPTableElement:test",
+    "caption": "",
     "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
+    "title": "Descriptive Statistics.",
   },
   Object {
     "_id": "MPTable:test",
@@ -6529,10 +6537,12 @@ Array [
   },
   Object {
     "_id": "MPTableElement:test",
+    "caption": "",
     "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
+    "title": "Difference between exporting vs. non-exporting firms",
   },
   Object {
     "_id": "MPTable:test",
