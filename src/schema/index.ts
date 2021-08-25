@@ -62,7 +62,7 @@ import { pullquoteElement } from './nodes/pullquote_element'
 import { section } from './nodes/section'
 import { sectionLabel } from './nodes/section_label'
 import { sectionTitle } from './nodes/section_title'
-import { table, tableCell, tableRow } from './nodes/table'
+import { table, tableCell, tableCol, tableRow } from './nodes/table'
 import { tableElement } from './nodes/table_element'
 import { text } from './nodes/text'
 import { tocElement } from './nodes/toc_element'
@@ -165,6 +165,7 @@ export const schema = new Schema<Nodes, Marks>({
     table_cell: tableCell,
     table_element: tableElement,
     table_row: tableRow,
+    table_col: tableCol,
     text,
     toc_element: tocElement,
     toc_section: tocSection,

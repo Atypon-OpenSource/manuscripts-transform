@@ -86,6 +86,7 @@ export type Nodes =
   | 'table_cell'
   | 'table_element'
   | 'table_row'
+  | 'table_col'
   | 'text'
   | 'toc_element'
   | 'toc_section'

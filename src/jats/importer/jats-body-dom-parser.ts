@@ -580,6 +580,17 @@ const nodes: NodeRule[] = [
     node: 'table_cell',
   },
   {
+    tag: 'col',
+    node: 'table_col',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      return {
+        width: element.getAttribute('width'),
+      }
+    },
+  },
+  {
     tag: 'xref[ref-type="bibr"]',
     node: 'citation',
     getAttrs: (node) => {

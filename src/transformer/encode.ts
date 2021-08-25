@@ -161,6 +161,16 @@ const tableContents = (
 
   const output = document.createElement('table')
 
+  const cols = Array.from(input.querySelectorAll('col'))
+
+  for (const inputCol of cols) {
+    const col = document.createElement('col')
+    for (const attribute of inputCol.attributes) {
+      col.setAttribute(attribute.name, attribute.value)
+    }
+    output.appendChild(inputCol)
+  }
+
   output.setAttribute('id', parent.attrs.id)
 
   output.classList.add('MPElement')

@@ -1264,6 +1264,7 @@ export class JATSExporter {
       },
       table_cell: () => ['td', 0],
       table_row: () => ['tr', 0],
+      table_col: (node) => ['col', { width: node.attrs.width }],
       text: (node) => node.text as string,
       toc_element: () => '',
       toc_section: () => '',
@@ -1868,7 +1869,22 @@ export class JATSExporter {
   }
 
   private fixTable = (table: ChildNode, node: ManuscriptNode) => {
-    const rows = Array.from(table.childNodes)
+    const tableNodes = Array.from(table.childNodes)
+
+    const cols: Element[] = []
+    const rows: ChildNode[] = []
+
+    for (const tableNode of tableNodes) {
+      if (tableNode instanceof Element && tableNode.tagName === 'col') {
+        cols.push(tableNode)
+      } else {
+        rows.push(tableNode)
+      }
+    }
+
+    if (cols.length > 0) {
+      cols.forEach((col) => table.appendChild(col))
+    }
 
     const theadRows = rows.splice(0, 1)
     const tfootRows = rows.splice(-1, 1)

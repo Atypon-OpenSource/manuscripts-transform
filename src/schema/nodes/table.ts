@@ -62,7 +62,7 @@ export interface TableNode extends ManuscriptNode {
 }
 
 export const table: TableNodeSpec = {
-  content: 'table_row{3,}',
+  content: 'table_col* table_row{3,}',
   tableRole: 'table',
   isolating: true,
   group: 'block',
@@ -146,6 +146,43 @@ export interface TableCellNode extends ManuscriptNode {
     placeholder: string | null
     styles: TableCellStyles
   }
+}
+
+export interface TableColNode extends ManuscriptNode {
+  attrs: {
+    width: string
+  }
+}
+
+export const tableCol: TableNodeSpec = {
+  attrs: {
+    width: { default: '' },
+  },
+  group: 'block',
+  tableRole: 'col',
+  parseDOM: [
+    {
+      tag: 'col',
+      getAttrs: (p) => {
+        const dom = p as HTMLTableColElement
+
+        return {
+          width: dom.getAttribute('width'),
+        }
+      },
+    },
+  ],
+  toDOM: (node) => {
+    const tableColNode = node as TableColNode
+
+    const attrs: { [key: string]: string } = {}
+
+    if (tableColNode.attrs.width) {
+      attrs['width'] = tableColNode.attrs.width
+    }
+
+    return ['col', attrs]
+  },
 }
 
 export const tableCell: TableNodeSpec = {
