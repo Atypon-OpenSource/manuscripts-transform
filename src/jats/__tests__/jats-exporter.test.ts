@@ -19,6 +19,7 @@ import projectDumpWithCitations from '@manuscripts/examples/data/project-dump-2.
 // @ts-ignore
 import projectDump from '@manuscripts/examples/data/project-dump.json'
 import {
+  Equation,
   Keyword,
   Manuscript,
   Model,
@@ -38,6 +39,7 @@ import {
 } from '../../transformer/project-bundle'
 import { JATSExporter } from '../jats-exporter'
 import { Version } from '../jats-versions'
+import { readFixture } from './files'
 
 const input = projectDump as ProjectBundle
 const inputWithCitations = projectDumpWithCitations as ProjectBundle
@@ -698,5 +700,31 @@ describe('JATS exporter', () => {
     expect(kwds).toHaveLength(2)
     expect(kwds[0]!.text()).toBe('Foo')
     expect(kwds[1]!.text()).toBe('Bar')
+  })
+
+  test('DTD validation for MathML representation ', async () => {
+    const projectBundle = cloneProjectBundle(input)
+    const mathMLFragment = await readFixture('math-fragment.xml')
+
+    projectBundle.data.find((el) => {
+      if (el._id === 'MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403') {
+        const equation = el as Equation
+        equation.MathMLStringRepresentation = mathMLFragment
+        delete equation.TeXRepresentation
+      }
+    })
+    const { doc, modelMap } = parseProjectBundle(projectBundle)
+
+    const transformer = new JATSExporter()
+    const manuscript = findManuscript(modelMap)
+    const xml = await transformer.serializeToJATS(
+      doc.content,
+      modelMap,
+      manuscript._id
+    )
+
+    const { errors } = parseXMLWithDTD(xml)
+
+    expect(errors).toHaveLength(0)
   })
 })

@@ -283,6 +283,20 @@ export class JATSExporter {
     return serializeToXML(this.document)
   }
 
+  private nodeFromJATS = (JATSFragment: string) => {
+    JATSFragment = JATSFragment.trim()
+
+    if (!JATSFragment.length) {
+      return null
+    }
+
+    const template = this.document.createElement('template')
+
+    template.innerHTML = JATSFragment
+
+    return template.firstChild
+  }
+
   protected rewriteCrossReferenceTypes = () => {
     const figRefs = this.document.querySelectorAll('xref[ref-type=fig][rid]')
 
@@ -1027,7 +1041,7 @@ export class JATSExporter {
           math.textContent = node.attrs.TeXRepresentation
           formula.appendChild(math)
         } else if (node.attrs.MathMLStringRepresentation) {
-          const math = nodeFromHTML(node.attrs.MathMLStringRepresentation)
+          const math = this.nodeFromJATS(node.attrs.MathMLStringRepresentation)
           if (math) {
             formula.appendChild(math)
           }
@@ -1148,12 +1162,12 @@ export class JATSExporter {
           math.textContent = node.attrs.TeXRepresentation
           formula.appendChild(math)
         } else if (node.attrs.MathMLRepresentation) {
-          const math = nodeFromHTML(node.attrs.MathMLRepresentation)
+          const math = this.nodeFromJATS(node.attrs.MathMLRepresentation)
           if (math) {
             formula.appendChild(math)
           }
         } else if (node.attrs.SVGRepresentation) {
-          const math = nodeFromHTML(node.attrs.SVGRepresentation)
+          const math = this.nodeFromJATS(node.attrs.SVGRepresentation)
           if (math) {
             formula.appendChild(math)
           }
