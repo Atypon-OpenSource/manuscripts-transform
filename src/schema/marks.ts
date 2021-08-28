@@ -26,6 +26,10 @@ export const bold: MarkSpec = {
     },
     { tag: 'strong' },
     {
+      // this is to support article-title parsing which is done by creating htmlNode first and putting it through the parser
+      tag: 'bold',
+    },
+    {
       // This regex, copied from prosemirror-schema-basic, matches all the possible "font-weight" values that can mean "bold".
       getAttrs: (value) =>
         /^(bold(er)?|[5-9]\d{2,})$/.test(value as string) && null,

@@ -24,7 +24,7 @@ export interface SectionTitleNode extends ManuscriptNode {
 
 export const sectionTitle: NodeSpec = {
   content: '(text | highlight_marker)*',
-  marks: 'italic superscript subscript smallcaps',
+  marks: 'italic superscript subscript smallcaps bold',
   group: 'block',
   selectable: false,
   parseDOM: [
