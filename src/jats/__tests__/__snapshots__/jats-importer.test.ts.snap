@@ -6746,6 +6746,9 @@ Array [
 
   <div class=\\"csl-entry\\">
     <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">38</span></div> </div>
+
+  <div class=\\"csl-entry\\">
+    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">39</span></div> </div>
 </div>",
     "elementType": "div",
     "objectType": "MPBibliographyElement",
@@ -6912,13 +6915,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. <span class=\\"citation\\" data-reference-id=\\"bib9\\">Boutchkova et al. (2012)</span>, <span class=\\"citation\\" data-reference-id=\\"bib34\\">Pástor and Veronesi (2012</span>, <span class=\\"citation\\" data-reference-id=\\"bib35\\">2013</span>), <span class=\\"citation\\" data-reference-id=\\"bib10\\">Brogaard and Detzel (2015)</span>, <span class=\\"citation\\" data-reference-id=\\"bib15\\">Gungoraydinoglu, Çolak, and Öztekin (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib7\\">Bonaparte, Kumar, and Page (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib5\\">Bhattacharya et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib26\\">Marshall et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib25\\">Liu, Shu, and Wei (2017)</span>, and <span class=\\"citation\\" data-reference-id=\\"bib36\\">Perignon and Vallée (2017)</span> all examine the effects of political uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. <span class=\\"citation\\" data-reference-id=\\"bib9\\">Boutchkova et al. (2012)</span>, <span class=\\"citation\\" data-reference-id=\\"bib34\\">Pástor and Veronesi (2012</span>, <span class=\\"citation\\" data-reference-id=\\"bib35\\">2013</span>), <span class=\\"citation\\" data-reference-id=\\"bib10\\">Brogaard and Detzel (2015)</span>, <span class=\\"citation\\" data-reference-id=\\"bib15\\">Gungoraydinoglu, Çolak, and Öztekin (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib7\\">Bonaparte, Kumar, and Page (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib5\\">Bhattacharya et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib26\\">Marshall et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib25\\">Liu, Shu, and Wei (2017)</span>, and <span class=\\"citation\\" data-reference-id=\\"bib36\\">Perignon and Vallée (2017)</span> all examine the effects of political <span class=\\"citation\\" data-reference-id=\\"bib39\\">test-author</span>uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. <span class=\\"citation\\" data-reference-id=\\"bib9\\">Boutchkova et al. (2012)</span>, <span class=\\"citation\\" data-reference-id=\\"bib34\\">Pástor and Veronesi (2012</span>, <span class=\\"citation\\" data-reference-id=\\"bib35\\">2013</span>), <span class=\\"citation\\" data-reference-id=\\"bib10\\">Brogaard and Detzel (2015)</span>, <span class=\\"citation\\" data-reference-id=\\"bib15\\">Gungoraydinoglu, Çolak, and Öztekin (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib7\\">Bonaparte, Kumar, and Page (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib5\\">Bhattacharya et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib26\\">Marshall et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib25\\">Liu, Shu, and Wei (2017)</span>, and <span class=\\"citation\\" data-reference-id=\\"bib36\\">Perignon and Vallée (2017)</span> all examine the effects of political uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. <span class=\\"citation\\" data-reference-id=\\"bib9\\">Boutchkova et al. (2012)</span>, <span class=\\"citation\\" data-reference-id=\\"bib34\\">Pástor and Veronesi (2012</span>, <span class=\\"citation\\" data-reference-id=\\"bib35\\">2013</span>), <span class=\\"citation\\" data-reference-id=\\"bib10\\">Brogaard and Detzel (2015)</span>, <span class=\\"citation\\" data-reference-id=\\"bib15\\">Gungoraydinoglu, Çolak, and Öztekin (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib7\\">Bonaparte, Kumar, and Page (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib5\\">Bhattacharya et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib26\\">Marshall et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib25\\">Liu, Shu, and Wei (2017)</span>, and <span class=\\"citation\\" data-reference-id=\\"bib36\\">Perignon and Vallée (2017)</span> all examine the effects of political <span class=\\"citation\\" data-reference-id=\\"bib39\\">test-author</span>uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8286,6 +8289,12 @@ Array [
   Object {
     "_id": "MPBibliographyItem:test",
     "literal": "Voth, H. J., 2002, Stock price volatility and political uncertainty: Evidence from the interwar period, Working Paper, University of Zurich.",
+    "objectType": "MPBibliographyItem",
+    "type": "article-journal",
+  },
+  Object {
+    "_id": "MPBibliographyItem:test",
+    "literal": "<name><surname>test-author</surname><given-names>Jin</given-names></name>test reference which contains unparsed text",
     "objectType": "MPBibliographyItem",
     "type": "article-journal",
   },

@@ -54,7 +54,7 @@ export const jatsReferenceParser = {
           item.nodeType === Node.TEXT_NODE &&
           item.textContent?.match(/[A-Za-z]+/g)
         ) {
-          bibliographyItem.literal = item.textContent
+          bibliographyItem.literal = mixedCitation.innerHTML
           return bibliographyItem
         }
       })

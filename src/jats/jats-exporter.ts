@@ -734,32 +734,40 @@ export class JATSExporter {
       if (bibliographyItem) {
         const ref = this.document.createElement('ref')
         ref.setAttribute('id', normalizeID(bibliographyItem._id))
-
-        const citation = this.document.createElement('element-citation')
-
         // TODO: add option for mixed-citation; format citations using template
 
         // TODO: add citation elements depending on publication type
 
-        if (bibliographyItem.type) {
-          switch (bibliographyItem.type) {
-            case 'article':
-            case 'article-journal':
-              citation.setAttribute('publication-type', 'journal')
-              break
+        const updateCitationPubType = (
+          citationEl: HTMLElement,
+          pubType: string
+        ) => {
+          if (pubType) {
+            switch (pubType) {
+              case 'article':
+              case 'article-journal':
+                citationEl.setAttribute('publication-type', 'journal')
+                break
 
-            default:
-              citation.setAttribute('publication-type', bibliographyItem.type)
-              break
+              default:
+                citationEl.setAttribute('publication-type', pubType)
+                break
+            }
+          } else {
+            citationEl.setAttribute('publication-type', 'journal')
           }
-        } else {
-          citation.setAttribute('publication-type', 'journal')
         }
         // in case a literal was found in a bibItem the rest of the attributes are ignored
         // since the literal att should only be populated when the mixed-citation fails to parse
         if (bibliographyItem.literal) {
-          citation.textContent = bibliographyItem.literal
+          const mixedCitation = this.document.createElement('mixed-citation')
+          updateCitationPubType(mixedCitation, bibliographyItem.type)
+          mixedCitation.innerHTML = bibliographyItem.literal
+          ref.appendChild(mixedCitation)
+          refList.appendChild(ref)
         } else {
+          const citation = this.document.createElement('element-citation')
+          updateCitationPubType(citation, bibliographyItem.type)
           if (bibliographyItem.author) {
             const personGroupNode = this.document.createElement('person-group')
             personGroupNode.setAttribute('person-group-type', 'author')
@@ -891,10 +899,9 @@ export class JATSExporter {
             node.textContent = String(bibliographyItem.PMCID)
             citation.appendChild(node)
           }
+          ref.appendChild(citation)
+          refList.appendChild(ref)
         }
-
-        ref.appendChild(citation)
-        refList.appendChild(ref)
       }
     }
 
