@@ -29,6 +29,7 @@ import {
   Manuscript,
   Model,
   ObjectTypes,
+  UserProfileFootNote,
 } from '@manuscripts/manuscripts-json-schema'
 import debug from 'debug'
 import { DOMOutputSpec, DOMParser, DOMSerializer } from 'prosemirror-model'
@@ -1474,6 +1475,11 @@ export class JATSExporter {
       sup.textContent = String(label)
       return sup
     }
+    const creatFootNotesLabels = (content: string) => {
+      const sup = this.document.createElement('sup')
+      sup.textContent = String(content)
+      return sup
+    }
     if (authorContributors.length) {
       const contribGroup = this.document.createElement('contrib-group')
       contribGroup.setAttribute('content-type', 'authors')
@@ -1541,6 +1547,17 @@ export class JATSExporter {
           })
         }
 
+        if (contributor.footnote) {
+          contributor.footnote.map((note) => {
+            const data = note as UserProfileFootNote
+            const xref = this.document.createElement('xref')
+            xref.setAttribute('ref-type', 'fn')
+            xref.setAttribute('rid', normalizeID(data.noteId as string))
+            xref.appendChild(creatFootNotesLabels(data.content as string))
+            contrib.appendChild(xref)
+          })
+        }
+
         contribGroup.appendChild(contrib)
       })
 
@@ -1601,6 +1618,16 @@ export class JATSExporter {
               xref.setAttribute('ref-type', 'aff')
               xref.setAttribute('rid', normalizeID(rid))
               xref.appendChild(creatAffiliationLabel(rid))
+              contrib.appendChild(xref)
+            })
+          }
+          if (contributor.footnote) {
+            contributor.footnote.map((note) => {
+              const data = note as UserProfileFootNote
+              const xref = this.document.createElement('xref')
+              xref.setAttribute('ref-type', 'fn')
+              xref.setAttribute('rid', normalizeID(data.noteId as string))
+              xref.appendChild(creatFootNotesLabels(data.content as string))
               contrib.appendChild(xref)
             })
           }

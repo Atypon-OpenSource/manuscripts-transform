@@ -500,7 +500,6 @@ exports[`JATS importer parses JATS article with tables and table footnotes 1`] =
 Array [
   Object {
     "_id": "MPManuscript:test",
-    "acceptanceDate": 1599004800,
     "equationCount": 0,
     "figureCount": 3,
     "genericCounts": Array [
@@ -518,9 +517,7 @@ Array [
       "MPKeyword:test",
     ],
     "objectType": "MPManuscript",
-    "receiveDate": 1588550400,
     "referencesCount": 21,
-    "revisionReceiveDate": 1595721600,
     "runningTitle": "low-dose anti-PD1 antibodies in cHL",
     "tableCount": 3,
     "title": "Low-dose pembrolizumab and nivolumab were efficacious and safe in relapsed and refractory classical Hodgkin lymphoma: experience in a resource-constrained setting",
@@ -4899,7 +4896,6 @@ exports[`JATS importer parses full JATS example to Manuscripts models 1`] = `
 Array [
   Object {
     "_id": "MPManuscript:test",
-    "acceptanceDate": 899683200,
     "bundle": "MPBundle:test",
     "keywordIDs": Array [
       "MPKeyword:test",
@@ -4913,9 +4909,6 @@ Array [
       "MPKeyword:test",
     ],
     "objectType": "MPManuscript",
-    "receiveDate": 886636800,
-    "revisionReceiveDate": 898646400,
-    "revisionRequestDate": 892512000,
     "title": "WHEN ELECTIONS FAIL TO RESOLVE UNCERTAINTY: THE CASE OF THE 2016 U.S. <b>PRESIDENTIAL ELECTION</b>",
   },
   Object {
