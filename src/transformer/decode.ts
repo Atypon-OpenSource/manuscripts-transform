@@ -271,6 +271,7 @@ export class Decoder {
           embedURL: model.embedURL,
           attribution: model.attribution,
           externalFileReferences: model.externalFileReferences,
+          missingImage: model.missingImage,
         },
         [figcaption, ...paragraphs]
       )

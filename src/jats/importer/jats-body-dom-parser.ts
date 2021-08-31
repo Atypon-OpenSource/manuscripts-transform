@@ -338,7 +338,12 @@ const nodes: NodeRule[] = [
       const originalURL = graphicNode
         ? graphicNode.getAttributeNS(XLINK_NAMESPACE, 'href')
         : undefined
-      if (originalURL) {
+
+      const specificUse = graphicNode?.getAttribute('specific-use')
+      const hasMissingImage =
+        specificUse && specificUse.trim().toLowerCase() == 'missing'
+
+      if (originalURL && !hasMissingImage) {
         externalFileReferences.push({
           url: originalURL,
           kind: 'imageRepresentation',
@@ -370,6 +375,7 @@ const nodes: NodeRule[] = [
           externalFileReferences.length > 0
             ? externalFileReferences
             : undefined,
+        missingImage: hasMissingImage,
       }
     },
   },
