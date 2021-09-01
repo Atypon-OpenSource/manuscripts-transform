@@ -48,6 +48,7 @@ import {
   schema,
   TableElementNode,
 } from '../schema'
+import { buildAttribution } from "./builders";
 import {
   extractHighlightMarkers,
   isHighlightableModel,
@@ -299,6 +300,16 @@ const containedObjectIDs = (
   return ids
 }
 
+const attribution = (node: ManuscriptNode) => {
+  if (node.attrs.attribution) {
+    return {
+      ...node.attrs.attribution,
+      ...buildAttribution(),
+    }
+  }
+  return undefined
+}
+
 type NodeEncoder = (
   node: ManuscriptNode,
   parent: ManuscriptNode,
@@ -400,7 +411,7 @@ const encoders: NodeEncoderMap = {
     embedURL: node.attrs.embedURL || undefined,
     originalURL: node.attrs.originalURL || undefined,
     listingAttachment: node.attrs.listingAttachment || undefined,
-    attribution: node.attrs.attribution || undefined,
+    attribution: attribution(node),
     externalFileReferences: node.attrs.externalFileReferences || undefined,
     containedObjectIDs: containedParagraphIDs(node),
     missingImage: node.attrs.missingImage || undefined,

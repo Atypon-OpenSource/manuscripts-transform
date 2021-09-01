@@ -298,9 +298,9 @@ export const jatsBodyTransformations = {
 
         // split multiple graphics into separate sub-figures
         for (const graphic of graphics) {
-          const figure = createElement('figure')
+          const figure = createElement('fig')
           figure.appendChild(graphic)
-          figGroup.appendChild(figure)
+          figGroup.appendChild(figure.cloneNode(true))
         }
       } else {
         // move single- or no-graphic figure into fig-group
