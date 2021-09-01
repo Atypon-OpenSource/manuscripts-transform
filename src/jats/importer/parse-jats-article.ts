@@ -129,6 +129,10 @@ export const parseJATSFront = async (front: Element) => {
     footnoteIDs
   )
 
+  const history = jatsFrontParser.parseDates(
+    front.querySelector('article-meta > history')
+  )
+
   const manuscript = {
     ...buildManuscript(),
     ...manuscriptMeta,
