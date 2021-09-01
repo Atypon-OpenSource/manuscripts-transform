@@ -65,7 +65,7 @@ describe('STS importer', () => {
     const end = performance.now()
 
     // TODO this takes forever
-    expect(end - start).toBeLessThan(15500)
+    expect(end - start).toBeLessThan(20000)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 })
