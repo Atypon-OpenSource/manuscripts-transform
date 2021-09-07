@@ -286,15 +286,10 @@ export const jatsBodyTransformations = {
 
       // move caption into fig-group
       const figCaption = figure.querySelector('caption')
-      if (figCaption) {
-        figGroup.appendChild(figCaption)
-      }
-
       const graphics = figure.querySelectorAll('graphic')
 
       if (graphics.length > 1) {
         // TODO: copy attributes?
-        section.removeChild(figure)
 
         // split multiple graphics into separate sub-figures
         for (const graphic of graphics) {
@@ -302,9 +297,15 @@ export const jatsBodyTransformations = {
           figure.appendChild(graphic)
           figGroup.appendChild(figure.cloneNode(true))
         }
+        section.removeChild(figure)
       } else {
         // move single- or no-graphic figure into fig-group
         figGroup.appendChild(figure)
+      }
+
+      // caption goes to the end
+      if (figCaption) {
+        figGroup.appendChild(figCaption)
       }
     }
   },
