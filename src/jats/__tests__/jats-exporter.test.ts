@@ -602,6 +602,9 @@ describe('JATS exporter', () => {
       }
     )
     expect(xml).toMatchSnapshot()
+
+    const { errors } = parseXMLWithDTD(xml)
+    expect(errors).toHaveLength(0)
   })
 
   test('Only export front matter', async () => {

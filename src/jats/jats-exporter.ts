@@ -511,6 +511,17 @@ export class JATSExporter {
     const titleGroup = this.document.createElement('title-group')
     articleMeta.appendChild(titleGroup)
 
+    this.buildContributors(articleMeta)
+
+    if (links && links.self) {
+      for (const [key, value] of Object.entries(links.self)) {
+        const link = this.document.createElement('self-uri')
+        link.setAttribute('content-type', key)
+        link.setAttributeNS(XLINK_NAMESPACE, 'href', value)
+        articleMeta.appendChild(link)
+      }
+    }
+
     if (manuscript.title) {
       const element = this.document.createElement('article-title')
       this.setTitleContent(element, manuscript.title)
@@ -567,17 +578,6 @@ export class JATSExporter {
 
     if (history.childElementCount) {
       articleMeta.appendChild(history)
-    }
-
-    this.buildContributors(articleMeta)
-
-    if (links && links.self) {
-      for (const [key, value] of Object.entries(links.self)) {
-        const link = this.document.createElement('self-uri')
-        link.setAttribute('content-type', key)
-        link.setAttributeNS(XLINK_NAMESPACE, 'href', value)
-        articleMeta.appendChild(link)
-      }
     }
 
     if (manuscript.keywordIDs) {
@@ -644,7 +644,7 @@ export class JATSExporter {
       day: date.getUTCDate().toString(),
     }
 
-    for (const [key, value] of Object.entries(lookup)) {
+    for (const [key, value] of Object.entries(lookup).reverse()) {
       const el = this.document.createElement(key)
       el.textContent = value
       dateElement.appendChild(el)

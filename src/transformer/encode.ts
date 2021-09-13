@@ -48,7 +48,7 @@ import {
   schema,
   TableElementNode,
 } from '../schema'
-import { buildAttribution } from "./builders";
+import { buildAttribution } from './builders'
 import {
   extractHighlightMarkers,
   isHighlightableModel,
