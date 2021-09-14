@@ -39,7 +39,7 @@ import {
 import { ISSN, parseJournalMeta } from './jats-journal-meta-parser'
 
 const warn = debug('manuscripts-transform')
-
+const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 const chooseBundle = async (issns: ISSN[]): Promise<string | undefined> => {
   const issnBundleIndex = await loadIssnBundleIndex()
 
@@ -256,9 +256,15 @@ export const jatsFrontParser = {
       affiliation.addressLine3 =
         affiliationNode.querySelector('addr-line:nth-of-type(3)')
           ?.textContent || undefined
-
-      // affiliation.postCode =
-      //   affiliationNode.querySelector('postal-code')?.textContent || undefined
+      const emailNode = affiliationNode.querySelector('email')
+      if (emailNode) {
+        affiliation.email = {
+          href: emailNode.getAttributeNS(XLINK_NAMESPACE, 'href') || undefined,
+          text: emailNode.textContent || undefined,
+        }
+      }
+      affiliation.postCode =
+        affiliationNode.querySelector('postal-code')?.textContent || undefined
       // affiliation.city =
       //   affiliationNode.querySelector('city')?.textContent || undefined
       affiliation.country =

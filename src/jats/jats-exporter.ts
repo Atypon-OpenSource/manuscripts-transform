@@ -1707,6 +1707,17 @@ export class JATSExporter {
             country.textContent = affiliation.country
             aff.appendChild(country)
           }
+
+          if (affiliation.email) {
+            const email = this.document.createElement('email')
+            email.setAttributeNS(
+              XLINK_NAMESPACE,
+              'href',
+              affiliation.email.href ?? ''
+            )
+            email.textContent = affiliation.email.text ?? ''
+            aff.appendChild(email)
+          }
           const labelNumber = affiliationLabels.get(affiliation._id)
           if (labelNumber) {
             const label = this.document.createElement('label')
