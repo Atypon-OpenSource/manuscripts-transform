@@ -32,7 +32,7 @@ export interface FigureNode extends ManuscriptNode {
     attribution?: AttributionNode
     externalFileReferences?: {
       url: string
-      kind?: 'imageRepresentation' | 'interactiveRepresentation' | 'dataset'
+      kind?: string
     }[]
   }
 }
