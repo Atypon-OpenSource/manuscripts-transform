@@ -569,6 +569,16 @@ export class HTMLTransformer {
       if (node.attrs.id) {
         const selector = this.idSelector(node.attrs.id)
 
+        const element = this.document.querySelector(`${selector}`)
+        if (element && this.labelTargets) {
+          const target = this.labelTargets.get(node.attrs.id)
+          if (target) {
+            const label = this.document.createElement('label')
+            label.textContent = target.label
+            element.appendChild(label)
+          }
+        }
+
         if (node.attrs.titleSuppressed) {
           const title = this.document.querySelector(`${selector} > h1`)
 
@@ -624,6 +634,10 @@ export class HTMLTransformer {
                 figure.insertBefore(caption, figure.firstChild)
               }
 
+              const label = this.document.querySelector(`${selector} > label`)
+              if (label) {
+                figure.insertBefore(label, figure.firstChild)
+              }
               // replace the figure element with the figure
               if (figureGroup.parentElement) {
                 figureGroup.parentElement.replaceChild(figure, figureGroup)
@@ -634,15 +648,6 @@ export class HTMLTransformer {
             if (figures.length === 0 && !caption) {
               figureGroup.remove()
             }
-          }
-        }
-        const element = this.document.querySelector(`${selector}`)
-        if (element && this.labelTargets) {
-          const target = this.labelTargets.get(node.attrs.id)
-          if (target) {
-            const label = this.document.createElement('label')
-            label.textContent = target.label
-            element.appendChild(label)
           }
         }
       }
