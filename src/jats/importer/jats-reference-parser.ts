@@ -45,19 +45,32 @@ export const jatsReferenceParser = {
     const references = referenceNodes.map((referenceNode) => {
       const publicationType = referenceNode.getAttribute('publication-type')
 
+      const authorNodes = [
+        ...referenceNode.querySelectorAll(
+          'person-group[person-group-type="author"] > *'
+        ),
+      ]
+
       const bibliographyItem = buildBibliographyItem({
         type: chooseBibliographyItemType(publicationType),
       })
       const mixedCitation = referenceNode.querySelector('mixed-citation')
-      mixedCitation?.childNodes.forEach((item) => {
-        if (
-          item.nodeType === Node.TEXT_NODE &&
-          item.textContent?.match(/[A-Za-z]+/g)
-        ) {
-          bibliographyItem.literal = mixedCitation.innerHTML
-          return bibliographyItem
-        }
-      })
+      if (authorNodes.length <= 0) {
+        mixedCitation?.childNodes.forEach((item) => {
+          if (
+            item.nodeType === Node.TEXT_NODE &&
+            item.textContent?.match(/[A-Za-z]+/g)
+          ) {
+            let literalRef = mixedCitation.innerHTML
+            if (literalRef.match(/ns\d+:href/gi)) {
+              literalRef = literalRef.replace(/ns\d+:href/gi, 'xlink:href')
+                .replace(/xmlns:ns\d+/gi, 'xmlns:xlink')
+            }
+            bibliographyItem.literal = literalRef
+            return bibliographyItem
+          }
+        })
+      }
       const titleNode = referenceNode.querySelector('article-title')
 
       if (titleNode) {
@@ -115,11 +128,6 @@ export const jatsReferenceParser = {
       // TODO: handle missing person-group-type?
       // TODO: handle contrib-group nested inside collab
       // TODO: handle collab name
-      const authorNodes = [
-        ...referenceNode.querySelectorAll(
-          'person-group[person-group-type="author"] > *'
-        ),
-      ]
 
       const authors: BibliographicName[] = []
 

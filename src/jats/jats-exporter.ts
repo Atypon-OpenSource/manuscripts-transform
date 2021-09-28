@@ -1218,7 +1218,7 @@ export class JATSExporter {
 
         const linkNode = this.document.createElement('ext-link')
         linkNode.setAttribute('ext-link-type', 'uri')
-        linkNode.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.href)
+        linkNode.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
         linkNode.textContent = text
 
         if (node.attrs.title) {
