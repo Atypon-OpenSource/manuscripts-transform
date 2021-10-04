@@ -14,11 +14,6 @@
  * limitations under the License.
  */
 
-import {
-  chooseSectionCategoryFromTitle,
-  chooseSecType,
-} from '../../transformer'
-
 const removeNodeFromParent = (node: Element) =>
   node.parentNode && node.parentNode.removeChild(node)
 
@@ -239,25 +234,20 @@ export const jatsBodyTransformations = {
     body: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
-    const footnoteGroups = [...doc.querySelectorAll('fn[fn-type]')]
-    for (const footnote of footnoteGroups) {
-      const type = footnote.getAttribute('fn-type')
-      const category = chooseSectionCategoryFromTitle(type)
-      if (category) {
-        const section = createElement('sec')
-        const title = footnote.querySelector('p[content-type="fn-title"]')
-        if (title) {
-          const sectionTitleElement = createElement('title')
-          sectionTitleElement.textContent = title.textContent
-          removeNodeFromParent(title)
-          section.append(sectionTitleElement)
-        }
-        section.append(...footnote.children)
-        removeNodeFromParent(footnote)
+    const footnoteGroups = [...doc.querySelectorAll('fn-group')]
+    if (footnoteGroups.length > 0) {
+      const section = createElement('sec')
+      section.setAttribute('sec-type', 'notes')
 
-        section.setAttribute('sec-type', chooseSecType(category))
-        body.append(section)
+      const sectionTitleElement = createElement('title')
+      sectionTitleElement.textContent = 'Footnotes'
+      section.append(sectionTitleElement)
+
+      for (const footnoteGroup of footnoteGroups) {
+        removeNodeFromParent(footnoteGroup)
+        section.append(footnoteGroup)
       }
+      body.append(section)
     }
   },
   // wrap single figures in fig-group

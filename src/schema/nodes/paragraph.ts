@@ -24,6 +24,7 @@ interface Attrs {
   id: string
   paragraphStyle: string
   placeholder: string
+  contentType?: string
 }
 
 export interface ParagraphNode extends ManuscriptNode {
@@ -37,6 +38,7 @@ export const paragraph: NodeSpec = {
     paragraphStyle: { default: '' }, // TODO: default paragraph style
     placeholder: { default: '' }, // TODO: 'List item' if inside a list
     // tight: { default: false }, // https://gitlab.com/mpapp-private/manuscripts-frontend/issues/75
+    contentType: { default: undefined },
   },
   group: 'block element',
   selectable: false,
@@ -78,6 +80,10 @@ export const paragraph: NodeSpec = {
 
     if (paragraphNode.attrs.placeholder) {
       attrs['data-placeholder-text'] = paragraphNode.attrs.placeholder
+    }
+
+    if (paragraphNode.attrs.contentType) {
+      attrs['content-type'] = paragraphNode.attrs.contentType
     }
 
     return ['p', attrs, 0]

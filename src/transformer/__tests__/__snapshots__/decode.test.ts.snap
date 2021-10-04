@@ -132,6 +132,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:150780D7-CFED-4529-9398-77B5C7625044",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "Start from here. Enjoy writing! - the Manuscripts Team.",
@@ -146,6 +147,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:60C13548-23C0-4348-FE98-0510E0B61B18",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -199,6 +201,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:A89DC62A-90ED-4283-AB6D-06CA2519D801",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -224,6 +227,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:05A0ED43-8928-4C69-A17C-0A98795001CD",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -284,6 +288,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:4DF93A63-D44D-41CF-AF54-23712B8703FA",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -309,6 +314,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "contentType": undefined,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -340,6 +346,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "contentType": undefined,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -371,6 +378,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "contentType": undefined,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -396,6 +404,7 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
+                            "contentType": undefined,
                             "id": "",
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -1382,6 +1391,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1405,6 +1415,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1426,6 +1437,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:41B99DAB-F86C-477F-D36C-2B8590B5DAD0",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1447,6 +1459,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:C8A173A4-DF32-4242-E800-28A1AE5B48B8",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1468,6 +1481,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1486,6 +1500,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:3708E8C7-441C-4502-8BFC-D3A2059CEF8B",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1514,6 +1529,7 @@ const x = 'y'",
           "content": Array [
             Object {
               "attrs": Object {
+                "category": undefined,
                 "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
                 "kind": "footnote",
                 "paragraphStyle": "",
@@ -1522,6 +1538,7 @@ const x = 'y'",
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "contentType": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -1706,6 +1723,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:150780D7-CFED-4529-9398-77B5C7625044",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "Start from here. Enjoy writing! - the Manuscripts Team.",
@@ -1720,6 +1738,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:60C13548-23C0-4348-FE98-0510E0B61B18",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1773,6 +1792,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:A89DC62A-90ED-4283-AB6D-06CA2519D801",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1824,6 +1844,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:4DF93A63-D44D-41CF-AF54-23712B8703FA",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1849,6 +1870,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "contentType": undefined,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -1880,6 +1902,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "contentType": undefined,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -1911,6 +1934,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "contentType": undefined,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -1936,6 +1960,7 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
+                            "contentType": undefined,
                             "id": "",
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -2743,6 +2768,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -2766,6 +2792,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -2787,6 +2814,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:41B99DAB-F86C-477F-D36C-2B8590B5DAD0",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -2808,6 +2836,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:C8A173A4-DF32-4242-E800-28A1AE5B48B8",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -2829,6 +2858,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -2847,6 +2877,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:3708E8C7-441C-4502-8BFC-D3A2059CEF8B",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -2875,6 +2906,7 @@ const x = 'y'",
           "content": Array [
             Object {
               "attrs": Object {
+                "category": undefined,
                 "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
                 "kind": "footnote",
                 "paragraphStyle": "",
@@ -2883,6 +2915,7 @@ const x = 'y'",
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "contentType": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -3067,6 +3100,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:150780D7-CFED-4529-9398-77B5C7625044",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "Start from here. Enjoy writing! - the Manuscripts Team.",
@@ -3081,6 +3115,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:60C13548-23C0-4348-FE98-0510E0B61B18",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3134,6 +3169,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:A89DC62A-90ED-4283-AB6D-06CA2519D801",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3159,6 +3195,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:05A0ED43-8928-4C69-A17C-0A98795001CD",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3219,6 +3256,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:4DF93A63-D44D-41CF-AF54-23712B8703FA",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3244,6 +3282,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "contentType": undefined,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -3275,6 +3314,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "contentType": undefined,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -3306,6 +3346,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "contentType": undefined,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -3331,6 +3372,7 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
+                            "contentType": undefined,
                             "id": "",
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -4317,6 +4359,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -4340,6 +4383,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -4361,6 +4405,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:41B99DAB-F86C-477F-D36C-2B8590B5DAD0",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -4382,6 +4427,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:C8A173A4-DF32-4242-E800-28A1AE5B48B8",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -4403,6 +4449,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -4421,6 +4468,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:3708E8C7-441C-4502-8BFC-D3A2059CEF8B",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -4449,6 +4497,7 @@ const x = 'y'",
           "content": Array [
             Object {
               "attrs": Object {
+                "category": undefined,
                 "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
                 "kind": "footnote",
                 "paragraphStyle": "",
@@ -4457,6 +4506,7 @@ const x = 'y'",
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "contentType": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -4534,6 +4584,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:1",
             "paragraphStyle": "MPParagraphStyle:1",
             "placeholder": "",
@@ -4560,6 +4611,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:2",
             "paragraphStyle": "MPParagraphStyle:1",
             "placeholder": "",
@@ -4642,6 +4694,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contentType": undefined,
             "id": "MPParagraphElement:1",
             "paragraphStyle": "MPParagraphStyle:1",
             "placeholder": "",

@@ -1141,7 +1141,19 @@ export class JATSExporter {
       },
       figure_element: (node) =>
         createFigureElement(node, 'fig-group', node.type.schema.nodes.figure),
-      footnote: (node) => ['fn', { id: normalizeID(node.attrs.id) }, 0],
+      footnote: (node) => {
+        const attrs: Attrs = {}
+
+        if (node.attrs.id) {
+          attrs.id = normalizeID(node.attrs.id)
+        }
+
+        if (node.attrs.category) {
+          attrs['fn-type'] = node.attrs.category
+        }
+
+        return ['fn', attrs, 0]
+      },
       footnotes_element: (node) => {
         const kind = node.attrs.kind
         let tag = 'fn-group'
@@ -1246,6 +1258,10 @@ export class JATSExporter {
 
         if (node.attrs.id) {
           attrs.id = normalizeID(node.attrs.id)
+        }
+
+        if (node.attrs.contentType) {
+          attrs['content-type'] = node.attrs.contentType
         }
 
         return ['p', attrs, 0]
@@ -2072,6 +2088,7 @@ export class JATSExporter {
       back.insertBefore(appGroup, back.firstChild)
     }
     const footNotes = []
+    // TODO:: clean up
     const competingInterests = body.querySelector(
       'sec[sec-type="competing-interests"]'
     )
@@ -2079,6 +2096,7 @@ export class JATSExporter {
       footNotes.push(this.sectionToFootnote(competingInterests, 'conflict'))
     }
 
+    // TODO:: clean up
     const financialDisclosure = body.querySelector(
       'sec[sec-type="financial-disclosure"]'
     )

@@ -384,27 +384,38 @@ export class Decoder {
     [ObjectTypes.FootnotesElement]: (data) => {
       const model = data as FootnotesElement
 
-      const collateByKind = model.collateByKind || 'footnote'
-
+      const id = model._id
       const footnotesOfKind = []
 
-      for (const model of this.modelMap.values()) {
-        if (isFootnote(model) && model.kind === collateByKind) {
-          const footnote = this.parseContents(
-            'contents',
-            model.contents || '<div></div>',
-            undefined,
-            model.highlightMarkers,
-            {
-              topNode: schema.nodes.footnote.create({
-                id: model._id,
-                kind: model.kind,
-                // placeholder: model.placeholderText
-                // paragraphStyle: model.paragraphStyle,
-              }),
-            }
-          ) as FootnoteNode
+      for (const innerModel of this.modelMap.values()) {
+        if (isFootnote(innerModel) && innerModel.containingObject === id) {
+          const paragraphs: Array<ParagraphNode> = []
+          const template = document.createElement('div')
+          template.innerHTML = innerModel.contents
+          template.querySelectorAll('p').forEach((element) => {
+            paragraphs.push(
+              this.parseContents(
+                'paragraph',
+                element.innerHTML,
+                'paragraph',
+                innerModel.highlightMarkers,
+                {
+                  topNode: schema.nodes.paragraph.create({
+                    contentType: element.getAttribute('content-type'),
+                  }),
+                }
+              ) as ParagraphNode
+            )
+          })
 
+          const footnote = schema.nodes.footnote.create(
+            {
+              id: innerModel._id,
+              kind: innerModel.kind,
+              category: innerModel.category,
+            },
+            paragraphs
+          )
           footnotesOfKind.push(footnote)
         }
       }

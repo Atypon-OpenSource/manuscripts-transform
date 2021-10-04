@@ -26,6 +26,7 @@ Object {
           },
           Object {
             "attrs": Object {
+              "contentType": undefined,
               "id": "MPParagraphElement:0EAC7ED3-41FB-468F-A267-60664A2F59B7",
               "paragraphStyle": "",
               "placeholder": "",
@@ -283,6 +284,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
@@ -305,6 +307,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
@@ -327,6 +330,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
@@ -358,6 +362,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
@@ -380,6 +385,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
@@ -402,6 +408,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
@@ -424,6 +431,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
@@ -1027,6 +1035,7 @@ Object {
                                   },
                                   Object {
                                     "attrs": Object {
+                                      "contentType": undefined,
                                       "id": "MPParagraphElement:5A5E25E4-0677-44D4-B5EA-AA5514113F27",
                                       "paragraphStyle": "",
                                       "placeholder": "",
@@ -1073,6 +1082,7 @@ Object {
           },
           Object {
             "attrs": Object {
+              "contentType": undefined,
               "id": "MPParagraphElement:0EAC7ED3-41FB-468F-A267-60664A2F59B7",
               "paragraphStyle": "",
               "placeholder": "",
@@ -1330,6 +1340,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
@@ -1352,6 +1363,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
@@ -1374,6 +1386,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
@@ -1405,6 +1418,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
@@ -1427,6 +1441,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
@@ -1449,6 +1464,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
@@ -1471,6 +1487,7 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
+                          "contentType": undefined,
                           "id": "",
                           "paragraphStyle": "",
                           "placeholder": "",
