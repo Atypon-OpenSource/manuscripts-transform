@@ -27,9 +27,9 @@ import {
   buildAffiliation,
   buildBibliographicName,
   buildContributor,
+  buildFootnote,
   buildKeyword,
   buildKeywordGroup,
-  buildUserFootNote,
 } from '../../transformer/builders'
 import { createNewBundle, createParentBundle } from '../../transformer/bundles'
 import {
@@ -286,15 +286,12 @@ export const jatsFrontParser = {
   parseFootnoteNodes(footnoteNodes: Element[]) {
     const footnoteIDs = new Map<string, string>()
     const footnotes = footnoteNodes.map((footnoteNode) => {
-      const footnote = buildUserFootNote(
-        footnoteNode.getAttribute('rid') as string,
-        footnoteNode.textContent as string
-      )
-      const id = footnoteNode.getAttribute('rid')
+      const fn = buildFootnote('', footnoteNode.innerHTML)
+      const id = footnoteNode.getAttribute('id')
       if (id) {
-        footnoteIDs.set(id, footnoteNode.textContent as string)
+        footnoteIDs.set(id, fn._id)
       }
-      return footnote
+      return fn
     })
     return {
       footnotes,
@@ -338,31 +335,38 @@ export const jatsFrontParser = {
         contributor.ORCIDIdentifier = orcid
       }
 
-      const xrefNode = authorNode.querySelector('xref')
+      const xrefNodes = authorNode.querySelectorAll('xref')
 
-      if (xrefNode) {
-        const rid = xrefNode.getAttribute('rid')
-        const rtype = xrefNode.getAttribute('ref-type')
-        if (rid) {
-          //check the xref note type, if fn(footnote) then map the note content and id in array
-          if (rtype === 'fn') {
-            contributor.footnote = Array.from(
-              footnoteIDs
-            ).map(([noteId, content]) => ({ noteId, content })) as []
-          }
-          //check the xref note type, if aff then map the aff ids in array
-          else if (rtype === 'aff') {
-            const rids = rid
-              .split(/\s+/)
-              .filter((id) => affiliationIDs.has(id))
-              .map((id) => affiliationIDs.get(id)) as string[]
-            if (rids.length) {
-              contributor.affiliations = rids
+      for (const xrefNode of xrefNodes) {
+        if (xrefNode) {
+          const rid = xrefNode.getAttribute('rid')
+          const rtype = xrefNode.getAttribute('ref-type')
+          if (rid) {
+            //check the xref note type, if fn(footnote) then map the note content and id in array
+            if (rtype === 'fn') {
+              contributor.footnote = []
+              const footnoteId = footnoteIDs.get(rid)
+              if (footnoteId) {
+                const authorFootNoteRef = {
+                  noteID: footnoteId,
+                  noteLabel: xrefNode.textContent || '',
+                }
+                contributor.footnote.push(authorFootNoteRef)
+              }
+            }
+            //check the xref note type, if aff then map the aff ids in array
+            else if (rtype === 'aff') {
+              const rids = rid
+                .split(/\s+/)
+                .filter((id) => affiliationIDs.has(id))
+                .map((id) => affiliationIDs.get(id)) as string[]
+              if (rids.length) {
+                contributor.affiliations = rids
+              }
             }
           }
         }
       }
-
       return contributor
     })
   },

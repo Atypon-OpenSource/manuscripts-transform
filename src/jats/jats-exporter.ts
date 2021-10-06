@@ -22,6 +22,7 @@ import {
   Contributor,
   ContributorRole,
   FigureElement,
+  Footnote,
   InlineStyle,
   Journal,
   Keyword,
@@ -29,7 +30,6 @@ import {
   Manuscript,
   Model,
   ObjectTypes,
-  UserProfileFootNote,
 } from '@manuscripts/manuscripts-json-schema'
 import debug from 'debug'
 import { DOMOutputSpec, DOMParser, DOMSerializer } from 'prosemirror-model'
@@ -1491,7 +1491,7 @@ export class JATSExporter {
       sup.textContent = String(label)
       return sup
     }
-    const creatFootNotesLabels = (content: string) => {
+    const createFootNotesLabels = (content: string) => {
       const sup = this.document.createElement('sup')
       sup.textContent = String(content)
       return sup
@@ -1565,11 +1565,10 @@ export class JATSExporter {
 
         if (contributor.footnote) {
           contributor.footnote.map((note) => {
-            const data = note as UserProfileFootNote
             const xref = this.document.createElement('xref')
             xref.setAttribute('ref-type', 'fn')
-            xref.setAttribute('rid', normalizeID(data.noteId as string))
-            xref.appendChild(creatFootNotesLabels(data.content as string))
+            xref.setAttribute('rid', normalizeID(note.noteID))
+            xref.appendChild(createFootNotesLabels(note.noteLabel))
             contrib.appendChild(xref)
           })
         }
@@ -1639,11 +1638,10 @@ export class JATSExporter {
           }
           if (contributor.footnote) {
             contributor.footnote.map((note) => {
-              const data = note as UserProfileFootNote
               const xref = this.document.createElement('xref')
               xref.setAttribute('ref-type', 'fn')
-              xref.setAttribute('rid', normalizeID(data.noteId as string))
-              xref.appendChild(creatFootNotesLabels(data.content as string))
+              xref.setAttribute('rid', normalizeID(note.noteID))
+              xref.appendChild(createFootNotesLabels(note.noteLabel))
               contrib.appendChild(xref)
             })
           }
@@ -1741,6 +1739,34 @@ export class JATSExporter {
             aff.appendChild(label)
           }
         })
+      }
+      const footnotesRIDs: string[] = []
+      for (const contributor of [...authorContributors, ...otherContributors]) {
+        if (contributor.footnote) {
+          const ids = contributor.footnote.map((note) => {
+            return note.noteID
+          })
+          footnotesRIDs.push(...ids)
+        }
+      }
+      const authornotes = this.models.filter(
+        hasObjectType<Footnote>(ObjectTypes.Footnote)
+      )
+
+      if (authornotes) {
+        const authorNotesEl = this.document.createElement('author-notes')
+        const usedAuthorNotes = authornotes.filter((authorNote) => {
+          return footnotesRIDs.includes(authorNote._id)
+        })
+        usedAuthorNotes.forEach((authorNote) => {
+          const authorFootNote = this.document.createElement('fn')
+          authorFootNote.setAttribute('id', normalizeID(authorNote._id))
+          authorFootNote.innerHTML = authorNote.contents
+          authorNotesEl.appendChild(authorFootNote)
+        })
+        if (usedAuthorNotes.length > 0) {
+          articleMeta.appendChild(authorNotesEl)
+        }
       }
     }
 

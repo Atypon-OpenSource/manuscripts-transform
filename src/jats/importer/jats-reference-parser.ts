@@ -63,7 +63,8 @@ export const jatsReferenceParser = {
           ) {
             let literalRef = mixedCitation.innerHTML
             if (literalRef.match(/ns\d+:href/gi)) {
-              literalRef = literalRef.replace(/ns\d+:href/gi, 'xlink:href')
+              literalRef = literalRef
+                .replace(/ns\d+:href/gi, 'xlink:href')
                 .replace(/xmlns:ns\d+/gi, 'xmlns:xlink')
             }
             bibliographyItem.literal = literalRef
