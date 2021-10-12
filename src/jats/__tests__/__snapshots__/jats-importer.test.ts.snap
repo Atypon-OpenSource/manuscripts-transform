@@ -344,7 +344,7 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": "conflict",
+    "category": "MPFootnoteCategory:conflict",
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\" data-category=\\"conflict\\"><p id=\\"MPParagraphElement:test\\" content-type=\\"fn-title\\">CONFLICT OF INTEREST</p><p id=\\"MPParagraphElement:test\\">No conflicts of interest have been declared.</p></div>",
     "kind": "footnote",
@@ -368,7 +368,7 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": "financial-disclosure",
+    "category": "MPFootnoteCategory:financial-disclosure",
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\" data-category=\\"financial-disclosure\\"><p id=\\"MPParagraphElement:test\\" content-type=\\"fn-title\\">FUNDING INFORMATION</p><p id=\\"MPParagraphElement:test\\">This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).</p></div>",
     "kind": "footnote",
@@ -1729,7 +1729,7 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": "conflict",
+    "category": "MPFootnoteCategory:conflict",
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\" data-category=\\"conflict\\"><p id=\\"MPParagraphElement:test\\" content-type=\\"fn-title\\">Acknowledgment and conflicts of interests</p><p id=\\"MPParagraphElement:test\\">The authors have no acknowledgment to make and no conflicts of interests to declare.</p></div>",
     "kind": "footnote",
@@ -7122,7 +7122,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">See Matt Egan, “Wall Street Welcomes Trump with a Bang” CNN Money (November 9, 2016), available at <u><a href=\\"http://money.cnn.com/2016/11/09/investing/dow-jones-trump-wins-election/index.html\\">http://money.cnn.com/2016/11/09/investing/dow-jones-trump-wins-election/index.html</a></u></p></div>",
     "kind": "footnote",
@@ -7138,7 +7137,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">Overseas markets also experienced dramatic swings following initial selloffs around the Trump election (see Jethro Mullen and Matt Egan, “Global Markets Drop as U.S. Election Results Shock Investors” CNN Money (November 9, 2016), available at <u><a href=\\"http://money.cnn.com/2016/11/08/investing/global-markets-stocks-trump-clinton-us-presidential-election/index.html\\">http://money.cnn.com/2016/11/08/investing/global-markets-stocks-trump-clinton-us-presidential-election/index.html</a></u></p></div>",
     "kind": "footnote",
@@ -7154,7 +7152,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">As an alternative benchmark, we use the 2004 U.S. presidential election.</p></div>",
     "kind": "footnote",
@@ -7170,7 +7167,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">Full results are available at <u><a href=\\"https://iemweb.biz.uiowa.edu/closed/\\">https://iemweb.biz.uiowa.edu/closed/</a></u></p></div>",
     "kind": "footnote",
@@ -7186,7 +7182,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"bib30\\">Ozsoylev and Werner (2011)</span> argue that ambiguous information results in potential market illiquidity because it reduces market arbitrage opportunities.</p></div>",
     "kind": "footnote",
@@ -7202,7 +7197,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"bib32\\">Pasquariello and Zafeiridou (2014)</span> argue that this may not hold when informed participants are reluctant to reveal information via transacting, resulting in lower trading activity before the election outcome.</p></div>",
     "kind": "footnote",
@@ -7218,7 +7212,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">According to FiveThirtyEight’s election forecasts, the probability of the Republican candidate, Donald Trump, winning was 28.16% on election day. These election forecasts are available at <u><a href=\\"https://projects.fivethirtyeight.com/2016-election-forecast/\\">https://projects.fivethirtyeight.com/2016-election-forecast/</a></u></p></div>",
     "kind": "footnote",
@@ -7234,7 +7227,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"bib38\\">Voth (2002)</span>, <span class=\\"citation\\" data-reference-id=\\"bib27\\">Mei and Guo (2004)</span>, <span class=\\"citation\\" data-reference-id=\\"bib24\\">Li and Born (2006)</span>, <span class=\\"citation\\" data-reference-id=\\"bib6\\">Białkowski, Gottschalk, and Wisniewski (2008)</span>, <span class=\\"citation\\" data-reference-id=\\"bib9\\">Boutchkova et al. (2012)</span>, and <span class=\\"citation\\" data-reference-id=\\"bib3\\">Baker, Bloom, and Davis (2016)</span> all provide evidence that increased political uncertainty is associated with increased return volatility in the equity markets. <span class=\\"citation\\" data-reference-id=\\"bib21\\">Kelly, Pástor, and Veronesi (2016)</span> show that political uncertainty is priced into the option markets as it pertains to implied volatility.</p></div>",
     "kind": "footnote",
@@ -7250,7 +7242,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"bib35\\">Pástor and Veronesi (2013)</span> provide evidence that both the magnitude of a political shock and the state of the economy help determine the risk premium required by investors.</p></div>",
     "kind": "footnote",
@@ -7266,7 +7257,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">We also compare the 2004 and 2016 U.S. presidential elections in a difference-in-difference setting and show that liquidity deteriorates for the 30 trading days following the 2016 election.</p></div>",
     "kind": "footnote",
@@ -7282,7 +7272,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. <span class=\\"citation\\" data-reference-id=\\"bib9\\">Boutchkova et al. (2012)</span>, <span class=\\"citation\\" data-reference-id=\\"bib34\\">Pástor and Veronesi (2012</span>, <span class=\\"citation\\" data-reference-id=\\"bib35\\">2013</span>), <span class=\\"citation\\" data-reference-id=\\"bib10\\">Brogaard and Detzel (2015)</span>, <span class=\\"citation\\" data-reference-id=\\"bib15\\">Gungoraydinoglu, Çolak, and Öztekin (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib7\\">Bonaparte, Kumar, and Page (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib5\\">Bhattacharya et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib26\\">Marshall et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib25\\">Liu, Shu, and Wei (2017)</span>, and <span class=\\"citation\\" data-reference-id=\\"bib36\\">Perignon and Vallée (2017)</span> all examine the effects of political <span class=\\"citation\\" data-reference-id=\\"bib39\\">test-author</span>uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.</p></div>",
     "kind": "footnote",
@@ -7298,7 +7287,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">We also estimate price impact based on shorter windows such as one minute and 30 seconds, and our results are robust.</p></div>",
     "kind": "footnote",
@@ -7314,7 +7302,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"bib18\\">Holden and Jacobsen (2014)</span> show that the NBBO file is incomplete by itself, but the complete official NBBO can be constructed using the NBBO file and the quote file.</p></div>",
     "kind": "footnote",
@@ -7330,7 +7317,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">Because our analysis uses liquidity metrics such as bid–ask spreads that are directly influenced by the minimum tick size, we remove stocks that are included in the U.S. Securities and Exchange Commission (SEC) 2016 Tick Size Pilot Program, and our results are robust.</p></div>",
     "kind": "footnote",
@@ -7346,7 +7332,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">We rerun the entire analysis enforcing a balanced panel and our results are identical.</p></div>",
     "kind": "footnote",
@@ -7362,7 +7347,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">To test for robustness, we include firm-specific control variables such as price, volume, market capitalization, and turnover in each of our regression equations, and our results are robust.</p></div>",
     "kind": "footnote",
@@ -7378,7 +7362,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">We also bootstrap the standard errors and our results are robust.</p></div>",
     "kind": "footnote",
@@ -7394,7 +7377,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"bib1\\">Amihud (2002)</span> documents that smaller, illiquid stocks are associated with greater adverse selection costs. Similarly, <span class=\\"citation\\" data-reference-id=\\"bib4\\">Barry and Brown (1984)</span> document that investors command higher returns on small stocks as compensation for having less available information.</p></div>",
     "kind": "footnote",
@@ -7410,7 +7392,6 @@ Array [
   },
   Object {
     "_id": "MPFootnote:test",
-    "category": null,
     "containingObject": "MPFootnotesElement:test",
     "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">“Trump vs. Clinton: The Destiny of These 4 Major Stock Industries Is at Stake,” IHODL (August 31, 2016), available at: <u><a href=\\"https://en.insider.pro/economics/2016-08-31/trump-vs-clinton-destiny-these-4-major-stock-industries-stake/\\">https://en.insider.pro/economics/2016-08-31/trump-vs-clinton-destiny-these-4-major-stock-industries-stake/</a></u></p></div>",
     "kind": "footnote",

@@ -49,6 +49,7 @@ import {
   TableElementNode,
 } from '../schema'
 import { buildAttribution } from './builders'
+import { buildFootnoteCategory } from './footnote-category'
 import {
   extractHighlightMarkers,
   isHighlightableModel,
@@ -446,7 +447,7 @@ const encoders: NodeEncoderMap = {
     containingObject: parent.attrs.id,
     contents: footnoteContents(node), // TODO: needed?
     kind: node.attrs.kind || 'footnote',
-    category: node.attrs.category,
+    category: buildFootnoteCategory(node.attrs.category),
   }),
   footnotes_element: (node): Partial<FootnotesElement> => ({
     contents: '<div></div>', // contents(node), // TODO: empty div instead?
