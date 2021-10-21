@@ -272,6 +272,7 @@ export class Decoder {
           attribution: model.attribution,
           externalFileReferences: model.externalFileReferences,
           missingImage: model.missingImage,
+          position: model.position,
         },
         [figcaption, ...paragraphs]
       )

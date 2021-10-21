@@ -416,6 +416,7 @@ const encoders: NodeEncoderMap = {
     externalFileReferences: node.attrs.externalFileReferences || undefined,
     containedObjectIDs: containedParagraphIDs(node),
     missingImage: node.attrs.missingImage || undefined,
+    position: node.attrs.position || undefined,
   }),
   figure_element: (node): Partial<FigureElement> => ({
     containedObjectIDs: containedFigureIDs(node),

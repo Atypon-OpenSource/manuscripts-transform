@@ -1221,6 +1221,7 @@ Array [
     ],
     "objectType": "MPFigure",
     "originalURL": "https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&name=figure+1+revised.tif",
+    "position": "float",
   },
   Object {
     "_id": "MPParagraphElement:test",
@@ -1328,6 +1329,7 @@ Array [
     ],
     "objectType": "MPFigure",
     "originalURL": "https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&name=figure+2.jpg",
+    "position": "float",
   },
   Object {
     "_id": "MPListing:test",
@@ -1581,6 +1583,7 @@ Array [
     ],
     "objectType": "MPFigure",
     "originalURL": "https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&name=figure+3.jpg",
+    "position": "float",
   },
   Object {
     "_id": "MPListing:test",
@@ -4007,6 +4010,7 @@ Object {
                                     "listingAttachment": undefined,
                                     "missingImage": null,
                                     "originalURL": "123412341234.fig1",
+                                    "position": "float",
                                     "src": "",
                                   },
                                   "content": Array [
@@ -4089,6 +4093,7 @@ Object {
                                     "listingAttachment": undefined,
                                     "missingImage": true,
                                     "originalURL": "123412341234.fig1",
+                                    "position": "float",
                                     "src": "",
                                   },
                                   "content": Array [
@@ -10250,6 +10255,7 @@ Object {
                 "listingAttachment": undefined,
                 "missingImage": null,
                 "originalURL": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
+                "position": null,
                 "src": "",
               },
               "type": "figure",

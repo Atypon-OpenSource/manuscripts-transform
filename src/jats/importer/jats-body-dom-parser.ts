@@ -334,6 +334,7 @@ const nodes: NodeRule[] = [
       const mediaNode = element.querySelector('media')
       const attrib = element.querySelector('attrib')
       const externalFileReferences: Array<{ url: string; kind?: string }> = []
+      const position = element.getAttribute('position')
 
       const originalURL = graphicNode
         ? graphicNode.getAttributeNS(XLINK_NAMESPACE, 'href')
@@ -376,6 +377,7 @@ const nodes: NodeRule[] = [
             ? externalFileReferences
             : undefined,
         missingImage: hasMissingImage,
+        position,
       }
     },
   },

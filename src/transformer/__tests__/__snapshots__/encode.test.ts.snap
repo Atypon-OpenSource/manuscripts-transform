@@ -251,6 +251,7 @@ Map {
     "missingImage": undefined,
     "objectType": "MPFigure",
     "originalURL": undefined,
+    "position": undefined,
     "title": undefined,
   },
   "MPFigureElement:B32BDEC8-E816-4946-C0BB-0404AF2F0C29" => Object {
@@ -281,6 +282,7 @@ Map {
     "missingImage": undefined,
     "objectType": "MPFigure",
     "originalURL": undefined,
+    "position": undefined,
     "title": undefined,
   },
   "MPTableElement:82BD8BAF-D136-4536-AD9C-92C30B9D7315" => Object {
@@ -635,6 +637,7 @@ Map {
     "missingImage": undefined,
     "objectType": "MPFigure",
     "originalURL": undefined,
+    "position": undefined,
     "title": "A figure",
   },
 }

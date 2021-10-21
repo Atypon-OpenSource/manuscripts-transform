@@ -452,6 +452,7 @@ Object {
                 "listingAttachment": undefined,
                 "missingImage": undefined,
                 "originalURL": undefined,
+                "position": undefined,
                 "src": "",
               },
               "content": Array [
@@ -521,6 +522,7 @@ Object {
                 "listingAttachment": undefined,
                 "missingImage": undefined,
                 "originalURL": undefined,
+                "position": undefined,
                 "src": "",
               },
               "content": Array [
@@ -2110,6 +2112,7 @@ Object {
                 "listingAttachment": undefined,
                 "missingImage": undefined,
                 "originalURL": undefined,
+                "position": undefined,
                 "src": "",
               },
               "content": Array [
@@ -3588,6 +3591,7 @@ Object {
                 "listingAttachment": undefined,
                 "missingImage": undefined,
                 "originalURL": undefined,
+                "position": undefined,
                 "src": "",
               },
               "content": Array [
@@ -3657,6 +3661,7 @@ Object {
                 "listingAttachment": undefined,
                 "missingImage": undefined,
                 "originalURL": undefined,
+                "position": undefined,
                 "src": "",
               },
               "content": Array [
@@ -5018,6 +5023,7 @@ Object {
                 "listingAttachment": undefined,
                 "missingImage": undefined,
                 "originalURL": undefined,
+                "position": undefined,
                 "src": "",
               },
               "content": Array [

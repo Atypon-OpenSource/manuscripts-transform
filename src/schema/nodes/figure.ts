@@ -50,6 +50,7 @@ export const figure: NodeSpec = {
     attribution: { default: undefined },
     externalFileReferences: { default: undefined },
     missingImage: { default: undefined },
+    position: { default: undefined },
   },
   selectable: false,
   group: 'block',

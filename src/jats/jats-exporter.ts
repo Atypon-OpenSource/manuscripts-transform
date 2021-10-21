@@ -1073,6 +1073,9 @@ export class JATSExporter {
       figure: (node) => {
         const fig = this.document.createElement('fig')
         fig.setAttribute('id', normalizeID(node.attrs.id))
+        if (node.attrs.position) {
+          fig.setAttribute('position', node.attrs.position)
+        }
 
         if (node.attrs.label) {
           const label = this.document.createElement('label')
