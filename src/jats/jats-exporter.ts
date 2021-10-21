@@ -1300,7 +1300,15 @@ export class JATSExporter {
         element.setAttribute('position', 'anchor')
         return element
       },
-      table_cell: () => ['td', 0],
+      table_cell: (node) => [
+        'td',
+        {
+          valign: node.attrs.valign,
+          align: node.attrs.align,
+          scope: node.attrs.scope,
+        },
+        0,
+      ],
       table_row: () => ['tr', 0],
       table_col: (node) => ['col', { width: node.attrs.width }],
       text: (node) => node.text as string,
@@ -2000,9 +2008,23 @@ export class JATSExporter {
 
       for (const row of theadRows) {
         // Iterate over row's (<tr>) children (<td>) since they should be <th> under <thead> element
-        for (const cell of row.childNodes) {
+        const tableElements: HTMLTableCellElement[] = []
+
+        for (const node of row.childNodes.values()) {
+          tableElements.push(node as HTMLTableCellElement)
+        }
+
+        for (const cell of tableElements) {
           const headCell = this.document.createElement('th')
-          cell.childNodes.forEach((c) => headCell.appendChild(c))
+          cell.getAttributeNames().forEach((attrName) => {
+            const attribute = cell.getAttribute(attrName)
+            if (attribute) {
+              headCell.setAttribute(attrName, attribute)
+            }
+          })
+          cell.childNodes.forEach((c) => {
+            headCell.appendChild(c)
+          })
           row.replaceChild(headCell, cell)
         }
         thead.appendChild(row)

@@ -20,10 +20,10 @@ import _pickBy from 'lodash.pickby'
 
 export const TABLE_CELL_STYLES = [
   'backgroundColor',
-  'borderTop',
-  'borderRight',
-  'borderBottom',
-  'borderLeft',
+  'border-top',
+  'border-right',
+  'border-bottom',
+  'border-left',
   'verticalAlign',
   'textAlign',
 ] as const

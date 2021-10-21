@@ -35,6 +35,9 @@ const getCellAttrs = (p: Node | string) => {
       ? widthAttr.split(',').map((s) => Number(s))
       : null
   const colspan = Number(dom.getAttribute('colspan') || 1)
+  const valign = dom.getAttribute('valign')
+  const align = dom.getAttribute('align')
+  const scope = dom.getAttribute('scope')
 
   return {
     colspan,
@@ -42,6 +45,9 @@ const getCellAttrs = (p: Node | string) => {
     colwidth: widths && widths.length === colspan ? widths : null,
     placeholder: dom.getAttribute('data-placeholder-text') || '',
     styles: getTableCellStyles(dom.style),
+    valign,
+    align,
+    scope,
   }
 }
 
@@ -145,6 +151,9 @@ export interface TableCellNode extends ManuscriptNode {
     colwidth: number[] | null
     placeholder: string | null
     styles: TableCellStyles
+    valign: string | null
+    align: string | null
+    scope: string | null
   }
 }
 
@@ -193,6 +202,9 @@ export const tableCell: TableNodeSpec = {
     colwidth: { default: null },
     placeholder: { default: 'Data' }, // TODO: depends on cell type and position
     styles: { default: {} },
+    valign: { default: null },
+    align: { default: null },
+    scope: { default: null },
   },
   tableRole: 'cell',
   isolating: true,
@@ -228,6 +240,18 @@ export const tableCell: TableNodeSpec = {
     const styleString = serializeTableCellStyles(tableCellNode.attrs.styles)
     if (styleString) {
       attrs.style = styleString
+    }
+
+    if (tableCellNode.attrs.valign) {
+      attrs.valign = tableCellNode.attrs.valign
+    }
+
+    if (tableCellNode.attrs.align) {
+      attrs.align = tableCellNode.attrs.align
+    }
+
+    if (tableCellNode.attrs.scope) {
+      attrs.scope = tableCellNode.attrs.scope
     }
 
     return ['td', attrs, 0]

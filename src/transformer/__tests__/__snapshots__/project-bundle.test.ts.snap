@@ -84,11 +84,14 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {
@@ -100,11 +103,14 @@ Object {
                           },
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {
@@ -124,11 +130,14 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {
@@ -140,11 +149,14 @@ Object {
                           },
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {
@@ -164,11 +176,14 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {
@@ -180,11 +195,14 @@ Object {
                           },
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {
@@ -204,21 +222,27 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "type": "table_cell",
                           },
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {
@@ -1140,11 +1164,14 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {
@@ -1156,11 +1183,14 @@ Object {
                           },
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {
@@ -1180,11 +1210,14 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {
@@ -1196,11 +1229,14 @@ Object {
                           },
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {
@@ -1220,11 +1256,14 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {
@@ -1236,11 +1275,14 @@ Object {
                           },
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {
@@ -1260,21 +1302,27 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "type": "table_cell",
                           },
                           Object {
                             "attrs": Object {
+                              "align": null,
                               "colspan": 1,
                               "colwidth": null,
                               "placeholder": "Data",
                               "rowspan": 1,
+                              "scope": null,
                               "styles": Object {},
+                              "valign": null,
                             },
                             "content": Array [
                               Object {

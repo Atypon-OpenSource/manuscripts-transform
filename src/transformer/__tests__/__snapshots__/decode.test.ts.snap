@@ -595,11 +595,14 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -611,11 +614,14 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -635,11 +641,14 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -651,51 +660,14 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Table Data",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Table Data",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -715,11 +687,60 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Table Data",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Table Data",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -731,11 +752,14 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -816,11 +840,14 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -832,11 +859,14 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -850,49 +880,27 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -906,21 +914,61 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -995,21 +1043,27 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -1023,49 +1077,27 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -1079,21 +1111,61 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -1168,21 +1240,27 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -1196,49 +1274,27 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -1252,21 +1308,61 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -2088,11 +2184,14 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -2104,11 +2203,14 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -2128,11 +2230,14 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -2144,51 +2249,14 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Table Data",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Table Data",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -2208,11 +2276,60 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Table Data",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Table Data",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -2224,11 +2341,14 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -2309,11 +2429,14 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -2325,11 +2448,14 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -2343,49 +2469,27 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -2399,21 +2503,61 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -2545,21 +2689,27 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -2573,49 +2723,27 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -2629,21 +2757,61 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -3563,11 +3731,14 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -3579,11 +3750,14 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -3603,11 +3777,14 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -3619,51 +3796,14 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Table Data",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Table Data",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -3683,11 +3823,60 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Table Data",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Table Data",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -3699,11 +3888,14 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -3784,11 +3976,14 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "content": Array [
                         Object {
@@ -3800,11 +3995,14 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -3818,49 +4016,27 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -3874,21 +4050,61 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -3963,21 +4179,27 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -3991,49 +4213,27 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -4047,21 +4247,61 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -4136,21 +4376,27 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Header 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -4164,49 +4410,27 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Data",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                  ],
-                  "type": "table_row",
-                },
-                Object {
-                  "attrs": Object {
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
-                      },
-                      "type": "table_cell",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "colspan": 1,
-                        "colwidth": null,
-                        "placeholder": "Data",
-                        "rowspan": 1,
-                        "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
@@ -4220,21 +4444,61 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "align": null,
+                        "colspan": 1,
+                        "colwidth": null,
+                        "placeholder": "Data",
+                        "rowspan": 1,
+                        "scope": null,
+                        "styles": Object {},
+                        "valign": null,
+                      },
+                      "type": "table_cell",
+                    },
+                  ],
+                  "type": "table_row",
+                },
+                Object {
+                  "attrs": Object {
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 1",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },
                     Object {
                       "attrs": Object {
+                        "align": null,
                         "colspan": 1,
                         "colwidth": null,
                         "placeholder": "Footer 2",
                         "rowspan": 1,
+                        "scope": null,
                         "styles": Object {},
+                        "valign": null,
                       },
                       "type": "table_cell",
                     },

@@ -588,10 +588,29 @@ const nodes: NodeRule[] = [
   {
     tag: 'td',
     node: 'table_cell',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      return {
+        valign: element.getAttribute('valign'),
+        align: element.getAttribute('valign'),
+        scope: element.getAttribute('scope'),
+      }
+    },
   },
   {
     tag: 'th',
     node: 'table_cell',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      return {
+        valign: element.getAttribute('valign'),
+        align: element.getAttribute('valign'),
+        scope: element.getAttribute('scope'),
+        style: element.getAttribute('style'),
+      }
+    },
   },
   {
     tag: 'col',
