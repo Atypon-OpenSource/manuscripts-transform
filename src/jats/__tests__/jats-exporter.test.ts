@@ -23,6 +23,7 @@ import {
   Keyword,
   Manuscript,
   Model,
+  MultiGraphicFigureElement,
   ObjectTypes,
   ParagraphElement,
   Section,
@@ -726,6 +727,46 @@ describe('JATS exporter', () => {
       manuscript._id
     )
 
+    const { errors } = parseXMLWithDTD(xml)
+
+    expect(errors).toHaveLength(0)
+  })
+  test('DTD validation for MultiGraphicFigureElement', async () => {
+    const projectBundle = cloneProjectBundle(input)
+
+    const multiGraphicFigureElement: MultiGraphicFigureElement = {
+      containerID: '',
+      manuscriptID: '',
+      sessionID: '',
+      containedObjectIDs: [
+        'MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0',
+        'MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557',
+      ],
+      caption: 'Flow chart of participants',
+      elementType: 'figure',
+      _id: 'MPMultiGraphicFigureElement:multi-graphic-figure-element-1',
+      createdAt: 0,
+      updatedAt: 0,
+      objectType: 'MPMultiGraphicFigureElement',
+    }
+    projectBundle.data.find((el) => {
+      if (el._id === 'MPSection:77786D47-6060-4FBC-BC13-5FA754968D6A') {
+        const equation = el as Section
+        equation.elementIDs?.push(
+          'MPMultiGraphicFigureElement:multi-graphic-figure-element-1'
+        )
+      }
+    })
+    projectBundle.data.push(multiGraphicFigureElement)
+    const { doc, modelMap } = parseProjectBundle(projectBundle)
+
+    const transformer = new JATSExporter()
+    const manuscript = findManuscript(modelMap)
+    const xml = await transformer.serializeToJATS(
+      doc.content,
+      modelMap,
+      manuscript._id
+    )
     const { errors } = parseXMLWithDTD(xml)
 
     expect(errors).toHaveLength(0)

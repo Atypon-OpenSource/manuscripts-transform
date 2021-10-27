@@ -57,7 +57,7 @@ export const figure: NodeSpec = {
   parseDOM: [
     {
       tag: 'figure',
-      context: 'figure_element/', // TODO: match any figure?
+      context: 'figure_element/|multi_graphic_figure_element/', // TODO: match any figure?
       getAttrs: (dom) => {
         const element = dom as HTMLElement
         // const img = element.querySelector('img')

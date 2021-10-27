@@ -1062,6 +1062,7 @@ export class JATSExporter {
           node,
           'fig',
           node.type.schema.nodes.equation,
+          false,
           'equation'
         ),
       figcaption: (node) => {
@@ -1142,6 +1143,13 @@ export class JATSExporter {
         }
         return fig
       },
+      multi_graphic_figure_element: (node) =>
+        createFigureElement(
+          node,
+          'fig-group',
+          node.type.schema.nodes.figure,
+          true
+        ),
       figure_element: (node) =>
         createFigureElement(node, 'fig-group', node.type.schema.nodes.figure),
       footnote: (node) => {
@@ -1248,6 +1256,7 @@ export class JATSExporter {
           node,
           'fig',
           node.type.schema.nodes.listing,
+          false,
           'listing'
         ),
       manuscript: (node) => ['article', { id: normalizeID(node.attrs.id) }, 0],
@@ -1347,6 +1356,7 @@ export class JATSExporter {
       node: ManuscriptNode,
       nodeName: string,
       contentNodeType: ManuscriptNodeType,
+      multiGraphic = false,
       figType?: string
     ) => {
       const element = this.document.createElement(nodeName)
@@ -1387,78 +1397,103 @@ export class JATSExporter {
       if (footnotesNode) {
         element.appendChild(this.serializeNode(footnotesNode))
       }
-
+      const figures: ManuscriptNode[] = []
       node.forEach((childNode) => {
         if (childNode.type === contentNodeType) {
-          if (childNode.attrs.id) {
-            element.appendChild(this.serializeNode(childNode))
-          }
-        }
-      })
-
-      if (isExecutableNodeType(node.type)) {
-        const listingNode = findChildNodeOfType(
-          node,
-          node.type.schema.nodes.listing
-        )
-
-        if (listingNode) {
-          const { contents, languageKey } = listingNode.attrs
-
-          if (contents && languageKey) {
-            const listing = this.document.createElement('fig')
-            listing.setAttribute('specific-use', 'source')
-            element.appendChild(listing)
-
-            const code = this.document.createElement('code')
-            code.setAttribute('executable', 'true')
-            code.setAttribute('language', languageKey)
-            code.textContent = contents
-            listing.appendChild(code)
-
-            // TODO: something more appropriate than "caption"?
-            const caption = this.document.createElement('caption')
-            listing.appendChild(caption)
-
-            // TODO: real data
-            const attachments: Array<{ id: string; type: string }> = []
-
-            for (const attachment of attachments) {
-              const p = this.document.createElement('p')
-              caption.appendChild(p)
-
-              const filename = generateAttachmentFilename(
-                `${listingNode.attrs.id}:${attachment.id}`,
-                attachment.type
-              )
-
-              const supp = this.document.createElement('supplementary-material')
-
-              supp.setAttributeNS(
-                XLINK_NAMESPACE,
-                'xlink:href',
-                `suppl/${filename}`
-              )
-
-              const [mimeType, mimeSubType] = attachment.type.split('/')
-
-              if (mimeType) {
-                supp.setAttribute('mimetype', mimeType)
-
-                if (mimeSubType) {
-                  supp.setAttribute('mime-subtype', mimeSubType)
-                }
-              }
-
-              // TODO: might need title, length, etc for data files
-
-              p.appendChild(supp)
+          if (multiGraphic) {
+            figures.push(childNode)
+          } else {
+            if (childNode.attrs.id) {
+              element.appendChild(this.serializeNode(childNode))
             }
           }
         }
+      })
+      if (multiGraphic) {
+        if (figures.length > 0) {
+          const figure = this.serializeNode(figures[figures.length - 1])
+
+          for (let i = 0; i < figures.length - 1; i++) {
+            const fig = figures[i]
+            if (fig.attrs.id) {
+              const serializedChildElement = this.serializeNode(
+                figures[i]
+              ) as HTMLElement
+              figure.appendChild(
+                serializedChildElement.querySelector('graphic') as Node
+              )
+            }
+          }
+          element.appendChild(figure)
+        }
+      }
+      if (isExecutableNodeType(node.type)) {
+        processExecutableNode(node, element)
       }
 
       return element
+    }
+
+    const processExecutableNode = (node: ManuscriptNode, element: Element) => {
+      const listingNode = findChildNodeOfType(
+        node,
+        node.type.schema.nodes.listing
+      )
+
+      if (listingNode) {
+        const { contents, languageKey } = listingNode.attrs
+
+        if (contents && languageKey) {
+          const listing = this.document.createElement('fig')
+          listing.setAttribute('specific-use', 'source')
+          element.appendChild(listing)
+
+          const code = this.document.createElement('code')
+          code.setAttribute('executable', 'true')
+          code.setAttribute('language', languageKey)
+          code.textContent = contents
+          listing.appendChild(code)
+
+          // TODO: something more appropriate than "caption"?
+          const caption = this.document.createElement('caption')
+          listing.appendChild(caption)
+
+          // TODO: real data
+          const attachments: Array<{ id: string; type: string }> = []
+
+          for (const attachment of attachments) {
+            const p = this.document.createElement('p')
+            caption.appendChild(p)
+
+            const filename = generateAttachmentFilename(
+              `${listingNode.attrs.id}:${attachment.id}`,
+              attachment.type
+            )
+
+            const supp = this.document.createElement('supplementary-material')
+
+            supp.setAttributeNS(
+              XLINK_NAMESPACE,
+              'xlink:href',
+              `suppl/${filename}`
+            )
+
+            const [mimeType, mimeSubType] = attachment.type.split('/')
+
+            if (mimeType) {
+              supp.setAttribute('mimetype', mimeType)
+
+              if (mimeSubType) {
+                supp.setAttribute('mime-subtype', mimeSubType)
+              }
+            }
+
+            // TODO: might need title, length, etc for data files
+
+            p.appendChild(supp)
+          }
+        }
+      }
     }
   }
 

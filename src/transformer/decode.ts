@@ -29,6 +29,7 @@ import {
   Listing,
   ListingElement,
   Model,
+  MultiGraphicFigureElement,
   ObjectTypes,
   ParagraphElement,
   QuoteElement,
@@ -70,6 +71,7 @@ import {
   TOCElementNode,
 } from '../schema'
 import { CaptionTitleNode } from '../schema/nodes/caption_title'
+import { MultiGraphicFigureElementNode } from '../schema/nodes/multi_graphic_figure_element'
 import { insertHighlightMarkers } from './highlight-markers'
 import { generateNodeID } from './id'
 import { PlaceholderElement } from './models'
@@ -277,6 +279,40 @@ export class Decoder {
         [figcaption, ...paragraphs]
       )
     },
+    [ObjectTypes.MultiGraphicFigureElement]: (data) => {
+      const model = data as MultiGraphicFigureElement
+
+      const figcaption: FigCaptionNode = this.getFigcaption(model)
+
+      // TODO: use layout to prefill figures?
+
+      const figures = this.extractFigures(model)
+
+      const content: ManuscriptNode[] = [...figures, figcaption]
+
+      const listing = this.extractListing(model)
+      if (listing) {
+        content.push(listing)
+      } else {
+        const listing = schema.nodes.listing.create()
+        content.push(listing)
+      }
+
+      return schema.nodes.multi_graphic_figure_element.createChecked(
+        {
+          id: model._id,
+          figureLayout: model.figureLayout,
+          figureStyle: model.figureStyle,
+          alignment: model.alignment,
+          sizeFraction: model.sizeFraction,
+          suppressCaption: Boolean(model.suppressCaption),
+          suppressTitle: Boolean(
+            model.suppressTitle === undefined ? true : model.suppressTitle
+          ),
+        },
+        content
+      ) as MultiGraphicFigureElementNode
+    },
     [ObjectTypes.FigureElement]: (data) => {
       const model = data as FigureElement
 
@@ -284,43 +320,12 @@ export class Decoder {
 
       // TODO: use layout to prefill figures?
 
-      const figures: Array<FigureNode | PlaceholderNode> = model
-        .containedObjectIDs.length
-        ? model.containedObjectIDs.map((id) => {
-            if (!id) {
-              return schema.nodes.figure.createAndFill() as FigureNode
-            }
-
-            const figureModel = this.getModel<Figure>(id)
-
-            if (!figureModel) {
-              return schema.nodes.placeholder.create({
-                id,
-                label: 'A figure',
-              }) as PlaceholderNode
-            }
-
-            return this.decode(figureModel) as FigureNode
-          })
-        : [schema.nodes.figure.createAndFill() as FigureNode]
+      const figures = this.extractFigures(model)
 
       const content: ManuscriptNode[] = [...figures, figcaption]
 
-      if (model.listingID) {
-        const listingModel = this.getModel<Listing>(model.listingID)
-
-        let listing: ListingNode | PlaceholderNode
-        if (listingModel) {
-          listing = this.decode(listingModel) as ListingNode
-        } else if (this.allowMissingElements) {
-          listing = schema.nodes.placeholder.create({
-            id: model.listingID,
-            label: 'A listing',
-          }) as PlaceholderNode
-        } else {
-          throw new MissingElement(model.listingID)
-        }
-
+      const listing = this.extractListing(model)
+      if (listing) {
         content.push(listing)
       } else {
         const listing = schema.nodes.listing.create()
@@ -774,6 +779,46 @@ export class Decoder {
     },
   }
 
+  private extractListing(model: FigureElement | MultiGraphicFigureElement) {
+    if (model.listingID) {
+      const listingModel = this.getModel<Listing>(model.listingID)
+      let listing: ListingNode | PlaceholderNode
+      if (listingModel) {
+        listing = this.decode(listingModel) as ListingNode
+      } else if (this.allowMissingElements) {
+        listing = schema.nodes.placeholder.create({
+          id: model.listingID,
+          label: 'A listing',
+        }) as PlaceholderNode
+      } else {
+        throw new MissingElement(model.listingID)
+      }
+      return listing
+    }
+  }
+  private extractFigures(model: FigureElement | MultiGraphicFigureElement) {
+    const figures: Array<FigureNode | PlaceholderNode> = model
+      .containedObjectIDs.length
+      ? model.containedObjectIDs.map((id) => {
+          if (!id) {
+            return schema.nodes.figure.createAndFill() as FigureNode
+          }
+
+          const figureModel = this.getModel<Figure>(id)
+
+          if (!figureModel) {
+            return schema.nodes.placeholder.create({
+              id,
+              label: 'A figure',
+            }) as PlaceholderNode
+          }
+
+          return this.decode(figureModel) as FigureNode
+        })
+      : [schema.nodes.figure.createAndFill() as FigureNode]
+    return figures
+  }
+
   constructor(modelMap: Map<string, Model>, allowMissingElements = false) {
     this.modelMap = modelMap
     this.allowMissingElements = allowMissingElements
@@ -856,7 +901,12 @@ export class Decoder {
   }
 
   private getFigcaption = (
-    model: FigureElement | TableElement | EquationElement | ListingElement
+    model:
+      | FigureElement
+      | TableElement
+      | EquationElement
+      | ListingElement
+      | MultiGraphicFigureElement
   ) => {
     const captionNode = schema.nodes.caption.create() as CaptionNode
 

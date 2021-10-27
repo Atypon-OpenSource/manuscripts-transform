@@ -282,10 +282,17 @@ export const jatsBodyTransformations = {
         // TODO: copy attributes?
 
         // split multiple graphics into separate sub-figures
-        for (const graphic of graphics) {
-          const figure = createElement('fig')
-          figure.appendChild(graphic)
-          figGroup.appendChild(figure.cloneNode(true))
+        for (const [i, graphic] of graphics.entries()) {
+          if (i !== graphics.length - 1) {
+            const newFig = createElement('fig')
+            newFig.appendChild(graphic)
+            figGroup.appendChild(newFig.cloneNode(true))
+            graphic.remove()
+          } else {
+            const clonedFig = figure.cloneNode(true)
+            figGroup.setAttribute('multiGraphic', 'true')
+            figGroup.appendChild(clonedFig)
+          }
         }
         section.removeChild(figure)
       } else {

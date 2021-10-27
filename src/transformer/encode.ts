@@ -28,6 +28,7 @@ import {
   Listing,
   ListingElement,
   Model,
+  MultiGraphicFigureElement,
   ParagraphElement,
   QuoteElement,
   Section,
@@ -311,6 +312,35 @@ const attribution = (node: ManuscriptNode) => {
   return undefined
 }
 
+function figureElementEncoder<T>(node: ManuscriptNode) {
+  return {
+    containedObjectIDs: containedFigureIDs(node),
+    caption: inlineContentOfChildNodeType(
+      node,
+      node.type.schema.nodes.figcaption,
+      node.type.schema.nodes.caption
+    ),
+    title: inlineContentOfChildNodeType(
+      node,
+      node.type.schema.nodes.figcaption,
+      node.type.schema.nodes.caption_title,
+      false
+    ),
+    elementType: 'figure',
+    listingID: attributeOfNodeType(node, 'listing', 'id') || undefined,
+    alignment: node.attrs.alignment || undefined,
+    sizeFraction: node.attrs.sizeFraction || undefined,
+    suppressCaption: Boolean(node.attrs.suppressCaption) || undefined,
+    suppressTitle:
+      node.attrs.suppressTitle === undefined ||
+      node.attrs.suppressTitle === true
+        ? undefined
+        : false,
+    figureStyle: node.attrs.figureStyle || undefined,
+    figureLayout: node.attrs.figureLayout || undefined,
+  } as Partial<T>
+}
+
 type NodeEncoder = (
   node: ManuscriptNode,
   parent: ManuscriptNode,
@@ -418,32 +448,10 @@ const encoders: NodeEncoderMap = {
     missingImage: node.attrs.missingImage || undefined,
     position: node.attrs.position || undefined,
   }),
-  figure_element: (node): Partial<FigureElement> => ({
-    containedObjectIDs: containedFigureIDs(node),
-    caption: inlineContentOfChildNodeType(
-      node,
-      node.type.schema.nodes.figcaption,
-      node.type.schema.nodes.caption
-    ),
-    title: inlineContentOfChildNodeType(
-      node,
-      node.type.schema.nodes.figcaption,
-      node.type.schema.nodes.caption_title,
-      false
-    ),
-    elementType: 'figure',
-    listingID: attributeOfNodeType(node, 'listing', 'id') || undefined,
-    alignment: node.attrs.alignment || undefined,
-    sizeFraction: node.attrs.sizeFraction || undefined,
-    suppressCaption: Boolean(node.attrs.suppressCaption) || undefined,
-    suppressTitle:
-      node.attrs.suppressTitle === undefined ||
-      node.attrs.suppressTitle === true
-        ? undefined
-        : false,
-    figureStyle: node.attrs.figureStyle || undefined,
-    figureLayout: node.attrs.figureLayout || undefined,
-  }),
+  multi_graphic_figure_element: (node): Partial<MultiGraphicFigureElement> =>
+    figureElementEncoder<MultiGraphicFigureElement>(node),
+  figure_element: (node): Partial<FigureElement> =>
+    figureElementEncoder<FigureElement>(node),
   footnote: (node, parent): Partial<Footnote> => ({
     containingObject: parent.attrs.id,
     contents: footnoteContents(node), // TODO: needed?

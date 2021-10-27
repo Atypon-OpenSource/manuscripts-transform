@@ -325,7 +325,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'fig',
     node: 'figure',
-    context: 'figure_element/',
+    context: 'figure_element/|multi_graphic_figure_element/',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
@@ -378,6 +378,17 @@ const nodes: NodeRule[] = [
             : undefined,
         missingImage: hasMissingImage,
         position,
+      }
+    },
+  },
+  {
+    tag: 'fig-group[multiGraphic=true]',
+    node: 'multi_graphic_figure_element',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      return {
+        id: element.getAttribute('id'),
       }
     },
   },
