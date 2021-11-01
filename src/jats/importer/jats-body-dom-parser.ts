@@ -606,7 +606,7 @@ const nodes: NodeRule[] = [
 
       return {
         valign: element.getAttribute('valign'),
-        align: element.getAttribute('valign'),
+        align: element.getAttribute('align'),
         scope: element.getAttribute('scope'),
       }
     },
@@ -619,7 +619,7 @@ const nodes: NodeRule[] = [
 
       return {
         valign: element.getAttribute('valign'),
-        align: element.getAttribute('valign'),
+        align: element.getAttribute('align'),
         scope: element.getAttribute('scope'),
         style: element.getAttribute('style'),
       }
