@@ -1187,7 +1187,7 @@ export class JATSExporter {
       highlight_marker: () => '',
       inline_equation: (node) => {
         const formula = this.document.createElement('inline-formula')
-
+        formula.setAttribute('id', normalizeID(node.attrs.id))
         if (node.attrs.TeXRepresentation) {
           const math = this.document.createElement('tex-math')
           math.textContent = node.attrs.TeXRepresentation
