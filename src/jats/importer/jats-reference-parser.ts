@@ -14,14 +14,19 @@
  * limitations under the License.
  */
 
-import { BibliographicName } from '@manuscripts/manuscripts-json-schema'
+import {
+  BibliographicName,
+  CommentAnnotation,
+} from '@manuscripts/manuscripts-json-schema'
 
 import {
+  Build,
   buildAuxiliaryObjectReference,
   buildBibliographicDate,
   buildBibliographicName,
   buildBibliographyItem,
   buildCitation,
+  buildComment,
 } from '../../transformer/builders'
 import { flatten, htmlFromJatsNode } from './jats-parser-utils'
 
@@ -35,13 +40,28 @@ const chooseBibliographyItemType = (publicationType: string | null) => {
       return 'article-journal'
   }
 }
-
+export const parseProcessingInstruction = (
+  node: Node
+): string | undefined => {
+  const value = `<AuthorQuery ${node.textContent} />`
+  const processingInstruction = new DOMParser().parseFromString(
+    value,
+    'application/xml'
+  ).firstElementChild
+  if (processingInstruction) {
+    const queryText = processingInstruction.getAttribute('queryText')
+    if (queryText) {
+      return queryText
+    }
+  }
+}
 export const jatsReferenceParser = {
   parseReferences(
     referenceNodes: Element[],
     createElement: (tagName: string) => HTMLElement
   ) {
     const referenceIDs = new Map<string, string>()
+    const comments: Build<CommentAnnotation>[] = []
     const references = referenceNodes.map((referenceNode) => {
       const publicationType = referenceNode.getAttribute('publication-type')
 
@@ -55,19 +75,26 @@ export const jatsReferenceParser = {
         type: chooseBibliographyItemType(publicationType),
       })
       const mixedCitation = referenceNode.querySelector('mixed-citation')
+      mixedCitation?.childNodes.forEach((item) => {
+        // This isn't the best place but since we are already iterating the nodes it is better for performance
+        if (
+          item.nodeType === item.PROCESSING_INSTRUCTION_NODE &&
+          item.nodeName === 'AuthorQuery'
+        ) {
+          const queryText = parseProcessingInstruction(item)
+          if (queryText) {
+            const comment = buildComment(bibliographyItem._id, queryText)
+            comments.push(comment)
+          }
+        }
+      })
       if (authorNodes.length <= 0) {
         mixedCitation?.childNodes.forEach((item) => {
           if (
             item.nodeType === Node.TEXT_NODE &&
             item.textContent?.match(/[A-Za-z]+/g)
           ) {
-            let literalRef = mixedCitation.innerHTML
-            if (literalRef.match(/ns\d+:href/gi)) {
-              literalRef = literalRef
-                .replace(/ns\d+:href/gi, 'xlink:href')
-                .replace(/xmlns:ns\d+/gi, 'xmlns:xlink')
-            }
-            bibliographyItem.literal = literalRef
+            bibliographyItem.literal = mixedCitation.textContent ?? ''
             return bibliographyItem
           }
         })
@@ -175,6 +202,7 @@ export const jatsReferenceParser = {
     return {
       references,
       referenceIDs,
+      comments,
     }
   },
   /**

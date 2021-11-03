@@ -9310,7 +9310,7 @@ Array [
   },
   Object {
     "_id": "MPBibliographyItem:test",
-    "literal": "<name><surname>test-author</surname><given-names>Jin</given-names></name>test reference which contains unparsed text",
+    "literal": "test-authorJintest reference which contains unparsed text",
     "objectType": "MPBibliographyItem",
     "type": "article-journal",
   },
@@ -9846,6 +9846,12 @@ Array [
     "_id": "MPAuxiliaryObjectReference:test",
     "objectType": "MPAuxiliaryObjectReference",
     "referencedObject": "MPTableElement:test",
+  },
+  Object {
+    "_id": "MPCommentAnnotation:test",
+    "contents": "eXtyles test comment",
+    "objectType": "MPCommentAnnotation",
+    "target": "MPBibliographyItem:test",
   },
 ]
 `;

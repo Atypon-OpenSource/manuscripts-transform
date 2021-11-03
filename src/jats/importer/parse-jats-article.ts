@@ -24,6 +24,7 @@ import {
   BibliographyItem,
   Bundle,
   Citation,
+  CommentAnnotation,
   Journal,
   Manuscript,
   Model,
@@ -167,13 +168,18 @@ export const parseJATSReferences = (
   const crossReferences: Array<
     Build<Citation> | Build<AuxiliaryObjectReference>
   > = []
+  const commentAnnotations: Array<Build<CommentAnnotation>> = []
   if (back) {
-    const { references, referenceIDs } = jatsReferenceParser.parseReferences(
+    const {
+      references,
+      referenceIDs,
+      comments,
+    } = jatsReferenceParser.parseReferences(
       [...back.querySelectorAll('ref-list > ref')],
       createElement
     )
     bibliographyItems.push(...references)
-
+    commentAnnotations.push(...comments)
     if (body) {
       crossReferences.push(
         ...jatsReferenceParser.parseCrossReferences(
@@ -186,6 +192,7 @@ export const parseJATSReferences = (
   return {
     references: generateModelIDs(bibliographyItems),
     crossReferences: generateModelIDs(crossReferences),
+    comments: generateModelIDs(commentAnnotations),
   }
 }
 
@@ -283,7 +290,7 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
   }
   const createElement = createElementFn(document)
   const { models: frontModels, bundles } = await parseJATSFront(front)
-  const { references, crossReferences } = parseJATSReferences(
+  const { references, crossReferences, comments } = parseJATSReferences(
     back,
     body,
     createElement
@@ -300,5 +307,11 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
     bodyModels.push(...encode(bodyDoc).values())
   }
   // TODO: use ISSN from journal-meta to choose a template
-  return [...frontModels, ...bodyModels, ...references, ...crossReferences]
+  return [
+    ...frontModels,
+    ...bodyModels,
+    ...references,
+    ...crossReferences,
+    ...comments,
+  ]
 }

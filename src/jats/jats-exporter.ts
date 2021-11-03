@@ -763,7 +763,7 @@ export class JATSExporter {
         if (bibliographyItem.literal) {
           const mixedCitation = this.document.createElement('mixed-citation')
           updateCitationPubType(mixedCitation, bibliographyItem.type)
-          mixedCitation.innerHTML = bibliographyItem.literal
+          mixedCitation.innerText = bibliographyItem.literal
           ref.appendChild(mixedCitation)
           refList.appendChild(ref)
         } else {
