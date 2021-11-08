@@ -31,3 +31,8 @@ export const sectionLabel: NodeSpec = {
     return ['label', 0]
   },
 }
+
+export const isSectionLabelNode = (
+  node: ManuscriptNode
+): node is SectionLabelNode =>
+  node.type === node.type.schema.nodes.section_label

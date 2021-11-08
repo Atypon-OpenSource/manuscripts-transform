@@ -3815,6 +3815,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:abstract",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -3831,6 +3832,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
+            "generatedLabel": true,
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -3867,6 +3869,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:introduction",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -3883,6 +3886,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
+            "generatedLabel": true,
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -3899,6 +3903,7 @@ Object {
             Object {
               "attrs": Object {
                 "category": "",
+                "generatedLabel": true,
                 "pageBreakStyle": undefined,
                 "titleSuppressed": false,
               },
@@ -3915,6 +3920,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "category": "",
+                    "generatedLabel": true,
                     "pageBreakStyle": undefined,
                     "titleSuppressed": false,
                   },
@@ -3931,6 +3937,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "category": "",
+                        "generatedLabel": true,
                         "pageBreakStyle": undefined,
                         "titleSuppressed": false,
                       },
@@ -3947,6 +3954,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "category": "",
+                            "generatedLabel": true,
                             "pageBreakStyle": undefined,
                             "titleSuppressed": false,
                           },
@@ -4196,6 +4204,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:materials-method",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -4229,6 +4238,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:results",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -4307,6 +4317,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
+            "generatedLabel": true,
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -4329,6 +4340,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
+            "generatedLabel": true,
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -4345,6 +4357,7 @@ Object {
             Object {
               "attrs": Object {
                 "category": "",
+                "generatedLabel": true,
                 "pageBreakStyle": undefined,
                 "titleSuppressed": false,
               },
@@ -4387,6 +4400,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
+            "generatedLabel": true,
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -4470,6 +4484,7 @@ Object {
             Object {
               "attrs": Object {
                 "category": "",
+                "generatedLabel": true,
                 "pageBreakStyle": undefined,
                 "titleSuppressed": false,
               },
@@ -4623,6 +4638,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:discussion",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -4656,6 +4672,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:conclusions",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -4689,6 +4706,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -4999,6 +5017,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:availability",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -5032,6 +5051,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:acknowledgement",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -5065,6 +5085,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:appendices",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -5090,6 +5111,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
+            "generatedLabel": true,
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -5106,6 +5128,7 @@ Object {
             Object {
               "attrs": Object {
                 "category": "",
+                "generatedLabel": true,
                 "pageBreakStyle": undefined,
                 "titleSuppressed": false,
               },
@@ -5145,6 +5168,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:bibliography",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -10394,6 +10418,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -10427,6 +10452,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -10744,6 +10770,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -10824,6 +10851,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -11061,6 +11089,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -11122,6 +11151,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -11163,6 +11193,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -11292,6 +11323,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -11343,6 +11375,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -11526,6 +11559,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:bibliography",
+        "generatedLabel": true,
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },

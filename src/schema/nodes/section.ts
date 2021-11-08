@@ -22,6 +22,7 @@ interface Attrs {
   id: string
   category?: string
   titleSuppressed: boolean
+  generatedLabel: boolean
   pageBreakStyle?: number
 }
 
@@ -60,6 +61,7 @@ export const section: NodeSpec = {
     id: { default: '' },
     category: { default: '' },
     titleSuppressed: { default: false },
+    generatedLabel: { default: true },
     pageBreakStyle: { default: undefined },
   },
   group: 'block sections',
@@ -74,6 +76,7 @@ export const section: NodeSpec = {
           id: element.getAttribute('id') || '',
           category: element.getAttribute('data-category') || '',
           titleSuppressed: element.classList.contains('title-suppressed'),
+          generatedLabel: element.classList.contains('generated-label'),
           pageBreakStyle: choosePageBreakStyle(element) || undefined,
         }
       },
@@ -82,12 +85,22 @@ export const section: NodeSpec = {
   toDOM: (node) => {
     const sectionNode = node as SectionNode
 
-    const { id, category, titleSuppressed, pageBreakStyle } = sectionNode.attrs
+    const {
+      id,
+      category,
+      titleSuppressed,
+      generatedLabel,
+      pageBreakStyle,
+    } = sectionNode.attrs
 
     const classnames: string[] = []
 
     if (titleSuppressed) {
       classnames.push('title-suppressed')
+    }
+
+    if (typeof generatedLabel === 'undefined' || generatedLabel) {
+      classnames.push('generated-label')
     }
 
     if (
