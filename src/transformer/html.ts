@@ -208,6 +208,17 @@ export class HTMLTransformer {
         }
       }
     }
+
+    for (const node of this.document.querySelectorAll('[data-reference-id]')) {
+      const rid = node.getAttribute('data-reference-id')
+
+      if (rid) {
+        const newRID = idMap.get(rid)
+        if (newRID) {
+          node.setAttribute('data-reference-id', newRID)
+        }
+      }
+    }
   }
 
   private buildFront = () => {

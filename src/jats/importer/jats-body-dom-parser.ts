@@ -444,7 +444,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'fn',
     node: 'footnote',
-    context: 'footnotes_element/', // TODO: in table footer
+    context: 'footnotes_element/',
     getAttrs: (node) => {
       const element = node as HTMLElement
 

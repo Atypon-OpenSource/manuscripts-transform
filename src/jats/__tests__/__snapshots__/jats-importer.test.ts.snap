@@ -1716,6 +1716,7 @@ Array [
     "category": "MPSectionCategory:endnotes",
     "elementIDs": Array [
       "MPFootnotesElement:test",
+      "MPFootnotesElement:test",
     ],
     "objectType": "MPSection",
     "path": Array [
@@ -1750,6 +1751,27 @@ Array [
     "_id": "MPParagraphElement:test",
     "contentType": null,
     "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">The authors have no acknowledgment to make and no conflicts of interests to declare.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPFootnotesElement:test",
+    "contents": "<div></div>",
+    "elementType": "div",
+    "objectType": "MPFootnotesElement",
+  },
+  Object {
+    "_id": "MPFootnote:test",
+    "containingObject": "MPFootnotesElement:test",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">Manuscript information</p></div>",
+    "kind": "footnote",
+    "objectType": "MPFootnote",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contentType": null,
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Manuscript information</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -4713,33 +4735,6 @@ Object {
             "kind": "footnote",
             "paragraphStyle": "",
           },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "category": null,
-                "kind": "footnote",
-                "paragraphStyle": "",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "contentType": null,
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "Box Note",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "paragraph",
-                },
-              ],
-              "type": "footnote",
-            },
-          ],
           "type": "footnotes_element",
         },
         Object {
@@ -4834,7 +4829,117 @@ Object {
             "kind": "footnote",
             "paragraphStyle": "",
           },
+          "type": "footnotes_element",
+        },
+        Object {
+          "attrs": Object {
+            "kind": "footnote",
+            "paragraphStyle": "",
+          },
           "content": Array [
+            Object {
+              "attrs": Object {
+                "category": null,
+                "kind": "footnote",
+                "paragraphStyle": "",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "contentType": undefined,
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "1",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+                Object {
+                  "attrs": Object {
+                    "contentType": null,
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Author_Footnote.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "footnote",
+            },
+            Object {
+              "attrs": Object {
+                "category": null,
+                "kind": "footnote",
+                "paragraphStyle": "",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "contentType": "fn-title",
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Disclaimer",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+                Object {
+                  "attrs": Object {
+                    "contentType": null,
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "This is an unlabelled author footnote with a separate title.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "footnote",
+            },
+            Object {
+              "attrs": Object {
+                "category": null,
+                "kind": "footnote",
+                "paragraphStyle": "",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "contentType": null,
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Box Note",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "footnote",
+            },
             Object {
               "attrs": Object {
                 "category": null,
@@ -7521,6 +7626,7 @@ Array [
     "category": "MPSectionCategory:endnotes",
     "elementIDs": Array [
       "MPFootnotesElement:test",
+      "MPFootnotesElement:test",
     ],
     "objectType": "MPSection",
     "path": Array [
@@ -7528,6 +7634,12 @@ Array [
     ],
     "priority": 13,
     "title": "Footnotes",
+  },
+  Object {
+    "_id": "MPFootnotesElement:test",
+    "contents": "<div></div>",
+    "elementType": "div",
+    "objectType": "MPFootnotesElement",
   },
   Object {
     "_id": "MPFootnotesElement:test",
