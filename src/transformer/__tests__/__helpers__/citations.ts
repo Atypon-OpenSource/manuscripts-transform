@@ -121,6 +121,7 @@ export const createTestModelMapWithCitations = () => {
     priority: 1,
     path: ['MPSection:1'],
     elementIDs: [paragraphWithCitation._id, paragraphWithLink._id],
+    generatedLabel: true,
     title: 'A section',
   }
 

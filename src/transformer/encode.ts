@@ -527,6 +527,7 @@ const encoders: NodeEncoderMap = {
       .map((childNode) => childNode.attrs.id)
       .filter((id) => id),
     titleSuppressed: node.attrs.titleSuppressed || undefined,
+    generatedLabel: node.attrs.generatedLabel || undefined,
     pageBreakStyle: node.attrs.pageBreakStyle || undefined,
   }),
   table: (node, parent): Partial<Table> => ({

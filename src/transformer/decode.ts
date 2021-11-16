@@ -682,6 +682,7 @@ export class Decoder {
           category: sectionCategory,
           titleSuppressed: model.titleSuppressed,
           pageBreakStyle: model.pageBreakStyle,
+          generatedLabel: model.generatedLabel,
         },
         content
       )

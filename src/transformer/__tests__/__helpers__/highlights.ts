@@ -211,6 +211,7 @@ export const createTestModelMapWithHighlights = () => {
     priority: 1,
     path: ['MPSection:1'],
     elementIDs: [paragraphWithHighlight._id, figureElementWithHighlight._id],
+    generatedLabel: true,
     title: 'A section title with a highlight',
     highlightMarkers: [
       {
@@ -362,6 +363,7 @@ export const createTestModelMapWithDeprecatedKeywords = () => {
     priority: 1,
     path: ['MPSection:1'],
     elementIDs: [paragraphElement._id],
+    generatedLabel: true,
     category: 'MPSectionCategory:keywords',
     title: 'Keywords',
   }

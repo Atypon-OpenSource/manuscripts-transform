@@ -61,7 +61,7 @@ export const section: NodeSpec = {
     id: { default: '' },
     category: { default: '' },
     titleSuppressed: { default: false },
-    generatedLabel: { default: true },
+    generatedLabel: { default: undefined },
     pageBreakStyle: { default: undefined },
   },
   group: 'block sections',
