@@ -40,9 +40,7 @@ const chooseBibliographyItemType = (publicationType: string | null) => {
       return 'article-journal'
   }
 }
-export const parseProcessingInstruction = (
-  node: Node
-): string | undefined => {
+export const parseProcessingInstruction = (node: Node): string | undefined => {
   const value = `<AuthorQuery ${node.textContent} />`
   const processingInstruction = new DOMParser().parseFromString(
     value,

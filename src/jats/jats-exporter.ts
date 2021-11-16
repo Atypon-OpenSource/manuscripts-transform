@@ -259,6 +259,8 @@ export class JATSExporter {
       manuscriptID
     )
 
+    article.setAttribute('article-type', manuscript.articleType || 'other')
+
     if (!frontMatterOnly) {
       // TODO: format citations using template if citationType === 'mixed'
       // TODO: or convert existing bibliography data to JATS?

@@ -731,6 +731,31 @@ describe('JATS exporter', () => {
 
     expect(errors).toHaveLength(0)
   })
+
+  test('export with article-type attribute', async () => {
+    const projectBundle = cloneProjectBundle(input)
+
+    const { doc, modelMap } = parseProjectBundle(projectBundle)
+
+    const manuscript = findManuscript(modelMap)
+
+    manuscript.articleType = 'essay'
+
+    const transformer = new JATSExporter()
+
+    const xml = await transformer.serializeToJATS(
+      doc.content,
+      modelMap,
+      manuscript._id
+    )
+
+    expect(xml).toMatchSnapshot('jats-export-with-article-type')
+
+    const { errors } = parseXMLWithDTD(xml)
+
+    expect(errors).toHaveLength(0)
+  })
+
   test('DTD validation for MultiGraphicFigureElement', async () => {
     const projectBundle = cloneProjectBundle(input)
 

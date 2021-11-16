@@ -4,6 +4,7 @@ exports[`JATS importer parses JATS article to Manuscripts models 1`] = `
 Array [
   Object {
     "_id": "MPManuscript:test",
+    "articleType": "other",
     "equationCount": 0,
     "figureCount": 0,
     "genericCounts": Array [
@@ -529,6 +530,7 @@ Array [
   Object {
     "_id": "MPManuscript:test",
     "acceptanceDate": 1599004800,
+    "articleType": "other",
     "equationCount": 0,
     "figureCount": 3,
     "genericCounts": Array [
@@ -3731,6 +3733,7 @@ exports[`JATS importer parses JATS front only example to Manuscripts models 1`] 
 Array [
   Object {
     "_id": "MPManuscript:test",
+    "articleType": "other",
     "equationCount": 0,
     "figureCount": 0,
     "genericCounts": Array [
@@ -5195,6 +5198,7 @@ Array [
   Object {
     "_id": "MPManuscript:test",
     "acceptanceDate": 899683200,
+    "articleType": "research-article",
     "bundle": "MPBundle:test",
     "keywordIDs": Array [
       "MPKeyword:test",
@@ -9996,6 +10000,7 @@ exports[`JATS importer parses full JATS no back example to Manuscripts models 1`
 Array [
   Object {
     "_id": "MPManuscript:test",
+    "articleType": "other",
     "equationCount": 0,
     "figureCount": 0,
     "genericCounts": Array [
@@ -10322,6 +10327,7 @@ exports[`JATS importer parses full JATS no body example to Manuscripts models 1`
 Array [
   Object {
     "_id": "MPManuscript:test",
+    "articleType": "other",
     "equationCount": 0,
     "figureCount": 0,
     "genericCounts": Array [

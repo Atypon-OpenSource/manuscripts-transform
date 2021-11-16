@@ -43,6 +43,7 @@ import {
 } from '../../transformer/builders'
 import { encode, inlineContents } from '../../transformer/encode'
 import { generateID } from '../../transformer/id'
+import { findManuscript } from '../../transformer/project-bundle'
 import { jatsBodyDOMParser } from './jats-body-dom-parser'
 import { jatsBodyTransformations } from './jats-body-transformations'
 import { jatsFrontParser } from './jats-front-parser'
@@ -282,12 +283,18 @@ const generateModelIDs = (models: Build<Model>[]) =>
   ) as Model[]
 
 export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
+  const articleElement = doc.querySelector('article')
   const front = doc.querySelector('front')
   const body = doc.querySelector('body')
   const back = doc.querySelector('back')
   if (!front) {
     throw new InvalidInput('Invalid JATS format! Missing front element')
   }
+
+  if (!articleElement) {
+    throw new InvalidInput('Invalid JATS format! Missing article element')
+  }
+
   const createElement = createElementFn(document)
   const { models: frontModels, bundles } = await parseJATSFront(front)
   const { references, crossReferences, comments } = parseJATSReferences(
@@ -307,6 +314,16 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
     bodyModels.push(...encode(bodyDoc).values())
   }
   // TODO: use ISSN from journal-meta to choose a template
+
+  const frontModelsMap = new Map(frontModels.map((model) => [model._id, model]))
+
+  const manuscript = findManuscript(frontModelsMap)
+
+  if (manuscript) {
+    const articleType = articleElement.getAttribute('article-type')
+    manuscript.articleType = articleType || 'other'
+  }
+
   return [
     ...frontModels,
     ...bodyModels,
