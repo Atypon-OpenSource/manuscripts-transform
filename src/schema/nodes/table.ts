@@ -38,6 +38,7 @@ const getCellAttrs = (p: Node | string) => {
   const valign = dom.getAttribute('valign')
   const align = dom.getAttribute('align')
   const scope = dom.getAttribute('scope')
+  const style = dom.getAttribute('style')
 
   return {
     colspan,
@@ -48,6 +49,7 @@ const getCellAttrs = (p: Node | string) => {
     valign,
     align,
     scope,
+    style,
   }
 }
 
@@ -154,6 +156,7 @@ export interface TableCellNode extends ManuscriptNode {
     valign: string | null
     align: string | null
     scope: string | null
+    style: string | null
   }
 }
 
@@ -205,6 +208,7 @@ export const tableCell: TableNodeSpec = {
     valign: { default: null },
     align: { default: null },
     scope: { default: null },
+    style: { default: null },
   },
   tableRole: 'cell',
   isolating: true,
@@ -252,6 +256,10 @@ export const tableCell: TableNodeSpec = {
 
     if (tableCellNode.attrs.scope) {
       attrs.scope = tableCellNode.attrs.scope
+    }
+
+    if (tableCellNode.attrs.style) {
+      attrs.style = tableCellNode.attrs.style
     }
 
     return ['td', attrs, 0]

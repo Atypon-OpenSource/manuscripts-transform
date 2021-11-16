@@ -608,6 +608,7 @@ const nodes: NodeRule[] = [
         valign: element.getAttribute('valign'),
         align: element.getAttribute('align'),
         scope: element.getAttribute('scope'),
+        style: element.getAttribute('style'),
       }
     },
   },

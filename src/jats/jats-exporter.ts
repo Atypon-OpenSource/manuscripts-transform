@@ -1320,6 +1320,7 @@ export class JATSExporter {
           valign: node.attrs.valign,
           align: node.attrs.align,
           scope: node.attrs.scope,
+          style: node.attrs.style,
         },
         0,
       ],
