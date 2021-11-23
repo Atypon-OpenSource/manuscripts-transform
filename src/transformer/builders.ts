@@ -53,7 +53,6 @@ import {
   UserProfileAffiliation,
   UserProfileFootNote,
 } from '@manuscripts/manuscripts-json-schema'
-import { identity, pickBy } from 'lodash'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { generateID } from './id'
@@ -191,7 +190,9 @@ export const buildKeywordGroup = (attributes: {
 }): Build<KeywordGroup> => ({
   _id: generateID(ObjectTypes.KeywordGroup),
   objectType: ObjectTypes.KeywordGroup,
-  ...pickBy(attributes, identity),
+  ...(attributes.type && { type: attributes.type }),
+  ...(attributes.title && { title: attributes.title }),
+  ...(attributes.label && { label: attributes.label }),
 })
 
 export const buildManuscriptKeyword = (

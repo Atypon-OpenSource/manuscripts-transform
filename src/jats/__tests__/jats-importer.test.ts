@@ -57,7 +57,7 @@ describe('JATS importer', () => {
       await readAndParseFixture('jats-example-doc.xml')
     )
     const end = performance.now()
-    expect(end - start).toBeLessThan(4800)
+    expect(end - start).toBeLessThan(5500)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 

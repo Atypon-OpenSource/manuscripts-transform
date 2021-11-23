@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import _pickBy from 'lodash.pickby'
-
 // TODO: fix all the tests and test this unit
 
 export const TABLE_CELL_STYLES = [
@@ -54,5 +52,10 @@ const isStyleKey = (key: string): key is TableCellStyleKey =>
   TABLE_CELL_STYLES.includes(key as TableCellStyleKey)
 
 export const getTableCellStyles = (styles: CSSStyleDeclaration) => {
-  return _pickBy(styles, (value, key) => isStyleKey(key) && value)
+  return Object.entries(styles).reduce((acc, [key, value]) => {
+    if (isStyleKey(key)) {
+      acc[key] = value
+    }
+    return acc
+  }, {} as Record<TableCellStyleKey, string>)
 }
