@@ -29,6 +29,7 @@ import {
   KeywordGroup,
   Manuscript,
   Model,
+  MultiGraphicFigureElement,
   ObjectTypes,
 } from '@manuscripts/manuscripts-json-schema'
 import debug from 'debug'
@@ -170,6 +171,7 @@ const chooseRefType = (objectType: string): string | undefined => {
   switch (objectType) {
     case ObjectTypes.Figure:
     case ObjectTypes.FigureElement:
+    case ObjectTypes.MultiGraphicFigureElement:
       return 'fig'
 
     case ObjectTypes.Footnote:
@@ -1011,12 +1013,23 @@ export class JATSExporter {
 
         const getReferencedObjectId = (referencedObject: string) => {
           let rid = normalizeID(referencedObject)
-          const refObjectModel = getModel<FigureElement>(referencedObject)
-          if (refObjectModel && refObjectModel.containedObjectIDs) {
+          const refObjectModel = getModel<
+            MultiGraphicFigureElement | FigureElement
+          >(referencedObject)
+          if (
+            refObjectModel &&
+            refObjectModel.objectType === ObjectTypes.FigureElement &&
+            refObjectModel.containedObjectIDs
+          ) {
             const objectId = refObjectModel.containedObjectIDs.find(Boolean)
             if (objectId) {
               rid = normalizeID(objectId)
             }
+          } else if (
+            refObjectModel &&
+            refObjectModel.objectType === ObjectTypes.MultiGraphicFigureElement
+          ) {
+            rid = normalizeID(refObjectModel._id)
           }
           return rid
         }
@@ -1422,8 +1435,12 @@ export class JATSExporter {
               const serializedChildElement = this.serializeNode(
                 figures[i]
               ) as HTMLElement
-              figure.appendChild(
-                serializedChildElement.querySelector('graphic') as Node
+              const refGraphic = (figure as HTMLElement).querySelector(
+                'graphic'
+              )
+              figure.insertBefore(
+                serializedChildElement.querySelector('graphic') as Node,
+                refGraphic
               )
             }
           }

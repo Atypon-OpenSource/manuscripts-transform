@@ -40,6 +40,7 @@ const labelledNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.table_element,
   schema.nodes.equation_element,
   schema.nodes.listing_element,
+  schema.nodes.multi_graphic_figure_element,
 ]
 
 const labelProperties: Map<
