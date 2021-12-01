@@ -1718,7 +1718,6 @@ Array [
     "category": "MPSectionCategory:endnotes",
     "elementIDs": Array [
       "MPFootnotesElement:test",
-      "MPFootnotesElement:test",
     ],
     "objectType": "MPSection",
     "path": Array [
@@ -1756,12 +1755,6 @@ Array [
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
-  },
-  Object {
-    "_id": "MPFootnotesElement:test",
-    "contents": "<div></div>",
-    "elementType": "div",
-    "objectType": "MPFootnotesElement",
   },
   Object {
     "_id": "MPFootnote:test",
@@ -4756,107 +4749,6 @@ Object {
             "kind": "footnote",
             "paragraphStyle": "",
           },
-          "type": "footnotes_element",
-        },
-        Object {
-          "attrs": Object {
-            "kind": "footnote",
-            "paragraphStyle": "",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "category": "conflict",
-                "kind": "footnote",
-                "paragraphStyle": "",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "contentType": undefined,
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "Competing Interests",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "paragraph",
-                },
-                Object {
-                  "attrs": Object {
-                    "contentType": null,
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "This is information about Competing Interests.",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "paragraph",
-                },
-              ],
-              "type": "footnote",
-            },
-            Object {
-              "attrs": Object {
-                "category": "financial-disclosure",
-                "kind": "footnote",
-                "paragraphStyle": "",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "contentType": undefined,
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "Financial Disclosure",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "paragraph",
-                },
-                Object {
-                  "attrs": Object {
-                    "contentType": null,
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "This is a Financial Disclosure.",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "paragraph",
-                },
-              ],
-              "type": "footnote",
-            },
-          ],
-          "type": "footnotes_element",
-        },
-        Object {
-          "attrs": Object {
-            "kind": "footnote",
-            "paragraphStyle": "",
-          },
-          "type": "footnotes_element",
-        },
-        Object {
-          "attrs": Object {
-            "kind": "footnote",
-            "paragraphStyle": "",
-          },
           "content": Array [
             Object {
               "attrs": Object {
@@ -5012,6 +4904,100 @@ Object {
               "type": "footnote",
             },
           ],
+          "type": "footnotes_element",
+        },
+        Object {
+          "attrs": Object {
+            "kind": "footnote",
+            "paragraphStyle": "",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "category": "conflict",
+                "kind": "footnote",
+                "paragraphStyle": "",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "contentType": undefined,
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Competing Interests",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+                Object {
+                  "attrs": Object {
+                    "contentType": null,
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "This is information about Competing Interests.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "footnote",
+            },
+            Object {
+              "attrs": Object {
+                "category": "financial-disclosure",
+                "kind": "footnote",
+                "paragraphStyle": "",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "contentType": undefined,
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Financial Disclosure",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+                Object {
+                  "attrs": Object {
+                    "contentType": null,
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "This is a Financial Disclosure.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "footnote",
+            },
+          ],
+          "type": "footnotes_element",
+        },
+        Object {
+          "attrs": Object {
+            "kind": "footnote",
+            "paragraphStyle": "",
+          },
           "type": "footnotes_element",
         },
       ],
@@ -7654,7 +7640,6 @@ Array [
     "category": "MPSectionCategory:endnotes",
     "elementIDs": Array [
       "MPFootnotesElement:test",
-      "MPFootnotesElement:test",
     ],
     "objectType": "MPSection",
     "path": Array [
@@ -7662,12 +7647,6 @@ Array [
     ],
     "priority": 13,
     "title": "Footnotes",
-  },
-  Object {
-    "_id": "MPFootnotesElement:test",
-    "contents": "<div></div>",
-    "elementType": "div",
-    "objectType": "MPFootnotesElement",
   },
   Object {
     "_id": "MPFootnotesElement:test",
@@ -10319,6 +10298,25 @@ Array [
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:endnotes",
+    "elementIDs": Array [
+      "MPFootnotesElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 10,
+    "title": "Footnotes",
+  },
+  Object {
+    "_id": "MPFootnotesElement:test",
+    "contents": "<div></div>",
+    "elementType": "div",
+    "objectType": "MPFootnotesElement",
   },
 ]
 `;

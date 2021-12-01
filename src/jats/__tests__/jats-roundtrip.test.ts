@@ -161,3 +161,47 @@ describe.skip('JATS transformer', () => {
     expect(parsedOutput.errors).toHaveLength(0)
   })
 })
+
+describe('JATS transformer roundtrip validation', () => {
+  test('Round trips DTD validation', async () => {
+    const input = await readFixture('jats-import.xml')
+    const doc = new DOMParser().parseFromString(input, 'application/xml')
+
+    // TODO: use doctype of input
+    const version =
+      doc.querySelector('article')?.getAttribute('dtd-version') || '1.2'
+
+    const models = await parseJATSArticle(doc)
+
+    const modelMap = new Map<string, Model>()
+
+    for (const model of models) {
+      modelMap.set(model._id, model)
+    }
+
+    const decoder = new Decoder(modelMap)
+    const article = decoder.createArticleNode()
+
+    const articleID = doc.querySelector(
+      'article-id[pub-id-type="publisher-id"]'
+    )?.textContent
+
+    const idGenerator = createIdGenerator(articleID as string)
+
+    const exporter = new JATSExporter()
+    const manuscript = findManuscript(modelMap)
+    const output = await exporter.serializeToJATS(
+      article.content,
+      modelMap,
+      manuscript._id,
+      {
+        version: version as Version,
+        idGenerator,
+        mediaPathGenerator,
+      }
+    )
+
+    const parsedOutput = parseXMLWithDTD(output)
+    expect(parsedOutput.errors).toHaveLength(0)
+  })
+})

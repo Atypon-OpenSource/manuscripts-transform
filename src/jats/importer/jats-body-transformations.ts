@@ -250,25 +250,21 @@ export const jatsBodyTransformations = {
       body.append(section)
     }
 
-    // @TODO capture fn w/o fn-type and move them into a fn-group at the end of the doc
-    // what happend with the only one that is correctly parsed? (or supposed to be at least)?
     const footnotes = [...doc.querySelectorAll('fn')]
-    const planeFnsGroup = createElement('fn-group')
+    const footnotesSection = doc.querySelector('sec[sec-type="notes"]')
+    const footnotesSectionGroup = footnotesSection?.querySelector('fn-group')
+    const containingGroup = footnotesSectionGroup || createElement('fn-group')
 
     for (const footnote of footnotes) {
       const type = footnote.getAttribute('fn-type')
       if (!type) {
-        planeFnsGroup.appendChild(footnote)
+        containingGroup.appendChild(footnote)
       }
     }
-    if (planeFnsGroup.childElementCount) {
-      const footnotesSection = doc.querySelector('sec[sec-type="notes"]')
-      if (footnotesSection) {
-        footnotesSection.append(planeFnsGroup)
-      } else {
-        const section = this.createFootnotes([planeFnsGroup], createElement)
-        body.append(section)
-      }
+
+    if (!footnotesSection) {
+      const section = this.createFootnotes([containingGroup], createElement)
+      body.append(section)
     }
   },
   // wrap single figures in fig-group
