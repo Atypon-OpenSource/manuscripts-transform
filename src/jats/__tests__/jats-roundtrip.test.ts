@@ -204,4 +204,31 @@ describe('JATS transformer roundtrip validation', () => {
     const parsedOutput = parseXMLWithDTD(output)
     expect(parsedOutput.errors).toHaveLength(0)
   })
+
+  test('Bibliography Refs in Footnotes with default id generator', async () => {
+    const input = await readFixture('jats-xref-in-footnotes.xml')
+    const doc = new DOMParser().parseFromString(input, 'application/xml')
+
+    const models = await parseJATSArticle(doc)
+
+    const modelMap = new Map<string, Model>()
+
+    for (const model of models) {
+      modelMap.set(model._id, model)
+    }
+
+    const decoder = new Decoder(modelMap)
+    const article = decoder.createArticleNode()
+    const exporter = new JATSExporter()
+    const manuscript = findManuscript(modelMap)
+    const output = await exporter.serializeToJATS(
+      article.content,
+      modelMap,
+      manuscript._id
+    )
+
+    const parsedOutput = parseXMLWithDTD(output)
+
+    expect(parsedOutput.errors).toHaveLength(0)
+  })
 })

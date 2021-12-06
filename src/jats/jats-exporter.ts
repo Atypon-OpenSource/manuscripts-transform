@@ -718,7 +718,10 @@ export class JATSExporter {
 
     const bibliographyItemIDsSet: Set<string> = new Set()
 
-    const xrefs = this.document.querySelectorAll('xref[ref-type=bibr][rid]')
+    const xrefs = [
+      ...this.document.querySelectorAll('xref[ref-type=bibr][rid]'),
+      ...back.querySelectorAll('xref[ref-type=bibr][rid]'),
+    ] // back can still contain xref that we need to process
 
     for (const xref of xrefs) {
       const attribute = xref.getAttribute('rid')
