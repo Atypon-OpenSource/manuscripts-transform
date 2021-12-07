@@ -21,6 +21,7 @@ import {
   Citation,
   Contributor,
   ContributorRole,
+  Corresponding,
   FigureElement,
   Footnote,
   InlineStyle,
@@ -1641,7 +1642,15 @@ export class JATSExporter {
             contrib.appendChild(xref)
           })
         }
-
+        if (contributor.corresp) {
+          contributor.corresp.map((corresp) => {
+            const xref = this.document.createElement('xref')
+            xref.setAttribute('ref-type', 'corresp')
+            xref.setAttribute('rid', normalizeID(corresp.correspID))
+            xref.appendChild(createFootNotesLabels(corresp.correspLabel))
+            contrib.appendChild(xref)
+          })
+        }
         contribGroup.appendChild(contrib)
       })
 
@@ -1809,31 +1818,59 @@ export class JATSExporter {
           }
         })
       }
-      const footnotesRIDs: string[] = []
+      const noteIDs: string[] = []
       for (const contributor of [...authorContributors, ...otherContributors]) {
         if (contributor.footnote) {
           const ids = contributor.footnote.map((note) => {
             return note.noteID
           })
-          footnotesRIDs.push(...ids)
+          noteIDs.push(...ids)
+        }
+        if (contributor.corresp) {
+          const ids = contributor.corresp.map((corresp) => {
+            return corresp.correspID
+          })
+          noteIDs.push(...ids)
         }
       }
-      const authornotes = this.models.filter(
-        hasObjectType<Footnote>(ObjectTypes.Footnote)
+      const footnotes: Footnote[] = []
+      footnotes.push(
+        ...this.models.filter(hasObjectType<Footnote>(ObjectTypes.Footnote))
       )
 
-      if (authornotes) {
+      const correspodings: Corresponding[] = []
+      correspodings.push(
+        ...this.models.filter(
+          hasObjectType<Corresponding>(ObjectTypes.Corresponding)
+        )
+      )
+
+      if (footnotes || correspodings) {
         const authorNotesEl = this.document.createElement('author-notes')
-        const usedAuthorNotes = authornotes.filter((authorNote) => {
-          return footnotesRIDs.includes(authorNote._id)
+        const usedFootnotes = footnotes.filter((footnote) => {
+          return noteIDs.includes(footnote._id)
         })
-        usedAuthorNotes.forEach((authorNote) => {
-          const authorFootNote = this.document.createElement('fn')
-          authorFootNote.setAttribute('id', normalizeID(authorNote._id))
-          authorFootNote.innerHTML = authorNote.contents
+        const usedCorrespodings = correspodings.filter((corresp) => {
+          return noteIDs.includes(corresp._id)
+        })
+        usedFootnotes.forEach((footnote) => {
+          const authorFootNote = this.document.createElement( 'fn')
+          authorFootNote.setAttribute('id', normalizeID(footnote._id))
+          authorFootNote.innerHTML = footnote.contents
           authorNotesEl.appendChild(authorFootNote)
         })
-        if (usedAuthorNotes.length > 0) {
+        usedCorrespodings.forEach((corresponding) => {
+          const correspondingEl = this.document.createElement( 'corresp')
+          correspondingEl.setAttribute('id', normalizeID(corresponding._id))
+          if(corresponding.label){
+            const labelEl = this.document.createElement('label')
+            labelEl.textContent = corresponding.label
+            correspondingEl.appendChild(labelEl)
+          }
+          correspondingEl.append(corresponding.contents)
+          authorNotesEl.appendChild(correspondingEl)
+        })
+        if (authorNotesEl.childNodes.length > 0) {
           articleMeta.appendChild(authorNotesEl)
         }
       }

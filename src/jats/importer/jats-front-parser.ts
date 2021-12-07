@@ -27,6 +27,7 @@ import {
   buildAffiliation,
   buildBibliographicName,
   buildContributor,
+  buildCorresp,
   buildFootnote,
   buildKeyword,
   buildKeywordGroup,
@@ -298,11 +299,34 @@ export const jatsFrontParser = {
       footnoteIDs,
     }
   },
-
+  parseCorrespNodes(correspNodes: Element[]) {
+    const correspondingIDs = new Map<string, string>()
+    const correspondingList = correspNodes.map((correspNode) => {
+      const label = correspNode.querySelector('label')
+      // Remove the label before extracting the textContent (prevent duplicate text)
+      if (label) {
+        label.remove()
+      }
+      const corresponding = buildCorresp(
+        correspNode.textContent ?? ''
+      )
+      corresponding.label = label?.textContent || undefined
+      const id = correspNode.getAttribute('id')
+      if (id) {
+        correspondingIDs.set(id, corresponding._id)
+      }
+      return corresponding
+    })
+    return {
+      correspondingList,
+      correspondingIDs,
+    }
+  },
   parseAuthorNodes(
     authorNodes: Element[],
     affiliationIDs: Map<string, string>,
-    footnoteIDs: Map<string, string>
+    footnoteIDs: Map<string, string>,
+    correspondingIDs: Map<string, string>
   ) {
     return authorNodes.map((authorNode, priority) => {
       const name = buildBibliographicName({})
@@ -352,6 +376,16 @@ export const jatsFrontParser = {
                   noteLabel: xrefNode.textContent || '',
                 }
                 contributor.footnote.push(authorFootNoteRef)
+              }
+            } else if (rtype === 'corresp') {
+              contributor.corresp = []
+              const correspId = correspondingIDs.get(rid)
+              if (correspId) {
+                const authorCorrespRef = {
+                  correspID: correspId,
+                  correspLabel: xrefNode.textContent || '',
+                }
+                contributor.corresp.push(authorCorrespRef)
               }
             }
             //check the xref note type, if aff then map the aff ids in array

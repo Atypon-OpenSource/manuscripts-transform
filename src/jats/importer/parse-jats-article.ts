@@ -117,6 +117,14 @@ export const parseJATSFront = async (front: Element) => {
     ...front.querySelectorAll('article-meta > author-notes > fn'),
   ])
 
+  // correspondings
+  const {
+    correspondingList,
+    correspondingIDs,
+  } = jatsFrontParser.parseCorrespNodes([
+    ...front.querySelectorAll('article-meta > author-notes > corresp'),
+  ])
+
   // contributors
   // TODO: handle missing contrib-type?
   const authors = jatsFrontParser.parseAuthorNodes(
@@ -126,7 +134,8 @@ export const parseJATSFront = async (front: Element) => {
       ),
     ],
     affiliationIDs,
-    footnoteIDs
+    footnoteIDs,
+    correspondingIDs
   )
 
   const history = jatsFrontParser.parseDates(
@@ -152,6 +161,7 @@ export const parseJATSFront = async (front: Element) => {
       ...authors,
       ...keywordGroups,
       ...footnotes,
+      ...correspondingList,
       journal,
     ]),
     bundles: bundleNodes,

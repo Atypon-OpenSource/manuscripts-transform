@@ -28,6 +28,7 @@ import {
   Contribution,
   Contributor,
   ContributorRole,
+  Corresponding,
   EmbeddedModel,
   Figure,
   Footnote,
@@ -299,6 +300,14 @@ export const buildFootnote = (
   containingObject: containingObject || undefined,
   contents,
   kind,
+})
+
+export const buildCorresp = (
+  contents: string
+): Build<Corresponding> => ({
+  _id: generateID(ObjectTypes.Corresponding),
+  objectType: ObjectTypes.Corresponding,
+  contents,
 })
 
 export const buildSection = (

@@ -752,6 +752,14 @@ Array [
     "objectType": "MPFootnote",
   },
   Object {
+    "_id": "MPCorresponding:test",
+    "contents": "
+          CorrespondenceY.L. Kwong, Department of Medicine, Professorial Block, Queen Mary Hospital, Pokfulam Road, Hong Kong, China, Email:
+          ylkwong@hkucc.hku.hk
+        ",
+    "objectType": "MPCorresponding",
+  },
+  Object {
     "ISSNs": Array [
       Object {
         "ISSN": "0278-0232",
