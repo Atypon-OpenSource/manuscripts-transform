@@ -163,7 +163,7 @@ export const createTestModelMapWithHighlights = () => {
     containerID: project._id,
     sessionID: 'test',
     elementType: 'figure',
-    caption: 'A figure with a caption',
+    caption: '<p class="caption-description" data-placeholder-text="Caption..." contenteditable="true">A figure with a caption</p>',
     figureStyle: 'MPFigureStyle:1',
     containedObjectIDs: [figureWithHighlight._id],
     highlightMarkers: [
@@ -173,7 +173,7 @@ export const createTestModelMapWithHighlights = () => {
         highlightID: figureElementHighlight._id,
         start: true,
         field: 'caption',
-        offset: 16,
+        offset: 105,
       },
       {
         objectType: ObjectTypes.HighlightMarker,
@@ -181,7 +181,7 @@ export const createTestModelMapWithHighlights = () => {
         highlightID: figureElementHighlight._id,
         start: false,
         field: 'caption',
-        offset: 23,
+        offset: 112,
       },
     ],
   }

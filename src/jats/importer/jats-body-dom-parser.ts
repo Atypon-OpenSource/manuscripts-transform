@@ -117,7 +117,30 @@ const nodes: NodeRule[] = [
   {
     tag: 'caption',
     node: 'figcaption',
-    context: 'figure_element/',
+    context: 'figure_element/|multi_graphic_figure_element/',
+    getContent: (node, schema) => {
+      const element = node as HTMLElement
+
+      const content = []
+
+      const title = element.querySelector('title')
+      if (title) {
+        const captionTitle = schema.nodes.caption_title.create()
+        content.push(jatsBodyDOMParser.parse(title, { topNode: captionTitle }))
+      }
+
+      const paragraphs = element.querySelectorAll('p')
+      if (paragraphs.length) {
+        const figcaption = schema.nodes.caption.create()
+        for (const paragraph of paragraphs) {
+          content.push(
+            jatsBodyDOMParser.parse(paragraph, { topNode: figcaption })
+          )
+        }
+      }
+
+      return Fragment.from(content) as Fragment
+    },
   },
   {
     tag: 'caption',

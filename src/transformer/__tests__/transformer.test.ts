@@ -55,6 +55,12 @@ test('transformer', async () => {
     // @ts-ignore
     delete original.originalURL
 
+    // TODO remove 2 deletions below after updating the manuscripts-examples repo
+    // @ts-ignore
+    delete original.caption
+    // @ts-ignore
+    delete item.caption
+
     expect(item).toEqual(original)
   }
 })

@@ -226,7 +226,7 @@ export const parseJATSBody = (
   jatsBodyTransformations.wrapFigures(body, createElement)
   jatsBodyTransformations.moveCaptionsToEnd(body)
   jatsBodyTransformations.moveTableFooterToEnd(body)
-  jatsBodyTransformations.unwrapParagraphsInCaptions(body)
+  //jatsBodyTransformations.unwrapParagraphsInCaptions(body)
   const node = jatsBodyDOMParser.parse(body)
   if (!node.firstChild) {
     throw new Error('No content was parsed from the JATS article body')

@@ -909,6 +909,46 @@ export class Decoder {
       | ListingElement
       | MultiGraphicFigureElement
   ) => {
+    const titleNode = schema.nodes.caption_title.create() as CaptionTitleNode
+
+    const captionTitle = model.title
+      ? this.parseContents(
+          'title',
+          model.title,
+          'caption_title',
+          model.highlightMarkers,
+          {
+            topNode: titleNode,
+          }
+        )
+      : titleNode
+
+    // test if model caption is html content (e.g. in figure_element)
+    if (model.caption && /<\/?[a-z][\s\S]*>/i.test(model.caption)) {
+      const captionDoc = document.createElement('div')
+      captionDoc.innerHTML = model.caption
+
+      const content = [captionTitle]
+
+      const paragraphs = captionDoc.querySelectorAll('p')
+      for (const paragraph of paragraphs) {
+        const captionNode = schema.nodes.caption.create() as CaptionNode
+
+        const caption = this.parseContents(
+          'caption',
+          paragraph.outerHTML,
+          'caption',
+          model.highlightMarkers,
+          {
+            topNode: captionNode,
+          }
+        )
+        content.push(caption)
+      }
+
+      return schema.nodes.figcaption.create({}, content)
+    }
+
     const captionNode = schema.nodes.caption.create() as CaptionNode
 
     const caption = model.caption
@@ -922,20 +962,6 @@ export class Decoder {
           }
         )
       : captionNode
-
-    const TitleNode = schema.nodes.caption_title.create() as CaptionTitleNode
-
-    const captionTitle = model.title
-      ? this.parseContents(
-          'title',
-          model.title,
-          'caption_title',
-          model.highlightMarkers,
-          {
-            topNode: TitleNode,
-          }
-        )
-      : TitleNode
 
     return schema.nodes.figcaption.create({}, [captionTitle, caption])
   }

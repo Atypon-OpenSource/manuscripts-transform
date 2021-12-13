@@ -274,6 +274,25 @@ const inlineContentOfChildNodeType = (
   return content && content.length > 1 ? content : empty ? content : undefined
 }
 
+const wrappedContentOfChildrenNodeType = (
+  node: ManuscriptNode,
+  parentNodeType: ManuscriptNodeType,
+  childNodeType: ManuscriptNodeType
+): string | undefined => {
+  const parentNode = childElements(node).find(
+    (node) => node.type === parentNodeType && node
+  )
+
+  const content =
+    parentNode &&
+    childElements(parentNode)
+      .filter((node) => node.type === childNodeType && node)
+      .map((node) => (serializer.serializeNode(node) as HTMLElement).outerHTML)
+      .join('')
+
+  return content
+}
+
 const containedFigureIDs = (node: ManuscriptNode): string[] => {
   const figureNodeType = node.type.schema.nodes.figure
   return containedObjectIDs(node, figureNodeType)
@@ -315,7 +334,7 @@ const attribution = (node: ManuscriptNode) => {
 function figureElementEncoder<T>(node: ManuscriptNode) {
   return {
     containedObjectIDs: containedFigureIDs(node),
-    caption: inlineContentOfChildNodeType(
+    caption: wrappedContentOfChildrenNodeType(
       node,
       node.type.schema.nodes.figcaption,
       node.type.schema.nodes.caption

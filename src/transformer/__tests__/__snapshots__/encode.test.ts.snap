@@ -228,7 +228,7 @@ Map {
   "MPFigureElement:A5D68C57-B5BB-4D10-E0C3-ECED717A2AA7" => Object {
     "_id": "MPFigureElement:A5D68C57-B5BB-4D10-E0C3-ECED717A2AA7",
     "alignment": undefined,
-    "caption": "A figure with a caption",
+    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\">A figure with a caption</p>",
     "containedObjectIDs": Array [
       "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0",
     ],
@@ -259,7 +259,7 @@ Map {
   "MPFigureElement:B32BDEC8-E816-4946-C0BB-0404AF2F0C29" => Object {
     "_id": "MPFigureElement:B32BDEC8-E816-4946-C0BB-0404AF2F0C29",
     "alignment": undefined,
-    "caption": "A figure with hidden caption",
+    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\">A figure with hidden caption</p>",
     "containedObjectIDs": Array [
       "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
     ],
@@ -579,7 +579,7 @@ Map {
   "MPFigureElement:1" => Object {
     "_id": "MPFigureElement:1",
     "alignment": undefined,
-    "caption": "A figure with a caption",
+    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\">A figure with a caption</p>",
     "containedObjectIDs": Array [
       "MPFigure:1",
     ],
@@ -592,7 +592,7 @@ Map {
         "field": "caption",
         "highlightID": "MPHighlight:3",
         "objectType": "MPHighlightMarker",
-        "offset": 16,
+        "offset": 105,
         "start": true,
       },
       Object {
@@ -600,7 +600,7 @@ Map {
         "field": "caption",
         "highlightID": "MPHighlight:3",
         "objectType": "MPHighlightMarker",
-        "offset": 23,
+        "offset": 112,
         "start": false,
       },
     ],
