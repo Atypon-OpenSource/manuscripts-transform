@@ -260,10 +260,21 @@ const transformTables = (
   tables: NodeListOf<Element>,
   createElement: (tagName: string) => HTMLElement
 ) => {
-  // ensure that tables have a header and footer row
   tables.forEach((table) => {
-    const tbody = table.querySelector('tbody')
+    // Move cols into a colgroup if they are not already
+    // This more closely maps how they exist in HTML and, subsequently, in ManuscriptJSON
+    const colgroup = table.querySelector('colgroup')
+    const cols = table.querySelectorAll('col')
+    if (!colgroup && table.firstChild && cols.length > 0) {
+      const colgroup = createElement('colgroup')
+      for (const col of cols) {
+        colgroup.appendChild(col)
+      }
+      table.insertBefore(colgroup, table.firstChild)
+    }
 
+    // Ensures that tables have a header and footer row
+    const tbody = table.querySelector('tbody')
     if (tbody) {
       // if there are no table header rows, add an extra row to the start of the table body
       const headerRow = table.querySelector('thead > tr')

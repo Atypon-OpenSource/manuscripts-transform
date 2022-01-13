@@ -19,6 +19,7 @@ import {
   Mark as ProsemirrorMark,
   MarkType,
   Node as ProsemirrorNode,
+  NodeSpec,
   NodeType,
   ResolvedPos,
   Schema,
@@ -84,9 +85,11 @@ export type Nodes =
   | 'section_label'
   | 'section_title'
   | 'table'
+  | 'table_body'
   | 'table_cell'
   | 'table_element'
   | 'table_row'
+  | 'table_colgroup'
   | 'table_col'
   | 'text'
   | 'toc_element'
@@ -108,3 +111,7 @@ export type ManuscriptResolvedPos = ResolvedPos<ManuscriptSchema>
 export type ManuscriptPlugin = Plugin<ManuscriptSchema>
 export type ManuscriptSlice = Slice<ManuscriptSchema>
 export type ManuscriptTransaction = Transaction<ManuscriptSchema>
+
+export interface TableNodeSpec extends NodeSpec {
+  tableRole: string
+}

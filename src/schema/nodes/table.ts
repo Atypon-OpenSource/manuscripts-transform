@@ -16,46 +16,7 @@
 
 // adapted from 'prosemirror-tables'
 
-import { NodeSpec } from 'prosemirror-model'
-
-import {
-  getTableCellStyles,
-  serializeTableCellStyles,
-  TableCellStyleKey,
-} from '../../lib/table-cell-styles'
-import { ManuscriptNode } from '../types'
-
-// NOTE: keep this method as close to the original as possible, for ease of updating
-const getCellAttrs = (p: Node | string) => {
-  const dom = p as HTMLTableCellElement
-
-  const widthAttr = dom.getAttribute('data-colwidth')
-  const widths =
-    widthAttr && /^\d+(,\d+)*$/.test(widthAttr)
-      ? widthAttr.split(',').map((s) => Number(s))
-      : null
-  const colspan = Number(dom.getAttribute('colspan') || 1)
-  const valign = dom.getAttribute('valign')
-  const align = dom.getAttribute('align')
-  const scope = dom.getAttribute('scope')
-  const style = dom.getAttribute('style')
-
-  return {
-    colspan,
-    rowspan: Number(dom.getAttribute('rowspan') || 1),
-    colwidth: widths && widths.length === colspan ? widths : null,
-    placeholder: dom.getAttribute('data-placeholder-text') || '',
-    styles: getTableCellStyles(dom.style),
-    valign,
-    align,
-    scope,
-    style,
-  }
-}
-
-interface TableNodeSpec extends NodeSpec {
-  tableRole: string
-}
+import { ManuscriptNode, TableNodeSpec } from '../types'
 
 export interface TableNode extends ManuscriptNode {
   attrs: {
@@ -70,7 +31,7 @@ export interface TableNode extends ManuscriptNode {
 }
 
 export const table: TableNodeSpec = {
-  content: 'table_col* table_row{3,}',
+  content: 'table_colgroup? table_body',
   tableRole: 'table',
   isolating: true,
   group: 'block',
@@ -105,163 +66,21 @@ export const table: TableNodeSpec = {
         'data-header-rows': String(node.attrs.headerRows),
         'data-footer-rows': String(node.attrs.footerRows),
       },
-      ['tbody', 0],
+      0,
     ]
   },
 }
 
-export interface TableRowNode extends ManuscriptNode {
-  attrs: {
-    placeholder: string
-  }
-}
-
-export const tableRow: TableNodeSpec = {
-  content: 'table_cell+',
-  tableRole: 'row',
-  attrs: {
-    placeholder: { default: '' },
-  },
-  parseDOM: [
-    {
-      tag: 'tr',
-      priority: 80,
-      // getAttrs: (dom: HTMLTableRowElement) => ({
-      //   placeholder: dom.getAttribute('data-placeholder-text'),
-      // }),
-    },
-  ],
-  toDOM: (node) => {
-    const tableRowNode = node as TableRowNode
-
-    const attrs: { [key: string]: string } = {}
-
-    if (tableRowNode.attrs.placeholder) {
-      attrs['data-placeholder-text'] = tableRowNode.attrs.placeholder
-    }
-
-    return ['tr', attrs, 0]
-  },
-}
-
-export type TableCellStyles = { [key in TableCellStyleKey]?: string | null }
-
-export interface TableCellNode extends ManuscriptNode {
-  attrs: {
-    colspan: number | null
-    rowspan: number | null
-    colwidth: number[] | null
-    placeholder: string | null
-    styles: TableCellStyles
-    valign: string | null
-    align: string | null
-    scope: string | null
-    style: string | null
-  }
-}
-
-export interface TableColNode extends ManuscriptNode {
-  attrs: {
-    width: string
-  }
-}
-
-export const tableCol: TableNodeSpec = {
-  attrs: {
-    width: { default: '' },
-  },
+export const tableBody: TableNodeSpec = {
+  content: 'table_row{3,}',
   group: 'block',
-  tableRole: 'col',
+  tableRole: 'tbody',
   parseDOM: [
     {
-      tag: 'col',
-      getAttrs: (p) => {
-        const dom = p as HTMLTableColElement
-
-        return {
-          width: dom.getAttribute('width'),
-        }
-      },
+      tag: 'tbody',
     },
   ],
-  toDOM: (node) => {
-    const tableColNode = node as TableColNode
-
-    const attrs: { [key: string]: string } = {}
-
-    if (tableColNode.attrs.width) {
-      attrs['width'] = tableColNode.attrs.width
-    }
-
-    return ['col', attrs]
-  },
-}
-
-export const tableCell: TableNodeSpec = {
-  content: 'inline*',
-  attrs: {
-    colspan: { default: 1 },
-    rowspan: { default: 1 },
-    colwidth: { default: null },
-    placeholder: { default: 'Data' }, // TODO: depends on cell type and position
-    styles: { default: {} },
-    valign: { default: null },
-    align: { default: null },
-    scope: { default: null },
-    style: { default: null },
-  },
-  tableRole: 'cell',
-  isolating: true,
-  parseDOM: [
-    { tag: 'td', getAttrs: getCellAttrs },
-    { tag: 'th', getAttrs: getCellAttrs },
-  ],
-  toDOM: (node) => {
-    const tableCellNode = node as TableCellNode
-
-    const attrs: { [attr: string]: string } = {}
-
-    if (tableCellNode.attrs.colspan && tableCellNode.attrs.colspan !== 1) {
-      attrs.colspan = String(tableCellNode.attrs.colspan)
-    }
-
-    if (tableCellNode.attrs.rowspan && tableCellNode.attrs.rowspan !== 1) {
-      attrs.rowspan = String(tableCellNode.attrs.rowspan)
-    }
-
-    if (tableCellNode.attrs.colwidth) {
-      attrs['data-colwidth'] = tableCellNode.attrs.colwidth.join(',')
-    }
-
-    if (tableCellNode.attrs.placeholder) {
-      attrs['data-placeholder-text'] = tableCellNode.attrs.placeholder
-    }
-
-    if (!tableCellNode.textContent) {
-      attrs.class = 'placeholder'
-    }
-
-    const styleString = serializeTableCellStyles(tableCellNode.attrs.styles)
-    if (styleString) {
-      attrs.style = styleString
-    }
-
-    if (tableCellNode.attrs.valign) {
-      attrs.valign = tableCellNode.attrs.valign
-    }
-
-    if (tableCellNode.attrs.align) {
-      attrs.align = tableCellNode.attrs.align
-    }
-
-    if (tableCellNode.attrs.scope) {
-      attrs.scope = tableCellNode.attrs.scope
-    }
-
-    if (tableCellNode.attrs.style) {
-      attrs.style = tableCellNode.attrs.style
-    }
-
-    return ['td', attrs, 0]
+  toDOM() {
+    return ['tbody', 0]
   },
 }

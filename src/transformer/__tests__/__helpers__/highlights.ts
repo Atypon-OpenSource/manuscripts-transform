@@ -163,7 +163,8 @@ export const createTestModelMapWithHighlights = () => {
     containerID: project._id,
     sessionID: 'test',
     elementType: 'figure',
-    caption: '<p class="caption-description" data-placeholder-text="Caption..." contenteditable="true">A figure with a caption</p>',
+    caption:
+      '<p class="caption-description" data-placeholder-text="Caption..." contenteditable="true">A figure with a caption</p>',
     figureStyle: 'MPFigureStyle:1',
     containedObjectIDs: [figureWithHighlight._id],
     highlightMarkers: [

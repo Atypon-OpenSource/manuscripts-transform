@@ -1331,8 +1331,9 @@ export class JATSExporter {
         element.setAttribute('position', 'anchor')
         return element
       },
+      table_body: () => ['tbody', 0],
       table_cell: (node) => [
-        'td',
+        node.attrs.celltype,
         {
           valign: node.attrs.valign,
           align: node.attrs.align,
@@ -1343,6 +1344,7 @@ export class JATSExporter {
       ],
       table_row: () => ['tr', 0],
       table_col: (node) => ['col', { width: node.attrs.width }],
+      table_colgroup: () => ['colgroup', 0],
       text: (node) => node.text as string,
       toc_element: () => '',
       toc_section: () => '',
@@ -1854,15 +1856,15 @@ export class JATSExporter {
           return noteIDs.includes(corresp._id)
         })
         usedFootnotes.forEach((footnote) => {
-          const authorFootNote = this.document.createElement( 'fn')
+          const authorFootNote = this.document.createElement('fn')
           authorFootNote.setAttribute('id', normalizeID(footnote._id))
           authorFootNote.innerHTML = footnote.contents
           authorNotesEl.appendChild(authorFootNote)
         })
         usedCorrespodings.forEach((corresponding) => {
-          const correspondingEl = this.document.createElement( 'corresp')
+          const correspondingEl = this.document.createElement('corresp')
           correspondingEl.setAttribute('id', normalizeID(corresponding._id))
-          if(corresponding.label){
+          if (corresponding.label) {
             const labelEl = this.document.createElement('label')
             labelEl.textContent = corresponding.label
             correspondingEl.appendChild(labelEl)
@@ -2076,84 +2078,51 @@ export class JATSExporter {
   }
 
   private fixTable = (table: ChildNode, node: ManuscriptNode) => {
-    const tableNodes = Array.from(table.childNodes)
+    let tbody: Element | undefined
 
-    const cols: Element[] = []
-    const rows: ChildNode[] = []
-
-    for (const tableNode of tableNodes) {
-      if (tableNode instanceof Element && tableNode.tagName === 'col') {
-        cols.push(tableNode)
-      } else {
-        rows.push(tableNode)
+    Array.from(table.childNodes).forEach((child) => {
+      if (child instanceof Element && child.tagName.toLowerCase() === 'tbody') {
+        tbody = child
       }
+    })
+
+    if (!tbody) {
+      return
     }
 
-    if (cols.length > 0) {
-      cols.forEach((col) => table.appendChild(col))
-    }
-
-    const theadRows = rows.splice(0, 1)
-    const tfootRows = rows.splice(-1, 1)
-
-    // thead
-    if (node.attrs.suppressHeader) {
-      for (const row of theadRows) {
-        table.removeChild(row)
-      }
-    } else {
-      const thead = this.document.createElement('thead')
-
-      for (const row of theadRows) {
-        // Iterate over row's (<tr>) children (<td>) since they should be <th> under <thead> element
-        const tableElements: HTMLTableCellElement[] = []
-
-        for (const node of row.childNodes.values()) {
-          tableElements.push(node as HTMLTableCellElement)
-        }
-
-        for (const cell of tableElements) {
-          const headCell = this.document.createElement('th')
-          cell.getAttributeNames().forEach((attrName) => {
-            const attribute = cell.getAttribute(attrName)
-            if (attribute) {
-              headCell.setAttribute(attrName, attribute)
+    let headerProcessed = false
+    const tbodyRows = Array.from(tbody.childNodes)
+    tbodyRows.forEach((row, i) => {
+      const isRow = row instanceof Element && row.tagName.toLowerCase() === 'tr'
+      if (isRow && !headerProcessed) {
+        tbody?.removeChild(row)
+        if (!node.attrs.suppressHeader) {
+          const thead = this.document.createElement('thead')
+          row.childNodes.forEach((column) => {
+            if (
+              column instanceof Element &&
+              column.tagName.toLowerCase() === 'td'
+            ) {
+              const headCell = this.document.createElement('th')
+              Array.from(column.attributes).forEach((attr) => {
+                headCell.setAttribute(attr.name, attr.value)
+              })
+              row.replaceChild(headCell, column)
             }
           })
-          cell.childNodes.forEach((c) => {
-            headCell.appendChild(c)
-          })
-          row.replaceChild(headCell, cell)
+          thead.appendChild(row)
+          table.insertBefore(thead, tbody as Element)
         }
-        thead.appendChild(row)
+        headerProcessed = true
+      } else if (isRow && i === tbodyRows.length - 1) {
+        tbody?.removeChild(row)
+        if (!node.attrs.suppressFooter) {
+          const tfoot = this.document.createElement('tfoot')
+          tfoot.appendChild(row)
+          table.insertBefore(tfoot, tbody as Element)
+        }
       }
-
-      table.appendChild(thead)
-    }
-
-    // tfoot
-    if (node.attrs.suppressFooter) {
-      for (const row of tfootRows) {
-        table.removeChild(row)
-      }
-    } else {
-      const tfoot = this.document.createElement('tfoot')
-
-      for (const row of tfootRows) {
-        tfoot.appendChild(row)
-      }
-
-      table.appendChild(tfoot)
-    }
-
-    // tbody
-    const tbody = this.document.createElement('tbody')
-
-    for (const row of rows) {
-      tbody.appendChild(row)
-    }
-
-    table.appendChild(tbody)
+    })
   }
 
   private moveAbstract = (front: HTMLElement, body: HTMLElement) => {

@@ -645,6 +645,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
+        celltype: 'th',
         valign: element.getAttribute('valign'),
         align: element.getAttribute('align'),
         scope: element.getAttribute('scope'),
@@ -662,6 +663,10 @@ const nodes: NodeRule[] = [
         width: element.getAttribute('width'),
       }
     },
+  },
+  {
+    tag: 'colgroup',
+    node: 'table_colgroup',
   },
   {
     tag: 'xref[ref-type="bibr"]',

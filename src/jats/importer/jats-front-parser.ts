@@ -307,9 +307,7 @@ export const jatsFrontParser = {
       if (label) {
         label.remove()
       }
-      const corresponding = buildCorresp(
-        correspNode.textContent ?? ''
-      )
+      const corresponding = buildCorresp(correspNode.textContent ?? '')
       corresponding.label = label?.textContent || undefined
       const id = correspNode.getAttribute('id')
       if (id) {

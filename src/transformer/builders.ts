@@ -302,9 +302,7 @@ export const buildFootnote = (
   kind,
 })
 
-export const buildCorresp = (
-  contents: string
-): Build<Corresponding> => ({
+export const buildCorresp = (contents: string): Build<Corresponding> => ({
   _id: generateID(ObjectTypes.Corresponding),
   objectType: ObjectTypes.Corresponding,
   contents,
