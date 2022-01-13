@@ -163,7 +163,7 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'inline-formula, p > disp-formula',
+    tag: 'inline-formula',
     node: 'inline_equation',
     getAttrs: (node) => {
       const element = node as HTMLElement

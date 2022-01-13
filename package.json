@@ -50,7 +50,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@jats4r/dtds": "^0.0.7",
     "@manuscripts/eslint-config": "^0.2.2",
-    "@manuscripts/examples": "^0.0.8",
+    "@manuscripts/examples": "^0.0.10",
     "@manuscripts/publish": "^0.2.2",
     "@manuscripts/rxdb": "8.2.0-manuscripts1",
     "@types/debug": "^4.1.4",

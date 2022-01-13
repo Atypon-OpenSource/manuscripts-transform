@@ -32,7 +32,7 @@ export interface ParagraphNode extends ManuscriptNode {
 }
 
 export const paragraph: NodeSpec = {
-  content: 'inline*',
+  content: '(fragment | equation_element)*',
   attrs: {
     id: { default: '' },
     paragraphStyle: { default: '' }, // TODO: default paragraph style
@@ -44,7 +44,7 @@ export const paragraph: NodeSpec = {
   selectable: false,
   parseDOM: [
     {
-      tag: 'p',
+      tag: 'div',
       getAttrs: (p) => {
         const dom = p as HTMLParagraphElement
 
@@ -86,7 +86,9 @@ export const paragraph: NodeSpec = {
       attrs['content-type'] = paragraphNode.attrs.contentType
     }
 
-    return ['p', attrs, 0]
+    attrs['role'] = 'paragraph'
+
+    return ['div', attrs, 0]
   },
 }
 

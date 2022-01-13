@@ -44,6 +44,7 @@ import { figureElement } from './nodes/figure_element'
 import { footnote } from './nodes/footnote'
 import { footnotesElement } from './nodes/footnotes_element'
 import { footnotesSection } from './nodes/footnotes_section'
+import { fragment } from './nodes/fragment'
 import { hardBreak } from './nodes/hard_break'
 import { highlightMarker } from './nodes/highlight_marker'
 import { inlineEquation } from './nodes/inline_equation'
@@ -146,6 +147,7 @@ export const schema = new Schema<Nodes, Marks>({
     multi_graphic_figure_element: multiGraphicFigureElement,
     figure_element: figureElement,
     footnote,
+    fragment,
     footnotes_element: footnotesElement,
     footnotes_section: footnotesSection,
     hard_break: hardBreak,

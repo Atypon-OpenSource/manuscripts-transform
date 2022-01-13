@@ -46,9 +46,10 @@ export const equation: NodeSpec = {
         const dom = p as HTMLDivElement
 
         return {
-          // MathMLStringRepresentation: dom.getAttribute(
-          //   'data-mathml-string-representation'
-          // ),
+          id: dom.getAttribute('id'),
+          MathMLStringRepresentation: dom.getAttribute(
+            'data-mathml-string-representation'
+          ),
           SVGStringRepresentation: dom.innerHTML,
           TeXRepresentation: dom.getAttribute('data-tex-representation'),
         }
@@ -62,12 +63,12 @@ export const equation: NodeSpec = {
     const dom = document.createElement('div')
     dom.setAttribute('id', equationNode.attrs.id)
     dom.classList.add(ObjectTypes.Equation)
-    // if (equationNode.attrs.MathMLStringRepresentation) {
-    //   dom.setAttribute(
-    //     'data-mathml-string-representation',
-    //     equationNode.attrs.MathMLStringRepresentation
-    //   )
-    // }
+    if (equationNode.attrs.MathMLStringRepresentation) {
+      dom.setAttribute(
+        'data-mathml-string-representation',
+        equationNode.attrs.MathMLStringRepresentation
+      )
+    }
     dom.setAttribute(
       'data-tex-representation',
       equationNode.attrs.TeXRepresentation

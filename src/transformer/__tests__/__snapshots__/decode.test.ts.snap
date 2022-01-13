@@ -140,8 +140,13 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "The first section.",
-              "type": "text",
+              "content": Array [
+                Object {
+                  "text": "The first section.",
+                  "type": "text",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -155,47 +160,52 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "The text in this sentence is ",
-              "type": "text",
-            },
-            Object {
-              "marks": Array [
+              "content": Array [
                 Object {
-                  "type": "bold",
+                  "text": "The text in this sentence is ",
+                  "type": "text",
+                },
+                Object {
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                  ],
+                  "text": "bold",
+                  "type": "text",
+                },
+                Object {
+                  "text": ", ",
+                  "type": "text",
+                },
+                Object {
+                  "marks": Array [
+                    Object {
+                      "type": "italic",
+                    },
+                  ],
+                  "text": "italic",
+                  "type": "text",
+                },
+                Object {
+                  "text": ", or ",
+                  "type": "text",
+                },
+                Object {
+                  "marks": Array [
+                    Object {
+                      "type": "underline",
+                    },
+                  ],
+                  "text": "underlined",
+                  "type": "text",
+                },
+                Object {
+                  "text": ".",
+                  "type": "text",
                 },
               ],
-              "text": "bold",
-              "type": "text",
-            },
-            Object {
-              "text": ", ",
-              "type": "text",
-            },
-            Object {
-              "marks": Array [
-                Object {
-                  "type": "italic",
-                },
-              ],
-              "text": "italic",
-              "type": "text",
-            },
-            Object {
-              "text": ", or ",
-              "type": "text",
-            },
-            Object {
-              "marks": Array [
-                Object {
-                  "type": "underline",
-                },
-              ],
-              "text": "underlined",
-              "type": "text",
-            },
-            Object {
-              "text": ".",
-              "type": "text",
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -209,19 +219,24 @@ Object {
           },
           "content": Array [
             Object {
-              "marks": Array [
+              "content": Array [
                 Object {
-                  "type": "bold",
-                },
-                Object {
-                  "type": "italic",
-                },
-                Object {
-                  "type": "underline",
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                    Object {
+                      "type": "italic",
+                    },
+                    Object {
+                      "type": "underline",
+                    },
+                  ],
+                  "text": "The text in this sentence is bold, italic and underlined.",
+                  "type": "text",
                 },
               ],
-              "text": "The text in this sentence is bold, italic and underlined.",
-              "type": "text",
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -235,34 +250,39 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "The text in this sentence is ",
-              "type": "text",
-            },
-            Object {
-              "marks": Array [
+              "content": Array [
                 Object {
-                  "type": "superscript",
+                  "text": "The text in this sentence is ",
+                  "type": "text",
+                },
+                Object {
+                  "marks": Array [
+                    Object {
+                      "type": "superscript",
+                    },
+                  ],
+                  "text": "superscript",
+                  "type": "text",
+                },
+                Object {
+                  "text": " and ",
+                  "type": "text",
+                },
+                Object {
+                  "marks": Array [
+                    Object {
+                      "type": "subscript",
+                    },
+                  ],
+                  "text": "subscript",
+                  "type": "text",
+                },
+                Object {
+                  "text": ".",
+                  "type": "text",
                 },
               ],
-              "text": "superscript",
-              "type": "text",
-            },
-            Object {
-              "text": " and ",
-              "type": "text",
-            },
-            Object {
-              "marks": Array [
-                Object {
-                  "type": "subscript",
-                },
-              ],
-              "text": "subscript",
-              "type": "text",
-            },
-            Object {
-              "text": ".",
-              "type": "text",
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -297,8 +317,13 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "The heading of this section is hidden.",
-              "type": "text",
+              "content": Array [
+                Object {
+                  "text": "The heading of this section is hidden.",
+                  "type": "text",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -323,8 +348,13 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "A numbered list.",
-                      "type": "text",
+                      "content": Array [
+                        Object {
+                          "text": "A numbered list.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "fragment",
                     },
                   ],
                   "type": "paragraph",
@@ -355,8 +385,13 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "A bullet list.",
-                      "type": "text",
+                      "content": Array [
+                        Object {
+                          "text": "A bullet list.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "fragment",
                     },
                   ],
                   "type": "paragraph",
@@ -387,8 +422,13 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "A numbered list with a nested list.",
-                      "type": "text",
+                      "content": Array [
+                        Object {
+                          "text": "A numbered list with a nested list.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "fragment",
                     },
                   ],
                   "type": "paragraph",
@@ -413,8 +453,13 @@ Object {
                           },
                           "content": Array [
                             Object {
-                              "text": "This item is nested.",
-                              "type": "text",
+                              "content": Array [
+                                Object {
+                                  "text": "This item is nested.",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "fragment",
                             },
                           ],
                           "type": "paragraph",
@@ -1582,17 +1627,22 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "An inline equation: ",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "MathMLRepresentation": "",
-                "SVGRepresentation": "<svg xmlns:xlink=\\"http://www.w3.org/1999/xlink\\" width=\\"9.426ex\\" height=\\"2.237ex\\" viewBox=\\"0 -781.2 4058.5 963\\" role=\\"img\\" focusable=\\"false\\" xmlns=\\"http://www.w3.org/2000/svg\\" style=\\"vertical-align: -0.422ex;\\"><defs><path stroke-width=\\"1\\" id=\\"MJMAIN-33\\" d=\\"M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-2B\\" d=\\"M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-35\\" d=\\"M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-38\\" d=\\"M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z\\"></path></defs><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"matrix(1 0 0 -1 0 0)\\"><use xlink:href=\\"#MJMAIN-33\\" x=\\"0\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-2B\\" x=\\"722\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-35\\" x=\\"1723\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-3D\\" x=\\"2501\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-38\\" x=\\"3558\\" y=\\"0\\"></use></g></svg>",
-                "TeXRepresentation": "3+5=8",
-                "id": "MPInlineMathFragment:A8A76DC2-EA6A-44BF-E8E7-B4A9EAEDF090",
-              },
-              "type": "inline_equation",
+              "content": Array [
+                Object {
+                  "text": "An inline equation: ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "MathMLRepresentation": "",
+                    "SVGRepresentation": "<svg xmlns:xlink=\\"http://www.w3.org/1999/xlink\\" width=\\"9.426ex\\" height=\\"2.237ex\\" viewBox=\\"0 -781.2 4058.5 963\\" role=\\"img\\" focusable=\\"false\\" xmlns=\\"http://www.w3.org/2000/svg\\" style=\\"vertical-align: -0.422ex;\\"><defs><path stroke-width=\\"1\\" id=\\"MJMAIN-33\\" d=\\"M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-2B\\" d=\\"M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-35\\" d=\\"M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-38\\" d=\\"M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z\\"></path></defs><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"matrix(1 0 0 -1 0 0)\\"><use xlink:href=\\"#MJMAIN-33\\" x=\\"0\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-2B\\" x=\\"722\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-35\\" x=\\"1723\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-3D\\" x=\\"2501\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-38\\" x=\\"3558\\" y=\\"0\\"></use></g></svg>",
+                    "TeXRepresentation": "3+5=8",
+                    "id": "MPInlineMathFragment:A8A76DC2-EA6A-44BF-E8E7-B4A9EAEDF090",
+                  },
+                  "type": "inline_equation",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -1606,15 +1656,20 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "A cross-reference to a figure: ",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "label": "Figure 1",
-                "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
-              },
-              "type": "cross_reference",
+              "content": Array [
+                Object {
+                  "text": "A cross-reference to a figure: ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "label": "Figure 1",
+                    "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
+                  },
+                  "type": "cross_reference",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -1628,15 +1683,20 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "A cross-reference to a table: ",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "label": "Table 1",
-                "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
-              },
-              "type": "cross_reference",
+              "content": Array [
+                Object {
+                  "text": "A cross-reference to a table: ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "label": "Table 1",
+                    "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
+                  },
+                  "type": "cross_reference",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -1650,15 +1710,20 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "A cross-reference to an equation: ",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "label": "Equation 1",
-                "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
-              },
-              "type": "cross_reference",
+              "content": Array [
+                Object {
+                  "text": "A cross-reference to an equation: ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "label": "Equation 1",
+                    "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
+                  },
+                  "type": "cross_reference",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -1672,12 +1737,17 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "attrs": Object {
-                "contents": "A hyperlink",
-                "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
-                "selectedText": "",
-              },
-              "type": "citation",
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "contents": "A hyperlink",
+                    "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
+                    "selectedText": "",
+                  },
+                  "type": "citation",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -1691,15 +1761,20 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "A footnote:",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "contents": "1",
-                "rid": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
-              },
-              "type": "inline_footnote",
+              "content": Array [
+                Object {
+                  "text": "A footnote:",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "contents": "1",
+                    "rid": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+                  },
+                  "type": "inline_footnote",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -1729,8 +1804,13 @@ const x = 'y'",
                   },
                   "content": Array [
                     Object {
-                      "text": "This is a footnote.",
-                      "type": "text",
+                      "content": Array [
+                        Object {
+                          "text": "This is a footnote.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "fragment",
                     },
                   ],
                   "type": "paragraph",
@@ -1915,8 +1995,13 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "The first section.",
-              "type": "text",
+              "content": Array [
+                Object {
+                  "text": "The first section.",
+                  "type": "text",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -1930,47 +2015,52 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "The text in this sentence is ",
-              "type": "text",
-            },
-            Object {
-              "marks": Array [
+              "content": Array [
                 Object {
-                  "type": "bold",
+                  "text": "The text in this sentence is ",
+                  "type": "text",
+                },
+                Object {
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                  ],
+                  "text": "bold",
+                  "type": "text",
+                },
+                Object {
+                  "text": ", ",
+                  "type": "text",
+                },
+                Object {
+                  "marks": Array [
+                    Object {
+                      "type": "italic",
+                    },
+                  ],
+                  "text": "italic",
+                  "type": "text",
+                },
+                Object {
+                  "text": ", or ",
+                  "type": "text",
+                },
+                Object {
+                  "marks": Array [
+                    Object {
+                      "type": "underline",
+                    },
+                  ],
+                  "text": "underlined",
+                  "type": "text",
+                },
+                Object {
+                  "text": ".",
+                  "type": "text",
                 },
               ],
-              "text": "bold",
-              "type": "text",
-            },
-            Object {
-              "text": ", ",
-              "type": "text",
-            },
-            Object {
-              "marks": Array [
-                Object {
-                  "type": "italic",
-                },
-              ],
-              "text": "italic",
-              "type": "text",
-            },
-            Object {
-              "text": ", or ",
-              "type": "text",
-            },
-            Object {
-              "marks": Array [
-                Object {
-                  "type": "underline",
-                },
-              ],
-              "text": "underlined",
-              "type": "text",
-            },
-            Object {
-              "text": ".",
-              "type": "text",
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -1984,19 +2074,24 @@ Object {
           },
           "content": Array [
             Object {
-              "marks": Array [
+              "content": Array [
                 Object {
-                  "type": "bold",
-                },
-                Object {
-                  "type": "italic",
-                },
-                Object {
-                  "type": "underline",
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                    Object {
+                      "type": "italic",
+                    },
+                    Object {
+                      "type": "underline",
+                    },
+                  ],
+                  "text": "The text in this sentence is bold, italic and underlined.",
+                  "type": "text",
                 },
               ],
-              "text": "The text in this sentence is bold, italic and underlined.",
-              "type": "text",
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -2037,8 +2132,13 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "The heading of this section is hidden.",
-              "type": "text",
+              "content": Array [
+                Object {
+                  "text": "The heading of this section is hidden.",
+                  "type": "text",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -2063,8 +2163,13 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "A numbered list.",
-                      "type": "text",
+                      "content": Array [
+                        Object {
+                          "text": "A numbered list.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "fragment",
                     },
                   ],
                   "type": "paragraph",
@@ -2095,8 +2200,13 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "A bullet list.",
-                      "type": "text",
+                      "content": Array [
+                        Object {
+                          "text": "A bullet list.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "fragment",
                     },
                   ],
                   "type": "paragraph",
@@ -2127,8 +2237,13 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "A numbered list with a nested list.",
-                      "type": "text",
+                      "content": Array [
+                        Object {
+                          "text": "A numbered list with a nested list.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "fragment",
                     },
                   ],
                   "type": "paragraph",
@@ -2153,8 +2268,13 @@ Object {
                           },
                           "content": Array [
                             Object {
-                              "text": "This item is nested.",
-                              "type": "text",
+                              "content": Array [
+                                Object {
+                                  "text": "This item is nested.",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "fragment",
                             },
                           ],
                           "type": "paragraph",
@@ -3097,17 +3217,22 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "An inline equation: ",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "MathMLRepresentation": "",
-                "SVGRepresentation": "<svg xmlns:xlink=\\"http://www.w3.org/1999/xlink\\" width=\\"9.426ex\\" height=\\"2.237ex\\" viewBox=\\"0 -781.2 4058.5 963\\" role=\\"img\\" focusable=\\"false\\" xmlns=\\"http://www.w3.org/2000/svg\\" style=\\"vertical-align: -0.422ex;\\"><defs><path stroke-width=\\"1\\" id=\\"MJMAIN-33\\" d=\\"M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-2B\\" d=\\"M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-35\\" d=\\"M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-38\\" d=\\"M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z\\"></path></defs><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"matrix(1 0 0 -1 0 0)\\"><use xlink:href=\\"#MJMAIN-33\\" x=\\"0\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-2B\\" x=\\"722\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-35\\" x=\\"1723\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-3D\\" x=\\"2501\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-38\\" x=\\"3558\\" y=\\"0\\"></use></g></svg>",
-                "TeXRepresentation": "3+5=8",
-                "id": "MPInlineMathFragment:A8A76DC2-EA6A-44BF-E8E7-B4A9EAEDF090",
-              },
-              "type": "inline_equation",
+              "content": Array [
+                Object {
+                  "text": "An inline equation: ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "MathMLRepresentation": "",
+                    "SVGRepresentation": "<svg xmlns:xlink=\\"http://www.w3.org/1999/xlink\\" width=\\"9.426ex\\" height=\\"2.237ex\\" viewBox=\\"0 -781.2 4058.5 963\\" role=\\"img\\" focusable=\\"false\\" xmlns=\\"http://www.w3.org/2000/svg\\" style=\\"vertical-align: -0.422ex;\\"><defs><path stroke-width=\\"1\\" id=\\"MJMAIN-33\\" d=\\"M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-2B\\" d=\\"M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-35\\" d=\\"M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-38\\" d=\\"M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z\\"></path></defs><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"matrix(1 0 0 -1 0 0)\\"><use xlink:href=\\"#MJMAIN-33\\" x=\\"0\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-2B\\" x=\\"722\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-35\\" x=\\"1723\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-3D\\" x=\\"2501\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-38\\" x=\\"3558\\" y=\\"0\\"></use></g></svg>",
+                    "TeXRepresentation": "3+5=8",
+                    "id": "MPInlineMathFragment:A8A76DC2-EA6A-44BF-E8E7-B4A9EAEDF090",
+                  },
+                  "type": "inline_equation",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -3121,15 +3246,20 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "A cross-reference to a figure: ",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "label": "Figure 1",
-                "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
-              },
-              "type": "cross_reference",
+              "content": Array [
+                Object {
+                  "text": "A cross-reference to a figure: ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "label": "Figure 1",
+                    "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
+                  },
+                  "type": "cross_reference",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -3143,15 +3273,20 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "A cross-reference to a table: ",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "label": "Table 1",
-                "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
-              },
-              "type": "cross_reference",
+              "content": Array [
+                Object {
+                  "text": "A cross-reference to a table: ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "label": "Table 1",
+                    "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
+                  },
+                  "type": "cross_reference",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -3165,15 +3300,20 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "A cross-reference to an equation: ",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "label": "Equation 1",
-                "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
-              },
-              "type": "cross_reference",
+              "content": Array [
+                Object {
+                  "text": "A cross-reference to an equation: ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "label": "Equation 1",
+                    "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
+                  },
+                  "type": "cross_reference",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -3187,12 +3327,17 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "attrs": Object {
-                "contents": "A hyperlink",
-                "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
-                "selectedText": "",
-              },
-              "type": "citation",
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "contents": "A hyperlink",
+                    "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
+                    "selectedText": "",
+                  },
+                  "type": "citation",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -3206,15 +3351,20 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "A footnote:",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "contents": "1",
-                "rid": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
-              },
-              "type": "inline_footnote",
+              "content": Array [
+                Object {
+                  "text": "A footnote:",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "contents": "1",
+                    "rid": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+                  },
+                  "type": "inline_footnote",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -3244,8 +3394,13 @@ const x = 'y'",
                   },
                   "content": Array [
                     Object {
-                      "text": "This is a footnote.",
-                      "type": "text",
+                      "content": Array [
+                        Object {
+                          "text": "This is a footnote.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "fragment",
                     },
                   ],
                   "type": "paragraph",
@@ -3430,8 +3585,13 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "The first section.",
-              "type": "text",
+              "content": Array [
+                Object {
+                  "text": "The first section.",
+                  "type": "text",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -3445,47 +3605,52 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "The text in this sentence is ",
-              "type": "text",
-            },
-            Object {
-              "marks": Array [
+              "content": Array [
                 Object {
-                  "type": "bold",
+                  "text": "The text in this sentence is ",
+                  "type": "text",
+                },
+                Object {
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                  ],
+                  "text": "bold",
+                  "type": "text",
+                },
+                Object {
+                  "text": ", ",
+                  "type": "text",
+                },
+                Object {
+                  "marks": Array [
+                    Object {
+                      "type": "italic",
+                    },
+                  ],
+                  "text": "italic",
+                  "type": "text",
+                },
+                Object {
+                  "text": ", or ",
+                  "type": "text",
+                },
+                Object {
+                  "marks": Array [
+                    Object {
+                      "type": "underline",
+                    },
+                  ],
+                  "text": "underlined",
+                  "type": "text",
+                },
+                Object {
+                  "text": ".",
+                  "type": "text",
                 },
               ],
-              "text": "bold",
-              "type": "text",
-            },
-            Object {
-              "text": ", ",
-              "type": "text",
-            },
-            Object {
-              "marks": Array [
-                Object {
-                  "type": "italic",
-                },
-              ],
-              "text": "italic",
-              "type": "text",
-            },
-            Object {
-              "text": ", or ",
-              "type": "text",
-            },
-            Object {
-              "marks": Array [
-                Object {
-                  "type": "underline",
-                },
-              ],
-              "text": "underlined",
-              "type": "text",
-            },
-            Object {
-              "text": ".",
-              "type": "text",
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -3499,19 +3664,24 @@ Object {
           },
           "content": Array [
             Object {
-              "marks": Array [
+              "content": Array [
                 Object {
-                  "type": "bold",
-                },
-                Object {
-                  "type": "italic",
-                },
-                Object {
-                  "type": "underline",
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                    Object {
+                      "type": "italic",
+                    },
+                    Object {
+                      "type": "underline",
+                    },
+                  ],
+                  "text": "The text in this sentence is bold, italic and underlined.",
+                  "type": "text",
                 },
               ],
-              "text": "The text in this sentence is bold, italic and underlined.",
-              "type": "text",
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -3525,34 +3695,39 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "The text in this sentence is ",
-              "type": "text",
-            },
-            Object {
-              "marks": Array [
+              "content": Array [
                 Object {
-                  "type": "superscript",
+                  "text": "The text in this sentence is ",
+                  "type": "text",
+                },
+                Object {
+                  "marks": Array [
+                    Object {
+                      "type": "superscript",
+                    },
+                  ],
+                  "text": "superscript",
+                  "type": "text",
+                },
+                Object {
+                  "text": " and ",
+                  "type": "text",
+                },
+                Object {
+                  "marks": Array [
+                    Object {
+                      "type": "subscript",
+                    },
+                  ],
+                  "text": "subscript",
+                  "type": "text",
+                },
+                Object {
+                  "text": ".",
+                  "type": "text",
                 },
               ],
-              "text": "superscript",
-              "type": "text",
-            },
-            Object {
-              "text": " and ",
-              "type": "text",
-            },
-            Object {
-              "marks": Array [
-                Object {
-                  "type": "subscript",
-                },
-              ],
-              "text": "subscript",
-              "type": "text",
-            },
-            Object {
-              "text": ".",
-              "type": "text",
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -3587,8 +3762,13 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "The heading of this section is hidden.",
-              "type": "text",
+              "content": Array [
+                Object {
+                  "text": "The heading of this section is hidden.",
+                  "type": "text",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -3613,8 +3793,13 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "A numbered list.",
-                      "type": "text",
+                      "content": Array [
+                        Object {
+                          "text": "A numbered list.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "fragment",
                     },
                   ],
                   "type": "paragraph",
@@ -3645,8 +3830,13 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "A bullet list.",
-                      "type": "text",
+                      "content": Array [
+                        Object {
+                          "text": "A bullet list.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "fragment",
                     },
                   ],
                   "type": "paragraph",
@@ -3677,8 +3867,13 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "A numbered list with a nested list.",
-                      "type": "text",
+                      "content": Array [
+                        Object {
+                          "text": "A numbered list with a nested list.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "fragment",
                     },
                   ],
                   "type": "paragraph",
@@ -3703,8 +3898,13 @@ Object {
                           },
                           "content": Array [
                             Object {
-                              "text": "This item is nested.",
-                              "type": "text",
+                              "content": Array [
+                                Object {
+                                  "text": "This item is nested.",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "fragment",
                             },
                           ],
                           "type": "paragraph",
@@ -4872,17 +5072,22 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "An inline equation: ",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "MathMLRepresentation": "",
-                "SVGRepresentation": "<svg xmlns:xlink=\\"http://www.w3.org/1999/xlink\\" width=\\"9.426ex\\" height=\\"2.237ex\\" viewBox=\\"0 -781.2 4058.5 963\\" role=\\"img\\" focusable=\\"false\\" xmlns=\\"http://www.w3.org/2000/svg\\" style=\\"vertical-align: -0.422ex;\\"><defs><path stroke-width=\\"1\\" id=\\"MJMAIN-33\\" d=\\"M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-2B\\" d=\\"M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-35\\" d=\\"M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-38\\" d=\\"M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z\\"></path></defs><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"matrix(1 0 0 -1 0 0)\\"><use xlink:href=\\"#MJMAIN-33\\" x=\\"0\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-2B\\" x=\\"722\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-35\\" x=\\"1723\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-3D\\" x=\\"2501\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-38\\" x=\\"3558\\" y=\\"0\\"></use></g></svg>",
-                "TeXRepresentation": "3+5=8",
-                "id": "MPInlineMathFragment:A8A76DC2-EA6A-44BF-E8E7-B4A9EAEDF090",
-              },
-              "type": "inline_equation",
+              "content": Array [
+                Object {
+                  "text": "An inline equation: ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "MathMLRepresentation": "",
+                    "SVGRepresentation": "<svg xmlns:xlink=\\"http://www.w3.org/1999/xlink\\" width=\\"9.426ex\\" height=\\"2.237ex\\" viewBox=\\"0 -781.2 4058.5 963\\" role=\\"img\\" focusable=\\"false\\" xmlns=\\"http://www.w3.org/2000/svg\\" style=\\"vertical-align: -0.422ex;\\"><defs><path stroke-width=\\"1\\" id=\\"MJMAIN-33\\" d=\\"M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-2B\\" d=\\"M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-35\\" d=\\"M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"></path><path stroke-width=\\"1\\" id=\\"MJMAIN-38\\" d=\\"M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z\\"></path></defs><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"matrix(1 0 0 -1 0 0)\\"><use xlink:href=\\"#MJMAIN-33\\" x=\\"0\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-2B\\" x=\\"722\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-35\\" x=\\"1723\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-3D\\" x=\\"2501\\" y=\\"0\\"></use><use xlink:href=\\"#MJMAIN-38\\" x=\\"3558\\" y=\\"0\\"></use></g></svg>",
+                    "TeXRepresentation": "3+5=8",
+                    "id": "MPInlineMathFragment:A8A76DC2-EA6A-44BF-E8E7-B4A9EAEDF090",
+                  },
+                  "type": "inline_equation",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -4896,15 +5101,20 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "A cross-reference to a figure: ",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "label": "Figure 1",
-                "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
-              },
-              "type": "cross_reference",
+              "content": Array [
+                Object {
+                  "text": "A cross-reference to a figure: ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "label": "Figure 1",
+                    "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
+                  },
+                  "type": "cross_reference",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -4918,15 +5128,20 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "A cross-reference to a table: ",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "label": "Table 1",
-                "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
-              },
-              "type": "cross_reference",
+              "content": Array [
+                Object {
+                  "text": "A cross-reference to a table: ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "label": "Table 1",
+                    "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
+                  },
+                  "type": "cross_reference",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -4940,15 +5155,20 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "A cross-reference to an equation: ",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "label": "Equation 1",
-                "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
-              },
-              "type": "cross_reference",
+              "content": Array [
+                Object {
+                  "text": "A cross-reference to an equation: ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "label": "Equation 1",
+                    "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
+                  },
+                  "type": "cross_reference",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -4962,12 +5182,17 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "attrs": Object {
-                "contents": "A hyperlink",
-                "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
-                "selectedText": "",
-              },
-              "type": "citation",
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "contents": "A hyperlink",
+                    "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
+                    "selectedText": "",
+                  },
+                  "type": "citation",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -4981,15 +5206,20 @@ const x = 'y'",
           },
           "content": Array [
             Object {
-              "text": "A footnote:",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "contents": "1",
-                "rid": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
-              },
-              "type": "inline_footnote",
+              "content": Array [
+                Object {
+                  "text": "A footnote:",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "contents": "1",
+                    "rid": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+                  },
+                  "type": "inline_footnote",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -5019,8 +5249,13 @@ const x = 'y'",
                   },
                   "content": Array [
                     Object {
-                      "text": "This is a footnote.",
-                      "type": "text",
+                      "content": Array [
+                        Object {
+                          "text": "This is a footnote.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "fragment",
                     },
                   ],
                   "type": "paragraph",
@@ -5098,20 +5333,25 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "This sentence contains a citation",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "contents": "1",
-                "rid": "MPCitation:1",
-                "selectedText": "",
-              },
-              "type": "citation",
-            },
-            Object {
-              "text": ".",
-              "type": "text",
+              "content": Array [
+                Object {
+                  "text": "This sentence contains a citation",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "contents": "1",
+                    "rid": "MPCitation:1",
+                    "selectedText": "",
+                  },
+                  "type": "citation",
+                },
+                Object {
+                  "text": ".",
+                  "type": "text",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -5125,25 +5365,30 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "This sentence contains a citation",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "href": "https://example.com",
-                "title": "",
-              },
               "content": Array [
                 Object {
-                  "text": "example.com",
+                  "text": "This sentence contains a citation",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "href": "https://example.com",
+                    "title": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example.com",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "link",
+                },
+                Object {
+                  "text": ".",
                   "type": "text",
                 },
               ],
-              "type": "link",
-            },
-            Object {
-              "text": ".",
-              "type": "text",
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
@@ -5209,32 +5454,37 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "This sentence contains a ",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "id": "MPHighlightMarker:1",
-                "position": "start",
-                "rid": "MPHighlight:1",
-              },
-              "type": "highlight_marker",
-            },
-            Object {
-              "text": "highlight",
-              "type": "text",
-            },
-            Object {
-              "attrs": Object {
-                "id": "MPHighlightMarker:2",
-                "position": "end",
-                "rid": "MPHighlight:1",
-              },
-              "type": "highlight_marker",
-            },
-            Object {
-              "text": ".",
-              "type": "text",
+              "content": Array [
+                Object {
+                  "text": "This sen",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPHighlightMarker:1",
+                    "position": "start",
+                    "rid": "MPHighlight:1",
+                  },
+                  "type": "highlight_marker",
+                },
+                Object {
+                  "text": "tence con",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPHighlightMarker:2",
+                    "position": "end",
+                    "rid": "MPHighlight:1",
+                  },
+                  "type": "highlight_marker",
+                },
+                Object {
+                  "text": "tains a highlight.",
+                  "type": "text",
+                },
+              ],
+              "type": "fragment",
             },
           ],
           "type": "paragraph",
