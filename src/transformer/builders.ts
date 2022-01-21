@@ -66,6 +66,7 @@ export const DEFAULT_PAGE_LAYOUT = 'MPPageLayout:defaultA4'
 export type Build<T> = Pick<T, Exclude<keyof T, keyof ManuscriptModel>> & {
   _id: string
   objectType: string
+  contributions?: Contribution[]
 }
 
 // export interface EmbeddedModel {
@@ -251,13 +252,17 @@ export const buildUserProfileAffiliation = (
 export const buildComment = (
   target: string,
   contents = '',
-  selector?: CommentSelector
+  selector?: CommentSelector,
+  contributions?: Contribution[],
+  annotationColor?: string
 ): Build<CommentAnnotation> => ({
   _id: generateID(ObjectTypes.CommentAnnotation),
   objectType: ObjectTypes.CommentAnnotation,
   target,
   selector,
   contents,
+  contributions,
+  annotationColor,
 })
 
 export const buildNote = (

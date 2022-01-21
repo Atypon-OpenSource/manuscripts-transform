@@ -16,7 +16,7 @@
 
 import { parseJATSArticle, parseJATSBody, parseJATSFront } from '../importer'
 import { readAndParseFixture } from './files'
-import { normalizeIDs } from './ids'
+import { normalizeIDs, normalizeTimestamps } from './ids'
 
 describe('JATS importer', () => {
   test('parses minimal JATS body to a ProseMirror doc', async () => {
@@ -58,7 +58,7 @@ describe('JATS importer', () => {
     )
     const end = performance.now()
     expect(end - start).toBeLessThan(5500)
-    expect(normalizeIDs(models)).toMatchSnapshot()
+    expect(normalizeIDs(normalizeTimestamps(models))).toMatchSnapshot()
   })
 
   test('parses JATS front only example to Manuscripts models', async () => {

@@ -28,6 +28,7 @@ import {
   buildCitation,
   buildComment,
 } from '../../transformer/builders'
+import { parseProcessingInstruction } from './jats-comments'
 import { flatten, htmlFromJatsNode } from './jats-parser-utils'
 
 const chooseBibliographyItemType = (publicationType: string | null) => {
@@ -40,19 +41,7 @@ const chooseBibliographyItemType = (publicationType: string | null) => {
       return 'article-journal'
   }
 }
-export const parseProcessingInstruction = (node: Node): string | undefined => {
-  const value = `<AuthorQuery ${node.textContent} />`
-  const processingInstruction = new DOMParser().parseFromString(
-    value,
-    'application/xml'
-  ).firstElementChild
-  if (processingInstruction) {
-    const queryText = processingInstruction.getAttribute('queryText')
-    if (queryText) {
-      return queryText
-    }
-  }
-}
+
 export const jatsReferenceParser = {
   parseReferences(
     referenceNodes: Element[],
@@ -79,8 +68,9 @@ export const jatsReferenceParser = {
           item.nodeType === item.PROCESSING_INSTRUCTION_NODE &&
           item.nodeName === 'AuthorQuery'
         ) {
-          const queryText = parseProcessingInstruction(item)
-          if (queryText) {
+          const instruction = parseProcessingInstruction(item)
+          if (instruction) {
+            const { queryText } = instruction
             const comment = buildComment(bibliographyItem._id, queryText)
             comments.push(comment)
           }

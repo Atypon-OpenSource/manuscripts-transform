@@ -21,3 +21,13 @@ export const normalizeIDs = (models: Model[]) => {
 
   return JSON.parse(normalizedJSON)
 }
+
+export const normalizeTimestamps = (models: Model[]) => {
+  const json = JSON.stringify(models)
+  const normalizedJSON = json.replace(
+    /("timestamp"):[0-9]{10}/g,
+    '$1:1111111111'
+  )
+
+  return JSON.parse(normalizedJSON)
+}

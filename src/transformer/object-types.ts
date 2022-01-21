@@ -15,6 +15,7 @@
  */
 
 import {
+  CommentAnnotation,
   Figure,
   Manuscript,
   manuscriptIDTypes,
@@ -69,4 +70,7 @@ export const isManuscript = hasObjectType<Manuscript>(ObjectTypes.Manuscript)
 export const isTable = hasObjectType<Table>(ObjectTypes.Table)
 export const isUserProfile = hasObjectType<UserProfileWithAvatar>(
   ObjectTypes.UserProfile
+)
+export const isCommentAnnotation = hasObjectType<CommentAnnotation>(
+  ObjectTypes.CommentAnnotation
 )

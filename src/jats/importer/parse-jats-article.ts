@@ -46,6 +46,10 @@ import { generateID } from '../../transformer/id'
 import { findManuscript } from '../../transformer/project-bundle'
 import { jatsBodyDOMParser } from './jats-body-dom-parser'
 import { jatsBodyTransformations } from './jats-body-transformations'
+import {
+  createOrUpdateComments,
+  markProcessingInstructions,
+} from './jats-comments'
 import { jatsFrontParser } from './jats-front-parser'
 import { ISSN } from './jats-journal-meta-parser'
 import { fixBodyPMNode } from './jats-parser-utils'
@@ -321,6 +325,8 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
     throw new InvalidInput('Invalid JATS format! Missing article element')
   }
 
+  const authorQueriesMap = markProcessingInstructions(doc)
+
   const createElement = createElementFn(document)
   const { models: frontModels, bundles } = await parseJATSFront(front)
   const { references, crossReferences, comments } = parseJATSReferences(
@@ -350,11 +356,15 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
     manuscript.articleType = articleType || 'other'
   }
 
-  return [
+  const models = [
     ...frontModels,
     ...bodyModels,
     ...references,
     ...crossReferences,
     ...comments,
   ]
+
+  createOrUpdateComments(authorQueriesMap, models)
+
+  return models
 }
