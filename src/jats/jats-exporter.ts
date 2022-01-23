@@ -497,20 +497,19 @@ export class JATSExporter {
           journalMeta.appendChild(issn)
         }
       }
+    }
+    if (id) {
+      const articleID = this.document.createElement('article-id')
+      articleID.setAttribute('pub-id-type', 'publisher-id')
+      articleID.textContent = id
+      articleMeta.appendChild(articleID)
+    }
 
-      if (id) {
-        const articleID = this.document.createElement('article-id')
-        articleID.setAttribute('pub-id-type', 'publisher-id')
-        articleID.textContent = id
-        articleMeta.appendChild(articleID)
-      }
-
-      if (doi) {
-        const articleID = this.document.createElement('article-id')
-        articleID.setAttribute('pub-id-type', 'doi')
-        articleID.textContent = doi
-        articleMeta.appendChild(articleID)
-      }
+    if (doi) {
+      const articleID = this.document.createElement('article-id')
+      articleID.setAttribute('pub-id-type', 'doi')
+      articleID.textContent = doi
+      articleMeta.appendChild(articleID)
     }
 
     const titleGroup = this.document.createElement('title-group')
