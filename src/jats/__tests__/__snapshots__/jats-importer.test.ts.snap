@@ -3828,6 +3828,104 @@ Object {
         },
         Object {
           "attrs": Object {
+            "category": "MPSectionCategory:introduction",
+            "generatedLabel": undefined,
+            "pageBreakStyle": undefined,
+            "titleSuppressed": false,
+          },
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "text": "Introduction",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "contentType": undefined,
+                "paragraphStyle": "",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "content": Array [
+                    Object {
+                      "text": "This is a sectionalized abstract.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "fragment",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "MPSectionCategory:results",
+            "generatedLabel": undefined,
+            "pageBreakStyle": undefined,
+            "titleSuppressed": false,
+          },
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "text": "Results",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "contentType": undefined,
+                "paragraphStyle": "",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "content": Array [
+                    Object {
+                      "text": "These are the results of the experiment.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "fragment",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+      ],
+      "type": "section",
+    },
+    Object {
+      "attrs": Object {
+        "category": "MPSectionCategory:abstract-teaser",
+        "generatedLabel": undefined,
+        "pageBreakStyle": undefined,
+        "titleSuppressed": false,
+      },
+      "content": Array [
+        Object {
+          "content": Array [
+            Object {
+              "text": "Teaser Abstract",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
             "category": "",
             "generatedLabel": undefined,
             "pageBreakStyle": undefined,

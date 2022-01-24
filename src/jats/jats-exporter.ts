@@ -275,7 +275,7 @@ export class JATSExporter {
       const back = this.buildBack()
       article.appendChild(back)
 
-      this.moveAbstract(front, body)
+      this.moveAbstracts(front, body)
       this.moveSectionsToBack(back, body)
       this.moveFloatsGroup(body, article)
     }
@@ -2125,11 +2125,17 @@ export class JATSExporter {
     })
   }
 
-  private moveAbstract = (front: HTMLElement, body: HTMLElement) => {
+  private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
     const sections = body.querySelectorAll(':scope > sec')
 
-    const abstractSection = Array.from(sections).find((section) => {
-      if (section.getAttribute('sec-type') === 'abstract') {
+    const abstractSections = Array.from(sections).filter((section) => {
+      const sectionType = section.getAttribute('sec-type')
+
+      if (
+        sectionType === 'abstract' ||
+        sectionType === 'abstract-teaser' ||
+        sectionType === 'abstract-graphical'
+      ) {
         return true
       }
 
@@ -2142,22 +2148,31 @@ export class JATSExporter {
       return sectionTitle.textContent === 'Abstract'
     })
 
-    if (abstractSection) {
-      const abstractNode = this.document.createElement('abstract')
+    if (abstractSections.length) {
+      for (const abstractSection of abstractSections) {
+        const abstractNode = this.document.createElement('abstract')
 
-      // TODO: ensure that abstract section schema is valid
-      for (const node of abstractSection.childNodes) {
-        if (node.nodeName !== 'title') {
-          abstractNode.appendChild(node.cloneNode(true))
+        // TODO: ensure that abstract section schema is valid
+        for (const node of abstractSection.childNodes) {
+          if (node.nodeName !== 'title') {
+            abstractNode.appendChild(node.cloneNode(true))
+          }
         }
-      }
 
-      abstractSection.remove()
+        const sectionType = abstractSection.getAttribute('sec-type')
 
-      const articleMeta = front.querySelector(':scope > article-meta')
+        if (sectionType && sectionType !== 'abstract') {
+          const [, abstractType] = sectionType.split('-', 2)
+          abstractNode.setAttribute('abstract-type', abstractType)
+        }
 
-      if (articleMeta) {
-        insertAbstractNode(articleMeta, abstractNode)
+        abstractSection.remove()
+
+        const articleMeta = front.querySelector(':scope > article-meta')
+
+        if (articleMeta) {
+          insertAbstractNode(articleMeta, abstractNode)
+        }
       }
     }
   }

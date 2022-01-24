@@ -31,6 +31,8 @@ export const isAnySectionNode = (node: ManuscriptNode): boolean =>
 
 export type SectionCategory =
   | 'MPSectionCategory:abstract'
+  | 'MPSectionCategory:abstract-teaser'
+  | 'MPSectionCategory:abstract-graphical'
   | 'MPSectionCategory:acknowledgement'
   | 'MPSectionCategory:availability'
   | 'MPSectionCategory:bibliography'
@@ -49,6 +51,8 @@ export type SectionCategory =
 
 export type SecType =
   | 'abstract'
+  | 'abstract-teaser'
+  | 'abstract-graphical'
   | 'acknowledgments'
   | 'availability'
   | 'bibliography'
@@ -165,6 +169,12 @@ export const chooseSectionCategory = (
   switch (secType) {
     case 'abstract':
       return 'MPSectionCategory:abstract'
+
+    case 'abstract-teaser':
+      return 'MPSectionCategory:abstract-teaser'
+
+    case 'abstract-graphical':
+      return 'MPSectionCategory:abstract-graphical'
 
     case 'acknowledgments':
       return 'MPSectionCategory:acknowledgement'

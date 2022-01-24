@@ -141,6 +141,86 @@ describe('JATS exporter', () => {
     expect(result).not.toBeNull()
   })
 
+  test('move multiple abstracts to front by section category', async () => {
+    const projectBundle = cloneProjectBundle(input)
+
+    const abstractModel1: Section = {
+      _id: 'MPSection:123',
+      objectType: 'MPSection',
+      createdAt: 0,
+      updatedAt: 0,
+      category: 'MPSectionCategory:abstract',
+      title: 'Abstract',
+      manuscriptID: 'MPManuscript:1',
+      containerID: 'MPProject:1',
+      path: ['MPSection:123'],
+      sessionID: 'foo',
+      priority: 0,
+    }
+
+    projectBundle.data.push(abstractModel1)
+
+    const abstractModel2: Section = {
+      _id: 'MPSection:124',
+      objectType: 'MPSection',
+      createdAt: 0,
+      updatedAt: 0,
+      category: 'MPSectionCategory:abstract-teaser',
+      title: 'Teaser Abstract',
+      manuscriptID: 'MPManuscript:1',
+      containerID: 'MPProject:1',
+      path: ['MPSection:124'],
+      sessionID: 'foo',
+      priority: 0,
+    }
+
+    projectBundle.data.push(abstractModel2)
+
+    const abstractModel3: Section = {
+      _id: 'MPSection:125',
+      objectType: 'MPSection',
+      createdAt: 0,
+      updatedAt: 0,
+      category: 'MPSectionCategory:abstract-graphical',
+      title: 'Graphical Abstract',
+      manuscriptID: 'MPManuscript:1',
+      containerID: 'MPProject:1',
+      path: ['MPSection:125'],
+      sessionID: 'foo',
+      priority: 0,
+    }
+
+    projectBundle.data.push(abstractModel3)
+
+    const { doc, modelMap } = parseProjectBundle(projectBundle)
+
+    const transformer = new JATSExporter()
+    const manuscript = findManuscript(modelMap)
+    const xml = await transformer.serializeToJATS(
+      doc.content,
+      modelMap,
+      manuscript._id
+    )
+
+    const resultDoc = parseXMLWithDTD(xml)
+
+    const abstract = resultDoc.get('/article/front/article-meta/abstract')
+
+    expect(abstract).not.toBeUndefined()
+
+    const abstractTeaser = resultDoc.get(
+      '/article/front/article-meta/abstract[@abstract-type="teaser"]'
+    )
+
+    expect(abstractTeaser).not.toBeUndefined()
+
+    const abstractGraphical = resultDoc.get(
+      '/article/front/article-meta/abstract[@abstract-type="graphical"]'
+    )
+
+    expect(abstractGraphical).not.toBeUndefined()
+  })
+
   test('move appendices to back by section category', async () => {
     const projectBundle = cloneProjectBundle(input)
 

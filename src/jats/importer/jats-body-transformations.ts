@@ -17,6 +17,9 @@
 const removeNodeFromParent = (node: Element) =>
   node.parentNode && node.parentNode.removeChild(node)
 
+const capitalizeFirstLetter = (str: string) =>
+  str.charAt(0).toUpperCase() + str.slice(1)
+
 export const jatsBodyTransformations = {
   ensureSection(
     body: Element,
@@ -55,11 +58,16 @@ export const jatsBodyTransformations = {
     abstractNode: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
+    const abstractType = abstractNode.getAttribute('abstract-type')
+
     const section = createElement('sec')
-    section.setAttribute('sec-type', 'abstract')
+    const sectionType = abstractType ? `abstract-${abstractType}` : 'abstract'
+    section.setAttribute('sec-type', sectionType)
 
     const title = createElement('title')
-    title.textContent = 'Abstract'
+    title.textContent = abstractType
+      ? `${capitalizeFirstLetter(abstractType)} Abstract`
+      : 'Abstract'
     section.appendChild(title)
 
     while (abstractNode.firstChild) {
@@ -167,8 +175,10 @@ export const jatsBodyTransformations = {
     bibliographyEl: Element | null,
     createElement: (tagName: string) => HTMLElement
   ) {
-    const abstractNode = doc.querySelector('front > article-meta > abstract')
-    if (abstractNode) {
+    const abstractNodes = doc.querySelectorAll(
+      'front > article-meta > abstract'
+    )
+    for (const abstractNode of abstractNodes) {
       const abstract = this.createAbstract(abstractNode, createElement)
       removeNodeFromParent(abstractNode)
       body.insertBefore(abstract, body.firstChild)
