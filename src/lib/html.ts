@@ -14,6 +14,26 @@
  * limitations under the License.
  */
 
+function decodeHTMLEntities(text: string) {
+  // those entities that pertain to XML are supported and don't need to be replaced (e.g.: &amp, &quote etc)
+  const entities = [
+    ['#x27', "'"],
+    ['#x2F', '/'],
+    ['#39', "'"],
+    ['#47', '/'],
+    ['nbsp', ' '],
+  ]
+
+  for (let i = 0; i < entities.length; i++) {
+    text = text.replace(
+      new RegExp('&' + entities[i][0] + ';', 'g'),
+      entities[i][1]
+    )
+  }
+
+  return text
+}
+
 export const nodeFromHTML = (html: string) => {
   html = html.trim()
 
@@ -24,7 +44,7 @@ export const nodeFromHTML = (html: string) => {
   const template = document.createElement('template')
 
   template.innerHTML = html
-
+  template.innerHTML = decodeHTMLEntities(template.innerHTML)
   return template.content.firstChild
 }
 
@@ -32,6 +52,5 @@ export const textFromHTML = (html: string) => {
   const template = document.createElement('template')
 
   template.innerHTML = html
-
   return template.content.textContent
 }
