@@ -83,7 +83,9 @@ import {
   isUserProfile,
 } from './object-types'
 import {
+  chooseSectionLableName,
   chooseSectionNodeType,
+  chooseSecType,
   guessSectionCategory,
   SectionCategory,
 } from './section-category'
@@ -838,9 +840,11 @@ export class Decoder {
     this.modelMap.get(id) as T | undefined
 
   public createArticleNode = (manuscriptID?: string): ManuscriptNode => {
-    const rootSections = getSections(this.modelMap).filter(
+    let rootSections = getSections(this.modelMap).filter(
       (section) => !section.path || section.path.length <= 1
     )
+
+    rootSections = this.addGeneratedLabels(rootSections)
 
     const rootSectionNodes = rootSections
       .map(this.decode)
@@ -860,6 +864,31 @@ export class Decoder {
       },
       rootSectionNodes
     )
+  }
+
+  public addGeneratedLabels = (sections: Section[]) => {
+    const nextLableCount = { Appendix: 1 }
+    return sections.map((section) => {
+      if (section.generatedLabel) {
+        const secType = section.category
+          ? chooseSecType(section.category as SectionCategory)
+          : undefined
+
+        // For now only generate labels for appendicies
+        if (secType === 'appendices') {
+          section.label = `${chooseSectionLableName(secType)} ${
+            nextLableCount['Appendix']
+          }`
+
+          nextLableCount['Appendix'] += 1
+        } else {
+          // Remove the label for other category types
+          delete section.label
+        }
+      }
+
+      return section
+    })
   }
 
   public parseContents = (

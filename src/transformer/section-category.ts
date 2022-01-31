@@ -92,6 +92,15 @@ export const chooseSectionNodeType = (
   }
 }
 
+export const chooseSectionLableName = (type?: SecType): string => {
+  switch (type) {
+    case 'appendices':
+      return 'Appendix'
+    default:
+      return type as string
+  }
+}
+
 // deprecated, every custom section should have a category
 export const guessSectionCategory = (
   elements: Element[]
