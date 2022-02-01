@@ -501,6 +501,20 @@ const encoders: NodeEncoderMap = {
       .map((childNode) => childNode.attrs.id)
       .filter((id) => id),
   }),
+  graphical_abstract_section: (
+    node,
+    parent,
+    path,
+    priority
+  ): Partial<Section> => ({
+    category: buildSectionCategory(node),
+    priority: priority.value++,
+    title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
+    path: path.concat([node.attrs.id]),
+    elementIDs: childElements(node)
+      .map((childNode) => childNode.attrs.id)
+      .filter((id) => id),
+  }),
   inline_equation: (node, parent): Partial<InlineMathFragment> => ({
     containingObject: parent.attrs.id,
     // MathMLRepresentation: node.attrs.MathMLRepresentation || undefined,

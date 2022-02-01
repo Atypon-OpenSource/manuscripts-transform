@@ -78,6 +78,9 @@ export const chooseSectionNodeType = (
     case 'MPSectionCategory:bibliography':
       return schema.nodes.bibliography_section
 
+    case 'MPSectionCategory:abstract-graphical':
+      return schema.nodes.graphical_abstract_section
+
     case 'MPSectionCategory:endnotes':
       return schema.nodes.footnotes_section
 
@@ -142,6 +145,9 @@ export const buildSectionCategory = (
 
     case schema.nodes.toc_section:
       return 'MPSectionCategory:toc'
+
+    case schema.nodes.graphical_abstract_section:
+      return 'MPSectionCategory:abstract-graphical'
 
     default:
       return node.attrs.category || undefined

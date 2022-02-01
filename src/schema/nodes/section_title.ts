@@ -49,3 +49,8 @@ export const sectionTitle: NodeSpec = {
   ],
   toDOM: () => ['h1', 0],
 }
+
+export const isSectionTitleNode = (
+  node: ManuscriptNode
+): node is SectionTitleNode =>
+  node.type === node.type.schema.nodes.section_title

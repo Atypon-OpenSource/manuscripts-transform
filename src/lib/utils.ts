@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
+import { Node as ProsemirrorNode, ResolvedPos } from 'prosemirror-model'
+
 import { ManuscriptEditorState, ManuscriptNode } from '../schema'
+import { isGraphicalAbstractSectionNode } from '../schema/nodes/graphical_abstract_section'
 
 export function* iterateChildren(
   node: ManuscriptNode,
@@ -44,4 +47,31 @@ export const findNodePositions = (
     return true
   })
   return found
+}
+
+export const isInGraphicalAbstractSection = ($pos: ResolvedPos): boolean => {
+  for (let i = $pos.depth; i > 0; i--) {
+    const node = $pos.node(i)
+    if (isGraphicalAbstractSectionNode(node)) {
+      return true
+    }
+  }
+  return false
+}
+
+export const findParentNodeClosestToPos = (
+  $pos: ResolvedPos,
+  predicate: (node: ProsemirrorNode) => boolean
+) => {
+  for (let i = $pos.depth; i > 0; i--) {
+    const node = $pos.node(i)
+    if (predicate(node)) {
+      return {
+        pos: i > 0 ? $pos.before(i) : 0,
+        start: $pos.start(i),
+        depth: i,
+        node,
+      }
+    }
+  }
 }

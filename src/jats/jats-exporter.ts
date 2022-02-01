@@ -1308,6 +1308,14 @@ export class JATSExporter {
         { 'content-type': 'pullquote' },
         0,
       ],
+      graphical_abstract_section: (node) => {
+        const attrs: { [key: string]: string } = {
+          id: normalizeID(node.attrs.id),
+        }
+        attrs['sec-type'] = 'abstract-graphical'
+
+        return ['sec', attrs, 0]
+      },
       section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),

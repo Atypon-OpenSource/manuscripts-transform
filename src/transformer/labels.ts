@@ -15,7 +15,9 @@
  */
 
 import { Manuscript } from '@manuscripts/manuscripts-json-schema'
+import { Fragment } from 'prosemirror-model'
 
+import { isInGraphicalAbstractSection } from '../lib/utils'
 import { ManuscriptFragment, ManuscriptNodeType, schema } from '../schema'
 import { nodeNames } from './node-names'
 
@@ -48,6 +50,7 @@ const labelProperties: Map<
   keyof Partial<Manuscript>
 > = new Map([
   [schema.nodes.figure_element, 'figureElementLabel'],
+  [schema.nodes.multi_graphic_figure_element, 'figureElementLabel'],
   [schema.nodes.table_element, 'tableElementLabel'],
   [schema.nodes.equation_element, 'equationElementLabel'],
   [schema.nodes.listing_element, 'listingElementLabel'],
@@ -78,21 +81,45 @@ export const buildTargets = (
 
   for (const nodeType of labelledNodeTypes) {
     counters[nodeType.name] = {
-      label: chooseLabel(nodeType, manuscript),
+      label: chooseLabel(nodeType, manuscript), // choosing label name: "Figure", "Table", etc.
       index: 0, // TODO: use manuscript.figureElementNumberingScheme
     }
   }
 
   const buildLabel = (type: ManuscriptNodeType) => {
-    const counter = counters[type.name]
+    const viewLabel =
+      type === schema.nodes.multi_graphic_figure_element
+        ? schema.nodes.figure_element
+        : type
+    const counter = counters[viewLabel.name]
     counter.index++
     return `${counter.label} ${counter.index}`
   }
 
   const targets: Map<string, Target> = new Map()
 
-  fragment.descendants((node) => {
+  const resolveInFragment = (fragment: Fragment, pos: number) => {
+    let resolved
+    fragment.descendants((n) => {
+      try {
+        resolved = n.resolve(pos)
+      } catch (e) {
+        return false
+      }
+      return false
+    })
+    return resolved
+  }
+
+  fragment.descendants((node, pos) => {
     if (node.type.name in counters) {
+      const resolvedPos = resolveInFragment(fragment, pos)
+      if (resolvedPos) {
+        const isInGraphicalAbstract = isInGraphicalAbstractSection(resolvedPos)
+        if (isInGraphicalAbstract) {
+          return
+        }
+      }
       const label = buildLabel(node.type)
 
       targets.set(node.attrs.id, {
@@ -115,6 +142,5 @@ export const buildTargets = (
       // }
     }
   })
-
   return targets
 }
