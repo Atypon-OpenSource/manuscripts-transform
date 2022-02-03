@@ -200,7 +200,15 @@ const tableContents = (
 
   const rows = Array.from(input.querySelectorAll('tr'))
 
-  const thead = rows.splice(0, 1)
+  // there may be more that one header rows
+  // we assume that <th scope="col | colgroup"> always belong to <thead>
+  let headerCount = 0
+  for (const row of rows) {
+    const th = row.querySelector('th[scope="col"], th[scope="colgroup"]')
+    th && headerCount++
+  }
+
+  const thead = rows.splice(0, headerCount || 1)
   const tfoot = rows.splice(-1, 1)
 
   output.appendChild(buildTableSection('thead', thead, parent))

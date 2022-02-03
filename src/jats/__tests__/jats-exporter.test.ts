@@ -27,6 +27,7 @@ import {
   ObjectTypes,
   ParagraphElement,
   Section,
+  Table,
 } from '@manuscripts/manuscripts-json-schema'
 import { Element as XMLElement, parseXml } from 'libxmljs2'
 
@@ -219,6 +220,85 @@ describe('JATS exporter', () => {
     )
 
     expect(abstractGraphical).not.toBeUndefined()
+  })
+
+  test('export table rowspan & colspan & multiple headers', async () => {
+    const projectBundle = cloneProjectBundle(input)
+
+    const tableContents1 = `<table> 
+          <thead style="display: table-header-group;"> 
+            <tr> 
+              <th colspan="2" scope="col" data-placeholder-text="Header 1">Table Header 1</th> 
+            </tr> 
+            <tr> 
+              <th colspan="3" scope="col" data-placeholder-text="Header 2">Table Header 2</th> 
+            </tr> 
+          </thead> 
+          <tbody> 
+            <tr> 
+              <td rowspan="2" valign="top" align="left" style="border-top: solid 0.50pt" scope="row">1</td> 
+              <td rowspan="2" valign="top" align="left" style="border-top: solid 0.50pt">2</td> 
+              <td valign="top" align="left" style="border-top: solid 0.50pt">3</td> 
+            </tr> 
+            <tr> 
+              <td valign="top" colspan="1" align="left" scope="col">4</td> 
+            </tr> 
+          <tfoot style="display: table-footer-group;"> 
+            <tr> 
+              <td data-placeholder-text="Footer 1">Table Footer</td> 
+            </tr> 
+          </tfoot> 
+      </table>`
+
+    // example with <tbody> only
+    const tableContents2 = `<table> 
+          <tbody> 
+            <tr> 
+              <td colspan="4" scope="col" data-placeholder-text="Header 1">Table Header 3</td> 
+              <td colspan="5" scope="col" data-placeholder-text="Header 2">Table Header 4</td> 
+              <td valign="top" align="left" style="border-top: solid 0.50pt">3</td> 
+            </tr>
+            <tr> 
+              <td valign="top" colspan="1" align="left" scope="col">4</td> 
+            </tr> 
+          </tbody> 
+      </table>`
+
+    const tableModels = projectBundle.data.filter(
+      (i) => i.objectType === 'MPTable'
+    ) as Table[]
+
+    if (tableModels.length > 1) {
+      tableModels[0].contents = tableContents1
+      tableModels[1].contents = tableContents2
+    }
+
+    const { doc, modelMap } = parseProjectBundle(projectBundle)
+
+    const transformer = new JATSExporter()
+    const manuscript = findManuscript(modelMap)
+    const xml = await transformer.serializeToJATS(
+      doc.content,
+      modelMap,
+      manuscript._id
+    )
+
+    const resultDoc = parseXMLWithDTD(xml)
+
+    const rowSpanCell = resultDoc.get('//table/tbody/tr/td[@rowspan = 2]')
+    expect(rowSpanCell).not.toBeUndefined()
+
+    const colSpanCell1 = resultDoc.get('//table/thead/tr/th[@colspan = 2]')
+    expect(colSpanCell1).not.toBeUndefined()
+
+    const colSpanCell2 = resultDoc.get('//table/thead/tr/th[@colspan = 3]')
+    expect(colSpanCell2).not.toBeUndefined()
+
+    const colSpanCell3 = resultDoc.get('//table/thead/tr/th[@colspan = 4]')
+    expect(colSpanCell3).not.toBeUndefined()
+
+    const colSpanCell4 = resultDoc.get('//table/thead/tr/th[@colspan = 5]')
+    expect(colSpanCell4).not.toBeUndefined()
   })
 
   test('move appendices to back by section category', async () => {

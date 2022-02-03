@@ -1347,6 +1347,8 @@ export class JATSExporter {
           align: node.attrs.align,
           scope: node.attrs.scope,
           style: node.attrs.style,
+          ...(node.attrs.rowspan > 1 && { rowspan: node.attrs.rowspan }),
+          ...(node.attrs.colspan > 1 && { colspan: node.attrs.colspan }),
         },
         0,
       ],
@@ -2085,6 +2087,18 @@ export class JATSExporter {
     })
   }
 
+  private changeTag = (node: Element, tag: string) => {
+    const clone = this.document.createElement(tag)
+    for (const attr of node.attributes) {
+      clone.setAttributeNS(null, attr.name, attr.value)
+    }
+    while (node.firstChild) {
+      clone.appendChild(node.firstChild)
+    }
+    node.replaceWith(clone)
+    return clone
+  }
+
   private fixTable = (table: ChildNode, node: ManuscriptNode) => {
     let tbody: Element | undefined
 
@@ -2098,39 +2112,43 @@ export class JATSExporter {
       return
     }
 
-    let headerProcessed = false
     const tbodyRows = Array.from(tbody.childNodes)
+    const thead = this.document.createElement('thead')
+    const tfoot = this.document.createElement('tfoot')
+
     tbodyRows.forEach((row, i) => {
       const isRow = row instanceof Element && row.tagName.toLowerCase() === 'tr'
-      if (isRow && !headerProcessed) {
-        tbody?.removeChild(row)
-        if (!node.attrs.suppressHeader) {
-          const thead = this.document.createElement('thead')
-          row.childNodes.forEach((column) => {
-            if (
-              column instanceof Element &&
-              column.tagName.toLowerCase() === 'td'
-            ) {
-              const headCell = this.document.createElement('th')
-              Array.from(column.attributes).forEach((attr) => {
-                headCell.setAttribute(attr.name, attr.value)
-              })
-              row.replaceChild(headCell, column)
+      if (isRow) {
+        // we assume that <th scope="col | colgroup"> always belongs to <thead> 
+        const headerCell = (row as Element).querySelector(
+          'th[scope="col"], th[scope="colgroup"]'
+        )
+        if (i === 0 || headerCell) {
+          tbody?.removeChild(row)
+          if (!node.attrs.suppressHeader) {
+            const tableCells = (row as Element).querySelectorAll('td')
+            for (const td of tableCells) {
+              // for backwards compatibility since older docs use tds for header cells
+              this.changeTag(td, 'th')
             }
-          })
-          thead.appendChild(row)
-          table.insertBefore(thead, tbody as Element)
-        }
-        headerProcessed = true
-      } else if (isRow && i === tbodyRows.length - 1) {
-        tbody?.removeChild(row)
-        if (!node.attrs.suppressFooter) {
-          const tfoot = this.document.createElement('tfoot')
-          tfoot.appendChild(row)
-          table.insertBefore(tfoot, tbody as Element)
+            thead.appendChild(row)
+          }
+        } else if (i === tbodyRows.length - 1) {
+          tbody?.removeChild(row)
+          if (!node.attrs.suppressFooter) {
+            tfoot.appendChild(row)
+          }
         }
       }
     })
+
+    if (thead.hasChildNodes()) {
+      table.insertBefore(thead, tbody as Element)
+    }
+
+    if (tfoot.hasChildNodes()) {
+      table.insertBefore(tfoot, tbody as Element)
+    }
   }
 
   private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {

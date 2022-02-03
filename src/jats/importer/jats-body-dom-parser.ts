@@ -643,9 +643,12 @@ const nodes: NodeRule[] = [
     node: 'table_cell',
     getAttrs: (node) => {
       const element = node as HTMLElement
-
+      const colspan = element.getAttribute('colspan')
+      const rowspan = element.getAttribute('rowspan')
       return {
         celltype: 'th',
+        ...(colspan && { colspan }),
+        ...(rowspan && { rowspan }),
         valign: element.getAttribute('valign'),
         align: element.getAttribute('align'),
         scope: element.getAttribute('scope'),
