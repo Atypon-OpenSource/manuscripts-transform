@@ -34,13 +34,8 @@ Object {
             },
             "content": Array [
               Object {
-                "content": Array [
-                  Object {
-                    "text": "Ancient reptilian creatures that have a strange relationship with rifts: they are drawn to them and seep up the power of the bridged world in strange ways. Believed by many to be extinct, they tend to avoid the other sentient races.",
-                    "type": "text",
-                  },
-                ],
-                "type": "fragment",
+                "text": "Ancient reptilian creatures that have a strange relationship with rifts: they are drawn to them and seep up the power of the bridged world in strange ways. Believed by many to be extinct, they tend to avoid the other sentient races.",
+                "type": "text",
               },
             ],
             "type": "paragraph",
@@ -343,13 +338,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "The Shire",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "The Shire",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",
@@ -371,13 +361,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "Minas Tirith",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "Minas Tirith",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",
@@ -399,13 +384,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "Rivendell",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "Rivendell",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",
@@ -436,13 +416,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "Hobbits",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "Hobbits",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",
@@ -464,13 +439,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "Ents",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "Ents",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",
@@ -492,13 +462,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "Orcs",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "Orcs",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",
@@ -520,13 +485,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "Uruk-hai",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "Uruk-hai",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",
@@ -1185,13 +1145,8 @@ Object {
             },
             "content": Array [
               Object {
-                "content": Array [
-                  Object {
-                    "text": "Ancient reptilian creatures that have a strange relationship with rifts: they are drawn to them and seep up the power of the bridged world in strange ways. Believed by many to be extinct, they tend to avoid the other sentient races.",
-                    "type": "text",
-                  },
-                ],
-                "type": "fragment",
+                "text": "Ancient reptilian creatures that have a strange relationship with rifts: they are drawn to them and seep up the power of the bridged world in strange ways. Believed by many to be extinct, they tend to avoid the other sentient races.",
+                "type": "text",
               },
             ],
             "type": "paragraph",
@@ -1494,13 +1449,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "The Shire",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "The Shire",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",
@@ -1522,13 +1472,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "Minas Tirith",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "Minas Tirith",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",
@@ -1550,13 +1495,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "Rivendell",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "Rivendell",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",
@@ -1587,13 +1527,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "Hobbits",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "Hobbits",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",
@@ -1615,13 +1550,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "Ents",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "Ents",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",
@@ -1643,13 +1573,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "Orcs",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "Orcs",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",
@@ -1671,13 +1596,8 @@ Object {
                         },
                         "content": Array [
                           Object {
-                            "content": Array [
-                              Object {
-                                "text": "Uruk-hai",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "fragment",
+                            "text": "Uruk-hai",
+                            "type": "text",
                           },
                         ],
                         "type": "paragraph",

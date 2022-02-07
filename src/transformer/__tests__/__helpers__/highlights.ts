@@ -76,7 +76,7 @@ export const createTestModelMapWithHighlights = () => {
     elementType: 'p',
     paragraphStyle: 'MPParagraphStyle:1',
     contents:
-      '<div xmlns="http://www.w3.org/1999/xhtml" id="MPParagraphElement:1" class="MPElement MPParagraphStyle_1" data-object-type="MPParagraphElement" role="paragraph"><p>This sentence contains a highlight.</p></div>',
+      '<p xmlns="http://www.w3.org/1999/xhtml" id="MPParagraphElement:1" class="MPElement MPParagraphStyle_1" data-object-type="MPParagraphElement">This sentence contains a highlight.</p>',
     highlightMarkers: [
       {
         objectType: ObjectTypes.HighlightMarker,
@@ -84,7 +84,7 @@ export const createTestModelMapWithHighlights = () => {
         highlightID: paragraphHighlight._id,
         start: true,
         field: 'contents',
-        offset: 171,
+        offset: 166,
       },
       {
         objectType: ObjectTypes.HighlightMarker,
@@ -92,7 +92,7 @@ export const createTestModelMapWithHighlights = () => {
         highlightID: paragraphHighlight._id,
         start: false,
         field: 'contents',
-        offset: 180,
+        offset: 175,
       },
     ],
   }

@@ -1201,7 +1201,6 @@ export class JATSExporter {
 
         return ['sec', attrs, 0]
       },
-      fragment: (node) => this.serializeFragment(node.content),
       hard_break: () => ['break'],
       highlight_marker: () => '',
       inline_equation: (node) => {

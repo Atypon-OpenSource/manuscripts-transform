@@ -388,4 +388,36 @@ export const jatsBodyTransformations = {
       body.appendChild(floatsGroupSection)
     }
   },
+  moveBlockNodesFromParagraph(
+    doc: Document,
+    body: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    // TODO:: add other block node to the array
+    const blockNodes = ['disp-formula']
+    const paragraphs = [...body.querySelectorAll('sec > p')].filter((node) =>
+      blockNodes.find((node_name) =>
+        node.querySelector(`:scope > ${node_name}`)
+      )
+    )
+
+    paragraphs.map((paragraph) => {
+      let newParagraph = createElement('p')
+      const parent = doc.createDocumentFragment()
+
+      while (paragraph?.firstChild) {
+        if (blockNodes.includes(paragraph?.firstChild.nodeName)) {
+          if (newParagraph.innerHTML.trim().length > 0) {
+            parent.append(newParagraph)
+            newParagraph = createElement('p')
+          }
+          parent.append(paragraph?.firstChild)
+        } else {
+          newParagraph.append(paragraph?.firstChild)
+        }
+      }
+
+      paragraph?.replaceWith(parent)
+    })
+  },
 }

@@ -226,6 +226,11 @@ export const parseJATSBody = (
   jatsBodyTransformations.wrapFigures(body, createElement)
   jatsBodyTransformations.moveCaptionsToEnd(body)
   jatsBodyTransformations.moveTableFooterToEnd(body)
+  jatsBodyTransformations.moveBlockNodesFromParagraph(
+    document,
+    body,
+    createElement
+  )
   //jatsBodyTransformations.unwrapParagraphsInCaptions(body)
   const node = jatsBodyDOMParser.parse(body)
   if (!node.firstChild) {

@@ -66,7 +66,6 @@ export type Nodes =
   | 'footnote'
   | 'footnotes_element'
   | 'footnotes_section'
-  | 'fragment'
   | 'hard_break'
   | 'highlight_marker'
   | 'inline_equation'
