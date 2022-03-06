@@ -2118,7 +2118,7 @@ export class JATSExporter {
     tbodyRows.forEach((row, i) => {
       const isRow = row instanceof Element && row.tagName.toLowerCase() === 'tr'
       if (isRow) {
-        // we assume that <th scope="col | colgroup"> always belongs to <thead> 
+        // we assume that <th scope="col | colgroup"> always belongs to <thead>
         const headerCell = (row as Element).querySelector(
           'th[scope="col"], th[scope="colgroup"]'
         )

@@ -155,7 +155,8 @@ const addCommentsFromMarkedProcessingInstructions = (
         contentWithoutTokens = contentWithoutTokens.replace(token, '')
         // Add the comment
         const comment = `${query}`
-        const target = model._id && !isCommentAnnotation(model) ? model._id : uuidv4()
+        const target =
+          model._id && !isCommentAnnotation(model) ? model._id : uuidv4()
         const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
         const selector = { from: startTokenIndex, to: startTokenIndex }
         const commentAnnotation = buildComment(
