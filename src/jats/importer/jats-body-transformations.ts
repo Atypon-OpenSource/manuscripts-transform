@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import { FootnotesOrderBuilder } from '../../transformer/footnotes-order-builder'
-
 const removeNodeFromParent = (node: Element) =>
   node.parentNode && node.parentNode.removeChild(node)
 
@@ -244,7 +242,6 @@ export const jatsBodyTransformations = {
   mapFootnotesToSections(
     doc: Document,
     body: Element,
-    footnotesOrderBuilder: FootnotesOrderBuilder | null,
     createElement: (tagName: string) => HTMLElement
   ) {
     const footnoteGroups = [...doc.querySelectorAll('fn-group')]
@@ -278,10 +275,6 @@ export const jatsBodyTransformations = {
     if (!footnotesSection) {
       const section = this.createFootnotes([containingGroup], createElement)
       body.append(section)
-    }
-
-    if (footnotesOrderBuilder) {
-      footnotesOrderBuilder.createFootnoteOrderIndexList(footnotes)
     }
   },
   // wrap single figures in fig-group

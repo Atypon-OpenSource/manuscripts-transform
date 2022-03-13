@@ -38,10 +38,7 @@ export const fixBodyPMNode = (output: ManuscriptNode, models: Model[]) => {
   const warnings: string[] = []
   recurseDoc(output, (n) => addMissingID(n, replacements, warnings))
   recurseDoc(output, (n) => addMissingRID(n, replacements, warnings))
-  return {
-    warnings: [...warnings, ...fixReferences(models, replacements)],
-    replacements,
-  }
+  return [...warnings, ...fixReferences(models, replacements)]
 }
 
 /**

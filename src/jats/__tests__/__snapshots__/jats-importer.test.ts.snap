@@ -522,11 +522,6 @@ Array [
     ],
     "objectType": "MPCitation",
   },
-  Object {
-    "_id": "MPFootnotesOrder:test",
-    "footnotesOrder": Array [],
-    "objectType": "MPFootnotesOrder",
-  },
 ]
 `;
 
@@ -3731,16 +3726,6 @@ Array [
       },
     ],
     "objectType": "MPCitation",
-  },
-  Object {
-    "_id": "MPFootnotesOrder:test",
-    "footnotesOrder": Array [
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 0,
-      },
-    ],
-    "objectType": "MPFootnotesOrder",
   },
 ]
 `;
@@ -10129,88 +10114,6 @@ Array [
     "target": "MPBibliographyItem:test",
   },
   Object {
-    "_id": "MPFootnotesOrder:test",
-    "footnotesOrder": Array [
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 0,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 1,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 2,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 3,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 4,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 5,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 6,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 7,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 8,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 9,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 10,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 11,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 12,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 13,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 14,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 15,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 16,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 17,
-      },
-      Object {
-        "footnoteID": "MPFootnote:test",
-        "index": 18,
-      },
-    ],
-    "objectType": "MPFootnotesOrder",
-  },
-  Object {
     "_id": "MPCommentAnnotation:test",
     "annotationColor": "rgb(250, 224, 150)",
     "contents": "The table \\"Table A1\\" is not cited in the text. Please add an in-text citation or delete the table.",
@@ -10574,11 +10477,6 @@ Array [
     "contents": "<div></div>",
     "elementType": "div",
     "objectType": "MPFootnotesElement",
-  },
-  Object {
-    "_id": "MPFootnotesOrder:test",
-    "footnotesOrder": Array [],
-    "objectType": "MPFootnotesOrder",
   },
 ]
 `;

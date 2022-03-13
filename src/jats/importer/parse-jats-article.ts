@@ -42,7 +42,6 @@ import {
   DEFAULT_BUNDLE,
 } from '../../transformer/builders'
 import { encode, inlineContents } from '../../transformer/encode'
-import { FootnotesOrderBuilder } from '../../transformer/footnotes-order-builder'
 import { generateID } from '../../transformer/id'
 import { findManuscript } from '../../transformer/project-bundle'
 import { jatsBodyDOMParser } from './jats-body-dom-parser'
@@ -216,18 +215,12 @@ export const parseJATSBody = (
   document: Document,
   body: Element,
   bibliography: Element | null,
-  refModels: Model[],
-  footnotesOrderBuilder: FootnotesOrderBuilder | null
+  refModels: Model[]
 ): ManuscriptNode => {
   const createElement = createElementFn(document)
   jatsBodyTransformations.moveFloatsGroupToBody(document, body, createElement)
   jatsBodyTransformations.ensureSection(body, createElement)
-  jatsBodyTransformations.mapFootnotesToSections(
-    document,
-    body,
-    footnotesOrderBuilder,
-    createElement
-  )
+  jatsBodyTransformations.mapFootnotesToSections(document, body, createElement)
   jatsBodyTransformations.moveSectionsToBody(
     document,
     body,
@@ -247,10 +240,7 @@ export const parseJATSBody = (
   if (!node.firstChild) {
     throw new Error('No content was parsed from the JATS article body')
   }
-  const { replacements } = fixBodyPMNode(node.firstChild, refModels)
-  if (footnotesOrderBuilder) {
-    footnotesOrderBuilder.build(replacements)
-  }
+  fixBodyPMNode(node.firstChild, refModels)
   // if (warnings.length > 0) {
   //   console.warn(`Parsed JATS body with ${warnings.length} warnings.`)
   //   console.debug(warnings)
@@ -350,17 +340,9 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
     references as BibliographyItem[],
     bundles
   )
-
-  const footnotesOrderBuilder = new FootnotesOrderBuilder()
   const bodyModels: Array<Model> = []
   if (body) {
-    const bodyDoc = parseJATSBody(
-      doc,
-      body,
-      bibliography,
-      crossReferences,
-      footnotesOrderBuilder
-    )
+    const bodyDoc = parseJATSBody(doc, body, bibliography, crossReferences)
     bodyModels.push(...encode(bodyDoc).values())
   }
   // TODO: use ISSN from journal-meta to choose a template
@@ -368,7 +350,6 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
   const frontModelsMap = new Map(frontModels.map((model) => [model._id, model]))
 
   const manuscript = findManuscript(frontModelsMap)
-  const footnotesOrder: Partial<Model> = footnotesOrderBuilder.order
 
   if (manuscript) {
     const articleType = articleElement.getAttribute('article-type')
@@ -382,10 +363,6 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
     ...crossReferences,
     ...comments,
   ]
-
-  if (footnotesOrder) {
-    models.push(footnotesOrder as Model)
-  }
 
   createOrUpdateComments(authorQueriesMap, models)
 
