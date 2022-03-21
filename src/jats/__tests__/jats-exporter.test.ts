@@ -27,6 +27,7 @@ import {
   ObjectTypes,
   ParagraphElement,
   Section,
+  Supplement,
   Table,
 } from '@manuscripts/manuscripts-json-schema'
 import { Element as XMLElement, parseXml } from 'libxmljs2'
@@ -225,43 +226,43 @@ describe('JATS exporter', () => {
   test('export table rowspan & colspan & multiple headers', async () => {
     const projectBundle = cloneProjectBundle(input)
 
-    const tableContents1 = `<table> 
-          <thead style="display: table-header-group;"> 
-            <tr> 
-              <th colspan="2" scope="col" data-placeholder-text="Header 1">Table Header 1</th> 
-            </tr> 
-            <tr> 
-              <th colspan="3" scope="col" data-placeholder-text="Header 2">Table Header 2</th> 
-            </tr> 
-          </thead> 
-          <tbody> 
-            <tr> 
-              <td rowspan="2" valign="top" align="left" style="border-top: solid 0.50pt" scope="row">1</td> 
-              <td rowspan="2" valign="top" align="left" style="border-top: solid 0.50pt">2</td> 
-              <td valign="top" align="left" style="border-top: solid 0.50pt">3</td> 
-            </tr> 
-            <tr> 
-              <td valign="top" colspan="1" align="left" scope="col">4</td> 
-            </tr> 
-          <tfoot style="display: table-footer-group;"> 
-            <tr> 
-              <td data-placeholder-text="Footer 1">Table Footer</td> 
-            </tr> 
-          </tfoot> 
+    const tableContents1 = `<table>
+          <thead style="display: table-header-group;">
+            <tr>
+              <th colspan="2" scope="col" data-placeholder-text="Header 1">Table Header 1</th>
+            </tr>
+            <tr>
+              <th colspan="3" scope="col" data-placeholder-text="Header 2">Table Header 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2" valign="top" align="left" style="border-top: solid 0.50pt" scope="row">1</td>
+              <td rowspan="2" valign="top" align="left" style="border-top: solid 0.50pt">2</td>
+              <td valign="top" align="left" style="border-top: solid 0.50pt">3</td>
+            </tr>
+            <tr>
+              <td valign="top" colspan="1" align="left" scope="col">4</td>
+            </tr>
+          <tfoot style="display: table-footer-group;">
+            <tr>
+              <td data-placeholder-text="Footer 1">Table Footer</td>
+            </tr>
+          </tfoot>
       </table>`
 
     // example with <tbody> only
-    const tableContents2 = `<table> 
-          <tbody> 
-            <tr> 
-              <td colspan="4" scope="col" data-placeholder-text="Header 1">Table Header 3</td> 
-              <td colspan="5" scope="col" data-placeholder-text="Header 2">Table Header 4</td> 
-              <td valign="top" align="left" style="border-top: solid 0.50pt">3</td> 
+    const tableContents2 = `<table>
+          <tbody>
+            <tr>
+              <td colspan="4" scope="col" data-placeholder-text="Header 1">Table Header 3</td>
+              <td colspan="5" scope="col" data-placeholder-text="Header 2">Table Header 4</td>
+              <td valign="top" align="left" style="border-top: solid 0.50pt">3</td>
             </tr>
-            <tr> 
-              <td valign="top" colspan="1" align="left" scope="col">4</td> 
-            </tr> 
-          </tbody> 
+            <tr>
+              <td valign="top" colspan="1" align="left" scope="col">4</td>
+            </tr>
+          </tbody>
       </table>`
 
     const tableModels = projectBundle.data.filter(
@@ -954,6 +955,35 @@ describe('JATS exporter', () => {
     )
     const { errors } = parseXMLWithDTD(xml)
 
+    expect(errors).toHaveLength(0)
+  })
+  test('export with supplement', async () => {
+    const supple: Supplement = {
+      containerID: '',
+      manuscriptID: '',
+      sessionID: '',
+      createdAt: 0,
+      updatedAt: 0,
+      _id: 'MPSupplement:B5B88C22-FBE7-4C03-811D-938424F7B452',
+      objectType: 'MPSupplement',
+      title: 'final manuscript-hum-huili-dbh-suicide-20200707_figures (9)',
+      href: 'attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312',
+      MIME:
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    }
+    input.data.push(supple)
+    const projectBundle = cloneProjectBundle(input)
+    const { doc, modelMap } = parseProjectBundle(projectBundle)
+    const manuscript = findManuscript(modelMap)
+    const transformer = new JATSExporter()
+    const xml = await transformer.serializeToJATS(
+      doc.content,
+      modelMap,
+      manuscript._id
+    )
+
+    expect(xml).toMatchSnapshot('jats-export-with-supplement')
+    const { errors } = parseXMLWithDTD(xml)
     expect(errors).toHaveLength(0)
   })
 })

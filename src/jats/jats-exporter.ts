@@ -32,6 +32,7 @@ import {
   Model,
   MultiGraphicFigureElement,
   ObjectTypes,
+  Supplement,
 } from '@manuscripts/manuscripts-json-schema'
 import debug from 'debug'
 import { DOMOutputSpec, DOMParser, DOMSerializer } from 'prosemirror-model'
@@ -543,6 +544,33 @@ export class JATSExporter {
       element.setAttribute('alt-title-type', 'right-running')
       this.setTitleContent(element, manuscript.runningTitle)
       titleGroup.appendChild(element)
+    }
+
+    const supplements = [...this.modelMap.values()].filter(
+      (model) => model.objectType === ObjectTypes.Supplement
+    ) as Supplement[] | undefined
+    if (supplements && supplements.length > 0) {
+      for (const supplement of supplements) {
+        const supplementaryMaterial = this.document.createElement(
+          'supplementary-material'
+        )
+        supplementaryMaterial.setAttribute('id', normalizeID(supplement._id))
+        supplementaryMaterial.setAttributeNS(
+          XLINK_NAMESPACE,
+          'href',
+          supplement.href ?? ''
+        )
+        const mimeType = supplement.MIME?.split('/')[0]
+        const mimeSubType = supplement.MIME?.split('/')[1]
+        supplementaryMaterial.setAttribute('mimetype', mimeType ?? '')
+        supplementaryMaterial.setAttribute('mime-subtype', mimeSubType ?? '')
+        const caption = this.document.createElement('caption')
+        const title = this.document.createElement('title')
+        title.textContent = supplement.title ?? ''
+        caption.append(title)
+        supplementaryMaterial.append(caption)
+        articleMeta.append(supplementaryMaterial)
+      }
     }
 
     const history =

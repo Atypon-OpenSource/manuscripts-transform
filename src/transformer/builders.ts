@@ -51,6 +51,7 @@ import {
   Section,
   StatusLabel,
   Submission,
+  Supplement,
   UserProfileAffiliation,
   UserProfileFootNote,
 } from '@manuscripts/manuscripts-json-schema'
@@ -237,6 +238,16 @@ export const buildAffiliation = (
   objectType: ObjectTypes.Affiliation,
   institution,
   priority,
+})
+
+export const buildSupplementaryMaterial = (
+  title: string,
+  href: string
+): Build<Supplement> => ({
+  _id: generateID(ObjectTypes.Supplement),
+  objectType: ObjectTypes.Supplement,
+  title,
+  href,
 })
 
 export const buildUserProfileAffiliation = (

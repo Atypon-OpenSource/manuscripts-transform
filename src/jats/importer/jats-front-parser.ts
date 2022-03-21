@@ -31,6 +31,7 @@ import {
   buildFootnote,
   buildKeyword,
   buildKeywordGroup,
+  buildSupplementaryMaterial,
 } from '../../transformer/builders'
 import { createNewBundle, createParentBundle } from '../../transformer/bundles'
 import {
@@ -222,6 +223,25 @@ export const jatsFrontParser = {
       }
     }
     return history
+  },
+  parseSupplements(supplementNodes: Element[] | null) {
+    if (!supplementNodes || supplementNodes.length === 0) {
+      return []
+    }
+    const supplements = []
+    for (const supplementNode of supplementNodes) {
+      const supplTitle =
+        supplementNode.querySelector('caption > title')?.textContent ?? ''
+      const href = supplementNode.getAttributeNS(XLINK_NAMESPACE, 'href') ?? ''
+      const supplementaryMaterial = buildSupplementaryMaterial(supplTitle, href)
+      const mimeType = supplementNode.getAttribute('mimetype') ?? ''
+      const mimeSubtype = supplementNode.getAttribute('mime-subtype') ?? ''
+      if (mimeType && mimeSubtype) {
+        supplementaryMaterial.MIME = [mimeType, mimeSubtype].join('/')
+      }
+      supplements.push(supplementaryMaterial)
+    }
+    return supplements
   },
   parseAffiliationNodes(affiliationNodes: Element[]) {
     const affiliationIDs = new Map<string, string>()

@@ -146,6 +146,10 @@ export const parseJATSFront = async (front: Element) => {
     front.querySelector('article-meta > history')
   )
 
+  const supplements = jatsFrontParser.parseSupplements([
+    ...front.querySelectorAll('article-meta > supplementary-material'),
+  ])
+
   const manuscript = {
     ...buildManuscript(),
     ...manuscriptMeta,
@@ -167,6 +171,7 @@ export const parseJATSFront = async (front: Element) => {
       ...footnotes,
       ...correspondingList,
       journal,
+      ...supplements,
     ]),
     bundles: bundleNodes,
   }

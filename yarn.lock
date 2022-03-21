@@ -1210,10 +1210,10 @@
     deepmerge "^3.2.0"
     js-beautify "^1.9.0"
 
-"@manuscripts/manuscripts-json-schema@^1.49.5":
-  version "1.49.5"
-  resolved "https://registry.yarnpkg.com/@manuscripts/manuscripts-json-schema/-/manuscripts-json-schema-1.49.5.tgz#7f709e828976c777857c0ea203653f9e17ff4215"
-  integrity sha512-nTsoinb22rashxoGiaESbNepvfpvcXJSl6TS7SEAitoNTvBTfZ0OaSvl0rrMdh16TwLxJ6YJc5oDhs3lPt44tg==
+"@manuscripts/manuscripts-json-schema@^1.49.9":
+  version "1.49.9"
+  resolved "https://registry.yarnpkg.com/@manuscripts/manuscripts-json-schema/-/manuscripts-json-schema-1.49.9.tgz#9cd8ba880244472ada75096d70930948c464d046"
+  integrity sha512-iNDkaeRZ9ExZxQBoSXt6k4dwQDwxIIemUNyAw90/iz+lOYHSYh5Ukq9zbjtSZy+SK4+i2++f2mZzs7eX0O8Log==
   dependencies:
     ajv "^6.10.0"
     deepmerge "^3.2.0"
