@@ -53,7 +53,7 @@ describe('STS importer', () => {
     delete bodyDoc.attrs.id
     const end = performance.now()
 
-    expect(end - start).toBeLessThan(5000)
+    expect(end - start).toBeLessThan(6000)
     expect(bodyDoc).toMatchSnapshot()
   })
 
