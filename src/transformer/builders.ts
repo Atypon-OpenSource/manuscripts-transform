@@ -32,6 +32,7 @@ import {
   EmbeddedModel,
   Figure,
   Footnote,
+  FootnotesOrder,
   Highlight,
   HighlightMarker,
   InlineMathFragment,
@@ -57,6 +58,7 @@ import {
 } from '@manuscripts/manuscripts-json-schema'
 import serializeToXML from 'w3c-xmlserializer'
 
+import { FootnotesOrderIndexList } from './footnotes-order-builder'
 import { generateID } from './id'
 import { CommentSelector, ManuscriptModel, ModelAttachment } from './models'
 import { timestamp } from './timestamp'
@@ -316,6 +318,14 @@ export const buildFootnote = (
   containingObject: containingObject || undefined,
   contents,
   kind,
+})
+
+export const buildFootnotesOrder = (
+  footnotesList: FootnotesOrderIndexList
+): Build<FootnotesOrder> => ({
+  _id: generateID(ObjectTypes.FootnotesOrder),
+  objectType: ObjectTypes.FootnotesOrder,
+  footnotesList,
 })
 
 export const buildCorresp = (contents: string): Build<Corresponding> => ({
