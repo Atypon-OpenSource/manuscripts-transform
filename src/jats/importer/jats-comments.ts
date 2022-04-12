@@ -14,20 +14,30 @@
  * limitations under the License.
  */
 
-import { CommentAnnotation, Model } from '@manuscripts/manuscripts-json-schema'
+import {
+  CommentAnnotation,
+  HighlightMarker,
+  Model,
+} from '@manuscripts/manuscripts-json-schema'
 import { v4 as uuidv4 } from 'uuid'
 
 import {
   Build,
   buildComment,
   buildContribution,
+  buildHighlight,
+  buildHighlightMarker,
 } from '../../transformer/builders'
 import {
   HighlightableField,
   HighlightableModel,
   isHighlightableModel,
 } from '../../transformer/highlight-markers'
-import { isCommentAnnotation } from '../../transformer/object-types'
+import { ContainedModel } from '../../transformer/models'
+import {
+  isCommentAnnotation,
+  isManuscript,
+} from '../../transformer/object-types'
 
 type ProcessingInstruction = { id: string; queryText: string }
 
@@ -101,21 +111,21 @@ export const createOrUpdateComments = (
   manuscriptModels: Array<Model>
 ): void => {
   const tokens = [...authorQueriesMap.keys()]
-  const commentAnnotations: Build<CommentAnnotation>[] = []
+  const models: Build<ContainedModel>[] = []
   for (const model of manuscriptModels) {
     if (isCommentAnnotation(model)) {
       sanitizeReferenceComment(model)
     } else if (isHighlightableModel(model)) {
-      const comments = addCommentsFromMarkedProcessingInstructions(
+      const newModels = addCommentsFromMarkedProcessingInstructions(
         tokens,
         model,
         authorQueriesMap
       )
-      commentAnnotations.push(...comments)
+      models.push(...newModels)
     }
   }
 
-  manuscriptModels.push(...(commentAnnotations as CommentAnnotation[]))
+  manuscriptModels.push(...(models as ContainedModel[]))
 }
 
 const sanitizeReferenceComment = (comment: CommentAnnotation): void => {
@@ -125,15 +135,34 @@ const sanitizeReferenceComment = (comment: CommentAnnotation): void => {
   comment.annotationColor = DEFAULT_ANNOTATION_COLOR
 }
 
+const createHighlightMarkers = (
+  highlightID: string,
+  offset: number,
+  field: HighlightableField
+): Array<HighlightMarker> => {
+  const startMarker = buildHighlightMarker(
+    highlightID,
+    true,
+    offset,
+    field
+  ) as HighlightMarker
+  const endMarker = buildHighlightMarker(
+    highlightID,
+    false,
+    offset,
+    field
+  ) as HighlightMarker
+  return [startMarker, endMarker]
+}
 /**
- * Creates CommentAnnotations from marked processing instructions in model
+ * Creates CommentAnnotations, Highlights from marked processing instructions in model
  */
 const addCommentsFromMarkedProcessingInstructions = (
   tokens: string[],
   model: HighlightableModel,
   authorQueriesMap: Map<string, string>
-): Build<CommentAnnotation>[] => {
-  const commentAnnotations: Build<CommentAnnotation>[] = []
+): Build<ContainedModel>[] => {
+  const models: Build<ContainedModel>[] = []
   // Search for tokens on every HighlightableField
   for (const field of ['contents', 'caption', 'title']) {
     const highlightableField = field as HighlightableField
@@ -155,23 +184,32 @@ const addCommentsFromMarkedProcessingInstructions = (
         contentWithoutTokens = contentWithoutTokens.replace(token, '')
         // Add the comment
         const comment = `${query}`
-        const target =
-          model._id && !isCommentAnnotation(model) ? model._id : uuidv4()
+        const highlight = buildHighlight()
         const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
-        const selector = { from: startTokenIndex, to: startTokenIndex }
         const commentAnnotation = buildComment(
-          target,
+          highlight._id,
           comment,
-          selector,
+          undefined,
           contributions,
           DEFAULT_ANNOTATION_COLOR
         )
-        commentAnnotations.push(commentAnnotation)
+        models.push(commentAnnotation)
+        models.push(highlight)
+
+        // MPManuscript dose not accept highlightMarkers!
+        if (!isManuscript(model)) {
+          // Highlight comment location
+          model.highlightMarkers = createHighlightMarkers(
+            highlight._id,
+            startTokenIndex,
+            highlightableField
+          )
+        }
       }
     }
     // Re-assign content after removing the tokens
     model[highlightableField] = contentWithoutTokens
   }
 
-  return commentAnnotations
+  return models
 }

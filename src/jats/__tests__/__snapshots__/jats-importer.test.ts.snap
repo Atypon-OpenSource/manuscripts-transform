@@ -8101,6 +8101,24 @@ Array [
     "caption": "",
     "containedObjectID": "MPTable:test",
     "elementType": "table",
+    "highlightMarkers": Array [
+      Object {
+        "_id": "MPHighlightMarker:test",
+        "field": "title",
+        "highlightID": "MPHighlight:test",
+        "objectType": "MPHighlightMarker",
+        "offset": 0,
+        "start": true,
+      },
+      Object {
+        "_id": "MPHighlightMarker:test",
+        "field": "title",
+        "highlightID": "MPHighlight:test",
+        "objectType": "MPHighlightMarker",
+        "offset": 0,
+        "start": false,
+      },
+    ],
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "title": "Difference between exporting vs. non-exporting firms",
@@ -10223,11 +10241,11 @@ Array [
       },
     ],
     "objectType": "MPCommentAnnotation",
-    "selector": Object {
-      "from": 0,
-      "to": 0,
-    },
-    "target": "MPTableElement:test",
+    "target": "MPHighlight:test",
+  },
+  Object {
+    "_id": "MPHighlight:test",
+    "objectType": "MPHighlight",
   },
 ]
 `;
