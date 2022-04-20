@@ -15,9 +15,7 @@
  */
 
 import { Manuscript } from '@manuscripts/manuscripts-json-schema'
-import { Fragment } from 'prosemirror-model'
 
-import { isInGraphicalAbstractSection } from '../lib/utils'
 import { ManuscriptFragment, ManuscriptNodeType, schema } from '../schema'
 import { nodeNames } from './node-names'
 
@@ -97,28 +95,22 @@ export const buildTargets = (
   }
 
   const targets: Map<string, Target> = new Map()
-
-  const resolveInFragment = (fragment: Fragment, pos: number) => {
-    let resolved
-    fragment.descendants((n) => {
-      try {
-        resolved = n.resolve(pos)
-      } catch (e) {
-        return false
-      }
-      return false
-    })
-    return resolved
-  }
-
-  fragment.descendants((node, pos) => {
-    if (node.type.name in counters) {
-      const resolvedPos = resolveInFragment(fragment, pos)
-      if (resolvedPos) {
-        const isInGraphicalAbstract = isInGraphicalAbstractSection(resolvedPos)
-        if (isInGraphicalAbstract) {
-          return
+  const figures: string[] = []
+  fragment.forEach((node) => {
+    if (node.type === node.type.schema.nodes.graphical_abstract_section) {
+      node.forEach((item) => {
+        if (item.type === node.type.schema.nodes.figure_element) {
+          figures.push(item.attrs.id)
         }
+      })
+    }
+  })
+
+  fragment.descendants((node) => {
+    if (node.type.name in counters) {
+      const isInGraphicalAbstract = figures.indexOf(node.attrs.id) > -1
+      if (isInGraphicalAbstract) {
+        return
       }
       const label = buildLabel(node.type)
 
