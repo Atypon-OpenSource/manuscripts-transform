@@ -29,6 +29,7 @@ import {
   Contributor,
   ContributorRole,
   Corresponding,
+  ElementsOrder,
   EmbeddedModel,
   Figure,
   Footnote,
@@ -58,6 +59,7 @@ import {
 } from '@manuscripts/manuscripts-json-schema'
 import serializeToXML from 'w3c-xmlserializer'
 
+import { ManuscriptNodeType, schema } from '../schema'
 import { FootnotesOrderIndexList } from './footnotes-order-builder'
 import { generateID } from './id'
 import { CommentSelector, ManuscriptModel, ModelAttachment } from './models'
@@ -450,4 +452,27 @@ export const buildUserFootNote = (
   objectType: ObjectTypes.UserProfileFootNote,
   noteId,
   content,
+})
+
+export type AuxiliaryObjects =
+  | 'MPFigureElement'
+  | 'MPTableElement'
+  | 'MPListingElement'
+  | 'MPEquationElement'
+
+export const auxiliaryObjectTypes = new Set<ManuscriptNodeType>([
+  schema.nodes.figure_element,
+  schema.nodes.multi_graphic_figure_element,
+  schema.nodes.table_element,
+  schema.nodes.equation_element,
+  schema.nodes.listing_element,
+])
+
+export const buildElementsOrder = (
+  elementType: AuxiliaryObjects
+): Build<ElementsOrder> => ({
+  _id: generateID(ObjectTypes.ElementsOrder),
+  objectType: ObjectTypes.ElementsOrder,
+  elementType: elementType,
+  elements: [],
 })

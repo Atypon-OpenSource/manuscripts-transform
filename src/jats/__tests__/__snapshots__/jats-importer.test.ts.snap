@@ -523,6 +523,38 @@ Array [
     "objectType": "MPCitation",
   },
   Object {
+    "_id": "MPElementsOrder:test",
+    "elementType": "MPFigureElement",
+    "elements": Array [
+      "MPFigureElement:test",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  Object {
+    "_id": "MPElementsOrder:test",
+    "elementType": "MPTableElement",
+    "elements": Array [
+      "MPTableElement:test",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  Object {
+    "_id": "MPElementsOrder:test",
+    "elementType": "MPEquationElement",
+    "elements": Array [
+      "MPEquationElement:test",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  Object {
+    "_id": "MPElementsOrder:test",
+    "elementType": "MPListingElement",
+    "elements": Array [
+      "MPListingElement:test",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  Object {
     "_id": "MPFootnotesOrder:test",
     "footnotesList": Array [],
     "objectType": "MPFootnotesOrder",
@@ -3731,6 +3763,26 @@ Array [
       },
     ],
     "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPElementsOrder:test",
+    "elementType": "MPTableElement",
+    "elements": Array [
+      "MPTableElement:test",
+      "MPTableElement:test",
+      "MPTableElement:test",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  Object {
+    "_id": "MPElementsOrder:test",
+    "elementType": "MPFigureElement",
+    "elements": Array [
+      "MPFigureElement:test",
+      "MPFigureElement:test",
+      "MPFigureElement:test",
+    ],
+    "objectType": "MPElementsOrder",
   },
   Object {
     "_id": "MPFootnotesOrder:test",
@@ -10147,6 +10199,42 @@ Array [
     "target": "MPBibliographyItem:test",
   },
   Object {
+    "_id": "MPElementsOrder:test",
+    "elementType": "MPFigureElement",
+    "elements": Array [
+      "MPMultiGraphicFigureElement:test",
+      "MPMultiGraphicFigureElement:test",
+      "MPMultiGraphicFigureElement:test",
+      "MPMultiGraphicFigureElement:test",
+      "MPMultiGraphicFigureElement:test",
+      "MPMultiGraphicFigureElement:test",
+      "MPMultiGraphicFigureElement:test",
+      "MPMultiGraphicFigureElement:test",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  Object {
+    "_id": "MPElementsOrder:test",
+    "elementType": "MPEquationElement",
+    "elements": Array [
+      "MPEquationElement:test",
+      "MPEquationElement:test",
+      "MPEquationElement:test",
+      "MPEquationElement:test",
+      "MPEquationElement:test",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  Object {
+    "_id": "MPElementsOrder:test",
+    "elementType": "MPTableElement",
+    "elements": Array [
+      "MPTableElement:test",
+      "MPTableElement:test",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  Object {
     "_id": "MPFootnotesOrder:test",
     "footnotesList": Array [
       Object {
@@ -10592,6 +10680,38 @@ Array [
     "contents": "<div></div>",
     "elementType": "div",
     "objectType": "MPFootnotesElement",
+  },
+  Object {
+    "_id": "MPElementsOrder:test",
+    "elementType": "MPFigureElement",
+    "elements": Array [
+      "MPFigureElement:test",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  Object {
+    "_id": "MPElementsOrder:test",
+    "elementType": "MPTableElement",
+    "elements": Array [
+      "MPTableElement:test",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  Object {
+    "_id": "MPElementsOrder:test",
+    "elementType": "MPEquationElement",
+    "elements": Array [
+      "MPEquationElement:test",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  Object {
+    "_id": "MPElementsOrder:test",
+    "elementType": "MPListingElement",
+    "elements": Array [
+      "MPListingElement:test",
+    ],
+    "objectType": "MPElementsOrder",
   },
   Object {
     "_id": "MPFootnotesOrder:test",

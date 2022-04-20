@@ -25,6 +25,7 @@ import {
   Bundle,
   Citation,
   CommentAnnotation,
+  ElementsOrder,
   Journal,
   Manuscript,
   Model,
@@ -34,9 +35,12 @@ import { DOMParser } from 'prosemirror-model'
 
 import { InvalidInput } from '../../errors'
 import { nodeFromHTML } from '../../lib/html'
-import { ManuscriptNode, schema } from '../../schema'
+import { ManuscriptNode, ManuscriptNodeType, schema } from '../../schema'
+import { auxiliaryObjectTypes, nodeTypesMap } from '../../transformer'
 import {
+  AuxiliaryObjects,
   Build,
+  buildElementsOrder,
   buildJournal,
   buildManuscript,
   DEFAULT_BUNDLE,
@@ -358,6 +362,7 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
   )
 
   const footnotesOrderBuilder = new FootnotesOrderBuilder()
+  let elementsOrder: ElementsOrder[] = []
   const bodyModels: Array<Model> = []
   if (body) {
     const bodyDoc = parseJATSBody(
@@ -368,6 +373,7 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
       footnotesOrderBuilder
     )
     bodyModels.push(...encode(bodyDoc).values())
+    elementsOrder = getElementsOrder(bodyDoc)
   }
   // TODO: use ISSN from journal-meta to choose a template
 
@@ -387,6 +393,7 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
     ...references,
     ...crossReferences,
     ...comments,
+    ...elementsOrder,
   ]
 
   if (footnotesOrder) {
@@ -394,6 +401,35 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
   }
 
   createOrUpdateComments(authorQueriesMap, models)
+
+  return models
+}
+
+const getElementsOrder = (node: ManuscriptNode) => {
+  const elementsOrderIndex = new Map<ManuscriptNodeType, number>()
+  const models: ElementsOrder[] = []
+
+  node.descendants((child) => {
+    if (auxiliaryObjectTypes.has(child.type)) {
+      const type =
+        child.type === schema.nodes.multi_graphic_figure_element
+          ? schema.nodes.figure_element
+          : child.type
+      const index = elementsOrderIndex.get(type)
+      if (index !== undefined) {
+        const elementsOrder = models[index]
+        elementsOrder.elements.push(child.attrs['id'])
+      } else {
+        const elementsOrder = buildElementsOrder(
+          nodeTypesMap.get(type) as AuxiliaryObjects
+        ) as ElementsOrder
+
+        elementsOrder.elements.push(child.attrs['id'])
+        models.push(elementsOrder)
+        elementsOrderIndex.set(type, elementsOrderIndex.size)
+      }
+    }
+  })
 
   return models
 }
