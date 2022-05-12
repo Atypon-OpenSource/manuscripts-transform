@@ -19,6 +19,7 @@ export {
   parseJATSReferences,
   parseJATSBody,
   parseJATSArticle,
+  getElementsOrder,
 } from './importer'
 
 export * from './jats-exporter'

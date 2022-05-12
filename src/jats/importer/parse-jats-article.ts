@@ -405,7 +405,7 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
   return models
 }
 
-const getElementsOrder = (node: ManuscriptNode) => {
+export const getElementsOrder = (node: ManuscriptNode) => {
   const elementsOrderIndex = new Map<ManuscriptNodeType, number>()
   const models: ElementsOrder[] = []
 

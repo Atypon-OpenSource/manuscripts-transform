@@ -19,4 +19,5 @@ export {
   parseJATSBody,
   parseJATSReferences,
   parseJATSArticle,
+  getElementsOrder,
 } from './parse-jats-article'
