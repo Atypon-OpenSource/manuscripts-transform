@@ -14,19 +14,14 @@
  * limitations under the License.
  */
 
-import {
-  BibliographicName,
-  CommentAnnotation,
-} from '@manuscripts/manuscripts-json-schema'
+import { BibliographicName } from '@manuscripts/manuscripts-json-schema'
 
 import {
-  Build,
   buildAuxiliaryObjectReference,
   buildBibliographicDate,
   buildBibliographicName,
   buildBibliographyItem,
   buildCitation,
-  buildComment,
 } from '../../transformer/builders'
 import { parseProcessingInstruction } from './jats-comments'
 import { flatten, htmlFromJatsNode } from './jats-parser-utils'
@@ -48,7 +43,7 @@ export const jatsReferenceParser = {
     createElement: (tagName: string) => HTMLElement
   ) {
     const referenceIDs = new Map<string, string>()
-    const comments: Build<CommentAnnotation>[] = []
+    const referenceQueries = new Map<string, string[]>()
     const references = referenceNodes.map((referenceNode) => {
       const publicationType = referenceNode.getAttribute('publication-type')
 
@@ -61,6 +56,14 @@ export const jatsReferenceParser = {
       const bibliographyItem = buildBibliographyItem({
         type: chooseBibliographyItemType(publicationType),
       })
+
+      const titleNode = referenceNode.querySelector('article-title')
+
+      if (titleNode) {
+        bibliographyItem.title = htmlFromJatsNode(titleNode, createElement)
+      }
+
+      const queriesText: string[] = []
       const mixedCitation = referenceNode.querySelector('mixed-citation')
       mixedCitation?.childNodes.forEach((item) => {
         // This isn't the best place but since we are already iterating the nodes it is better for performance
@@ -71,11 +74,13 @@ export const jatsReferenceParser = {
           const instruction = parseProcessingInstruction(item)
           if (instruction) {
             const { queryText } = instruction
-            const comment = buildComment(bibliographyItem._id, queryText)
-            comments.push(comment)
+            queriesText.push(queryText)
           }
         }
       })
+      if (queriesText.length && bibliographyItem.title) {
+        referenceQueries.set(bibliographyItem.title, queriesText)
+      }
       if (authorNodes.length <= 0) {
         mixedCitation?.childNodes.forEach((item) => {
           if (
@@ -87,12 +92,6 @@ export const jatsReferenceParser = {
           }
         })
       }
-      const titleNode = referenceNode.querySelector('article-title')
-
-      if (titleNode) {
-        bibliographyItem.title = htmlFromJatsNode(titleNode, createElement)
-      }
-
       const source = referenceNode.querySelector('source')?.textContent
 
       if (source) {
@@ -190,7 +189,7 @@ export const jatsReferenceParser = {
     return {
       references,
       referenceIDs,
-      comments,
+      referenceQueries,
     }
   },
   /**

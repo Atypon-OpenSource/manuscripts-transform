@@ -21,6 +21,9 @@ import {
 } from '@manuscripts/manuscripts-json-schema'
 
 import { MissingElement } from '../../errors'
+import { readFixture } from '../../jats/__tests__/files'
+import { normalizeIDs } from '../../jats/__tests__/ids'
+import { parseJATSArticle } from '../../jats/importer'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../../schema'
 import { Decoder, getModelData, sortSectionsByPriority } from '../decode'
 import { createTestModelMapWithCitations } from './__helpers__/citations'
@@ -180,5 +183,23 @@ describe('decoder', () => {
     const result = decoder.createArticleNode()
 
     expect(result).toMatchSnapshot()
+  })
+
+  test('encode/decode references with processing instructions', async () => {
+    const input = await readFixture('jats-references-example.xml')
+    const doc = new DOMParser().parseFromString(input, 'application/xml')
+
+    const models = await parseJATSArticle(doc)
+    const normalizedModels = normalizeIDs(models)
+
+    const modelMap = new Map<string, Model>()
+
+    for (const model of normalizedModels) {
+      modelMap.set(model._id, model)
+    }
+
+    const decoder = new Decoder(modelMap)
+    const article = decoder.createArticleNode()
+    expect(article).toMatchSnapshot()
   })
 })

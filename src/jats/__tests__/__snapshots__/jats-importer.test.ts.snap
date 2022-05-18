@@ -8384,6 +8384,24 @@ Array [
     <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">39</span></div> </div>
 </div>",
     "elementType": "div",
+    "highlightMarkers": Array [
+      Object {
+        "_id": "MPHighlightMarker:test",
+        "field": "contents",
+        "highlightID": "MPHighlight:test",
+        "objectType": "MPHighlightMarker",
+        "offset": 239,
+        "start": true,
+      },
+      Object {
+        "_id": "MPHighlightMarker:test",
+        "field": "contents",
+        "highlightID": "MPHighlight:test",
+        "objectType": "MPHighlightMarker",
+        "offset": 239,
+        "start": false,
+      },
+    ],
     "objectType": "MPBibliographyElement",
   },
   Object {
@@ -10180,25 +10198,6 @@ Array [
     "referencedObject": "MPTableElement:test",
   },
   Object {
-    "_id": "MPCommentAnnotation:test",
-    "annotationColor": "rgb(250, 224, 150)",
-    "contents": "eXtyles test comment",
-    "contributions": Array [
-      Object {
-        "_id": "MPContribution:test",
-        "objectType": "MPContribution",
-        "profileID": "MPUserProfile:test",
-        "timestamp": 1111111111,
-      },
-    ],
-    "objectType": "MPCommentAnnotation",
-    "selector": Object {
-      "from": 0,
-      "to": 0,
-    },
-    "target": "MPBibliographyItem:test",
-  },
-  Object {
     "_id": "MPElementsOrder:test",
     "elementType": "MPFigureElement",
     "elements": Array [
@@ -10320,6 +10319,25 @@ Array [
     "_id": "MPCommentAnnotation:test",
     "annotationColor": "rgb(250, 224, 150)",
     "contents": "The table \\"Table A1\\" is not cited in the text. Please add an in-text citation or delete the table.",
+    "contributions": Array [
+      Object {
+        "_id": "MPContribution:test",
+        "objectType": "MPContribution",
+        "profileID": "MPUserProfile:test",
+        "timestamp": 1111111111,
+      },
+    ],
+    "objectType": "MPCommentAnnotation",
+    "target": "MPHighlight:test",
+  },
+  Object {
+    "_id": "MPHighlight:test",
+    "objectType": "MPHighlight",
+  },
+  Object {
+    "_id": "MPCommentAnnotation:test",
+    "annotationColor": "rgb(250, 224, 150)",
+    "contents": "eXtyles test comment",
     "contributions": Array [
       Object {
         "_id": "MPContribution:test",

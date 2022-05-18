@@ -226,12 +226,16 @@ export class Decoder {
   private creators: NodeCreatorMap = {
     [ObjectTypes.BibliographyElement]: (data) => {
       const model = data as BibliographyElement
+      const html = this.extractedHTML(
+        model.highlightMarkers,
+        'contents',
+        model.contents,
+        undefined
+      )
 
       return schema.nodes.bibliography_element.create({
         id: model._id,
-        contents: model.contents
-          ? model.contents.replace(/\s+xmlns=".+?"/, '')
-          : '',
+        contents: html ? html.replace(/\s+xmlns=".+?"/, '') : '',
         paragraphStyle: model.paragraphStyle,
       }) as BibliographyElementNode
     },
@@ -898,6 +902,27 @@ export class Decoder {
     highlightMarkers: HighlightMarker[] = [],
     options?: ParseOptions
   ): ManuscriptNode => {
+    const html = this.extractedHTML(highlightMarkers, field, contents, wrapper)
+
+    const template = document.createElement('template')
+    template.innerHTML = html
+
+    if (!template.content.firstChild) {
+      throw new Error('No content could be parsed')
+    }
+
+    return parser.parse(template.content.firstChild, options)
+  }
+
+  private extractedHTML(
+    highlightMarkers: HighlightMarker[] | undefined,
+    field: string,
+    contents: string,
+    wrapper: string | undefined
+  ) {
+    if (!highlightMarkers) {
+      return contents
+    }
     const contentsWithHighlightMarkers = highlightMarkers.length
       ? insertHighlightMarkers(field, contents, highlightMarkers)
       : contents
@@ -911,15 +936,7 @@ export class Decoder {
     if (!html.length) {
       throw new Error('No HTML to parse')
     }
-
-    const template = document.createElement('template')
-    template.innerHTML = html
-
-    if (!template.content.firstChild) {
-      throw new Error('No content could be parsed')
-    }
-
-    return parser.parse(template.content.firstChild, options)
+    return html
   }
 
   private getManuscriptID = () => {

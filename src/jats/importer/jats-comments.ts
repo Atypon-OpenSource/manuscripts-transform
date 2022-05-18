@@ -199,11 +199,19 @@ const addCommentsFromMarkedProcessingInstructions = (
         // MPManuscript dose not accept highlightMarkers!
         if (!isManuscript(model)) {
           // Highlight comment location
-          model.highlightMarkers = createHighlightMarkers(
-            highlight._id,
-            startTokenIndex,
-            highlightableField
-          )
+          model.highlightMarkers = model.highlightMarkers?.length
+            ? model.highlightMarkers.concat(
+                createHighlightMarkers(
+                  highlight._id,
+                  startTokenIndex,
+                  highlightableField
+                )
+              )
+            : createHighlightMarkers(
+                highlight._id,
+                startTokenIndex,
+                highlightableField
+              )
         }
       }
     }

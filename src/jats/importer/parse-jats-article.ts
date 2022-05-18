@@ -24,7 +24,6 @@ import {
   BibliographyItem,
   Bundle,
   Citation,
-  CommentAnnotation,
   ElementsOrder,
   Journal,
   Manuscript,
@@ -32,6 +31,7 @@ import {
   ObjectTypes,
 } from '@manuscripts/manuscripts-json-schema'
 import { DOMParser } from 'prosemirror-model'
+import { v4 as uuidv4 } from 'uuid'
 
 import { InvalidInput } from '../../errors'
 import { nodeFromHTML } from '../../lib/html'
@@ -193,18 +193,18 @@ export const parseJATSReferences = (
   const crossReferences: Array<
     Build<Citation> | Build<AuxiliaryObjectReference>
   > = []
-  const commentAnnotations: Array<Build<CommentAnnotation>> = []
+  let referenceQueriesMap
   if (back) {
     const {
       references,
       referenceIDs,
-      comments,
+      referenceQueries,
     } = jatsReferenceParser.parseReferences(
       [...back.querySelectorAll('ref-list > ref')],
       createElement
     )
     bibliographyItems.push(...references)
-    commentAnnotations.push(...comments)
+    referenceQueriesMap = new Map<string, string[]>([...referenceQueries])
     if (body) {
       crossReferences.push(
         ...jatsReferenceParser.parseCrossReferences(
@@ -217,7 +217,7 @@ export const parseJATSReferences = (
   return {
     references: generateModelIDs(bibliographyItems),
     crossReferences: generateModelIDs(crossReferences),
-    comments: generateModelIDs(commentAnnotations),
+    referenceQueriesMap,
   }
 }
 
@@ -285,6 +285,32 @@ const createBibliography = async (
   return createBibliographyElementContents(bibliographyItems)
 }
 
+const markReferencesProcessingInstructions = async (
+  doc: Document,
+  bibliography: HTMLElement,
+  authorQueriesMap: Map<string, string>,
+  referenceQueriesMap: Map<string, string[]>
+) => {
+  for (const item of bibliography.querySelectorAll(
+    'span[data-field="title"]'
+  )) {
+    if (item?.textContent) {
+      const comments = referenceQueriesMap.get(item?.textContent)
+      if (comments && comments.length) {
+        comments.forEach((comment) => {
+          const token = uuidv4()
+          const tokenNode = doc.createTextNode(token)
+          item.parentElement?.insertBefore(
+            tokenNode,
+            item.parentElement.firstElementChild
+          )
+          authorQueriesMap.set(token, comment)
+        })
+      }
+    }
+  }
+}
+
 const transformTables = (
   tables: NodeListOf<Element>,
   createElement: (tagName: string) => HTMLElement
@@ -349,17 +375,26 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
 
   const createElement = createElementFn(document)
   const { models: frontModels, bundles } = await parseJATSFront(front)
-  const { references, crossReferences, comments } = parseJATSReferences(
-    back,
-    body,
-    createElement
-  )
+  const {
+    references,
+    crossReferences,
+    referenceQueriesMap,
+  } = parseJATSReferences(back, body, createElement)
 
   transformTables(doc.querySelectorAll('table-wrap > table'), createElement)
   const bibliography = await createBibliography(
     references as BibliographyItem[],
     bundles
   )
+
+  if (referenceQueriesMap && referenceQueriesMap.size) {
+    markReferencesProcessingInstructions(
+      doc,
+      bibliography,
+      authorQueriesMap,
+      referenceQueriesMap
+    )
+  }
 
   const footnotesOrderBuilder = new FootnotesOrderBuilder()
   let elementsOrder: ElementsOrder[] = []
@@ -392,7 +427,6 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
     ...bodyModels,
     ...references,
     ...crossReferences,
-    ...comments,
     ...elementsOrder,
   ]
 
