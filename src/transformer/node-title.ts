@@ -76,6 +76,7 @@ export const nodeTitle = (node: ManuscriptNode) => {
     case nodes.table_element:
     case nodes.equation_element:
     case nodes.listing_element:
+    case nodes.multi_graphic_figure_element:
       return snippetOfNodeType(node, nodes.figcaption)
 
     default:
