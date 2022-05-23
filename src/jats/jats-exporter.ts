@@ -1049,18 +1049,23 @@ export class JATSExporter {
           >(referencedObject)
           if (
             refObjectModel &&
-            refObjectModel.objectType === ObjectTypes.FigureElement &&
+            (refObjectModel.objectType === ObjectTypes.FigureElement ||
+              refObjectModel.objectType ===
+                ObjectTypes.MultiGraphicFigureElement) &&
             refObjectModel.containedObjectIDs
           ) {
-            const objectId = refObjectModel.containedObjectIDs.find(Boolean)
+            const lastEntry =
+              refObjectModel.containedObjectIDs[
+                refObjectModel.containedObjectIDs.length - 1
+              ]
+            const objectId =
+              refObjectModel.objectType ===
+              ObjectTypes.MultiGraphicFigureElement
+                ? lastEntry
+                : refObjectModel.containedObjectIDs.find(Boolean)
             if (objectId) {
               rid = normalizeID(objectId)
             }
-          } else if (
-            refObjectModel &&
-            refObjectModel.objectType === ObjectTypes.MultiGraphicFigureElement
-          ) {
-            rid = normalizeID(refObjectModel._id)
           }
           return rid
         }
@@ -2061,7 +2066,10 @@ export class JATSExporter {
           }
         }
 
-        if (isNodeType<FigureElementNode>(node, 'figure_element')) {
+        if (
+          isNodeType<FigureElementNode>(node, 'figure_element') ||
+          isNodeType<FigureElementNode>(node, 'multi_graphic_figure_element')
+        ) {
           const figureGroup = body.querySelector(
             `#${normalizeID(node.attrs.id)}`
           )
