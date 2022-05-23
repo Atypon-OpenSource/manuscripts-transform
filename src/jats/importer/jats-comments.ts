@@ -186,27 +186,37 @@ const addCommentsFromMarkedProcessingInstructions = (
         const comment = `${query}`
         const highlight = buildHighlight()
         const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
+        let existedMarker
+        if (model.highlightMarkers?.length) {
+          existedMarker = model.highlightMarkers.find((marker) => {
+            return marker.offset === startTokenIndex
+          })
+        }
         const commentAnnotation = buildComment(
-          highlight._id,
+          existedMarker ? existedMarker.highlightID : highlight._id,
           comment,
           undefined,
           contributions,
           DEFAULT_ANNOTATION_COLOR
         )
         models.push(commentAnnotation)
-        models.push(highlight)
+        {
+          !existedMarker && models.push(highlight)
+        }
 
         // MPManuscript dose not accept highlightMarkers!
         if (!isManuscript(model)) {
           // Highlight comment location
           model.highlightMarkers = model.highlightMarkers?.length
-            ? model.highlightMarkers.concat(
-                createHighlightMarkers(
-                  highlight._id,
-                  startTokenIndex,
-                  highlightableField
+            ? existedMarker
+              ? model.highlightMarkers
+              : model.highlightMarkers.concat(
+                  createHighlightMarkers(
+                    highlight._id,
+                    startTokenIndex,
+                    highlightableField
+                  )
                 )
-              )
             : createHighlightMarkers(
                 highlight._id,
                 startTokenIndex,
