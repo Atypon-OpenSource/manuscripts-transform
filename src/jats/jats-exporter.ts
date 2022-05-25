@@ -1476,6 +1476,11 @@ export class JATSExporter {
       if (multiGraphic) {
         if (figures.length > 0) {
           const figure = this.serializeNode(figures[figures.length - 1])
+          const figureElCaption = element.querySelector('caption')
+          const figureCaption = (figure as HTMLElement).querySelector('caption')
+          if (figureCaption && figureElCaption) {
+            figure.removeChild(figureCaption)
+          }
 
           for (let i = 0; i < figures.length - 1; i++) {
             const fig = figures[i]
