@@ -182,6 +182,12 @@ export class HTMLTransformer {
       if (newID) {
         element.setAttribute('id', newID)
         if (previousID) {
+          const ancores = [
+            ...this.document.querySelectorAll(`a[href="#${previousID}"]`),
+          ]
+
+          ancores.map((a) => a.setAttribute('href', `#${newID}`))
+
           element.setAttribute('data-uuid', previousID)
         }
       } else {
