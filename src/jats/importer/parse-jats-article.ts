@@ -25,6 +25,7 @@ import {
   Bundle,
   Citation,
   ElementsOrder,
+  FootnotesOrder,
   Journal,
   Manuscript,
   Model,
@@ -46,7 +47,11 @@ import {
   DEFAULT_BUNDLE,
 } from '../../transformer/builders'
 import { encode, inlineContents } from '../../transformer/encode'
-import { FootnotesOrderBuilder } from '../../transformer/footnotes-order-builder'
+import {
+  createEmptyFootnotesOrder,
+  createOrderedFootnotesIDs,
+  handleFootnotesOrder,
+} from '../../transformer/footnotes-order'
 import { generateID } from '../../transformer/id'
 import { findManuscript } from '../../transformer/project-bundle'
 import { jatsBodyDOMParser } from './jats-body-dom-parser'
@@ -226,17 +231,13 @@ export const parseJATSBody = (
   body: Element,
   bibliography: Element | null,
   refModels: Model[],
-  footnotesOrderBuilder: FootnotesOrderBuilder | null
+  footnotesOrder?: FootnotesOrder
 ): ManuscriptNode => {
   const createElement = createElementFn(document)
+  const orderedFootnotesIDs = createOrderedFootnotesIDs(document)
   jatsBodyTransformations.moveFloatsGroupToBody(document, body, createElement)
   jatsBodyTransformations.ensureSection(body, createElement)
-  jatsBodyTransformations.mapFootnotesToSections(
-    document,
-    body,
-    footnotesOrderBuilder,
-    createElement
-  )
+  jatsBodyTransformations.mapFootnotesToSections(document, body, createElement)
   jatsBodyTransformations.moveSectionsToBody(
     document,
     body,
@@ -258,8 +259,9 @@ export const parseJATSBody = (
   }
 
   const { replacements } = fixBodyPMNode(node.firstChild, refModels)
-  if (footnotesOrderBuilder) {
-    footnotesOrderBuilder.build(replacements)
+
+  if (footnotesOrder) {
+    handleFootnotesOrder(orderedFootnotesIDs, replacements, footnotesOrder)
   }
   // if (warnings.length > 0) {
   //   console.warn(`Parsed JATS body with ${warnings.length} warnings.`)
@@ -396,7 +398,7 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
     )
   }
 
-  const footnotesOrderBuilder = new FootnotesOrderBuilder()
+  const footnotesOrder = createEmptyFootnotesOrder() as FootnotesOrder
   let elementsOrder: ElementsOrder[] = []
   const bodyModels: Array<Model> = []
   if (body) {
@@ -405,7 +407,7 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
       body,
       bibliography,
       crossReferences,
-      footnotesOrderBuilder
+      footnotesOrder
     )
     bodyModels.push(...encode(bodyDoc).values())
     elementsOrder = getElementsOrder(bodyDoc)
@@ -415,7 +417,6 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
   const frontModelsMap = new Map(frontModels.map((model) => [model._id, model]))
 
   const manuscript = findManuscript(frontModelsMap)
-  const footnotesOrder: Partial<Model> = footnotesOrderBuilder.order
 
   if (manuscript) {
     const articleType = articleElement.getAttribute('article-type')
@@ -430,7 +431,7 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
     ...elementsOrder,
   ]
 
-  if (footnotesOrder) {
+  if (footnotesOrder.footnotesList.length > 0) {
     models.push(footnotesOrder as Model)
   }
 

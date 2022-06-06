@@ -36,8 +36,7 @@ export const parseSTSBody = (
   body: Element,
   bibliography: Element | null,
   refModels: Model[]
-): ManuscriptNode =>
-  parseJATSBody(document, body, bibliography, refModels, null)
+): ManuscriptNode => parseJATSBody(document, body, bibliography, refModels)
 
 const generateModelIDs = (models: Build<Model>[]) =>
   models.map((m) =>

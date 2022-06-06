@@ -554,11 +554,6 @@ Array [
     ],
     "objectType": "MPElementsOrder",
   },
-  Object {
-    "_id": "MPFootnotesOrder:test",
-    "footnotesList": Array [],
-    "objectType": "MPFootnotesOrder",
-  },
 ]
 `;
 
@@ -3783,16 +3778,6 @@ Array [
       "MPFigureElement:test",
     ],
     "objectType": "MPElementsOrder",
-  },
-  Object {
-    "_id": "MPFootnotesOrder:test",
-    "footnotesList": Array [
-      Object {
-        "id": "MPFootnote:test",
-        "index": 0,
-      },
-    ],
-    "objectType": "MPFootnotesOrder",
   },
 ]
 `;
@@ -10730,11 +10715,6 @@ Array [
       "MPListingElement:test",
     ],
     "objectType": "MPElementsOrder",
-  },
-  Object {
-    "_id": "MPFootnotesOrder:test",
-    "footnotesList": Array [],
-    "objectType": "MPFootnotesOrder",
   },
 ]
 `;

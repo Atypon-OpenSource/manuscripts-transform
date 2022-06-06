@@ -60,7 +60,7 @@ import {
 import serializeToXML from 'w3c-xmlserializer'
 
 import { ManuscriptNodeType, schema } from '../schema'
-import { FootnotesOrderIndexList } from './footnotes-order-builder'
+import { FootnotesOrderIndexList } from './footnotes-order'
 import { generateID } from './id'
 import { CommentSelector, ManuscriptModel, ModelAttachment } from './models'
 import { timestamp } from './timestamp'
