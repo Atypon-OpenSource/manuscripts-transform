@@ -8138,24 +8138,6 @@ Array [
     "caption": "",
     "containedObjectID": "MPTable:test",
     "elementType": "table",
-    "highlightMarkers": Array [
-      Object {
-        "_id": "MPHighlightMarker:test",
-        "field": "title",
-        "highlightID": "MPHighlight:test",
-        "objectType": "MPHighlightMarker",
-        "offset": 0,
-        "start": true,
-      },
-      Object {
-        "_id": "MPHighlightMarker:test",
-        "field": "title",
-        "highlightID": "MPHighlight:test",
-        "objectType": "MPHighlightMarker",
-        "offset": 0,
-        "start": false,
-      },
-    ],
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "title": "Difference between exporting vs. non-exporting firms",
@@ -8369,24 +8351,6 @@ Array [
     <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">39</span></div> </div>
 </div>",
     "elementType": "div",
-    "highlightMarkers": Array [
-      Object {
-        "_id": "MPHighlightMarker:test",
-        "field": "contents",
-        "highlightID": "MPHighlight:test",
-        "objectType": "MPHighlightMarker",
-        "offset": 239,
-        "start": true,
-      },
-      Object {
-        "_id": "MPHighlightMarker:test",
-        "field": "contents",
-        "highlightID": "MPHighlight:test",
-        "objectType": "MPHighlightMarker",
-        "offset": 239,
-        "start": false,
-      },
-    ],
     "objectType": "MPBibliographyElement",
   },
   Object {
@@ -10313,11 +10277,11 @@ Array [
       },
     ],
     "objectType": "MPCommentAnnotation",
-    "target": "MPHighlight:test",
-  },
-  Object {
-    "_id": "MPHighlight:test",
-    "objectType": "MPHighlight",
+    "selector": Object {
+      "from": 60121,
+      "to": 60121,
+    },
+    "target": "MPTableElement:test",
   },
   Object {
     "_id": "MPCommentAnnotation:test",
@@ -10332,11 +10296,11 @@ Array [
       },
     ],
     "objectType": "MPCommentAnnotation",
-    "target": "MPHighlight:test",
-  },
-  Object {
-    "_id": "MPHighlight:test",
-    "objectType": "MPHighlight",
+    "selector": Object {
+      "from": 60848,
+      "to": 60848,
+    },
+    "target": "MPBibliographyElement:test",
   },
 ]
 `;
