@@ -61,6 +61,13 @@ describe('JATS importer', () => {
     expect(normalizeIDs(normalizeTimestamps(models))).toMatchSnapshot()
   })
 
+  test('parses JATS AuthorQueries example to Manuscripts models', async () => {
+    const models = await parseJATSArticle(
+      await readAndParseFixture('jats-document.xml')
+    )
+    expect(normalizeIDs(normalizeTimestamps(models))).toMatchSnapshot()
+  })
+
   test('parses JATS front only example to Manuscripts models', async () => {
     const start = performance.now()
     const models = await parseJATSArticle(

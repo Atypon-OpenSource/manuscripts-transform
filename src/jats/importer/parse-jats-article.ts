@@ -291,9 +291,7 @@ const markReferencesProcessingInstructions = async (
   authorQueriesMap: Map<string, string>,
   referenceQueriesMap: Map<string, string[]>
 ) => {
-  for (const item of bibliography.querySelectorAll(
-    'span[data-field="title"]'
-  )) {
+  for (const item of bibliography.querySelectorAll('[data-field="title"]')) {
     if (item?.textContent) {
       const comments = referenceQueriesMap.get(item?.textContent)
       if (comments && comments.length) {

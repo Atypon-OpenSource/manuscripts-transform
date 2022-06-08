@@ -17,7 +17,6 @@
 import { CommentAnnotation, Model } from '@manuscripts/manuscripts-json-schema'
 import { v4 as uuidv4 } from 'uuid'
 
-import { textFromHTML } from '../../lib/html'
 import {
   Build,
   buildComment,
@@ -175,4 +174,14 @@ const addCommentsFromMarkedProcessingInstructions = (
   }
 
   return commentAnnotations
+}
+
+const textFromHTML = (html: string) => {
+  const template = document.createElement('template')
+  template.innerHTML = html
+  // Given that citation nodes are not selectable (not counted), we replaced it's content with one character i.e (1) to give more accurate position.
+  for (const xref of template.content.querySelectorAll('.citation')) {
+    xref.textContent = '1'
+  }
+  return template.content.textContent
 }

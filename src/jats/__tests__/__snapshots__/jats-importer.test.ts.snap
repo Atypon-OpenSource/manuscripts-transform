@@ -1,5 +1,797 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`JATS importer parses JATS AuthorQueries example to Manuscripts models 1`] = `
+Array [
+  Object {
+    "_id": "MPManuscript:test",
+    "acceptanceDate": 1599091200,
+    "articleType": "other",
+    "equationCount": 0,
+    "figureCount": 0,
+    "genericCounts": Array [
+      Object {
+        "count": 0,
+        "countType": "box",
+      },
+    ],
+    "keywordIDs": Array [
+      "MPKeyword:test",
+      "MPKeyword:test",
+      "MPKeyword:test",
+      "MPKeyword:test",
+      "MPKeyword:test",
+    ],
+    "objectType": "MPManuscript",
+    "receiveDate": 1576195200,
+    "referencesCount": 2,
+    "revisionReceiveDate": 1597276800,
+    "tableCount": 0,
+    "title": "LW4 Demo Doc basic – change title add date here",
+    "wordCount": 2916,
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "suicide attempters",
+    "objectType": "MPKeyword",
+    "priority": 1,
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "schizophrenia",
+    "objectType": "MPKeyword",
+    "priority": 2,
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "DβH",
+    "objectType": "MPKeyword",
+    "priority": 3,
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "attention",
+    "objectType": "MPKeyword",
+    "priority": 4,
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "polymorphism",
+    "objectType": "MPKeyword",
+    "priority": 5,
+  },
+  Object {
+    "_id": "MPAffiliation:test",
+    "addressLine1": "Suzhou, Jiangsu",
+    "country": "China",
+    "department": "Research Center of Biological Psychiatry",
+    "institution": "The Affiliated Guangji Hospital of Soochow University",
+    "objectType": "MPAffiliation",
+    "priority": 0,
+  },
+  Object {
+    "_id": "MPAffiliation:test",
+    "addressLine1": "Mental Health Center of Yanqing District",
+    "addressLine2": "Beijing",
+    "country": "China",
+    "institution": "",
+    "objectType": "MPAffiliation",
+    "priority": 1,
+  },
+  Object {
+    "_id": "MPAffiliation:test",
+    "addressLine1": "Xinghua, Jiangsu",
+    "country": "China",
+    "institution": "Xinghua Forth People’s Hospital",
+    "objectType": "MPAffiliation",
+    "priority": 2,
+  },
+  Object {
+    "ORCIDIdentifier": "https://orcid.org/0000-0001-6162-1335",
+    "_id": "MPContributor:test",
+    "affiliations": Array [
+      "MPAffiliation:test",
+    ],
+    "bibliographicName": Object {
+      "_id": "MPBibliographicName:test",
+      "family": "Hui",
+      "given": "Li",
+      "objectType": "MPBibliographicName",
+    },
+    "corresp": Array [
+      Object {
+        "correspID": "MPCorresponding:test",
+        "correspLabel": "*",
+      },
+    ],
+    "isCorresponding": true,
+    "objectType": "MPContributor",
+    "priority": 0,
+    "role": "author",
+  },
+  Object {
+    "_id": "MPContributor:test",
+    "affiliations": Array [
+      "MPAffiliation:test",
+    ],
+    "bibliographicName": Object {
+      "_id": "MPBibliographicName:test",
+      "family": "Hu",
+      "given": "Wei Ming",
+      "objectType": "MPBibliographicName",
+    },
+    "objectType": "MPContributor",
+    "priority": 1,
+    "role": "author",
+  },
+  Object {
+    "_id": "MPContributor:test",
+    "affiliations": Array [
+      "MPAffiliation:test",
+    ],
+    "bibliographicName": Object {
+      "_id": "MPBibliographicName:test",
+      "family": "Zhu",
+      "given": "Zhen Hua",
+      "objectType": "MPBibliographicName",
+    },
+    "objectType": "MPContributor",
+    "priority": 2,
+    "role": "author",
+  },
+  Object {
+    "_id": "MPContributor:test",
+    "affiliations": Array [
+      "MPAffiliation:test",
+    ],
+    "bibliographicName": Object {
+      "_id": "MPBibliographicName:test",
+      "family": "Gao",
+      "given": "Song Tian",
+      "objectType": "MPBibliographicName",
+    },
+    "objectType": "MPContributor",
+    "priority": 3,
+    "role": "author",
+  },
+  Object {
+    "_id": "MPKeywordGroup:test",
+    "objectType": "MPKeywordGroup",
+    "title": "KEYWORDS: ",
+    "type": "author",
+  },
+  Object {
+    "_id": "MPCorresponding:test",
+    "contents": "To whom correspondence should be addressed: Li Hui, PhD, Research Center of Biological Psychiatry, The Affiliated Guangji Hospital of Soochow University, No. 11 Guangqian Road, Suzhou 215137, Jiangsu Province, China, Tel: +86 51265794237; Fax: +86 51265794237, Email: huili004100@126.com.",
+    "label": "*",
+    "objectType": "MPCorresponding",
+  },
+  Object {
+    "ISSNs": Array [
+      Object {
+        "ISSN": "0885-6222",
+        "publicationType": "ppub",
+      },
+      Object {
+        "ISSN": "1540-1235",
+        "publicationType": "epub",
+      },
+    ],
+    "_id": "MPJournal:test",
+    "abbreviatedTitles": Array [
+      Object {
+        "abbrevType": "pubmed",
+        "abbreviatedTitle": "Human Psychopharmacology: Clinical and Experimental",
+      },
+    ],
+    "journalIdentifiers": Array [
+      Object {
+        "journalID": "HUP-19-0076",
+        "journalIDType": "publisher-id",
+      },
+      Object {
+        "journalID": "Human Psychopharmacology: Clinical and Experimental",
+        "journalIDType": "nlm-ta",
+      },
+      Object {
+        "journalID": "",
+        "journalIDType": "doi",
+      },
+    ],
+    "objectType": "MPJournal",
+    "publisherName": "Atypon ReX",
+    "title": "Human Psychopharmacology: Clinical and Experimental",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:abstract",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 1,
+    "title": "Abstract",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Patients with schizophrenia are at a higher risk for suicide compared with the general population. Dopamine-beta-hydroxylase (DβH) plays a key role in the conversion of dopamine to norepinephrine, which is related to suicidal behavior and cognitive regulation.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">To examine whether there is the effect of <i>DβH</i> 5’<i>-</i>insertion/deletion (Ins/Del) polymorphism on cognitive performance in suicide attempters with chronic schizophrenia.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This polymorphism was detected in 114 suicide attempters and 617 non-suicide attempters with chronic schizophrenia. Cognitive performance was assessed by the Repeatable Battery for the Assessment of Neuropsychological Status (RBANS).</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">The allelic and genotypic frequencies of this polymorphism between two groups did not differ after controlling for covariaties (both, p&gt;0.05). There were no differences in RBANS scores between two groups after adjusting for covariaties (all, p&gt;0.05). However, based on the genotype grouping in suicide attempters and non-attempters, the attention score significantly differed after adjusting for covariaties (both, p&lt;0.05). Further analysis indicated that this polymorphism was associated with attention score in suicide attempters (p&lt;0.05), but not in non-suicide attempters (p&gt;0.05).</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><i>DβH</i> 5’-Ins/Del polymorphism was not a risk locus of suicide attempters, but it was implicated in attention regulation in suicide attempters with chronic schizophrenia.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:introduction",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 2,
+    "title": "Introduction",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Patients with schizophrenia are at a higher risk for suicide compared with the general population. Suicide is an important cause of schizophrenic mortality (<span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Hor and Taylor, 2010</span>). The lifetime prevalence of completed suicide is ranging from 10% to15% in schizophrenia, which is about 8.5-20 times higher than in the general population (<span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Caldwell and Gottesman, 1992</span>). The risk factors of suicide in schizophrenia are nearly similar to those in the general population (Table 1). However, other risk factors of suicide may be specific to schizophrenia including decreased negative symptom, increased positive symptom, mental disintegration fear, higher premorbid IQ, and non-compliance with antipsychotics. Moreover, several studies examining the correlation of cognitive performance with suicidal risk in patients with schizophrenia have reported inconsistent findings. For example, higher cognitive function is found to increase suicidal risk in patients with schizophrenia. In contrast, other studies have indicated that suicide risk is not associated with cognitive performance in patients with schizophrenia. Therefore, the impact of cognitive function on suicidal risk in patients with schizophrenia still needs to be fully understood. In addition, both familial and twins studies found that genetic factors have been involved in suicide attempts, and are associated with cognitive function. These studies have provided evidence that genetic mutations may influence suicide attempts and cognitive regulation in patients with chronic schizophrenia.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Dopamine beta-hydroxylase (DβH) is a key enzyme that is in charge of catalyzing the conversion of dopamine (DA) to norepinephrine (NE). Inhibiting DβH activity will increase DA levels and decrease NE levels, and both of them are linked to suicidal behavior. Several studies have found that NE abnormality might cause behavior and mood deviance that was also closely associated with suicidal behavior. Moreover, <i>DβH</i> promoter polymorphisms are reported to be involved in positive psychotic symptom, cognitive deficits, depression and mental disorders that all of which are associated with suicidal risk. <i>DβH</i> haplotype (consisting of rs1611115, rs1108580, rs2519152 and rs129882) is found to significantly contribute to the development of suicide behavior for alcohol-dependent patients. The above studies suggest that <i>DβH</i> genetic variants may be associated with suicide attempts in chronic schizophrenia.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">DβH catalyzes the conversion of DA to NE in the central nervous system that both of which influence cognitive performance in schizophrenia. Cognitive deficits have been reported to be inversely associated with plasma DβH (pDβH) activity in patients with schizophrenia. DβH has been shown to be involved in mood regulation and attention deficits. Also, the <i>DβH</i> knockout mice are unable to synthesis NE that is involved with cognitive deficits. Several studies have shown that <i>DβH</i> genetic variants are associated with cognitive deficits. For example, it has been found that <i>DβH</i> 5’-1021C/T polymorphism is involved in executive performance in children and adolescents with attention-deficit/hyperactivity disorder (ADHD). It is also involved in attention abnormality for neural facial expression and sustained attention in the healthy population. Other <i>DβH</i> genetic variants are reported to contribute to sustained attention deficits in ADHD and spatial working memory deficits in the healthy population. Taken together, these results support that <i>DβH</i> genetic variants might be associated with cognitive function in suicide attempters with chronic schizophrenia.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">A 19-bp insertion/deletion polymorphism localized 4.5kb from <i>DβH</i> 5’ flank transcriptional starting site on chromosome 9q34 is named <i>DβH</i> 5’-Ins/Del polymorphism. It is a functional locus, which has been reported to influence DβH activity. The pDβH activity in individuals with <i>DβH</i> 5’-Del/Del is only half of those in individuals with <i>DβH</i> 5’-Ins/Ins. Previous studies have indicated that this polymorphism is associated with cognitive abnormality in older women, average reaction response time in Chinese females, attention bias for negative faces in the young subjects, and post-error slowing in the young Caucasian healthy adults that are correlated with suicidal behavior. <i>DβH</i> haplotype (consisting of <i>DβH</i> 5'-del allele and 11 allele of GT<sub>n</sub> repeats) is linked to suicide attempts in schizophrenia. Interestingly, <i>DβH</i> 5’-Ins/Del polymorphism is implicated in attention in patients with chronic schizophrenia. Taken together, these results suggest that this polymorphism might be involved in cognitive regulation and the development of suicide attempts in chronic schizophrenia. However, no studies have examined <i>DβH</i> 5’-Ins/Del polymorphism in relation to cognitive function and the development of suicide attempts in chronic schizophrenia. Thus, the objectives of this study are to examine whether <i>DβH</i> 5’-Ins/Del polymorphism influences cognitive regulation, and further contributes to the development of suicide attempts in chronic schizophrenia.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:materials-method",
+    "elementIDs": Array [],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 3,
+    "title": "Methods",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+      "MPSection:test",
+    ],
+    "priority": 4,
+    "title": "Subjects",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">731 patients with chronic schizophrenia (male = 615, female=116) were enrolled from Beijing HuiLongGuan Hospital. The following inclusion criteria were applied: (a) 19-73 years of age; (b) DSM–IV diagnosis of schizophrenia; (c) length of illness longer than of two years; (d) receiving a stable dose of oral antipsychotics for more than one year; and (e) provided signed informed consent. Oral antipsychotics mainly included clozapine, perphenazine, risperidone, sulpiride, haloperidol and chlorpromazine. The mean dose of antipsychotics (as chlorpromazine equivalents) was 457.1 mg/days.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">All patients were Han Chinese recruited from the Beijing area. Any patients with any abnormalities whatsoever were excluded, including cardiovascular disease, cerebrovascular disease, infections, cancer, unstable diabetes, uncontrolled hypertension, pregnancy, and drug or alcohol abuse. The Institutional Review Board, HuiLongGuan Hospital approved the protocol and informed consent of this study, and signed informed consent was obtained from each patient before recruitment.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+      "MPSection:test",
+    ],
+    "priority": 5,
+    "title": "Clinical and neuropsychological assessment",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">A detailed questionnaire included the social-demographic and clinical information, which was obtained from each patient and their available medical records.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Based on the World Health Organization (WHO) report, the outcome-based term \\"fatal suicide behavior\\" or \\"completed suicide\\" was proposed for the actions of suicide that caused death, and \\"non-fatal suicidal behavior\\" was for the actions of suicide that did not lead to death. Such actions were called \\"attempted suicide\\". Hence, suicide attempt was defined as an intentionally self-destructive action that performed some intent to die, but not causing death in this study. During the interview, each patient was asked about the following details information: the attempts number, the method and date of each suicide attempt. \\"In your entire life, did you ever attempt suicide?\\" was asked. Afterwards, each patient was asked to say “yes” or “no”. The suicide attempts history was confirmed by the information of medical records or subject (s) relatives.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Cognition was assessed using the Repeatable Battery for the Assessment of Neuropsychological Status (RBANS, Form A). The detailed contents and assessing process of RBANS have been reported in previous studies of our research group.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+      "MPSection:test",
+    ],
+    "priority": 6,
+    "title": "Genotyping",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">The genotype of <i>DβH</i> 5’-Ins/Del was identified by the same method as reported in our previous study. Two independent investigators who were blinded to the clinical information of subjects confirmed the genotype of this polymorphism. If the assignments of genotype that they confirmed were inconsistent, these samples would further be repeated.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+      "MPSection:test",
+    ],
+    "priority": 7,
+    "title": "Statistical analysis",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">The Hardy–Weinberg equilibrium (HWE) for the genotype distributions of this polymorphism was examined using the program of HWSIM. The frequencies of this polymorphism allele and genotype were compared between suicide attempters and non-attempters with chronic schizophrenia by Chi Squared (χ<sup>2</sup>) tests. The differences of the groups were compared by χ<sup>2</sup> for categorical variables, and one-way analysis of variance (ANOVA) for continuous variables. Fisher’s least significant difference procedure performed post-hoc comparisons between the sub-groups. When ANOVA identified the differences in RBANS scores based on genotype grouping in each research group, the effects of demographic and clinical characters were examined by adding them to the analysis model as covariates.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">For the main models, analyses of covariance (ANCOVA) were constructed. The <i>DβH</i> 5’-Ins/Del genotypes were considered as the independent variables, and RBANS scores, including RBANS total score, 5 subscale scores, and 12 subtests scores were considered as the dependent variables. Age, sex, education, age of the first hospitalization, age of onset, duration of illness, daily antipsychotic doses, and duration of current antipsychotics were considered as covariates.The main effects of genotype, diagnosis, and genotype x diagnosis were tested in each model. Stepwise multivariate analysis was further used to investigate the impacts of the variables on RBANS scores. SPSS 17.0 was performed for the statistical analysis.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">The sample power was calculated by Quanto software that has been reported in previous study, with the frequencies of known risk allele, and the suicide attempt prevalence of 9.2% in schizophrenia, and examining dominant, recessive, and log additive models. The significance levels were set at 0.05.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:results",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 8,
+    "title": "Results",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">The comparisons of demographic, clinical and DβH polymorphism data between suicide attempters and non-attempters with chronic schizophrenia are summarized in the ether. Two groups differed significantly in the duration of illness (F=4.86, p&lt;0.05). The distributions of <i>DβH</i> 5’-Ins/Del genotypes were consistent with HWE in suicide attempters group or suicide non-attempters group (both, p&gt;0.05). A significant difference in <i>DβH</i> allele distribution was found between two groups (χ<sup>2</sup>=3.92, df=1, p&lt;0.05), but no difference in <i>DβH</i> genotype distribution (χ<sup>2</sup>=4.60, df=2, p=0.10). After controlling for age and sex, there were no significant differences in <i>DβH</i> allele and genotype distributions between two groups (both, p&gt;0.05).</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">The RBANS data was available for 87 suicide attempters and 449 non-suicide attempters with chronic schizophrenia. The RBANS total and subscores in suicide attempters versus non-attempters with chronic schizophrenia grouped by DβH 5’-Ins/Del genotype are summarized in the ether. There were no significant differences in RBANS scores between two groups (all, p&gt;0.05). The interaction role between DβH genotype and diagnosis did not influence RBANS scores in all patients (all, p&gt;0.05). However, there were significant differences in attention and semantic fluency scores among three groups (all patients with Del/Del, all patients with Ins/Del and all patients with Ins/Ins) (F=3.96, p=0.02; F=3.98, p=0.02). Further analysis found that the comparisons of RBANS scores were still not difference between two groups (all, p&gt;0.05) as well as no effect of genotype x diagnosis on RBANS scores in all patients (all, p&gt;0.05) after adjusting for the confounding variables. However, there was a significant difference in attention score among genotype grouping in suicide attempters (F=3.73, p=0.03) as well as this difference also was found in non-suicide attempters (F=3.00, p=0.04) after adjusting for the confounding variables.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Stepwise multivariate regression analysis identified that the variables including genotype of this polymorphism (β=5.74, t=-2.62, p=0.01), and sex ((β=25.74, t=5.17, p&lt;0.001) were independently related to attention score in suicide attempters with chronic schizophrenia, with R<sup>2</sup>=34.9. The variables including sex (β=7.13, t=2.82, p=0.01), education (β=0.61, t=3.76, p&lt;0.001), age of the first hospitalization (β=0.66, t=5.06, p&lt;0.001), and daily antipsychotic dose (β=0.003, t=1.98, p=0.05) contributed to attention score in non-suicide attempters with chronic schizophrenia, with R<sup>2</sup>=14.3.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This sample had 0.78-0.99 statistical power to detect this polymorphism associated with suicide attempts in chronic schizophrenia through three models, with a genetic effect of 2.0 (a=0.05, two-tailed test).</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:discussion",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 9,
+    "title": "Discussion",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">To our knowledge, it is the first study to investigate the relationships among <i>DβH</i> 5’-Ins/Del polymorphism, cognition and suicide attempts in chronic schizophrenia. We found that this polymorphism was significantly associated with attention function in suicide attempters with chronic schizophrenia. However, this polymorphism was not a risk genetic locus for suicide attempts in chronic schizophrenia and there were no significant differences in cognitive function between two groups.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Our finding showed that <i>DβH</i> 5’-Ins/Del polymorphism might not directly contribute to suicide attempts in patients with chronic schizophrenia. This finding was consistent with a study reporting that this polymorphism did not play a role in suicide attempts with chronic schizophrenia in the European population. Another study has reported that <i>DβH</i> rs2519152 polymorphism was not related to suicide attempts in subjects with psychiatric disorders. Any one of these <i>DβH</i> polymorphisms, such as rs1611115, rs1108580, rs2519152 and rs129882 was not significantly associated with suicidal behavior in alcohol-dependent patients. However, the <i>DβH</i> haplotype including <i>DβH</i> 5'-del allele was reported to influence suicide attempts in chronic schizophrenia. Also, a study supported a significant relationship between <i>DβH</i> haplotype (including rs1611115, rs1108580, rs2519152 and rs129882) and suicidal behavior in alcohol-dependent patients. These results suggested that further studies investigating <i>DβH</i> haplotype associated with suicide attempts in chronic schizophrenia are warranted.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This study found no significant differences in all cognitive domains between both groups, which was consistent with the findings of two previous studies. However, higher cognitive function may increase the suicide risk in patients with schizophrenia. Another study also indicated that individuals with higher executive performance were more likely to perform the plan of their suicide. We still could not provide a reasonable explanation for these inconsistent findings of cognitive performance in suicide attempts with schizophrenia. Several factors including age, sex, education, body mass index, smoking status, age of onset, age of the first hospitalization, duration of illness, antipsychotic information, genetic background and the difference in cognitive assessment instruments may be responsible for these discrepancies, which deserves future investigation.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Interestingly, this study also found that <i>DβH</i> 5’-Ins/Del polymorphism was related to attention function in suicide attempters with chronic schizophrenia. The underlying mechanism responsible for <i>DβH</i> 5’-Ins/Del polymorphism influenced on attention function could reflect the variables of <i>DβH</i> transcriptional activity and alter the balance of DA and NE in the relevant brain regions. This mechanism was consistent with poorer cognitive function in elderly women and patients with chronic schizophrenia. A study has found that the interaction between <i>DβH</i> 5’-Ins/Del polymorphism and the variants of monoamine oxidase A significantly influenced attention performance for the expression of negative face in the young Han population. Previous studies also indicated the effect of <i>DβH</i> 5’-1021C/T polymorphism on attention bias for the expression of neural face and sustained attention in the healthy subjects. The other variants in <i>DβH</i> gene also were reported to influence attention deficits in children ADHD. DβH was in charge of conversion of DA to NE that also was closely associated with the regulation of attention function. These findings further supported that <i>DβH</i> 5’-Ins/Del polymorphism might be involved in the regulation of attention in the suicide attempters with chronic schizophrenia.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This study had several limitations. Firstly, due to limited resources, it was very difficult for us to recruit a large sample of suicide attempters with chronic schizophrenia, which may cause the bias of our findings in the statistical analysis. Hence, our findings need to be replicated in a larger and matched sample. Secondly, only a functional single nucleotide (<i>DβH</i> 5'-Ins/Del) polymorphism was tested. Further studies will investigate other <i>DβH</i> functional polymorphisms and haplotypes whether all of which were involved in cognitive regulation, and were associated with suicide attempts in chronic schizophrenia. Finally, although we performed quality controls, genotype misclassification was still possible. These factors related to cognitive performance and suicide behavior in chronic schizophrenia should be considered in future studies.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:conclusions",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 10,
+    "title": "Conclusions",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This study indicated that <i>DβH</i> 5’-Ins/Del polymorphism might not influence suicide attempts in chronic schizophrenia, and cognitive function in suicide attempters is similar to that in non-suicide attempters with chronic schizophrenia. However, this polymorphism might contribute to the regulation of attention in suicide attempters with chronic schizophrenia. Moreover, these findings remain preliminary, which need to be replicated in the larger and matched sample of the different ethnicities.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:endnotes",
+    "elementIDs": Array [
+      "MPFootnotesElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 11,
+    "title": "Footnotes",
+  },
+  Object {
+    "_id": "MPFootnotesElement:test",
+    "contents": "<div></div>",
+    "elementType": "div",
+    "objectType": "MPFootnotesElement",
+  },
+  Object {
+    "_id": "MPFootnote:test",
+    "category": "MPFootnoteCategory:conflict",
+    "containingObject": "MPFootnotesElement:test",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\" data-category=\\"conflict\\"><p id=\\"MPParagraphElement:test\\" content-type=\\"fn-title\\">Conflict of Interest</p><p id=\\"MPParagraphElement:test\\">No conflicts of interest have been declared.</p></div>",
+    "kind": "footnote",
+    "objectType": "MPFootnote",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contentType": "fn-title",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\" content-type=\\"fn-title\\">Conflict of Interest</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contentType": null,
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">No conflicts of interest have been declared.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPFootnote:test",
+    "category": "MPFootnoteCategory:financial-disclosure",
+    "containingObject": "MPFootnotesElement:test",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\" data-category=\\"financial-disclosure\\"><p id=\\"MPParagraphElement:test\\" content-type=\\"fn-title\\">Sources of Funding</p><p id=\\"MPParagraphElement:test\\">This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).</p></div>",
+    "kind": "footnote",
+    "objectType": "MPFootnote",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contentType": "fn-title",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\" content-type=\\"fn-title\\">Sources of Funding</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contentType": null,
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:acknowledgement",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 12,
+    "title": "Acknowledgments",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">We should like to thank Dr. Da Chun Chen, Zhi Ren Wang, Jia Li, Song Chen, and Gui Gang Yang for all of their hark work and significant contributions toward this work.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:bibliography",
+    "elementIDs": Array [
+      "MPBibliographyElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 13,
+    "title": "References",
+  },
+  Object {
+    "_id": "MPBibliographyElement:test",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"csl-bib-body\\">  <div class=\\"csl-entry\\">
+    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">1</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Caldwell, C. B. &amp; Gottesman, I. I</span>. <span data-field=\\"title\\">Schizophrenia-a high-risk factor for suicide: clues to risk reduction</span>. <span data-field=\\"container-title\\"><i>Suicide Life Threat Behav.</i></span> <span data-field=\\"volume\\"><b>22</b></span>, <span data-field=\\"page\\">479–493</span> <span data-field=\\"issued\\">(1992)</span>.</div>
+  </div>
+
+  <div class=\\"csl-entry\\">
+    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">2</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Hor, K. &amp; Taylor, M</span>. <a href=\\"https://doi.org/10.1177%2F1359786810385490\\" data-field=\\"title\\">Suicide and schizophrenia: a systematic review of rates and risk factors</a>. <span data-field=\\"container-title\\"><i>J Psychopharmacol.</i></span> <span data-field=\\"volume\\"><b>24</b></span>, <span data-field=\\"page\\">81–90</span> <span data-field=\\"issued\\">(2010)</span>.</div>
+  </div>
+</div>",
+    "elementType": "div",
+    "objectType": "MPBibliographyElement",
+  },
+  Object {
+    "PMID": "1488792",
+    "_id": "MPBibliographyItem:test",
+    "author": Array [
+      Object {
+        "_id": "MPBibliographicName:test",
+        "family": "Caldwell",
+        "given": "C.B.",
+        "objectType": "MPBibliographicName",
+      },
+      Object {
+        "_id": "MPBibliographicName:test",
+        "family": "Gottesman",
+        "given": "I.I.",
+        "objectType": "MPBibliographicName",
+      },
+    ],
+    "container-title": "Suicide Life Threat Behav.",
+    "issued": Object {
+      "_id": "MPBibliographicDate:test",
+      "date-parts": Array [
+        Array [
+          "1992",
+        ],
+      ],
+      "objectType": "MPBibliographicDate",
+    },
+    "objectType": "MPBibliographyItem",
+    "page": "479-493",
+    "title": "Schizophrenia-a high-risk factor for suicide: clues to risk reduction.",
+    "type": "article-journal",
+    "volume": "22",
+  },
+  Object {
+    "DOI": "https://doi.org/10.1177/1359786810385490",
+    "PMID": "20923923",
+    "_id": "MPBibliographyItem:test",
+    "author": Array [
+      Object {
+        "_id": "MPBibliographicName:test",
+        "family": "Hor",
+        "given": "K.",
+        "objectType": "MPBibliographicName",
+      },
+      Object {
+        "_id": "MPBibliographicName:test",
+        "family": "Taylor",
+        "given": "M.",
+        "objectType": "MPBibliographicName",
+      },
+    ],
+    "container-title": "J Psychopharmacol.",
+    "issued": Object {
+      "_id": "MPBibliographicDate:test",
+      "date-parts": Array [
+        Array [
+          "2010",
+        ],
+      ],
+      "objectType": "MPBibliographicDate",
+    },
+    "objectType": "MPBibliographyItem",
+    "page": "81-90",
+    "title": "Suicide and schizophrenia: a systematic review of rates and risk factors.",
+    "type": "article-journal",
+    "volume": "24",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCommentAnnotation:test",
+    "annotationColor": "rgb(250, 224, 150)",
+    "contents": "No table matches the in-text citation \\"Table 1\\". Please supply the missing table or delete the citation.",
+    "contributions": Array [
+      Object {
+        "_id": "MPContribution:test",
+        "objectType": "MPContribution",
+        "profileID": "MPUserProfile:test",
+        "timestamp": 1111111111,
+      },
+    ],
+    "objectType": "MPCommentAnnotation",
+    "selector": Object {
+      "from": 1875,
+      "to": 1875,
+    },
+    "target": "MPParagraphElement:test",
+  },
+  Object {
+    "_id": "MPCommentAnnotation:test",
+    "annotationColor": "rgb(250, 224, 150)",
+    "contents": "CrossRef reports the issue should be \\"4_suppl\\", not \\"4\\". (Ref. \\"Hor, Taylor, 2010\\")",
+    "contributions": Array [
+      Object {
+        "_id": "MPContribution:test",
+        "objectType": "MPContribution",
+        "profileID": "MPUserProfile:test",
+        "timestamp": 1111111111,
+      },
+    ],
+    "objectType": "MPCommentAnnotation",
+    "selector": Object {
+      "from": 19961,
+      "to": 19961,
+    },
+    "target": "MPBibliographyElement:test",
+  },
+]
+`;
+
 exports[`JATS importer parses JATS article to Manuscripts models 1`] = `
 Array [
   Object {

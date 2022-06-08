@@ -79,7 +79,11 @@ export const jatsReferenceParser = {
         }
       })
       if (queriesText.length && bibliographyItem.title) {
-        referenceQueries.set(bibliographyItem.title, queriesText)
+        // Remove any trailing `.` if exist
+        referenceQueries.set(
+          bibliographyItem.title.replace(/\.$/, ''),
+          queriesText
+        )
       }
       if (authorNodes.length <= 0) {
         mixedCitation?.childNodes.forEach((item) => {
