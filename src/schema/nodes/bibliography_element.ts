@@ -47,6 +47,7 @@ export const bibliographyElement: NodeSpec = {
       default:
         'Citations inserted to the manuscript will be formatted here as a bibliography.',
     },
+    dataTracked: { default: null },
   },
   selectable: false,
   group: 'block element',

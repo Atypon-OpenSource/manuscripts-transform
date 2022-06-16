@@ -25,6 +25,8 @@ import {
   styled,
   subscript,
   superscript,
+  tracked_delete,
+  tracked_insert,
   underline,
 } from './marks'
 import { attribution } from './nodes/attribution'
@@ -129,6 +131,8 @@ export const schema = new Schema<Nodes, Marks>({
     subscript,
     superscript,
     underline,
+    tracked_insert,
+    tracked_delete,
   },
   nodes: {
     attribution,

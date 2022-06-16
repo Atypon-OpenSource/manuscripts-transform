@@ -31,6 +31,7 @@ export const placeholderElement: NodeSpec = {
   selectable: false,
   attrs: {
     id: { default: '' },
+    dataTracked: { default: null },
   },
   group: 'block element',
   parseDOM: [

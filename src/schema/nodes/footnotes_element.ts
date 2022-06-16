@@ -33,6 +33,7 @@ export const footnotesElement: NodeSpec = {
     id: { default: '' },
     kind: { default: 'footnote' },
     paragraphStyle: { default: '' },
+    dataTracked: { default: null },
   },
   content: 'footnote*',
   group: 'block element',

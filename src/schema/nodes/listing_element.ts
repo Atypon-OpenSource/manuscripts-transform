@@ -34,6 +34,7 @@ export const listingElement: NodeSpec = {
     id: { default: '' },
     suppressCaption: { default: true },
     suppressTitle: { default: undefined },
+    dataTracked: { default: null },
   },
   group: 'block element',
   selectable: false,

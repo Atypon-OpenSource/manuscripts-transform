@@ -30,6 +30,7 @@ export const keywordsSection: NodeSpec = {
   content: 'section_title (keywords_element | placeholder_element)',
   attrs: {
     id: { default: '' },
+    dataTracked: { default: null },
   },
   group: 'block sections',
   selectable: false,

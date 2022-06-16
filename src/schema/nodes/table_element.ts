@@ -47,6 +47,7 @@ export const tableElement: NodeSpec = {
     suppressFooter: { default: false },
     suppressHeader: { default: false },
     expandListing: { default: false },
+    dataTracked: { default: null },
   },
   selectable: false,
   group: 'block element executable',

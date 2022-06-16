@@ -1412,6 +1412,8 @@ export class JATSExporter {
       superscript: () => ['sup'],
       subscript: () => ['sub'],
       underline: () => ['underline'],
+      tracked_insert: () => ['ins'],
+      tracked_delete: () => ['del'],
     }
 
     this.serializer = new DOMSerializer<ManuscriptSchema>(nodes, marks)

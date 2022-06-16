@@ -33,6 +33,7 @@ export const placeholder: NodeSpec = {
   attrs: {
     id: { default: '' },
     label: { default: '' },
+    dataTracked: { default: null },
   },
   group: 'block',
   parseDOM: [

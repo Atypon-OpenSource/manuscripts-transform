@@ -8,10 +8,14 @@ Object {
   "content": Array [
     Object {
       "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:DFCBE345-A12D-451E-8320-723F25D2F472",
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "Table of Contents",
@@ -105,6 +109,7 @@ Object {
 
   
 </div>",
+            "dataTracked": null,
             "id": "MPTOCElement:657C54DB-78B5-4206-E322-170F68263A01",
             "paragraphStyle": "MPParagraphStyle:74D17A3A-33C0-43EB-9389-51335C698744",
           },
@@ -116,6 +121,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "dataTracked": null,
         "generatedLabel": undefined,
         "id": "MPSection:77786D47-6060-4FBC-BC13-5FA754968D6A",
         "pageBreakStyle": undefined,
@@ -123,6 +129,9 @@ Object {
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "First section",
@@ -134,6 +143,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:150780D7-CFED-4529-9398-77B5C7625044",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "Start from here. Enjoy writing! - the Manuscripts Team.",
@@ -149,6 +159,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:60C13548-23C0-4348-FE98-0510E0B61B18",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -203,6 +214,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:A89DC62A-90ED-4283-AB6D-06CA2519D801",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -229,6 +241,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:05A0ED43-8928-4C69-A17C-0A98795001CD",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -273,6 +286,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "dataTracked": null,
         "generatedLabel": undefined,
         "id": "MPSection:F8EE617B-484B-4CF2-F1CA-014F5307D5CF",
         "pageBreakStyle": undefined,
@@ -280,6 +294,9 @@ Object {
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "Section Two",
@@ -291,6 +308,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:4DF93A63-D44D-41CF-AF54-23712B8703FA",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -305,18 +323,21 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPListElement:D1C6E3B5-C549-47B8-B051-1F534E8AA7E7",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "placeholder": "List item",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "contentType": undefined,
+                    "dataTracked": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -337,18 +358,21 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPListElement:F11B9FCA-5DB5-4ED4-FEF9-10CDCB64F96E",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "placeholder": "List item",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "contentType": undefined,
+                    "dataTracked": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -369,18 +393,21 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPListElement:AF5341C4-5E24-40BF-B853-F966726431EB",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "placeholder": "List item",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "contentType": undefined,
+                    "dataTracked": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -395,18 +422,21 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "id": null,
                     "paragraphStyle": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "List item",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "contentType": undefined,
+                            "dataTracked": null,
                             "id": "",
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -434,6 +464,7 @@ Object {
         Object {
           "attrs": Object {
             "alignment": undefined,
+            "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
             "id": "MPFigureElement:A5D68C57-B5BB-4D10-E0C3-ECED717A2AA7",
@@ -447,6 +478,7 @@ Object {
               "attrs": Object {
                 "attribution": undefined,
                 "contentType": "image/png",
+                "dataTracked": null,
                 "embedURL": undefined,
                 "externalFileReferences": undefined,
                 "id": "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0",
@@ -459,21 +491,29 @@ Object {
               },
               "content": Array [
                 Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
                   "type": "figcaption",
                 },
               ],
               "type": "figure",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -490,6 +530,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -504,6 +545,7 @@ Object {
         Object {
           "attrs": Object {
             "alignment": undefined,
+            "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
             "id": "MPFigureElement:B32BDEC8-E816-4946-C0BB-0404AF2F0C29",
@@ -517,6 +559,7 @@ Object {
               "attrs": Object {
                 "attribution": undefined,
                 "contentType": "image/png",
+                "dataTracked": null,
                 "embedURL": undefined,
                 "externalFileReferences": undefined,
                 "id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
@@ -529,21 +572,29 @@ Object {
               },
               "content": Array [
                 Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
                   "type": "figcaption",
                 },
               ],
               "type": "figure",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -560,6 +611,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -573,6 +625,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "expandListing": false,
             "id": "MPTableElement:82BD8BAF-D136-4536-AD9C-92C30B9D7315",
             "label": "",
@@ -586,6 +639,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
@@ -801,15 +855,20 @@ Object {
               "type": "table",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -826,6 +885,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -839,6 +899,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "expandListing": false,
             "id": "MPTableElement:E0D445B4-18C4-43D3-97B3-1076A7BB5CF4",
             "label": "",
@@ -852,6 +913,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
@@ -1025,15 +1087,20 @@ Object {
               "type": "table",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -1050,6 +1117,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -1063,6 +1131,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "expandListing": false,
             "id": "MPTableElement:1DF69096-DBA3-47B0-B8C2-E06491E4C655",
             "label": "",
@@ -1076,6 +1145,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
@@ -1243,15 +1313,20 @@ Object {
               "type": "table",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -1268,6 +1343,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -1281,6 +1357,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "expandListing": false,
             "id": "MPTableElement:89CF51B2-A20C-4AB9-CBD9-F47DAF167DAA",
             "label": "",
@@ -1294,6 +1371,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
@@ -1461,15 +1539,20 @@ Object {
               "type": "table",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -1486,6 +1569,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -1499,6 +1583,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1",
             "suppressCaption": true,
             "suppressTitle": true,
@@ -1509,20 +1594,26 @@ Object {
                 "MathMLStringRepresentation": "<math xmlns=\\"http://www.w3.org/1998/Math/MathML\\" display=\\"block\\"><mn>2</mn><mi>x</mi><mn>3</mn><mo>=</mo><mn>6</mn></math>",
                 "SVGStringRepresentation": "<svg xmlns:xlink=\\"http://www.w3.org/1999/xlink\\" xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"7.916ex\\" height=\\"2.097ex\\" viewBox=\\"0 -781.2 3408.1 903.1\\" role=\\"img\\" focusable=\\"false\\" style=\\"vertical-align: -0.283ex;\\"><defs xmlns=\\"http://www.w3.org/2000/svg\\"><path stroke-width=\\"1\\" id=\\"MJMAIN-32\\" d=\\"M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z\\"/><path stroke-width=\\"1\\" id=\\"MJMATHI-78\\" d=\\"M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z\\"/><path stroke-width=\\"1\\" id=\\"MJMAIN-33\\" d=\\"M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z\\"/><path stroke-width=\\"1\\" id=\\"MJMAIN-3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"/><path stroke-width=\\"1\\" id=\\"MJMAIN-36\\" d=\\"M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z\\"/></defs><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"matrix(1 0 0 -1 0 0)\\"><use xlink:href=\\"#MJMAIN-32\\" x=\\"0\\" y=\\"0\\"/><use xlink:href=\\"#MJMATHI-78\\" x=\\"500\\" y=\\"0\\"/><use xlink:href=\\"#MJMAIN-33\\" x=\\"1073\\" y=\\"0\\"/><use xlink:href=\\"#MJMAIN-3D\\" x=\\"1851\\" y=\\"0\\"/><use xlink:href=\\"#MJMAIN-36\\" x=\\"2907\\" y=\\"0\\"/></g></svg>",
                 "TeXRepresentation": "2x3=6",
+                "dataTracked": null,
                 "id": "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
               },
               "type": "equation",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "type": "caption",
@@ -1535,6 +1626,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPListingElement:160785A9-4BC0-4C55-C4DE-AF5F4D858DCE",
             "suppressCaption": false,
             "suppressTitle": true,
@@ -1545,6 +1637,7 @@ Object {
                 "contents": "// a JavaScript code block
 
 const x = 'y'",
+                "dataTracked": null,
                 "id": "MPListing:4D688DCF-29CD-40CC-93BD-2B13CD883257",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -1554,15 +1647,20 @@ const x = 'y'",
               "type": "listing",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "type": "caption",
@@ -1576,6 +1674,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1600,6 +1699,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1622,6 +1722,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:41B99DAB-F86C-477F-D36C-2B8590B5DAD0",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1644,6 +1745,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:C8A173A4-DF32-4242-E800-28A1AE5B48B8",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1666,6 +1768,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1674,6 +1777,7 @@ const x = 'y'",
             Object {
               "attrs": Object {
                 "contents": "A hyperlink",
+                "dataTracked": null,
                 "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
                 "selectedText": "",
               },
@@ -1685,6 +1789,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:3708E8C7-441C-4502-8BFC-D3A2059CEF8B",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1706,6 +1811,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E",
             "kind": "footnote",
             "paragraphStyle": "MPParagraphStyle:76353811-8E1D-4D11-A1B5-C960C9EEEFCD",
@@ -1714,6 +1820,7 @@ const x = 'y'",
             Object {
               "attrs": Object {
                 "category": undefined,
+                "dataTracked": null,
                 "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
                 "kind": "footnote",
                 "paragraphStyle": "",
@@ -1723,6 +1830,7 @@ const x = 'y'",
                 Object {
                   "attrs": Object {
                     "contentType": null,
+                    "dataTracked": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -1746,10 +1854,14 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:E07B0D52-9642-4D58-E577-26F8804E3DEE",
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "Bibliography",
@@ -1761,6 +1873,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contents": "<div class=\\"csl-bib-body\\" id=\\"MPBibliographyElement:5987B3BA-D894-4700-90D6-114E20B9F3B1\\"></div>",
+            "dataTracked": null,
             "id": "MPBibliographyElement:5987B3BA-D894-4700-90D6-114E20B9F3B1",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "Citations inserted to the manuscript will be formatted here as a bibliography.",
@@ -1783,10 +1896,14 @@ Object {
   "content": Array [
     Object {
       "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:DFCBE345-A12D-451E-8320-723F25D2F472",
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "Table of Contents",
@@ -1880,6 +1997,7 @@ Object {
 
   
 </div>",
+            "dataTracked": null,
             "id": "MPTOCElement:657C54DB-78B5-4206-E322-170F68263A01",
             "paragraphStyle": "MPParagraphStyle:74D17A3A-33C0-43EB-9389-51335C698744",
           },
@@ -1891,6 +2009,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "dataTracked": null,
         "generatedLabel": undefined,
         "id": "MPSection:77786D47-6060-4FBC-BC13-5FA754968D6A",
         "pageBreakStyle": undefined,
@@ -1898,6 +2017,9 @@ Object {
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "First section",
@@ -1909,6 +2031,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:150780D7-CFED-4529-9398-77B5C7625044",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "Start from here. Enjoy writing! - the Manuscripts Team.",
@@ -1924,6 +2047,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:60C13548-23C0-4348-FE98-0510E0B61B18",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -1978,6 +2102,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:A89DC62A-90ED-4283-AB6D-06CA2519D801",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -2003,6 +2128,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPParagraphElement:05A0ED43-8928-4C69-A17C-0A98795001CD",
           },
           "type": "placeholder_element",
@@ -2013,6 +2139,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "dataTracked": null,
         "generatedLabel": undefined,
         "id": "MPSection:F8EE617B-484B-4CF2-F1CA-014F5307D5CF",
         "pageBreakStyle": undefined,
@@ -2020,6 +2147,9 @@ Object {
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "Section Two",
@@ -2031,6 +2161,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:4DF93A63-D44D-41CF-AF54-23712B8703FA",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -2045,18 +2176,21 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPListElement:D1C6E3B5-C549-47B8-B051-1F534E8AA7E7",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "placeholder": "List item",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "contentType": undefined,
+                    "dataTracked": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -2077,18 +2211,21 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPListElement:F11B9FCA-5DB5-4ED4-FEF9-10CDCB64F96E",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "placeholder": "List item",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "contentType": undefined,
+                    "dataTracked": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -2109,18 +2246,21 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPListElement:AF5341C4-5E24-40BF-B853-F966726431EB",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "placeholder": "List item",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "contentType": undefined,
+                    "dataTracked": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -2135,18 +2275,21 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "id": null,
                     "paragraphStyle": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "List item",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "contentType": undefined,
+                            "dataTracked": null,
                             "id": "",
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -2173,6 +2316,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPFigureElement:A5D68C57-B5BB-4D10-E0C3-ECED717A2AA7",
           },
           "type": "placeholder_element",
@@ -2180,6 +2324,7 @@ Object {
         Object {
           "attrs": Object {
             "alignment": undefined,
+            "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
             "id": "MPFigureElement:B32BDEC8-E816-4946-C0BB-0404AF2F0C29",
@@ -2193,6 +2338,7 @@ Object {
               "attrs": Object {
                 "attribution": undefined,
                 "contentType": "image/png",
+                "dataTracked": null,
                 "embedURL": undefined,
                 "externalFileReferences": undefined,
                 "id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
@@ -2205,21 +2351,29 @@ Object {
               },
               "content": Array [
                 Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
                   "type": "figcaption",
                 },
               ],
               "type": "figure",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -2236,6 +2390,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -2249,6 +2404,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "expandListing": false,
             "id": "MPTableElement:82BD8BAF-D136-4536-AD9C-92C30B9D7315",
             "label": "",
@@ -2262,6 +2418,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
@@ -2477,15 +2634,20 @@ Object {
               "type": "table",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -2502,6 +2664,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -2515,6 +2678,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "expandListing": false,
             "id": "MPTableElement:E0D445B4-18C4-43D3-97B3-1076A7BB5CF4",
             "label": "",
@@ -2528,6 +2692,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
@@ -2701,15 +2866,20 @@ Object {
               "type": "table",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -2726,6 +2896,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -2739,6 +2910,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "expandListing": false,
             "id": "MPTableElement:1DF69096-DBA3-47B0-B8C2-E06491E4C655",
             "label": "",
@@ -2752,21 +2924,27 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "id": "MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8",
                 "label": "A table",
               },
               "type": "placeholder",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -2783,6 +2961,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -2796,6 +2975,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "expandListing": false,
             "id": "MPTableElement:89CF51B2-A20C-4AB9-CBD9-F47DAF167DAA",
             "label": "",
@@ -2809,6 +2989,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
@@ -2976,15 +3157,20 @@ Object {
               "type": "table",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -3001,6 +3187,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -3014,6 +3201,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1",
             "suppressCaption": true,
             "suppressTitle": true,
@@ -3024,20 +3212,26 @@ Object {
                 "MathMLStringRepresentation": "<math xmlns=\\"http://www.w3.org/1998/Math/MathML\\" display=\\"block\\"><mn>2</mn><mi>x</mi><mn>3</mn><mo>=</mo><mn>6</mn></math>",
                 "SVGStringRepresentation": "<svg xmlns:xlink=\\"http://www.w3.org/1999/xlink\\" xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"7.916ex\\" height=\\"2.097ex\\" viewBox=\\"0 -781.2 3408.1 903.1\\" role=\\"img\\" focusable=\\"false\\" style=\\"vertical-align: -0.283ex;\\"><defs xmlns=\\"http://www.w3.org/2000/svg\\"><path stroke-width=\\"1\\" id=\\"MJMAIN-32\\" d=\\"M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z\\"/><path stroke-width=\\"1\\" id=\\"MJMATHI-78\\" d=\\"M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z\\"/><path stroke-width=\\"1\\" id=\\"MJMAIN-33\\" d=\\"M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z\\"/><path stroke-width=\\"1\\" id=\\"MJMAIN-3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"/><path stroke-width=\\"1\\" id=\\"MJMAIN-36\\" d=\\"M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z\\"/></defs><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"matrix(1 0 0 -1 0 0)\\"><use xlink:href=\\"#MJMAIN-32\\" x=\\"0\\" y=\\"0\\"/><use xlink:href=\\"#MJMATHI-78\\" x=\\"500\\" y=\\"0\\"/><use xlink:href=\\"#MJMAIN-33\\" x=\\"1073\\" y=\\"0\\"/><use xlink:href=\\"#MJMAIN-3D\\" x=\\"1851\\" y=\\"0\\"/><use xlink:href=\\"#MJMAIN-36\\" x=\\"2907\\" y=\\"0\\"/></g></svg>",
                 "TeXRepresentation": "2x3=6",
+                "dataTracked": null,
                 "id": "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
               },
               "type": "equation",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "type": "caption",
@@ -3050,6 +3244,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPListingElement:160785A9-4BC0-4C55-C4DE-AF5F4D858DCE",
             "suppressCaption": false,
             "suppressTitle": true,
@@ -3060,6 +3255,7 @@ Object {
                 "contents": "// a JavaScript code block
 
 const x = 'y'",
+                "dataTracked": null,
                 "id": "MPListing:4D688DCF-29CD-40CC-93BD-2B13CD883257",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -3069,15 +3265,20 @@ const x = 'y'",
               "type": "listing",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "type": "caption",
@@ -3091,6 +3292,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3115,6 +3317,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3137,6 +3340,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:41B99DAB-F86C-477F-D36C-2B8590B5DAD0",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3159,6 +3363,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:C8A173A4-DF32-4242-E800-28A1AE5B48B8",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3181,6 +3386,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3189,6 +3395,7 @@ const x = 'y'",
             Object {
               "attrs": Object {
                 "contents": "A hyperlink",
+                "dataTracked": null,
                 "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
                 "selectedText": "",
               },
@@ -3200,6 +3407,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:3708E8C7-441C-4502-8BFC-D3A2059CEF8B",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3221,6 +3429,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E",
             "kind": "footnote",
             "paragraphStyle": "MPParagraphStyle:76353811-8E1D-4D11-A1B5-C960C9EEEFCD",
@@ -3229,6 +3438,7 @@ const x = 'y'",
             Object {
               "attrs": Object {
                 "category": undefined,
+                "dataTracked": null,
                 "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
                 "kind": "footnote",
                 "paragraphStyle": "",
@@ -3238,6 +3448,7 @@ const x = 'y'",
                 Object {
                   "attrs": Object {
                     "contentType": null,
+                    "dataTracked": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -3261,10 +3472,14 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:E07B0D52-9642-4D58-E577-26F8804E3DEE",
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "Bibliography",
@@ -3276,6 +3491,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contents": "<div class=\\"csl-bib-body\\" id=\\"MPBibliographyElement:5987B3BA-D894-4700-90D6-114E20B9F3B1\\"></div>",
+            "dataTracked": null,
             "id": "MPBibliographyElement:5987B3BA-D894-4700-90D6-114E20B9F3B1",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "Citations inserted to the manuscript will be formatted here as a bibliography.",
@@ -3298,10 +3514,14 @@ Object {
   "content": Array [
     Object {
       "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:DFCBE345-A12D-451E-8320-723F25D2F472",
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "Table of Contents",
@@ -3395,6 +3615,7 @@ Object {
 
   
 </div>",
+            "dataTracked": null,
             "id": "MPTOCElement:657C54DB-78B5-4206-E322-170F68263A01",
             "paragraphStyle": "MPParagraphStyle:74D17A3A-33C0-43EB-9389-51335C698744",
           },
@@ -3406,6 +3627,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "dataTracked": null,
         "generatedLabel": undefined,
         "id": "MPSection:77786D47-6060-4FBC-BC13-5FA754968D6A",
         "pageBreakStyle": undefined,
@@ -3413,6 +3635,9 @@ Object {
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "First section",
@@ -3424,6 +3649,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:150780D7-CFED-4529-9398-77B5C7625044",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "Start from here. Enjoy writing! - the Manuscripts Team.",
@@ -3439,6 +3665,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:60C13548-23C0-4348-FE98-0510E0B61B18",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3493,6 +3720,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:A89DC62A-90ED-4283-AB6D-06CA2519D801",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3519,6 +3747,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:05A0ED43-8928-4C69-A17C-0A98795001CD",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3563,6 +3792,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "dataTracked": null,
         "generatedLabel": undefined,
         "id": "MPSection:F8EE617B-484B-4CF2-F1CA-014F5307D5CF",
         "pageBreakStyle": undefined,
@@ -3570,6 +3800,9 @@ Object {
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "Section Two",
@@ -3581,6 +3814,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:4DF93A63-D44D-41CF-AF54-23712B8703FA",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -3595,18 +3829,21 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPListElement:D1C6E3B5-C549-47B8-B051-1F534E8AA7E7",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "placeholder": "List item",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "contentType": undefined,
+                    "dataTracked": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -3627,18 +3864,21 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPListElement:F11B9FCA-5DB5-4ED4-FEF9-10CDCB64F96E",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "placeholder": "List item",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "contentType": undefined,
+                    "dataTracked": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -3659,18 +3899,21 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPListElement:AF5341C4-5E24-40BF-B853-F966726431EB",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "placeholder": "List item",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "contentType": undefined,
+                    "dataTracked": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -3685,18 +3928,21 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "id": null,
                     "paragraphStyle": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "List item",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "contentType": undefined,
+                            "dataTracked": null,
                             "id": "",
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -3724,6 +3970,7 @@ Object {
         Object {
           "attrs": Object {
             "alignment": undefined,
+            "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
             "id": "MPFigureElement:A5D68C57-B5BB-4D10-E0C3-ECED717A2AA7",
@@ -3737,6 +3984,7 @@ Object {
               "attrs": Object {
                 "attribution": undefined,
                 "contentType": "image/png",
+                "dataTracked": null,
                 "embedURL": undefined,
                 "externalFileReferences": undefined,
                 "id": "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0",
@@ -3749,21 +3997,29 @@ Object {
               },
               "content": Array [
                 Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
                   "type": "figcaption",
                 },
               ],
               "type": "figure",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -3780,6 +4036,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -3794,6 +4051,7 @@ Object {
         Object {
           "attrs": Object {
             "alignment": undefined,
+            "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
             "id": "MPFigureElement:B32BDEC8-E816-4946-C0BB-0404AF2F0C29",
@@ -3807,6 +4065,7 @@ Object {
               "attrs": Object {
                 "attribution": undefined,
                 "contentType": "image/png",
+                "dataTracked": null,
                 "embedURL": undefined,
                 "externalFileReferences": undefined,
                 "id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
@@ -3819,21 +4078,29 @@ Object {
               },
               "content": Array [
                 Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
                   "type": "figcaption",
                 },
               ],
               "type": "figure",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -3850,6 +4117,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -3863,6 +4131,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "expandListing": false,
             "id": "MPTableElement:82BD8BAF-D136-4536-AD9C-92C30B9D7315",
             "label": "",
@@ -3876,6 +4145,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
@@ -4091,15 +4361,20 @@ Object {
               "type": "table",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -4116,6 +4391,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -4129,6 +4405,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "expandListing": false,
             "id": "MPTableElement:E0D445B4-18C4-43D3-97B3-1076A7BB5CF4",
             "label": "",
@@ -4142,6 +4419,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
@@ -4315,15 +4593,20 @@ Object {
               "type": "table",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -4340,6 +4623,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -4353,6 +4637,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "expandListing": false,
             "id": "MPTableElement:1DF69096-DBA3-47B0-B8C2-E06491E4C655",
             "label": "",
@@ -4366,6 +4651,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
@@ -4533,15 +4819,20 @@ Object {
               "type": "table",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -4558,6 +4849,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -4571,6 +4863,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "expandListing": false,
             "id": "MPTableElement:89CF51B2-A20C-4AB9-CBD9-F47DAF167DAA",
             "label": "",
@@ -4584,6 +4877,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "dataTracked": null,
                 "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
@@ -4751,15 +5045,20 @@ Object {
               "type": "table",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -4776,6 +5075,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -4789,6 +5089,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1",
             "suppressCaption": true,
             "suppressTitle": true,
@@ -4799,20 +5100,26 @@ Object {
                 "MathMLStringRepresentation": "<math xmlns=\\"http://www.w3.org/1998/Math/MathML\\" display=\\"block\\"><mn>2</mn><mi>x</mi><mn>3</mn><mo>=</mo><mn>6</mn></math>",
                 "SVGStringRepresentation": "<svg xmlns:xlink=\\"http://www.w3.org/1999/xlink\\" xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"7.916ex\\" height=\\"2.097ex\\" viewBox=\\"0 -781.2 3408.1 903.1\\" role=\\"img\\" focusable=\\"false\\" style=\\"vertical-align: -0.283ex;\\"><defs xmlns=\\"http://www.w3.org/2000/svg\\"><path stroke-width=\\"1\\" id=\\"MJMAIN-32\\" d=\\"M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z\\"/><path stroke-width=\\"1\\" id=\\"MJMATHI-78\\" d=\\"M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z\\"/><path stroke-width=\\"1\\" id=\\"MJMAIN-33\\" d=\\"M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z\\"/><path stroke-width=\\"1\\" id=\\"MJMAIN-3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"/><path stroke-width=\\"1\\" id=\\"MJMAIN-36\\" d=\\"M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z\\"/></defs><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"matrix(1 0 0 -1 0 0)\\"><use xlink:href=\\"#MJMAIN-32\\" x=\\"0\\" y=\\"0\\"/><use xlink:href=\\"#MJMATHI-78\\" x=\\"500\\" y=\\"0\\"/><use xlink:href=\\"#MJMAIN-33\\" x=\\"1073\\" y=\\"0\\"/><use xlink:href=\\"#MJMAIN-3D\\" x=\\"1851\\" y=\\"0\\"/><use xlink:href=\\"#MJMAIN-36\\" x=\\"2907\\" y=\\"0\\"/></g></svg>",
                 "TeXRepresentation": "2x3=6",
+                "dataTracked": null,
                 "id": "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
               },
               "type": "equation",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "type": "caption",
@@ -4825,6 +5132,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPListingElement:160785A9-4BC0-4C55-C4DE-AF5F4D858DCE",
             "suppressCaption": false,
             "suppressTitle": true,
@@ -4835,6 +5143,7 @@ Object {
                 "contents": "// a JavaScript code block
 
 const x = 'y'",
+                "dataTracked": null,
                 "id": "MPListing:4D688DCF-29CD-40CC-93BD-2B13CD883257",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -4844,15 +5153,20 @@ const x = 'y'",
               "type": "listing",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "type": "caption",
@@ -4866,6 +5180,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -4890,6 +5205,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -4912,6 +5228,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:41B99DAB-F86C-477F-D36C-2B8590B5DAD0",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -4934,6 +5251,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:C8A173A4-DF32-4242-E800-28A1AE5B48B8",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -4956,6 +5274,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -4964,6 +5283,7 @@ const x = 'y'",
             Object {
               "attrs": Object {
                 "contents": "A hyperlink",
+                "dataTracked": null,
                 "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
                 "selectedText": "",
               },
@@ -4975,6 +5295,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:3708E8C7-441C-4502-8BFC-D3A2059CEF8B",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "",
@@ -4996,6 +5317,7 @@ const x = 'y'",
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
             "id": "MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E",
             "kind": "footnote",
             "paragraphStyle": "MPParagraphStyle:76353811-8E1D-4D11-A1B5-C960C9EEEFCD",
@@ -5004,6 +5326,7 @@ const x = 'y'",
             Object {
               "attrs": Object {
                 "category": undefined,
+                "dataTracked": null,
                 "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
                 "kind": "footnote",
                 "paragraphStyle": "",
@@ -5013,6 +5336,7 @@ const x = 'y'",
                 Object {
                   "attrs": Object {
                     "contentType": null,
+                    "dataTracked": null,
                     "id": "",
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -5036,10 +5360,14 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:E07B0D52-9642-4D58-E577-26F8804E3DEE",
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "Bibliography",
@@ -5051,6 +5379,7 @@ const x = 'y'",
         Object {
           "attrs": Object {
             "contents": "<div class=\\"csl-bib-body\\" id=\\"MPBibliographyElement:5987B3BA-D894-4700-90D6-114E20B9F3B1\\"></div>",
+            "dataTracked": null,
             "id": "MPBibliographyElement:5987B3BA-D894-4700-90D6-114E20B9F3B1",
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
             "placeholder": "Citations inserted to the manuscript will be formatted here as a bibliography.",
@@ -5074,6 +5403,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "dataTracked": null,
         "generatedLabel": true,
         "id": "MPSection:1",
         "pageBreakStyle": undefined,
@@ -5081,6 +5411,9 @@ Object {
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "A section",
@@ -5092,6 +5425,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:1",
             "paragraphStyle": "MPParagraphStyle:1",
             "placeholder": "",
@@ -5104,6 +5438,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "1",
+                "dataTracked": null,
                 "rid": "MPCitation:1",
                 "selectedText": "",
               },
@@ -5119,6 +5454,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:2",
             "paragraphStyle": "MPParagraphStyle:1",
             "placeholder": "",
@@ -5165,6 +5501,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "dataTracked": null,
         "generatedLabel": true,
         "id": "MPSection:1",
         "pageBreakStyle": undefined,
@@ -5172,6 +5509,9 @@ Object {
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "A section title with a ",
@@ -5203,6 +5543,7 @@ Object {
         Object {
           "attrs": Object {
             "contentType": undefined,
+            "dataTracked": null,
             "id": "MPParagraphElement:1",
             "paragraphStyle": "MPParagraphStyle:1",
             "placeholder": "",
@@ -5242,6 +5583,7 @@ Object {
         Object {
           "attrs": Object {
             "alignment": undefined,
+            "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "MPFigureStyle:1",
             "id": "MPFigureElement:1",
@@ -5255,6 +5597,7 @@ Object {
               "attrs": Object {
                 "attribution": undefined,
                 "contentType": "",
+                "dataTracked": null,
                 "embedURL": undefined,
                 "externalFileReferences": undefined,
                 "id": "MPFigure:1",
@@ -5267,9 +5610,13 @@ Object {
               },
               "content": Array [
                 Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
                   "content": Array [
                     Object {
                       "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -5307,15 +5654,20 @@ Object {
               "type": "figure",
             },
             Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
+                    "dataTracked": null,
                     "placeholder": "Caption...",
                   },
                   "content": Array [
@@ -5352,6 +5704,7 @@ Object {
             Object {
               "attrs": Object {
                 "contents": "",
+                "dataTracked": null,
                 "id": "",
                 "isExecuting": false,
                 "isExpanded": false,
@@ -5379,10 +5732,14 @@ Object {
   "content": Array [
     Object {
       "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:1",
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "Keywords",
@@ -5394,6 +5751,7 @@ Object {
         Object {
           "attrs": Object {
             "contents": "<p id=\\"MPKeywordsElement:1\\" class=\\"keywords MPElement MPParagraphStyle_1\\">test</p>",
+            "dataTracked": null,
             "id": "MPKeywordsElement:1",
             "paragraphStyle": "MPParagraphStyle:1",
           },
@@ -5415,10 +5773,14 @@ Object {
   "content": Array [
     Object {
       "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:1",
       },
       "content": Array [
         Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
           "content": Array [
             Object {
               "text": "Keywords",
@@ -5430,6 +5792,7 @@ Object {
         Object {
           "attrs": Object {
             "contents": "",
+            "dataTracked": null,
             "id": "",
             "paragraphStyle": "",
           },

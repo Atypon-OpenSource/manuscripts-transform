@@ -25,6 +25,7 @@ export interface FigCaptionNode extends ManuscriptNode {
 export const figcaption: NodeSpec = {
   content: 'caption_title? caption*',
   group: 'block',
+  attrs: { dataTracked: { default: null } },
   isolating: true,
   selectable: false,
   parseDOM: [

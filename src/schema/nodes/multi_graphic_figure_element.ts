@@ -47,6 +47,7 @@ export const multiGraphicFigureElement: NodeSpec = {
     alignment: { default: undefined },
     suppressCaption: { default: false },
     suppressTitle: { default: undefined },
+    dataTracked: { default: null },
   },
   selectable: false,
   group: 'block element executable',

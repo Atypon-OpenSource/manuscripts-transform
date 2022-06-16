@@ -36,6 +36,7 @@ export const pullquoteElement: NodeSpec = {
     id: { default: '' },
     paragraphStyle: { default: '' }, // TODO: default paragraph style
     placeholder: { default: '' },
+    dataTracked: { default: null },
   },
   group: 'block element',
   selectable: false,

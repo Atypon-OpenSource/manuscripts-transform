@@ -33,6 +33,7 @@ export const bulletList: NodeSpec = {
   attrs: {
     id: { default: '' },
     paragraphStyle: { default: '' },
+    dataTracked: { default: null },
   },
   parseDOM: [
     {
@@ -77,6 +78,7 @@ export const orderedList: NodeSpec = {
     id: { default: '' },
     // order: { default: 1 },
     paragraphStyle: { default: '' },
+    dataTracked: { default: null },
   },
   parseDOM: [
     {
@@ -123,6 +125,7 @@ export const listItem: NodeSpec = {
   defining: true,
   attrs: {
     placeholder: { default: 'List item' },
+    dataTracked: { default: null },
   },
   parseDOM: [
     {

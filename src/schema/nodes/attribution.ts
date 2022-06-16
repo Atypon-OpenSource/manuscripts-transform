@@ -24,6 +24,7 @@ export interface AttributionNode extends ManuscriptNode {
 
 export const attribution: NodeSpec = {
   content: '(text | link | highlight_marker)*',
+  attrs: { dataTracked: { default: null } },
   group: 'block',
   isolating: true,
   selectable: false,

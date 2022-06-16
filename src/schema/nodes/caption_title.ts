@@ -32,6 +32,7 @@ export const captionTitle: NodeSpec = {
   selectable: false,
   attrs: {
     placeholder: { default: 'Title...' },
+    dataTracked: { default: null },
   },
   parseDOM: [
     {

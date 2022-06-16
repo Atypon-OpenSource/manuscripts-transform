@@ -51,6 +51,7 @@ export const figure: NodeSpec = {
     externalFileReferences: { default: undefined },
     missingImage: { default: undefined },
     position: { default: undefined },
+    dataTracked: { default: null },
   },
   selectable: false,
   group: 'block',

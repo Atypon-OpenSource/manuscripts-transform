@@ -25,6 +25,7 @@ export interface SectionLabelNode extends ManuscriptNode {
 export const sectionLabel: NodeSpec = {
   content: 'inline*',
   group: 'block',
+  attrs: { dataTracked: { default: null } },
   selectable: false,
   parseDOM: [{ tag: 'label' }],
   toDOM() {

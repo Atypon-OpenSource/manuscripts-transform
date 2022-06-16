@@ -41,6 +41,7 @@ export const table: TableNodeSpec = {
     headerRows: { default: 1 },
     footerRows: { default: 1 },
     externalFileReferences: { default: undefined },
+    dataTracked: { default: null },
   },
   parseDOM: [
     {

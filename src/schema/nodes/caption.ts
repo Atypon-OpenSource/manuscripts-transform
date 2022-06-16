@@ -30,6 +30,7 @@ export const caption: NodeSpec = {
   content: 'inline*',
   attrs: {
     placeholder: { default: 'Caption...' },
+    dataTracked: { default: null },
   },
   selectable: false,
   isolating: true,

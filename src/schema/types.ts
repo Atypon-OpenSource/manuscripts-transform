@@ -44,6 +44,8 @@ export type Marks =
   | 'subscript'
   | 'superscript'
   | 'underline'
+  | 'tracked_insert'
+  | 'tracked_delete'
 
 export type Nodes =
   | 'attribution'

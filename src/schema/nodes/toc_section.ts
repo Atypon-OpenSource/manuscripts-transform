@@ -30,6 +30,7 @@ export const tocSection: NodeSpec = {
   content: 'section_title (toc_element | placeholder_element)',
   attrs: {
     id: { default: '' },
+    dataTracked: { default: null },
   },
   group: 'block sections',
   selectable: false,

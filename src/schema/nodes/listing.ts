@@ -41,6 +41,7 @@ export const listing: NodeSpec = {
     isExpanded: { default: false },
     isExecuting: { default: false },
     // placeholder: { default: 'Click to edit listing' },
+    dataTracked: { default: null },
   },
   draggable: false,
   selectable: false,

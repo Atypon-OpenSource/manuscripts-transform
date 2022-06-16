@@ -36,6 +36,7 @@ export const citation: NodeSpec = {
     rid: { default: '' },
     contents: { default: '' },
     selectedText: { default: '' },
+    dataTracked: { default: null },
   },
   parseDOM: [
     {

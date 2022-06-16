@@ -37,6 +37,7 @@ export const paragraph: NodeSpec = {
     id: { default: '' },
     paragraphStyle: { default: '' }, // TODO: default paragraph style
     placeholder: { default: '' }, // TODO: 'List item' if inside a list
+    dataTracked: { default: null },
     // tight: { default: false }, // https://gitlab.com/mpapp-private/manuscripts-frontend/issues/75
     contentType: { default: undefined },
   },

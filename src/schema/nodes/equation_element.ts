@@ -34,6 +34,7 @@ export const equationElement: NodeSpec = {
     id: { default: '' },
     suppressCaption: { default: true },
     suppressTitle: { default: undefined },
+    dataTracked: { default: null },
   },
   selectable: false,
   group: 'block element',

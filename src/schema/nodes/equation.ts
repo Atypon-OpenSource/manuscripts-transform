@@ -36,6 +36,7 @@ export const equation: NodeSpec = {
     MathMLStringRepresentation: { default: '' },
     SVGStringRepresentation: { default: '' },
     TeXRepresentation: { default: '' },
+    dataTracked: { default: null },
     // placeholder: { default: 'Click to edit equation' },
   },
   group: 'block',

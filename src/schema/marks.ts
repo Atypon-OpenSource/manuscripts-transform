@@ -114,3 +114,73 @@ export const underline: MarkSpec = {
   parseDOM: [{ tag: 'u' }, { style: 'text-decoration=underline' }],
   toDOM: () => ['u'],
 }
+
+export const tracked_insert: MarkSpec = {
+  excludes: 'tracked_insert tracked_delete',
+  attrs: {
+    dataTracked: { default: null },
+  },
+  parseDOM: [
+    {
+      tag: 'ins',
+      getAttrs: (ins) => {
+        const dom = ins as HTMLElement
+        return {
+          dataTracked: {
+            id: dom.getAttribute('data-track-id'),
+            userID: dom.getAttribute('data-user-id'),
+            status: dom.getAttribute('data-track-status'),
+            createdAt: parseInt(dom.getAttribute('data-track-created-at') || ''),
+          },
+        }
+      },
+    },
+  ],
+  toDOM: (el) => {
+    const dataTracked: any | undefined = el.attrs.dataTracked || {}
+    const { status = 'pending', id, userID, createdAt } = dataTracked
+    const attrs = {
+      class: `inserted ${status}`,
+      'data-track-status': status,
+      ...(id && { 'data-track-id': id }),
+      ...(userID && { 'data-user-id': userID }),
+      ...(createdAt && { 'data-track-created-at': createdAt }),
+    }
+    return ['ins', attrs]
+  },
+}
+
+export const tracked_delete: MarkSpec = {
+  excludes: 'tracked_insert tracked_delete',
+  attrs: {
+    dataTracked: { default: null },
+  },
+  parseDOM: [
+    {
+      tag: 'del',
+      getAttrs: (del) => {
+        const dom = del as HTMLElement
+        return {
+          dataTracked: {
+            id: dom.getAttribute('data-track-id'),
+            userID: dom.getAttribute('data-user-id'),
+            status: dom.getAttribute('data-track-status'),
+            createdAt: parseInt(dom.getAttribute('data-track-created-at') || ''),
+          },
+        }
+      },
+    },
+  ],
+  toDOM: (el) => {
+    const dataTracked: any | undefined = el.attrs.dataTracked || {}
+    const { status = 'pending', id, userID, createdAt } = dataTracked
+    const attrs = {
+      class: `deleted ${status}`,
+      'data-track-status': status,
+      ...(id && { 'data-track-id': id }),
+      ...(userID && { 'data-user-id': userID }),
+      ...(createdAt && { 'data-track-created-at': createdAt }),
+    }
+    return ['del', attrs]
+  },
+}

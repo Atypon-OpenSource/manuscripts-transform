@@ -46,6 +46,7 @@ export const footnote: NodeSpec = {
     paragraphStyle: { default: '' },
     placeholder: { default: '' },
     category: { default: undefined },
+    dataTracked: { default: null },
   },
   parseDOM: [
     {
