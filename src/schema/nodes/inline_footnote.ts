@@ -31,6 +31,7 @@ export const inlineFootnote: NodeSpec = {
   attrs: {
     rid: { default: '' },
     contents: { default: '' },
+    dataTracked: { default: null },
   },
   atom: true,
   inline: true,

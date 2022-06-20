@@ -118,3 +118,11 @@ export type ManuscriptTransaction = Transaction<ManuscriptSchema>
 export interface TableNodeSpec extends NodeSpec {
   tableRole: string
 }
+
+export type DataTrackedAttrs = {
+  id: string
+  status: string
+  operation: string
+  userID: string
+  createdAt: number
+}

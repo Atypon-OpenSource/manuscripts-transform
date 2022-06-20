@@ -16,6 +16,8 @@
 
 import { MarkSpec } from 'prosemirror-model'
 
+import { DataTrackedAttrs } from './types'
+
 export const bold: MarkSpec = {
   parseDOM: [
     {
@@ -130,21 +132,23 @@ export const tracked_insert: MarkSpec = {
             id: dom.getAttribute('data-track-id'),
             userID: dom.getAttribute('data-user-id'),
             status: dom.getAttribute('data-track-status'),
-            createdAt: parseInt(dom.getAttribute('data-track-created-at') || ''),
+            createdAt: parseInt(
+              dom.getAttribute('data-track-created-at') || ''
+            ),
           },
         }
       },
     },
   ],
   toDOM: (el) => {
-    const dataTracked: any | undefined = el.attrs.dataTracked || {}
+    const dataTracked: Partial<DataTrackedAttrs> = el.attrs.dataTracked || {}
     const { status = 'pending', id, userID, createdAt } = dataTracked
     const attrs = {
       class: `inserted ${status}`,
       'data-track-status': status,
       ...(id && { 'data-track-id': id }),
       ...(userID && { 'data-user-id': userID }),
-      ...(createdAt && { 'data-track-created-at': createdAt }),
+      ...(createdAt && { 'data-track-created-at': createdAt.toString() }),
     }
     return ['ins', attrs]
   },
@@ -165,21 +169,23 @@ export const tracked_delete: MarkSpec = {
             id: dom.getAttribute('data-track-id'),
             userID: dom.getAttribute('data-user-id'),
             status: dom.getAttribute('data-track-status'),
-            createdAt: parseInt(dom.getAttribute('data-track-created-at') || ''),
+            createdAt: parseInt(
+              dom.getAttribute('data-track-created-at') || ''
+            ),
           },
         }
       },
     },
   ],
   toDOM: (el) => {
-    const dataTracked: any | undefined = el.attrs.dataTracked || {}
+    const dataTracked: Partial<DataTrackedAttrs> = el.attrs.dataTracked || {}
     const { status = 'pending', id, userID, createdAt } = dataTracked
     const attrs = {
       class: `deleted ${status}`,
       'data-track-status': status,
       ...(id && { 'data-track-id': id }),
       ...(userID && { 'data-user-id': userID }),
-      ...(createdAt && { 'data-track-created-at': createdAt }),
+      ...(createdAt && { 'data-track-created-at': createdAt.toString() }),
     }
     return ['del', attrs]
   },

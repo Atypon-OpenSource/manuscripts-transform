@@ -26,6 +26,9 @@ export const hardBreak: NodeSpec = {
   inline: true,
   group: 'inline',
   selectable: false,
+  attrs: {
+    dataTracked: { default: null },
+  },
   parseDOM: [{ tag: 'br' }],
   toDOM() {
     return ['br']

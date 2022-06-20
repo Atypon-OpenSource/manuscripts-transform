@@ -35,6 +35,7 @@ export const crossReference: NodeSpec = {
   attrs: {
     rid: { default: '' },
     label: { default: '' },
+    dataTracked: { default: null },
   },
   parseDOM: [
     {

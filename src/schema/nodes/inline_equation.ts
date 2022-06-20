@@ -37,6 +37,7 @@ export const inlineEquation: NodeSpec = {
     MathMLRepresentation: { default: '' },
     SVGRepresentation: { default: '' },
     TeXRepresentation: { default: '' },
+    dataTracked: { default: null },
   },
   atom: true,
   inline: true,

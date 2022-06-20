@@ -24,7 +24,8 @@ export interface SectionTitleNode extends ManuscriptNode {
 
 export const sectionTitle: NodeSpec = {
   content: '(text | highlight_marker)*',
-  marks: 'italic superscript subscript smallcaps bold tracked_insert tracked_delete',
+  marks:
+    'italic superscript subscript smallcaps bold tracked_insert tracked_delete',
   group: 'block',
   attrs: { dataTracked: { default: null } },
   selectable: false,

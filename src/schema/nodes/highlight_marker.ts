@@ -38,6 +38,7 @@ export const highlightMarker: NodeSpec = {
     id: { default: '' },
     rid: { default: '' },
     position: { default: '' },
+    dataTracked: { default: null },
   },
   parseDOM: [
     {
