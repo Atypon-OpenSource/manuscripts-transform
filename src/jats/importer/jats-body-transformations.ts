@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import { chooseSectionCategoryByType, chooseSecType } from '../../transformer'
+
 const removeNodeFromParent = (node: Element) =>
   node.parentNode && node.parentNode.removeChild(node)
 
@@ -126,7 +128,7 @@ export const jatsBodyTransformations = {
     createElement: (tagName: string) => HTMLElement
   ) {
     const section = createElement('sec')
-    section.setAttribute('sec-type', 'notes')
+    section.setAttribute('sec-type', 'endnotes')
 
     const titleNode = footnoteGroups
       .map((g) => g.querySelector('title'))
@@ -220,48 +222,35 @@ export const jatsBodyTransformations = {
       removeNodeFromParent(refList)
       body.appendChild(bibliography)
     }
-
-    // move footnotes without fn-type from back to body section
-    let footnoteGroups = [
-      ...doc.querySelectorAll('back > fn-group:not([fn-type])'),
-    ]
-    // check if these groups don't have an fn-type because they are actually a mixed group and not a normal footnote group
-    footnoteGroups = footnoteGroups.filter((group) => {
-      // count check for if all the irrelevant fns as already been extracted
-      return group.childElementCount === 0
-        ? false
-        : !group.querySelector('fn[fn-type]')
-    })
-
-    if (footnoteGroups.length > 0) {
-      footnoteGroups.map((g) => removeNodeFromParent(g))
-      const footnotes = this.createFootnotes(footnoteGroups, createElement)
-      body.appendChild(footnotes)
-    }
   },
   mapFootnotesToSections(
     doc: Document,
     body: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
-    const footnoteGroups = [...doc.querySelectorAll('fn-group')]
-    if (footnoteGroups.length > 0) {
-      const section = createElement('sec')
-      section.setAttribute('sec-type', 'notes')
+    const footnoteGroups = [...doc.querySelectorAll('fn[fn-type]')]
+    for (const footnote of footnoteGroups) {
+      const type = footnote.getAttribute('fn-type') || '' //Cannot be null since it is queried above
+      const category = chooseSectionCategoryByType(type)
+      if (category) {
+        const section = createElement('sec')
+        const title = footnote.querySelector('p[content-type="fn-title"]')
+        if (title) {
+          const sectionTitleElement = createElement('title')
+          sectionTitleElement.textContent = title.textContent
+          removeNodeFromParent(title)
+          section.append(sectionTitleElement)
+        }
+        section.append(...footnote.children)
+        removeNodeFromParent(footnote)
 
-      const sectionTitleElement = createElement('title')
-      sectionTitleElement.textContent = 'Footnotes'
-      section.append(sectionTitleElement)
-
-      for (const footnoteGroup of footnoteGroups) {
-        removeNodeFromParent(footnoteGroup)
-        section.append(footnoteGroup)
+        section.setAttribute('sec-type', chooseSecType(category))
+        body.append(section)
       }
-      body.append(section)
     }
 
     const footnotes = [...doc.querySelectorAll('fn')]
-    const footnotesSection = doc.querySelector('sec[sec-type="notes"]')
+    const footnotesSection = doc.querySelector('sec[sec-type="endnotes"]')
     const footnotesSectionGroup = footnotesSection?.querySelector('fn-group')
     const containingGroup = footnotesSectionGroup || createElement('fn-group')
 
@@ -275,6 +264,27 @@ export const jatsBodyTransformations = {
     if (!footnotesSection) {
       const section = this.createFootnotes([containingGroup], createElement)
       body.append(section)
+    }
+
+    // move footnotes without fn-type from back to body section
+    let regularFootnoteGroups = [
+      ...doc.querySelectorAll('back > fn-group:not([fn-type])'),
+    ]
+    // check if these groups don't have an fn-type because they are actually a mixed group and not a normal footnote group
+    regularFootnoteGroups = regularFootnoteGroups.filter((group) => {
+      // count check for if all the irrelevant fns as already been extracted
+      return group.childElementCount === 0
+        ? false
+        : !group.querySelector('fn[fn-type]')
+    })
+
+    if (regularFootnoteGroups.length > 0) {
+      regularFootnoteGroups.map((g) => removeNodeFromParent(g))
+      const footnotes = this.createFootnotes(
+        regularFootnoteGroups,
+        createElement
+      )
+      body.appendChild(footnotes)
     }
   },
   // wrap single figures in fig-group

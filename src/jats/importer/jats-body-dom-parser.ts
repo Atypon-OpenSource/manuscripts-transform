@@ -474,7 +474,6 @@ const nodes: NodeRule[] = [
       return {
         id: element.getAttribute('id'),
         kind: 'footnote', // TODO: 'endnote' depending on position or attribute?
-        category: element.getAttribute('fn-type'),
       }
     },
   },
@@ -528,16 +527,9 @@ const nodes: NodeRule[] = [
   {
     tag: 'p',
     node: 'paragraph',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      return {
-        contentType: element.getAttribute('content-type'),
-      }
-    },
   },
   {
-    tag: 'sec[sec-type="notes"]',
+    tag: 'sec[sec-type="endnotes"]',
     node: 'footnotes_section', // NOTE: higher priority than 'section'
     getAttrs: (node) => {
       const element = node as HTMLElement

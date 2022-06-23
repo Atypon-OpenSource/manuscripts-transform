@@ -31,7 +31,6 @@ Object {
           },
           Object {
             "attrs": Object {
-              "contentType": undefined,
               "dataTracked": null,
               "id": "MPParagraphElement:0EAC7ED3-41FB-468F-A267-60664A2F59B7",
               "paragraphStyle": "",
@@ -350,7 +349,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",
@@ -375,7 +373,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",
@@ -400,7 +397,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",
@@ -435,7 +431,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",
@@ -460,7 +455,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",
@@ -485,7 +479,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",
@@ -510,7 +503,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",
@@ -1176,7 +1168,6 @@ Object {
                                   },
                                   Object {
                                     "attrs": Object {
-                                      "contentType": undefined,
                                       "dataTracked": null,
                                       "id": "MPParagraphElement:5A5E25E4-0677-44D4-B5EA-AA5514113F27",
                                       "paragraphStyle": "",
@@ -1229,7 +1220,6 @@ Object {
           },
           Object {
             "attrs": Object {
-              "contentType": undefined,
               "dataTracked": null,
               "id": "MPParagraphElement:0EAC7ED3-41FB-468F-A267-60664A2F59B7",
               "paragraphStyle": "",
@@ -1548,7 +1538,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",
@@ -1573,7 +1562,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",
@@ -1598,7 +1586,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",
@@ -1633,7 +1620,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",
@@ -1658,7 +1644,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",
@@ -1683,7 +1668,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",
@@ -1708,7 +1692,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "contentType": undefined,
                           "dataTracked": null,
                           "id": "",
                           "paragraphStyle": "",

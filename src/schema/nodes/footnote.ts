@@ -30,7 +30,6 @@ interface Attrs {
   kind: Kind
   paragraphStyle?: string
   placeholder?: string
-  category?: string
 }
 
 export interface FootnoteNode extends ManuscriptNode {
@@ -45,7 +44,6 @@ export const footnote: NodeSpec = {
     kind: { default: 'footnote' },
     paragraphStyle: { default: '' },
     placeholder: { default: '' },
-    category: { default: undefined },
     dataTracked: { default: null },
   },
   parseDOM: [
@@ -75,13 +73,7 @@ export const footnote: NodeSpec = {
     // TODO: footnote-contents wrapper?
 
     // TODO: default kind
-    const {
-      kind,
-      paragraphStyle,
-      placeholder,
-      id,
-      category,
-    } = footnoteNode.attrs
+    const { kind, paragraphStyle, placeholder, id } = footnoteNode.attrs
 
     const attrs: Record<string, string> = { class: 'footnote-text', id: '' }
 
@@ -99,10 +91,6 @@ export const footnote: NodeSpec = {
 
     if (placeholder) {
       attrs['data-placeholder-text'] = placeholder
-    }
-
-    if (category) {
-      attrs['data-category'] = node.attrs.category
     }
 
     return ['div', attrs, 0]

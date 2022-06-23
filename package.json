@@ -29,7 +29,7 @@
     "version": "yarn build"
   },
   "dependencies": {
-    "@manuscripts/data": "^0.1.3",
+    "@manuscripts/data": "^0.1.7",
     "@manuscripts/library": "^0.6.2",
     "@manuscripts/manuscripts-json-schema": "^1.49.11",
     "debug": "^4.1.1",

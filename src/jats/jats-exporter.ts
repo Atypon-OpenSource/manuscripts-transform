@@ -1229,7 +1229,7 @@ export class JATSExporter {
       footnotes_section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
-          'sec-type': 'notes', // chooseSecType(node.attrs.category),
+          'sec-type': 'endnotes', // chooseSecType(node.attrs.category),
         }
 
         return ['sec', attrs, 0]

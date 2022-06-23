@@ -48,6 +48,14 @@ export type SectionCategory =
   | 'MPSectionCategory:appendices'
   | 'MPSectionCategory:competing-interests'
   | 'MPSectionCategory:financial-disclosure'
+  | 'MPSectionCategory:con'
+  | 'MPSectionCategory:deceased'
+  | 'MPSectionCategory:equal'
+  | 'MPSectionCategory:present-address'
+  | 'MPSectionCategory:presented-at'
+  | 'MPSectionCategory:previously-at'
+  | 'MPSectionCategory:supplementary-material'
+  | 'MPSectionCategory:supported-by'
 
 export type SecType =
   | 'abstract'
@@ -59,7 +67,7 @@ export type SecType =
   | 'conclusions'
   | 'data-availability'
   | 'discussion'
-  | 'notes'
+  | 'endnotes'
   | 'intro'
   | 'keywords'
   | 'materials'
@@ -70,6 +78,14 @@ export type SecType =
   | 'appendices'
   | 'competing-interests'
   | 'financial-disclosure'
+  | 'con'
+  | 'deceased'
+  | 'equal'
+  | 'present-address'
+  | 'presented-at'
+  | 'previously-at'
+  | 'supplementary-material'
+  | 'supported-by'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -162,9 +178,6 @@ export const chooseSecType = (sectionCategory: SectionCategory): SecType => {
     case 'acknowledgement':
       return 'acknowledgments'
 
-    case 'endnotes':
-      return 'notes'
-
     case 'introduction':
       return 'intro'
 
@@ -176,11 +189,9 @@ export const chooseSecType = (sectionCategory: SectionCategory): SecType => {
   }
 }
 
-export const chooseSectionCategory = (
-  section: HTMLElement
+export const chooseSectionCategoryByType = (
+  secType: string
 ): SectionCategory | undefined => {
-  const secType = section.getAttribute('sec-type') as SecType
-
   switch (secType) {
     case 'abstract':
       return 'MPSectionCategory:abstract'
@@ -207,7 +218,7 @@ export const chooseSectionCategory = (
     case 'discussion':
       return 'MPSectionCategory:discussion'
 
-    case 'notes':
+    case 'endnotes':
       return 'MPSectionCategory:endnotes'
 
     case 'intro':
@@ -234,21 +245,44 @@ export const chooseSectionCategory = (
       return 'MPSectionCategory:competing-interests'
     case 'financial-disclosure':
       return 'MPSectionCategory:financial-disclosure'
-    default: {
-      const titleNode = section.firstElementChild
-
-      if (
-        titleNode &&
-        titleNode.nodeName === 'title' &&
-        titleNode.textContent
-      ) {
-        return chooseSectionCategoryFromTitle(
-          titleNode.textContent.trim().toLowerCase()
-        )
-      }
-
+    case 'con':
+      return 'MPSectionCategory:con'
+    case 'deceased':
+      return 'MPSectionCategory:deceased'
+    case 'equal':
+      return 'MPSectionCategory:equal'
+    case 'present-address':
+      return 'MPSectionCategory:present-address'
+    case 'presented-at':
+      return 'MPSectionCategory:presented-at'
+    case 'previously-at':
+      return 'MPSectionCategory:previously-at'
+    case 'supplementary-material':
+      return 'MPSectionCategory:supplementary-material'
+    case 'supported-by':
+      return 'MPSectionCategory:supported-by'
+    default:
       return undefined
+  }
+}
+
+export const chooseSectionCategory = (
+  section: HTMLElement
+): SectionCategory | undefined => {
+  const secType = section.getAttribute('sec-type') as SecType
+  const secCat = chooseSectionCategoryByType(secType)
+  if (secCat) {
+    return secCat
+  } else {
+    const titleNode = section.firstElementChild
+
+    if (titleNode && titleNode.nodeName === 'title' && titleNode.textContent) {
+      return chooseSectionCategoryFromTitle(
+        titleNode.textContent.trim().toLowerCase()
+      )
     }
+
+    return undefined
   }
 }
 
