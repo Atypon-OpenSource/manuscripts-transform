@@ -2285,24 +2285,31 @@ export class JATSExporter {
       })
       back.insertBefore(appGroup, back.firstChild)
     }
+
     const footNotes = []
-    // TODO:: clean up
-    const competingInterests = body.querySelector(
-      'sec[sec-type="competing-interests"]'
-    )
-    if (competingInterests) {
-      footNotes.push(this.sectionToFootnote(competingInterests, 'conflict'))
+
+    const footnoteCategories = [
+      'con',
+      'conflict',
+      'deceased',
+      'equal',
+      'present-address',
+      'presented-at',
+      'previously-at',
+      'supplementary-material',
+      'supported-by',
+      'financial-disclosure',
+      'ethics-statement',
+      'competing-interests',
+    ]
+
+    for (const footnoteCategory of footnoteCategories) {
+      const footnote = body.querySelector(`sec[sec-type="${footnoteCategory}"]`)
+      if (footnote) {
+        footNotes.push(this.sectionToFootnote(footnote, footnoteCategory))
+      }
     }
 
-    // TODO:: clean up
-    const financialDisclosure = body.querySelector(
-      'sec[sec-type="financial-disclosure"]'
-    )
-    if (financialDisclosure) {
-      footNotes.push(
-        this.sectionToFootnote(financialDisclosure, 'financial-disclosure')
-      )
-    }
     if (footNotes.length > 0) {
       const existedFnGroup = back.querySelector('fn-group')
       if (existedFnGroup) {

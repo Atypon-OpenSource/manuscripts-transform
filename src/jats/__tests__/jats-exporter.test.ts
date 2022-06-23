@@ -986,4 +986,62 @@ describe('JATS exporter', () => {
     const { errors } = parseXMLWithDTD(xml)
     expect(errors).toHaveLength(0)
   })
+
+  test('export footnotes', async () => {
+    const projectBundle = cloneProjectBundle(input)
+
+    const footnoteCategories = [
+      'con',
+      'conflict',
+      'deceased',
+      'equal',
+      'present-address',
+      'presented-at',
+      'previously-at',
+      'supplementary-material',
+      'supported-by',
+      'financial-disclosure',
+      'ethics-statement',
+      'competing-interests',
+    ]
+
+    let cnt = 0
+    for (const category of footnoteCategories) {
+      const fnSectionModel: Section = {
+        _id: `MPSection:${cnt++}`,
+        category: `MPSectionCategory:${category}`,
+        elementIDs: [],
+        objectType: 'MPSection',
+        path: [`MPSection:${cnt++}`],
+        priority: 0,
+        title: `a title for ${category}`,
+        createdAt: 0,
+        updatedAt: 0,
+        sessionID: 'foo',
+        manuscriptID: 'MPManuscript:1',
+        containerID: 'MPProject:1',
+      }
+
+      projectBundle.data.push(fnSectionModel)
+    }
+
+    const { doc, modelMap } = parseProjectBundle(projectBundle)
+
+    const transformer = new JATSExporter()
+    const manuscript = findManuscript(modelMap)
+    const xml = await transformer.serializeToJATS(
+      doc.content,
+      modelMap,
+      manuscript._id
+    )
+
+    const resultDoc = parseXMLWithDTD(xml)
+
+    for (const category of footnoteCategories) {
+      const fn = resultDoc.get(
+        `/article/back/fn-group/fn[@fn-type="${category}"]`
+      )
+      expect(fn).not.toBeUndefined()
+    }
+  })
 })
