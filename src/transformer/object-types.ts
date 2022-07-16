@@ -61,9 +61,10 @@ export const isManuscriptModel = (model: Model): model is ManuscriptModel => {
   return manuscriptIDTypes.has(model.objectType)
 }
 
-export const hasObjectType = <T extends Model>(objectType: string) => (
-  model: Model
-): model is T => model.objectType === objectType
+export const hasObjectType =
+  <T extends Model>(objectType: string) =>
+  (model: Model): model is T =>
+    model.objectType === objectType
 
 export const isFigure = hasObjectType<Figure>(ObjectTypes.Figure)
 export const isManuscript = hasObjectType<Manuscript>(ObjectTypes.Manuscript)

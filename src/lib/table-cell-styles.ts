@@ -37,11 +37,9 @@ const dashify = (str: string) => {
     .toLowerCase()
 }
 
-export const serializeTableCellStyles = (
-  styles: {
-    [key in TableCellStyleKey]?: string | null
-  }
-) => {
+export const serializeTableCellStyles = (styles: {
+  [key in TableCellStyleKey]?: string | null
+}) => {
   return (Object.keys(styles) as Array<TableCellStyleKey>)
     .map((key) => styles[key] && `${dashify(key)}: ${styles[key]}`)
     .filter(Boolean)

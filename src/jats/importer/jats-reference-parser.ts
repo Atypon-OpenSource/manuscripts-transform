@@ -123,22 +123,25 @@ export const jatsReferenceParser = {
         })
       }
 
-      const doi = referenceNode.querySelector('pub-id[pub-id-type="doi"]')
-        ?.textContent
+      const doi = referenceNode.querySelector(
+        'pub-id[pub-id-type="doi"]'
+      )?.textContent
 
       if (doi) {
         bibliographyItem.DOI = doi
       }
 
-      const pmid = referenceNode.querySelector('pub-id[pub-id-type="pmid"]')
-        ?.textContent
+      const pmid = referenceNode.querySelector(
+        'pub-id[pub-id-type="pmid"]'
+      )?.textContent
 
       if (pmid) {
         bibliographyItem.PMID = pmid
       }
 
-      const pmcid = referenceNode.querySelector('pub-id[pub-id-type="pmcid"]')
-        ?.textContent
+      const pmcid = referenceNode.querySelector(
+        'pub-id[pub-id-type="pmcid"]'
+      )?.textContent
 
       if (pmcid) {
         bibliographyItem.PMCID = pmcid

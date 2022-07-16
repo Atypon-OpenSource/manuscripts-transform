@@ -21,14 +21,12 @@ import { generateID } from './id'
 
 export type AddModel = <T extends Model>(data: Partial<T> | Build<T>) => void
 
-export const addModelToMap = (modelMap: Map<string, Model>): AddModel => <
-  T extends Model
->(
-  data: Partial<T>
-) => {
-  if (!data._id) {
-    data._id = generateID(data.objectType as ObjectTypes)
-  }
+export const addModelToMap =
+  (modelMap: Map<string, Model>): AddModel =>
+  <T extends Model>(data: Partial<T> | Build<T>) => {
+    if (!data._id) {
+      data._id = generateID(data.objectType as ObjectTypes)
+    }
 
-  modelMap.set(data._id, data as T)
-}
+    modelMap.set(data._id, data as T)
+  }

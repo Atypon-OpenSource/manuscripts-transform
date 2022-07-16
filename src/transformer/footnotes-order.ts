@@ -26,9 +26,9 @@ export type FootnotesOrderIndexList = {
 export const createOrderedFootnotesIDs = (doc: Document) => {
   const footnotesRefs = [...doc.querySelectorAll('xref[ref-type="fn"][rid]')]
   const footnotes = [...doc.querySelectorAll('fn:not([fn-type])')]
-  const authorNotesIDs = [
-    ...doc.querySelectorAll('author-notes > fn'),
-  ].map((an) => an.getAttribute('id'))
+  const authorNotesIDs = [...doc.querySelectorAll('author-notes > fn')].map(
+    (an) => an.getAttribute('id')
+  )
 
   const orderedFootnotesIDs: Array<string> = []
   footnotesRefs.forEach((ref) => {

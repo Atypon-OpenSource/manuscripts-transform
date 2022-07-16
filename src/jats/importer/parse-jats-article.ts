@@ -86,16 +86,16 @@ export const parseJATSFront = async (front: Element) => {
   } as Journal
 
   // manuscript bundle (CSL style)
-  const {
-    manuscript_bundle,
-    bundleNodes,
-  } = await jatsFrontParser.loadJournalBundles(journal.ISSNs as ISSN[])
+  const { manuscript_bundle, bundleNodes } =
+    await jatsFrontParser.loadJournalBundles(journal.ISSNs as ISSN[])
 
   const articleMeta = front.querySelector('article-meta')
-  const title = articleMeta?.querySelector('title-group > article-title')
-    ?.innerHTML
-  const subtitle = articleMeta?.querySelector('title-group > subtitle')
-    ?.innerHTML
+  const title = articleMeta?.querySelector(
+    'title-group > article-title'
+  )?.innerHTML
+  const subtitle = articleMeta?.querySelector(
+    'title-group > subtitle'
+  )?.innerHTML
   const runningTitle = articleMeta?.querySelector(
     'title-group > alt-title[alt-title-type="right-running"]'
   )?.innerHTML
@@ -109,20 +109,17 @@ export const parseJATSFront = async (front: Element) => {
   }
 
   const keywordGroupNodes = articleMeta?.querySelectorAll('kwd-group')
-  const { keywords, groups: keywordGroups } = jatsFrontParser.parseKeywords(
-    keywordGroupNodes
-  )
+  const { keywords, groups: keywordGroups } =
+    jatsFrontParser.parseKeywords(keywordGroupNodes)
 
   const manuscript_keywordIDs =
     keywords.length > 0 ? keywords.map((k) => k._id) : undefined
 
   // affiliations
-  const {
-    affiliations,
-    affiliationIDs,
-  } = jatsFrontParser.parseAffiliationNodes([
-    ...front.querySelectorAll('article-meta > contrib-group > aff'),
-  ])
+  const { affiliations, affiliationIDs } =
+    jatsFrontParser.parseAffiliationNodes([
+      ...front.querySelectorAll('article-meta > contrib-group > aff'),
+    ])
 
   // footnotes
   const { footnotes, footnoteIDs } = jatsFrontParser.parseFootnoteNodes([
@@ -130,12 +127,10 @@ export const parseJATSFront = async (front: Element) => {
   ])
 
   // correspondings
-  const {
-    correspondingList,
-    correspondingIDs,
-  } = jatsFrontParser.parseCorrespNodes([
-    ...front.querySelectorAll('article-meta > author-notes > corresp'),
-  ])
+  const { correspondingList, correspondingIDs } =
+    jatsFrontParser.parseCorrespNodes([
+      ...front.querySelectorAll('article-meta > author-notes > corresp'),
+    ])
 
   // contributors
   // TODO: handle missing contrib-type?
@@ -198,14 +193,11 @@ export const parseJATSReferences = (
   > = []
   let referenceQueriesMap
   if (back) {
-    const {
-      references,
-      referenceIDs,
-      referenceQueries,
-    } = jatsReferenceParser.parseReferences(
-      [...back.querySelectorAll('ref-list > ref')],
-      createElement
-    )
+    const { references, referenceIDs, referenceQueries } =
+      jatsReferenceParser.parseReferences(
+        [...back.querySelectorAll('ref-list > ref')],
+        createElement
+      )
     bibliographyItems.push(...references)
     referenceQueriesMap = new Map<string, string[]>([...referenceQueries])
     if (body) {
@@ -242,7 +234,6 @@ export const parseJATSBody = (
     bibliography,
     createElement
   )
-  jatsBodyTransformations.wrapFigures(body, createElement)
   jatsBodyTransformations.moveCaptionsToEnd(body)
   jatsBodyTransformations.moveTableFooterToEnd(body)
   jatsBodyTransformations.moveBlockNodesFromParagraph(
@@ -274,10 +265,8 @@ const createBibliography = async (
 ) => {
   const styleOpts = { bundle: bundles[0], bundleID: DEFAULT_BUNDLE }
   const citationStyle = await loadCitationStyle(styleOpts)
-  const [
-    bibmeta,
-    bibliographyItems,
-  ] = CitationProvider.makeBibliographyFromCitations(citations, citationStyle)
+  const [bibmeta, bibliographyItems] =
+    CitationProvider.makeBibliographyFromCitations(citations, citationStyle)
 
   if (bibmeta.bibliography_errors.length) {
     console.error(bibmeta.bibliography_errors)
@@ -373,11 +362,8 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
 
   const createElement = createElementFn(document)
   const { models: frontModels, bundles } = await parseJATSFront(front)
-  const {
-    references,
-    crossReferences,
-    referenceQueriesMap,
-  } = parseJATSReferences(back, body, createElement)
+  const { references, crossReferences, referenceQueriesMap } =
+    parseJATSReferences(back, body, createElement)
 
   transformTables(doc.querySelectorAll('table-wrap > table'), createElement)
   const bibliography = await createBibliography(
@@ -483,11 +469,8 @@ export const getElementsOrder = (node: ManuscriptNode) => {
   const models: ElementsOrder[] = []
 
   node.descendants((child) => {
-    if (auxiliaryObjectTypes.has(child.type)) {
-      const type =
-        child.type === schema.nodes.multi_graphic_figure_element
-          ? schema.nodes.figure_element
-          : child.type
+    const type = child.type
+    if (auxiliaryObjectTypes.has(type)) {
       const index = elementsOrderIndex.get(type)
       if (index !== undefined) {
         const elementsOrder = models[index]

@@ -86,13 +86,8 @@ export const section: NodeSpec = {
   toDOM: (node) => {
     const sectionNode = node as SectionNode
 
-    const {
-      id,
-      category,
-      titleSuppressed,
-      generatedLabel,
-      pageBreakStyle,
-    } = sectionNode.attrs
+    const { id, category, titleSuppressed, generatedLabel, pageBreakStyle } =
+      sectionNode.attrs
 
     const classnames: string[] = []
 

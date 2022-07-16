@@ -31,7 +31,7 @@
   "dependencies": {
     "@manuscripts/data": "^0.1.7",
     "@manuscripts/library": "^0.6.2",
-    "@manuscripts/manuscripts-json-schema": "^1.49.11",
+    "@manuscripts/manuscripts-json-schema": "workspace:*",
     "debug": "^4.1.1",
     "mathjax-full": "^3.1.2",
     "mime": "^2.4.6",
@@ -50,7 +50,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@jats4r/dtds": "^0.0.7",
     "@manuscripts/eslint-config": "^0.2.2",
-    "@manuscripts/examples": "^0.0.8",
+    "@manuscripts/examples": "workspace:*",
     "@manuscripts/publish": "^0.2.2",
     "@manuscripts/rxdb": "8.2.0-manuscripts1",
     "@types/debug": "^4.1.4",
@@ -86,7 +86,7 @@
     "prosemirror-state": "~1.3.4",
     "prosemirror-view": "~1.18.2",
     "rimraf": "^2.6.3",
-    "typescript": "^3.9.5"
+    "typescript": "^4.0.5"
   },
   "resolutions": {
     "@types/prosemirror-model": "~1.13.0",
