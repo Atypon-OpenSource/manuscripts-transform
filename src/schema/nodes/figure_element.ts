@@ -17,6 +17,7 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
+import { AttributionNode } from './attribution'
 
 interface Attrs {
   columns: number
@@ -30,6 +31,11 @@ interface Attrs {
   suppressCaption: boolean
   suppressTitle?: boolean
   expandListing: boolean
+  attribution?: AttributionNode
+  alternatives?: {
+    src: string
+    type?: string
+  }[]
 }
 
 export interface FigureElementNode extends ManuscriptNode {
@@ -37,7 +43,8 @@ export interface FigureElementNode extends ManuscriptNode {
 }
 
 export const figureElement: NodeSpec = {
-  content: '(figure | placeholder)+ figcaption (listing | placeholder)',
+  content:
+    '(paragraph | figure | missing_figure | placeholder)+ attribution* figcaption (listing | placeholder)',
   attrs: {
     figureLayout: { default: '' },
     figureStyle: { default: '' },
@@ -47,6 +54,8 @@ export const figureElement: NodeSpec = {
     alignment: { default: undefined },
     suppressCaption: { default: false },
     suppressTitle: { default: undefined },
+    attribution: { default: undefined },
+    alternatives: { default: undefined },
     dataTracked: { default: null },
   },
   selectable: false,
@@ -70,13 +79,8 @@ export const figureElement: NodeSpec = {
   toDOM: (node) => {
     const figureElementNode = node as FigureElementNode
 
-    const {
-      id,
-      figureStyle,
-      figureLayout,
-      alignment,
-      sizeFraction,
-    } = figureElementNode.attrs
+    const { id, figureStyle, figureLayout, alignment, sizeFraction } =
+      figureElementNode.attrs
 
     const attrs: { [key: string]: string } = {}
 

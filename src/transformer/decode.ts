@@ -28,8 +28,8 @@ import {
   ListElement,
   Listing,
   ListingElement,
+  MissingFigure,
   Model,
-  MultiGraphicFigureElement,
   ObjectTypes,
   ParagraphElement,
   QuoteElement,
@@ -71,7 +71,6 @@ import {
   TOCElementNode,
 } from '../schema'
 import { CaptionTitleNode } from '../schema/nodes/caption_title'
-import { MultiGraphicFigureElementNode } from '../schema/nodes/multi_graphic_figure_element'
 import { insertHighlightMarkers } from './highlight-markers'
 import { generateNodeID } from './id'
 import { PlaceholderElement } from './models'
@@ -138,20 +137,10 @@ export const buildModelMap = async (
 
   for (const model of output.values()) {
     if (isFigure(model)) {
-      if (model.listingAttachment) {
-        const { listingID, attachmentKey } = model.listingAttachment
+      const figureDoc = items.get(model._id)
 
-        const listingDoc = items.get(listingID)
-
-        if (listingDoc) {
-          model.src = await getAttachment(listingDoc, attachmentKey)
-        }
-      } else {
-        const figureDoc = items.get(model._id)
-
-        if (figureDoc) {
-          model.src = await getAttachment(figureDoc, 'image')
-        }
+      if (figureDoc) {
+        model.src = await getAttachment(figureDoc, 'image')
       }
     }
     // TODO: enable once tables can be images
@@ -244,87 +233,55 @@ export class Decoder {
     },
     [ObjectTypes.Figure]: (data) => {
       const model = data as Figure
-      const paragraphs: Array<ParagraphNode> = []
-      model.containedObjectIDs?.forEach((id) => {
-        const paragraphModel = this.getModel<ParagraphElement>(id)
-        return (
-          paragraphModel &&
-          paragraphs.push(this.decode(paragraphModel) as ParagraphNode)
-        )
+
+      return schema.nodes.figure.create({
+        id: model._id,
+        contentType: model.contentType,
+        src: model.src,
+        position: model.position,
       })
-      const figcaptionNode: FigCaptionNode = schema.nodes.figcaption.create()
-
-      const figcaption: FigCaptionNode = model.title
-        ? this.parseContents(
-            'title',
-            model.title,
-            'figcaption',
-            model.highlightMarkers,
-            {
-              topNode: figcaptionNode,
-            }
-          )
-        : figcaptionNode
-
-      return schema.nodes.figure.create(
-        {
-          id: model._id,
-          contentType: model.contentType,
-          src: model.src,
-          listingAttachment: model.listingAttachment,
-          embedURL: model.embedURL,
-          attribution: model.attribution,
-          externalFileReferences: model.externalFileReferences,
-          missingImage: model.missingImage,
-          position: model.position,
-        },
-        [figcaption, ...paragraphs]
-      )
-    },
-    [ObjectTypes.MultiGraphicFigureElement]: (data) => {
-      const model = data as MultiGraphicFigureElement
-
-      const figcaption: FigCaptionNode = this.getFigcaption(model)
-
-      // TODO: use layout to prefill figures?
-
-      const figures = this.extractFigures(model)
-
-      const content: ManuscriptNode[] = [...figures, figcaption]
-
-      const listing = this.extractListing(model)
-      if (listing) {
-        content.push(listing)
-      } else {
-        const listing = schema.nodes.listing.create()
-        content.push(listing)
-      }
-
-      return schema.nodes.multi_graphic_figure_element.createChecked(
-        {
-          id: model._id,
-          figureLayout: model.figureLayout,
-          figureStyle: model.figureStyle,
-          alignment: model.alignment,
-          sizeFraction: model.sizeFraction,
-          suppressCaption: Boolean(model.suppressCaption),
-          suppressTitle: Boolean(
-            model.suppressTitle === undefined ? true : model.suppressTitle
-          ),
-        },
-        content
-      ) as MultiGraphicFigureElementNode
     },
     [ObjectTypes.FigureElement]: (data) => {
       const model = data as FigureElement
 
+      const paragraphIDs = model.containedObjectIDs.filter((i) =>
+        i.startsWith('MPParagraphElement')
+      )
+      const figureIDs = model.containedObjectIDs.filter(
+        (i) => i.startsWith('MPFigure') || i.startsWith('MPMissingFigure')
+      )
+
+      const paragraphs: Array<ParagraphNode> = []
+      paragraphIDs.forEach((id) => {
+        const paragraphModel = this.getModel<ParagraphElement>(id)
+        if (paragraphModel) {
+          return paragraphs.push(this.decode(paragraphModel) as ParagraphNode)
+        }
+      })
+
+      const figures: Array<FigureNode | PlaceholderNode> = []
+      figureIDs.forEach((id) => {
+        const figureModel = this.getModel<Figure>(id)
+
+        if (!figureModel) {
+          return figures.push(
+            schema.nodes.placeholder.create({
+              id,
+              label: 'A figure',
+            }) as PlaceholderNode
+          )
+        }
+
+        return figures.push(this.decode(figureModel) as FigureNode)
+      })
+
+      if (!figures.length) {
+        figures.push(schema.nodes.figure.createAndFill() as FigureNode)
+      }
+
       const figcaption: FigCaptionNode = this.getFigcaption(model)
 
-      // TODO: use layout to prefill figures?
-
-      const figures = this.extractFigures(model)
-
-      const content: ManuscriptNode[] = [...figures, figcaption]
+      const content: ManuscriptNode[] = [...paragraphs, ...figures, figcaption]
 
       const listing = this.extractListing(model)
       if (listing) {
@@ -338,6 +295,7 @@ export class Decoder {
         {
           id: model._id,
           figureLayout: model.figureLayout,
+          label: model.label,
           figureStyle: model.figureStyle,
           alignment: model.alignment,
           sizeFraction: model.sizeFraction,
@@ -345,6 +303,8 @@ export class Decoder {
           suppressTitle: Boolean(
             model.suppressTitle === undefined ? true : model.suppressTitle
           ),
+          attribution: model.attribution,
+          alternatives: model.alternatives,
         },
         content
       ) as FigureElementNode
@@ -530,6 +490,14 @@ export class Decoder {
         [listing, figcaption]
       ) as ListingElementNode
     },
+    [ObjectTypes.MissingFigure]: (data) => {
+      const model = data as MissingFigure
+
+      return schema.nodes.missing_figure.create({
+        id: model._id,
+        position: model.position,
+      })
+    },
     [ObjectTypes.ParagraphElement]: (data) => {
       const model = data as ParagraphElement
 
@@ -660,9 +628,10 @@ export class Decoder {
         sectionCategory as SectionCategory | undefined
       )
 
-      const content: ManuscriptNode[] = (sectionLabelNode
-        ? [sectionLabelNode, sectionTitleNode]
-        : [sectionTitleNode]
+      const content: ManuscriptNode[] = (
+        sectionLabelNode
+          ? [sectionLabelNode, sectionTitleNode]
+          : [sectionTitleNode]
       )
         .concat(elementNodes)
         .concat(nestedSections)
@@ -771,7 +740,7 @@ export class Decoder {
     },
   }
 
-  private extractListing(model: FigureElement | MultiGraphicFigureElement) {
+  private extractListing(model: FigureElement) {
     if (model.listingID) {
       const listingModel = this.getModel<Listing>(model.listingID)
       let listing: ListingNode | PlaceholderNode
@@ -787,28 +756,6 @@ export class Decoder {
       }
       return listing
     }
-  }
-  private extractFigures(model: FigureElement | MultiGraphicFigureElement) {
-    const figures: Array<FigureNode | PlaceholderNode> = model
-      .containedObjectIDs.length
-      ? model.containedObjectIDs.map((id) => {
-          if (!id) {
-            return schema.nodes.figure.createAndFill() as FigureNode
-          }
-
-          const figureModel = this.getModel<Figure>(id)
-
-          if (!figureModel) {
-            return schema.nodes.placeholder.create({
-              id,
-              label: 'A figure',
-            }) as PlaceholderNode
-          }
-
-          return this.decode(figureModel) as FigureNode
-        })
-      : [schema.nodes.figure.createAndFill() as FigureNode]
-    return figures
   }
 
   constructor(modelMap: Map<string, Model>, allowMissingElements = false) {
@@ -920,12 +867,7 @@ export class Decoder {
   }
 
   private getFigcaption = (
-    model:
-      | FigureElement
-      | TableElement
-      | EquationElement
-      | ListingElement
-      | MultiGraphicFigureElement
+    model: FigureElement | TableElement | EquationElement | ListingElement
   ) => {
     const titleNode = schema.nodes.caption_title.create() as CaptionTitleNode
 

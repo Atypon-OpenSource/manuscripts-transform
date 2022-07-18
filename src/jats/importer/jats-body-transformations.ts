@@ -287,62 +287,6 @@ export const jatsBodyTransformations = {
       body.appendChild(footnotes)
     }
   },
-  // wrap single figures in fig-group
-  wrapFigures(body: Element, createElement: (tagName: string) => HTMLElement) {
-    const figures = body.querySelectorAll('sec > fig')
-
-    for (const figure of figures) {
-      const figType = figure.getAttribute('fig-type')
-
-      // only wrap actual figures
-      if (figType && figType !== 'figure') {
-        continue
-      }
-
-      const section = figure.parentNode as Element
-
-      const figGroup = createElement('fig-group')
-      section.insertBefore(figGroup, figure)
-
-      // move id from figure to fig-group
-      const figureID = figure.getAttribute('id')
-      if (figureID) {
-        figGroup.setAttribute('id', figureID)
-      }
-      figure.removeAttribute('id')
-
-      // move caption into fig-group
-      const figCaption = figure.querySelector('caption')
-      const graphics = figure.querySelectorAll('graphic')
-
-      if (graphics.length > 1) {
-        // TODO: copy attributes?
-
-        // split multiple graphics into separate sub-figures
-        for (const [i, graphic] of graphics.entries()) {
-          if (i !== graphics.length - 1) {
-            const newFig = createElement('fig')
-            newFig.appendChild(graphic)
-            figGroup.appendChild(newFig.cloneNode(true))
-            graphic.remove()
-          } else {
-            const clonedFig = figure.cloneNode(true)
-            figGroup.setAttribute('multiGraphic', 'true')
-            figGroup.appendChild(clonedFig)
-          }
-        }
-        section.removeChild(figure)
-      } else {
-        // move single- or no-graphic figure into fig-group
-        figGroup.appendChild(figure)
-      }
-
-      // caption goes to the end
-      if (figCaption) {
-        figGroup.appendChild(figCaption)
-      }
-    }
-  },
   // move captions to the end of their containers
   moveCaptionsToEnd(body: Element) {
     const captions = body.querySelectorAll('caption')

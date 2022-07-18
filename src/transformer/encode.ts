@@ -27,8 +27,8 @@ import {
   ListElement,
   Listing,
   ListingElement,
+  MissingFigure,
   Model,
-  MultiGraphicFigureElement,
   ParagraphElement,
   QuoteElement,
   Section,
@@ -312,25 +312,25 @@ const wrappedContentOfChildrenNodeType = (
 
 const containedFigureIDs = (node: ManuscriptNode): string[] => {
   const figureNodeType = node.type.schema.nodes.figure
-  return containedObjectIDs(node, figureNodeType)
+  const missingFigureNodeType = node.type.schema.nodes.missing_figure
+  return containedObjectIDs(node, [figureNodeType, missingFigureNodeType])
 }
 
-const containedParagraphIDs = (node: ManuscriptNode): string[] | undefined => {
-  const figureNodeType = node.type.schema.nodes.paragraph
-  const containedIDs = containedObjectIDs(node, figureNodeType)
-  return containedIDs.length ? containedIDs : undefined
+const containedParagraphIDs = (node: ManuscriptNode): string[] => {
+  const paragraphNodeType = node.type.schema.nodes.paragraph
+  return containedObjectIDs(node, [paragraphNodeType])
 }
 
 const containedObjectIDs = (
   node: ManuscriptNode,
-  nodeType: ManuscriptNodeType
+  nodeTypes: ManuscriptNodeType[]
 ): string[] => {
   const ids: string[] = []
 
   for (let i = 0; i < node.childCount; i++) {
     const childNode = node.child(i)
 
-    if (childNode.type === nodeType) {
+    if (nodeTypes.includes(childNode.type)) {
       ids.push(childNode.attrs.id)
     }
   }
@@ -349,8 +349,11 @@ const attribution = (node: ManuscriptNode) => {
 }
 
 function figureElementEncoder<T>(node: ManuscriptNode) {
+  // eslint-disable-next-line prettier/prettier
   return {
-    containedObjectIDs: containedFigureIDs(node),
+    containedObjectIDs: containedParagraphIDs(node)?.concat(
+      containedFigureIDs(node)
+    ),
     caption: wrappedContentOfChildrenNodeType(
       node,
       node.type.schema.nodes.figcaption,
@@ -362,7 +365,10 @@ function figureElementEncoder<T>(node: ManuscriptNode) {
       node.type.schema.nodes.caption_title,
       false
     ),
+    label: node.attrs.label,
     elementType: 'figure',
+    attribution: attribution(node),
+    alternatives: node.attrs.alternatives,
     listingID: attributeOfNodeType(node, 'listing', 'id') || undefined,
     alignment: node.attrs.alignment || undefined,
     sizeFraction: node.attrs.sizeFraction || undefined,
@@ -374,7 +380,8 @@ function figureElementEncoder<T>(node: ManuscriptNode) {
         : false,
     figureStyle: node.attrs.figureStyle || undefined,
     figureLayout: node.attrs.figureLayout || undefined,
-  } as Partial<T>
+    // eslint-disable-next-line prettier/prettier
+  } as unknown as Partial<T>
 }
 
 type NodeEncoder = (
@@ -468,24 +475,10 @@ const encoders: NodeEncoderMap = {
         : false,
   }),
   figure: (node): Partial<Figure> => ({
-    title:
-      inlineContentOfChildNodeType(
-        node,
-        node.type.schema.nodes.figcaption,
-        node.type.schema.nodes.caption
-      ) || undefined,
     contentType: node.attrs.contentType || undefined,
-    embedURL: node.attrs.embedURL || undefined,
-    originalURL: node.attrs.originalURL || undefined,
-    listingAttachment: node.attrs.listingAttachment || undefined,
-    attribution: attribution(node),
-    externalFileReferences: node.attrs.externalFileReferences || undefined,
-    containedObjectIDs: containedParagraphIDs(node),
-    missingImage: node.attrs.missingImage || undefined,
+    src: node.attrs.src || undefined,
     position: node.attrs.position || undefined,
   }),
-  multi_graphic_figure_element: (node): Partial<MultiGraphicFigureElement> =>
-    figureElementEncoder<MultiGraphicFigureElement>(node),
   figure_element: (node): Partial<FigureElement> =>
     figureElementEncoder<FigureElement>(node),
   footnote: (node, parent): Partial<Footnote> => ({
@@ -541,6 +534,9 @@ const encoders: NodeEncoderMap = {
     elementIDs: childElements(node)
       .map((childNode) => childNode.attrs.id)
       .filter((id) => id),
+  }),
+  missing_figure: (node): Partial<MissingFigure> => ({
+    position: node.attrs.position || undefined,
   }),
   ordered_list: (node): Partial<ListElement> => ({
     elementType: 'ol',
@@ -691,27 +687,26 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
 
   const placeholders = ['placeholder', 'placeholder_element']
   // TODO: parents array, to get closest parent with an id for containingObject
-  const addModel = (path: string[], parent: ManuscriptNode) => (
-    child: ManuscriptNode
-  ) => {
-    if (!child.attrs.id) {
-      return
+  const addModel =
+    (path: string[], parent: ManuscriptNode) => (child: ManuscriptNode) => {
+      if (!child.attrs.id) {
+        return
+      }
+      if (isHighlightMarkerNode(child)) {
+        return
+      }
+      if (placeholders.includes(child.type.name)) {
+        return
+      }
+      const model = modelFromNode(child, parent, path, priority)
+      if (models.has(model._id)) {
+        throw Error(
+          `Encountered duplicate ids in models map while encoding: ${model._id}`
+        )
+      }
+      models.set(model._id, model)
+      child.forEach(addModel(path.concat(child.attrs.id), child))
     }
-    if (isHighlightMarkerNode(child)) {
-      return
-    }
-    if (placeholders.includes(child.type.name)) {
-      return
-    }
-    const model = modelFromNode(child, parent, path, priority)
-    if (models.has(model._id)) {
-      throw Error(
-        `Encountered duplicate ids in models map while encoding: ${model._id}`
-      )
-    }
-    models.set(model._id, model)
-    child.forEach(addModel(path.concat(child.attrs.id), child))
-  }
 
   node.forEach(addModel([], node))
 

@@ -117,7 +117,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'caption',
     node: 'figcaption',
-    context: 'figure_element/|multi_graphic_figure_element/',
+    context: 'figure_element/',
     getContent: (node, schema) => {
       const element = node as HTMLElement
 
@@ -260,9 +260,8 @@ const nodes: NodeRule[] = [
           case 'mml:math':
             ;(child as Element).removeAttribute('id')
             // TODO: remove namespace?
-            attrs.MathMLStringRepresentation = xmlSerializer.serializeToString(
-              child
-            )
+            attrs.MathMLStringRepresentation =
+              xmlSerializer.serializeToString(child)
             // TODO: convert MathML to TeX with mml2tex?
             if (attrs.MathMLStringRepresentation) {
               attrs.SVGStringRepresentation =
@@ -346,41 +345,47 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'fig',
-    node: 'figure',
-    context: 'figure_element/|multi_graphic_figure_element/',
+    tag: 'graphic[specific-use=MISSING]',
+    node: 'missing_figure',
+    context: 'figure_element/',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
-      const labelNode = element.querySelector('label')
-      const graphicNode = element.querySelector('graphic')
-      const mediaNode = element.querySelector('media')
-      const attrib = element.querySelector('attrib')
-      const externalFileReferences: Array<{ url: string; kind?: string }> = []
+      return {
+        id: element.getAttribute('id'),
+      }
+    },
+  },
+  {
+    tag: 'graphic',
+    node: 'figure',
+    context: 'figure_element/',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
       const position = element.getAttribute('position')
 
-      const originalURL = graphicNode
-        ? graphicNode.getAttributeNS(XLINK_NAMESPACE, 'href')
-        : undefined
+      const src = element.getAttributeNS(XLINK_NAMESPACE, 'href')
 
-      const specificUse = graphicNode?.getAttribute('specific-use')
-      const hasMissingImage =
-        specificUse && specificUse.trim().toLowerCase() == 'missing'
-
-      if (originalURL && !hasMissingImage) {
-        externalFileReferences.push({
-          url: originalURL,
-          kind: 'imageRepresentation',
-        })
+      return {
+        id: element.getAttribute('id'),
+        contentType: chooseContentType(element || undefined) || '',
+        src,
+        position,
       }
-
-      const embedURL = mediaNode
-        ? mediaNode.getAttributeNS(XLINK_NAMESPACE, 'href')
-        : undefined
-
-      if (embedURL) {
-        externalFileReferences.push({ url: embedURL })
+    },
+  },
+  {
+    tag: 'fig',
+    node: 'figure_element',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      const labelNode = element.querySelector('label')
+      if (labelNode) {
+        element.removeChild(labelNode)
       }
+      const attrib = element.querySelector('attrib')
+      const position = element.getAttribute('position')
 
       const attribution = attrib
         ? {
@@ -391,38 +396,8 @@ const nodes: NodeRule[] = [
       return {
         id: element.getAttribute('id'),
         label: labelNode?.textContent?.trim() ?? '',
-        contentType: chooseContentType(graphicNode || undefined) || '',
-        originalURL,
-        embedURL,
         attribution: attribution,
-        externalFileReferences:
-          externalFileReferences.length > 0
-            ? externalFileReferences
-            : undefined,
-        missingImage: hasMissingImage,
         position,
-      }
-    },
-  },
-  {
-    tag: 'fig-group[multiGraphic=true]',
-    node: 'multi_graphic_figure_element',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      return {
-        id: element.getAttribute('id'),
-      }
-    },
-  },
-  {
-    tag: 'fig-group',
-    node: 'figure_element',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      return {
-        id: element.getAttribute('id'),
       }
     },
   },

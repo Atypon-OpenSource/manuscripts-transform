@@ -18,19 +18,15 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export interface FigureNode extends ManuscriptNode {
+export interface MissingFigureNode extends ManuscriptNode {
   attrs: {
     id: string
-    src: string
-    contentType: string
   }
 }
 
-export const figure: NodeSpec = {
+export const missingFigure: NodeSpec = {
   attrs: {
     id: { default: '' },
-    src: { default: '' },
-    contentType: { default: '' },
     position: { default: undefined },
     dataTracked: { default: null },
   },
@@ -45,20 +41,20 @@ export const figure: NodeSpec = {
 
         return {
           id: element.getAttribute('id'),
-          src: element.getAttribute('src'),
         }
       },
     },
   ],
   toDOM: (node) => {
-    const figureNode = node as FigureNode
+    const missingFigureNode = node as MissingFigureNode
 
     return [
       'figure',
       {
         class: 'figure',
-        id: figureNode.attrs.id,
+        id: missingFigureNode.attrs.id,
       },
+      0,
     ]
   },
 }

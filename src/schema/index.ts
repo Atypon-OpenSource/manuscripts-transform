@@ -58,7 +58,7 @@ import { bulletList, listItem, orderedList } from './nodes/list'
 import { listing } from './nodes/listing'
 import { listingElement } from './nodes/listing_element'
 import { manuscript } from './nodes/manuscript'
-import { multiGraphicFigureElement } from './nodes/multi_graphic_figure_element'
+import { missingFigure } from './nodes/missing_figure'
 import { paragraph } from './nodes/paragraph'
 import { placeholder } from './nodes/placeholder'
 import { placeholderElement } from './nodes/placeholder_element'
@@ -106,6 +106,7 @@ export * from './nodes/list'
 export * from './nodes/listing'
 export * from './nodes/listing_element'
 export * from './nodes/manuscript'
+export * from './nodes/missing_figure'
 export * from './nodes/paragraph'
 export * from './nodes/placeholder'
 export * from './nodes/placeholder_element'
@@ -149,7 +150,6 @@ export const schema = new Schema<Nodes, Marks>({
     equation_element: equationElement,
     figcaption,
     figure,
-    multi_graphic_figure_element: multiGraphicFigureElement,
     figure_element: figureElement,
     footnote,
     footnotes_element: footnotesElement,
@@ -166,6 +166,7 @@ export const schema = new Schema<Nodes, Marks>({
     listing,
     listing_element: listingElement,
     manuscript,
+    missing_figure: missingFigure,
     ordered_list: orderedList,
     paragraph,
     placeholder,

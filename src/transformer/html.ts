@@ -535,50 +535,16 @@ export class HTMLTransformer {
     const figure = this.document.querySelector(`[id="${node.attrs.id}"]`)
 
     if (figure) {
-      if (node.attrs.embedURL) {
-        const container = document.createElement('div')
-        container.classList.add('figure-embed')
+      const filename = generateAttachmentFilename(
+        node.attrs.id,
+        node.attrs.contentType
+      )
 
-        const object = document.createElement('iframe')
-        object.classList.add('figure-embed-object')
-        object.setAttribute('src', node.attrs.embedURL)
-        object.setAttribute('height', '100%')
-        object.setAttribute('width', '100%')
-        object.setAttribute('allowfullscreen', 'true')
-        object.setAttribute('sandbox', 'allow-scripts allow-same-origin') // TODO: how to secure this?
-        container.appendChild(object)
+      const img = this.document.createElement('img')
+      img.setAttribute('src', filename)
 
-        figure.insertBefore(container, figure.firstChild)
-      } else {
-        const filename = generateAttachmentFilename(
-          node.attrs.id,
-          node.attrs.contentType
-        )
-
-        const img = this.document.createElement('img')
-        img.setAttribute('src', filename)
-
-        if (this.figureHasLicense(node.attrs.id)) {
-          img.setAttribute('data-licensed', 'true')
-        }
-
-        figure.insertBefore(img, figure.firstChild)
-      }
+      figure.insertBefore(img, figure.firstChild)
     }
-  }
-
-  private figureHasLicense = (id: string): boolean | undefined => {
-    const figureModel = this.modelMap.get(id) as Figure | undefined
-
-    if (!figureModel) {
-      return undefined
-    }
-
-    if (!figureModel.attribution) {
-      return false
-    }
-
-    return figureModel.attribution.licenseID !== undefined
   }
 
   private fixBody = (fragment: ManuscriptFragment) => {

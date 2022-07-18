@@ -23,7 +23,6 @@ import {
   Keyword,
   Manuscript,
   Model,
-  MultiGraphicFigureElement,
   ObjectTypes,
   ParagraphElement,
   Section,
@@ -34,7 +33,7 @@ import { Element as XMLElement, parseXml } from 'libxmljs2'
 
 import { journalMeta } from '../../transformer/__tests__/__helpers__/journal-meta'
 import { submissions } from '../../transformer/__tests__/__helpers__/submissions'
-import { isFigure, isManuscript } from '../../transformer/object-types'
+import { isManuscript } from '../../transformer/object-types'
 import {
   findManuscript,
   parseProjectBundle,
@@ -102,7 +101,7 @@ describe('JATS exporter', () => {
       const transformer = new JATSExporter()
       const manuscript = findManuscript(modelMap)
       await transformer.serializeToJATS(doc.content, modelMap, manuscript._id, {
-        version: ('1.0' as unknown) as Version,
+        version: '1.0' as unknown as Version,
       })
     }).rejects.toThrow(Error)
   })
@@ -556,7 +555,7 @@ describe('JATS exporter', () => {
     manuscript.keywordIDs = ['MPKeyword:test']
 
     for (const value of keywords) {
-      modelMap.set(value._id, (value as unknown) as Model)
+      modelMap.set(value._id, value as unknown as Model)
     }
     const transformer = new JATSExporter()
     const xml = await transformer.serializeToJATS(
@@ -708,38 +707,6 @@ describe('JATS exporter', () => {
     expect(refs[1].text()).toBe('3–5')
   })
 
-  test('Export with empty figure', async () => {
-    const projectBundle = cloneProjectBundle(input)
-
-    for (const model of projectBundle.data) {
-      if (isFigure(model)) {
-        delete model._id
-        break
-      }
-    }
-
-    const { doc, modelMap } = parseProjectBundle(projectBundle)
-
-    const transformer = new JATSExporter()
-    const manuscript = findManuscript(modelMap)
-    const xml = await transformer.serializeToJATS(
-      doc.content,
-      modelMap,
-      manuscript._id
-    )
-
-    const { errors } = parseXMLWithDTD(xml)
-    expect(errors).toHaveLength(0)
-
-    const output = parseXMLWithDTD(xml)
-
-    const figures = output.find('//fig')
-    expect(figures).toHaveLength(3)
-
-    const figureGroups = output.find('//fig-group')
-    expect(figureGroups).toHaveLength(0)
-  })
-
   test('Export manuscript history', async () => {
     const projectBundle = cloneProjectBundle(input)
 
@@ -867,7 +834,7 @@ describe('JATS exporter', () => {
     expect(kwds[1]!.text()).toBe('Bar')
   })
 
-  test('DTD validation for MathML representation ', async () => {
+  test('DTD validation for MathML representation', async () => {
     const projectBundle = cloneProjectBundle(input)
     const mathMLFragment = await readFixture('math-fragment.xml')
 
@@ -875,6 +842,7 @@ describe('JATS exporter', () => {
       if (el._id === 'MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403') {
         const equation = el as Equation
         equation.MathMLStringRepresentation = mathMLFragment
+        // @ts-ignore
         delete equation.TeXRepresentation
       }
     })
@@ -917,46 +885,6 @@ describe('JATS exporter', () => {
     expect(errors).toHaveLength(0)
   })
 
-  test('DTD validation for MultiGraphicFigureElement', async () => {
-    const projectBundle = cloneProjectBundle(input)
-
-    const multiGraphicFigureElement: MultiGraphicFigureElement = {
-      containerID: '',
-      manuscriptID: '',
-      sessionID: '',
-      containedObjectIDs: [
-        'MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0',
-        'MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557',
-      ],
-      caption: 'Flow chart of participants',
-      elementType: 'figure',
-      _id: 'MPMultiGraphicFigureElement:multi-graphic-figure-element-1',
-      createdAt: 0,
-      updatedAt: 0,
-      objectType: 'MPMultiGraphicFigureElement',
-    }
-    projectBundle.data.find((el) => {
-      if (el._id === 'MPSection:77786D47-6060-4FBC-BC13-5FA754968D6A') {
-        const equation = el as Section
-        equation.elementIDs?.push(
-          'MPMultiGraphicFigureElement:multi-graphic-figure-element-1'
-        )
-      }
-    })
-    projectBundle.data.push(multiGraphicFigureElement)
-    const { doc, modelMap } = parseProjectBundle(projectBundle)
-
-    const transformer = new JATSExporter()
-    const manuscript = findManuscript(modelMap)
-    const xml = await transformer.serializeToJATS(
-      doc.content,
-      modelMap,
-      manuscript._id
-    )
-    const { errors } = parseXMLWithDTD(xml)
-
-    expect(errors).toHaveLength(0)
-  })
   test('export with supplement', async () => {
     const supple: Supplement = {
       containerID: '',
@@ -968,8 +896,7 @@ describe('JATS exporter', () => {
       objectType: 'MPSupplement',
       title: 'final manuscript-hum-huili-dbh-suicide-20200707_figures (9)',
       href: 'attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312',
-      MIME:
-        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      MIME: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     }
     input.data.push(supple)
     const projectBundle = cloneProjectBundle(input)

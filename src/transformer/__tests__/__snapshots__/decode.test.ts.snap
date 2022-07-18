@@ -455,6 +455,8 @@ Object {
         Object {
           "attrs": Object {
             "alignment": undefined,
+            "alternatives": undefined,
+            "attribution": undefined,
             "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
@@ -467,27 +469,12 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "contentType": "image/png",
                 "dataTracked": null,
-                "embedURL": undefined,
-                "externalFileReferences": undefined,
                 "id": "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0",
-                "label": "",
-                "listingAttachment": undefined,
-                "missingImage": undefined,
-                "originalURL": undefined,
                 "position": undefined,
-                "src": "",
+                "src": "chemoji/chemoji8.png",
               },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "figcaption",
-                },
-              ],
               "type": "figure",
             },
             Object {
@@ -536,6 +523,8 @@ Object {
         Object {
           "attrs": Object {
             "alignment": undefined,
+            "alternatives": undefined,
+            "attribution": undefined,
             "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
@@ -548,27 +537,12 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "contentType": "image/png",
                 "dataTracked": null,
-                "embedURL": undefined,
-                "externalFileReferences": undefined,
                 "id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
-                "label": "",
-                "listingAttachment": undefined,
-                "missingImage": undefined,
-                "originalURL": undefined,
                 "position": undefined,
-                "src": "",
+                "src": "chemoji/chemoji7.png",
               },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "figcaption",
-                },
-              ],
               "type": "figure",
             },
             Object {
@@ -2304,6 +2278,8 @@ Object {
         Object {
           "attrs": Object {
             "alignment": undefined,
+            "alternatives": undefined,
+            "attribution": undefined,
             "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
@@ -2316,27 +2292,12 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "contentType": "image/png",
                 "dataTracked": null,
-                "embedURL": undefined,
-                "externalFileReferences": undefined,
                 "id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
-                "label": "",
-                "listingAttachment": undefined,
-                "missingImage": undefined,
-                "originalURL": undefined,
                 "position": undefined,
-                "src": "",
+                "src": "chemoji/chemoji7.png",
               },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "figcaption",
-                },
-              ],
               "type": "figure",
             },
             Object {
@@ -3938,6 +3899,8 @@ Object {
         Object {
           "attrs": Object {
             "alignment": undefined,
+            "alternatives": undefined,
+            "attribution": undefined,
             "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
@@ -3950,27 +3913,12 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "contentType": "image/png",
                 "dataTracked": null,
-                "embedURL": undefined,
-                "externalFileReferences": undefined,
                 "id": "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0",
-                "label": "",
-                "listingAttachment": undefined,
-                "missingImage": undefined,
-                "originalURL": undefined,
                 "position": undefined,
-                "src": "",
+                "src": "chemoji/chemoji8.png",
               },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "figcaption",
-                },
-              ],
               "type": "figure",
             },
             Object {
@@ -4019,6 +3967,8 @@ Object {
         Object {
           "attrs": Object {
             "alignment": undefined,
+            "alternatives": undefined,
+            "attribution": undefined,
             "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
@@ -4031,27 +3981,12 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "contentType": "image/png",
                 "dataTracked": null,
-                "embedURL": undefined,
-                "externalFileReferences": undefined,
                 "id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
-                "label": "",
-                "listingAttachment": undefined,
-                "missingImage": undefined,
-                "originalURL": undefined,
                 "position": undefined,
-                "src": "",
+                "src": "chemoji/chemoji7.png",
               },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "figcaption",
-                },
-              ],
               "type": "figure",
             },
             Object {
@@ -5550,6 +5485,8 @@ Object {
         Object {
           "attrs": Object {
             "alignment": undefined,
+            "alternatives": undefined,
+            "attribution": undefined,
             "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "MPFigureStyle:1",
@@ -5562,64 +5499,12 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "contentType": "",
                 "dataTracked": null,
-                "embedURL": undefined,
-                "externalFileReferences": undefined,
                 "id": "MPFigure:1",
-                "label": "",
-                "listingAttachment": undefined,
-                "missingImage": undefined,
-                "originalURL": undefined,
                 "position": undefined,
                 "src": "",
               },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPHighlightMarker:7",
-                            "position": "start",
-                            "rid": "MPHighlight:4",
-                          },
-                          "type": "highlight_marker",
-                        },
-                        Object {
-                          "text": "A",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPHighlightMarker:8",
-                            "position": "end",
-                            "rid": "MPHighlight:4",
-                          },
-                          "type": "highlight_marker",
-                        },
-                        Object {
-                          "text": " figure",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                  ],
-                  "type": "figcaption",
-                },
-              ],
               "type": "figure",
             },
             Object {

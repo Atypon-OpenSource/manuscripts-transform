@@ -22,7 +22,6 @@ import {
   Contributor,
   ContributorRole,
   Corresponding,
-  FigureElement,
   Footnote,
   InlineStyle,
   Journal,
@@ -30,7 +29,6 @@ import {
   KeywordGroup,
   Manuscript,
   Model,
-  MultiGraphicFigureElement,
   ObjectTypes,
   Supplement,
 } from '@manuscripts/manuscripts-json-schema'
@@ -42,7 +40,6 @@ import { nodeFromHTML, textFromHTML } from '../lib/html'
 import { normalizeStyleName } from '../lib/styled-content'
 import { iterateChildren } from '../lib/utils'
 import {
-  FigureElementNode,
   ManuscriptFragment,
   ManuscriptMark,
   ManuscriptNode,
@@ -173,7 +170,6 @@ const chooseRefType = (objectType: string): string | undefined => {
   switch (objectType) {
     case ObjectTypes.Figure:
     case ObjectTypes.FigureElement:
-    case ObjectTypes.MultiGraphicFigureElement:
       return 'fig'
 
     case ObjectTypes.Footnote:
@@ -1043,31 +1039,7 @@ export class JATSExporter {
         }
 
         const getReferencedObjectId = (referencedObject: string) => {
-          let rid = normalizeID(referencedObject)
-          const refObjectModel = getModel<
-            MultiGraphicFigureElement | FigureElement
-          >(referencedObject)
-          if (
-            refObjectModel &&
-            (refObjectModel.objectType === ObjectTypes.FigureElement ||
-              refObjectModel.objectType ===
-                ObjectTypes.MultiGraphicFigureElement) &&
-            refObjectModel.containedObjectIDs
-          ) {
-            const lastEntry =
-              refObjectModel.containedObjectIDs[
-                refObjectModel.containedObjectIDs.length - 1
-              ]
-            const objectId =
-              refObjectModel.objectType ===
-              ObjectTypes.MultiGraphicFigureElement
-                ? lastEntry
-                : refObjectModel.containedObjectIDs.find(Boolean)
-            if (objectId) {
-              rid = normalizeID(objectId)
-            }
-          }
-          return rid
+          return normalizeID(referencedObject)
         }
 
         if (auxiliaryObjectReference.referencedObjects) {
@@ -1113,7 +1085,6 @@ export class JATSExporter {
           node,
           'fig',
           node.type.schema.nodes.equation,
-          false,
           'equation'
         ),
       figcaption: (node) => {
@@ -1123,86 +1094,38 @@ export class JATSExporter {
         return ['caption', 0]
       },
       figure: (node) => {
-        const fig = this.document.createElement('fig')
-        fig.setAttribute('id', normalizeID(node.attrs.id))
-        if (node.attrs.position) {
-          fig.setAttribute('position', node.attrs.position)
-        }
+        const graphic = this.document.createElement('graphic')
+        const filename = generateAttachmentFilename(
+          node.attrs.id,
+          node.attrs.contentType
+        )
+        graphic.setAttributeNS(
+          XLINK_NAMESPACE,
+          'xlink:href',
+          `graphic/${filename}`
+        )
 
-        if (node.attrs.label) {
-          const label = this.document.createElement('label')
-          label.textContent = node.attrs.label
-          fig.appendChild(label)
-        }
+        if (node.attrs.contentType) {
+          const [mimeType, mimeSubType] = node.attrs.contentType.split('/')
 
-        const figcaptionNodeType = node.type.schema.nodes.figcaption
-        const paragraphNodeType = node.type.schema.nodes.paragraph
+          if (mimeType) {
+            graphic.setAttribute('mimetype', mimeType)
 
-        node.forEach((childNode) => {
-          if (
-            childNode.type === figcaptionNodeType ||
-            childNode.type === paragraphNodeType
-          ) {
-            fig.appendChild(this.serializeNode(childNode))
-          }
-        })
-
-        if (node.attrs.embedURL) {
-          const media = this.document.createElement('media')
-
-          media.setAttributeNS(
-            XLINK_NAMESPACE,
-            'xlink:href',
-            node.attrs.embedURL
-          )
-
-          media.setAttributeNS(XLINK_NAMESPACE, 'xlink:show', 'embed')
-
-          media.setAttribute('content-type', 'embed')
-
-          fig.appendChild(media)
-        } else {
-          const graphic = this.document.createElement('graphic')
-          const filename = generateAttachmentFilename(
-            node.attrs.id,
-            node.attrs.contentType
-          )
-          graphic.setAttributeNS(
-            XLINK_NAMESPACE,
-            'xlink:href',
-            `graphic/${filename}`
-          )
-
-          if (node.attrs.contentType) {
-            const [mimeType, mimeSubType] = node.attrs.contentType.split('/')
-
-            if (mimeType) {
-              graphic.setAttribute('mimetype', mimeType)
-
-              if (mimeSubType) {
-                graphic.setAttribute('mime-subtype', mimeSubType)
-              }
+            if (mimeSubType) {
+              graphic.setAttribute('mime-subtype', mimeSubType)
             }
           }
+        }
 
-          fig.appendChild(graphic)
-        }
-        if (node.attrs.attribution && node.attrs.attribution.literal) {
-          const attrib = this.document.createElement('attrib')
-          attrib.textContent = node.attrs.attribution.literal
-          fig.appendChild(attrib)
-        }
-        return fig
+        return graphic
       },
-      multi_graphic_figure_element: (node) =>
+      figure_element: (node) =>
         createFigureElement(
           node,
-          'fig-group',
+          'fig',
           node.type.schema.nodes.figure,
-          true
+          'figure'
         ),
-      figure_element: (node) =>
-        createFigureElement(node, 'fig-group', node.type.schema.nodes.figure),
       footnote: (node) => {
         const attrs: Attrs = {}
 
@@ -1307,10 +1230,15 @@ export class JATSExporter {
           node,
           'fig',
           node.type.schema.nodes.listing,
-          false,
           'listing'
         ),
       manuscript: (node) => ['article', { id: normalizeID(node.attrs.id) }, 0],
+      missing_figure: () => {
+        const graphic = this.document.createElement('graphic')
+        graphic.setAttribute('specific-use', 'MISSING')
+        graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', '')
+        return graphic
+      },
       ordered_list: () => ['list', { 'list-type': 'order' }, 0],
       paragraph: (node) => {
         if (!node.childCount) {
@@ -1422,7 +1350,6 @@ export class JATSExporter {
       node: ManuscriptNode,
       nodeName: string,
       contentNodeType: ManuscriptNodeType,
-      multiGraphic = false,
       figType?: string
     ) => {
       const element = this.document.createElement(nodeName)
@@ -1463,45 +1390,25 @@ export class JATSExporter {
       if (footnotesNode) {
         element.appendChild(this.serializeNode(footnotesNode))
       }
-      const figures: ManuscriptNode[] = []
+
       node.forEach((childNode) => {
         if (childNode.type === contentNodeType) {
-          if (multiGraphic) {
-            figures.push(childNode)
-          } else {
-            if (childNode.attrs.id) {
-              element.appendChild(this.serializeNode(childNode))
-            }
+          if (childNode.attrs.id) {
+            element.appendChild(this.serializeNode(childNode))
           }
+        } else if (childNode.type === node.type.schema.nodes.paragraph) {
+          element.appendChild(this.serializeNode(childNode))
+        } else if (childNode.type === node.type.schema.nodes.missing_figure) {
+          element.appendChild(this.serializeNode(childNode))
         }
       })
-      if (multiGraphic) {
-        if (figures.length > 0) {
-          const figure = this.serializeNode(figures[figures.length - 1])
-          const figureElCaption = element.querySelector('caption')
-          const figureCaption = (figure as HTMLElement).querySelector('caption')
-          if (figureCaption && figureElCaption) {
-            figure.removeChild(figureCaption)
-          }
 
-          for (let i = 0; i < figures.length - 1; i++) {
-            const fig = figures[i]
-            if (fig.attrs.id) {
-              const serializedChildElement = this.serializeNode(
-                figures[i]
-              ) as HTMLElement
-              const refGraphic = (figure as HTMLElement).querySelector(
-                'graphic'
-              )
-              figure.insertBefore(
-                serializedChildElement.querySelector('graphic') as Node,
-                refGraphic
-              )
-            }
-          }
-          element.appendChild(figure)
-        }
+      if (node.attrs.attribution) {
+        const attribution = this.document.createElement('attrib')
+        attribution.textContent = node.attrs.attribution.literal
+        element.appendChild(attribution)
       }
+
       if (isExecutableNodeType(node.type)) {
         processExecutableNode(node, element)
       }
@@ -1624,7 +1531,8 @@ export class JATSExporter {
       authorContributors.forEach((contributor) => {
         try {
           this.validateContributor(contributor)
-        } catch (error) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } catch (error: any) {
           warn(error.message)
           return
         }
@@ -1716,7 +1624,8 @@ export class JATSExporter {
         otherContributors.forEach((contributor) => {
           try {
             this.validateContributor(contributor)
-          } catch (error) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          } catch (error: any) {
             warn(error.message)
             return
           }
@@ -2068,59 +1977,6 @@ export class JATSExporter {
                   this.fixTable(childNode, node)
                   break
                 }
-              }
-            }
-          }
-        }
-
-        if (
-          isNodeType<FigureElementNode>(node, 'figure_element') ||
-          isNodeType<FigureElementNode>(node, 'multi_graphic_figure_element')
-        ) {
-          const figureGroup = body.querySelector(
-            `#${normalizeID(node.attrs.id)}`
-          )
-
-          if (figureGroup) {
-            const figures = body.querySelectorAll(
-              `#${normalizeID(node.attrs.id)} > fig`
-            )
-
-            const caption = body.querySelector(
-              `#${normalizeID(node.attrs.id)} > caption`
-            )
-
-            const label = body.querySelector(
-              `#${normalizeID(node.attrs.id)} > label`
-            )
-
-            // replace a single-figure fig-group with the figure
-            if (figures.length === 1) {
-              const figure = figures[0]
-              figure.setAttribute('fig-type', 'figure')
-
-              // move any caption into the figure
-              if (caption) {
-                figure.insertBefore(caption, figure.firstChild)
-              }
-
-              // move any label into the figure
-              if (label) {
-                figure.insertBefore(label, figure.firstChild)
-              }
-
-              // replace the figure element with the figure
-              if (figureGroup.parentElement) {
-                figureGroup.parentElement.replaceChild(figure, figureGroup)
-              }
-            }
-
-            // remove empty figure group
-            if (figures.length === 0 && !caption) {
-              const parent = figureGroup.parentNode
-
-              if (parent) {
-                parent.removeChild(figureGroup)
               }
             }
           }

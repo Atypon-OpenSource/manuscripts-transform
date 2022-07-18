@@ -59,7 +59,7 @@ describe('html', () => {
 
   test('custom attachment URL', async () => {
     const { doc, modelMap } = parseProjectBundle(
-      (projectDump as unknown) as ProjectBundle
+      projectDump as unknown as ProjectBundle
     )
 
     const transformer = new HTMLTransformer()

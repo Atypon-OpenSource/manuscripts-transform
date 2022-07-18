@@ -119,25 +119,6 @@ export const createTestModelMapWithHighlights = () => {
     manuscriptID: manuscript._id,
     containerID: project._id,
     sessionID: 'test',
-    title: 'A figure',
-    highlightMarkers: [
-      {
-        objectType: ObjectTypes.HighlightMarker,
-        _id: 'MPHighlightMarker:7',
-        highlightID: figureHighlight._id,
-        start: true,
-        field: 'title',
-        offset: 0,
-      },
-      {
-        objectType: ObjectTypes.HighlightMarker,
-        _id: 'MPHighlightMarker:8',
-        highlightID: figureHighlight._id,
-        start: false,
-        field: 'title',
-        offset: 1,
-      },
-    ],
   }
 
   modelMap.set(figureWithHighlight._id, figureWithHighlight)

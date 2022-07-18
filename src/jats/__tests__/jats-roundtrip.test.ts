@@ -111,8 +111,9 @@ const mediaPathGenerator: MediaPathGenerator = async (element, parentID) => {
 }
 
 // eslint-disable-next-line jest/no-disabled-tests
-describe.skip('JATS transformer', () => {
-  test('round-trips JATS XML', async () => {
+describe('JATS transformer', () => {
+  // eslint-disable-next-line jest/no-disabled-tests
+  test.skip('round-trips JATS XML', async () => {
     const input = await readFixture('jats-import.xml')
     const doc = new DOMParser().parseFromString(input, 'application/xml')
 
@@ -155,6 +156,65 @@ describe.skip('JATS transformer', () => {
 
     const formattedInput = parsedInput.toString(true)
     const formattedOutput = parsedOutput.toString(true)
+
+    expect(formattedOutput).toBe(formattedInput)
+
+    expect(parsedOutput.errors).toHaveLength(0)
+  })
+
+  test('round-trips JATS XML 2', async () => {
+    const input = await readFixture('jats-roundtrip.xml')
+    const doc = new DOMParser().parseFromString(input, 'application/xml')
+
+    const version =
+      doc.querySelector('article')?.getAttribute('dtd-version') || '1.2'
+
+    const models = await parseJATSArticle(doc)
+
+    const modelMap = new Map<string, Model>()
+
+    for (const model of models) {
+      modelMap.set(model._id, model)
+    }
+
+    const decoder = new Decoder(modelMap)
+    const article = decoder.createArticleNode()
+
+    const articleID = doc.querySelector(
+      'article-id[pub-id-type="publisher-id"]'
+    )?.textContent
+
+    const idGenerator = createIdGenerator(articleID as string)
+
+    const exporter = new JATSExporter()
+    const manuscript = findManuscript(modelMap)
+    const output = await exporter.serializeToJATS(
+      article.content,
+      modelMap,
+      manuscript._id,
+      {
+        version: version as Version,
+        idGenerator,
+        mediaPathGenerator,
+      }
+    )
+
+    const parsedInput = parseXMLWithDTD(input)
+    const parsedOutput = parseXMLWithDTD(output)
+
+    const formattedInput = parsedInput
+      .toString(true)
+      .replace(/\sid="(.*?)"/g, '')
+      .replace(/\sxlink:href="(.*?)"/g, '')
+      .replace(/\s{2,}/g, '')
+
+    const formattedOutput = parsedOutput
+      .toString(true)
+      .replace(/\sid="(.*?)"/g, '')
+      .replace(/\sxlink:href="(.*?)"/g, '')
+      .replace(/\s{2,}/g, '')
+      .replace('<app-group/>', '')
+      .replace('<title>Footnotes</title>', '')
 
     expect(formattedOutput).toBe(formattedInput)
 

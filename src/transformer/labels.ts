@@ -40,19 +40,15 @@ const labelledNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.table_element,
   schema.nodes.equation_element,
   schema.nodes.listing_element,
-  schema.nodes.multi_graphic_figure_element,
 ]
 
-const labelProperties: Map<
-  ManuscriptNodeType,
-  keyof Partial<Manuscript>
-> = new Map([
-  [schema.nodes.figure_element, 'figureElementLabel'],
-  [schema.nodes.multi_graphic_figure_element, 'figureElementLabel'],
-  [schema.nodes.table_element, 'tableElementLabel'],
-  [schema.nodes.equation_element, 'equationElementLabel'],
-  [schema.nodes.listing_element, 'listingElementLabel'],
-])
+const labelProperties: Map<ManuscriptNodeType, keyof Partial<Manuscript>> =
+  new Map([
+    [schema.nodes.figure_element, 'figureElementLabel'],
+    [schema.nodes.table_element, 'tableElementLabel'],
+    [schema.nodes.equation_element, 'equationElementLabel'],
+    [schema.nodes.listing_element, 'listingElementLabel'],
+  ])
 
 const chooseLabel = (
   nodeType: ManuscriptNodeType,
@@ -85,10 +81,7 @@ export const buildTargets = (
   }
 
   const buildLabel = (type: ManuscriptNodeType) => {
-    const viewLabel =
-      type === schema.nodes.multi_graphic_figure_element
-        ? schema.nodes.figure_element
-        : type
+    const viewLabel = type
     const counter = counters[viewLabel.name]
     counter.index++
     return `${counter.label} ${counter.index}`

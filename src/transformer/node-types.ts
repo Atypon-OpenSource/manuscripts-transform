@@ -37,10 +37,7 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.equation, ObjectTypes.Equation],
   [schema.nodes.equation_element, ObjectTypes.EquationElement],
   [schema.nodes.figure, ObjectTypes.Figure],
-  [
-    schema.nodes.multi_graphic_figure_element,
-    ObjectTypes.MultiGraphicFigureElement,
-  ],
+  [schema.nodes.missing_figure, ObjectTypes.MissingFigure],
   [schema.nodes.figure_element, ObjectTypes.FigureElement],
   [schema.nodes.footnote, ObjectTypes.Footnote],
   [schema.nodes.footnotes_element, ObjectTypes.FootnotesElement],

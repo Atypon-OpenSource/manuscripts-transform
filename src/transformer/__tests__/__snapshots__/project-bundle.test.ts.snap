@@ -623,6 +623,8 @@ Object {
               Object {
                 "attrs": Object {
                   "alignment": undefined,
+                  "alternatives": undefined,
+                  "attribution": undefined,
                   "dataTracked": null,
                   "figureLayout": "",
                   "figureStyle": "",
@@ -635,27 +637,12 @@ Object {
                 "content": Array [
                   Object {
                     "attrs": Object {
-                      "attribution": undefined,
                       "contentType": "image/png",
                       "dataTracked": null,
-                      "embedURL": undefined,
-                      "externalFileReferences": undefined,
                       "id": "MPFigure:F3D684D3-1C53-44FE-9E66-B927340D571F",
-                      "label": "",
-                      "listingAttachment": undefined,
-                      "missingImage": undefined,
-                      "originalURL": undefined,
                       "position": undefined,
                       "src": "",
                     },
-                    "content": Array [
-                      Object {
-                        "attrs": Object {
-                          "dataTracked": null,
-                        },
-                        "type": "figcaption",
-                      },
-                    ],
                     "type": "figure",
                   },
                   Object {
@@ -1812,6 +1799,8 @@ Object {
               Object {
                 "attrs": Object {
                   "alignment": undefined,
+                  "alternatives": undefined,
+                  "attribution": undefined,
                   "dataTracked": null,
                   "figureLayout": "",
                   "figureStyle": "",
@@ -1824,27 +1813,12 @@ Object {
                 "content": Array [
                   Object {
                     "attrs": Object {
-                      "attribution": undefined,
                       "contentType": "image/png",
                       "dataTracked": null,
-                      "embedURL": undefined,
-                      "externalFileReferences": undefined,
                       "id": "MPFigure:F3D684D3-1C53-44FE-9E66-B927340D571F",
-                      "label": "",
-                      "listingAttachment": undefined,
-                      "missingImage": undefined,
-                      "originalURL": undefined,
                       "position": undefined,
                       "src": "",
                     },
-                    "content": Array [
-                      Object {
-                        "attrs": Object {
-                          "dataTracked": null,
-                        },
-                        "type": "figcaption",
-                      },
-                    ],
                     "type": "figure",
                   },
                   Object {
