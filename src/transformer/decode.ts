@@ -58,6 +58,7 @@ import {
   ListingElementNode,
   ListingNode,
   ManuscriptNode,
+  MissingFigureNode,
   OrderedListNode,
   ParagraphNode,
   PlaceholderElementNode,
@@ -259,10 +260,10 @@ export class Decoder {
         }
       })
 
-      const figures: Array<FigureNode | PlaceholderNode> = []
+      const figures: Array<FigureNode | MissingFigureNode | PlaceholderNode> =
+        []
       figureIDs.forEach((id) => {
-        const figureModel = this.getModel<Figure>(id)
-
+        const figureModel = this.getModel<Figure | MissingFigure>(id)
         if (!figureModel) {
           return figures.push(
             schema.nodes.placeholder.create({
@@ -272,7 +273,9 @@ export class Decoder {
           )
         }
 
-        return figures.push(this.decode(figureModel) as FigureNode)
+        return figures.push(
+          this.decode(figureModel) as FigureNode | MissingFigureNode
+        )
       })
 
       if (!figures.length) {
