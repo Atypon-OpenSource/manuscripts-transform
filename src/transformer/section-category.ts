@@ -56,6 +56,7 @@ export type SectionCategory =
   | 'MPSectionCategory:previously-at'
   | 'MPSectionCategory:supplementary-material'
   | 'MPSectionCategory:supported-by'
+  | 'MPSectionCategory:ethics-statement'
 
 export type SecType =
   | 'abstract'
@@ -86,6 +87,7 @@ export type SecType =
   | 'previously-at'
   | 'supplementary-material'
   | 'supported-by'
+  | 'ethics-statement'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -242,6 +244,7 @@ export const chooseSectionCategoryByType = (
     case 'appendices':
       return 'MPSectionCategory:appendices'
     case 'competing-interests':
+    case 'conflict':
       return 'MPSectionCategory:competing-interests'
     case 'financial-disclosure':
       return 'MPSectionCategory:financial-disclosure'
@@ -261,6 +264,8 @@ export const chooseSectionCategoryByType = (
       return 'MPSectionCategory:supplementary-material'
     case 'supported-by':
       return 'MPSectionCategory:supported-by'
+    case 'ethics-statement':
+      return 'MPSectionCategory:ethics-statement'
     default:
       return undefined
   }

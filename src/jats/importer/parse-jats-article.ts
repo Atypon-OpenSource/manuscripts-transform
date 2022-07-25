@@ -123,7 +123,9 @@ export const parseJATSFront = async (front: Element) => {
 
   // footnotes
   const { footnotes, footnoteIDs } = jatsFrontParser.parseFootnoteNodes([
-    ...front.querySelectorAll('article-meta > author-notes > fn'),
+    ...front.querySelectorAll(
+      'article-meta > author-notes > fn:not([fn-type])'
+    ),
   ])
 
   // correspondings

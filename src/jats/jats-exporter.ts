@@ -2160,9 +2160,13 @@ export class JATSExporter {
     ]
 
     for (const footnoteCategory of footnoteCategories) {
-      const footnote = body.querySelector(`sec[sec-type="${footnoteCategory}"]`)
-      if (footnote) {
-        footNotes.push(this.sectionToFootnote(footnote, footnoteCategory))
+      const footnoteSections = body.querySelectorAll(
+        `sec[sec-type="${footnoteCategory}"]`
+      )
+      for (const footnote of footnoteSections) {
+        if (footnote) {
+          footNotes.push(this.sectionToFootnote(footnote, footnoteCategory))
+        }
       }
     }
 

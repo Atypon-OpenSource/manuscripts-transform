@@ -551,7 +551,7 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:financial-disclosure",
+    "category": "MPSectionCategory:competing-interests",
     "elementIDs": Array [
       "MPParagraphElement:test",
     ],
@@ -560,6 +560,26 @@ Array [
       "MPSection:test",
     ],
     "priority": 11,
+    "title": "Conflict of Interest",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">No conflicts of interest have been declared.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:financial-disclosure",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 12,
     "title": "Sources of Funding",
   },
   Object {
@@ -579,7 +599,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 13,
     "title": "Footnotes",
   },
   Object {
@@ -598,7 +618,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 14,
     "title": "Acknowledgments",
   },
   Object {
@@ -618,7 +638,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 15,
     "title": "References",
   },
   Object {
@@ -756,8 +776,8 @@ Array [
     ],
     "objectType": "MPCommentAnnotation",
     "selector": Object {
-      "from": 19891,
-      "to": 19891,
+      "from": 19961,
+      "to": 19961,
     },
     "target": "MPBibliographyElement:test",
   },
@@ -1084,7 +1104,7 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:financial-disclosure",
+    "category": "MPSectionCategory:competing-interests",
     "elementIDs": Array [
       "MPParagraphElement:test",
     ],
@@ -1093,6 +1113,26 @@ Array [
       "MPSection:test",
     ],
     "priority": 10,
+    "title": "CONFLICT OF INTEREST",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">No conflicts of interest have been declared.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:financial-disclosure",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 11,
     "title": "FUNDING INFORMATION",
   },
   Object {
@@ -1112,7 +1152,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 12,
     "title": "Footnotes",
   },
   Object {
@@ -1131,7 +1171,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 13,
     "title": "Bibliography",
   },
   Object {
@@ -1494,21 +1534,6 @@ Array [
     "_id": "MPFootnote:test",
     "contents": "
           <p>Manuscript information</p>
-        ",
-    "kind": "footnote",
-    "objectType": "MPFootnote",
-  },
-  Object {
-    "_id": "MPFootnote:test",
-    "contents": "
-          <p content-type=\\"fn-title\\">AUTHOR CONTRIBUTIONS</p>
-          <p>Thomas S.Y. Chan: treated the patients, wrote and approved the manuscript</p>
-          <p>Yu-Yan Hwang: treated the patients, wrote and approved the manuscript</p>
-          <p>Pek-Lan Khong: performed the radiologic diagnosis, and approved the manuscript</p>
-          <p>Anskar Y.H. Leung: treated the patients, and approved the manuscript</p>
-          <p>Chor-Sang Chim: treated the patients, and approved the manuscript</p>
-          <p>Eric Tse: treated the patients, and approved the manuscript</p>
-          <p>Yok-Lam Kwong: treated the patients, wrote and approved the manuscript</p>
         ",
     "kind": "footnote",
     "objectType": "MPFootnote",
@@ -2523,6 +2548,26 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
+    "category": "MPSectionCategory:competing-interests",
+    "elementIDs": Array [
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 26,
+    "title": "Acknowledgment and conflicts of interests",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">The authors have no acknowledgment to make and no conflicts of interests to declare.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
     "category": "MPSectionCategory:endnotes",
     "elementIDs": Array [
       "MPFootnotesElement:test",
@@ -2531,7 +2576,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 26,
+    "priority": 27,
     "title": "Footnotes",
   },
   Object {
@@ -2564,7 +2609,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 27,
+    "priority": 28,
     "title": "REFERENCES",
   },
   Object {
@@ -4880,7 +4925,7 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "category": "",
+                            "category": "MPSectionCategory:ethics-statement",
                             "dataTracked": null,
                             "generatedLabel": undefined,
                             "pageBreakStyle": undefined,
@@ -5793,6 +5838,42 @@ Object {
           "content": Array [
             Object {
               "text": "Author Contibutions are described here.",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+      ],
+      "type": "section",
+    },
+    Object {
+      "attrs": Object {
+        "category": "MPSectionCategory:competing-interests",
+        "dataTracked": null,
+        "generatedLabel": undefined,
+        "pageBreakStyle": undefined,
+        "titleSuppressed": false,
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "Competing Interests",
+              "type": "text",
+            },
+          ],
+          "type": "section_label",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "This is information about Competing Interests.",
               "type": "text",
             },
           ],
@@ -12154,6 +12235,44 @@ Object {
                 "selectedText": "",
               },
               "type": "citation",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "section",
+    },
+    Object {
+      "attrs": Object {
+        "category": "MPSectionCategory:competing-interests",
+        "dataTracked": null,
+        "generatedLabel": undefined,
+        "pageBreakStyle": undefined,
+        "titleSuppressed": false,
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "CONFLICT OF INTEREST",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "paragraphStyle": "",
+            "placeholder": "",
+          },
+          "content": Array [
+            Object {
+              "text": "No conflicts of interest have been declared.",
+              "type": "text",
             },
           ],
           "type": "paragraph",
