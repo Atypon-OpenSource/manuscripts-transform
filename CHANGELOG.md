@@ -1,5 +1,11 @@
 # @manuscripts/manuscript-transform
 
+## 0.51.0
+
+### Minor Changes
+
+- 2dd25793: Fix duplicate and missing special sections
+
 ## 0.50.0
 
 ### Minor Changes
