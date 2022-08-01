@@ -1,5 +1,11 @@
 # @manuscripts/manuscript-transform
 
+## 0.52.0
+
+### Minor Changes
+
+- 06db9cb5: remove unwrapParagraphsInCaptions
+
 ## 0.51.0
 
 ### Minor Changes
