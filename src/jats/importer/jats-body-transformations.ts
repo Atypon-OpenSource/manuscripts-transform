@@ -306,27 +306,6 @@ export const jatsBodyTransformations = {
       }
     }
   },
-  // unwrap paragraphs in captions
-  unwrapParagraphsInCaptions(body: Element) {
-    const captions = body.querySelectorAll('caption')
-
-    for (const caption of captions) {
-      const paragraphNodes = caption.querySelectorAll('p')
-
-      paragraphNodes.forEach((paragraphNode) => {
-        if (paragraphNode.parentNode) {
-          while (paragraphNode.firstChild) {
-            paragraphNode.parentNode.insertBefore(
-              paragraphNode.firstChild,
-              paragraphNode
-            )
-          }
-
-          paragraphNode.parentNode.removeChild(paragraphNode)
-        }
-      })
-    }
-  },
   moveFloatsGroupToBody(
     doc: Document,
     body: Element,
