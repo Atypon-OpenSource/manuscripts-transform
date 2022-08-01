@@ -1,5 +1,12 @@
 # @manuscripts/manuscript-transform
 
+## 0.52.1
+
+### Patch Changes
+
+- Updated dependencies [2700c849]
+  - @manuscripts/manuscripts-json-schema@1.50.1
+
 ## 0.52.0
 
 ### Minor Changes
