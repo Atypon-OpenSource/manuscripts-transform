@@ -21,7 +21,7 @@ import projectDump3 from '@manuscripts/examples/data/project-dump-3.json'
 // @ts-ignore
 import projectDump from '@manuscripts/examples/data/project-dump.json'
 // @ts-ignore
-import projectBundleExample from './data/project-bundle-example-1.json'
+import projectBundleExample from './data/project-bundle-example.json'
 
 // import { Keyword, Manuscript } from '@manuscripts/manuscripts-json-schema'
 import { HTMLTransformer } from '../html'
