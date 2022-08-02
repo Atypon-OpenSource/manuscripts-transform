@@ -1,5 +1,11 @@
 # @manuscripts/manuscript-transform
 
+## 0.52.2
+
+### Patch Changes
+
+- a0b67f85: Fix figure reference in html
+
 ## 0.52.1
 
 ### Patch Changes
