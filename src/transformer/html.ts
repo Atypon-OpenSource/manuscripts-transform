@@ -20,6 +20,7 @@ import {
   Citation,
   Contributor,
   Figure,
+  FigureElement,
   InlineStyle,
   Model,
   ObjectTypes,
@@ -461,10 +462,23 @@ export class HTMLTransformer {
         auxiliaryObjectReference &&
         auxiliaryObjectReference.referencedObject
       ) {
-        element.setAttribute(
-          'href',
-          `#${auxiliaryObjectReference.referencedObject}`
-        )
+        if (
+          auxiliaryObjectReference.referencedObject.startsWith(
+            'MPFigureElement'
+          )
+        ) {
+          const model = getModel<FigureElement>(
+            auxiliaryObjectReference.referencedObject
+          )
+          if (model && model.containedObjectIDs.length > 0) {
+            element.setAttribute('href', `#${model.containedObjectIDs[0]}`)
+          }
+        } else {
+          element.setAttribute(
+            'href',
+            `#${auxiliaryObjectReference.referencedObject}`
+          )
+        }
 
         element.setAttribute('data-reference-ids', crossReferenceNode.attrs.rid)
       }

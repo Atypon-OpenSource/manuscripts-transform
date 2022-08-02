@@ -20,6 +20,8 @@ import projectDump2 from '@manuscripts/examples/data/project-dump-2.json'
 import projectDump3 from '@manuscripts/examples/data/project-dump-3.json'
 // @ts-ignore
 import projectDump from '@manuscripts/examples/data/project-dump.json'
+// @ts-ignore
+import projectBundleExample from './data/project-bundle-example-1.json'
 
 // import { Keyword, Manuscript } from '@manuscripts/manuscripts-json-schema'
 import { HTMLTransformer } from '../html'
@@ -76,5 +78,14 @@ describe('html', () => {
     })
 
     expect(result).toMatchSnapshot('html-export-custom-url')
+  })
+
+  test('export with cross-references', async () => {
+    const { doc, modelMap } = parseProjectBundle(projectBundleExample)
+
+    const transformer = new HTMLTransformer()
+    const result = await transformer.serializeToHTML(doc.content, modelMap)
+
+    expect(result).toMatchSnapshot('html-export-cross-references')
   })
 })
