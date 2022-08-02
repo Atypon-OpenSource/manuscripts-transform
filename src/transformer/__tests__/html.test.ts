@@ -21,7 +21,7 @@ import projectDump3 from '@manuscripts/examples/data/project-dump-3.json'
 // @ts-ignore
 import projectDump from '@manuscripts/examples/data/project-dump.json'
 // @ts-ignore
-import projectBundleExample from './data/project-bundle-example.json'
+import projectDump5 from '@manuscripts/examples/data/project-dump-5.json'
 
 // import { Keyword, Manuscript } from '@manuscripts/manuscripts-json-schema'
 import { HTMLTransformer } from '../html'
@@ -81,7 +81,7 @@ describe('html', () => {
   })
 
   test('export with cross-references', async () => {
-    const { doc, modelMap } = parseProjectBundle(projectBundleExample)
+    const { doc, modelMap } = parseProjectBundle(projectDump5)
 
     const transformer = new HTMLTransformer()
     const result = await transformer.serializeToHTML(doc.content, modelMap)
