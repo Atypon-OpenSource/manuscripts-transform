@@ -1,5 +1,11 @@
 # @manuscripts/manuscript-transform
 
+## 0.52.3
+
+### Patch Changes
+
+- af679221: fix attachments with other designations
+
 ## 0.52.2
 
 ### Patch Changes
