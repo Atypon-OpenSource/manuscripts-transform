@@ -53,7 +53,7 @@ describe('STS importer', () => {
     delete bodyDoc.attrs.id
     const end = performance.now()
 
-    expect(end - start).toBeLessThan(6000)
+    expect(end - start).toBeLessThan(10000)
     expect(bodyDoc).toMatchSnapshot()
   })
 
@@ -65,7 +65,7 @@ describe('STS importer', () => {
     const end = performance.now()
 
     // TODO this takes forever
-    expect(end - start).toBeLessThan(20000)
+    expect(end - start).toBeLessThan(30000)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 })
