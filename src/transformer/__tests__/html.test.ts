@@ -19,9 +19,9 @@ import projectDump2 from '@manuscripts/examples/data/project-dump-2.json'
 // @ts-ignore
 import projectDump3 from '@manuscripts/examples/data/project-dump-3.json'
 // @ts-ignore
-import projectDump from '@manuscripts/examples/data/project-dump.json'
-// @ts-ignore
 import projectDump5 from '@manuscripts/examples/data/project-dump-5.json'
+// @ts-ignore
+import projectDump from '@manuscripts/examples/data/project-dump.json'
 
 // import { Keyword, Manuscript } from '@manuscripts/manuscripts-json-schema'
 import { HTMLTransformer } from '../html'
