@@ -57,7 +57,7 @@ describe('JATS importer', () => {
       await readAndParseFixture('jats-example-doc.xml')
     )
     const end = performance.now()
-    expect(end - start).toBeLessThan(6500)
+    expect(end - start).toBeLessThan(8500)
     expect(normalizeIDs(normalizeTimestamps(models))).toMatchSnapshot()
   })
 
@@ -74,7 +74,7 @@ describe('JATS importer', () => {
       await readAndParseFixture('jats-example-front-only.xml')
     )
     const end = performance.now()
-    expect(end - start).toBeLessThan(4500)
+    expect(end - start).toBeLessThan(6500)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 
@@ -84,7 +84,7 @@ describe('JATS importer', () => {
       await readAndParseFixture('jats-example-no-back.xml')
     )
     const end = performance.now()
-    expect(end - start).toBeLessThan(4500)
+    expect(end - start).toBeLessThan(6500)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 
@@ -94,7 +94,7 @@ describe('JATS importer', () => {
       await readAndParseFixture('jats-example-no-body.xml')
     )
     const end = performance.now()
-    expect(end - start).toBeLessThan(4500)
+    expect(end - start).toBeLessThan(6500)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 
