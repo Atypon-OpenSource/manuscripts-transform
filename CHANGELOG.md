@@ -1,5 +1,16 @@
 # @manuscripts/manuscript-transform
 
+## 0.53.0
+
+### Minor Changes
+
+- f6f5f8d6: restore externalFileReferences on figure model
+
+### Patch Changes
+
+- Updated dependencies [f6f5f8d6]
+  - @manuscripts/manuscripts-json-schema@1.51.0
+
 ## 0.52.3
 
 ### Patch Changes
