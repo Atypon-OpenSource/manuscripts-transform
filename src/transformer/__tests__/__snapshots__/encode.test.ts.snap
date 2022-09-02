@@ -243,6 +243,7 @@ Map {
   "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0" => Object {
     "_id": "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0",
     "contentType": "image/png",
+    "externalFileReferences": undefined,
     "objectType": "MPFigure",
     "position": undefined,
     "src": "chemoji/chemoji8.png",
@@ -270,6 +271,7 @@ Map {
   "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557" => Object {
     "_id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
     "contentType": "image/png",
+    "externalFileReferences": undefined,
     "objectType": "MPFigure",
     "position": undefined,
     "src": "chemoji/chemoji7.png",
@@ -596,6 +598,7 @@ Map {
   "MPFigure:1" => Object {
     "_id": "MPFigure:1",
     "contentType": undefined,
+    "externalFileReferences": undefined,
     "objectType": "MPFigure",
     "position": undefined,
     "src": undefined,
