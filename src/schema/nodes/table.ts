@@ -73,9 +73,9 @@ export const table: TableNodeSpec = {
 }
 
 export const tableBody: TableNodeSpec = {
-  content: 'table_row{3,}',
+  content: 'table_row+',
   group: 'block',
-  tableRole: 'tbody',
+  tableRole: 'table',
   parseDOM: [
     {
       tag: 'tbody',
