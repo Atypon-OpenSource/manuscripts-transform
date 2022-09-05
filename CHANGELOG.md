@@ -1,5 +1,11 @@
 # @manuscripts/manuscript-transform
 
+## 0.54.0
+
+### Minor Changes
+
+- 16d3e8f9: fix table node selection
+
 ## 0.53.0
 
 ### Minor Changes
