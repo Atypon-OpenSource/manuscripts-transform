@@ -18,6 +18,7 @@ import { parseJATSArticle, parseJATSBody, parseJATSFront } from '../importer'
 import { readAndParseFixture } from './files'
 import { normalizeIDs, normalizeTimestamps } from './ids'
 
+jest.setTimeout(200000)
 describe('JATS importer', () => {
   test('parses minimal JATS body to a ProseMirror doc', async () => {
     const article = await readAndParseFixture('jats-example.xml')
@@ -52,12 +53,9 @@ describe('JATS importer', () => {
   })
 
   test('parses full JATS example to Manuscripts models', async () => {
-    const start = performance.now()
     const models = await parseJATSArticle(
       await readAndParseFixture('jats-example-doc.xml')
     )
-    const end = performance.now()
-    expect(end - start).toBeLessThan(8500)
     expect(normalizeIDs(normalizeTimestamps(models))).toMatchSnapshot()
   })
 
@@ -69,32 +67,23 @@ describe('JATS importer', () => {
   })
 
   test('parses JATS front only example to Manuscripts models', async () => {
-    const start = performance.now()
     const models = await parseJATSArticle(
       await readAndParseFixture('jats-example-front-only.xml')
     )
-    const end = performance.now()
-    expect(end - start).toBeLessThan(6500)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 
   test('parses full JATS no back example to Manuscripts models', async () => {
-    const start = performance.now()
     const models = await parseJATSArticle(
       await readAndParseFixture('jats-example-no-back.xml')
     )
-    const end = performance.now()
-    expect(end - start).toBeLessThan(6500)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 
   test('parses full JATS no body example to Manuscripts models', async () => {
-    const start = performance.now()
     const models = await parseJATSArticle(
       await readAndParseFixture('jats-example-no-body.xml')
     )
-    const end = performance.now()
-    expect(end - start).toBeLessThan(6500)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 

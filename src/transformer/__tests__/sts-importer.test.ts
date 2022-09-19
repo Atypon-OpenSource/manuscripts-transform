@@ -19,6 +19,7 @@ import fs from 'fs'
 import { parseSTSBody, parseSTSFront, parseSTSStandard } from '../sts-importer'
 import { normalizeIDs } from './__helpers__/ids'
 
+jest.setTimeout(200000)
 const loadFixture = async (filename: string) => {
   const xml = await fs.promises.readFile(
     __dirname + '/data/' + filename,
@@ -42,7 +43,6 @@ describe('STS importer', () => {
     const standard = await loadFixture('sts-example.xml')
     const body = standard.querySelector('body') as Element
 
-    const start = performance.now()
     const bodyDoc = parseSTSBody(standard, body, null, [])
 
     bodyDoc.descendants((node) => {
@@ -51,21 +51,16 @@ describe('STS importer', () => {
       delete node.attrs.rid
     })
     delete bodyDoc.attrs.id
-    const end = performance.now()
 
-    expect(end - start).toBeLessThan(15000)
     expect(bodyDoc).toMatchSnapshot()
   })
 
   test('parses STS article to Manuscripts models', async () => {
     const standard = await loadFixture('sts-example.xml')
 
-    const start = performance.now()
     const models = await parseSTSStandard(standard)
-    const end = performance.now()
 
     // TODO this takes forever
-    expect(end - start).toBeLessThan(40000)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 })
