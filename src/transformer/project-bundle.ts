@@ -68,7 +68,7 @@ export const findManuscript = (modelMap: Map<string, Model>): Manuscript => {
 
 const isJournal = hasObjectType<Journal>(ObjectTypes.Journal)
 
-export const findJournal = (modelMap: Map<string, Model>): Journal => {
+export const findJournal = (modelMap: Map<string, Model>) => {
   for (const model of modelMap.values()) {
     if (isJournal(model)) {
       return model
