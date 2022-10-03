@@ -245,12 +245,12 @@ export class Decoder {
     },
     [ObjectTypes.FigureElement]: (data) => {
       const model = data as FigureElement
-      const paragraphIDs = model.containedObjectIDs.filter(
-        (i) => i && i.startsWith('MPParagraphElement')
+
+      const paragraphIDs = model.containedObjectIDs.filter((i) =>
+        i.startsWith('MPParagraphElement')
       )
       const figureIDs = model.containedObjectIDs.filter(
-        (i) =>
-          i && (i.startsWith('MPFigure') || i.startsWith('MPMissingFigure'))
+        (i) => i.startsWith('MPFigure') || i.startsWith('MPMissingFigure')
       )
 
       const paragraphs: Array<ParagraphNode> = []
