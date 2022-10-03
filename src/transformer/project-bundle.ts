@@ -75,7 +75,7 @@ export const findJournal = (modelMap: Map<string, Model>): Journal => {
     }
   }
 
-  throw new Error('No journal found')
+  return null
 }
 
 const isManuscriptModel = (model: Model): model is ManuscriptModel =>
