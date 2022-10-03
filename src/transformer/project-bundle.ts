@@ -15,6 +15,7 @@
  */
 
 import {
+  Journal,
   Manuscript,
   Model,
   ObjectTypes,
@@ -63,6 +64,18 @@ export const findManuscript = (modelMap: Map<string, Model>): Manuscript => {
   }
 
   throw new Error('No manuscript found')
+}
+
+const isJournal = hasObjectType<Journal>(ObjectTypes.Journal)
+
+export const findJournal = (modelMap: Map<string, Model>): Journal => {
+  for (const model of modelMap.values()) {
+    if (isJournal(model)) {
+      return model
+    }
+  }
+
+  throw new Error('No journal found')
 }
 
 const isManuscriptModel = (model: Model): model is ManuscriptModel =>
