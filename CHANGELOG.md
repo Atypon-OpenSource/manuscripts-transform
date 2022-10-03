@@ -1,5 +1,11 @@
 # @manuscripts/manuscript-transform
 
+## 0.55.0
+
+### Minor Changes
+
+- ac127854: PDF preview - display journal name
+
 ## 0.54.0
 
 ### Minor Changes
