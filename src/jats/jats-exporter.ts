@@ -2166,14 +2166,16 @@ export class JATSExporter {
       'competing-interests',
     ]
 
-    for (const footnoteCategory of footnoteCategories) {
-      const footnoteSections = body.querySelectorAll(
-        `sec[sec-type="${footnoteCategory}"]`
-      )
-      for (const footnote of footnoteSections) {
-        if (footnote) {
-          footNotes.push(this.sectionToFootnote(footnote, footnoteCategory))
-        }
+    const sections = body.querySelectorAll('sec')
+    for (const currentSection of sections){
+      const currentSectionType = currentSection.getAttribute('sec-type')
+      if (
+        currentSectionType &&
+        footnoteCategories.indexOf(currentSectionType) >= 0
+      ) {
+        footNotes.push(
+          this.sectionToFootnote(currentSection, currentSectionType)
+        )
       }
     }
 
