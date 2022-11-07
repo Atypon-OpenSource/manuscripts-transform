@@ -337,14 +337,15 @@ export class JATSExporter {
         const newHref = await mediaPathGenerator(graphic, parentID)
         graphic.setAttributeNS(XLINK_NAMESPACE, 'href', newHref)
       }
-
-      for (const suppMaterial of this.document.querySelectorAll(
-        'supplementary-material'
-      )) {
-        const newHref = await mediaPathGenerator(suppMaterial, suppMaterial.id)
-        suppMaterial.setAttributeNS(XLINK_NAMESPACE, 'href', newHref)
-      }
     }
+
+    for (const suppMaterial of this.document.querySelectorAll(
+      'supplementary-material'
+    )) {
+      const newHref = await mediaPathGenerator(suppMaterial, suppMaterial.id)
+      suppMaterial.setAttributeNS(XLINK_NAMESPACE, 'href', newHref)
+    }
+
   }
 
   protected rewriteIDs = async (
