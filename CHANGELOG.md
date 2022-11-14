@@ -1,5 +1,16 @@
 # @manuscripts/manuscript-transform
 
+## 0.56.0
+
+### Minor Changes
+
+- 268a0bba: LEAN-1689
+- ce99f63c: LEAN-1337 - fix supplements elements 'href'
+
+### Patch Changes
+
+- 78ad3efa: LEAN-1078
+
 ## 0.55.0
 
 ### Minor Changes
