@@ -478,7 +478,7 @@ const encoders: NodeEncoderMap = {
     contentType: node.attrs.contentType || undefined,
     src: node.attrs.src || undefined,
     position: node.attrs.position || undefined,
-    externalFileReferences: node.attrs.externalFileReferences || undefined
+    externalFileReferences: node.attrs.externalFileReferences || undefined,
   }),
   figure_element: (node): Partial<FigureElement> =>
     figureElementEncoder<FigureElement>(node),

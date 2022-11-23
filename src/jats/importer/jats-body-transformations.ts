@@ -261,7 +261,7 @@ export const jatsBodyTransformations = {
       }
     }
 
-    if (!footnotesSection) {
+    if (!footnotesSection && containingGroup.innerHTML) {
       const section = this.createFootnotes([containingGroup], createElement)
       body.append(section)
     }

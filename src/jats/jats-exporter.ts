@@ -269,11 +269,10 @@ export class JATSExporter {
       const body = this.buildBody(fragment)
       article.appendChild(body)
 
-      const back = this.buildBack()
+      const back = this.buildBack(body)
       article.appendChild(back)
 
       this.moveAbstracts(front, body)
-      this.moveSectionsToBack(back, body)
       this.moveFloatsGroup(body, article)
     }
 
@@ -345,7 +344,6 @@ export class JATSExporter {
       const newHref = await mediaPathGenerator(suppMaterial, suppMaterial.id)
       suppMaterial.setAttributeNS(XLINK_NAMESPACE, 'href', newHref)
     }
-
   }
 
   protected rewriteIDs = async (
@@ -708,8 +706,9 @@ export class JATSExporter {
     return body
   }
 
-  protected buildBack = () => {
+  protected buildBack = (body: HTMLElement) => {
     const back = this.document.createElement('back')
+    this.moveSectionsToBack(back, body)
 
     // footnotes elements in footnotes section (i.e. not in table footer)
     const footnotesElements = this.document.querySelectorAll('sec > fn-group')
@@ -2168,7 +2167,7 @@ export class JATSExporter {
     ]
 
     const sections = body.querySelectorAll('sec')
-    for (const currentSection of sections){
+    for (const currentSection of sections) {
       const currentSectionType = currentSection.getAttribute('sec-type')
       if (
         currentSectionType &&
@@ -2181,14 +2180,9 @@ export class JATSExporter {
     }
 
     if (footNotes.length > 0) {
-      const existedFnGroup = back.querySelector('fn-group')
-      if (existedFnGroup) {
-        existedFnGroup.append(...footNotes)
-      } else {
-        const fnGroup = this.document.createElement('fn-group')
-        fnGroup.append(...footNotes)
-        back.append(fnGroup)
-      }
+      const fnGroup = this.document.createElement('fn-group')
+      fnGroup.append(...footNotes)
+      back.append(fnGroup)
     }
   }
 

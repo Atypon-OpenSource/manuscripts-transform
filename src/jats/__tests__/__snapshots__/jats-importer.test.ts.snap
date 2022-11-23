@@ -591,25 +591,6 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:endnotes",
-    "elementIDs": Array [
-      "MPFootnotesElement:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 13,
-    "title": "Footnotes",
-  },
-  Object {
-    "_id": "MPFootnotesElement:test",
-    "contents": "<div></div>",
-    "elementType": "div",
-    "objectType": "MPFootnotesElement",
-  },
-  Object {
-    "_id": "MPSection:test",
     "category": "MPSectionCategory:acknowledgement",
     "elementIDs": Array [
       "MPParagraphElement:test",
@@ -618,7 +599,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 13,
     "title": "Acknowledgments",
   },
   Object {
@@ -638,7 +619,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 15,
+    "priority": 14,
     "title": "References",
   },
   Object {
@@ -776,8 +757,8 @@ Array [
     ],
     "objectType": "MPCommentAnnotation",
     "selector": Object {
-      "from": 19961,
-      "to": 19961,
+      "from": 19946,
+      "to": 19946,
     },
     "target": "MPBibliographyElement:test",
   },
@@ -1150,25 +1131,6 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:endnotes",
-    "elementIDs": Array [
-      "MPFootnotesElement:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 12,
-    "title": "Footnotes",
-  },
-  Object {
-    "_id": "MPFootnotesElement:test",
-    "contents": "<div></div>",
-    "elementType": "div",
-    "objectType": "MPFootnotesElement",
-  },
-  Object {
-    "_id": "MPSection:test",
     "category": "MPSectionCategory:bibliography",
     "elementIDs": Array [
       "MPBibliographyElement:test",
@@ -1177,7 +1139,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 12,
     "title": "Bibliography",
   },
   Object {
@@ -11173,25 +11135,6 @@ Array [
     "placeholderInnerHTML": "",
   },
   Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:endnotes",
-    "elementIDs": Array [
-      "MPFootnotesElement:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 10,
-    "title": "Footnotes",
-  },
-  Object {
-    "_id": "MPFootnotesElement:test",
-    "contents": "<div></div>",
-    "elementType": "div",
-    "objectType": "MPFootnotesElement",
-  },
-  Object {
     "_id": "MPElementsOrder:test",
     "elementType": "MPFigureElement",
     "elements": Array [
@@ -12543,34 +12486,6 @@ Object {
         },
       ],
       "type": "section",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Footnotes",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "kind": "footnote",
-            "paragraphStyle": "",
-          },
-          "type": "footnotes_element",
-        },
-      ],
-      "type": "footnotes_section",
     },
     Object {
       "attrs": Object {
