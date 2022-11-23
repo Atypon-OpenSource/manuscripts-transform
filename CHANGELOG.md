@@ -1,5 +1,11 @@
 # @manuscripts/manuscript-transform
 
+## 0.58.0
+
+### Minor Changes
+
+- 16f11008: LEAN-1912 -- remove empty title from XML
+
 ## 0.57.0
 
 ### Minor Changes
