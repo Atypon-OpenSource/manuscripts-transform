@@ -1,5 +1,11 @@
 # @manuscripts/manuscript-transform
 
+## 0.57.0
+
+### Minor Changes
+
+- 530a3431: LEAN-1889 -- update transformer
+
 ## 0.56.1
 
 ### Patch Changes
