@@ -962,7 +962,12 @@ export class JATSExporter {
       blockquote_element: () => ['disp-quote', { 'content-type': 'quote' }, 0],
       bullet_list: () => ['list', { 'list-type': 'bullet' }, 0],
       caption: () => ['p', 0],
-      caption_title: () => ['title', 0],
+      caption_title: (node) => {
+        if (!node.textContent) {
+          return ''
+        }
+        return ['title', 0]
+      },
       citation: (node) => {
         if (!node.attrs.rid) {
           warn(`${node.attrs.id} has no rid`)
