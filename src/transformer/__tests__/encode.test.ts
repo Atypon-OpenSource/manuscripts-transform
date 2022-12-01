@@ -14,6 +14,11 @@
  * limitations under the License.
  */
 
+import {
+  CommentAnnotation,
+  ObjectTypes,
+} from '@manuscripts/manuscripts-json-schema'
+
 import { Decoder } from '../decode'
 import { encode } from '../encode'
 import { ManuscriptModel } from '../models'
@@ -52,11 +57,13 @@ describe('encoder', () => {
 
       for (const key of Object.keys(model)) {
         const value = model[key as keyof ManuscriptModel]
-        if (value === undefined || value === '') {
+        if (value === undefined || value === '' || value === null) {
           delete model[key as keyof ManuscriptModel]
         }
       }
-
+      if (model.objectType === ObjectTypes.CommentAnnotation) {
+        ;(model as CommentAnnotation).contents = ''
+      }
       return model as ManuscriptModel
     }
 

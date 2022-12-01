@@ -1330,6 +1330,7 @@ export class JATSExporter {
       text: (node) => node.text as string,
       toc_element: () => '',
       toc_section: () => '',
+      comment: () => '',
     }
 
     const marks: MarkSpecs = {

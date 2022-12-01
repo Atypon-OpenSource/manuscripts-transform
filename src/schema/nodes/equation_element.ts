@@ -17,11 +17,13 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
+import { CommentNode } from './comment'
 
 interface Attrs {
   id: string
   suppressCaption: boolean
   suppressTitle?: boolean
+  comments?: CommentNode[]
 }
 
 export interface EquationElementNode extends ManuscriptNode {
@@ -35,6 +37,7 @@ export const equationElement: NodeSpec = {
     suppressCaption: { default: true },
     suppressTitle: { default: undefined },
     dataTracked: { default: null },
+    comments: { default: null },
   },
   selectable: false,
   group: 'block element',

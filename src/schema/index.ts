@@ -36,6 +36,7 @@ import { blockquoteElement } from './nodes/blockquote_element'
 import { caption } from './nodes/caption'
 import { captionTitle } from './nodes/caption_title'
 import { citation } from './nodes/citation'
+import { comment } from './nodes/comment'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
 import { equation } from './nodes/equation'
@@ -77,6 +78,7 @@ import { Marks, Nodes } from './types'
 
 export * from './groups'
 export * from './types'
+export * from './nodes/comment'
 export * from './nodes/attribution'
 export * from './nodes/bibliography_element'
 export * from './nodes/bibliography_section'
@@ -136,6 +138,7 @@ export const schema = new Schema<Nodes, Marks>({
     tracked_delete,
   },
   nodes: {
+    comment,
     attribution,
     bibliography_element: bibliographyElement,
     bibliography_section: bibliographySection,

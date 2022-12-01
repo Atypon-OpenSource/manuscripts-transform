@@ -18,6 +18,7 @@ import { ObjectTypes } from '@manuscripts/manuscripts-json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
+import { CommentNode } from './comment'
 
 interface Attrs {
   id: string
@@ -26,6 +27,7 @@ interface Attrs {
   languageKey: string
   isExpanded: boolean
   isExecuting: boolean
+  comments?: CommentNode[]
 }
 
 export interface ListingNode extends ManuscriptNode {
@@ -42,6 +44,7 @@ export const listing: NodeSpec = {
     isExecuting: { default: false },
     // placeholder: { default: 'Click to edit listing' },
     dataTracked: { default: null },
+    comments: { default: null },
   },
   draggable: false,
   selectable: false,

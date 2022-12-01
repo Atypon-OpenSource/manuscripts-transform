@@ -17,6 +17,7 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
+import { CommentNode } from './comment'
 
 interface Attrs {
   id: string
@@ -24,6 +25,7 @@ interface Attrs {
   titleSuppressed: boolean
   generatedLabel: boolean
   pageBreakStyle?: number
+  comments?: CommentNode[]
 }
 
 export interface SectionNode extends ManuscriptNode {
@@ -64,6 +66,7 @@ export const section: NodeSpec = {
     generatedLabel: { default: undefined },
     pageBreakStyle: { default: undefined },
     dataTracked: { default: null },
+    comments: { default: null },
   },
   group: 'block sections',
   selectable: false,

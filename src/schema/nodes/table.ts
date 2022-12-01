@@ -17,6 +17,7 @@
 // adapted from 'prosemirror-tables'
 
 import { ManuscriptNode, TableNodeSpec } from '../types'
+import { CommentNode } from './comment'
 
 export interface TableNode extends ManuscriptNode {
   attrs: {
@@ -27,6 +28,7 @@ export interface TableNode extends ManuscriptNode {
       url: string
       kind?: 'imageRepresentation' | 'interactiveRepresentation' | 'dataset'
     }[]
+    comments?: CommentNode[]
   }
 }
 
@@ -42,6 +44,7 @@ export const table: TableNodeSpec = {
     footerRows: { default: 1 },
     externalFileReferences: { default: undefined },
     dataTracked: { default: null },
+    comments: { default: null },
   },
   parseDOM: [
     {

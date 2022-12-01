@@ -28,6 +28,7 @@ import {
 } from '../schema'
 
 export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
+  [schema.nodes.comment, ObjectTypes.CommentAnnotation],
   [schema.nodes.bibliography_element, ObjectTypes.BibliographyElement],
   [schema.nodes.bibliography_section, ObjectTypes.Section],
   [schema.nodes.blockquote_element, ObjectTypes.QuoteElement],

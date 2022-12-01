@@ -16,6 +16,7 @@
 
 import {
   BibliographyElement,
+  CommentAnnotation,
   Element,
   Equation,
   EquationElement,
@@ -23,7 +24,6 @@ import {
   FigureElement,
   Footnote,
   FootnotesElement,
-  HighlightMarker,
   KeywordsElement,
   ListElement,
   Listing,
@@ -48,6 +48,7 @@ import {
   BlockquoteElementNode,
   BulletListNode,
   CaptionNode,
+  CommentNode,
   EquationElementNode,
   EquationNode,
   FigCaptionNode,
@@ -78,6 +79,7 @@ import { PlaceholderElement } from './models'
 import {
   ExtraObjectTypes,
   hasObjectType,
+  isCommentAnnotation,
   isFigure,
   isManuscript,
   isUserProfile,
@@ -241,6 +243,7 @@ export class Decoder {
         src: model.src,
         externalFileReferences: model.externalFileReferences,
         position: model.position,
+        comments: this.createCommentsNode(model),
       })
     },
     [ObjectTypes.FigureElement]: (data) => {
@@ -309,6 +312,7 @@ export class Decoder {
           ),
           attribution: model.attribution,
           alternatives: model.alternatives,
+          comments: this.createCommentsNode(model),
         },
         content
       ) as FigureElementNode
@@ -363,14 +367,14 @@ export class Decoder {
       for (const model of this.modelMap.values()) {
         if (isFootnote(model) && model.kind === collateByKind) {
           const footnote = this.parseContents(
-            'contents',
             model.contents || '<div></div>',
             undefined,
-            model.highlightMarkers,
+            this.getComments(model),
             {
               topNode: schema.nodes.footnote.create({
                 id: model._id,
                 kind: model.kind,
+                comments: this.createCommentsNode(model),
                 // placeholder: model.placeholderText
                 // paragraphStyle: model.paragraphStyle,
               }),
@@ -401,6 +405,7 @@ export class Decoder {
       return schema.nodes.footnote.create({
         id: model._id,
         kind: model.kind,
+        comments: this.createCommentsNode(model),
         // placeholder: model.placeholderText
         // paragraphStyle: model.paragraphStyle,
       }) as FootnoteNode
@@ -423,14 +428,14 @@ export class Decoder {
         case 'ol':
           // TODO: wrap inline text in paragraphs
           return this.parseContents(
-            'contents',
             model.contents || '<ol></ol>',
             undefined,
-            model.highlightMarkers,
+            this.getComments(model),
             {
               topNode: schema.nodes.ordered_list.create({
                 id: model._id,
                 paragraphStyle: model.paragraphStyle,
+                comments: this.createCommentsNode(model),
               }),
             }
           ) as OrderedListNode
@@ -438,10 +443,9 @@ export class Decoder {
         case 'ul':
           // TODO: wrap inline text in paragraphs
           return this.parseContents(
-            'contents',
             model.contents || '<ul></ul>',
             undefined,
-            model.highlightMarkers,
+            this.getComments(model),
             {
               topNode: schema.nodes.bullet_list.create({
                 id: model._id,
@@ -462,6 +466,7 @@ export class Decoder {
         contents: model.contents,
         language: model.language,
         languageKey: model.languageKey,
+        comments: this.createCommentsNode(model),
       }) as ListingNode
     },
     [ObjectTypes.ListingElement]: (data) => {
@@ -490,6 +495,7 @@ export class Decoder {
           suppressTitle: Boolean(
             model.suppressTitle === undefined ? true : model.suppressTitle
           ),
+          comments: this.createCommentsNode(model),
         },
         [listing, figcaption]
       ) as ListingElementNode
@@ -506,15 +512,15 @@ export class Decoder {
       const model = data as ParagraphElement
 
       return this.parseContents(
-        'contents',
         model.contents || '<p></p>',
         undefined,
-        model.highlightMarkers,
+        this.getComments(model),
         {
           topNode: schema.nodes.paragraph.create({
             id: model._id,
             paragraphStyle: model.paragraphStyle,
             placeholder: model.placeholderInnerHTML,
+            comments: this.createCommentsNode(model),
           }),
         }
       ) as ParagraphNode
@@ -525,10 +531,9 @@ export class Decoder {
       switch (model.quoteType) {
         case 'block':
           return this.parseContents(
-            'contents',
             model.contents || '<p></p>',
             undefined,
-            model.highlightMarkers,
+            this.getComments(model),
             {
               topNode: schema.nodes.blockquote_element.create({
                 id: model._id,
@@ -540,10 +545,9 @@ export class Decoder {
 
         case 'pull':
           return this.parseContents(
-            'contents',
             model.contents || '<p></p>',
             undefined,
-            model.highlightMarkers,
+            this.getComments(model),
             {
               topNode: schema.nodes.pullquote_element.create({
                 id: model._id,
@@ -598,24 +602,17 @@ export class Decoder {
         .filter(isManuscriptNode)
 
       const sectionTitleNode: SectionTitleNode = model.title
-        ? this.parseContents(
-            'title',
-            model.title,
-            'h1',
-            model.highlightMarkers,
-            {
-              topNode: schema.nodes.section_title.create(),
-            }
-          )
+        ? this.parseContents(model.title, 'h1', this.getComments(model), {
+            topNode: schema.nodes.section_title.create(),
+          })
         : schema.nodes.section_title.create()
 
       let sectionLabelNode: SectionTitleNode | undefined = undefined
       if (model.label) {
         sectionLabelNode = this.parseContents(
-          'label',
           model.label,
           'label',
-          model.highlightMarkers,
+          this.getComments(model),
           {
             topNode: schema.nodes.section_label.create(),
           }
@@ -647,6 +644,7 @@ export class Decoder {
           titleSuppressed: model.titleSuppressed,
           pageBreakStyle: model.pageBreakStyle,
           generatedLabel: model.generatedLabel,
+          comments: this.createCommentsNode(model),
         },
         content
       )
@@ -662,13 +660,13 @@ export class Decoder {
       const model = data as Table
 
       return this.parseContents(
-        'contents',
         model.contents,
         undefined,
-        model.highlightMarkers,
+        this.getComments(model),
         {
           topNode: schema.nodes.table.create({
             id: model._id,
+            comments: this.createCommentsNode(model),
           }),
         }
       ) as TableNode
@@ -727,6 +725,7 @@ export class Decoder {
           suppressHeader: model.suppressHeader,
           tableStyle: model.tableStyle,
           paragraphStyle: model.paragraphStyle,
+          comments: this.createCommentsNode(model),
         },
         content
       ) as TableElementNode
@@ -742,6 +741,30 @@ export class Decoder {
         paragraphStyle: model.paragraphStyle,
       }) as TOCElementNode
     },
+    [ObjectTypes.CommentAnnotation]: (data) => {
+      const model = data as CommentAnnotation
+
+      return schema.nodes.comment.create({
+        id: model._id,
+        contents: model.contents,
+        selector: model.selector,
+        target: model.target,
+      }) as CommentNode
+    },
+  }
+
+  private createCommentsNode(model: Model) {
+    const comments: ManuscriptNode[] = []
+    for (const comment of this.getComments(model)) {
+      comments.push(this.decode(comment) as ManuscriptNode)
+    }
+    return comments
+  }
+
+  private getComments(model: Model) {
+    return Array.from(this.modelMap.values()).filter(
+      (c) => isCommentAnnotation(c) && c.target === model._id
+    ) as CommentAnnotation[]
   }
 
   private extractListing(model: FigureElement) {
@@ -832,19 +855,18 @@ export class Decoder {
   }
 
   public parseContents = (
-    field: string,
     contents: string,
     wrapper?: string,
-    highlightMarkers: HighlightMarker[] = [],
+    commentAnnotations: CommentAnnotation[] = [],
     options?: ParseOptions
   ): ManuscriptNode => {
-    const contentsWithHighlightMarkers = highlightMarkers.length
-      ? insertHighlightMarkers(field, contents, highlightMarkers)
+    const contentsWithComments = commentAnnotations.length
+      ? insertHighlightMarkers(contents, commentAnnotations)
       : contents
 
     const wrappedContents = wrapper
-      ? `<${wrapper}>${contentsWithHighlightMarkers}</${wrapper}>`
-      : contentsWithHighlightMarkers
+      ? `<${wrapper}>${contentsWithComments}</${wrapper}>`
+      : contentsWithComments
 
     const html = wrappedContents.trim()
 
@@ -877,10 +899,9 @@ export class Decoder {
 
     const captionTitle = model.title
       ? this.parseContents(
-          'title',
           model.title,
           'caption_title',
-          model.highlightMarkers,
+          this.getComments(model),
           {
             topNode: titleNode,
           }
@@ -899,10 +920,9 @@ export class Decoder {
         const captionNode = schema.nodes.caption.create() as CaptionNode
 
         const caption = this.parseContents(
-          'caption',
           paragraph.outerHTML,
           'caption',
-          model.highlightMarkers,
+          this.getComments(model),
           {
             topNode: captionNode,
           }
@@ -916,15 +936,9 @@ export class Decoder {
     const captionNode = schema.nodes.caption.create() as CaptionNode
 
     const caption = model.caption
-      ? this.parseContents(
-          'caption',
-          model.caption,
-          'caption',
-          model.highlightMarkers,
-          {
-            topNode: captionNode,
-          }
-        )
+      ? this.parseContents(model.caption, 'caption', this.getComments(model), {
+          topNode: captionNode,
+        })
       : captionNode
 
     return schema.nodes.figcaption.create({}, [captionTitle, caption])

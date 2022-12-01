@@ -19,11 +19,13 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { buildElementClass } from '../../lib/attributes'
 import { ManuscriptNode } from '../types'
+import { CommentNode } from './comment'
 
 interface Attrs {
   id: string
   paragraphStyle: string
   placeholder: string
+  comments?: CommentNode[]
 }
 
 export interface ParagraphNode extends ManuscriptNode {
@@ -37,6 +39,7 @@ export const paragraph: NodeSpec = {
     paragraphStyle: { default: '' }, // TODO: default paragraph style
     placeholder: { default: '' }, // TODO: 'List item' if inside a list
     dataTracked: { default: null },
+    comments: { default: null },
     // tight: { default: false }, // https://gitlab.com/mpapp-private/manuscripts-frontend/issues/75
   },
   group: 'block element',

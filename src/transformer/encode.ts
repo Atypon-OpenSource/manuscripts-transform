@@ -16,6 +16,7 @@
 
 import {
   BibliographyElement,
+  CommentAnnotation,
   Equation,
   EquationElement,
   Figure,
@@ -41,6 +42,7 @@ import serializeToXML from 'w3c-xmlserializer'
 
 import { iterateChildren } from '../lib/utils'
 import {
+  CommentNode,
   isHighlightMarkerNode,
   isSectionNode,
   ManuscriptNode,
@@ -49,7 +51,7 @@ import {
   schema,
   TableElementNode,
 } from '../schema'
-import { buildAttribution } from './builders'
+import { Build, buildAttribution, buildComment } from './builders'
 import {
   extractHighlightMarkers,
   isHighlightableModel,
@@ -482,6 +484,11 @@ const encoders: NodeEncoderMap = {
   }),
   figure_element: (node): Partial<FigureElement> =>
     figureElementEncoder<FigureElement>(node),
+  comment: (node): Partial<CommentAnnotation> => ({
+    selector: node.attrs.selector,
+    target: node.attrs.target,
+    contents: node.attrs.contents,
+  }),
   footnote: (node, parent): Partial<Footnote> => ({
     containingObject: parent.attrs.id,
     contents: footnoteContents(node), // TODO: needed?
@@ -643,7 +650,11 @@ export const modelFromNode = (
   parent: ManuscriptNode,
   path: string[],
   priority: PrioritizedValue
-): Model => {
+): {
+  model: Model
+  commentAnnotationsMap: Map<string, Build<CommentAnnotation>>
+} => {
+  const commentAnnotationsMap = new Map<string, Build<CommentAnnotation>>()
   // TODO: in handlePaste, filter out non-standard IDs
 
   const objectType = nodeTypesMap.get(node.type)
@@ -669,10 +680,24 @@ export const modelFromNode = (
   if (isHighlightableModel(model)) {
     // TODO 30.4.2021
     // This method doubles the execution time with large documents, such as sts-example.xml (from 1s to 2s)
-    extractHighlightMarkers(model)
+    extractHighlightMarkers(model, commentAnnotationsMap)
+    if (node.attrs.comments) {
+      const commentNodes = node.attrs.comments as CommentNode[]
+      commentNodes
+        .filter((commentNode) => !commentNode.attrs.selector)
+        .forEach((c) => {
+          const commentAnnotation = buildComment(
+            model._id,
+            c.attrs.contents,
+            c.attrs.selector
+          )
+          commentAnnotation._id = c.attrs.id
+          commentAnnotationsMap.set(commentAnnotation._id, commentAnnotation)
+        })
+    }
   }
 
-  return model
+  return { model, commentAnnotationsMap }
 }
 
 interface PrioritizedValue {
@@ -699,13 +724,21 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       if (placeholders.includes(child.type.name)) {
         return
       }
-      const model = modelFromNode(child, parent, path, priority)
+      const { model, commentAnnotationsMap } = modelFromNode(
+        child,
+        parent,
+        path,
+        priority
+      )
       if (models.has(model._id)) {
         throw Error(
           `Encountered duplicate ids in models map while encoding: ${model._id}`
         )
       }
       models.set(model._id, model)
+      commentAnnotationsMap.forEach((val, key) =>
+        models.set(key, val as unknown as Model)
+      )
       child.forEach(addModel(path.concat(child.attrs.id), child))
     }
 

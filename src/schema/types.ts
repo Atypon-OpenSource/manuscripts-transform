@@ -55,6 +55,7 @@ export type Nodes =
   | 'bullet_list'
   | 'caption'
   | 'caption_title'
+  | 'comment'
   | 'citation'
   | 'cross_reference'
   | 'doc'

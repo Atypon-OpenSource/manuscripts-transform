@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-import {
-  HighlightMarker,
-  Model,
-  ObjectTypes,
-} from '@manuscripts/manuscripts-json-schema'
+import { CommentAnnotation, Model } from '@manuscripts/manuscripts-json-schema'
+
+import { Build, buildComment } from './builders'
 
 export type HighlightableField = 'title' | 'caption' | 'contents'
 
@@ -44,12 +42,12 @@ export interface HighlightableModel extends Model {
   contents?: string
   title?: string
   caption?: string
-  highlightMarkers: HighlightMarker[]
 }
 
-export const extractHighlightMarkers = (model: HighlightableModel) => {
-  const highlightMarkers: HighlightMarker[] = []
-
+export const extractHighlightMarkers = (
+  model: HighlightableModel,
+  commentAnnotationsMap: Map<string, Build<CommentAnnotation>>
+) => {
   for (const field of highlightableFields) {
     let html = model[field]
 
@@ -80,19 +78,35 @@ export const extractHighlightMarkers = (model: HighlightableModel) => {
         }
 
         const _id = marker.getAttribute('id')
-        const highlightID = marker.getAttribute('data-reference-id')
+        const target = marker.getAttribute('data-target-id')
 
-        if (_id && highlightID) {
-          const start = marker.getAttribute('data-position') === 'start'
+        if (_id && target) {
+          const position = marker.getAttribute('data-position')
 
-          highlightMarkers.push({
-            _id,
-            objectType: ObjectTypes.HighlightMarker,
-            highlightID,
-            field,
-            start,
-            offset,
-          })
+          const commentAnnotation = { ...buildComment(target, ''), _id: _id }
+
+          if (position === 'start') {
+            commentAnnotationsMap.set(commentAnnotation._id, {
+              ...commentAnnotation,
+              selector: {
+                from: offset,
+                to: -1,
+              },
+            })
+          } else if (position === 'end') {
+            const comment = commentAnnotationsMap.get(commentAnnotation._id)
+            if (comment && comment.selector) {
+              commentAnnotationsMap.set(comment._id, {
+                ...comment,
+                selector: { ...comment.selector, to: offset },
+              })
+            }
+          } else if (position === 'point') {
+            commentAnnotationsMap.set(commentAnnotation._id, {
+              ...commentAnnotation,
+              selector: { from: offset, to: offset },
+            })
+          }
         }
 
         // splice out the marker
@@ -102,43 +116,62 @@ export const extractHighlightMarkers = (model: HighlightableModel) => {
       model[field] = html
     }
   }
-
-  if (highlightMarkers.length) {
-    model.highlightMarkers = highlightMarkers
-  }
 }
 
 export const insertHighlightMarkers = (
-  field: string,
   contents: string,
-  highlightMarkers: HighlightMarker[]
+  commentAnnotations: CommentAnnotation[]
 ): string => {
   let output = contents
 
-  const relevantHighlightMarkers = highlightMarkers
-    // only use markers in this field
-    .filter((highlightMarker) => highlightMarker.field === field)
-    // sort highest offset first, for splicing
-    .sort((a, b) => b.offset - a.offset)
+  const sortedComments = commentAnnotations.sort((a, b) => {
+    if (a.selector && b.selector) {
+      return b.selector.from - a.selector.from
+    } else {
+      return 0
+    }
+  })
+  for (const comment of sortedComments) {
+    let element: HTMLSpanElement
+    if (comment.selector) {
+      if (comment.selector.from === comment.selector.to) {
+        element = createHighlightElement(comment, 'point')
+        output = injectHighlightMarker(element, comment.selector.from, output)
+      } else {
+        element = createHighlightElement(comment, 'start')
+        output = injectHighlightMarker(element, comment.selector.from, output)
 
-  for (const highlightMarker of relevantHighlightMarkers) {
-    const element = document.createElement('span')
-    element.className = 'highlight-marker'
-    element.setAttribute('id', highlightMarker._id)
-    element.setAttribute('data-reference-id', highlightMarker.highlightID)
-    element.setAttribute(
-      'data-position',
-      highlightMarker.start ? 'start' : 'end'
-    )
-
-    const parts = [
-      output.substring(0, highlightMarker.offset),
-      element.outerHTML,
-      output.substring(highlightMarker.offset),
-    ]
-
-    output = parts.join('')
+        const updatedEndOffset = element.outerHTML.length + comment.selector.to
+        element = createHighlightElement(comment, 'end')
+        output = injectHighlightMarker(element, updatedEndOffset, output)
+      }
+    }
   }
-
   return output
+}
+
+function injectHighlightMarker(
+  element: HTMLElement,
+  offset: number,
+  contents: string
+) {
+  const parts = [
+    contents.substring(0, offset),
+    element.outerHTML,
+    contents.substring(offset),
+  ]
+
+  return parts.join('')
+}
+
+const createHighlightElement = (
+  comment: CommentAnnotation,
+  position: string
+) => {
+  const element = document.createElement('span')
+  element.className = 'highlight-marker'
+  element.setAttribute('id', comment._id)
+  element.setAttribute('data-target-id', comment.target)
+  element.setAttribute('data-position', position)
+  return element
 }

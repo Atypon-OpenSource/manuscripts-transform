@@ -15,6 +15,7 @@
  */
 
 import {
+  CommentAnnotation,
   Figure,
   FigureElement,
   Highlight,
@@ -77,27 +78,24 @@ export const createTestModelMapWithHighlights = () => {
     paragraphStyle: 'MPParagraphStyle:1',
     contents:
       '<p xmlns="http://www.w3.org/1999/xhtml" id="MPParagraphElement:1" class="MPElement MPParagraphStyle_1" data-object-type="MPParagraphElement">This sentence contains a highlight.</p>',
-    highlightMarkers: [
-      {
-        objectType: ObjectTypes.HighlightMarker,
-        _id: 'MPHighlightMarker:1',
-        highlightID: paragraphHighlight._id,
-        start: true,
-        field: 'contents',
-        offset: 166,
-      },
-      {
-        objectType: ObjectTypes.HighlightMarker,
-        _id: 'MPHighlightMarker:2',
-        highlightID: paragraphHighlight._id,
-        start: false,
-        field: 'contents',
-        offset: 175,
-      },
-    ],
   }
 
   modelMap.set(paragraphWithHighlight._id, paragraphWithHighlight)
+
+  const paragraphComment: CommentAnnotation = {
+    objectType: ObjectTypes.CommentAnnotation,
+    _id: 'MPCommentAnnotation:test',
+    target: 'MPParagraphElement:1',
+    selector: { from: 166, to: 175 },
+    contents: '',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+    sessionID: 'test',
+  }
+
+  modelMap.set(paragraphComment._id, paragraphComment)
 
   const figureHighlight: Highlight = {
     objectType: ObjectTypes.Highlight,
@@ -148,27 +146,23 @@ export const createTestModelMapWithHighlights = () => {
       '<p class="caption-description" data-placeholder-text="Caption..." contenteditable="true">A figure with a caption</p>',
     figureStyle: 'MPFigureStyle:1',
     containedObjectIDs: [figureWithHighlight._id],
-    highlightMarkers: [
-      {
-        objectType: ObjectTypes.HighlightMarker,
-        _id: 'MPHighlightMarker:5',
-        highlightID: figureElementHighlight._id,
-        start: true,
-        field: 'caption',
-        offset: 105,
-      },
-      {
-        objectType: ObjectTypes.HighlightMarker,
-        _id: 'MPHighlightMarker:6',
-        highlightID: figureElementHighlight._id,
-        start: false,
-        field: 'caption',
-        offset: 112,
-      },
-    ],
   }
 
   modelMap.set(figureElementWithHighlight._id, figureElementWithHighlight)
+
+  const figureComment: CommentAnnotation = {
+    objectType: ObjectTypes.CommentAnnotation,
+    _id: 'MPCommentAnnotation:test1',
+    target: 'MPFigureElement:1',
+    contents: '',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+    sessionID: 'test',
+  }
+
+  modelMap.set(figureComment._id, figureComment)
 
   const sectionHighlight: Highlight = {
     objectType: ObjectTypes.Highlight,
@@ -195,28 +189,24 @@ export const createTestModelMapWithHighlights = () => {
     elementIDs: [paragraphWithHighlight._id, figureElementWithHighlight._id],
     generatedLabel: true,
     title: 'A section title with a highlight',
-    highlightMarkers: [
-      {
-        objectType: ObjectTypes.HighlightMarker,
-        _id: 'MPHighlightMarker:3',
-        highlightID: sectionHighlight._id,
-        start: true,
-        field: 'title',
-        offset: 23,
-      },
-      {
-        objectType: ObjectTypes.HighlightMarker,
-        _id: 'MPHighlightMarker:4',
-        highlightID: sectionHighlight._id,
-        start: false,
-        field: 'title',
-        offset: 32,
-      },
-    ],
   }
 
   modelMap.set(sectionWithHighlights._id, sectionWithHighlights)
 
+  const secComment: CommentAnnotation = {
+    objectType: ObjectTypes.CommentAnnotation,
+    _id: 'MPCommentAnnotation:test2',
+    target: 'MPSection:1',
+    selector: { from: 23, to: 32 },
+    contents: '',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+    sessionID: 'test',
+  }
+
+  modelMap.set(secComment._id, secComment)
   return modelMap
 }
 

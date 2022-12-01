@@ -183,5 +183,5 @@ const textFromHTML = (html: string) => {
   for (const xref of template.content.querySelectorAll('.citation')) {
     xref.textContent = '1'
   }
-  return template.content.textContent
+  return template.innerHTML
 }

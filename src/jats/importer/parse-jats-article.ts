@@ -38,7 +38,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { InvalidInput } from '../../errors'
 import { nodeFromHTML } from '../../lib/html'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../../schema'
-import { auxiliaryObjectTypes, Decoder, nodeTypesMap } from '../../transformer'
+import { auxiliaryObjectTypes, nodeTypesMap } from '../../transformer'
 import {
   AuxiliaryObjects,
   Build,
@@ -421,49 +421,10 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
 
   if (authorQueriesMap.size) {
     const commentAnnotations = createComments(authorQueriesMap, models)
-    updateCommentsSelectors(models, commentAnnotations)
+    models.push(...(commentAnnotations as CommentAnnotation[]))
   }
 
   return models
-}
-
-// This is to update the comments selector to equal the comment target (parent) position relative to the whole article + the comment position relative to the parent node.
-const updateCommentsSelectors = (
-  models: Model[],
-  comments: Build<CommentAnnotation>[]
-) => {
-  const modelMap = new Map<string, Model>()
-  for (const model of models) {
-    modelMap.set(model._id, model)
-  }
-  const decoder = new Decoder(modelMap)
-  const article = decoder.createArticleNode()
-
-  const updatedComments: Build<CommentAnnotation>[] = []
-  comments.forEach((comment) => {
-    const parentModel = modelMap.get(comment.target)
-    let parentPosition: number | undefined
-    if (parentModel) {
-      article.descendants((node, nodePos) => {
-        if (node.attrs.id === comment.target) {
-          parentPosition = nodePos
-        }
-        return true
-      })
-    }
-    if (parentPosition) {
-      const position = comment.selector?.from
-        ? parentPosition + comment.selector?.from
-        : parentPosition
-      updatedComments.push({
-        ...comment,
-        selector: { from: position, to: position },
-      })
-    } else {
-      updatedComments.push({ ...comment })
-    }
-  })
-  models.push(...(updatedComments as CommentAnnotation[]))
 }
 
 export const getElementsOrder = (node: ManuscriptNode) => {

@@ -20,7 +20,8 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  rid: string
+  //target id
+  tid: string
   position: string
   text: string
 }
@@ -36,7 +37,7 @@ export const highlightMarker: NodeSpec = {
   atom: true,
   attrs: {
     id: { default: '' },
-    rid: { default: '' },
+    tid: { default: '' },
     position: { default: '' },
     dataTracked: { default: null },
   },
@@ -48,7 +49,7 @@ export const highlightMarker: NodeSpec = {
 
         return {
           id: dom.getAttribute('id'),
-          rid: dom.getAttribute('data-reference-id'),
+          tid: dom.getAttribute('data-target-id'),
           position: dom.getAttribute('data-position'),
         }
       },
@@ -60,7 +61,7 @@ export const highlightMarker: NodeSpec = {
     const dom = document.createElement('span')
     dom.className = 'highlight-marker'
     dom.setAttribute('id', highlightMarkerNode.attrs.id)
-    dom.setAttribute('data-reference-id', highlightMarkerNode.attrs.rid)
+    dom.setAttribute('data-target-id', highlightMarkerNode.attrs.tid)
     dom.setAttribute('data-position', highlightMarkerNode.attrs.position)
 
     return dom

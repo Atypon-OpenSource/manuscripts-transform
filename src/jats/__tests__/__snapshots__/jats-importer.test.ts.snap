@@ -738,8 +738,8 @@ Array [
     ],
     "objectType": "MPCommentAnnotation",
     "selector": Object {
-      "from": 1875,
-      "to": 1875,
+      "from": 781,
+      "to": 781,
     },
     "target": "MPParagraphElement:test",
   },
@@ -757,8 +757,8 @@ Array [
     ],
     "objectType": "MPCommentAnnotation",
     "selector": Object {
-      "from": 19946,
-      "to": 19946,
+      "from": 719,
+      "to": 719,
     },
     "target": "MPBibliographyElement:test",
   },
@@ -4639,6 +4639,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:abstract",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -4660,6 +4661,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "MPSectionCategory:introduction",
+            "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
             "pageBreakStyle": undefined,
@@ -4680,6 +4682,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "comments": null,
                 "dataTracked": null,
                 "paragraphStyle": "",
                 "placeholder": "",
@@ -4698,6 +4701,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "MPSectionCategory:results",
+            "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
             "pageBreakStyle": undefined,
@@ -4718,6 +4722,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "comments": null,
                 "dataTracked": null,
                 "paragraphStyle": "",
                 "placeholder": "",
@@ -4739,6 +4744,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:abstract-teaser",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -4760,6 +4766,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
+            "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
             "pageBreakStyle": undefined,
@@ -4780,6 +4787,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "comments": null,
                 "dataTracked": null,
                 "paragraphStyle": "",
                 "placeholder": "",
@@ -4801,6 +4809,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:introduction",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -4822,6 +4831,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
+            "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
             "pageBreakStyle": undefined,
@@ -4843,6 +4853,7 @@ Object {
             Object {
               "attrs": Object {
                 "category": "",
+                "comments": null,
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "pageBreakStyle": undefined,
@@ -4864,6 +4875,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "category": "",
+                    "comments": null,
                     "dataTracked": null,
                     "generatedLabel": undefined,
                     "pageBreakStyle": undefined,
@@ -4885,6 +4897,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "category": "",
+                        "comments": null,
                         "dataTracked": null,
                         "generatedLabel": undefined,
                         "pageBreakStyle": undefined,
@@ -4906,6 +4919,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "category": "MPSectionCategory:ethics-statement",
+                            "comments": null,
                             "dataTracked": null,
                             "generatedLabel": undefined,
                             "pageBreakStyle": undefined,
@@ -4926,6 +4940,7 @@ Object {
                             },
                             Object {
                               "attrs": Object {
+                                "comments": null,
                                 "dataTracked": null,
                                 "paragraphStyle": "",
                                 "placeholder": "",
@@ -4978,6 +4993,7 @@ Object {
                                 "attribution": Object {
                                   "literal": "Source: Wikipedia.",
                                 },
+                                "comments": null,
                                 "dataTracked": null,
                                 "figureLayout": "",
                                 "figureStyle": "",
@@ -4989,6 +5005,7 @@ Object {
                               "content": Array [
                                 Object {
                                   "attrs": Object {
+                                    "comments": null,
                                     "dataTracked": null,
                                     "paragraphStyle": "",
                                     "placeholder": "",
@@ -5064,6 +5081,7 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
+                                    "comments": null,
                                     "contents": "",
                                     "dataTracked": null,
                                     "isExecuting": false,
@@ -5083,6 +5101,7 @@ Object {
                                 "attribution": Object {
                                   "literal": "Source: Wikipedia.",
                                 },
+                                "comments": null,
                                 "dataTracked": null,
                                 "figureLayout": "",
                                 "figureStyle": "",
@@ -5094,6 +5113,7 @@ Object {
                               "content": Array [
                                 Object {
                                   "attrs": Object {
+                                    "comments": null,
                                     "dataTracked": null,
                                     "paragraphStyle": "",
                                     "placeholder": "",
@@ -5161,6 +5181,7 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
+                                    "comments": null,
                                     "contents": "",
                                     "dataTracked": null,
                                     "isExecuting": false,
@@ -5194,6 +5215,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:materials-method",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -5214,6 +5236,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -5232,6 +5255,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:results",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -5252,6 +5276,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -5266,6 +5291,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -5280,6 +5306,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -5317,6 +5344,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
+            "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
             "pageBreakStyle": undefined,
@@ -5347,6 +5375,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
+            "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
             "pageBreakStyle": undefined,
@@ -5368,6 +5397,7 @@ Object {
             Object {
               "attrs": Object {
                 "category": "",
+                "comments": null,
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "pageBreakStyle": undefined,
@@ -5388,6 +5418,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -5416,6 +5447,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
+            "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
             "pageBreakStyle": undefined,
@@ -5436,6 +5468,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "comments": null,
                 "dataTracked": null,
                 "paragraphStyle": "",
                 "placeholder": "",
@@ -5473,6 +5506,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "comments": null,
                 "dataTracked": null,
                 "suppressCaption": true,
                 "suppressTitle": undefined,
@@ -5519,6 +5553,7 @@ Object {
             Object {
               "attrs": Object {
                 "category": "",
+                "comments": null,
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "pageBreakStyle": undefined,
@@ -5572,6 +5607,7 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
+                            "comments": null,
                             "dataTracked": null,
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -5586,6 +5622,7 @@ Object {
                         },
                         Object {
                           "attrs": Object {
+                            "comments": null,
                             "dataTracked": null,
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -5612,6 +5649,7 @@ Object {
                               "content": Array [
                                 Object {
                                   "attrs": Object {
+                                    "comments": null,
                                     "dataTracked": null,
                                     "paragraphStyle": "",
                                     "placeholder": "",
@@ -5626,6 +5664,7 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
+                                    "comments": null,
                                     "dataTracked": null,
                                     "paragraphStyle": "",
                                     "placeholder": "",
@@ -5655,6 +5694,7 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
+                            "comments": null,
                             "dataTracked": null,
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -5685,6 +5725,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:discussion",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -5705,6 +5746,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -5723,6 +5765,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:conclusions",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -5743,6 +5786,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -5761,6 +5805,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -5781,6 +5826,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -5799,6 +5845,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:con",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -5835,6 +5882,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:competing-interests",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -5871,6 +5919,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:financial-disclosure",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -5930,6 +5979,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "comments": null,
                 "dataTracked": null,
                 "kind": "footnote",
                 "paragraphStyle": "",
@@ -5938,6 +5988,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -5952,6 +6003,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -5969,6 +6021,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "comments": null,
                 "dataTracked": null,
                 "kind": "footnote",
                 "paragraphStyle": "",
@@ -5977,6 +6030,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -5991,6 +6045,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -6008,6 +6063,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "comments": null,
                 "dataTracked": null,
                 "kind": "footnote",
                 "paragraphStyle": "",
@@ -6016,6 +6072,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -6033,6 +6090,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "comments": null,
                 "dataTracked": null,
                 "kind": "footnote",
                 "paragraphStyle": "",
@@ -6041,6 +6099,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -6058,6 +6117,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "comments": null,
                 "dataTracked": null,
                 "kind": "footnote",
                 "paragraphStyle": "",
@@ -6066,6 +6126,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -6090,6 +6151,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:availability",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -6110,6 +6172,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -6128,6 +6191,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:acknowledgement",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -6148,6 +6212,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -6166,6 +6231,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:appendices",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -6199,6 +6265,7 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
+            "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
             "pageBreakStyle": undefined,
@@ -6220,6 +6287,7 @@ Object {
             Object {
               "attrs": Object {
                 "category": "",
+                "comments": null,
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "pageBreakStyle": undefined,
@@ -6240,6 +6308,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -6264,6 +6333,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:bibliography",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -10782,10 +10852,6 @@ Array [
       },
     ],
     "objectType": "MPCommentAnnotation",
-    "selector": Object {
-      "from": 53167,
-      "to": 53167,
-    },
     "target": "MPTableElement:test",
   },
   Object {
@@ -10802,8 +10868,8 @@ Array [
     ],
     "objectType": "MPCommentAnnotation",
     "selector": Object {
-      "from": 53894,
-      "to": 53894,
+      "from": 198,
+      "to": 198,
     },
     "target": "MPBibliographyElement:test",
   },
@@ -11270,6 +11336,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -11290,6 +11357,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -11308,6 +11376,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -11340,6 +11409,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -11363,6 +11433,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -11395,6 +11466,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -11421,6 +11493,7 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
+                            "comments": null,
                             "dataTracked": null,
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -11444,6 +11517,7 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
+                            "comments": null,
                             "dataTracked": null,
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -11482,6 +11556,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -11508,6 +11583,7 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
+                            "comments": null,
                             "dataTracked": null,
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -11531,6 +11607,7 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
+                            "comments": null,
                             "dataTracked": null,
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -11569,6 +11646,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
                     "placeholder": "",
@@ -11595,6 +11673,7 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
+                            "comments": null,
                             "dataTracked": null,
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -11618,6 +11697,7 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
+                            "comments": null,
                             "dataTracked": null,
                             "paragraphStyle": "",
                             "placeholder": "",
@@ -11648,6 +11728,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -11671,6 +11752,7 @@ Object {
             "alignment": undefined,
             "alternatives": undefined,
             "attribution": undefined,
+            "comments": null,
             "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "",
@@ -11718,6 +11800,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "comments": null,
                 "contents": "",
                 "dataTracked": null,
                 "isExecuting": false,
@@ -11736,6 +11819,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -11756,6 +11840,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "expandListing": false,
             "label": "",
@@ -11769,6 +11854,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "comments": null,
                 "dataTracked": null,
                 "externalFileReferences": undefined,
                 "footerRows": 1,
@@ -11988,6 +12074,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "comments": null,
                 "contents": "",
                 "dataTracked": null,
                 "isExecuting": false,
@@ -12006,6 +12093,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -12026,6 +12114,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -12049,6 +12138,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "suppressCaption": true,
             "suppressTitle": undefined,
@@ -12078,6 +12168,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -12098,6 +12189,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "suppressCaption": true,
             "suppressTitle": undefined,
@@ -12105,6 +12197,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "comments": null,
                 "contents": "",
                 "dataTracked": null,
                 "isExecuting": false,
@@ -12129,6 +12222,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -12149,6 +12243,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -12228,6 +12323,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -12264,6 +12360,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -12291,6 +12388,7 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
+                "comments": null,
                 "dataTracked": null,
                 "paragraphStyle": "",
                 "placeholder": "",
@@ -12324,6 +12422,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -12344,6 +12443,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -12366,6 +12466,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -12388,6 +12489,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -12414,6 +12516,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:competing-interests",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -12434,6 +12537,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -12452,6 +12556,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:financial-disclosure",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
@@ -12472,6 +12577,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "comments": null,
             "dataTracked": null,
             "paragraphStyle": "",
             "placeholder": "",
@@ -12490,6 +12596,7 @@ Object {
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:bibliography",
+        "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
         "pageBreakStyle": undefined,
