@@ -1,5 +1,11 @@
 # @manuscripts/manuscript-transform
 
+## 0.59.0
+
+### Minor Changes
+
+- 255fad01: LEAN-1813
+
 ## 0.58.0
 
 ### Minor Changes
