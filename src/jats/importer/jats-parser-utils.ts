@@ -33,8 +33,12 @@ export function flatten<T>(arrays: T[][]) {
   return ([] as T[]).concat(...arrays)
 }
 
-export const fixBodyPMNode = (output: ManuscriptNode, models: Model[]) => {
-  const replacements = new Map<string, string>()
+export const fixBodyPMNode = (
+  output: ManuscriptNode,
+  models: Model[],
+  referenceIdsMap: Map<string, string> = new Map<string, string>()
+) => {
+  const replacements = referenceIdsMap
   const warnings: string[] = []
   recurseDoc(output, (n) => addMissingID(n, replacements, warnings))
   recurseDoc(output, (n) => addMissingRID(n, replacements, warnings))
@@ -75,7 +79,7 @@ const addMissingID = (
   const previousID: string | null | undefined = node.attrs.id
   const nextID = generateID(objectType)
   if (previousID) {
-    if (replacements.has(previousID)) {
+    if (replacements.has(previousID) || Array.from(replacements.values()).includes(previousID)) {
       warnings.push(`node.attrs.id ${previousID} exists twice!`)
       return
     }

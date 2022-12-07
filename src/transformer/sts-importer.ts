@@ -14,7 +14,11 @@
  * limitations under the License.
  */
 
-import { Model, ObjectTypes } from '@manuscripts/manuscripts-json-schema'
+import {
+  BibliographyItem,
+  Model,
+  ObjectTypes
+} from '@manuscripts/manuscripts-json-schema'
 
 import { parseJATSBody } from '../jats/importer'
 import { ManuscriptNode } from '../schema'
@@ -34,9 +38,10 @@ export const parseSTSFront = (front: Element) => {
 export const parseSTSBody = (
   document: Document,
   body: Element,
-  bibliography: Element | null,
+  bibliographyItems: BibliographyItem[] | null,
   refModels: Model[]
-): ManuscriptNode => parseJATSBody(document, body, bibliography, refModels)
+): ManuscriptNode =>
+  parseJATSBody(document, body, bibliographyItems, refModels, undefined)
 
 const generateModelIDs = (models: Build<Model>[]) =>
   models.map((m) =>

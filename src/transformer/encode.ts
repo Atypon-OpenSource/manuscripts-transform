@@ -16,6 +16,7 @@
 
 import {
   BibliographyElement,
+  BibliographyItem,
   CommentAnnotation,
   Equation,
   EquationElement,
@@ -323,6 +324,11 @@ const containedParagraphIDs = (node: ManuscriptNode): string[] => {
   return containedObjectIDs(node, [paragraphNodeType])
 }
 
+const containedBibliographyItemIDs = (node: ManuscriptNode): string[] => {
+  const bibliographyItemNodeType = node.type.schema.nodes.bibliography_item
+  return containedObjectIDs(node, [bibliographyItemNodeType])
+}
+
 const containedObjectIDs = (
   node: ManuscriptNode,
   nodeTypes: ManuscriptNodeType[]
@@ -348,6 +354,18 @@ const attribution = (node: ManuscriptNode) => {
     }
   }
   return undefined
+}
+
+const fromJson = (json: string) => {
+  let obj
+
+  try {
+    obj = JSON.parse(json)
+  } catch (e) {
+    //pass
+  }
+
+  return obj
 }
 
 function figureElementEncoder<T>(node: ManuscriptNode) {
@@ -398,9 +416,72 @@ type NodeEncoderMap = { [key in Nodes]?: NodeEncoder }
 const encoders: NodeEncoderMap = {
   bibliography_element: (node): Partial<BibliographyElement> => ({
     elementType: 'div',
-    contents: contents(node),
+    contents: '',
+    containedObjectIDs: containedBibliographyItemIDs(node),
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
+  bibliography_item: (node): Partial<BibliographyItem> => {
+    const {
+      type,
+      containerTitle,
+      doi,
+      volume,
+      issue,
+      supplement,
+      page,
+      title,
+      literal,
+    } = node.attrs
+
+    const author = fromJson(node.attrs.author)
+    const issued = fromJson(node.attrs.issued)
+
+    const ref = {
+      type,
+    } as any
+
+    if (author) {
+      ref.author = author
+    }
+
+    if (issued) {
+      ref.issued = issued
+    }
+
+    if (containerTitle) {
+      ref['container-title'] = containerTitle
+    }
+
+    if (doi) {
+      ref.DOI = doi
+    }
+
+    if (volume) {
+      ref.volume = volume
+    }
+
+    if (issue) {
+      ref.issue = issue
+    }
+
+    if (supplement) {
+      ref.supplement = supplement
+    }
+
+    if (page) {
+      ref.page = page
+    }
+
+    if (title) {
+      ref.title = title
+    }
+
+    if (literal) {
+      ref.literal = literal
+    }
+
+    return ref
+  },
   bibliography_section: (node, parent, path, priority): Partial<Section> => ({
     category: buildSectionCategory(node),
     priority: priority.value++,

@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import { BibliographyItem } from '@manuscripts/manuscripts-json-schema'
+
 import { chooseSectionCategoryByType, chooseSecType } from '../../transformer'
 
 const removeNodeFromParent = (node: Element) =>
@@ -100,28 +102,43 @@ export const jatsBodyTransformations = {
     return section
   },
   createBibliography(
-    titleNode: Element | null,
-    bibliography: Element | null,
+    doc: Document,
+    references: BibliographyItem[],
     createElement: (tagName: string) => HTMLElement
   ) {
-    const section = createElement('sec')
-    section.setAttribute('sec-type', 'bibliography')
+    const bibSec = doc.createElement('sec')
+    bibSec.setAttribute('sec-type', 'bibliography')
 
+    const titleNode = doc.querySelector('back > ref-list > title')
     if (titleNode) {
-      section.appendChild(titleNode)
+      bibSec.appendChild(titleNode)
     } else {
       const title = createElement('title')
-      title.textContent = 'Bibliography'
-      section.appendChild(title)
+      title.textContent = 'References'
+      bibSec.appendChild(title)
     }
 
-    if (bibliography) {
-      const bib = createElement('bibliography')
-      bib.appendChild(bibliography)
-      section.appendChild(bib)
+    const refList = doc.createElement('ref-list')
+    for (const ref of references) {
+      const item = doc.createElement('ref')
+      item.setAttribute('id', ref._id)
+      item.setAttribute('type', ref.type)
+      item.setAttribute('author', JSON.stringify(ref.author))
+      item.setAttribute('issued', JSON.stringify(ref.issued))
+      ref['container-title'] &&
+        item.setAttribute('container-title', ref['container-title'])
+      ref.DOI && item.setAttribute('doi', ref.DOI)
+      ref.volume && item.setAttribute('volume', ref.volume.toString())
+      ref.issue && item.setAttribute('issue', ref.issue.toString())
+      ref.supplement && item.setAttribute('supplement', ref.supplement)
+      ref.page && item.setAttribute('page', ref.page.toString())
+      ref.title && item.setAttribute('title', ref.title)
+      ref.literal && item.setAttribute('literal', ref.literal)
+      refList.appendChild(item)
     }
 
-    return section
+    bibSec.appendChild(refList)
+    return bibSec
   },
   createFootnotes(
     footnoteGroups: Element[],
@@ -174,7 +191,7 @@ export const jatsBodyTransformations = {
   moveSectionsToBody(
     doc: Document,
     body: Element,
-    bibliographyEl: Element | null,
+    references: BibliographyItem[] | null,
     createElement: (tagName: string) => HTMLElement
   ) {
     const abstractNodes = doc.querySelectorAll(
@@ -212,15 +229,8 @@ export const jatsBodyTransformations = {
       body.appendChild(appendix)
     }
     // move bibliography from back to body section
-    const refList = doc.querySelector('back > ref-list')
-    if (refList) {
-      const bibliography = this.createBibliography(
-        refList.querySelector('title'),
-        bibliographyEl,
-        createElement
-      )
-      removeNodeFromParent(refList)
-      body.appendChild(bibliography)
+    if (references) {
+      body.appendChild(this.createBibliography(doc, references, createElement))
     }
   },
   mapFootnotesToSections(

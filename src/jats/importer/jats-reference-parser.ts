@@ -78,12 +78,8 @@ export const jatsReferenceParser = {
           }
         }
       })
-      if (queriesText.length && bibliographyItem.title) {
-        // Remove any trailing `.` if exist
-        referenceQueries.set(
-          bibliographyItem.title.replace(/\.$/, ''),
-          queriesText
-        )
+      if (queriesText.length) {
+        referenceQueries.set(bibliographyItem._id, queriesText)
       }
       if (authorNodes.length <= 0) {
         mixedCitation?.childNodes.forEach((item) => {
@@ -96,6 +92,7 @@ export const jatsReferenceParser = {
           }
         })
       }
+
       const source = referenceNode.querySelector('source')?.textContent
 
       if (source) {
@@ -106,6 +103,18 @@ export const jatsReferenceParser = {
 
       if (volume) {
         bibliographyItem.volume = volume
+      }
+
+      const issue = referenceNode.querySelector('issue')?.textContent
+
+      if (issue) {
+        bibliographyItem.issue = issue
+      }
+
+      const supplement = referenceNode.querySelector('supplement')?.textContent
+
+      if (supplement) {
+        bibliographyItem.supplement = supplement
       }
 
       const fpage = referenceNode.querySelector('fpage')?.textContent
@@ -129,22 +138,6 @@ export const jatsReferenceParser = {
 
       if (doi) {
         bibliographyItem.DOI = doi
-      }
-
-      const pmid = referenceNode.querySelector(
-        'pub-id[pub-id-type="pmid"]'
-      )?.textContent
-
-      if (pmid) {
-        bibliographyItem.PMID = pmid
-      }
-
-      const pmcid = referenceNode.querySelector(
-        'pub-id[pub-id-type="pmcid"]'
-      )?.textContent
-
-      if (pmcid) {
-        bibliographyItem.PMCID = pmcid
       }
 
       // TODO: handle missing person-group-type?

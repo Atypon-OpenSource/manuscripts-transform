@@ -33,7 +33,7 @@
     "@manuscripts/library": "^0.6.2",
     "@manuscripts/manuscripts-json-schema": "workspace:*",
     "debug": "^4.1.1",
-    "mathjax-full": "^3.1.2",
+    "mathjax-full": "^3.2.2",
     "mime": "^2.4.6",
     "prosemirror-model": "~1.14.0",
     "uuid": "^8.2.0",

@@ -16,12 +16,10 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { nodeFromHTML } from '../../lib/html'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  contents: string
   paragraphStyle: string
 }
 
@@ -29,24 +27,12 @@ export interface BibliographyElementNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-const createBodyElement = (node: BibliographyElementNode) => {
-  const dom = document.createElement('div')
-  dom.className = 'csl-bib-body'
-  dom.id = node.attrs.id
-
-  return dom
-}
-
 export const bibliographyElement: NodeSpec = {
-  atom: true,
+  content: '(bibliography_item | placeholder)+',
   attrs: {
     id: { default: '' },
     contents: { default: '' },
     paragraphStyle: { default: '' },
-    placeholder: {
-      default:
-        'Citations inserted to the manuscript will be formatted here as a bibliography.',
-    },
     dataTracked: { default: null },
   },
   selectable: false,
@@ -55,20 +41,15 @@ export const bibliographyElement: NodeSpec = {
     {
       tag: 'div.csl-bib-body',
       getAttrs: (p) => {
-        const dom = p as HTMLDivElement
-
         return {
-          contents: dom.outerHTML,
+          contents: '',
         }
       },
     },
   ],
-  toDOM: (node) => {
-    const bibliographyElementNode = node as BibliographyElementNode
-
-    return (
-      nodeFromHTML(bibliographyElementNode.attrs.contents) ||
-      createBodyElement(bibliographyElementNode)
-    )
+  toDOM: () => {
+    const dom = document.createElement('div')
+    dom.className = 'csl-bib-body'
+    return dom
   },
 }

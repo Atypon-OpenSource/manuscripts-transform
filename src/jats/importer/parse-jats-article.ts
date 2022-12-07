@@ -15,14 +15,8 @@
  */
 
 import {
-  CitationProvider,
-  createBibliographyElementContents,
-  loadCitationStyle,
-} from '@manuscripts/library'
-import {
   AuxiliaryObjectReference,
   BibliographyItem,
-  Bundle,
   Citation,
   CommentAnnotation,
   ElementsOrder,
@@ -33,7 +27,6 @@ import {
   ObjectTypes,
 } from '@manuscripts/manuscripts-json-schema'
 import { DOMParser } from 'prosemirror-model'
-import { v4 as uuidv4 } from 'uuid'
 
 import { InvalidInput } from '../../errors'
 import { nodeFromHTML } from '../../lib/html'
@@ -45,7 +38,6 @@ import {
   buildElementsOrder,
   buildJournal,
   buildManuscript,
-  DEFAULT_BUNDLE,
 } from '../../transformer/builders'
 import { encode, inlineContents } from '../../transformer/encode'
 import {
@@ -57,7 +49,11 @@ import { generateID } from '../../transformer/id'
 import { findManuscript } from '../../transformer/project-bundle'
 import { jatsBodyDOMParser } from './jats-body-dom-parser'
 import { jatsBodyTransformations } from './jats-body-transformations'
-import { createComments, markProcessingInstructions } from './jats-comments'
+import {
+  createComments,
+  createReferenceComments,
+  markProcessingInstructions,
+} from './jats-comments'
 import { jatsFrontParser } from './jats-front-parser'
 import { ISSN } from './jats-journal-meta-parser'
 import { fixBodyPMNode } from './jats-parser-utils'
@@ -194,6 +190,7 @@ export const parseJATSReferences = (
     Build<Citation> | Build<AuxiliaryObjectReference>
   > = []
   let referenceQueriesMap
+  let referenceIdsMap
   if (back) {
     const { references, referenceIDs, referenceQueries } =
       jatsReferenceParser.parseReferences(
@@ -202,6 +199,7 @@ export const parseJATSReferences = (
       )
     bibliographyItems.push(...references)
     referenceQueriesMap = new Map<string, string[]>([...referenceQueries])
+    referenceIdsMap = new Map<string, string>([...referenceIDs])
     if (body) {
       crossReferences.push(
         ...jatsReferenceParser.parseCrossReferences(
@@ -215,14 +213,16 @@ export const parseJATSReferences = (
     references: generateModelIDs(bibliographyItems),
     crossReferences: generateModelIDs(crossReferences),
     referenceQueriesMap,
+    referenceIdsMap,
   }
 }
 
 export const parseJATSBody = (
   document: Document,
   body: Element,
-  bibliography: Element | null,
+  bibliographyItems: BibliographyItem[] | null,
   refModels: Model[],
+  referenceIdsMap: Map<string, string> | undefined,
   footnotesOrder?: FootnotesOrder
 ): ManuscriptNode => {
   const createElement = createElementFn(document)
@@ -233,7 +233,7 @@ export const parseJATSBody = (
   jatsBodyTransformations.moveSectionsToBody(
     document,
     body,
-    bibliography,
+    bibliographyItems,
     createElement
   )
   jatsBodyTransformations.moveCaptionsToEnd(body)
@@ -249,7 +249,11 @@ export const parseJATSBody = (
     throw new Error('No content was parsed from the JATS article body')
   }
 
-  const { replacements } = fixBodyPMNode(node.firstChild, refModels)
+  const { replacements } = fixBodyPMNode(
+    node.firstChild,
+    refModels,
+    referenceIdsMap
+  )
 
   if (footnotesOrder) {
     handleFootnotesOrder(orderedFootnotesIDs, replacements, footnotesOrder)
@@ -259,45 +263,6 @@ export const parseJATSBody = (
   //   console.debug(warnings)
   // }
   return node.firstChild
-}
-
-const createBibliography = async (
-  citations: BibliographyItem[],
-  bundles: Bundle[]
-) => {
-  const styleOpts = { bundle: bundles[0], bundleID: DEFAULT_BUNDLE }
-  const citationStyle = await loadCitationStyle(styleOpts)
-  const [bibmeta, bibliographyItems] =
-    CitationProvider.makeBibliographyFromCitations(citations, citationStyle)
-
-  if (bibmeta.bibliography_errors.length) {
-    console.error(bibmeta.bibliography_errors)
-  }
-  return createBibliographyElementContents(bibliographyItems)
-}
-
-const markReferencesProcessingInstructions = async (
-  doc: Document,
-  bibliography: HTMLElement,
-  authorQueriesMap: Map<string, string>,
-  referenceQueriesMap: Map<string, string[]>
-) => {
-  for (const item of bibliography.querySelectorAll('[data-field="title"]')) {
-    if (item?.textContent) {
-      const comments = referenceQueriesMap.get(item?.textContent)
-      if (comments && comments.length) {
-        comments.forEach((comment) => {
-          const token = uuidv4()
-          const tokenNode = doc.createTextNode(token)
-          item.parentElement?.insertBefore(
-            tokenNode,
-            item.parentElement.firstElementChild
-          )
-          authorQueriesMap.set(token, comment)
-        })
-      }
-    }
-  }
 }
 
 const transformTables = (
@@ -363,24 +328,11 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
   const authorQueriesMap = markProcessingInstructions(doc)
 
   const createElement = createElementFn(document)
-  const { models: frontModels, bundles } = await parseJATSFront(front)
-  const { references, crossReferences, referenceQueriesMap } =
+  const { models: frontModels /*, bundles*/ } = await parseJATSFront(front)
+  const { references, crossReferences, referenceQueriesMap, referenceIdsMap } =
     parseJATSReferences(back, body, createElement)
 
   transformTables(doc.querySelectorAll('table-wrap > table'), createElement)
-  const bibliography = await createBibliography(
-    references as BibliographyItem[],
-    bundles
-  )
-
-  if (referenceQueriesMap && referenceQueriesMap.size) {
-    markReferencesProcessingInstructions(
-      doc,
-      bibliography,
-      authorQueriesMap,
-      referenceQueriesMap
-    )
-  }
 
   const footnotesOrder = createEmptyFootnotesOrder() as FootnotesOrder
   let elementsOrder: ElementsOrder[] = []
@@ -389,8 +341,9 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
     const bodyDoc = parseJATSBody(
       doc,
       body,
-      bibliography,
+      references as BibliographyItem[],
       crossReferences,
+      referenceIdsMap,
       footnotesOrder
     )
     bodyModels.push(...encode(bodyDoc).values())
@@ -410,7 +363,6 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
   const models = [
     ...frontModels,
     ...bodyModels,
-    ...references,
     ...crossReferences,
     ...elementsOrder,
   ]
@@ -421,6 +373,14 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
 
   if (authorQueriesMap.size) {
     const commentAnnotations = createComments(authorQueriesMap, models)
+    models.push(...(commentAnnotations as CommentAnnotation[]))
+  }
+
+  if (referenceQueriesMap && referenceQueriesMap.size) {
+    const commentAnnotations = createReferenceComments(
+      referenceQueriesMap,
+      references as BibliographyItem[]
+    )
     models.push(...(commentAnnotations as CommentAnnotation[]))
   }
 

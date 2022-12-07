@@ -624,19 +624,15 @@ Array [
   },
   Object {
     "_id": "MPBibliographyElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"csl-bib-body\\">  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">1</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Caldwell, C. B. &amp; Gottesman, I. I</span>. <span data-field=\\"title\\">Schizophrenia-a high-risk factor for suicide: clues to risk reduction</span>. <span data-field=\\"container-title\\"><i>Suicide Life Threat Behav.</i></span> <span data-field=\\"volume\\"><b>22</b></span>, <span data-field=\\"page\\">479–493</span> <span data-field=\\"issued\\">(1992)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">2</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Hor, K. &amp; Taylor, M</span>. <a href=\\"https://doi.org/10.1177%2F1359786810385490\\" data-field=\\"title\\">Suicide and schizophrenia: a systematic review of rates and risk factors</a>. <span data-field=\\"container-title\\"><i>J Psychopharmacol.</i></span> <span data-field=\\"volume\\"><b>24</b></span>, <span data-field=\\"page\\">81–90</span> <span data-field=\\"issued\\">(2010)</span>.</div>
-  </div>
-</div>",
+    "containedObjectIDs": Array [
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+    ],
+    "contents": "",
     "elementType": "div",
     "objectType": "MPBibliographyElement",
   },
   Object {
-    "PMID": "1488792",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -653,6 +649,7 @@ Array [
       },
     ],
     "container-title": "Suicide Life Threat Behav.",
+    "issue": "4",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -670,7 +667,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1177/1359786810385490",
-    "PMID": "20923923",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -687,6 +683,7 @@ Array [
       },
     ],
     "container-title": "J Psychopharmacol.",
+    "issue": "4",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -698,6 +695,7 @@ Array [
     },
     "objectType": "MPBibliographyItem",
     "page": "81-90",
+    "supplement": "Suppl",
     "title": "Suicide and schizophrenia: a systematic review of rates and risk factors.",
     "type": "article-journal",
     "volume": "24",
@@ -756,11 +754,7 @@ Array [
       },
     ],
     "objectType": "MPCommentAnnotation",
-    "selector": Object {
-      "from": 756,
-      "to": 756,
-    },
-    "target": "MPBibliographyElement:test",
+    "target": "MPBibliographyItem:test",
   },
 ]
 `;
@@ -1144,24 +1138,19 @@ Array [
   },
   Object {
     "_id": "MPBibliographyElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"csl-bib-body\\">  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">1</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"title\\">Creating Graphically Complex Indexes With InDesign</span>. <span data-field=\\"container-title\\"><i>Cartographic Perspectives</i></span> <span data-field=\\"page\\">52–54</span> <span data-field=\\"issued\\">(2009)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">2</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"title\\">Technique for extracting reusable XML Schema from schema-less XML Documents</span>. <span data-field=\\"container-title\\"><i>The KIPS Transactions:PartD</i></span> <span data-field=\\"volume\\"><b>10D</b></span>, <span data-field=\\"page\\">603–612</span> <span data-field=\\"issued\\">(2003)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">3</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"title\\">XML Fragmentation for Resource-Efficient Query Processing over XML Fragment Stream</span>. <span data-field=\\"container-title\\"><i>The KIPS Transactions:PartD</i></span> <span data-field=\\"volume\\"><b>16D</b></span>, <span data-field=\\"page\\">27–42</span> <span data-field=\\"issued\\">(2009)</span>.</div>
-  </div>
-</div>",
+    "containedObjectIDs": Array [
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+    ],
+    "contents": "",
     "elementType": "div",
     "objectType": "MPBibliographyElement",
   },
   Object {
     "_id": "MPBibliographyItem:test",
     "container-title": "Cartographic Perspectives",
+    "issue": "62",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -1179,6 +1168,7 @@ Array [
   Object {
     "_id": "MPBibliographyItem:test",
     "container-title": "The KIPS Transactions:PartD",
+    "issue": "4",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -1197,6 +1187,7 @@ Array [
   Object {
     "_id": "MPBibliographyItem:test",
     "container-title": "The KIPS Transactions:PartD",
+    "issue": "1",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -2600,96 +2591,35 @@ Array [
   },
   Object {
     "_id": "MPBibliographyElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"csl-bib-body\\">  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">1</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Roemer, M. G. <i>et al.</i></span> <a href=\\"https://doi.org/10.1200%2FJCO.2016.66.4482\\" data-field=\\"title\\">PD-L1 and PD-L2 Genetic Alterations Define Classical Hodgkin Lymphoma and Predict Outcome</a>. <span data-field=\\"container-title\\"><i>Journal of Clinical Oncology</i></span> <span data-field=\\"volume\\"><b>34</b></span>, <span data-field=\\"page\\">2690–2697</span> <span data-field=\\"issued\\">(2016)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">2</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Liu, W. R. &amp; Shipp, M. A</span>. <a href=\\"https://doi.org/10.1182%2Fblood-2017-06-781989\\" data-field=\\"title\\">Signaling pathways and immune evasion mechanisms in classical Hodgkin lymphoma</a>. <span data-field=\\"container-title\\"><i>Blood</i></span> <span data-field=\\"volume\\"><b>130</b></span>, <span data-field=\\"page\\">2265–2270</span> <span data-field=\\"issued\\">(2017)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">3</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Brahmer, J. R. <i>et al.</i></span> <a href=\\"https://doi.org/10.1200%2FJCO.2009.26.7609\\" data-field=\\"title\\">Phase I study of single-agent anti-programmed death-1 (MDX-1106) in refractory solid tumors: Safety, clinical activity, pharmacodynamics, and immunologic correlates</a>. <span data-field=\\"container-title\\"><i>Journal of Clinical Oncology</i></span> <span data-field=\\"volume\\"><b>28</b></span>, <span data-field=\\"page\\">3167–3175</span> <span data-field=\\"issued\\">(2010)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">4</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Ansell, S. M. <i>et al.</i></span> <a href=\\"https://doi.org/10.1056%2FNEJMoa1411087\\" data-field=\\"title\\">PD-1 blockade with nivolumab in relapsed or refractory Hodgkin’s lymphoma</a>. <span data-field=\\"container-title\\"><i>The New England Journal of Medicine</i></span> <span data-field=\\"volume\\"><b>372</b></span>, <span data-field=\\"page\\">311–319</span> <span data-field=\\"issued\\">(2015)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">5</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Hamid, O. <i>et al.</i></span> <a href=\\"https://doi.org/10.1056%2FNEJMoa1305133\\" data-field=\\"title\\">Safety and tumor responses with lambrolizumab (anti-PD-1) in melanoma</a>. <span data-field=\\"container-title\\"><i>The New England Journal of Medicine</i></span> <span data-field=\\"volume\\"><b>369</b></span>, <span data-field=\\"page\\">134–144</span> <span data-field=\\"issued\\">(2013)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">6</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Armand, P. <i>et al.</i></span> <a href=\\"https://doi.org/10.1200%2FJCO.2016.67.3467\\" data-field=\\"title\\">Programmed Death-1 Blockade With Pembrolizumab in Patients With Classical Hodgkin Lymphoma After Brentuximab Vedotin Failure</a>. <span data-field=\\"container-title\\"><i>Journal of Clinical Oncology</i></span> <span data-field=\\"volume\\"><b>34</b></span>, <span data-field=\\"page\\">3733–3739</span> <span data-field=\\"issued\\">(2016)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">7</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Chen, R., Zinzani, P. L. &amp; Fanale, M. A</span>. <a href=\\"https://doi.org/10.1200%2FJCO.2016.72.1316\\" data-field=\\"title\\">KEYNOTE-087. Phase II Study of the Efficacy and Safety of Pembrolizumab for Relapsed/Refractory Classic Hodgkin Lymphoma</a>. <span data-field=\\"container-title\\"><i>Journal of Clinical Oncology</i></span> <span data-field=\\"volume\\"><b>35</b></span>, <span data-field=\\"page\\">2125–2132</span> <span data-field=\\"issued\\">(2017)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">8</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Lindauer, A. <i>et al.</i></span> <a href=\\"https://doi.org/10.1002%2Fpsp4.12130\\" data-field=\\"title\\">Translational pharmacokinetic / pharmacodynamic modeling of tumor growth inhibition supports dose-range selection of the anti-PD-1 antibody pembrolizumab</a>. <span data-field=\\"container-title\\"><i>CPT: Pharmacometrics and Systems Pharmacology</i></span> <span data-field=\\"volume\\"><b>6</b></span>, <span data-field=\\"page\\">11–20</span> <span data-field=\\"issued\\">(2017)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">9</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Kwong, Y. L., Lopes, D. &amp; Khong, P. L</span>. <a href=\\"https://doi.org/10.1111%2Fbjh.13920\\" data-field=\\"title\\">Low-dose pembrolizumab induced remission in patients with refractory classical Hodgkin lymphoma</a>. <span data-field=\\"container-title\\"><i>British Journal of Haematology</i></span> <span data-field=\\"volume\\"><b>176</b></span>, <span data-field=\\"page\\">131–132</span> <span data-field=\\"issued\\">(2017)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">10</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Chan, T. S., Luk, T. H., Lau, J. S., Khong, P. L. &amp; Kwong, Y. L</span>. <a href=\\"https://doi.org/10.1007%2Fs00277-017-2931-z\\" data-field=\\"title\\">Low-dose pembrolizumab for relapsed/refractory Hodgkin lymphoma: High efficacy with minimal toxicity</a>. <span data-field=\\"container-title\\"><i>Annals of Hematology</i></span> <span data-field=\\"volume\\"><b>96</b></span>, <span data-field=\\"page\\">647–651</span> <span data-field=\\"issued\\">(2017)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">11</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Hwang, Y. Y., Khong, P. L. &amp; Kwong, Y. L</span>. <a href=\\"https://doi.org/10.1007%2Fs00277-017-3007-9\\" data-field=\\"title\\">Low-dose nivolumab induced remission in refractory classical Hodgkin lymphoma</a>. <span data-field=\\"container-title\\"><i>Annals of Hematology</i></span> <span data-field=\\"volume\\"><b>96</b></span>, <span data-field=\\"page\\">1219–1220</span> <span data-field=\\"issued\\">(2017)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">12</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Brahmer, J. R. <i>et al.</i></span> <a href=\\"https://doi.org/10.1200%2FJCO.2017.77.6385\\" data-field=\\"title\\">Management of Immune-Related Adverse Events in Patients Treated With Immune Checkpoint Inhibitor Therapy: American Society of Clinical Oncology Clinical Practice Guideline</a>. <span data-field=\\"container-title\\"><i>Journal of Clinical Oncology</i></span> <span data-field=\\"volume\\"><b>36</b></span>, <span data-field=\\"page\\">1714–1768</span> <span data-field=\\"issued\\">(2018)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">13</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Cheson, B. D. <i>et al.</i></span> <a href=\\"https://doi.org/10.1200%2FJCO.2013.54.8800\\" data-field=\\"title\\">Recommendations for initial evaluation, staging, and response assessment of Hodgkin and non-Hodgkin lymphoma: The Lugano classification</a>. <span data-field=\\"container-title\\"><i>Journal of Clinical Oncology</i></span> <span data-field=\\"volume\\"><b>32</b></span>, <span data-field=\\"page\\">3059–3068</span> <span data-field=\\"issued\\">(2014)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">14</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Cheson, B. D. <i>et al.</i></span> <a href=\\"https://doi.org/10.1182%2Fblood-2016-05-718528\\" data-field=\\"title\\">Refinement of the Lugano Classification lymphoma response criteria in the era of immunomodulatory therapy</a>. <span data-field=\\"container-title\\"><i>Blood</i></span> <span data-field=\\"volume\\"><b>128</b></span>, <span data-field=\\"page\\">2489–2496</span> <span data-field=\\"issued\\">(2016)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">15</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Kwong, Y. L., Pang, A. W., Leung, A. Y., Chim, C. S. &amp; Tse, E</span>. <a href=\\"https://doi.org/10.1038%2Fleu.2013.212\\" data-field=\\"title\\">Quantification of circulating Epstein-Barr virus DNA in NK/T-cell lymphoma treated with the SMILE protocol: Diagnostic and prognostic significance</a>. <span data-field=\\"container-title\\"><i>Leukemia</i></span> <span data-field=\\"volume\\"><b>28</b></span>, <span data-field=\\"page\\">865–870</span> <span data-field=\\"issued\\">(2014)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">16</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Kwong, Y. L., Loong, F. &amp; Khong, P. L</span>. <a href=\\"https://doi.org/10.1007%2Fs00277-019-03762-3\\" data-field=\\"title\\">Low-dose pembrolizumab re-treatment induced complete radiologic and molecular remission in Hodgkin lymphoma recurring from a previous relapse successfully treated by pembrolizumab</a>. <span data-field=\\"container-title\\"><i>Annals of Hematology</i></span> <span data-field=\\"volume\\"><b>98</b></span>, <span data-field=\\"page\\">2451–2455</span> <span data-field=\\"issued\\">(2019)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">17</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Sim, J. P. Y., Au-Yeung, R. &amp; Kwong, Y. L</span>. <a href=\\"https://doi.org/10.1007%2Fs00277-019-03856-y\\" data-field=\\"title\\">Low-dose pembrolizumab&amp;nbsp;induced complete radiologic and molecular response of posttransplant lymphoproliferative disorder presenting as classical Hodgkin lymphoma</a>. <span data-field=\\"container-title\\"><i>Annals of Hematology</i></span> <span data-field=\\"volume\\"><b>99</b></span>, <span data-field=\\"page\\">385–388</span> <span data-field=\\"issued\\">(2020)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">18</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Chen, R. <i>et al.</i></span> <a href=\\"https://doi.org/10.1182%2Fblood.2019000324\\" data-field=\\"title\\">Pembrolizumab in relapsed or refractory Hodgkin lymphoma: 2-year follow-up of KEYNOTE-087</a>. <span data-field=\\"container-title\\"><i>Blood</i></span> <span data-field=\\"volume\\"><b>134</b></span>, <span data-field=\\"page\\">1144–1153</span> <span data-field=\\"issued\\">(2019)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">19</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Younes, A. <i>et al.</i></span> <a href=\\"https://doi.org/10.1016%2FS1470-2045(16)30167-X\\" data-field=\\"title\\">Nivolumab for classical Hodgkin’s lymphoma after failure of both autologous stem-cell transplantation and brentuximab vedotin: A multicentre, multicohort, single-arm phase 2 trial</a>. <span data-field=\\"container-title\\"><i>The Lancet. Oncology</i></span> <span data-field=\\"volume\\"><b>17</b></span>, <span data-field=\\"page\\">1283–1294</span> <span data-field=\\"issued\\">(2016)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">20</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Armand, P. <i>et al.</i></span> <a href=\\"https://doi.org/10.1200%2FJCO.2017.76.0793\\" data-field=\\"title\\">Nivolumab for Relapsed/Refractory Classic Hodgkin Lymphoma After Failure of Autologous Hematopoietic Cell Transplantation: Extended Follow-Up of the Multicohort Single-Arm Phase II CheckMate 205 Trial</a>. <span data-field=\\"container-title\\"><i>Journal of Clinical Oncology</i></span> <span data-field=\\"volume\\"><b>36</b></span>, <span data-field=\\"page\\">1428–1439</span> <span data-field=\\"issued\\">(2018)</span>.</div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">21</span>.</div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Shah, G. L. &amp; Moskowitz, C. H</span>. <a href=\\"https://doi.org/10.1182%2Fblood-2017-09-772673\\" data-field=\\"title\\">Transplant strategies in relapsed/refractory Hodgkin lymphoma</a>. <span data-field=\\"container-title\\"><i>Blood</i></span> <span data-field=\\"volume\\"><b>131</b></span>, <span data-field=\\"page\\">1689–1697</span> <span data-field=\\"issued\\">(2018)</span>.</div>
-  </div>
-</div>",
+    "containedObjectIDs": Array [
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+    ],
+    "contents": "",
     "elementType": "div",
     "objectType": "MPBibliographyElement",
   },
   Object {
     "DOI": "https://doi.org/10.1200/JCO.2016.66.4482",
-    "PMID": "27069084",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -2740,6 +2670,7 @@ Array [
       },
     ],
     "container-title": "Journal of Clinical Oncology",
+    "issue": "23",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -2757,7 +2688,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1182/blood-2017-06-781989",
-    "PMID": "29167175",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -2774,6 +2704,7 @@ Array [
       },
     ],
     "container-title": "Blood",
+    "issue": "21",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -2791,7 +2722,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1200/JCO.2009.26.7609",
-    "PMID": "20516446",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -2842,6 +2772,7 @@ Array [
       },
     ],
     "container-title": "Journal of Clinical Oncology",
+    "issue": "19",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -2859,7 +2790,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1056/NEJMoa1411087",
-    "PMID": "25482239",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -2910,6 +2840,7 @@ Array [
       },
     ],
     "container-title": "The New England Journal of Medicine",
+    "issue": "4",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -2927,7 +2858,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1056/NEJMoa1305133",
-    "PMID": "23724846",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -2978,6 +2908,7 @@ Array [
       },
     ],
     "container-title": "The New England Journal of Medicine",
+    "issue": "2",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -2995,7 +2926,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1200/JCO.2016.67.3467",
-    "PMID": "27354476",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3046,6 +2976,7 @@ Array [
       },
     ],
     "container-title": "Journal of Clinical Oncology",
+    "issue": "31",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3063,7 +2994,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1200/JCO.2016.72.1316",
-    "PMID": "28441111",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3090,6 +3020,7 @@ Array [
       },
     ],
     "container-title": "Journal of Clinical Oncology",
+    "issue": "19",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3107,7 +3038,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1002/psp4.12130",
-    "PMID": "27863176",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3154,6 +3084,7 @@ Array [
       },
     ],
     "container-title": "CPT: Pharmacometrics and Systems Pharmacology",
+    "issue": "1",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3171,7 +3102,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1111/bjh.13920",
-    "PMID": "26773814",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3194,6 +3124,7 @@ Array [
       },
     ],
     "container-title": "British Journal of Haematology",
+    "issue": "1",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3211,7 +3142,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1007/s00277-017-2931-z",
-    "PMID": "28138786",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3246,6 +3176,7 @@ Array [
       },
     ],
     "container-title": "Annals of Hematology",
+    "issue": "4",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3263,7 +3194,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1007/s00277-017-3007-9",
-    "PMID": "28434018",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3286,6 +3216,7 @@ Array [
       },
     ],
     "container-title": "Annals of Hematology",
+    "issue": "7",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3303,7 +3234,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1200/JCO.2017.77.6385",
-    "PMID": "29442540",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3359,6 +3289,7 @@ Array [
       },
     ],
     "container-title": "Journal of Clinical Oncology",
+    "issue": "17",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3376,7 +3307,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1200/JCO.2013.54.8800",
-    "PMID": "25113753",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3498,6 +3428,7 @@ Array [
       },
     ],
     "container-title": "Journal of Clinical Oncology",
+    "issue": "27",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3515,7 +3446,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1182/blood-2016-05-718528",
-    "PMID": "27574190",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3566,6 +3496,7 @@ Array [
       },
     ],
     "container-title": "Blood",
+    "issue": "21",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3583,7 +3514,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1038/leu.2013.212",
-    "PMID": "23842425",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3618,6 +3548,7 @@ Array [
       },
     ],
     "container-title": "Leukemia",
+    "issue": "4",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3635,7 +3566,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1007/s00277-019-03762-3",
-    "PMID": "31332470",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3658,6 +3588,7 @@ Array [
       },
     ],
     "container-title": "Annals of Hematology",
+    "issue": "10",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3675,7 +3606,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1007/s00277-019-03856-y",
-    "PMID": "31773213",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3698,6 +3628,7 @@ Array [
       },
     ],
     "container-title": "Annals of Hematology",
+    "issue": "2",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3715,7 +3646,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1182/blood.2019000324",
-    "PMID": "31409671",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3766,6 +3696,7 @@ Array [
       },
     ],
     "container-title": "Blood",
+    "issue": "14",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3783,7 +3714,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1016/S1470-2045(16)30167-X",
-    "PMID": "27451390",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3834,6 +3764,7 @@ Array [
       },
     ],
     "container-title": "The Lancet. Oncology",
+    "issue": "9",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3851,7 +3782,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1200/JCO.2017.76.0793",
-    "PMID": "29584546",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3902,6 +3832,7 @@ Array [
       },
     ],
     "container-title": "Journal of Clinical Oncology",
+    "issue": "14",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -3919,7 +3850,6 @@ Array [
   },
   Object {
     "DOI": "https://doi.org/10.1182/blood-2017-09-772673",
-    "PMID": "29500170",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
@@ -3936,6 +3866,7 @@ Array [
       },
     ],
     "container-title": "Blood",
+    "issue": "15",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
@@ -6336,31 +6267,6 @@ Object {
       ],
       "type": "section",
     },
-    Object {
-      "attrs": Object {
-        "category": "MPSectionCategory:bibliography",
-        "comments": null,
-        "dataTracked": null,
-        "generatedLabel": undefined,
-        "pageBreakStyle": undefined,
-        "titleSuppressed": false,
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "References",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "section",
-    },
   ],
   "type": "manuscript",
 }
@@ -8497,13 +8403,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"bib30\\">Ozsoylev and Werner (2011)</span> argue that ambiguous information results in potential market illiquidity because it reduces market arbitrage opportunities.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Ozsoylev and Werner (2011)</span> argue that ambiguous information results in potential market illiquidity because it reduces market arbitrage opportunities.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"bib30\\">Ozsoylev and Werner (2011)</span> argue that ambiguous information results in potential market illiquidity because it reduces market arbitrage opportunities.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Ozsoylev and Werner (2011)</span> argue that ambiguous information results in potential market illiquidity because it reduces market arbitrage opportunities.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8511,13 +8417,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"bib32\\">Pasquariello and Zafeiridou (2014)</span> argue that this may not hold when informed participants are reluctant to reveal information via transacting, resulting in lower trading activity before the election outcome.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Pasquariello and Zafeiridou (2014)</span> argue that this may not hold when informed participants are reluctant to reveal information via transacting, resulting in lower trading activity before the election outcome.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"bib32\\">Pasquariello and Zafeiridou (2014)</span> argue that this may not hold when informed participants are reluctant to reveal information via transacting, resulting in lower trading activity before the election outcome.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Pasquariello and Zafeiridou (2014)</span> argue that this may not hold when informed participants are reluctant to reveal information via transacting, resulting in lower trading activity before the election outcome.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8539,13 +8445,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"bib38\\">Voth (2002)</span>, <span class=\\"citation\\" data-reference-id=\\"bib27\\">Mei and Guo (2004)</span>, <span class=\\"citation\\" data-reference-id=\\"bib24\\">Li and Born (2006)</span>, <span class=\\"citation\\" data-reference-id=\\"bib6\\">Białkowski, Gottschalk, and Wisniewski (2008)</span>, <span class=\\"citation\\" data-reference-id=\\"bib9\\">Boutchkova et al. (2012)</span>, and <span class=\\"citation\\" data-reference-id=\\"bib3\\">Baker, Bloom, and Davis (2016)</span> all provide evidence that increased political uncertainty is associated with increased return volatility in the equity markets. <span class=\\"citation\\" data-reference-id=\\"bib21\\">Kelly, Pástor, and Veronesi (2016)</span> show that political uncertainty is priced into the option markets as it pertains to implied volatility.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Voth (2002)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Mei and Guo (2004)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Li and Born (2006)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Białkowski, Gottschalk, and Wisniewski (2008)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Boutchkova et al. (2012)</span>, and <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Baker, Bloom, and Davis (2016)</span> all provide evidence that increased political uncertainty is associated with increased return volatility in the equity markets. <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Kelly, Pástor, and Veronesi (2016)</span> show that political uncertainty is priced into the option markets as it pertains to implied volatility.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"bib38\\">Voth (2002)</span>, <span class=\\"citation\\" data-reference-id=\\"bib27\\">Mei and Guo (2004)</span>, <span class=\\"citation\\" data-reference-id=\\"bib24\\">Li and Born (2006)</span>, <span class=\\"citation\\" data-reference-id=\\"bib6\\">Białkowski, Gottschalk, and Wisniewski (2008)</span>, <span class=\\"citation\\" data-reference-id=\\"bib9\\">Boutchkova et al. (2012)</span>, and <span class=\\"citation\\" data-reference-id=\\"bib3\\">Baker, Bloom, and Davis (2016)</span> all provide evidence that increased political uncertainty is associated with increased return volatility in the equity markets. <span class=\\"citation\\" data-reference-id=\\"bib21\\">Kelly, Pástor, and Veronesi (2016)</span> show that political uncertainty is priced into the option markets as it pertains to implied volatility.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Voth (2002)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Mei and Guo (2004)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Li and Born (2006)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Białkowski, Gottschalk, and Wisniewski (2008)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Boutchkova et al. (2012)</span>, and <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Baker, Bloom, and Davis (2016)</span> all provide evidence that increased political uncertainty is associated with increased return volatility in the equity markets. <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Kelly, Pástor, and Veronesi (2016)</span> show that political uncertainty is priced into the option markets as it pertains to implied volatility.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8553,13 +8459,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"bib35\\">Pástor and Veronesi (2013)</span> provide evidence that both the magnitude of a political shock and the state of the economy help determine the risk premium required by investors.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Pástor and Veronesi (2013)</span> provide evidence that both the magnitude of a political shock and the state of the economy help determine the risk premium required by investors.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"bib35\\">Pástor and Veronesi (2013)</span> provide evidence that both the magnitude of a political shock and the state of the economy help determine the risk premium required by investors.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Pástor and Veronesi (2013)</span> provide evidence that both the magnitude of a political shock and the state of the economy help determine the risk premium required by investors.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8581,13 +8487,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. <span class=\\"citation\\" data-reference-id=\\"bib9\\">Boutchkova et al. (2012)</span>, <span class=\\"citation\\" data-reference-id=\\"bib34\\">Pástor and Veronesi (2012</span>, <span class=\\"citation\\" data-reference-id=\\"bib35\\">2013</span>), <span class=\\"citation\\" data-reference-id=\\"bib10\\">Brogaard and Detzel (2015)</span>, <span class=\\"citation\\" data-reference-id=\\"bib15\\">Gungoraydinoglu, Çolak, and Öztekin (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib7\\">Bonaparte, Kumar, and Page (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib5\\">Bhattacharya et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib26\\">Marshall et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib25\\">Liu, Shu, and Wei (2017)</span>, and <span class=\\"citation\\" data-reference-id=\\"bib36\\">Perignon and Vallée (2017)</span> all examine the effects of political <span class=\\"citation\\" data-reference-id=\\"bib39\\">test-author</span>uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Boutchkova et al. (2012)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Pástor and Veronesi (2012</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">2013</span>), <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Brogaard and Detzel (2015)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Gungoraydinoglu, Çolak, and Öztekin (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Bonaparte, Kumar, and Page (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Bhattacharya et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Marshall et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Liu, Shu, and Wei (2017)</span>, and <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Perignon and Vallée (2017)</span> all examine the effects of political <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">test-author</span>uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. <span class=\\"citation\\" data-reference-id=\\"bib9\\">Boutchkova et al. (2012)</span>, <span class=\\"citation\\" data-reference-id=\\"bib34\\">Pástor and Veronesi (2012</span>, <span class=\\"citation\\" data-reference-id=\\"bib35\\">2013</span>), <span class=\\"citation\\" data-reference-id=\\"bib10\\">Brogaard and Detzel (2015)</span>, <span class=\\"citation\\" data-reference-id=\\"bib15\\">Gungoraydinoglu, Çolak, and Öztekin (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib7\\">Bonaparte, Kumar, and Page (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib5\\">Bhattacharya et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib26\\">Marshall et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"bib25\\">Liu, Shu, and Wei (2017)</span>, and <span class=\\"citation\\" data-reference-id=\\"bib36\\">Perignon and Vallée (2017)</span> all examine the effects of political <span class=\\"citation\\" data-reference-id=\\"bib39\\">test-author</span>uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Boutchkova et al. (2012)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Pástor and Veronesi (2012</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">2013</span>), <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Brogaard and Detzel (2015)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Gungoraydinoglu, Çolak, and Öztekin (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Bonaparte, Kumar, and Page (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Bhattacharya et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Marshall et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Liu, Shu, and Wei (2017)</span>, and <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Perignon and Vallée (2017)</span> all examine the effects of political <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">test-author</span>uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8609,13 +8515,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"bib18\\">Holden and Jacobsen (2014)</span> show that the NBBO file is incomplete by itself, but the complete official NBBO can be constructed using the NBBO file and the quote file.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Holden and Jacobsen (2014)</span> show that the NBBO file is incomplete by itself, but the complete official NBBO can be constructed using the NBBO file and the quote file.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"bib18\\">Holden and Jacobsen (2014)</span> show that the NBBO file is incomplete by itself, but the complete official NBBO can be constructed using the NBBO file and the quote file.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Holden and Jacobsen (2014)</span> show that the NBBO file is incomplete by itself, but the complete official NBBO can be constructed using the NBBO file and the quote file.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8679,13 +8585,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"bib1\\">Amihud (2002)</span> documents that smaller, illiquid stocks are associated with greater adverse selection costs. Similarly, <span class=\\"citation\\" data-reference-id=\\"bib4\\">Barry and Brown (1984)</span> document that investors command higher returns on small stocks as compensation for having less available information.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Amihud (2002)</span> documents that smaller, illiquid stocks are associated with greater adverse selection costs. Similarly, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Barry and Brown (1984)</span> document that investors command higher returns on small stocks as compensation for having less available information.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"bib1\\">Amihud (2002)</span> documents that smaller, illiquid stocks are associated with greater adverse selection costs. Similarly, <span class=\\"citation\\" data-reference-id=\\"bib4\\">Barry and Brown (1984)</span> document that investors command higher returns on small stocks as compensation for having less available information.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Amihud (2002)</span> documents that smaller, illiquid stocks are associated with greater adverse selection costs. Similarly, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Barry and Brown (1984)</span> document that investors command higher returns on small stocks as compensation for having less available information.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8780,159 +8686,48 @@ Array [
   },
   Object {
     "_id": "MPBibliographyElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"csl-bib-body\\">  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">1</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Amihud, Y</span>. <span data-field=\\"issued\\">(2002)</span> <span data-field=\\"title\\">Illiquidity and stock returns: Cross-section and time-series effects</span>. <span data-field=\\"container-title\\"><i>Journal of Financial Markets</i> </span><span data-field=\\"volume\\">5</span>, <span data-field=\\"page\\">31–56</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">2</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Amihud, Y. and Mendelson, H</span>. <span data-field=\\"issued\\">(1986)</span> <span data-field=\\"title\\">Asset pricing and the bid-ask spread</span>. <span data-field=\\"container-title\\"><i>Journal of Financial Economics</i> </span><span data-field=\\"volume\\">17</span>, <span data-field=\\"page\\">223–49</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">3</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Baker, S.R. <i>et al.</i></span> <span data-field=\\"issued\\">(2016)</span> <span data-field=\\"title\\">Measuring economic policy uncertainty</span>. <span data-field=\\"container-title\\"><i>Quarterly Journal of Economics</i> </span><span data-field=\\"volume\\">131</span>, <span data-field=\\"page\\">1593–1636</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">4</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Barry, C.B. and Brown, S.J</span>. <span data-field=\\"issued\\">(1984)</span> <span data-field=\\"title\\">Differential information and the small firm effect</span>. <span data-field=\\"container-title\\"><i>Journal of Financial Economics</i> </span><span data-field=\\"volume\\">13</span>, <span data-field=\\"page\\">283–94</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">5</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Bhattacharya, U. <i>et al.</i></span> <span data-field=\\"issued\\">(2017)</span> <span data-field=\\"title\\">What affects innovation more: Policy or policy uncertainty</span>? <span data-field=\\"container-title\\"><i>Journal of Financial and Quantitative Analysis</i> </span><span data-field=\\"volume\\">52</span>, <span data-field=\\"page\\">1869–1901</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">6</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Białkowski, J. <i>et al.</i></span> <span data-field=\\"issued\\">(2008)</span> <span data-field=\\"title\\">Stock market volatility around national elections</span>. <span data-field=\\"container-title\\"><i>Journal of Banking &amp; Finance</i> </span><span data-field=\\"volume\\">32</span>, <span data-field=\\"page\\">1941–53</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">7</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Bonaparte, Y. <i>et al.</i></span> <span data-field=\\"issued\\">(2017)</span> <span data-field=\\"title\\">Political climate, optimism, and investment decisions</span>. <span data-field=\\"container-title\\"><i>Journal of Financial Markets</i> </span><span data-field=\\"volume\\">34</span>, <span data-field=\\"page\\">69–94</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">8</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Boutchkova, M. <i>et al.</i></span> <span data-field=\\"issued\\">(2011)</span> <span data-field=\\"title\\">Precarious politics and return volatility</span>. <span data-field=\\"container-title\\"><i>Review of Financial Studies</i> </span><span data-field=\\"volume\\">25</span>, <span data-field=\\"page\\">1111–1154</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">9</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Boutchkova, M. <i>et al.</i></span> <span data-field=\\"issued\\">(2012)</span> <span data-field=\\"title\\">Precarious politics and return volatility</span>. <span data-field=\\"container-title\\"><i>Review of Financial Studies</i> </span><span data-field=\\"volume\\">25</span>, <span data-field=\\"page\\">1111–54</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">10</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Brogaard, J. and Detzel, A</span>. <span data-field=\\"issued\\">(2015)</span> <span data-field=\\"title\\">The asset-pricing implications of government economic policy uncertainty</span>. <span data-field=\\"container-title\\"><i>Management Science</i> </span><span data-field=\\"volume\\">61</span>, <span data-field=\\"page\\">3–18</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">11</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Brown, K.C. <i>et al.</i></span> <span data-field=\\"issued\\">(1988)</span> <span data-field=\\"title\\">Risk aversion, uncertain information, and market efficiency</span>. <span data-field=\\"container-title\\"><i>Journal of Financial Economics</i> </span><span data-field=\\"volume\\">22</span>, <span data-field=\\"page\\">355–85</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">12</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Easley, D. and O’Hara, M</span>. <span data-field=\\"issued\\">(1987)</span> <span data-field=\\"title\\">Price, trade size, and information in securities markets</span>. <span data-field=\\"container-title\\"><i>Journal of Financial Economics</i> </span><span data-field=\\"volume\\">19</span>, <span data-field=\\"page\\">69–90</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">13</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Gemmill, G</span>. <span data-field=\\"issued\\">(1992)</span> <span data-field=\\"title\\">Political risk and market efficiency: Tests based in British stock and options markets in the 1987 election</span>. <span data-field=\\"container-title\\"><i>Journal of Banking &amp; Finance</i> </span><span data-field=\\"volume\\">16</span>, <span data-field=\\"page\\">211–31</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">14</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Goodell, J.W. and Vähämaa, S</span>. <span data-field=\\"issued\\">(2013)</span> <span data-field=\\"title\\">US presidential elections and implied volatility: The role of political uncertainty</span>. <span data-field=\\"container-title\\"><i>Journal of Banking &amp; Finance</i> </span><span data-field=\\"volume\\">37</span>, <span data-field=\\"page\\">1108–17</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">15</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Gungoraydinoglu, A. <i>et al.</i></span> <span data-field=\\"issued\\">(2017)</span> <span data-field=\\"title\\">Political environment, financial intermediation costs, and financing patterns</span>. <span data-field=\\"container-title\\"><i>Journal of Corporate Finance</i> </span><span data-field=\\"volume\\">44</span>, <span data-field=\\"page\\">167–92</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">16</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">He, Y. <i>et al.</i></span> <span data-field=\\"issued\\">(2009)</span> <span data-field=\\"title\\">The 2000 presidential election and the information cost of sensitive versus non-sensitive S&amp;amp;P 500 stocks</span>. <span data-field=\\"container-title\\"><i>Journal of Financial Markets</i> </span><span data-field=\\"volume\\">12</span>, <span data-field=\\"page\\">54–86</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">17</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Ho, T. and Stoll, H.R</span>. <span data-field=\\"issued\\">(1981)</span> <span data-field=\\"title\\">Optimal dealer pricing under transactions and return uncertainty</span>. <span data-field=\\"container-title\\"><i>Journal of Financial Economics</i> </span><span data-field=\\"volume\\">9</span>, <span data-field=\\"page\\">47–73</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">18</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Holden, C.W. and Jacobsen, S</span>. <span data-field=\\"issued\\">(2014)</span> <span data-field=\\"title\\">Liquidity measurement problems in fast, competitive markets: Expensive and cheap solutions</span>. <span data-field=\\"container-title\\"><i>Journal of Finance</i> </span><span data-field=\\"volume\\">69</span>, <span data-field=\\"page\\">1747–85</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">19</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Hong, H. and Kostovetsky, L</span>. <span data-field=\\"issued\\">(2012)</span> <span data-field=\\"title\\">Red and blue investing: Values and finance</span>. <span data-field=\\"container-title\\"><i>Journal of Financial Economics</i> </span><span data-field=\\"volume\\">103</span>, <span data-field=\\"page\\">1–19</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">20</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Julio, B. and Yook, Y</span>. <span data-field=\\"issued\\">(2012)</span> <span data-field=\\"title\\">Political uncertainty and corporate investment cycles</span>. <span data-field=\\"container-title\\"><i>Journal of Finance</i> </span><span data-field=\\"volume\\">67</span>, <span data-field=\\"page\\">45–83</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">21</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Kelly, B. <i>et al.</i></span> <span data-field=\\"issued\\">(2016)</span> <span data-field=\\"title\\">The price of political uncertainty: Theory and evidence from the option market</span>. <span data-field=\\"container-title\\"><i>Journal of Finance</i> </span><span data-field=\\"volume\\">71</span>, <span data-field=\\"page\\">2417–79</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">22</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Kyle, A.S</span>. <span data-field=\\"issued\\">(1985)</span> <span data-field=\\"title\\">Continuous auctions and insider trading</span>. <span data-field=\\"container-title\\"><i>Econometrica</i> </span><span data-field=\\"volume\\">53</span>, <span data-field=\\"page\\">1315–35</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">23</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Lee, C. and Ready, M.J</span>. <span data-field=\\"issued\\">(1991)</span> <span data-field=\\"title\\">Inferring trade direction from intraday data</span>. <span data-field=\\"container-title\\"><i>Journal of Finance</i> </span><span data-field=\\"volume\\">46</span>, <span data-field=\\"page\\">733–46</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">24</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Li, J. and Born, J.A</span>. <span data-field=\\"issued\\">(2006)</span> <span data-field=\\"title\\">Presidential election uncertainty and common stock returns in the United States</span>. <span data-field=\\"container-title\\"><i>Journal of Financial Research</i> </span><span data-field=\\"volume\\">29</span>, <span data-field=\\"page\\">609–22</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">25</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Liu, L.X. <i>et al.</i></span> <span data-field=\\"issued\\">(2017)</span> <span data-field=\\"title\\">The impacts of political uncertainty on asset prices: Evidence from the Bo scandal in China</span>. <span data-field=\\"container-title\\"><i>Journal of Financial Economics</i> </span><span data-field=\\"volume\\">125</span>, <span data-field=\\"page\\">286–310</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">26</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Marshall, B.R. <i>et al.</i></span> <span data-field=\\"issued\\">(2017)</span> <span data-field=\\"title\\">Politics and liquidity</span>. <span data-field=\\"container-title\\"><i>Journal of Financial Markets</i> </span><span data-field=\\"volume\\">38</span>, <span data-field=\\"page\\">1–13</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">27</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Mei, J. and Guo, L</span>. <span data-field=\\"issued\\">(2004)</span> <span data-field=\\"title\\">Political uncertainty, financial crisis and market volatility</span>. <span data-field=\\"container-title\\"><i>European Financial Management</i> </span><span data-field=\\"volume\\">10</span>, <span data-field=\\"page\\">639–57</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">28</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Nippani, S. and Arize, A.C</span>. <span data-field=\\"issued\\">(2005)</span> <span data-field=\\"title\\">US presidential election impact on Canadian and Mexican stock markets</span>. <span data-field=\\"container-title\\"><i>Journal of Economics and Finance</i> </span><span data-field=\\"volume\\">29</span>, <span data-field=\\"page\\">271–79</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">29</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Nippani, S. and Medlin, W.B</span>. <span data-field=\\"issued\\">(2002)</span> <span data-field=\\"title\\">The 2000 presidential election and the stock market</span>. <span data-field=\\"container-title\\"><i>Journal of Economics and Finance</i> </span><span data-field=\\"volume\\">26</span>, <span data-field=\\"page\\">162–69</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">30</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Ozsoylev, H. and Werner, J</span>. <span data-field=\\"issued\\">(2011)</span> <span data-field=\\"title\\">Liquidity and asset prices in rational expectations equilibrium with ambiguous information</span>. <span data-field=\\"container-title\\"><i>Economic Theory</i> </span><span data-field=\\"volume\\">48</span>, <span data-field=\\"page\\">469–91</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">31</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Pantzalis, C. <i>et al.</i></span> <span data-field=\\"issued\\">(2000)</span> <span data-field=\\"title\\">Political elections and the resolution of uncertainty: The international evidence</span>. <span data-field=\\"container-title\\"><i>Journal of Banking &amp; Finance</i> </span><span data-field=\\"volume\\">24</span>, <span data-field=\\"page\\">1575–1604</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">32</span></div> </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">33</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Pástor, L. and Stambaugh, R</span>. <span data-field=\\"issued\\">(2003)</span> <span data-field=\\"title\\">Liquidity risk and expected stock returns</span>. <span data-field=\\"container-title\\"><i>Journal of Political Economy</i> </span><span data-field=\\"volume\\">111</span>, <span data-field=\\"page\\">642–85</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">34</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Pástor, L. and Veronesi, P</span>. <span data-field=\\"issued\\">(2012)</span> <span data-field=\\"title\\">Uncertainty about government policy and stock prices</span>. <span data-field=\\"container-title\\"><i>Journal of Finance</i> </span><span data-field=\\"volume\\">67</span>, <span data-field=\\"page\\">1219–64</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">35</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Pástor, L. and Veronesi, P</span>. <span data-field=\\"issued\\">(2013)</span> <span data-field=\\"title\\">Political uncertainty and risk premia</span>. <span data-field=\\"container-title\\"><i>Journal of Financial Economics</i> </span><span data-field=\\"volume\\">110</span>, <span data-field=\\"page\\">520–45</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">36</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Pérignon, C. and Vallée, B</span>. <span data-field=\\"issued\\">(2017)</span> <span data-field=\\"title\\">The political economy of financial innovation: Evidence from local governments</span>. <span data-field=\\"container-title\\"><i>Review of Financial Studies</i> </span><span data-field=\\"volume\\">30</span>, <span data-field=\\"page\\">1903–34</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">37</span> </div><div class=\\"csl-right-inline\\"><span data-field=\\"author\\">Santa‐Clara, P. and Valkanov, R</span>. <span data-field=\\"issued\\">(2003)</span> <span data-field=\\"title\\">The presidential puzzle: Political cycles and the stock market</span>. <span data-field=\\"container-title\\"><i>Journal of Finance</i> </span><span data-field=\\"volume\\">58</span>, <span data-field=\\"page\\">1841–72</span></div>
-  </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">38</span></div> </div>
-
-  <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\"><span data-field=\\"citation-number\\">39</span></div> </div>
-</div>",
+    "containedObjectIDs": Array [
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
+    ],
+    "contents": "",
     "elementType": "div",
     "objectType": "MPBibliographyElement",
   },
@@ -10875,11 +10670,7 @@ Array [
       },
     ],
     "objectType": "MPCommentAnnotation",
-    "selector": Object {
-      "from": 235,
-      "to": 235,
-    },
-    "target": "MPBibliographyElement:test",
+    "target": "MPBibliographyItem:test",
   },
 ]
 `;
@@ -11209,6 +11000,32 @@ Array [
     "placeholderInnerHTML": "",
   },
   Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:bibliography",
+    "elementIDs": Array [
+      "MPBibliographyElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 10,
+    "title": "References",
+  },
+  Object {
+    "_id": "MPBibliographyElement:test",
+    "containedObjectIDs": Array [
+      "MPBibliographyItem:test",
+    ],
+    "contents": "",
+    "elementType": "div",
+    "objectType": "MPBibliographyElement",
+  },
+  Object {
+    "_id": "MPBibliographyItem:test",
+    "objectType": "MPBibliographyItem",
+  },
+  Object {
     "_id": "MPElementsOrder:test",
     "elementType": "MPFigureElement",
     "elements": Array [
@@ -11281,59 +11098,6 @@ Array [
     "abbreviatedTitles": Array [],
     "journalIdentifiers": Array [],
     "objectType": "MPJournal",
-  },
-  Object {
-    "_id": "MPBibliographyItem:test",
-    "container-title": "Cartographic Perspectives",
-    "issued": Object {
-      "_id": "MPBibliographicDate:test",
-      "date-parts": Array [
-        Array [
-          "2009",
-        ],
-      ],
-      "objectType": "MPBibliographicDate",
-    },
-    "objectType": "MPBibliographyItem",
-    "page": "52-54",
-    "title": "Creating Graphically Complex Indexes With InDesign",
-    "type": "article-journal",
-  },
-  Object {
-    "_id": "MPBibliographyItem:test",
-    "container-title": "The KIPS Transactions:PartD",
-    "issued": Object {
-      "_id": "MPBibliographicDate:test",
-      "date-parts": Array [
-        Array [
-          "2003",
-        ],
-      ],
-      "objectType": "MPBibliographicDate",
-    },
-    "objectType": "MPBibliographyItem",
-    "page": "603-612",
-    "title": "Technique for extracting reusable XML Schema from schema-less XML Documents",
-    "type": "article-journal",
-    "volume": "10D",
-  },
-  Object {
-    "_id": "MPBibliographyItem:test",
-    "container-title": "The KIPS Transactions:PartD",
-    "issued": Object {
-      "_id": "MPBibliographicDate:test",
-      "date-parts": Array [
-        Array [
-          "2009",
-        ],
-      ],
-      "objectType": "MPBibliographicDate",
-    },
-    "objectType": "MPBibliographyItem",
-    "page": "27-42",
-    "title": "XML Fragmentation for Resource-Efficient Query Processing over XML Fragment Stream",
-    "type": "article-journal",
-    "volume": "16D",
   },
 ]
 `;
@@ -12597,31 +12361,6 @@ Object {
             },
           ],
           "type": "paragraph",
-        },
-      ],
-      "type": "section",
-    },
-    Object {
-      "attrs": Object {
-        "category": "MPSectionCategory:bibliography",
-        "comments": null,
-        "dataTracked": null,
-        "generatedLabel": undefined,
-        "pageBreakStyle": undefined,
-        "titleSuppressed": false,
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Bibliography",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
         },
       ],
       "type": "section",

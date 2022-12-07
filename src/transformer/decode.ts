@@ -16,6 +16,7 @@
 
 import {
   BibliographyElement,
+  BibliographyItem,
   CommentAnnotation,
   Element,
   Equation,
@@ -45,6 +46,7 @@ import { DOMParser, ParseOptions } from 'prosemirror-model'
 import { MissingElement } from '../errors'
 import {
   BibliographyElementNode,
+  BibliographyItemNode,
   BlockquoteElementNode,
   BulletListNode,
   CaptionNode,
@@ -219,13 +221,52 @@ export class Decoder {
     [ObjectTypes.BibliographyElement]: (data) => {
       const model = data as BibliographyElement
 
-      return schema.nodes.bibliography_element.create({
+      const referenceIDs = model.containedObjectIDs?.filter((i) =>
+        i.startsWith('MPBibliographyItem')
+      )
+
+      const references: Array<BibliographyItemNode | PlaceholderNode> = []
+      referenceIDs?.forEach((id) => {
+        const referenceModel = this.getModel<BibliographyItem>(id)
+        if (referenceModel) {
+          return references.push(
+            this.decode(referenceModel) as BibliographyItemNode
+          )
+        }
+      })
+
+      if (!references.length) {
+        references.push(
+          schema.nodes.placeholder.createAndFill() as PlaceholderNode
+        )
+      }
+
+      return schema.nodes.bibliography_element.createChecked(
+        {
+          id: model._id,
+          contents: '',
+          paragraphStyle: model.paragraphStyle,
+        },
+        references
+      ) as BibliographyElementNode
+    },
+    [ObjectTypes.BibliographyItem]: (data) => {
+      const model = data as BibliographyItem
+
+      return schema.nodes.bibliography_item.create({
         id: model._id,
-        contents: model.contents
-          ? model.contents.replace(/\s+xmlns=".+?"/, '')
-          : '',
-        paragraphStyle: model.paragraphStyle,
-      }) as BibliographyElementNode
+        type: model.type,
+        author: model.author,
+        issued: model.issued,
+        containerTitle: model['container-title'],
+        volume: model.volume,
+        issue: model.issue,
+        supplement: model.supplement,
+        doi: model.DOI,
+        page: model.page,
+        title: model.title,
+        literal: model.literal,
+      }) as BibliographyItemNode
     },
     [ExtraObjectTypes.PlaceholderElement]: (data) => {
       const model = data as PlaceholderElement

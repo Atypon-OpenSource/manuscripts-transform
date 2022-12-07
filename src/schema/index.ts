@@ -31,6 +31,7 @@ import {
 } from './marks'
 import { attribution } from './nodes/attribution'
 import { bibliographyElement } from './nodes/bibliography_element'
+import { bibliographyItem } from './nodes/bibliography_item'
 import { bibliographySection } from './nodes/bibliography_section'
 import { blockquoteElement } from './nodes/blockquote_element'
 import { caption } from './nodes/caption'
@@ -80,6 +81,7 @@ export * from './groups'
 export * from './types'
 export * from './nodes/comment'
 export * from './nodes/attribution'
+export * from './nodes/bibliography_item'
 export * from './nodes/bibliography_element'
 export * from './nodes/bibliography_section'
 export * from './nodes/blockquote_element'
@@ -140,6 +142,7 @@ export const schema = new Schema<Nodes, Marks>({
   nodes: {
     comment,
     attribution,
+    bibliography_item: bibliographyItem,
     bibliography_element: bibliographyElement,
     bibliography_section: bibliographySection,
     blockquote_element: blockquoteElement,

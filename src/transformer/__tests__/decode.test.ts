@@ -79,7 +79,7 @@ describe('decoder', () => {
     modelMap.delete('MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2')
 
     const afterDoc = createDoc(modelMap)
-    expect(countDescendantsOfType(afterDoc, schema.nodes.placeholder)).toBe(1)
+    expect(countDescendantsOfType(afterDoc, schema.nodes.placeholder)).toBe(2)
     expect(
       countDescendantsOfType(afterDoc, schema.nodes.placeholder_element)
     ).toBe(2)

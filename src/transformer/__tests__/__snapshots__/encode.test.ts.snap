@@ -485,10 +485,19 @@ const x = 'y'",
   },
   "MPBibliographyElement:5987B3BA-D894-4700-90D6-114E20B9F3B1" => Object {
     "_id": "MPBibliographyElement:5987B3BA-D894-4700-90D6-114E20B9F3B1",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"csl-bib-body\\" id=\\"MPBibliographyElement:5987B3BA-D894-4700-90D6-114E20B9F3B1\\"></div>",
+    "containedObjectIDs": Array [
+      "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5",
+    ],
+    "contents": "",
     "elementType": "div",
     "objectType": "MPBibliographyElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
+  },
+  "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5" => Object {
+    "_id": "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5",
+    "objectType": "MPBibliographyItem",
+    "title": "A hyperlink",
+    "type": undefined,
   },
 }
 `;

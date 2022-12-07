@@ -49,6 +49,7 @@ export type Marks =
 
 export type Nodes =
   | 'attribution'
+  | 'bibliography_item'
   | 'bibliography_element'
   | 'bibliography_section'
   | 'blockquote_element'

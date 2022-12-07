@@ -215,6 +215,7 @@ describe('JATS transformer', () => {
       .replace(/\s{2,}/g, '')
       .replace('<app-group/>', '')
       .replace('<title>Footnotes</title>', '')
+      .replace(/element-citation/g, 'mixed-citation')
 
     expect(formattedOutput).toBe(formattedInput)
 

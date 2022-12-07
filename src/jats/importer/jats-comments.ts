@@ -14,7 +14,11 @@
  * limitations under the License.
  */
 
-import { CommentAnnotation, Model } from '@manuscripts/manuscripts-json-schema'
+import {
+  BibliographyItem,
+  CommentAnnotation,
+  Model
+} from '@manuscripts/manuscripts-json-schema'
 import { v4 as uuidv4 } from 'uuid'
 
 import {
@@ -176,3 +180,34 @@ const addCommentsFromMarkedProcessingInstructions = (
 
   return commentAnnotations
 }
+
+export const createReferenceComments = (
+  referenceQueriesMap: Map<string, string[]>,
+  references: Array<BibliographyItem>
+): Build<CommentAnnotation>[] => {
+  const comments: Build<CommentAnnotation>[] = []
+  for (const reference of references) {
+    const id = reference._id
+    if (referenceQueriesMap.has(id)) {
+      for (const comment of referenceQueriesMap.get(id) || []) {
+        const target =
+          reference._id && !isCommentAnnotation(reference)
+            ? reference._id
+            : uuidv4()
+        const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
+        // we don't need a selector property here
+        // we can easily find the position of the reference in the FE
+        const commentAnnotation = buildComment(
+          target,
+          comment,
+          undefined,
+          contributions,
+          DEFAULT_ANNOTATION_COLOR
+        )
+        comments.push(commentAnnotation)
+      }
+    }
+  }
+  return comments
+}
+
