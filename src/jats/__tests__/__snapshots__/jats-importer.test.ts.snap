@@ -738,8 +738,8 @@ Array [
     ],
     "objectType": "MPCommentAnnotation",
     "selector": Object {
-      "from": 781,
-      "to": 781,
+      "from": 827,
+      "to": 827,
     },
     "target": "MPParagraphElement:test",
   },
@@ -757,8 +757,8 @@ Array [
     ],
     "objectType": "MPCommentAnnotation",
     "selector": Object {
-      "from": 719,
-      "to": 719,
+      "from": 756,
+      "to": 756,
     },
     "target": "MPBibliographyElement:test",
   },
@@ -10868,8 +10868,8 @@ Array [
     ],
     "objectType": "MPCommentAnnotation",
     "selector": Object {
-      "from": 198,
-      "to": 198,
+      "from": 235,
+      "to": 235,
     },
     "target": "MPBibliographyElement:test",
   },

@@ -141,9 +141,10 @@ const addCommentsFromMarkedProcessingInstructions = (
     for (const token of sortedTokens) {
       const query = authorQueriesMap.get(token)
       if (query) {
-        const text = textFromHTML(contentWithoutTokens)
         // Remove extra spaces -if exist- from the start of each line of the text content. I decided to do this after I noticed that the bibliography element content contains extra spaces at the start of each line (reference). Not sure why!
-        const trimmedTextContent = text ? text.replace(/^\s+/gm, '') : undefined
+        const trimmedTextContent = contentWithoutTokens
+          ? contentWithoutTokens.replace(/^\s+/gm, '')
+          : undefined
 
         const startTokenIndex = trimmedTextContent
           ? trimmedTextContent.indexOf(token)
@@ -174,14 +175,4 @@ const addCommentsFromMarkedProcessingInstructions = (
   }
 
   return commentAnnotations
-}
-
-const textFromHTML = (html: string) => {
-  const template = document.createElement('template')
-  template.innerHTML = html
-  // Given that citation nodes are not selectable (not counted), we replaced it's content with one character i.e (1) to give more accurate position.
-  for (const xref of template.content.querySelectorAll('.citation')) {
-    xref.textContent = '1'
-  }
-  return template.innerHTML
 }
