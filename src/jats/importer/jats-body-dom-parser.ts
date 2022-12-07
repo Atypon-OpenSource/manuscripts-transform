@@ -546,6 +546,11 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'label',
+    context: 'table_element/',
+    ignore: true, // TODO
+  },
+  {
+    tag: 'label',
     context: 'figure/',
     ignore: true, // TODO
   },
