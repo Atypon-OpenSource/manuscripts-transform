@@ -1,5 +1,11 @@
 # @manuscripts/manuscript-transform
 
+## 0.60.0
+
+### Minor Changes
+
+- abc7713b: LEAN-1813-position-fix
+
 ## 0.59.0
 
 ### Minor Changes
