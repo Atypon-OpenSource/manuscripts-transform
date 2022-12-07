@@ -81,7 +81,6 @@ const addMissingID = (
     }
     replacements.set(previousID, nextID)
   }
-  // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
   node.attrs = { ...node.attrs, id: nextID }
 }
 
@@ -102,7 +101,6 @@ const addMissingRID = (
     // TODO produces a lot of missing replacements..
     // warnings.push(`Missing replacement for node.attrs.rid ${previousRID}`)
   } else {
-    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
     node.attrs = { ...node.attrs, rid: replacements.get(previousRID) }
   }
 }

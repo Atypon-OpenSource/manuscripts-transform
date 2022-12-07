@@ -44,6 +44,7 @@ import {
   ManuscriptMark,
   ManuscriptNode,
   ManuscriptNodeType,
+  ManuscriptSchema,
   Marks,
   Nodes,
   schema,
@@ -205,7 +206,7 @@ export class JATSExporter {
   protected document: Document
   protected modelMap: Map<string, Model>
   protected models: Model[]
-  protected serializer: DOMSerializer
+  protected serializer: DOMSerializer<ManuscriptSchema>
   protected labelTargets?: Map<string, Target>
 
   public serializeToJATS = async (
@@ -1356,7 +1357,7 @@ export class JATSExporter {
       tracked_delete: () => ['del'],
     }
 
-    this.serializer = new DOMSerializer(nodes, marks)
+    this.serializer = new DOMSerializer<ManuscriptSchema>(nodes, marks)
 
     const createFigureElement = (
       node: ManuscriptNode,

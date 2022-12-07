@@ -47,12 +47,9 @@ describe('STS importer', () => {
 
     bodyDoc.descendants((node) => {
       // TODO: validate ids before deleting them
-      // @ts-ignore
       delete node.attrs.id
-      // @ts-ignore
       delete node.attrs.rid
     })
-    // @ts-ignore
     delete bodyDoc.attrs.id
 
     expect(bodyDoc).toMatchSnapshot()

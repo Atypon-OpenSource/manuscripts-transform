@@ -101,20 +101,20 @@ export type Nodes =
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 
-export type ManuscriptEditorState = EditorState
-export type ManuscriptEditorView = EditorView
-export type ManuscriptFragment = Fragment
-export type ManuscriptMark = ProsemirrorMark
-export type ManuscriptNode = ProsemirrorNode
-export type ManuscriptNodeSelection = NodeSelection
-export type ManuscriptTextSelection = TextSelection
-export type ManuscriptMarkType = MarkType
-export type ManuscriptNodeType = NodeType
-export type ManuscriptNodeView = NodeView
-export type ManuscriptResolvedPos = ResolvedPos
-export type ManuscriptPlugin = Plugin
-export type ManuscriptSlice = Slice
-export type ManuscriptTransaction = Transaction
+export type ManuscriptEditorState = EditorState<ManuscriptSchema>
+export type ManuscriptEditorView = EditorView<ManuscriptSchema>
+export type ManuscriptFragment = Fragment<ManuscriptSchema>
+export type ManuscriptMark = ProsemirrorMark<ManuscriptSchema>
+export type ManuscriptNode = ProsemirrorNode<ManuscriptSchema>
+export type ManuscriptNodeSelection = NodeSelection<ManuscriptSchema>
+export type ManuscriptTextSelection = TextSelection<ManuscriptSchema>
+export type ManuscriptMarkType = MarkType<ManuscriptSchema>
+export type ManuscriptNodeType = NodeType<ManuscriptSchema>
+export type ManuscriptNodeView = NodeView<ManuscriptSchema>
+export type ManuscriptResolvedPos = ResolvedPos<ManuscriptSchema>
+export type ManuscriptPlugin = Plugin<ManuscriptSchema>
+export type ManuscriptSlice = Slice<ManuscriptSchema>
+export type ManuscriptTransaction = Transaction<ManuscriptSchema>
 
 export interface TableNodeSpec extends NodeSpec {
   tableRole: string

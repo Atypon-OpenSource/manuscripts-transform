@@ -28,12 +28,9 @@ describe('JATS importer', () => {
 
     doc.descendants((node) => {
       // TODO: validate ids before deleting them
-      // @ts-ignore
       delete node.attrs.id
-      // @ts-ignore
       delete node.attrs.rid
     })
-    // @ts-ignore
     delete doc.attrs.id
 
     expect(doc).toMatchSnapshot()
@@ -47,12 +44,9 @@ describe('JATS importer', () => {
 
     doc.descendants((node) => {
       // TODO: validate ids before deleting them
-      // @ts-ignore
       delete node.attrs.id
-      // @ts-ignore
       delete node.attrs.rid
     })
-    // @ts-ignore
     delete doc.attrs.id
 
     expect(doc).toMatchSnapshot()

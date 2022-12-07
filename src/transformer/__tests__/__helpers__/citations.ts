@@ -54,7 +54,6 @@ export const createTestModelMapWithCitations = () => {
     objectType: ObjectTypes.BibliographyItem,
     _id: 'MPBibliographyItem:1',
     type: 'article-journal',
-    manuscriptID: 'MPManuscript:1',
     createdAt: 0,
     updatedAt: 0,
     containerID: project._id,
