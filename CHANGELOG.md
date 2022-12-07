@@ -1,5 +1,11 @@
 # @manuscripts/manuscript-transform
 
+## 0.61.0
+
+### Minor Changes
+
+- 583a6396: Reverting prosemirror updates to unblock BE development
+
 ## 0.60.0
 
 ### Minor Changes
