@@ -1,5 +1,16 @@
 # @manuscripts/manuscript-transform
 
+## 0.62.0
+
+### Minor Changes
+
+- 0b080346: LEAN-1544 -- individual references rework
+
+### Patch Changes
+
+- Updated dependencies [0b080346]
+  - @manuscripts/manuscripts-json-schema@1.53.0
+
 ## 0.61.0
 
 ### Minor Changes

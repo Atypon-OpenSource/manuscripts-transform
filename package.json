@@ -1,7 +1,7 @@
 {
   "name": "@manuscripts/manuscript-transform",
   "description": "ProseMirror transformer for Manuscripts applications",
-  "version": "0.61.0",
+  "version": "0.62.0",
   "repository": "gitlab:mpapp-public/manuscripts-manuscript-transform",
   "license": "Apache-2.0",
   "main": "dist/cjs",
