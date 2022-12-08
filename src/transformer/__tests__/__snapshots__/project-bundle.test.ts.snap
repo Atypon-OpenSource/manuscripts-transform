@@ -88,7 +88,6 @@ Object {
                     "attrs": Object {
                       "comments": Array [],
                       "dataTracked": null,
-                      "externalFileReferences": undefined,
                       "footerRows": 1,
                       "headerRows": 1,
                       "id": "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
@@ -656,7 +655,6 @@ Object {
                     "attrs": Object {
                       "contentType": "image/png",
                       "dataTracked": null,
-                      "externalFileReferences": undefined,
                       "id": "MPFigure:F3D684D3-1C53-44FE-9E66-B927340D571F",
                       "position": undefined,
                       "src": "",
@@ -1291,7 +1289,6 @@ Object {
                     "attrs": Object {
                       "comments": Array [],
                       "dataTracked": null,
-                      "externalFileReferences": undefined,
                       "footerRows": 1,
                       "headerRows": 1,
                       "id": "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
@@ -1859,7 +1856,6 @@ Object {
                     "attrs": Object {
                       "contentType": "image/png",
                       "dataTracked": null,
-                      "externalFileReferences": undefined,
                       "id": "MPFigure:F3D684D3-1C53-44FE-9E66-B927340D571F",
                       "position": undefined,
                       "src": "",

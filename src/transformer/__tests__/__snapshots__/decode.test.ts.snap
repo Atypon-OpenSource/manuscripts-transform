@@ -483,7 +483,6 @@ Object {
               "attrs": Object {
                 "contentType": "image/png",
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "id": "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0",
                 "position": undefined,
                 "src": "chemoji/chemoji8.png",
@@ -554,7 +553,6 @@ Object {
               "attrs": Object {
                 "contentType": "image/png",
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
                 "position": undefined,
                 "src": "chemoji/chemoji7.png",
@@ -624,7 +622,6 @@ Object {
               "attrs": Object {
                 "comments": Array [],
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
                 "id": "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
@@ -901,7 +898,6 @@ Object {
               "attrs": Object {
                 "comments": Array [],
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
                 "id": "MPTable:7E83812B-A759-4D38-C1C5-F6507D2FC2A9",
@@ -1136,7 +1132,6 @@ Object {
               "attrs": Object {
                 "comments": Array [],
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
                 "id": "MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8",
@@ -1365,7 +1360,6 @@ Object {
               "attrs": Object {
                 "comments": Array [],
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
                 "id": "MPTable:6C045963-404A-4E1E-FF81-B40E9772A6A6",
@@ -2365,7 +2359,6 @@ Object {
               "attrs": Object {
                 "contentType": "image/png",
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
                 "position": undefined,
                 "src": "chemoji/chemoji7.png",
@@ -2435,7 +2428,6 @@ Object {
               "attrs": Object {
                 "comments": Array [],
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
                 "id": "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
@@ -2712,7 +2704,6 @@ Object {
               "attrs": Object {
                 "comments": Array [],
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
                 "id": "MPTable:7E83812B-A759-4D38-C1C5-F6507D2FC2A9",
@@ -3014,7 +3005,6 @@ Object {
               "attrs": Object {
                 "comments": Array [],
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
                 "id": "MPTable:6C045963-404A-4E1E-FF81-B40E9772A6A6",
@@ -4031,7 +4021,6 @@ Object {
               "attrs": Object {
                 "contentType": "image/png",
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "id": "MPFigure:D673DF08-D75E-4061-8EC1-9611EAB302F0",
                 "position": undefined,
                 "src": "chemoji/chemoji8.png",
@@ -4102,7 +4091,6 @@ Object {
               "attrs": Object {
                 "contentType": "image/png",
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
                 "position": undefined,
                 "src": "chemoji/chemoji7.png",
@@ -4172,7 +4160,6 @@ Object {
               "attrs": Object {
                 "comments": Array [],
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
                 "id": "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
@@ -4449,7 +4436,6 @@ Object {
               "attrs": Object {
                 "comments": Array [],
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
                 "id": "MPTable:7E83812B-A759-4D38-C1C5-F6507D2FC2A9",
@@ -4684,7 +4670,6 @@ Object {
               "attrs": Object {
                 "comments": Array [],
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
                 "id": "MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8",
@@ -4913,7 +4898,6 @@ Object {
               "attrs": Object {
                 "comments": Array [],
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "footerRows": 1,
                 "headerRows": 1,
                 "id": "MPTable:6C045963-404A-4E1E-FF81-B40E9772A6A6",
@@ -5707,7 +5691,6 @@ Object {
               "attrs": Object {
                 "contentType": "",
                 "dataTracked": null,
-                "externalFileReferences": undefined,
                 "id": "MPFigure:1",
                 "position": undefined,
                 "src": "",

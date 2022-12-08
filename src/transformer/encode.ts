@@ -561,7 +561,6 @@ const encoders: NodeEncoderMap = {
     contentType: node.attrs.contentType || undefined,
     src: node.attrs.src || undefined,
     position: node.attrs.position || undefined,
-    externalFileReferences: node.attrs.externalFileReferences || undefined,
   }),
   figure_element: (node): Partial<FigureElement> =>
     figureElementEncoder<FigureElement>(node),
@@ -666,7 +665,6 @@ const encoders: NodeEncoderMap = {
   table: (node, parent): Partial<Table> => ({
     contents: tableContents(node, parent as TableElementNode),
     listingAttachment: node.attrs.listingAttachment || undefined,
-    externalFileReferences: node.attrs.externalFileReferences || undefined,
   }),
   table_element: (node): Partial<TableElement> => ({
     containedObjectID: attributeOfNodeType(node, 'table', 'id'),

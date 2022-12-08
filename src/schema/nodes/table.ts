@@ -24,10 +24,6 @@ export interface TableNode extends ManuscriptNode {
     id: string
     headerRows: number
     footerRows: number
-    externalFileReferences?: {
-      url: string
-      kind?: 'imageRepresentation' | 'interactiveRepresentation' | 'dataset'
-    }[]
     comments?: CommentNode[]
   }
 }
@@ -42,7 +38,6 @@ export const table: TableNodeSpec = {
     id: { default: '' },
     headerRows: { default: 1 },
     footerRows: { default: 1 },
-    externalFileReferences: { default: undefined },
     dataTracked: { default: null },
     comments: { default: null },
   },

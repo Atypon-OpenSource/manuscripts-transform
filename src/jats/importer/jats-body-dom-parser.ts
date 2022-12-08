@@ -367,22 +367,10 @@ const nodes: NodeRule[] = [
 
       const src = element.getAttributeNS(XLINK_NAMESPACE, 'href')
 
-      const externalFileReferences: Array<{ url: string; kind?: string }> = []
-      if (src) {
-        externalFileReferences.push({
-          url: src,
-          kind: 'imageRepresentation',
-        })
-      }
-
       return {
         id: element.getAttribute('id'),
         contentType: chooseContentType(element || undefined) || '',
         src,
-        externalFileReferences:
-          externalFileReferences.length > 0
-            ? externalFileReferences
-            : undefined,
         position,
       }
     },

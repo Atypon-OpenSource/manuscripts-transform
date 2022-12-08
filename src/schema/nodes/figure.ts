@@ -23,10 +23,6 @@ export interface FigureNode extends ManuscriptNode {
     id: string
     src: string
     contentType: string
-    externalFileReferences?: {
-      url: string
-      kind?: string
-    }[]
   }
 }
 
@@ -36,7 +32,6 @@ export const figure: NodeSpec = {
     src: { default: '' },
     contentType: { default: '' },
     position: { default: undefined },
-    externalFileReferences: { default: undefined },
     dataTracked: { default: null },
   },
   selectable: false,

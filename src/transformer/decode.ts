@@ -282,7 +282,6 @@ export class Decoder {
         id: model._id,
         contentType: model.contentType,
         src: model.src,
-        externalFileReferences: model.externalFileReferences,
         position: model.position,
         comments: this.createCommentsNode(model),
       })
