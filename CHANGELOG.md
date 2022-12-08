@@ -1,5 +1,16 @@
 # @manuscripts/manuscript-transform
 
+## 0.63.0
+
+### Minor Changes
+
+- f7034873: Removing externalFileReferences usage
+
+### Patch Changes
+
+- Updated dependencies [f7034873]
+  - @manuscripts/manuscripts-json-schema@1.54.0
+
 ## 0.62.0
 
 ### Minor Changes
