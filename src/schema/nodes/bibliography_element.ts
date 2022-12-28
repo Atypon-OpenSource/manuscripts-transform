@@ -40,7 +40,7 @@ export const bibliographyElement: NodeSpec = {
   parseDOM: [
     {
       tag: 'div.csl-bib-body',
-      getAttrs: (p) => {
+      getAttrs: () => {
         return {
           contents: '',
         }

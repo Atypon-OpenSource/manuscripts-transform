@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import '@babel/polyfill'
-
 import { v4 as uuid } from 'uuid'
 
 const supportedCommands: string[] = []

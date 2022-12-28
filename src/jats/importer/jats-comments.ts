@@ -17,7 +17,7 @@
 import {
   BibliographyItem,
   CommentAnnotation,
-  Model
+  Model,
 } from '@manuscripts/manuscripts-json-schema'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -25,13 +25,11 @@ import {
   Build,
   buildComment,
   buildContribution,
-} from '../../transformer/builders'
-import {
   HighlightableField,
   HighlightableModel,
+  isCommentAnnotation,
   isHighlightableModel,
-} from '../../transformer/highlight-markers'
-import { isCommentAnnotation } from '../../transformer/object-types'
+} from '../../transformer'
 
 type ProcessingInstruction = { id: string; queryText: string }
 
@@ -210,4 +208,3 @@ export const createReferenceComments = (
   }
   return comments
 }
-
