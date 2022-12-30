@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@manuscripts/data": "^0.1.12",
-    "@manuscripts/manuscripts-json-schema": "^1.54.0",
+    "@manuscripts/manuscripts-json-schema": "../manuscripts-json-schema",
     "debug": "^4.3.4",
     "mathjax-full": "^3.2.2",
     "mime": "^3.0.0",

@@ -16,6 +16,8 @@
 
 import { Model, UserProfile } from '@manuscripts/manuscripts-json-schema'
 
+import { ManuscriptNode } from '../schema'
+
 export interface Attachment {
   id: string
   data: Blob | ArrayBuffer
@@ -51,4 +53,9 @@ export interface CommentSelector {
 
 export interface PlaceholderElement extends ContainedModel {
   elementType: 'p'
+}
+
+export interface Selected {
+  pos: number
+  node: ManuscriptNode
 }
