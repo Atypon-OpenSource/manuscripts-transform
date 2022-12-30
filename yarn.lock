@@ -5107,7 +5107,7 @@ prop-types@^15.8.1:
     object-assign "^4.1.1"
     react-is "^16.13.1"
 
-prosemirror-model@^1.0.0, prosemirror-model@^1.16.0, prosemirror-model@~1.18.3:
+prosemirror-model@^1.0.0, prosemirror-model@^1.16.0:
   version "1.18.3"
   resolved "https://registry.yarnpkg.com/prosemirror-model/-/prosemirror-model-1.18.3.tgz#d1026a78cff928fd600e90d87cf7d162e0a4e3fd"
   integrity sha512-yUVejauEY3F1r7PDy4UJKEGeIU+KFc71JQl5sNvG66CLVdKXRjhWpBW6KMeduGsmGOsw85f6EGrs6QxIKOVILA==
