@@ -43,7 +43,7 @@
     "@manuscripts/data": "^0.1.12",
     "@manuscripts/eslint-config": "^0.5.1",
     "@manuscripts/examples": "^0.1.0",
-    "@manuscripts/manuscripts-json-schema": "../manuscripts-json-schema",
+    "@manuscripts/manuscripts-json-schema": "^2.0.0",
     "@types/debug": "^4.1.7",
     "@types/jest": "^29.2.4",
     "@types/lodash.pickby": "^4.6.7",
