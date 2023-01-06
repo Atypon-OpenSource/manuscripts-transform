@@ -24,8 +24,7 @@ import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 import { convertMathMLToSVG } from '../../mathjax/mathml-to-svg'
 import { convertTeXToSVG } from '../../mathjax/tex-to-svg'
 import { Marks, Nodes, schema } from '../../schema'
-import { chooseSectionCategory } from '../../transformer/section-category'
-import { xmlSerializer } from '../../transformer/serializer'
+import { chooseSectionCategory, xmlSerializer } from '../../transformer'
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 

@@ -14,15 +14,9 @@
  * limitations under the License.
  */
 
-import * as Models from '@manuscripts/manuscripts-json-schema'
-import { RxAttachment, RxAttachmentCreator } from '@manuscripts/rxdb'
+import { Model, UserProfile } from '@manuscripts/manuscripts-json-schema'
 
-import { ManuscriptNode } from '../schema/types'
-
-// export interface Model extends Models.Model {
-//   _deleted?: boolean
-//   objectType: string
-// }
+import { ManuscriptNode } from '../schema'
 
 export interface Attachment {
   id: string
@@ -30,18 +24,13 @@ export interface Attachment {
   type: string
 }
 
-export interface Attachments {
-  _attachments: Array<RxAttachment<Models.Model>>
-}
-
 export interface ModelAttachment {
-  attachment?: RxAttachmentCreator
-  src?: string
+  attachment?: Attachment
 }
 
-export type ModelWithAttachment = Models.Model & ModelAttachment
+export type ModelWithAttachment = Model & ModelAttachment
 
-export interface UserProfileWithAvatar extends Models.UserProfile {
+export interface UserProfileWithAvatar extends UserProfile {
   avatar?: string
 }
 
@@ -49,7 +38,7 @@ export interface ContainedProps {
   containerID: string
 }
 
-export type ContainedModel = Models.Model & ContainedProps
+export type ContainedModel = Model & ContainedProps
 
 export interface ManuscriptProps {
   manuscriptID: string

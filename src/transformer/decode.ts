@@ -39,7 +39,6 @@ import {
   TableElement,
   TOCElement,
 } from '@manuscripts/manuscripts-json-schema'
-import { RxDocument } from '@manuscripts/rxdb'
 import debug from 'debug'
 import { DOMParser, ParseOptions } from 'prosemirror-model'
 
@@ -50,6 +49,7 @@ import {
   BlockquoteElementNode,
   BulletListNode,
   CaptionNode,
+  CaptionTitleNode,
   CommentNode,
   EquationElementNode,
   EquationNode,
@@ -74,7 +74,6 @@ import {
   TableNode,
   TOCElementNode,
 } from '../schema'
-import { CaptionTitleNode } from '../schema/nodes/caption_title'
 import { insertHighlightMarkers } from './highlight-markers'
 import { generateNodeID } from './id'
 import { PlaceholderElement } from './models'
@@ -82,9 +81,7 @@ import {
   ExtraObjectTypes,
   hasObjectType,
   isCommentAnnotation,
-  isFigure,
   isManuscript,
-  isUserProfile,
 } from './object-types'
 import {
   chooseSectionLableName,
@@ -108,70 +105,6 @@ export const getModelData = <T extends Model>(model: Model): T => {
   const { _rev, _deleted, updatedAt, createdAt, sessionID, ...data } = model
 
   return data as T
-}
-
-export const getAttachment = async (
-  doc: RxDocument<Model>,
-  key: string
-): Promise<string | undefined> => {
-  const attachment = doc.getAttachment(key)
-  if (!attachment) {
-    return undefined
-  }
-
-  const data = await attachment.getData()
-  if (!data) {
-    return undefined
-  }
-
-  return window.URL.createObjectURL(data)
-}
-
-export const buildModelMap = async (
-  docs: Array<RxDocument<Model>>
-): Promise<Map<string, Model>> => {
-  const items: Map<string, RxDocument<Model>> = new Map()
-  const output: Map<string, Model> = new Map()
-
-  await Promise.all(
-    docs.map(async (doc) => {
-      items.set(doc._id, doc)
-      output.set(doc._id, getModelData(doc.toJSON()))
-    })
-  )
-
-  for (const model of output.values()) {
-    if (isFigure(model)) {
-      const figureDoc = items.get(model._id)
-
-      if (figureDoc) {
-        model.src = await getAttachment(figureDoc, 'image')
-      }
-    }
-    // TODO: enable once tables can be images
-    // else if (isTable(model)) {
-    //   if (model.listingAttachment) {
-    //     const { listingID, attachmentKey } = model.listingAttachment
-    //     const listingDoc = items.get(listingID)
-    //
-    //     if (listingDoc) {
-    //       model.src = await getAttachment(listingDoc, attachmentKey)
-    //     }
-    //   } else {
-    //     const tableDoc = items.get(model._id)!
-    //     model.src = await getAttachment(tableDoc, 'image')
-    //   }
-    // }
-    else if (isUserProfile(model)) {
-      const userProfileDoc = items.get(model._id)
-
-      if (userProfileDoc) {
-        model.avatar = await getAttachment(userProfileDoc, 'image')
-      }
-    }
-  }
-
-  return output
 }
 
 export const getModelsByType = <T extends Model>(

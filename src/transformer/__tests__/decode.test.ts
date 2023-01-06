@@ -91,7 +91,7 @@ describe('decoder', () => {
 
     modelMap.delete('MPParagraphElement:05A0ED43-8928-4C69-A17C-0A98795001CD')
 
-    expect(() => createDoc(modelMap, false)).toThrowError(MissingElement)
+    expect(() => createDoc(modelMap, false)).toThrow(MissingElement)
   })
 
   test('getModelData', () => {

@@ -21,9 +21,7 @@ import {
 } from '@manuscripts/manuscripts-json-schema'
 
 import { ManuscriptNode } from '../../schema'
-import { generateID } from '../../transformer/id'
-import { nodeTypesMap } from '../../transformer/node-types'
-import { hasObjectType } from '../../transformer/object-types'
+import { generateID, hasObjectType, nodeTypesMap } from '../../transformer'
 
 const isAuxiliaryObjectReference = hasObjectType<AuxiliaryObjectReference>(
   ObjectTypes.AuxiliaryObjectReference
@@ -79,12 +77,16 @@ const addMissingID = (
   const previousID: string | null | undefined = node.attrs.id
   const nextID = generateID(objectType)
   if (previousID) {
-    if (replacements.has(previousID) || Array.from(replacements.values()).includes(previousID)) {
+    if (
+      replacements.has(previousID) ||
+      Array.from(replacements.values()).includes(previousID)
+    ) {
       warnings.push(`node.attrs.id ${previousID} exists twice!`)
       return
     }
     replacements.set(previousID, nextID)
   }
+  // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
   node.attrs = { ...node.attrs, id: nextID }
 }
 
@@ -105,6 +107,7 @@ const addMissingRID = (
     // TODO produces a lot of missing replacements..
     // warnings.push(`Missing replacement for node.attrs.rid ${previousRID}`)
   } else {
+    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
     node.attrs = { ...node.attrs, rid: replacements.get(previousRID) }
   }
 }

@@ -15,9 +15,9 @@
  */
 
 // @ts-ignore
-import projectDumpWithCitations from '@manuscripts/examples/data/project-dump-2.json'
-// @ts-ignore
 import projectDump from '@manuscripts/examples/data/project-dump.json'
+// @ts-ignore
+import projectDumpWithCitations from '@manuscripts/examples/data/project-dump-2.json'
 import {
   Equation,
   Keyword,
@@ -31,14 +31,14 @@ import {
 } from '@manuscripts/manuscripts-json-schema'
 import { Element as XMLElement, parseXml } from 'libxmljs2'
 
-import { journalMeta } from '../../transformer/__tests__/__helpers__/journal-meta'
-import { submissions } from '../../transformer/__tests__/__helpers__/submissions'
-import { isManuscript } from '../../transformer/object-types'
 import {
   findManuscript,
+  isManuscript,
   parseProjectBundle,
   ProjectBundle,
-} from '../../transformer/project-bundle'
+} from '../../transformer'
+import { journalMeta } from '../../transformer/__tests__/__helpers__/journal-meta'
+import { submissions } from '../../transformer/__tests__/__helpers__/submissions'
 import { JATSExporter } from '../jats-exporter'
 import { Version } from '../jats-versions'
 import { readFixture } from './files'
