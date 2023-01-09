@@ -1,8 +1,8 @@
 {
-  "name": "@manuscripts/manuscript-transform",
+  "name": "@manuscripts/transform",
   "description": "ProseMirror transformer for Manuscripts applications",
   "version": "1.0.0",
-  "repository": "github:Atypon-OpenSource/manuscripts-manuscript-transform",
+  "repository": "github:Atypon-OpenSource/manuscripts-transform",
   "license": "Apache-2.0",
   "main": "dist/cjs",
   "module": "dist/es",
@@ -81,7 +81,7 @@
   },
   "peerDependencies": {
     "@manuscripts/data": "^0.1.12",
-    "@manuscripts/manuscripts-json-schema": "^2.0.0",
+    "@manuscripts/json-schema": "^1.0.0",
     "prosemirror-model": "^1.18.3",
     "prosemirror-state": "^1.4.2",
     "prosemirror-view": "^1.29.1"
