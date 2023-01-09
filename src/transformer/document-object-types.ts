@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { ObjectTypes } from '@manuscripts/manuscripts-json-schema'
+import { ObjectTypes } from '@manuscripts/json-schema'
 
 export const documentObjectTypes = [
   ObjectTypes.BibliographyElement,

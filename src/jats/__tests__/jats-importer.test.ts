@@ -24,7 +24,7 @@ describe('JATS importer', () => {
     const article = await readAndParseFixture('jats-example.xml')
 
     const body = article.querySelector('body') as Element
-    const doc = parseJATSBody(article, body, null, [])
+    const doc = parseJATSBody(article, body, null, [], undefined, undefined)
 
     doc.descendants((node) => {
       // TODO: validate ids before deleting them
@@ -40,7 +40,7 @@ describe('JATS importer', () => {
     const article = await readAndParseFixture('jats-example-full.xml')
 
     const body = article.querySelector('body') as Element
-    const doc = parseJATSBody(article, body, null, [])
+    const doc = parseJATSBody(article, body, null, [], undefined, undefined)
 
     doc.descendants((node) => {
       // TODO: validate ids before deleting them

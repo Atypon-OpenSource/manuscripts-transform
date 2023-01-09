@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { ObjectTypes, Submission } from '@manuscripts/manuscripts-json-schema'
+import { ObjectTypes, Submission } from '@manuscripts/json-schema'
 
 export const submissions: Submission[] = [
   {

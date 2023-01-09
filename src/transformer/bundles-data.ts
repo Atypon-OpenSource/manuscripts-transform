@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Bundle } from '@manuscripts/manuscripts-json-schema'
+import { Bundle } from '@manuscripts/json-schema'
 
 export const loadBundlesMap = async (): Promise<Map<string, Bundle>> => {
   const { default: bundles } = await import(

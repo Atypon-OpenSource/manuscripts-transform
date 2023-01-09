@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Journal } from '@manuscripts/manuscripts-json-schema'
+import { Journal } from '@manuscripts/json-schema'
 
 export const journalMeta: Journal = {
   _id: 'MPJournal:1',

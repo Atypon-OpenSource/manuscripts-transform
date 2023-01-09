@@ -22,7 +22,7 @@ import {
   Model,
   ObjectTypes,
   Table,
-} from '@manuscripts/manuscripts-json-schema'
+} from '@manuscripts/json-schema'
 
 import { ManuscriptModel, UserProfileWithAvatar } from './models'
 

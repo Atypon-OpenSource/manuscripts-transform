@@ -18,7 +18,7 @@ import {
   BibliographyItem,
   CommentAnnotation,
   Model,
-} from '@manuscripts/manuscripts-json-schema'
+} from '@manuscripts/json-schema'
 import { v4 as uuidv4 } from 'uuid'
 
 import {

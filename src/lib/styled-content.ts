@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { InlineStyle } from '@manuscripts/manuscripts-json-schema'
+import { InlineStyle } from '@manuscripts/json-schema'
 
 interface StyledContentAttrs {
   rid?: string

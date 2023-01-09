@@ -18,7 +18,7 @@ import {
   BibliographicName,
   BibliographyItem,
   ObjectTypes,
-} from '@manuscripts/manuscripts-json-schema'
+} from '@manuscripts/json-schema'
 
 import {
   buildAffiliation,

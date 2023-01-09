@@ -18,7 +18,7 @@ import {
   AuxiliaryObjectReference,
   Model,
   ObjectTypes,
-} from '@manuscripts/manuscripts-json-schema'
+} from '@manuscripts/json-schema'
 
 import { ManuscriptNode } from '../../schema'
 import { generateID, hasObjectType, nodeTypesMap } from '../../transformer'

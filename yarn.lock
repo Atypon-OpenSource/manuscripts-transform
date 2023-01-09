@@ -1268,10 +1268,10 @@
   resolved "https://registry.yarnpkg.com/@manuscripts/examples/-/examples-0.1.0.tgz#249c842a4a63185fecf35077a895991b8d84ce6a"
   integrity sha512-C/OHc6+vcDZAM8EaPArbMLGCBMudHwxkHgogIEoxYGZL/tkqC/hGDx+eWQSHsZUAHiDyCM3ca3d1a+cuGvId8g==
 
-"@manuscripts/manuscripts-json-schema@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@manuscripts/manuscripts-json-schema/-/manuscripts-json-schema-2.0.0.tgz#ac3adb8d7b50d0b6f67174d7e7937aa11131083f"
-  integrity sha512-zT6Pigh54iQMAtFb+79lci7RzhGCfi8oL2quKMp4YdeXtcwsRvY/HpQXVsfBxAEgys0wuDiM7x5VBIFp1YPndw==
+"@manuscripts/json-schema@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@manuscripts/json-schema/-/json-schema-1.0.0.tgz#26ff4fea70c74d64f83a7e7361f1b5036de84a5d"
+  integrity sha512-2514pjCDqPLLisy0xL/H6Y1vPTesZYHkw7SQa5Cuehx57CmLk3NAxFI3EJkLIFslJDNJes886+U+TLwHGMxrCg==
   dependencies:
     ajv "^6.10.0"
     deepmerge "^4.2.2"

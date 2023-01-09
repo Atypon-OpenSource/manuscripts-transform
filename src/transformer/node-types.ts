@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { ObjectTypes } from '@manuscripts/manuscripts-json-schema'
+import { ObjectTypes } from '@manuscripts/json-schema'
 
 import {
   GROUP_ELEMENT,

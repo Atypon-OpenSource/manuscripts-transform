@@ -14,11 +14,7 @@
  * limitations under the License.
  */
 
-import {
-  Model,
-  ObjectTypes,
-  Section,
-} from '@manuscripts/manuscripts-json-schema'
+import { Model, ObjectTypes, Section } from '@manuscripts/json-schema'
 
 import { MissingElement } from '../../errors'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../../schema'

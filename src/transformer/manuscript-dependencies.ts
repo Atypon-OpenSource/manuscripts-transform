@@ -28,7 +28,7 @@ import {
   ParagraphStyle,
   StatusLabel,
   TableStyle,
-} from '@manuscripts/manuscripts-json-schema'
+} from '@manuscripts/json-schema'
 
 import { generateID } from './id'
 import { ContainedModel } from './models'

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { Model } from '@manuscripts/manuscripts-json-schema'
+import { Model } from '@manuscripts/json-schema'
 
 import { readFixture } from '../../jats/__tests__/files'
 import { normalizeIDs } from '../../jats/__tests__/ids'

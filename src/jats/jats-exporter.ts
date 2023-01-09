@@ -31,7 +31,7 @@ import {
   Model,
   ObjectTypes,
   Supplement,
-} from '@manuscripts/manuscripts-json-schema'
+} from '@manuscripts/json-schema'
 import debug from 'debug'
 import { DOMOutputSpec, DOMParser, DOMSerializer } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'

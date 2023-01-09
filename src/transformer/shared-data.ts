@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Model } from '@manuscripts/manuscripts-json-schema'
+import { Model } from '@manuscripts/json-schema'
 
 export const loadSharedData = <T extends Model>(file: string): Promise<T[]> =>
   import(`@manuscripts/data/dist/shared/${file}.json`).then(

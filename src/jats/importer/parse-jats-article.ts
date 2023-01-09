@@ -25,7 +25,7 @@ import {
   Manuscript,
   Model,
   ObjectTypes,
-} from '@manuscripts/manuscripts-json-schema'
+} from '@manuscripts/json-schema'
 import { DOMParser } from 'prosemirror-model'
 
 import { InvalidInput } from '../../errors'

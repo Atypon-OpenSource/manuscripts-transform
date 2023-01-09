@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { Model, ObjectTypes } from '@manuscripts/manuscripts-json-schema'
+import { Model, ObjectTypes } from '@manuscripts/json-schema'
 
 import { Build } from './builders'
 import { generateID } from './id'

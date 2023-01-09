@@ -56,7 +56,7 @@ import {
   Supplement,
   UserProfileAffiliation,
   UserProfileFootNote,
-} from '@manuscripts/manuscripts-json-schema'
+} from '@manuscripts/json-schema'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { ManuscriptNodeType, schema } from '../schema'

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { Manuscript } from '@manuscripts/manuscripts-json-schema'
+import { Manuscript } from '@manuscripts/json-schema'
 
 import { ManuscriptFragment, ManuscriptNodeType, schema } from '../schema'
 import { nodeNames } from './node-names'
@@ -81,8 +81,7 @@ export const buildTargets = (
   }
 
   const buildLabel = (type: ManuscriptNodeType) => {
-    const viewLabel = type
-    const counter = counters[viewLabel.name]
+    const counter = counters[type.name]
     counter.index++
     return `${counter.label} ${counter.index}`
   }

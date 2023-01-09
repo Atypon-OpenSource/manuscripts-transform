@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { FootnotesOrder } from '@manuscripts/manuscripts-json-schema'
+import { FootnotesOrder } from '@manuscripts/json-schema'
 
 import { buildFootnotesOrder } from './builders'
 

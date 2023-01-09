@@ -20,7 +20,7 @@ import {
   Model,
   ObjectTypes,
   Submission,
-} from '@manuscripts/manuscripts-json-schema'
+} from '@manuscripts/json-schema'
 
 import { Decoder } from './decode'
 import { ManuscriptModel } from './models'

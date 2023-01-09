@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { Model } from '@manuscripts/manuscripts-json-schema'
+import { Model } from '@manuscripts/json-schema'
 import { parseXml } from 'libxmljs2'
 import mime from 'mime'
 

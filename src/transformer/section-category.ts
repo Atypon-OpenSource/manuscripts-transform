@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { Element, ObjectTypes } from '@manuscripts/manuscripts-json-schema'
+import { Element, ObjectTypes } from '@manuscripts/json-schema'
 
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../schema'
 

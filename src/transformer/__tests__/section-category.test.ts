@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { selectVersionIds, Version } from '../../jats/jats-versions'
+import { selectVersionIds, Version } from '../../jats'
 import { schema } from '../../schema'
 import {
   buildSectionCategory,

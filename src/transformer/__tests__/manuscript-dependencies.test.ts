@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { ObjectTypes } from '@manuscripts/manuscripts-json-schema'
+import { ObjectTypes } from '@manuscripts/json-schema'
 
 import { DEFAULT_PAGE_LAYOUT } from '../builders'
 import {

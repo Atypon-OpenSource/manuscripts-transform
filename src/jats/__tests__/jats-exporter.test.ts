@@ -28,7 +28,7 @@ import {
   Section,
   Supplement,
   Table,
-} from '@manuscripts/manuscripts-json-schema'
+} from '@manuscripts/json-schema'
 import { Element as XMLElement, parseXml } from 'libxmljs2'
 
 import {

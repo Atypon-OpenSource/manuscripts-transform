@@ -16,7 +16,7 @@
 
 // @ts-ignore
 import projectDump from '@manuscripts/examples/data/project-dump.json'
-import { Model } from '@manuscripts/manuscripts-json-schema'
+import { Model } from '@manuscripts/json-schema'
 
 import { Decoder } from '../../decode'
 

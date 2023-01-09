@@ -23,7 +23,7 @@ import {
   ParagraphElement,
   Project,
   Section,
-} from '@manuscripts/manuscripts-json-schema'
+} from '@manuscripts/json-schema'
 
 export const createTestModelMapWithCitations = () => {
   const modelMap = new Map<string, Model>()

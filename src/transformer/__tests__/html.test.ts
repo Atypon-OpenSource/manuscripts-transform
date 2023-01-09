@@ -23,9 +23,7 @@ import projectDump3 from '@manuscripts/examples/data/project-dump-3.json'
 // @ts-ignore
 import projectDump5 from '@manuscripts/examples/data/project-dump-5.json'
 
-// import { Keyword, Manuscript } from '@manuscripts/manuscripts-json-schema'
 import { HTMLTransformer } from '../html'
-// import { isManuscript } from '../object-types'
 import { parseProjectBundle, ProjectBundle } from '../project-bundle'
 
 describe('html', () => {

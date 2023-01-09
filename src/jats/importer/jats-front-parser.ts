@@ -19,7 +19,7 @@ import {
   Journal,
   Keyword,
   KeywordGroup,
-} from '@manuscripts/manuscripts-json-schema'
+} from '@manuscripts/json-schema'
 import debug from 'debug'
 
 import {

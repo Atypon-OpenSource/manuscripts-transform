@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { CommentAnnotation, Model } from '@manuscripts/manuscripts-json-schema'
+import { CommentAnnotation, Model } from '@manuscripts/json-schema'
 
 import { Build, buildComment } from './builders'
 
