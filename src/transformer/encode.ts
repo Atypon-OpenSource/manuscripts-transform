@@ -762,17 +762,15 @@ export const modelFromNode = (
     extractHighlightMarkers(model, commentAnnotationsMap)
     if (node.attrs.comments) {
       const commentNodes = node.attrs.comments as CommentNode[]
-      commentNodes
-        .filter((commentNode) => !commentNode.attrs.selector)
-        .forEach((c) => {
-          const commentAnnotation = buildComment(
-            model._id,
-            c.attrs.contents,
-            c.attrs.selector
-          )
-          commentAnnotation._id = c.attrs.id
-          commentAnnotationsMap.set(commentAnnotation._id, commentAnnotation)
-        })
+      commentNodes.forEach((c) => {
+        const commentAnnotation = buildComment(
+          model._id,
+          c.attrs.contents,
+          c.attrs.selector
+        )
+        commentAnnotation._id = c.attrs.id
+        commentAnnotationsMap.set(commentAnnotation._id, commentAnnotation)
+      })
     }
   }
 
