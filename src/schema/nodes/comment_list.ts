@@ -26,7 +26,7 @@ export interface CommentListNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const comment_list: NodeSpec = {
+export const commentList: NodeSpec = {
   content: 'comment*',
   attrs: {
     id: { default: '' },

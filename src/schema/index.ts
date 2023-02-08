@@ -38,6 +38,7 @@ import { caption } from './nodes/caption'
 import { captionTitle } from './nodes/caption_title'
 import { citation } from './nodes/citation'
 import { comment } from './nodes/comment'
+import { commentList } from './nodes/comment_list'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
 import { equation } from './nodes/equation'
@@ -76,7 +77,6 @@ import { text } from './nodes/text'
 import { tocElement } from './nodes/toc_element'
 import { tocSection } from './nodes/toc_section'
 import { Marks, Nodes } from './types'
-import {comment_list} from "./nodes/comment_list";
 
 export * from './groups'
 export * from './types'
@@ -142,7 +142,7 @@ export const schema = new Schema<Nodes, Marks>({
   },
   nodes: {
     comment,
-    comment_list,
+    comment_list: commentList,
     attribution,
     bibliography_item: bibliographyItem,
     bibliography_element: bibliographyElement,
