@@ -915,6 +915,7 @@ export class JATSExporter {
       attribution: () => ['attrib', 0],
       bibliography_element: () => '',
       bibliography_item: () => '',
+      comment_list: () => '',
       bibliography_section: (node) => [
         'ref-list',
         { id: normalizeID(node.attrs.id) },
