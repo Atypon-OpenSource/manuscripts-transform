@@ -5552,18 +5552,7 @@ Object {
       "attrs": Object {
         "category": "",
         "comments": Array [
-          Object {
-            "attrs": Object {
-              "contents": "",
-              "id": "MPCommentAnnotation:test2",
-              "selector": Object {
-                "from": 23,
-                "to": 32,
-              },
-              "target": "MPSection:1",
-            },
-            "type": "comment",
-          },
+          "MPCommentAnnotation:test2",
         ],
         "dataTracked": null,
         "generatedLabel": true,
@@ -5609,18 +5598,7 @@ Object {
         Object {
           "attrs": Object {
             "comments": Array [
-              Object {
-                "attrs": Object {
-                  "contents": "",
-                  "id": "MPCommentAnnotation:test",
-                  "selector": Object {
-                    "from": 166,
-                    "to": 175,
-                  },
-                  "target": "MPParagraphElement:1",
-                },
-                "type": "comment",
-              },
+              "MPCommentAnnotation:test",
             ],
             "dataTracked": null,
             "id": "MPParagraphElement:1",
@@ -5667,15 +5645,7 @@ Object {
             "alternatives": undefined,
             "attribution": undefined,
             "comments": Array [
-              Object {
-                "attrs": Object {
-                  "contents": "",
-                  "id": "MPCommentAnnotation:test1",
-                  "selector": null,
-                  "target": "MPFigureElement:1",
-                },
-                "type": "comment",
-              },
+              "MPCommentAnnotation:test1",
             ],
             "dataTracked": null,
             "figureLayout": "",
@@ -5743,6 +5713,47 @@ Object {
         },
       ],
       "type": "section",
+    },
+    Object {
+      "attrs": Object {
+        "id": "undefined:9158450B-F1AF-44B7-B884-4EDC4AA27107",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "contents": "",
+            "id": "MPCommentAnnotation:test",
+            "selector": Object {
+              "from": 166,
+              "to": 175,
+            },
+            "target": "MPParagraphElement:1",
+          },
+          "type": "comment",
+        },
+        Object {
+          "attrs": Object {
+            "contents": "",
+            "id": "MPCommentAnnotation:test1",
+            "selector": null,
+            "target": "MPFigureElement:1",
+          },
+          "type": "comment",
+        },
+        Object {
+          "attrs": Object {
+            "contents": "",
+            "id": "MPCommentAnnotation:test2",
+            "selector": Object {
+              "from": 23,
+              "to": 32,
+            },
+            "target": "MPSection:1",
+          },
+          "type": "comment",
+        },
+      ],
+      "type": "comment_list",
     },
   ],
   "type": "manuscript",
