@@ -223,7 +223,7 @@ export class Decoder {
         contentType: model.contentType,
         src: model.src,
         position: model.position,
-        comments: [...commentNodes.map((c) => c.attrs.id).values()],
+        comments: commentNodes.map((c) => c.attrs.id),
       })
     },
     [ObjectTypes.FigureElement]: (data) => {
@@ -293,7 +293,7 @@ export class Decoder {
           ),
           attribution: model.attribution,
           alternatives: model.alternatives,
-          comments: [...commentNodes.map((c) => c.attrs.id).values()],
+          comments: commentNodes.map((c) => c.attrs.id),
         },
         content
       ) as FigureElementNode
@@ -357,7 +357,7 @@ export class Decoder {
               topNode: schema.nodes.footnote.create({
                 id: model._id,
                 kind: model.kind,
-                comments: [...commentNodes.map((c) => c.attrs.id).values()],
+                comments: commentNodes.map((c) => c.attrs.id),
                 // placeholder: model.placeholderText
                 // paragraphStyle: model.paragraphStyle,
               }),
@@ -389,7 +389,7 @@ export class Decoder {
       return schema.nodes.footnote.create({
         id: model._id,
         kind: model.kind,
-        comments: [...commentNodes.map((c) => c.attrs.id).values()],
+        comments: commentNodes.map((c) => c.attrs.id),
         // placeholder: model.placeholderText
         // paragraphStyle: model.paragraphStyle,
       }) as FootnoteNode
@@ -420,7 +420,7 @@ export class Decoder {
               topNode: schema.nodes.ordered_list.create({
                 id: model._id,
                 paragraphStyle: model.paragraphStyle,
-                comments: [...commentNodes.map((c) => c.attrs.id).values()],
+                comments: commentNodes.map((c) => c.attrs.id),
               }),
             }
           ) as OrderedListNode
@@ -452,7 +452,7 @@ export class Decoder {
         contents: model.contents,
         language: model.language,
         languageKey: model.languageKey,
-        comments: [...commentNodes.map((c) => c.attrs.id).values()],
+        comments: commentNodes.map((c) => c.attrs.id),
       }) as ListingNode
     },
     [ObjectTypes.ListingElement]: (data) => {
@@ -482,7 +482,7 @@ export class Decoder {
           suppressTitle: Boolean(
             model.suppressTitle === undefined ? true : model.suppressTitle
           ),
-          comments: [...commentNodes.map((c) => c.attrs.id).values()],
+          comments: commentNodes.map((c) => c.attrs.id),
         },
         [listing, figcaption]
       ) as ListingElementNode
@@ -508,7 +508,7 @@ export class Decoder {
             id: model._id,
             paragraphStyle: model.paragraphStyle,
             placeholder: model.placeholderInnerHTML,
-            comments: [...commentNodes.map((c) => c.attrs.id).values()],
+            comments: commentNodes.map((c) => c.attrs.id),
           }),
         }
       ) as ParagraphNode
@@ -634,7 +634,7 @@ export class Decoder {
           titleSuppressed: model.titleSuppressed,
           pageBreakStyle: model.pageBreakStyle,
           generatedLabel: model.generatedLabel,
-          comments: [...commentNodes.map((c) => c.attrs.id).values()],
+          comments: commentNodes.map((c) => c.attrs.id),
         },
         content
       )
@@ -658,7 +658,7 @@ export class Decoder {
         {
           topNode: schema.nodes.table.create({
             id: model._id,
-            comments: [...commentNodes.map((c) => c.attrs.id).values()],
+            comments: commentNodes.map((c) => c.attrs.id),
           }),
         }
       ) as TableNode
@@ -719,7 +719,7 @@ export class Decoder {
           suppressHeader: model.suppressHeader,
           tableStyle: model.tableStyle,
           paragraphStyle: model.paragraphStyle,
-          comments: [...commentNodes.map((c) => c.attrs.id).values()],
+          comments: commentNodes.map((c) => c.attrs.id),
         },
         content
       ) as TableElementNode
