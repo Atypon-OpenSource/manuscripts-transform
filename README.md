@@ -21,7 +21,7 @@ It provides a way to import/export [Manuscript JSON Schema](https://gitlab.com/m
 **JATSImporter** converts JATS XML to Manuscript JSON Schema via ProseMirror Model.
 
 # Usage
-
+dfgf
 ### Manuscript JSON Schema to ProseMirror Model
 
 ```typescript
