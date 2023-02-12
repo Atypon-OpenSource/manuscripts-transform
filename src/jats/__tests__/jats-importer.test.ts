@@ -28,10 +28,10 @@ describe('JATS importer', () => {
 
     doc.descendants((node) => {
       // TODO: validate ids before deleting them
-      delete node.attrs.id
-      delete node.attrs.rid
+      delete (node as any).attrs.id
+      delete (node as any).attrs.rid
     })
-    delete doc.attrs.id
+    delete (doc as any).attrs.id
 
     expect(doc).toMatchSnapshot()
   })
@@ -44,10 +44,10 @@ describe('JATS importer', () => {
 
     doc.descendants((node) => {
       // TODO: validate ids before deleting them
-      delete node.attrs.id
-      delete node.attrs.rid
+      delete (node as any).attrs.id
+      delete (node as any).attrs.rid
     })
-    delete doc.attrs.id
+    delete (doc as any).attrs.id
 
     expect(doc).toMatchSnapshot()
   })
