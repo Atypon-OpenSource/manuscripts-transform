@@ -5716,7 +5716,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPMetaSection:16409913-3B8F-450D-9FF0-FCA602E86B67",
+        "id": "someId",
       },
       "content": Array [
         Object {

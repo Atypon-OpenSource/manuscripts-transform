@@ -42,6 +42,19 @@ const countDescendantsOfType = (
   return count
 }
 
+const replaceIdByType = (
+  node: ManuscriptNode,
+  type: ManuscriptNodeType,
+  id: string
+) => {
+  node.descendants((childNode) => {
+    if (childNode.type === type) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ;(childNode as any).attrs.id = id
+    }
+  })
+}
+
 const createDoc = (
   modelMap: Map<string, Model>,
   allowMissingElements = true
@@ -144,7 +157,7 @@ describe('decoder', () => {
     const decoder = new Decoder(modelMap)
 
     const result = decoder.createArticleNode()
-
+    replaceIdByType(result, schema.nodes.comment_list, 'someId')
     expect(result).toMatchSnapshot()
   })
 
