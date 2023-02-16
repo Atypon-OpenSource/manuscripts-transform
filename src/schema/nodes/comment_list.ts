@@ -31,4 +31,7 @@ export const commentList: NodeSpec = {
   attrs: {
     id: { default: '' },
   },
+  toDOM: () => {
+    return ['meta']
+  },
 }
