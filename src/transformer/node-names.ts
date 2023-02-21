@@ -34,6 +34,7 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.paragraph, 'Paragraph'],
   [schema.nodes.section, 'Section'],
   [schema.nodes.section_title, 'Section'],
+  [schema.nodes.section_title_plain, 'Section'],
   [schema.nodes.table, 'Table'],
   [schema.nodes.table_element, 'Table'],
   [schema.nodes.blockquote_element, 'Block Quote'],

@@ -26,13 +26,6 @@ describe('JATS importer', () => {
     const body = article.querySelector('body') as Element
     const doc = parseJATSBody(article, body, null, [], undefined, undefined)
 
-    doc.descendants((node) => {
-      // TODO: validate ids before deleting them
-      delete node.attrs.id
-      delete node.attrs.rid
-    })
-    delete doc.attrs.id
-
     expect(doc).toMatchSnapshot()
   })
 
@@ -41,13 +34,6 @@ describe('JATS importer', () => {
 
     const body = article.querySelector('body') as Element
     const doc = parseJATSBody(article, body, null, [], undefined, undefined)
-
-    doc.descendants((node) => {
-      // TODO: validate ids before deleting them
-      delete node.attrs.id
-      delete node.attrs.rid
-    })
-    delete doc.attrs.id
 
     expect(doc).toMatchSnapshot()
   })

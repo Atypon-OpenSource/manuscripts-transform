@@ -67,7 +67,10 @@ import { placeholderElement } from './nodes/placeholder_element'
 import { pullquoteElement } from './nodes/pullquote_element'
 import { section } from './nodes/section'
 import { sectionLabel } from './nodes/section_label'
-import { sectionTitle } from './nodes/section_title'
+import {
+  sectionTitle,
+  sectionTitle as sectionTitlePlain,
+} from './nodes/section_title'
 import { table, tableBody } from './nodes/table'
 import { tableCol, tableColGroup } from './nodes/table_col'
 import { tableElement } from './nodes/table_element'
@@ -181,6 +184,7 @@ export const schema = new Schema<Nodes, Marks>({
     section,
     section_label: sectionLabel,
     section_title: sectionTitle,
+    section_title_plain: sectionTitlePlain,
     table,
     table_body: tableBody,
     table_cell: tableCell,

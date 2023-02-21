@@ -89,6 +89,7 @@ export type Nodes =
   | 'section'
   | 'section_label'
   | 'section_title'
+  | 'section_title_plain'
   | 'table'
   | 'table_body'
   | 'table_cell'

@@ -5771,7 +5771,7 @@ Object {
               "type": "text",
             },
           ],
-          "type": "section_title",
+          "type": "section_title_plain",
         },
         Object {
           "attrs": Object {
@@ -5812,7 +5812,7 @@ Object {
               "type": "text",
             },
           ],
-          "type": "section_title",
+          "type": "section_title_plain",
         },
         Object {
           "attrs": Object {

@@ -29,6 +29,7 @@ import {
   ListElement,
   Listing,
   ListingElement,
+  ManuscriptKeyword,
   MissingFigure,
   Model,
   ObjectTypes,
@@ -130,6 +131,9 @@ const getSections = (modelMap: Map<string, Model>) =>
   getModelsByType<Section>(modelMap, ObjectTypes.Section).sort(
     sortSectionsByPriority
   )
+
+const getKeywords = (modelMap: Map<string, Model>) =>
+  getModelsByType<ManuscriptKeyword>(modelMap, ObjectTypes.Keyword)
 
 export const isManuscriptNode = (
   model: ManuscriptNode | null
@@ -574,11 +578,14 @@ export class Decoder {
         .map(this.decode)
         .filter(isManuscriptNode)
 
+      const sectionTitle = isKeywordsSection
+        ? 'section_title_plain'
+        : 'section_title'
       const sectionTitleNode: SectionTitleNode = model.title
         ? this.parseContents(model.title, 'h1', this.getComments(model), {
-            topNode: schema.nodes.section_title.create(),
+            topNode: schema.nodes[sectionTitle].create(),
           })
-        : schema.nodes.section_title.create()
+        : schema.nodes[sectionTitle].create()
 
       let sectionLabelNode: SectionTitleNode | undefined = undefined
       if (model.label) {
@@ -794,12 +801,51 @@ export class Decoder {
       )
     }
 
+    const keywordsSection = getSections(this.modelMap).filter(
+      (section) => section.category === 'MPSectionCategory:keywords'
+    )
+    const keywords = getKeywords(this.modelMap)
+    if (keywordsSection.length === 0 && keywords.length > 0) {
+      rootSectionNodes.unshift(
+        schema.nodes.keywords_section.createAndFill(
+          {
+            id: generateNodeID(schema.nodes.keywords_section),
+          },
+          [
+            schema.nodes.section_title_plain.create(
+              {},
+              schema.text('Keywords')
+            ),
+            schema.nodes.keywords_element.create({
+              id: generateNodeID(schema.nodes.keywords_element),
+              contents: this.buildKeywordsContents(keywords),
+            }),
+          ]
+        ) as SectionNode
+      )
+    }
+
     return schema.nodes.manuscript.create(
       {
         id: manuscriptID || this.getManuscriptID(),
       },
       rootSectionNodes
     )
+  }
+
+  public buildKeywordsContents = (manuscriptKeywords: ManuscriptKeyword[]) => {
+    const p = document.createElement('p')
+    p.classList.add('keywords-list')
+
+    manuscriptKeywords.map((keyword) => {
+      const keywordElement = document.createElement('span')
+      keywordElement.className = 'keyword'
+      keywordElement.dataset.id = keyword._id
+      keywordElement.textContent = keyword.name
+      p.appendChild(keywordElement)
+    })
+
+    return p.outerHTML
   }
 
   public addGeneratedLabels = (sections: Section[]) => {
