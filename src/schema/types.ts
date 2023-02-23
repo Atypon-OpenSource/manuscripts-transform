@@ -57,6 +57,7 @@ export type Nodes =
   | 'caption'
   | 'caption_title'
   | 'comment'
+  | 'comment_list'
   | 'citation'
   | 'cross_reference'
   | 'doc'

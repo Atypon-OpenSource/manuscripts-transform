@@ -38,6 +38,7 @@ import { caption } from './nodes/caption'
 import { captionTitle } from './nodes/caption_title'
 import { citation } from './nodes/citation'
 import { comment } from './nodes/comment'
+import { commentList } from './nodes/comment_list'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
 import { equation } from './nodes/equation'
@@ -141,6 +142,7 @@ export const schema = new Schema<Nodes, Marks>({
   },
   nodes: {
     comment,
+    comment_list: commentList,
     attribution,
     bibliography_item: bibliographyItem,
     bibliography_element: bibliographyElement,

@@ -1,7 +1,7 @@
 {
   "name": "@manuscripts/transform",
   "description": "ProseMirror transformer for Manuscripts applications",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "repository": "github:Atypon-OpenSource/manuscripts-transform",
   "license": "Apache-2.0",
   "main": "dist/cjs",
@@ -43,7 +43,7 @@
     "@manuscripts/data": "^0.1.12",
     "@manuscripts/eslint-config": "^0.5.1",
     "@manuscripts/examples": "^0.1.0",
-    "@manuscripts/json-schema": "^1.0.0",
+    "@manuscripts/json-schema": "^1.1.0",
     "@types/debug": "^4.1.7",
     "@types/jest": "^29.2.4",
     "@types/lodash.pickby": "^4.6.7",
