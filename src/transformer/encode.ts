@@ -44,7 +44,6 @@ import serializeToXML from 'w3c-xmlserializer'
 
 import { iterateChildren } from '../lib/utils'
 import {
-  CommentNode,
   isHighlightMarkerNode,
   isSectionNode,
   ManuscriptNode,
@@ -53,7 +52,7 @@ import {
   schema,
   TableElementNode,
 } from '../schema'
-import { Build, buildAttribution, buildComment } from './builders'
+import { Build, buildAttribution } from './builders'
 import {
   extractHighlightMarkers,
   isHighlightableModel,
@@ -777,20 +776,6 @@ export const modelFromNode = (
     // TODO 30.4.2021
     // This method doubles the execution time with large documents, such as sts-example.xml (from 1s to 2s)
     extractHighlightMarkers(model, commentAnnotationsMap)
-    if (node.attrs.comments) {
-      const commentNodes = node.attrs.comments as CommentNode[]
-      commentNodes
-        .filter((commentNode) => !commentNode.attrs.selector)
-        .forEach((c) => {
-          const commentAnnotation = buildComment(
-            model._id,
-            c.attrs.contents,
-            c.attrs.selector
-          )
-          commentAnnotation._id = c.attrs.id
-          commentAnnotationsMap.set(commentAnnotation._id, commentAnnotation)
-        })
-    }
   }
 
   return { model, commentAnnotationsMap }
@@ -817,6 +802,9 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       if (isHighlightMarkerNode(child)) {
         return
       }
+      if (child.type === schema.nodes.comment_list) {
+        return
+      }
       if (placeholders.includes(child.type.name)) {
         return
       }
@@ -837,8 +825,14 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       )
       child.forEach(addModel(path.concat(child.attrs.id), child))
     }
-
+  node.forEach((cNode) => {
+    if (cNode.type === schema.nodes.comment_list) {
+      cNode.forEach((child) => {
+        const { model } = modelFromNode(child, cNode, [], priority)
+        models.set(model._id, model)
+      })
+    }
+  })
   node.forEach(addModel([], node))
-
   return models
 }

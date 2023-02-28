@@ -498,6 +498,37 @@ const x = 'y'",
 
 exports[`encoder encode highlight markers 1`] = `
 Map {
+  "MPCommentAnnotation:test" => Object {
+    "_id": "MPCommentAnnotation:test",
+    "annotationColor": undefined,
+    "contents": "",
+    "contributions": undefined,
+    "objectType": "MPCommentAnnotation",
+    "selector": Object {
+      "from": 166,
+      "to": 175,
+    },
+    "target": "MPParagraphElement:1",
+  },
+  "MPCommentAnnotation:test1" => Object {
+    "_id": "MPCommentAnnotation:test1",
+    "contents": "",
+    "objectType": "MPCommentAnnotation",
+    "selector": null,
+    "target": "MPFigureElement:1",
+  },
+  "MPCommentAnnotation:test2" => Object {
+    "_id": "MPCommentAnnotation:test2",
+    "annotationColor": undefined,
+    "contents": "",
+    "contributions": undefined,
+    "objectType": "MPCommentAnnotation",
+    "selector": Object {
+      "from": 23,
+      "to": 32,
+    },
+    "target": "MPSection:1",
+  },
   "MPSection:1" => Object {
     "_id": "MPSection:1",
     "category": undefined,
@@ -516,18 +547,6 @@ Map {
     "title": "A section title with a highlight",
     "titleSuppressed": undefined,
   },
-  "MPCommentAnnotation:test2" => Object {
-    "_id": "MPCommentAnnotation:test2",
-    "annotationColor": undefined,
-    "contents": "",
-    "contributions": undefined,
-    "objectType": "MPCommentAnnotation",
-    "selector": Object {
-      "from": 23,
-      "to": 32,
-    },
-    "target": "MPSection:1",
-  },
   "MPParagraphElement:1" => Object {
     "_id": "MPParagraphElement:1",
     "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:1\\" class=\\"MPElement MPParagraphStyle_1\\" data-object-type=\\"MPParagraphElement\\">This sentence contains a highlight.</p>",
@@ -535,18 +554,6 @@ Map {
     "objectType": "MPParagraphElement",
     "paragraphStyle": "MPParagraphStyle:1",
     "placeholderInnerHTML": "",
-  },
-  "MPCommentAnnotation:test" => Object {
-    "_id": "MPCommentAnnotation:test",
-    "annotationColor": undefined,
-    "contents": "",
-    "contributions": undefined,
-    "objectType": "MPCommentAnnotation",
-    "selector": Object {
-      "from": 166,
-      "to": 175,
-    },
-    "target": "MPParagraphElement:1",
   },
   "MPFigureElement:1" => Object {
     "_id": "MPFigureElement:1",
@@ -567,15 +574,6 @@ Map {
     "suppressCaption": undefined,
     "suppressTitle": undefined,
     "title": undefined,
-  },
-  "MPCommentAnnotation:test1" => Object {
-    "_id": "MPCommentAnnotation:test1",
-    "annotationColor": undefined,
-    "contents": "",
-    "contributions": undefined,
-    "objectType": "MPCommentAnnotation",
-    "selector": null,
-    "target": "MPFigureElement:1",
   },
   "MPFigure:1" => Object {
     "_id": "MPFigure:1",
@@ -604,10 +602,16 @@ Map {
   },
   "MPKeywordsElement:1" => Object {
     "_id": "MPKeywordsElement:1",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPKeywordsElement:1\\" class=\\"keywords MPElement MPParagraphStyle_1\\">test</p>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement MPParagraphStyle_1\\" id=\\"MPKeywordsElement:1\\"><span class=\\"keyword\\" id=\\"MPKeyword:1\\">test</span></div>",
     "elementType": "div",
     "objectType": "MPKeywordsElement",
     "paragraphStyle": "MPParagraphStyle:1",
+  },
+  "MPKeyword:1" => Object {
+    "_id": "MPKeyword:1",
+    "containerID": "MPKeywordsElement:1",
+    "name": "<span xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"keyword\\" id=\\"MPKeyword:1\\">test</span>",
+    "objectType": "MPKeyword",
   },
 }
 `;

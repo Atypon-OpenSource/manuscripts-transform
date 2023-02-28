@@ -4548,9 +4548,6 @@ Array [
 
 exports[`JATS importer parses full JATS body to a ProseMirror doc 1`] = `
 Object {
-  "attrs": Object {
-    "id": "MPManuscript:9D1293BC-40CE-4385-8059-55A6A13D98A8",
-  },
   "content": Array [
     Object {
       "attrs": Object {
@@ -4558,7 +4555,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:ED3D3466-360C-498B-A2FC-8CD1D8A95048",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -4581,7 +4577,6 @@ Object {
             "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
-            "id": "MPSection:A09D9749-3401-455D-841B-7E82C1BCD2D4",
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -4602,7 +4597,6 @@ Object {
               "attrs": Object {
                 "comments": null,
                 "dataTracked": null,
-                "id": "MPParagraphElement:4DF7CF5A-03D4-4AA6-B68B-90F6D5A338D8",
                 "paragraphStyle": "",
                 "placeholder": "",
               },
@@ -4623,7 +4617,6 @@ Object {
             "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
-            "id": "MPSection:76974C07-9463-42F9-BCC9-41C87E2331FF",
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -4644,7 +4637,6 @@ Object {
               "attrs": Object {
                 "comments": null,
                 "dataTracked": null,
-                "id": "MPParagraphElement:17956D5C-A94A-4D1E-B075-810D06368666",
                 "paragraphStyle": "",
                 "placeholder": "",
               },
@@ -4668,7 +4660,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:D5BE1016-B524-4C0E-9A51-75688E354FA7",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -4691,7 +4682,6 @@ Object {
             "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
-            "id": "MPSection:6B9EE06D-430C-4F23-9946-6152EF531736",
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -4712,7 +4702,6 @@ Object {
               "attrs": Object {
                 "comments": null,
                 "dataTracked": null,
-                "id": "MPParagraphElement:7B5BB14E-B11B-43D5-B5CB-1A1E2DC41B6D",
                 "paragraphStyle": "",
                 "placeholder": "",
               },
@@ -4736,7 +4725,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:3EA7ED86-B79A-4C88-B04D-BC6855228183",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -4759,7 +4747,6 @@ Object {
             "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
-            "id": "MPSection:2560E2FC-BEFF-441A-A807-5F08A0BF2F4D",
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -4782,7 +4769,6 @@ Object {
                 "comments": null,
                 "dataTracked": null,
                 "generatedLabel": undefined,
-                "id": "MPSection:8FBCFF88-7D61-437E-8EF5-160E1C037C88",
                 "pageBreakStyle": undefined,
                 "titleSuppressed": false,
               },
@@ -4805,7 +4791,6 @@ Object {
                     "comments": null,
                     "dataTracked": null,
                     "generatedLabel": undefined,
-                    "id": "MPSection:85B7D1A2-45FA-4874-BB6F-432828416BD8",
                     "pageBreakStyle": undefined,
                     "titleSuppressed": false,
                   },
@@ -4828,7 +4813,6 @@ Object {
                         "comments": null,
                         "dataTracked": null,
                         "generatedLabel": undefined,
-                        "id": "MPSection:02B79E32-C706-4819-9AB7-CF5EB9B1C89A",
                         "pageBreakStyle": undefined,
                         "titleSuppressed": false,
                       },
@@ -4851,7 +4835,6 @@ Object {
                             "comments": null,
                             "dataTracked": null,
                             "generatedLabel": undefined,
-                            "id": "MPSection:DA0043A1-E673-4EBB-8CE7-62073FA51DCC",
                             "pageBreakStyle": undefined,
                             "titleSuppressed": false,
                           },
@@ -4872,7 +4855,6 @@ Object {
                               "attrs": Object {
                                 "comments": null,
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:B78037CD-6840-46E4-897A-C960F5BE221D",
                                 "paragraphStyle": "",
                                 "placeholder": "",
                               },
@@ -4885,7 +4867,6 @@ Object {
                                   "attrs": Object {
                                     "contents": "1",
                                     "dataTracked": null,
-                                    "rid": "MPFootnote:3FF1DA97-7BB9-4F44-93C8-5C20EC94A355",
                                   },
                                   "type": "inline_footnote",
                                 },
@@ -4897,7 +4878,6 @@ Object {
                                   "attrs": Object {
                                     "dataTracked": null,
                                     "label": "Equation 1",
-                                    "rid": "MPEquationElement:449CAE44-2583-41BD-856B-7393B4487EE8",
                                   },
                                   "type": "cross_reference",
                                 },
@@ -4909,7 +4889,6 @@ Object {
                                   "attrs": Object {
                                     "dataTracked": null,
                                     "label": "Figure 1",
-                                    "rid": "MPFigureElement:A3445C69-9024-4D90-98B7-00FBCE7D00BB",
                                   },
                                   "type": "cross_reference",
                                 },
@@ -4931,7 +4910,6 @@ Object {
                                 "dataTracked": null,
                                 "figureLayout": "",
                                 "figureStyle": "",
-                                "id": "MPFigureElement:A3445C69-9024-4D90-98B7-00FBCE7D00BB",
                                 "label": "Figure 1",
                                 "sizeFraction": 0,
                                 "suppressCaption": false,
@@ -4942,7 +4920,6 @@ Object {
                                   "attrs": Object {
                                     "comments": null,
                                     "dataTracked": null,
-                                    "id": "MPParagraphElement:7141D518-FDFF-404A-85F8-A5034D35CBD1",
                                     "paragraphStyle": "",
                                     "placeholder": "",
                                   },
@@ -4958,7 +4935,6 @@ Object {
                                   "attrs": Object {
                                     "contentType": "",
                                     "dataTracked": null,
-                                    "id": "MPFigure:B9B81124-DBEB-4623-81E9-66001FBC221B",
                                     "position": null,
                                     "src": "123412341234.fig1",
                                   },
@@ -5015,7 +4991,6 @@ Object {
                                     "comments": null,
                                     "contents": "",
                                     "dataTracked": null,
-                                    "id": "MPListing:E3B52CC5-52C4-40AD-91D3-2FECC80D250A",
                                     "isExecuting": false,
                                     "isExpanded": false,
                                     "language": "",
@@ -5037,7 +5012,6 @@ Object {
                                 "dataTracked": null,
                                 "figureLayout": "",
                                 "figureStyle": "",
-                                "id": "fig1",
                                 "label": "Figure 1",
                                 "sizeFraction": 0,
                                 "suppressCaption": false,
@@ -5048,7 +5022,6 @@ Object {
                                   "attrs": Object {
                                     "comments": null,
                                     "dataTracked": null,
-                                    "id": "MPParagraphElement:3CBF69CF-CD5B-4E2F-A533-BEF1822B57A7",
                                     "paragraphStyle": "",
                                     "placeholder": "",
                                   },
@@ -5063,7 +5036,6 @@ Object {
                                 Object {
                                   "attrs": Object {
                                     "dataTracked": null,
-                                    "id": "MPMissingFigure:D8A90C1E-F5B0-4764-B4A9-95E0E264FB01",
                                     "position": undefined,
                                   },
                                   "type": "missing_figure",
@@ -5119,7 +5091,6 @@ Object {
                                     "comments": null,
                                     "contents": "",
                                     "dataTracked": null,
-                                    "id": "MPListing:53D2C004-2C6A-418E-B3AF-E956B3EC4811",
                                     "isExecuting": false,
                                     "isExpanded": false,
                                     "language": "",
@@ -5154,7 +5125,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:F2AEDD78-B2C7-4533-9A13-3BFE05DE60A0",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -5175,7 +5145,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:67F4C328-C47F-4015-BC70-6FB7D3AC8B60",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -5196,7 +5165,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:F6E85A78-3769-4CE4-82D8-4F351224ABE2",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -5217,7 +5185,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:80944DE8-8BBE-4B76-8129-A1A1F9E6B987",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -5233,7 +5200,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:80855C79-1D67-4B4D-86EB-B885997EFC0F",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -5249,7 +5215,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:4D6BDEAD-AE4C-4BE3-AD19-5D51379D0BC6",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -5262,7 +5227,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "label": "Box 1",
-                "rid": "b1",
               },
               "type": "cross_reference",
             },
@@ -5274,7 +5238,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "label": "Appendix A",
-                "rid": "appA",
               },
               "type": "cross_reference",
             },
@@ -5291,7 +5254,6 @@ Object {
             "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
-            "id": "MPSection:76262977-A140-496C-9450-F3363EA9DC83",
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -5323,7 +5285,6 @@ Object {
             "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
-            "id": "MPSection:63423F91-ADB7-4771-8B23-A16D1D5BDB9F",
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -5346,7 +5307,6 @@ Object {
                 "comments": null,
                 "dataTracked": null,
                 "generatedLabel": undefined,
-                "id": "MPSection:1D71254E-7016-4948-82C4-7DCB4B7FCAAE",
                 "pageBreakStyle": undefined,
                 "titleSuppressed": false,
               },
@@ -5367,7 +5327,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:41A89523-334A-4AFB-8C69-7D182682CABB",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -5380,7 +5339,6 @@ Object {
                       "attrs": Object {
                         "contents": "†",
                         "dataTracked": null,
-                        "rid": "MPFootnote:FB2D485B-605E-43A1-A188-2CB3702620DD",
                       },
                       "type": "inline_footnote",
                     },
@@ -5399,7 +5357,6 @@ Object {
             "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
-            "id": "MPSection:2369EED0-BBCC-4548-9F31-A0F613A0B896",
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -5420,7 +5377,6 @@ Object {
               "attrs": Object {
                 "comments": null,
                 "dataTracked": null,
-                "id": "MPParagraphElement:75DED403-85E1-4B0A-932B-974C933B8563",
                 "paragraphStyle": "",
                 "placeholder": "",
               },
@@ -5433,7 +5389,6 @@ Object {
                   "attrs": Object {
                     "contents": "Day (2008)",
                     "dataTracked": null,
-                    "rid": "bib1",
                     "selectedText": "",
                   },
                   "type": "citation",
@@ -5446,7 +5401,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "label": "Table 1",
-                    "rid": "tbl1",
                   },
                   "type": "cross_reference",
                 },
@@ -5461,7 +5415,6 @@ Object {
               "attrs": Object {
                 "comments": null,
                 "dataTracked": null,
-                "id": "MPEquationElement:449CAE44-2583-41BD-856B-7393B4487EE8",
                 "suppressCaption": true,
                 "suppressTitle": undefined,
               },
@@ -5492,7 +5445,6 @@ Object {
                     "SVGStringRepresentation": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" style=\\"vertical-align: -1.948ex;\\" width=\\"16.64ex\\" height=\\"5.027ex\\" role=\\"img\\" focusable=\\"false\\" viewBox=\\"0 -1361 7354.8 2222\\"><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"scale(1,-1)\\"><g data-mml-node=\\"math\\" xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><g data-mml-node=\\"mrow\\"><g data-mml-node=\\"mstyle\\"><g data-mml-node=\\"mrow\\"><g data-mml-node=\\"mo\\" transform=\\"translate(0 1)\\"><path data-c=\\"222B\\" d=\\"M114 -798Q132 -824 165 -824H167Q195 -824 223 -764T275 -600T320 -391T362 -164Q365 -143 367 -133Q439 292 523 655T645 1127Q651 1145 655 1157T672 1201T699 1257T733 1306T777 1346T828 1360Q884 1360 912 1325T944 1245Q944 1220 932 1205T909 1186T887 1183Q866 1183 849 1198T832 1239Q832 1287 885 1296L882 1300Q879 1303 874 1307T866 1313Q851 1323 833 1323Q819 1323 807 1311T775 1255T736 1139T689 936T633 628Q574 293 510 -5T410 -437T355 -629Q278 -862 165 -862Q125 -862 92 -831T55 -746Q55 -711 74 -698T112 -685Q133 -685 150 -700T167 -741Q167 -789 114 -798Z\\"/></g><g data-mml-node=\\"mrow\\" transform=\\"translate(944,0)\\"/></g></g><g data-mml-node=\\"mi\\" transform=\\"translate(1110.7,0)\\"><path data-c=\\"1D703\\" d=\\"M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z\\"/></g><g data-mml-node=\\"msup\\" transform=\\"translate(1579.7,0)\\"><g data-mml-node=\\"mrow\\"><g data-mml-node=\\"mi\\"><path data-c=\\"63\\" d=\\"M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z\\"/><path data-c=\\"6F\\" d=\\"M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z\\" transform=\\"translate(444,0)\\"/><path data-c=\\"73\\" d=\\"M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z\\" transform=\\"translate(944,0)\\"/></g></g><g data-mml-node=\\"mrow\\" transform=\\"translate(1371,363) scale(0.707)\\"><g data-mml-node=\\"mo\\"><path data-c=\\"2212\\" d=\\"M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z\\"/></g><g data-mml-node=\\"mn\\" transform=\\"translate(778,0)\\"><path data-c=\\"31\\" d=\\"M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z\\"/></g></g></g><g data-mml-node=\\"mfenced\\" transform=\\"translate(3904.3,0)\\"><g data-mml-node=\\"mo\\" transform=\\"translate(0 -0.5)\\"><path data-c=\\"28\\" d=\\"M152 251Q152 646 388 850H416Q422 844 422 841Q422 837 403 816T357 753T302 649T255 482T236 250Q236 124 255 19T301 -147T356 -251T403 -315T422 -340Q422 -343 416 -349H388Q359 -325 332 -296T271 -213T212 -97T170 56T152 251Z\\"/></g><g data-mml-node=\\"mrow\\" transform=\\"translate(458,0)\\"><g data-mml-node=\\"mfrac\\"><g data-mml-node=\\"mi\\" transform=\\"translate(220,394) scale(0.707)\\"><path data-c=\\"1D70B\\" d=\\"M132 -11Q98 -11 98 22V33L111 61Q186 219 220 334L228 358H196Q158 358 142 355T103 336Q92 329 81 318T62 297T53 285Q51 284 38 284Q19 284 19 294Q19 300 38 329T93 391T164 429Q171 431 389 431Q549 431 553 430Q573 423 573 402Q573 371 541 360Q535 358 472 358H408L405 341Q393 269 393 222Q393 170 402 129T421 65T431 37Q431 20 417 5T381 -10Q370 -10 363 -7T347 17T331 77Q330 86 330 121Q330 170 339 226T357 318T367 358H269L268 354Q268 351 249 275T206 114T175 17Q164 -11 132 -11Z\\"/></g><g data-mml-node=\\"mn\\" transform=\\"translate(244.7,-345) scale(0.707)\\"><path data-c=\\"32\\" d=\\"M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z\\"/></g><rect width=\\"603.1\\" height=\\"60\\" x=\\"120\\" y=\\"220\\"/></g><g data-mml-node=\\"mo\\" transform=\\"translate(1065.3,0)\\"><path data-c=\\"2212\\" d=\\"M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z\\"/></g><g data-mml-node=\\"mi\\" transform=\\"translate(2065.5,0)\\"><path data-c=\\"1D703\\" d=\\"M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z\\"/></g></g><g data-mml-node=\\"mo\\" transform=\\"translate(2992.5,0) translate(0 -0.5)\\"><path data-c=\\"29\\" d=\\"M305 251Q305 -145 69 -349H56Q43 -349 39 -347T35 -338Q37 -333 60 -307T108 -239T160 -136T204 27T221 250T204 473T160 636T108 740T60 807T35 839Q35 850 50 850H56H69Q197 743 256 566Q305 425 305 251Z\\"/></g></g></g></g></g></svg>",
                     "TeXRepresentation": "",
                     "dataTracked": null,
-                    "id": "MPEquation:B4D3E9A5-6988-4B36-843A-3D575D101AEC",
                   },
                   "type": "equation",
                 },
@@ -5511,7 +5463,6 @@ Object {
                 "comments": null,
                 "dataTracked": null,
                 "generatedLabel": undefined,
-                "id": "MPSection:8062D1D8-97D2-499E-9DC1-74027BEC5909",
                 "pageBreakStyle": undefined,
                 "titleSuppressed": false,
               },
@@ -5552,7 +5503,6 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPListElement:62FFD9BC-B42D-4EF7-8B52-299119FDD9E2",
                     "paragraphStyle": "",
                   },
                   "content": Array [
@@ -5566,7 +5516,6 @@ Object {
                           "attrs": Object {
                             "comments": null,
                             "dataTracked": null,
-                            "id": "MPParagraphElement:226E1427-7ED8-42D7-99D6-B8487DEE683F",
                             "paragraphStyle": "",
                             "placeholder": "",
                           },
@@ -5582,7 +5531,6 @@ Object {
                           "attrs": Object {
                             "comments": null,
                             "dataTracked": null,
-                            "id": "MPParagraphElement:7FBD55A1-BEF8-476E-9F30-FF25D415F182",
                             "paragraphStyle": "",
                             "placeholder": "",
                           },
@@ -5597,7 +5545,6 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPListElement:E3CFE1D1-C6F6-4B93-93B6-5F0AF7DD5978",
                             "paragraphStyle": "",
                           },
                           "content": Array [
@@ -5611,7 +5558,6 @@ Object {
                                   "attrs": Object {
                                     "comments": null,
                                     "dataTracked": null,
-                                    "id": "MPParagraphElement:4A790015-0E03-4E4F-9C9C-E408FAB33487",
                                     "paragraphStyle": "",
                                     "placeholder": "",
                                   },
@@ -5627,7 +5573,6 @@ Object {
                                   "attrs": Object {
                                     "comments": null,
                                     "dataTracked": null,
-                                    "id": "MPParagraphElement:6992C2DD-6440-4D27-B590-13E6F38FCB4D",
                                     "paragraphStyle": "",
                                     "placeholder": "",
                                   },
@@ -5658,7 +5603,6 @@ Object {
                           "attrs": Object {
                             "comments": null,
                             "dataTracked": null,
-                            "id": "MPParagraphElement:50B044CB-A0F3-4217-9510-B5EBBFAC4E58",
                             "paragraphStyle": "",
                             "placeholder": "",
                           },
@@ -5691,7 +5635,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:9FAA7814-9832-44F5-B0D6-F77594B7FA87",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -5712,7 +5655,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:19DA92C4-3FC9-4AEC-9109-1582F9D3C4CE",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -5733,7 +5675,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:AE12BB2E-D654-48CF-AB0C-3D067C9F9A64",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -5754,7 +5695,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:50DA4EF8-4ABC-4509-8C9E-07DB09ACAF77",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -5775,7 +5715,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:EB74B026-2826-4E94-BD30-3052428DD6B2",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -5796,7 +5735,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:7EE0EE70-E8D1-4E36-A898-651D4CAE392E",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -5817,7 +5755,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:0E35C969-023D-443C-A592-013FC33DE853",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -5855,7 +5792,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:FDF2FA0C-CEBE-4014-9000-14725B459F37",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -5893,7 +5829,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:DDFE791F-D6CB-49FA-82F4-8D38768F31C7",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -5928,7 +5863,6 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPSection:F0D9EFBD-343E-456E-9E6E-0090AF53EF7D",
       },
       "content": Array [
         Object {
@@ -5946,7 +5880,6 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPFootnotesElement:38C38227-15DB-4BDB-A99C-FC62C3268D0E",
             "kind": "footnote",
             "paragraphStyle": "",
           },
@@ -5955,7 +5888,6 @@ Object {
               "attrs": Object {
                 "comments": null,
                 "dataTracked": null,
-                "id": "MPFootnote:09838304-4E92-4A26-B500-39BB3A1751B0",
                 "kind": "footnote",
                 "paragraphStyle": "",
                 "placeholder": "",
@@ -5965,7 +5897,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:CF680545-C680-49A9-9F73-1F3248155088",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -5981,7 +5912,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:BA595F73-B7AA-423F-B086-F222C8CD7846",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -6000,7 +5930,6 @@ Object {
               "attrs": Object {
                 "comments": null,
                 "dataTracked": null,
-                "id": "MPFootnote:8C515A5D-9242-4480-A147-19DA81756FDA",
                 "kind": "footnote",
                 "paragraphStyle": "",
                 "placeholder": "",
@@ -6010,7 +5939,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:FD2EC365-36F8-43EE-9175-1A71E5C16E4F",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -6026,7 +5954,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:25427CBE-FDC5-468E-924C-4AA5FE1EA856",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -6045,7 +5972,6 @@ Object {
               "attrs": Object {
                 "comments": null,
                 "dataTracked": null,
-                "id": "MPFootnote:C06D72D4-D8D7-4599-8F72-1EC2BEA75431",
                 "kind": "footnote",
                 "paragraphStyle": "",
                 "placeholder": "",
@@ -6055,7 +5981,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:ECCBB8CD-D0E4-4D03-AB79-9A73BFD4C37F",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -6074,7 +5999,6 @@ Object {
               "attrs": Object {
                 "comments": null,
                 "dataTracked": null,
-                "id": "MPFootnote:3FF1DA97-7BB9-4F44-93C8-5C20EC94A355",
                 "kind": "footnote",
                 "paragraphStyle": "",
                 "placeholder": "",
@@ -6084,7 +6008,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:7A6DFF47-FE14-44A9-8084-C215EE25289F",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -6103,7 +6026,6 @@ Object {
               "attrs": Object {
                 "comments": null,
                 "dataTracked": null,
-                "id": "MPFootnote:FB2D485B-605E-43A1-A188-2CB3702620DD",
                 "kind": "footnote",
                 "paragraphStyle": "",
                 "placeholder": "",
@@ -6113,7 +6035,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:F1B559F8-4119-4335-98BE-3D9CB2594973",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -6140,7 +6061,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:8201D53F-FBFE-4B62-9E18-63CC6B302416",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -6161,7 +6081,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:1D1298A8-F98D-4BD0-9FA0-72E6CCD2BF7C",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -6182,7 +6101,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:04534EA4-E241-42E9-BC41-099DB1B44647",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -6203,7 +6121,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:2CABB0E2-34FD-4AC3-94CC-2733A4D1EF8D",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -6224,7 +6141,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:1420BBFE-C1F7-4367-9DE4-0AFB4D9743C8",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -6259,7 +6175,6 @@ Object {
             "comments": null,
             "dataTracked": null,
             "generatedLabel": undefined,
-            "id": "MPSection:EB21E702-2ED8-43B0-A2BF-B6A1DFA47B07",
             "pageBreakStyle": undefined,
             "titleSuppressed": false,
           },
@@ -6282,7 +6197,6 @@ Object {
                 "comments": null,
                 "dataTracked": null,
                 "generatedLabel": undefined,
-                "id": "MPSection:1B1D63C7-B45F-4EA8-A245-66EE896D3933",
                 "pageBreakStyle": undefined,
                 "titleSuppressed": false,
               },
@@ -6303,7 +6217,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:9BEB8010-31BD-4441-9A86-1E9BD3E3F07A",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -10963,9 +10876,6 @@ Array [
 
 exports[`JATS importer parses minimal JATS body to a ProseMirror doc 1`] = `
 Object {
-  "attrs": Object {
-    "id": "MPManuscript:A2F26792-0FF9-4C47-B762-45366B5CF25B",
-  },
   "content": Array [
     Object {
       "attrs": Object {
@@ -10973,7 +10883,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:C5564332-4A4C-4F50-A5D5-CEC5F27D3810",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -10994,7 +10903,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:E990E612-216E-471D-BC13-CDDAE7359AA6",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -11015,7 +10923,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:12B1BC7C-3F31-44AB-9B08-BF1D4FF78FF5",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -11035,7 +10942,6 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPListElement:F68D8248-0D62-4DED-831E-5C319E814119",
             "paragraphStyle": "",
           },
           "content": Array [
@@ -11049,7 +10955,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:44826ED0-F413-4403-B495-3C89ADDA4B87",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -11074,7 +10979,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:27A9430C-CEAD-41BF-B4A4-A33DF5652D9D",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -11095,7 +10999,6 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPListElement:9D1E91CA-35E8-404D-924E-0508F0D55B1B",
             "paragraphStyle": "",
           },
           "content": Array [
@@ -11109,7 +11012,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:21A8B8FF-8498-4768-971E-556917EA6636",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -11124,7 +11026,6 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPListElement:4C3A1610-256D-4759-AB8A-7D2118B5F260",
                     "paragraphStyle": "",
                   },
                   "content": Array [
@@ -11138,7 +11039,6 @@ Object {
                           "attrs": Object {
                             "comments": null,
                             "dataTracked": null,
-                            "id": "MPParagraphElement:F98FF570-D90A-4FE4-82FC-07BA0E86CEA2",
                             "paragraphStyle": "",
                             "placeholder": "",
                           },
@@ -11163,7 +11063,6 @@ Object {
                           "attrs": Object {
                             "comments": null,
                             "dataTracked": null,
-                            "id": "MPParagraphElement:79D40442-7EAF-4DF8-8DF0-997B26FE3BB0",
                             "paragraphStyle": "",
                             "placeholder": "",
                           },
@@ -11190,7 +11089,6 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPListElement:C80304A0-FC29-429B-988B-A3BB290F3075",
             "paragraphStyle": "",
           },
           "content": Array [
@@ -11204,7 +11102,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:FAC3342A-1E72-4FE4-ABE5-ADE44787ABD8",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -11219,7 +11116,6 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPListElement:19E279D2-31FA-4B15-92E7-4C08A19447FA",
                     "paragraphStyle": "",
                   },
                   "content": Array [
@@ -11233,7 +11129,6 @@ Object {
                           "attrs": Object {
                             "comments": null,
                             "dataTracked": null,
-                            "id": "MPParagraphElement:DB44B368-60CE-479A-965F-4FDB92D14B50",
                             "paragraphStyle": "",
                             "placeholder": "",
                           },
@@ -11258,7 +11153,6 @@ Object {
                           "attrs": Object {
                             "comments": null,
                             "dataTracked": null,
-                            "id": "MPParagraphElement:2BC22684-33E2-4098-87EC-D04B4389677A",
                             "paragraphStyle": "",
                             "placeholder": "",
                           },
@@ -11285,7 +11179,6 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPListElement:1B026508-6A99-4DFD-A9A6-CD55D633F3D0",
             "paragraphStyle": "",
           },
           "content": Array [
@@ -11299,7 +11192,6 @@ Object {
                   "attrs": Object {
                     "comments": null,
                     "dataTracked": null,
-                    "id": "MPParagraphElement:B62BFA06-C251-45FD-B2E4-A538EDBD27A8",
                     "paragraphStyle": "",
                     "placeholder": "",
                   },
@@ -11314,7 +11206,6 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPListElement:7EB2AF9B-A36B-4FFC-B624-B0512297E3A8",
                     "paragraphStyle": "",
                   },
                   "content": Array [
@@ -11328,7 +11219,6 @@ Object {
                           "attrs": Object {
                             "comments": null,
                             "dataTracked": null,
-                            "id": "MPParagraphElement:DE03B865-0593-4517-AC67-C7172494ACA3",
                             "paragraphStyle": "",
                             "placeholder": "",
                           },
@@ -11353,7 +11243,6 @@ Object {
                           "attrs": Object {
                             "comments": null,
                             "dataTracked": null,
-                            "id": "MPParagraphElement:57C5BB27-472E-46BD-8FFC-3C5162C27BDF",
                             "paragraphStyle": "",
                             "placeholder": "",
                           },
@@ -11386,7 +11275,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:9B4B1781-F8F5-4029-976A-BD71F59EE5EC",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -11412,7 +11300,6 @@ Object {
             "dataTracked": null,
             "figureLayout": "",
             "figureStyle": "",
-            "id": "MPFigureElement:9CFDF42E-B64B-4D67-9FCD-5EA2E96EC1E2",
             "label": "",
             "sizeFraction": 0,
             "suppressCaption": false,
@@ -11423,7 +11310,6 @@ Object {
               "attrs": Object {
                 "contentType": "image/jpeg",
                 "dataTracked": null,
-                "id": "MPFigure:6B256F2C-5C0D-4DB3-8F11-E00960609F1D",
                 "position": null,
                 "src": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
               },
@@ -11455,7 +11341,6 @@ Object {
                 "comments": null,
                 "contents": "",
                 "dataTracked": null,
-                "id": "MPListing:3DFFDA87-02E0-438E-A4E3-C1B3D618BF83",
                 "isExecuting": false,
                 "isExpanded": false,
                 "language": "",
@@ -11475,7 +11360,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:F9DD01BD-3A4D-47C1-9221-E5857F5351DC",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -11497,7 +11381,6 @@ Object {
             "comments": null,
             "dataTracked": null,
             "expandListing": false,
-            "id": "MPTableElement:5170F367-2147-4D68-8A69-F85ED9FF2338",
             "label": "",
             "paragraphStyle": "",
             "suppressCaption": false,
@@ -11513,7 +11396,6 @@ Object {
                 "dataTracked": null,
                 "footerRows": 1,
                 "headerRows": 1,
-                "id": "MPTable:A7661290-343F-4BBB-9FF5-02B39679F6FD",
               },
               "content": Array [
                 Object {
@@ -11732,7 +11614,6 @@ Object {
                 "comments": null,
                 "contents": "",
                 "dataTracked": null,
-                "id": "MPListing:25EDB686-4E28-423E-A2D1-B6795967B193",
                 "isExecuting": false,
                 "isExpanded": false,
                 "language": "",
@@ -11752,7 +11633,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:81D6F5A2-769A-4260-9C16-15079B80387B",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -11773,7 +11653,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:03CBEDAF-0C09-4573-93A6-5B7B546AC520",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -11788,7 +11667,6 @@ Object {
                 "SVGRepresentation": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" style=\\"vertical-align: -0.186ex;\\" width=\\"9.176ex\\" height=\\"1.692ex\\" role=\\"img\\" focusable=\\"false\\" viewBox=\\"0 -666 4056 748\\"><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"scale(1,-1)\\"><g data-mml-node=\\"math\\"><g data-mml-node=\\"mn\\"><path data-c=\\"32\\" d=\\"M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z\\"/></g><g data-mml-node=\\"mo\\" transform=\\"translate(722.2,0)\\"><path data-c=\\"2B\\" d=\\"M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z\\"/></g><g data-mml-node=\\"mn\\" transform=\\"translate(1722.4,0)\\"><path data-c=\\"33\\" d=\\"M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z\\"/></g><g data-mml-node=\\"mo\\" transform=\\"translate(2500.2,0)\\"><path data-c=\\"3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"/></g><g data-mml-node=\\"mn\\" transform=\\"translate(3556,0)\\"><path data-c=\\"35\\" d=\\"M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z\\"/></g></g></g></svg>",
                 "TeXRepresentation": "2+3=5",
                 "dataTracked": null,
-                "id": "MPInlineMathFragment:57E31B7E-8528-4544-94C4-02985B07D8D5",
               },
               "type": "inline_equation",
             },
@@ -11799,7 +11677,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPEquationElement:52887116-EB5E-48C0-9D91-397D3BC817F4",
             "suppressCaption": true,
             "suppressTitle": undefined,
           },
@@ -11810,7 +11687,6 @@ Object {
                 "SVGStringRepresentation": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" style=\\"vertical-align: -0.186ex;\\" width=\\"8.699ex\\" height=\\"2.185ex\\" role=\\"img\\" focusable=\\"false\\" viewBox=\\"0 -883.9 3845.1 965.9\\"><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"scale(1,-1)\\"><g data-mml-node=\\"math\\"><g data-mml-node=\\"mi\\"><path data-c=\\"1D438\\" d=\\"M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z\\"/></g><g data-mml-node=\\"mo\\" transform=\\"translate(1041.8,0)\\"><path data-c=\\"3D\\" d=\\"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z\\"/></g><g data-mml-node=\\"mi\\" transform=\\"translate(2097.6,0)\\"><path data-c=\\"1D45A\\" d=\\"M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z\\"/></g><g data-mml-node=\\"msup\\" transform=\\"translate(2975.6,0)\\"><g data-mml-node=\\"mi\\"><path data-c=\\"1D450\\" d=\\"M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z\\"/></g><g data-mml-node=\\"mn\\" transform=\\"translate(466,413) scale(0.707)\\"><path data-c=\\"32\\" d=\\"M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z\\"/></g></g></g></g></svg>",
                 "TeXRepresentation": "E=mc^2",
                 "dataTracked": null,
-                "id": "MPEquation:910551F2-E3FB-4449-AFB2-327942E49DC9",
               },
               "type": "equation",
             },
@@ -11832,7 +11708,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:1F9AE90E-491C-4F2A-8D5B-400E1CFA6A24",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -11853,7 +11728,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPListingElement:975EA3CE-026D-4FA7-9C08-5FB7A97042C1",
             "suppressCaption": true,
             "suppressTitle": undefined,
           },
@@ -11863,7 +11737,6 @@ Object {
                 "comments": null,
                 "contents": "",
                 "dataTracked": null,
-                "id": "MPListing:59EF5AE1-0869-45DB-886E-5F99A4040EA7",
                 "isExecuting": false,
                 "isExpanded": false,
                 "language": "",
@@ -11889,7 +11762,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:A63615E9-5126-4E72-A79A-E45EA29D9B31",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -11910,7 +11782,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:38930A73-1467-4D1E-A816-F4A4965A6F56",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -11991,7 +11862,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:EDF58ED7-FE2C-4DB5-8494-4EA7A0E99001",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -12030,7 +11900,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:E013ADF8-3ACD-44F1-B654-5BD9AD123157",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -12050,7 +11919,6 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPQuoteElement:6B1D1083-3C78-4036-A2C2-27CA0C4A857A",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -12059,7 +11927,6 @@ Object {
               "attrs": Object {
                 "comments": null,
                 "dataTracked": null,
-                "id": "MPParagraphElement:245B1E6D-0B36-421D-8A3A-D56B851971E4",
                 "paragraphStyle": "",
                 "placeholder": "",
               },
@@ -12095,7 +11962,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:8D941154-E1F0-4768-A5A0-52203B471FFD",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -12116,7 +11982,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:D1B6E5D9-AFB4-4CB2-8925-39DD0CC6A010",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -12129,7 +11994,6 @@ Object {
               "attrs": Object {
                 "contents": "1",
                 "dataTracked": null,
-                "rid": "MPBibliographyItem_787BD4C1-3074-4076-9707-0227D29C1F10",
                 "selectedText": "",
               },
               "type": "citation",
@@ -12141,7 +12005,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:E1F1848F-D7DC-47BE-9C60-CE6E3B30E608",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -12154,7 +12017,6 @@ Object {
               "attrs": Object {
                 "contents": "2,3",
                 "dataTracked": null,
-                "rid": "MPBibliographyItem_E9EFF971-4380-4DEB-83CF-B0CAA6C32BDF MPBibliographyItem_36EDAD5A-EBA0-47AE-88E6-EBAD385166AE",
                 "selectedText": "",
               },
               "type": "citation",
@@ -12166,7 +12028,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:203CD6D3-0466-4EC4-BAE1-D0A022046642",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -12179,7 +12040,6 @@ Object {
               "attrs": Object {
                 "contents": "1–3",
                 "dataTracked": null,
-                "rid": "MPBibliographyItem_787BD4C1-3074-4076-9707-0227D29C1F10 MPBibliographyItem_36EDAD5A-EBA0-47AE-88E6-EBAD385166AE MPBibliographyItem_E9EFF971-4380-4DEB-83CF-B0CAA6C32BDF",
                 "selectedText": "",
               },
               "type": "citation",
@@ -12196,7 +12056,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:08C85955-A70E-4AFB-A4F2-7F41B33599AA",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -12217,7 +12076,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:88D3B2ED-B552-4E84-AD38-2096CEB740E4",
             "paragraphStyle": "",
             "placeholder": "",
           },
@@ -12238,7 +12096,6 @@ Object {
         "comments": null,
         "dataTracked": null,
         "generatedLabel": undefined,
-        "id": "MPSection:27AEB2E3-BBAC-461F-B653-FBF15636F72B",
         "pageBreakStyle": undefined,
         "titleSuppressed": false,
       },
@@ -12259,7 +12116,6 @@ Object {
           "attrs": Object {
             "comments": null,
             "dataTracked": null,
-            "id": "MPParagraphElement:3823BFB2-DDD4-414B-9033-63E405852470",
             "paragraphStyle": "",
             "placeholder": "",
           },
