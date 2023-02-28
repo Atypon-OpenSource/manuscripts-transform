@@ -1161,6 +1161,7 @@ export class JATSExporter {
 
         return xref
       },
+      keyword: () => '',
       keywords_element: () => '',
       keywords_section: () => '',
       link: (node) => {

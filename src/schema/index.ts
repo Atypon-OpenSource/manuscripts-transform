@@ -53,6 +53,7 @@ import { hardBreak } from './nodes/hard_break'
 import { highlightMarker } from './nodes/highlight_marker'
 import { inlineEquation } from './nodes/inline_equation'
 import { inlineFootnote } from './nodes/inline_footnote'
+import { keyword } from './nodes/keyword'
 import { keywordsElement } from './nodes/keywords_element'
 import { keywordsSection } from './nodes/keywords_section'
 import { link } from './nodes/link'
@@ -106,6 +107,7 @@ export * from './nodes/hard_break'
 export * from './nodes/highlight_marker'
 export * from './nodes/inline_equation'
 export * from './nodes/inline_footnote'
+export * from './nodes/keyword'
 export * from './nodes/keywords_element'
 export * from './nodes/keywords_section'
 export * from './nodes/link'
@@ -168,6 +170,7 @@ export const schema = new Schema<Nodes, Marks>({
     highlight_marker: highlightMarker,
     inline_equation: inlineEquation,
     inline_footnote: inlineFootnote,
+    keyword,
     keywords_element: keywordsElement,
     keywords_section: keywordsSection,
     link,

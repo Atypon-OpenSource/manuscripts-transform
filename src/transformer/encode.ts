@@ -25,6 +25,7 @@ import {
   Footnote,
   FootnotesElement,
   InlineMathFragment,
+  Keyword,
   KeywordsElement,
   ListElement,
   Listing,
@@ -73,6 +74,15 @@ const footnoteContents = (node: ManuscriptNode): string => {
   output.querySelectorAll('p').forEach((element) => {
     element.removeAttribute('class')
     element.removeAttribute('data-object-type')
+  })
+  return serializeToXML(output)
+}
+
+const keywordContents = (node: ManuscriptNode): string => {
+  const output = serializer.serializeNode(node) as HTMLElement
+  output.querySelectorAll('span').forEach((element) => {
+    element.removeAttribute('class')
+    element.removeAttribute('id')
   })
   return serializeToXML(output)
 }
@@ -608,6 +618,10 @@ const encoders: NodeEncoderMap = {
     TeXRepresentation: node.attrs.TeXRepresentation,
     SVGRepresentation: node.attrs.SVGRepresentation,
     SVGGlyphs: svgDefs(node.attrs.SVGRepresentation),
+  }),
+  keyword: (node, parent): Partial<Keyword> => ({
+    containerID: parent.attrs.id,
+    name: keywordContents(node),
   }),
   keywords_element: (node): Partial<KeywordsElement> => ({
     contents: elementContents(node),

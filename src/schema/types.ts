@@ -73,6 +73,7 @@ export type Nodes =
   | 'highlight_marker'
   | 'inline_equation'
   | 'inline_footnote'
+  | 'keyword'
   | 'keywords_element'
   | 'keywords_section'
   | 'link'

@@ -25,6 +25,7 @@ import {
   FigureElement,
   Footnote,
   FootnotesElement,
+  Keyword,
   KeywordsElement,
   ListElement,
   Listing,
@@ -59,6 +60,8 @@ import {
   FigureNode,
   FootnoteNode,
   FootnotesElementNode,
+  KeywordsElementNode,
+  KeywordNode,
   ListingElementNode,
   ListingNode,
   ManuscriptNode,
@@ -132,9 +135,6 @@ const getSections = (modelMap: Map<string, Model>) =>
     sortSectionsByPriority
   )
 
-const getKeywords = (modelMap: Map<string, Model>) =>
-  getModelsByType<ManuscriptKeyword>(modelMap, ObjectTypes.Keyword)
-
 export const isManuscriptNode = (
   model: ManuscriptNode | null
 ): model is ManuscriptNode => model !== null
@@ -144,6 +144,8 @@ const isParagraphElement = hasObjectType<ParagraphElement>(
 )
 
 const isFootnote = hasObjectType<Footnote>(ObjectTypes.Footnote)
+
+const isKeyword = hasObjectType<Keyword>(ObjectTypes.Keyword)
 
 const hasParentSection = (id: string) => (section: Section) =>
   section.path &&
@@ -390,13 +392,27 @@ export class Decoder {
     [ObjectTypes.KeywordsElement]: (data) => {
       const model = data as KeywordsElement
 
-      return schema.nodes.keywords_element.create({
-        id: model._id,
-        contents: model.contents
-          ? model.contents.replace(/\s+xmlns=".+?"/, '')
-          : '',
-        paragraphStyle: model.paragraphStyle,
-      }) as TOCElementNode
+      const keywords = this.getKeywords()
+
+      return schema.nodes.keywords_element.create(
+        {
+          id: model._id,
+          paragraphStyle: model.paragraphStyle,
+        },
+        keywords
+      ) as KeywordsElementNode
+    },
+    [ObjectTypes.Keyword]: (data) => {
+      const model = data as Keyword
+
+      return schema.nodes.keyword.create(
+        {
+          id: model._id,
+          contents: model.name,
+          comments: this.createCommentsNode(model),
+        },
+        schema.text(model.name)
+      ) as KeywordNode
     },
     [ObjectTypes.ListElement]: (data) => {
       const model = data as ListElement
@@ -804,25 +820,25 @@ export class Decoder {
     const keywordsSection = getSections(this.modelMap).filter(
       (section) => section.category === 'MPSectionCategory:keywords'
     )
-    const keywords = getKeywords(this.modelMap)
+
+    const keywords = this.getKeywords()
+
     if (keywordsSection.length === 0 && keywords.length > 0) {
-      rootSectionNodes.unshift(
-        schema.nodes.keywords_section.createAndFill(
-          {
-            id: generateNodeID(schema.nodes.keywords_section),
-          },
-          [
-            schema.nodes.section_title_plain.create(
-              {},
-              schema.text('Keywords')
-            ),
-            schema.nodes.keywords_element.create({
+      const keywordsSection = schema.nodes.keywords_section.createAndFill(
+        {
+          id: generateNodeID(schema.nodes.keywords_section),
+        },
+        [
+          schema.nodes.section_title_plain.create({}, schema.text('Keywords')),
+          schema.nodes.keywords_element.create(
+            {
               id: generateNodeID(schema.nodes.keywords_element),
-              contents: this.buildKeywordsContents(keywords),
-            }),
-          ]
-        ) as SectionNode
+            },
+            keywords
+          ),
+        ]
       )
+      rootSectionNodes.unshift(keywordsSection as SectionNode)
     }
 
     return schema.nodes.manuscript.create(
@@ -896,11 +912,36 @@ export class Decoder {
     const template = document.createElement('template')
     template.innerHTML = html
 
-    if (!template.content.firstChild) {
+    if (!template.content.firstElementChild) {
       throw new Error('No content could be parsed')
     }
 
-    return parser.parse(template.content.firstChild, options)
+    return parser.parse(template.content.firstElementChild, options)
+  }
+
+  private getKeywords = () => {
+    const keywordsOfKind = []
+
+    for (const model of this.modelMap.values()) {
+      if (isKeyword(model)) {
+        const keyword = this.parseContents(
+          model.name || '',
+          'div',
+          this.getComments(model),
+          {
+            topNode: schema.nodes.keyword.create({
+              id: model._id,
+              contents: model.name,
+              comments: this.createCommentsNode(model),
+            }),
+          }
+        ) as KeywordNode
+
+        keywordsOfKind.push(keyword)
+      }
+    }
+
+    return keywordsOfKind
   }
 
   private getManuscriptID = () => {
