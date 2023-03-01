@@ -610,7 +610,7 @@ Map {
   "MPKeyword:1" => Object {
     "_id": "MPKeyword:1",
     "containerID": "MPKeywordsElement:1",
-    "name": "<span xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"keyword\\" id=\\"MPKeyword:1\\">test</span>",
+    "name": "test",
     "objectType": "MPKeyword",
   },
 }

@@ -5795,7 +5795,7 @@ Object {
             Object {
               "attrs": Object {
                 "comments": Array [],
-                "contents": "<span xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"keyword\\" id=\\"MPKeyword:1\\">test</span>",
+                "contents": "test",
                 "dataTracked": null,
                 "id": "MPKeyword:1",
               },

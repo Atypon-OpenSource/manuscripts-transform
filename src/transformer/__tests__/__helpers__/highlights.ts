@@ -240,7 +240,7 @@ export const createTestModelMapWithKeywords = () => {
     updatedAt: 0,
     containerID: project._id,
     sessionID: 'test',
-    name: '<span xmlns="http://www.w3.org/1999/xhtml" class="keyword" id="MPKeyword:1">test</span>',
+    name: 'test',
   }
 
   modelMap.set(keyword._id, keyword)
