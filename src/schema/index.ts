@@ -187,7 +187,7 @@ export const schema = new Schema<Nodes, Marks>({
     section,
     section_label: sectionLabel,
     section_title: sectionTitle,
-    section_title_plain: sectionTitle,
+    section_title_plain: sectionTitle, // used for non-editable titles
     table,
     table_body: tableBody,
     table_cell: tableCell,

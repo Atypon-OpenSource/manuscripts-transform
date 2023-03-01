@@ -78,12 +78,9 @@ const footnoteContents = (node: ManuscriptNode): string => {
 }
 
 const keywordContents = (node: ManuscriptNode): string => {
-  const output = serializer.serializeNode(node) as HTMLElement
-  output.querySelectorAll('span').forEach((element) => {
-    element.removeAttribute('class')
-    element.removeAttribute('id')
-  })
-  return serializeToXML(output)
+  const text = (serializer.serializeNode(node) as HTMLElement).textContent
+
+  return text === null ? '' : text
 }
 
 export const inlineContents = (node: ManuscriptNode): string =>
