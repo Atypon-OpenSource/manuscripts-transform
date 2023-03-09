@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'yarn install --non-interactive --frozen-lockfile'
+                sh 'yarn install --non-interactive --frozen-lockfile --force'
                 sh 'yarn typecheck'
                 sh 'yarn lint'
                 sh 'yarn test'
