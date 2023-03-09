@@ -13,7 +13,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'rm -rf node_modules'
                 sh 'yarn install --non-interactive --frozen-lockfile'
                 sh 'yarn typecheck'
                 sh 'yarn lint'
