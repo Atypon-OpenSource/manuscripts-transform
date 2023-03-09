@@ -25,6 +25,7 @@ import {
   Footnote,
   FootnotesElement,
   InlineMathFragment,
+  Keyword,
   KeywordsElement,
   ListElement,
   Listing,
@@ -74,6 +75,12 @@ const footnoteContents = (node: ManuscriptNode): string => {
     element.removeAttribute('data-object-type')
   })
   return serializeToXML(output)
+}
+
+const keywordContents = (node: ManuscriptNode): string => {
+  const text = (serializer.serializeNode(node) as HTMLElement).textContent
+
+  return text === null ? '' : text
 }
 
 export const inlineContents = (node: ManuscriptNode): string =>
@@ -608,6 +615,10 @@ const encoders: NodeEncoderMap = {
     SVGRepresentation: node.attrs.SVGRepresentation,
     SVGGlyphs: svgDefs(node.attrs.SVGRepresentation),
   }),
+  keyword: (node, parent): Partial<Keyword> => ({
+    containerID: parent.attrs.id,
+    name: keywordContents(node),
+  }),
   keywords_element: (node): Partial<KeywordsElement> => ({
     contents: elementContents(node),
     elementType: 'div',
@@ -616,7 +627,10 @@ const encoders: NodeEncoderMap = {
   keywords_section: (node, parent, path, priority): Partial<Section> => ({
     category: buildSectionCategory(node),
     priority: priority.value++,
-    title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
+    title: inlineContentsOfNodeType(
+      node,
+      node.type.schema.nodes.section_title_plain
+    ),
     path: path.concat([node.attrs.id]),
     elementIDs: childElements(node)
       .map((childNode) => childNode.attrs.id)

@@ -17,48 +17,49 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
+import { CommentNode } from './comment'
 
 interface Attrs {
-  contents: string
   id: string
-  paragraphStyle?: string
+  contents: string
+  comments?: CommentNode[]
 }
 
-export interface KeywordsElementNode extends ManuscriptNode {
+export interface KeywordNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const keywordsElement: NodeSpec = {
+export const keyword: NodeSpec = {
   atom: true,
-  content: 'keyword*',
+  content: 'text*',
   attrs: {
     id: { default: '' },
     contents: { default: '' },
-    paragraphStyle: { default: '' },
     dataTracked: { default: null },
+    comments: { default: null },
   },
-  group: 'block element',
+  inline: true,
+  group: 'inline',
   selectable: false,
   parseDOM: [
     {
-      tag: 'div.manuscript-keywords',
-      getAttrs: (div) => {
-        const dom = div as HTMLDivElement
+      tag: 'span.keyword',
+      getAttrs: (node) => {
+        const dom = node as HTMLSpanElement
 
         return {
-          contents: dom.innerHTML,
+          id: dom.getAttribute('id'),
         }
       },
     },
   ],
   toDOM: (node) => {
-    const keywordsElementNode = node as KeywordsElementNode
-
+    const keywordNode = node as KeywordNode
     return [
-      'div',
+      'span',
       {
-        class: 'manuscript-keywords',
-        id: keywordsElementNode.attrs.id,
+        class: 'keyword',
+        id: keywordNode.attrs.id,
       },
       0,
     ]

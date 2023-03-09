@@ -83,7 +83,9 @@ describe('encoder', () => {
 
     const ensureModel = (model: Partial<ManuscriptModel>): ManuscriptModel => {
       model.containerID = 'MPProject:1'
-      model.manuscriptID = 'MPManuscript:1'
+      if (model.objectType !== 'MPKeyword') {
+        model.manuscriptID = 'MPManuscript:1'
+      }
       model.sessionID = 'test'
       model.createdAt = 0
       model.updatedAt = 0

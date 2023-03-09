@@ -602,10 +602,16 @@ Map {
   },
   "MPKeywordsElement:1" => Object {
     "_id": "MPKeywordsElement:1",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPKeywordsElement:1\\" class=\\"keywords MPElement MPParagraphStyle_1\\">test</p>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement MPParagraphStyle_1\\" id=\\"MPKeywordsElement:1\\"><span class=\\"keyword\\" id=\\"MPKeyword:1\\">test</span></div>",
     "elementType": "div",
     "objectType": "MPKeywordsElement",
     "paragraphStyle": "MPParagraphStyle:1",
+  },
+  "MPKeyword:1" => Object {
+    "_id": "MPKeyword:1",
+    "containerID": "MPKeywordsElement:1",
+    "name": "test",
+    "objectType": "MPKeyword",
   },
 }
 `;

@@ -5782,15 +5782,32 @@ Object {
               "type": "text",
             },
           ],
-          "type": "section_title",
+          "type": "section_title_plain",
         },
         Object {
           "attrs": Object {
-            "contents": "<p id=\\"MPKeywordsElement:1\\" class=\\"keywords MPElement MPParagraphStyle_1\\">test</p>",
+            "contents": "",
             "dataTracked": null,
             "id": "MPKeywordsElement:1",
             "paragraphStyle": "MPParagraphStyle:1",
           },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "comments": Array [],
+                "contents": "test",
+                "dataTracked": null,
+                "id": "MPKeyword:1",
+              },
+              "content": Array [
+                Object {
+                  "text": "test",
+                  "type": "text",
+                },
+              ],
+              "type": "keyword",
+            },
+          ],
           "type": "keywords_element",
         },
       ],
@@ -5823,7 +5840,7 @@ Object {
               "type": "text",
             },
           ],
-          "type": "section_title",
+          "type": "section_title_plain",
         },
         Object {
           "attrs": Object {
