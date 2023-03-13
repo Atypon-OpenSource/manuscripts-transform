@@ -59,7 +59,6 @@ export const createTestModelMapWithCitations = () => {
     containerID: project._id,
     manuscriptID: manuscript._id,
     sessionID: 'test',
-    manuscriptID: 'manuscriptX',
   }
 
   const paragraphCitation: Citation = {
