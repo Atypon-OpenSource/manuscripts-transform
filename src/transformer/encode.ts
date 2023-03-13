@@ -25,6 +25,7 @@ import {
   Footnote,
   FootnotesElement,
   InlineMathFragment,
+  Keyword,
   KeywordsElement,
   ListElement,
   Listing,
@@ -43,7 +44,6 @@ import serializeToXML from 'w3c-xmlserializer'
 
 import { iterateChildren } from '../lib/utils'
 import {
-  CommentNode,
   isHighlightMarkerNode,
   isSectionNode,
   ManuscriptNode,
@@ -52,7 +52,7 @@ import {
   schema,
   TableElementNode,
 } from '../schema'
-import { Build, buildAttribution, buildComment } from './builders'
+import { Build, buildAttribution } from './builders'
 import {
   extractHighlightMarkers,
   isHighlightableModel,
@@ -75,6 +75,12 @@ const footnoteContents = (node: ManuscriptNode): string => {
     element.removeAttribute('data-object-type')
   })
   return serializeToXML(output)
+}
+
+const keywordContents = (node: ManuscriptNode): string => {
+  const text = (serializer.serializeNode(node) as HTMLElement).textContent
+
+  return text === null ? '' : text
 }
 
 export const inlineContents = (node: ManuscriptNode): string =>
@@ -609,6 +615,10 @@ const encoders: NodeEncoderMap = {
     SVGRepresentation: node.attrs.SVGRepresentation,
     SVGGlyphs: svgDefs(node.attrs.SVGRepresentation),
   }),
+  keyword: (node, parent): Partial<Keyword> => ({
+    containerID: parent.attrs.id,
+    name: keywordContents(node),
+  }),
   keywords_element: (node): Partial<KeywordsElement> => ({
     contents: elementContents(node),
     elementType: 'div',
@@ -617,7 +627,10 @@ const encoders: NodeEncoderMap = {
   keywords_section: (node, parent, path, priority): Partial<Section> => ({
     category: buildSectionCategory(node),
     priority: priority.value++,
-    title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
+    title: inlineContentsOfNodeType(
+      node,
+      node.type.schema.nodes.section_title_plain
+    ),
     path: path.concat([node.attrs.id]),
     elementIDs: childElements(node)
       .map((childNode) => childNode.attrs.id)
@@ -760,20 +773,6 @@ export const modelFromNode = (
     // TODO 30.4.2021
     // This method doubles the execution time with large documents, such as sts-example.xml (from 1s to 2s)
     extractHighlightMarkers(model, commentAnnotationsMap)
-    if (node.attrs.comments) {
-      const commentNodes = node.attrs.comments as CommentNode[]
-      commentNodes
-        .filter((commentNode) => !commentNode.attrs.selector)
-        .forEach((c) => {
-          const commentAnnotation = buildComment(
-            model._id,
-            c.attrs.contents,
-            c.attrs.selector
-          )
-          commentAnnotation._id = c.attrs.id
-          commentAnnotationsMap.set(commentAnnotation._id, commentAnnotation)
-        })
-    }
   }
 
   return { model, commentAnnotationsMap }
@@ -800,6 +799,9 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       if (isHighlightMarkerNode(child)) {
         return
       }
+      if (child.type === schema.nodes.comment_list) {
+        return
+      }
       if (placeholders.includes(child.type.name)) {
         return
       }
@@ -820,8 +822,14 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       )
       child.forEach(addModel(path.concat(child.attrs.id), child))
     }
-
+  node.forEach((cNode) => {
+    if (cNode.type === schema.nodes.comment_list) {
+      cNode.forEach((child) => {
+        const { model } = modelFromNode(child, cNode, [], priority)
+        models.set(model._id, model)
+      })
+    }
+  })
   node.forEach(addModel([], node))
-
   return models
 }

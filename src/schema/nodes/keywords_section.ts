@@ -27,7 +27,7 @@ export interface KeywordsSectionNode extends ManuscriptNode {
 }
 
 export const keywordsSection: NodeSpec = {
-  content: 'section_title (keywords_element | placeholder_element)',
+  content: 'section_title_plain (keywords_element | placeholder_element)',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
@@ -36,14 +36,14 @@ export const keywordsSection: NodeSpec = {
   selectable: false,
   parseDOM: [
     {
-      tag: 'section.keywords',
+      tag: 'div.keywords',
     },
   ],
   toDOM: (node) => {
     const keywordsSectionNode = node as KeywordsSectionNode
 
     return [
-      'section',
+      'div',
       {
         id: keywordsSectionNode.attrs.id,
         class: 'keywords',

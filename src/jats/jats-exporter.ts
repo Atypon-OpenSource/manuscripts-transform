@@ -915,6 +915,7 @@ export class JATSExporter {
       attribution: () => ['attrib', 0],
       bibliography_element: () => '',
       bibliography_item: () => '',
+      comment_list: () => '',
       bibliography_section: (node) => [
         'ref-list',
         { id: normalizeID(node.attrs.id) },
@@ -1161,6 +1162,7 @@ export class JATSExporter {
 
         return xref
       },
+      keyword: () => '',
       keywords_element: () => '',
       keywords_section: () => '',
       link: (node) => {
@@ -1262,6 +1264,7 @@ export class JATSExporter {
       },
       section_label: () => ['label', 0],
       section_title: () => ['title', 0],
+      section_title_plain: () => ['title', 0],
       table: (node) => ['table', { id: normalizeID(node.attrs.id) }, 0],
       table_element: (node) => {
         const element = createFigureElement(

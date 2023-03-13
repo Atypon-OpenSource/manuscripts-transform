@@ -38,6 +38,7 @@ import { caption } from './nodes/caption'
 import { captionTitle } from './nodes/caption_title'
 import { citation } from './nodes/citation'
 import { comment } from './nodes/comment'
+import { commentList } from './nodes/comment_list'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
 import { equation } from './nodes/equation'
@@ -53,6 +54,7 @@ import { hardBreak } from './nodes/hard_break'
 import { highlightMarker } from './nodes/highlight_marker'
 import { inlineEquation } from './nodes/inline_equation'
 import { inlineFootnote } from './nodes/inline_footnote'
+import { keyword } from './nodes/keyword'
 import { keywordsElement } from './nodes/keywords_element'
 import { keywordsSection } from './nodes/keywords_section'
 import { link } from './nodes/link'
@@ -80,6 +82,7 @@ import { Marks, Nodes } from './types'
 export * from './groups'
 export * from './types'
 export * from './nodes/comment'
+export * from './nodes/comment_list'
 export * from './nodes/attribution'
 export * from './nodes/bibliography_item'
 export * from './nodes/bibliography_element'
@@ -103,6 +106,7 @@ export * from './nodes/hard_break'
 export * from './nodes/highlight_marker'
 export * from './nodes/inline_equation'
 export * from './nodes/inline_footnote'
+export * from './nodes/keyword'
 export * from './nodes/keywords_element'
 export * from './nodes/keywords_section'
 export * from './nodes/link'
@@ -141,6 +145,7 @@ export const schema = new Schema<Nodes, Marks>({
   },
   nodes: {
     comment,
+    comment_list: commentList,
     attribution,
     bibliography_item: bibliographyItem,
     bibliography_element: bibliographyElement,
@@ -165,6 +170,7 @@ export const schema = new Schema<Nodes, Marks>({
     highlight_marker: highlightMarker,
     inline_equation: inlineEquation,
     inline_footnote: inlineFootnote,
+    keyword,
     keywords_element: keywordsElement,
     keywords_section: keywordsSection,
     link,
@@ -181,6 +187,7 @@ export const schema = new Schema<Nodes, Marks>({
     section,
     section_label: sectionLabel,
     section_title: sectionTitle,
+    section_title_plain: sectionTitle, // used for non-editable titles
     table,
     table_body: tableBody,
     table_cell: tableCell,
