@@ -765,6 +765,8 @@ export class Decoder {
         contents: model.contents,
         selector: model.selector,
         target: model.target,
+        resolved: model.resolved,
+        contributions: model.contributions,
       }) as CommentNode
     },
   }
