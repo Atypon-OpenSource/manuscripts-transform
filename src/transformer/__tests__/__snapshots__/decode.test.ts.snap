@@ -5722,7 +5722,9 @@ Object {
         Object {
           "attrs": Object {
             "contents": "",
+            "contributions": null,
             "id": "MPCommentAnnotation:test",
+            "resolved": null,
             "selector": Object {
               "from": 166,
               "to": 175,
@@ -5734,7 +5736,9 @@ Object {
         Object {
           "attrs": Object {
             "contents": "",
+            "contributions": null,
             "id": "MPCommentAnnotation:test1",
+            "resolved": null,
             "selector": null,
             "target": "MPFigureElement:1",
           },
@@ -5743,7 +5747,9 @@ Object {
         Object {
           "attrs": Object {
             "contents": "",
+            "contributions": null,
             "id": "MPCommentAnnotation:test2",
+            "resolved": null,
             "selector": Object {
               "from": 23,
               "to": 32,

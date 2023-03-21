@@ -513,7 +513,9 @@ Map {
   "MPCommentAnnotation:test1" => Object {
     "_id": "MPCommentAnnotation:test1",
     "contents": "",
+    "contributions": null,
     "objectType": "MPCommentAnnotation",
+    "resolved": null,
     "selector": null,
     "target": "MPFigureElement:1",
   },
