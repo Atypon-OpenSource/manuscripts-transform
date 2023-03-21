@@ -501,7 +501,7 @@ Map {
   "MPCommentAnnotation:test" => Object {
     "_id": "MPCommentAnnotation:test",
     "annotationColor": undefined,
-    "contents": "",
+    "contents": "Test Comment",
     "contributions": undefined,
     "objectType": "MPCommentAnnotation",
     "selector": Object {

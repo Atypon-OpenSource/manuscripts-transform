@@ -5721,7 +5721,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "contents": "",
+            "contents": "Test Comment",
             "id": "MPCommentAnnotation:test",
             "selector": Object {
               "from": 166,
