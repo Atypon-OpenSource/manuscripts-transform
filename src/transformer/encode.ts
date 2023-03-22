@@ -576,6 +576,7 @@ const encoders: NodeEncoderMap = {
     contents: node.attrs.contents,
     resolved: node.attrs.resolved,
     contributions: node.attrs.contributions,
+    originalText: node.attrs.originalText,
   }),
   footnote: (node, parent): Partial<Footnote> => ({
     containingObject: parent.attrs.id,

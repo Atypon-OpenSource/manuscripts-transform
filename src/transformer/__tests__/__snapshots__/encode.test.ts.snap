@@ -515,6 +515,7 @@ Map {
     "contents": "",
     "contributions": null,
     "objectType": "MPCommentAnnotation",
+    "originalText": null,
     "resolved": null,
     "selector": null,
     "target": "MPFigureElement:1",

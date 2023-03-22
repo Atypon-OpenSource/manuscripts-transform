@@ -5724,6 +5724,7 @@ Object {
             "contents": "",
             "contributions": null,
             "id": "MPCommentAnnotation:test",
+            "originalText": null,
             "resolved": null,
             "selector": Object {
               "from": 166,
@@ -5738,6 +5739,7 @@ Object {
             "contents": "",
             "contributions": null,
             "id": "MPCommentAnnotation:test1",
+            "originalText": null,
             "resolved": null,
             "selector": null,
             "target": "MPFigureElement:1",
@@ -5749,6 +5751,7 @@ Object {
             "contents": "",
             "contributions": null,
             "id": "MPCommentAnnotation:test2",
+            "originalText": null,
             "resolved": null,
             "selector": Object {
               "from": 23,

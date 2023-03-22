@@ -26,6 +26,7 @@ interface Attrs {
   selector: { from: number; to: number }
   resolved?: boolean
   contributions?: Contribution[]
+  originalText?: string
 }
 
 export interface CommentNode extends ManuscriptNode {
@@ -40,5 +41,6 @@ export const comment: NodeSpec = {
     selector: { default: null },
     resolved: { default: null },
     contributions: { default: null },
+    originalText: { default: null },
   },
 }
