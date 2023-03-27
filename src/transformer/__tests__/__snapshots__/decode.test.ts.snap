@@ -5721,11 +5721,8 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "contents": "",
-            "contributions": null,
+            "contents": "Test Comment",
             "id": "MPCommentAnnotation:test",
-            "originalText": null,
-            "resolved": null,
             "selector": Object {
               "from": 166,
               "to": 175,
@@ -5737,10 +5734,7 @@ Object {
         Object {
           "attrs": Object {
             "contents": "",
-            "contributions": null,
             "id": "MPCommentAnnotation:test1",
-            "originalText": null,
-            "resolved": null,
             "selector": null,
             "target": "MPFigureElement:1",
           },
@@ -5749,10 +5743,7 @@ Object {
         Object {
           "attrs": Object {
             "contents": "",
-            "contributions": null,
             "id": "MPCommentAnnotation:test2",
-            "originalText": null,
-            "resolved": null,
             "selector": Object {
               "from": 23,
               "to": 32,
