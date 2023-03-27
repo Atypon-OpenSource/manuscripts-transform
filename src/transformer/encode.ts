@@ -823,7 +823,9 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       commentAnnotationsMap.forEach((val, key) =>
         models.set(key, {
           ...val,
-          contents: (models.get(val._id) as CommentAnnotation).contents,
+          contents:
+            (models.get(val._id) as CommentAnnotation)?.contents ||
+            val.contents,
         } as unknown as Model)
       )
       child.forEach(addModel(path.concat(child.attrs.id), child))
