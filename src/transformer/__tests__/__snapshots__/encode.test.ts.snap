@@ -500,10 +500,11 @@ exports[`encoder encode highlight markers 1`] = `
 Map {
   "MPCommentAnnotation:test" => Object {
     "_id": "MPCommentAnnotation:test",
-    "annotationColor": undefined,
     "contents": "Test Comment",
-    "contributions": undefined,
+    "contributions": null,
     "objectType": "MPCommentAnnotation",
+    "originalText": null,
+    "resolved": null,
     "selector": Object {
       "from": 166,
       "to": 175,
@@ -522,10 +523,11 @@ Map {
   },
   "MPCommentAnnotation:test2" => Object {
     "_id": "MPCommentAnnotation:test2",
-    "annotationColor": undefined,
     "contents": "",
-    "contributions": undefined,
+    "contributions": null,
     "objectType": "MPCommentAnnotation",
+    "originalText": null,
+    "resolved": null,
     "selector": Object {
       "from": 23,
       "to": 32,
