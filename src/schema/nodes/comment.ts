@@ -34,6 +34,6 @@ export const comment: NodeSpec = {
     id: { default: '' },
     contents: { default: '' },
     target: { default: '' },
-    selector: { default: null },
+    selector: { default: {} },
   },
 }
