@@ -5735,7 +5735,7 @@ Object {
           "attrs": Object {
             "contents": "",
             "id": "MPCommentAnnotation:test1",
-            "selector": null,
+            "selector": Object {},
             "target": "MPFigureElement:1",
           },
           "type": "comment",
