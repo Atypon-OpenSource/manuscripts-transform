@@ -805,24 +805,13 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       if (placeholders.includes(child.type.name)) {
         return
       }
-      const { model, commentAnnotationsMap } = modelFromNode(
-        child,
-        parent,
-        path,
-        priority
-      )
+      const { model } = modelFromNode(child, parent, path, priority)
       if (models.has(model._id)) {
         throw Error(
           `Encountered duplicate ids in models map while encoding: ${model._id}`
         )
       }
       models.set(model._id, model)
-      commentAnnotationsMap.forEach((val, key) =>
-        models.set(key, {
-          ...val,
-          contents: (models.get(val._id) as CommentAnnotation).contents,
-        } as unknown as Model)
-      )
       child.forEach(addModel(path.concat(child.attrs.id), child))
     }
   node.forEach((cNode) => {
