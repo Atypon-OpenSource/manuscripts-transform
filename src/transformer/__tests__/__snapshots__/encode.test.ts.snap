@@ -503,7 +503,7 @@ Map {
     "contents": "Test Comment",
     "contributions": Array [],
     "objectType": "MPCommentAnnotation",
-    "originalText": null,
+    "originalText": "",
     "resolved": false,
     "selector": Object {
       "from": 166,
@@ -516,7 +516,7 @@ Map {
     "contents": "",
     "contributions": Array [],
     "objectType": "MPCommentAnnotation",
-    "originalText": null,
+    "originalText": "",
     "resolved": false,
     "selector": null,
     "target": "MPFigureElement:1",
@@ -526,7 +526,7 @@ Map {
     "contents": "",
     "contributions": Array [],
     "objectType": "MPCommentAnnotation",
-    "originalText": null,
+    "originalText": "",
     "resolved": false,
     "selector": Object {
       "from": 23,

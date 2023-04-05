@@ -41,6 +41,6 @@ export const comment: NodeSpec = {
     selector: { default: null },
     resolved: { default: false },
     contributions: { default: [] },
-    originalText: { default: null },
+    originalText: { default: '' },
   },
 }
