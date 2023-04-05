@@ -58,7 +58,10 @@ describe('encoder', () => {
           delete model[key as keyof ManuscriptModel]
         }
       }
-      if (model.objectType === ObjectTypes.CommentAnnotation) {
+      if (
+        model.objectType === ObjectTypes.CommentAnnotation &&
+        !(model as Partial<CommentAnnotation>).contents
+      ) {
         ;(model as CommentAnnotation).contents = ''
       }
       return model as ManuscriptModel
