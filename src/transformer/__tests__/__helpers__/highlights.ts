@@ -92,6 +92,8 @@ export const createTestModelMapWithHighlights = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
+    contributions: [],
+    resolved: false,
     sessionID: 'test',
   }
 
@@ -159,6 +161,8 @@ export const createTestModelMapWithHighlights = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
+    contributions: [],
+    resolved: false,
     sessionID: 'test',
   }
 
@@ -203,6 +207,8 @@ export const createTestModelMapWithHighlights = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
+    contributions: [],
+    resolved: false,
     sessionID: 'test',
   }
 
