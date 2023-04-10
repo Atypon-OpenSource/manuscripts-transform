@@ -17,6 +17,7 @@
 import {
   BibliographyItem,
   CommentAnnotation,
+  Keyword,
   Model,
 } from '@manuscripts/json-schema'
 import { v4 as uuidv4 } from 'uuid'
@@ -29,6 +30,7 @@ import {
   HighlightableModel,
   isCommentAnnotation,
   isHighlightableModel,
+  isKeyword,
 } from '../../transformer'
 
 type ProcessingInstruction = { id: string; queryText: string }
@@ -128,10 +130,10 @@ const addCommentsFromMarkedProcessingInstructions = (
 ): Build<CommentAnnotation>[] => {
   const commentAnnotations: Build<CommentAnnotation>[] = []
   // Search for tokens on every HighlightableField
-  for (const field of ['contents', 'caption', 'title']) {
+  for (const field of ['contents', 'caption', 'title', 'name']) {
     const highlightableField = field as HighlightableField
     const content = model[highlightableField]
-    if (!content) {
+    if (!content || (field === 'name' && !isKeyword(model))) {
       continue
     }
     // Tokens need to be removed in the order they appear in the text to keep valid indices of selectors
@@ -156,8 +158,15 @@ const addCommentsFromMarkedProcessingInstructions = (
         contentWithoutTokens = contentWithoutTokens.replace(token, '')
         // Add the comment
         const comment = `${query}`
-        const target =
-          model._id && !isCommentAnnotation(model) ? model._id : uuidv4()
+
+        let target: string
+        if (isKeyword(model)) {
+          target = (model as Keyword).containedGroup ?? uuidv4()
+        } else {
+          target =
+            model._id && !isCommentAnnotation(model) ? model._id : uuidv4()
+        }
+
         const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
         const selector = startTokenIndex
           ? { from: startTokenIndex, to: startTokenIndex }
