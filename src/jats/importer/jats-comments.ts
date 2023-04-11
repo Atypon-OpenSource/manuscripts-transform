@@ -100,6 +100,30 @@ const insertToken = (
   }
 }
 
+const extractCommentsFromKeywords = (
+  tokens: string[],
+  model: Keyword,
+  authorQueriesMap: Map<string, string>
+): Build<CommentAnnotation>[] => {
+  const commentAnnotations: Build<CommentAnnotation>[] = []
+  const name = model.name
+  const filteredTokens = filterAndSortTokens(tokens, name)
+  for (const token of filteredTokens) {
+    const content = name.replace(token, '')
+    const query = authorQueriesMap.get(token)
+    const commentAnnotation = buildComment(
+      model.containedGroup ?? uuidv4(),
+      `${query}`,
+      undefined,
+      [buildContribution(DEFAULT_PROFILE_ID)],
+      DEFAULT_ANNOTATION_COLOR
+    )
+    model['name'] = content
+    commentAnnotations.push(commentAnnotation)
+  }
+  return commentAnnotations
+}
+
 export const createComments = (
   authorQueriesMap: Map<string, string>,
   manuscriptModels: Array<Model>
@@ -114,10 +138,23 @@ export const createComments = (
         authorQueriesMap
       )
       commentAnnotations.push(...comments)
+    } else if (isKeyword(model)) {
+      const comments = extractCommentsFromKeywords(
+        tokens,
+        model as Keyword,
+        authorQueriesMap
+      )
+      commentAnnotations.push(...comments)
     }
   }
 
   return commentAnnotations
+}
+
+function filterAndSortTokens(tokens: string[], content: string) {
+  return tokens
+    .filter((token) => content.indexOf(token) >= 0)
+    .sort((a, b) => content.indexOf(a) - content.indexOf(b))
 }
 
 /**
@@ -130,10 +167,10 @@ const addCommentsFromMarkedProcessingInstructions = (
 ): Build<CommentAnnotation>[] => {
   const commentAnnotations: Build<CommentAnnotation>[] = []
   // Search for tokens on every HighlightableField
-  for (const field of ['contents', 'caption', 'title', 'name']) {
+  for (const field of ['contents', 'caption', 'title']) {
     const highlightableField = field as HighlightableField
     const content = model[highlightableField]
-    if (!content || (field === 'name' && !isKeyword(model))) {
+    if (!content) {
       continue
     }
     // Tokens need to be removed in the order they appear in the text to keep valid indices of selectors
@@ -158,15 +195,8 @@ const addCommentsFromMarkedProcessingInstructions = (
         contentWithoutTokens = contentWithoutTokens.replace(token, '')
         // Add the comment
         const comment = `${query}`
-
-        let target: string
-        if (isKeyword(model)) {
-          target = (model as Keyword).containedGroup ?? uuidv4()
-        } else {
-          target =
-            model._id && !isCommentAnnotation(model) ? model._id : uuidv4()
-        }
-
+        const target =
+          model._id && !isCommentAnnotation(model) ? model._id : uuidv4()
         const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
         const selector = startTokenIndex
           ? { from: startTokenIndex, to: startTokenIndex }

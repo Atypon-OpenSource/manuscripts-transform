@@ -17,7 +17,6 @@
 import { CommentAnnotation, Model } from '@manuscripts/json-schema'
 
 import { Build, buildComment } from './builders'
-import { isKeyword } from './object-types'
 
 export type HighlightableField = 'title' | 'caption' | 'contents'
 
@@ -30,9 +29,6 @@ const highlightableFields: HighlightableField[] = [
 export const isHighlightableModel = (
   model: Model
 ): model is HighlightableModel => {
-  if (isKeyword(model)) {
-    return true
-  }
   for (const field of highlightableFields) {
     if (field in model) {
       return true
