@@ -87,11 +87,13 @@ export const createTestModelMapWithHighlights = () => {
     _id: 'MPCommentAnnotation:test',
     target: 'MPParagraphElement:1',
     selector: { from: 166, to: 175 },
-    contents: '',
+    contents: 'Test Comment',
     createdAt: 0,
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
+    contributions: [],
+    resolved: false,
     sessionID: 'test',
   }
 
@@ -159,6 +161,8 @@ export const createTestModelMapWithHighlights = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
+    contributions: [],
+    resolved: false,
     sessionID: 'test',
   }
 
@@ -203,6 +207,8 @@ export const createTestModelMapWithHighlights = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
+    contributions: [],
+    resolved: false,
     sessionID: 'test',
   }
 

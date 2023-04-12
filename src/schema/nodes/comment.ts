@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { Contribution } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
@@ -23,6 +24,9 @@ interface Attrs {
   contents: string
   target: string
   selector: { from: number; to: number }
+  resolved?: boolean
+  contributions?: Contribution[]
+  originalText?: string
 }
 
 export interface CommentNode extends ManuscriptNode {
@@ -35,5 +39,8 @@ export const comment: NodeSpec = {
     contents: { default: '' },
     target: { default: '' },
     selector: { default: null },
+    resolved: { default: false },
+    contributions: { default: [] },
+    originalText: { default: '' },
   },
 }
