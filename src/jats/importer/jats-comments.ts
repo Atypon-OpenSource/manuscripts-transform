@@ -108,8 +108,9 @@ const extractCommentsFromKeywords = (
   const commentAnnotations: Build<CommentAnnotation>[] = []
   const name = model.name
   const filteredTokens = filterAndSortTokens(tokens, name)
+  let content = name
   for (const token of filteredTokens) {
-    const content = name.replace(token, '')
+    content = name.replace(token, '')
     const query = authorQueriesMap.get(token)
     const commentAnnotation = buildComment(
       model.containedGroup ?? uuidv4(),

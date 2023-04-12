@@ -20,6 +20,7 @@ import {
   FigureElement,
   Highlight,
   Keyword,
+  KeywordGroup,
   KeywordsElement,
   Manuscript,
   Model,
@@ -286,6 +287,79 @@ export const createTestModelMapWithKeywords = () => {
   }
 
   modelMap.set(sectionWithKeywordsElement._id, sectionWithKeywordsElement)
+
+  return modelMap
+}
+export const createTestModelMapWithKeywordsAndAuthorQuery = () => {
+  const modelMap = new Map<string, Model>()
+
+  const project: Project = {
+    objectType: ObjectTypes.Project,
+    _id: 'MPProject:1',
+    createdAt: 0,
+    updatedAt: 0,
+    sessionID: 'test',
+    owners: [],
+    writers: [],
+    viewers: [],
+  }
+
+  const manuscript: Manuscript = {
+    objectType: ObjectTypes.Manuscript,
+    _id: 'MPManuscript:1',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: project._id,
+    sessionID: 'test',
+  }
+
+  const keyword: Keyword = {
+    objectType: ObjectTypes.Keyword,
+    _id: 'MPKeyword:1',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: project._id,
+    sessionID: 'test',
+    containedGroup: 'MPKeywordGroup:test',
+    name: 'test',
+  }
+
+  modelMap.set(keyword._id, keyword)
+
+  manuscript.keywordIDs = [keyword._id]
+
+  modelMap.set(manuscript._id, manuscript)
+
+  const comment: CommentAnnotation = {
+    _id: 'MPCommentAnnotation:3AAEE869-7DC9-4392-B8C6-9C5FCA522120',
+    objectType: 'MPCommentAnnotation',
+    target: 'MPKeywordGroup:test',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+    contents: 'KeywordQuery',
+    sessionID: 'test',
+    selector: undefined,
+    contributions: [],
+    resolved: false,
+  }
+
+  modelMap.set(comment._id, comment)
+
+  const keywordGroup: KeywordGroup = {
+    _id: 'MPKeywordGroup:test',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+    sessionID: 'test',
+    objectType: 'MPKeywordGroup',
+    type: 'author',
+    title: 'KEYWORDS',
+  }
+
+  modelMap.set(keywordGroup._id, keywordGroup)
 
   return modelMap
 }

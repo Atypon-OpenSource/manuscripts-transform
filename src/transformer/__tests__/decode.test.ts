@@ -25,6 +25,7 @@ import {
   createTestModelMapWithDeprecatedKeywords,
   createTestModelMapWithHighlights,
   createTestModelMapWithKeywords,
+  createTestModelMapWithKeywordsAndAuthorQuery,
 } from './__helpers__/highlights'
 
 const countDescendantsOfType = (
@@ -158,6 +159,19 @@ describe('decoder', () => {
 
     const result = decoder.createArticleNode()
     replaceIdByType(result, schema.nodes.comment_list, 'someId')
+    expect(result).toMatchSnapshot()
+  })
+
+  test('decode keywords with authorQuery', () => {
+    const modelMap = createTestModelMapWithKeywordsAndAuthorQuery()
+
+    const decoder = new Decoder(modelMap)
+
+    const result = decoder.createArticleNode()
+    replaceIdByType(result, schema.nodes.comment_list, 'someId')
+    replaceIdByType(result, schema.nodes.section, 'someId')
+    replaceIdByType(result, schema.nodes.keywords_section, 'someId')
+    replaceIdByType(result, schema.nodes.keywords_element, 'someId')
     expect(result).toMatchSnapshot()
   })
 
