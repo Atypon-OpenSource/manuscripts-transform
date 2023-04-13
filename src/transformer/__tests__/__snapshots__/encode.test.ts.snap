@@ -501,7 +501,10 @@ Map {
   "MPCommentAnnotation:test" => Object {
     "_id": "MPCommentAnnotation:test",
     "contents": "Test Comment",
+    "contributions": Array [],
     "objectType": "MPCommentAnnotation",
+    "originalText": "",
+    "resolved": false,
     "selector": Object {
       "from": 166,
       "to": 175,
@@ -511,14 +514,20 @@ Map {
   "MPCommentAnnotation:test1" => Object {
     "_id": "MPCommentAnnotation:test1",
     "contents": "",
+    "contributions": Array [],
     "objectType": "MPCommentAnnotation",
+    "originalText": "",
+    "resolved": false,
     "selector": Object {},
     "target": "MPFigureElement:1",
   },
   "MPCommentAnnotation:test2" => Object {
     "_id": "MPCommentAnnotation:test2",
     "contents": "",
+    "contributions": Array [],
     "objectType": "MPCommentAnnotation",
+    "originalText": "",
+    "resolved": false,
     "selector": Object {
       "from": 23,
       "to": 32,
