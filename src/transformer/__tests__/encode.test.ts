@@ -53,6 +53,9 @@ describe('encoder', () => {
       model.updatedAt = 0
 
       const isEmptyObj = (object: unknown) => {
+        if (Array.isArray(object) && object.length === 0) {
+          return false
+        }
         if (typeof object !== 'object') {
           return false
         }
