@@ -52,9 +52,27 @@ describe('encoder', () => {
       model.createdAt = 0
       model.updatedAt = 0
 
+      const isEmptyObj = (object: unknown) => {
+        if (Array.isArray(object) && object.length === 0) {
+          return false
+        }
+        if (typeof object !== 'object') {
+          return false
+        }
+        for (const _ in object) {
+          return false
+        }
+        return true
+      }
+
       for (const key of Object.keys(model)) {
         const value = model[key as keyof ManuscriptModel]
-        if (value === undefined || value === '' || value === null) {
+        if (
+          value === undefined ||
+          value === '' ||
+          value === null ||
+          isEmptyObj(value)
+        ) {
           delete model[key as keyof ManuscriptModel]
         }
       }
