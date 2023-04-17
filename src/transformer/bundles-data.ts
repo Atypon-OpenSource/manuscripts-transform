@@ -18,7 +18,7 @@ import { Bundle } from '@manuscripts/json-schema'
 export const loadBundlesMap = async (): Promise<Map<string, Bundle>> => {
   const { default: bundles } = await import(
     // @ts-ignore
-    '@manuscripts/data/dist/shared/bundles.json'
+    '../../node_modules/@manuscripts/data/dist/shared/bundles.json'
   )
 
   return new Map<string, Bundle>(
@@ -31,7 +31,7 @@ export const loadIssnBundleIndex = async (): Promise<
 > => {
   const { default: issnBundleIndex } = await import(
     // @ts-ignore
-    '@manuscripts/data/dist/shared/issn-bundle-index.json'
+    '../../node_modules/@manuscripts/data/dist/shared/issn-bundle-index.json'
   )
 
   return issnBundleIndex
