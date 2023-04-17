@@ -16,6 +16,6 @@
 import { Model } from '@manuscripts/json-schema'
 
 export const loadSharedData = <T extends Model>(file: string): Promise<T[]> =>
-  import(`@manuscripts/data/dist/shared/${file}.json`).then(
+  import(`../../node_modules/@manuscripts/data/dist/shared/${file}.json`).then(
     (module) => module.default
   )
