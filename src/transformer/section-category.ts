@@ -172,6 +172,16 @@ export const buildSectionCategory = (
   }
 }
 
+export const chooseJatsFnType = (footnoteType: string): string => {
+  switch (footnoteType) {
+    case 'competing-interests':
+      return 'coi-statement'
+
+    default:
+      return footnoteType
+  }
+}
+
 // https://jats.nlm.nih.gov/archiving/tag-library/1.2/attribute/sec-type.html
 export const chooseSecType = (sectionCategory: SectionCategory): SecType => {
   const [, suffix] = sectionCategory.split(':', 2)

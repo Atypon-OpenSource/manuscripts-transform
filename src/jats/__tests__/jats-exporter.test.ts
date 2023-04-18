@@ -965,9 +965,14 @@ describe('JATS exporter', () => {
     const resultDoc = parseXMLWithDTD(xml)
 
     for (const category of footnoteCategories) {
-      const fn = resultDoc.get(
-        `/article/back/fn-group/fn[@fn-type="${category}"]`
-      )
+      const fnType =
+        category === 'competing-interests' ? 'coi-statement' : category
+      let fn = resultDoc.get(`/article/back/fn-group/fn[@fn-type="${fnType}"]`)
+      if (fnType === 'coi-statement') {
+        fn = resultDoc.get(
+          `/article/front/article-meta/author-notes/fn[@fn-type="${fnType}"]`
+        )
+      }
       expect(fn).not.toBeUndefined()
     }
   })

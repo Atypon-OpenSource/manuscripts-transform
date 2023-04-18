@@ -58,7 +58,10 @@ import {
   findManuscript,
   findManuscriptById,
 } from '../transformer/project-bundle'
-import { chooseSecType } from '../transformer/section-category'
+import {
+  chooseJatsFnType,
+  chooseSecType,
+} from '../transformer/section-category'
 import { IDGenerator, MediaPathGenerator } from '../types'
 import { selectVersionIds, Version } from './jats-versions'
 
@@ -269,6 +272,7 @@ export class JATSExporter {
       article.appendChild(body)
 
       const back = this.buildBack(body)
+      this.moveCoiStatementToAuthorNotes(back, front)
       article.appendChild(back)
 
       this.moveAbstracts(front, body)
@@ -2158,7 +2162,8 @@ export class JATSExporter {
 
   sectionToFootnote = (section: Element, fnType: string) => {
     const footNote = this.document.createElement('fn')
-    footNote.setAttribute('fn-type', fnType)
+    const footnoteType = chooseJatsFnType(fnType)
+    footNote.setAttribute('fn-type', footnoteType)
     const title = section.querySelector('title')
     if (title) {
       const footNoteTitle = this.document.createElement('p')
@@ -2202,5 +2207,29 @@ export class JATSExporter {
     }
 
     return name
+  }
+
+  private moveCoiStatementToAuthorNotes(back: HTMLElement, front: HTMLElement) {
+    const fnGroups = back.querySelectorAll('fn-group')
+    fnGroups.forEach((fnGroup) => {
+      if (fnGroup) {
+        const coiStatement = fnGroup.querySelector(
+          'fn[fn-type="coi-statement"]'
+        )
+        if (coiStatement) {
+          const authorNotes = this.document.createElement('author-notes')
+          authorNotes.append(coiStatement)
+          const articleMeta = front.querySelector('article-meta')
+          if (articleMeta) {
+            const authorNoteEl = articleMeta.querySelector('author-notes')
+            if (authorNoteEl) {
+              authorNoteEl.append(...authorNotes.childNodes)
+            } else {
+              articleMeta.appendChild(authorNotes)
+            }
+          }
+        }
+      }
+    })
   }
 }
