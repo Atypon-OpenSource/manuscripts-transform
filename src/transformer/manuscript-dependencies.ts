@@ -26,12 +26,10 @@ import {
   ObjectTypes,
   PageLayout,
   ParagraphStyle,
-  StatusLabel,
   TableStyle,
 } from '@manuscripts/json-schema'
 
 import { generateID } from './id'
-import { ContainedModel } from './models'
 import { hasObjectType } from './object-types'
 import { loadSharedData } from './shared-data'
 
@@ -46,8 +44,6 @@ export type StyleObject =
   | PageLayout
   | ParagraphStyle
   | TableStyle
-
-const isStatusLabel = hasObjectType<StatusLabel>(ObjectTypes.StatusLabel)
 
 // NOTE: a template published by a user may define its own, non-bundled models
 const isBundledModel = (model: Model) => model.bundled === true
@@ -64,14 +60,6 @@ export const loadKeywords = () => loadBundledData<Model>('keywords')
 
 export const loadContributorRoles = () =>
   loadBundledData<ContributorRole>('contributor-roles')
-
-export const loadBundledDependencies = async (): Promise<ContainedModel[]> => {
-  const contributorRoles = await loadContributorRoles()
-  const keywords = await loadKeywords()
-  const styles = await loadStyles()
-
-  return [...contributorRoles, ...keywords.filter(isStatusLabel), ...styles]
-}
 
 export const fromPrototype = <T extends Model>(model: T) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
