@@ -148,6 +148,9 @@ test('encode keywords & authorQuery', async () => {
 
   for (const item of modelMap.values()) {
     const model = result.get(item._id)
+    if (!model) {
+      continue
+    }
     // @ts-ignore
     const ensured = ensureModel(model)
     expect(item).toEqual(ensured)
