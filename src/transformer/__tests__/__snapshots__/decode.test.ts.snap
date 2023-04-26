@@ -5741,7 +5741,7 @@ Object {
             "id": "MPCommentAnnotation:test1",
             "originalText": "",
             "resolved": false,
-            "selector": null,
+            "selector": Object {},
             "target": "MPFigureElement:1",
           },
           "type": "comment",

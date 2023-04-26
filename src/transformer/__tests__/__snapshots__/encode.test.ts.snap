@@ -518,7 +518,7 @@ Map {
     "objectType": "MPCommentAnnotation",
     "originalText": "",
     "resolved": false,
-    "selector": null,
+    "selector": Object {},
     "target": "MPFigureElement:1",
   },
   "MPCommentAnnotation:test2" => Object {
