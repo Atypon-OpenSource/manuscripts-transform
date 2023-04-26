@@ -150,6 +150,11 @@ test('encode keywords & authorQuery', async () => {
       ;(model as Partial<Keyword>).containedGroup = 'MPKeywordGroup:test'
     }
 
+    if (model.objectType === ObjectTypes.CommentAnnotation) {
+      const comment = model as Partial<CommentAnnotation>
+      comment.selector = undefined
+    }
+
     model.sessionID = 'test'
     model.createdAt = 0
     model.updatedAt = 0

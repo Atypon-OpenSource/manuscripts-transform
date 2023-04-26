@@ -5953,7 +5953,7 @@ Object {
             "id": "MPCommentAnnotation:3AAEE869-7DC9-4392-B8C6-9C5FCA522120",
             "originalText": "",
             "resolved": false,
-            "selector": null,
+            "selector": Object {},
             "target": "MPKeywordGroup:test",
           },
           "type": "comment",
