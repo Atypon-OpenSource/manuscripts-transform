@@ -699,9 +699,7 @@ export class JATSExporter {
     const content = this.serializeFragment(fragment)
     const body = this.document.createElement('body')
     body.appendChild(content)
-
     this.fixBody(body, fragment)
-
     return body
   }
 
@@ -2031,8 +2029,12 @@ export class JATSExporter {
 
     const abstractSections = Array.from(sections).filter((section) => {
       const sectionType = section.getAttribute('sec-type')
+      if (sectionType === 'abstracts') {
+        return false
+      }
 
       if (
+        // sectionType === 'abstracts' ||
         sectionType === 'abstract' ||
         sectionType === 'abstract-teaser' ||
         sectionType === 'abstract-graphical'

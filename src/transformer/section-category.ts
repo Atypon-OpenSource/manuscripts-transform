@@ -57,6 +57,9 @@ export type SectionCategory =
   | 'MPSectionCategory:supplementary-material'
   | 'MPSectionCategory:supported-by'
   | 'MPSectionCategory:ethics-statement'
+  | 'MPSectionCategory:abstracts'
+  | 'MPSectionCategory:body'
+  | 'MPSectionCategory:backmatter'
 
 export type SecType =
   | 'abstract'
@@ -195,6 +198,12 @@ export const chooseSectionCategoryByType = (
   secType: string
 ): SectionCategory | undefined => {
   switch (secType) {
+    case 'abstracts':
+      return 'MPSectionCategory:abstracts'
+    case 'body':
+      return 'MPSectionCategory:body'
+    case 'backmatter':
+      return 'MPSectionCategory:backmatter'
     case 'abstract':
       return 'MPSectionCategory:abstract'
 

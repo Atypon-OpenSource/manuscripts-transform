@@ -24,6 +24,19 @@ const removeNodeFromParent = (node: Element) =>
 const capitalizeFirstLetter = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1)
 
+const createSectionContainer = (
+  type: string,
+  createElement: (tagName: string) => HTMLElement
+) => {
+  const sectionContainer = createElement('sec')
+  const category = chooseSectionCategoryByType(type)
+  sectionContainer.setAttribute(
+    'sec-type',
+    category ? chooseSecType(category) : ''
+  )
+  return sectionContainer
+}
+
 export const jatsBodyTransformations = {
   ensureSection(
     body: Element,
@@ -194,21 +207,27 @@ export const jatsBodyTransformations = {
     references: BibliographyItem[] | null,
     createElement: (tagName: string) => HTMLElement
   ) {
+    const abstractsContainer = createSectionContainer(
+      'abstracts',
+      createElement
+    )
+    const backmatterContainer = createSectionContainer(
+      'backmatter',
+      createElement
+    )
     const abstractNodes = doc.querySelectorAll(
       'front > article-meta > abstract'
     )
     for (const abstractNode of abstractNodes) {
       const abstract = this.createAbstract(abstractNode, createElement)
       removeNodeFromParent(abstractNode)
-      body.insertBefore(abstract, body.firstChild)
+      abstractsContainer.appendChild(abstract)
     }
-
     // move sections from back to body
     for (const section of doc.querySelectorAll('back > sec')) {
       removeNodeFromParent(section)
-      body.appendChild(section)
+      backmatterContainer.append(section)
     }
-
     // move acknowledg(e)ments from back to body section
     const ackNode = doc.querySelector('back > ack')
     if (ackNode) {
@@ -217,21 +236,23 @@ export const jatsBodyTransformations = {
         createElement
       )
       removeNodeFromParent(ackNode)
-      body.appendChild(acknowledgements)
+      backmatterContainer.appendChild(acknowledgements)
     }
-
     //move appendices from back to body
     const appGroup = doc.querySelectorAll('back > app-group > app')
 
     for (const app of appGroup) {
       const appendix = this.createAppendixSection(app, createElement)
       removeNodeFromParent(app)
-      body.appendChild(appendix)
+      backmatterContainer.appendChild(appendix)
     }
     // move bibliography from back to body section
     if (references) {
-      body.appendChild(this.createBibliography(doc, references, createElement))
+      backmatterContainer.appendChild(
+        this.createBibliography(doc, references, createElement)
+      )
     }
+    body.append(abstractsContainer, backmatterContainer)
   },
   mapFootnotesToSections(
     doc: Document,
