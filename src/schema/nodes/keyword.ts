@@ -31,7 +31,7 @@ export interface KeywordNode extends ManuscriptNode {
 
 export const keyword: NodeSpec = {
   atom: true,
-  content: 'text*',
+  content: 'inline*',
   attrs: {
     id: { default: '' },
     contents: { default: '' },
