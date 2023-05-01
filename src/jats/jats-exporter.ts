@@ -277,6 +277,7 @@ export class JATSExporter {
 
       this.moveAbstracts(front, body)
       this.moveFloatsGroup(body, article)
+      this.updateFootnoteTypes(front, back)
     }
 
     await this.rewriteIDs(idGenerator)
@@ -2162,8 +2163,7 @@ export class JATSExporter {
 
   sectionToFootnote = (section: Element, fnType: string) => {
     const footNote = this.document.createElement('fn')
-    const footnoteType = chooseJatsFnType(fnType)
-    footNote.setAttribute('fn-type', footnoteType)
+    footNote.setAttribute('fn-type', fnType)
     const title = section.querySelector('title')
     if (title) {
       const footNoteTitle = this.document.createElement('p')
@@ -2214,7 +2214,7 @@ export class JATSExporter {
     fnGroups.forEach((fnGroup) => {
       if (fnGroup) {
         const coiStatement = fnGroup.querySelector(
-          'fn[fn-type="coi-statement"]'
+          'fn[fn-type="competing-interests"]'
         )
         if (coiStatement) {
           const authorNotes = this.document.createElement('author-notes')
@@ -2229,6 +2229,17 @@ export class JATSExporter {
             }
           }
         }
+      }
+    })
+  }
+
+  private updateFootnoteTypes(front: HTMLElement, body: HTMLElement) {
+    const footnotes: Element[] = [...front.querySelectorAll('fn').values()]
+    footnotes.push(...body.querySelectorAll('fn'))
+    footnotes.forEach((fn) => {
+      const fnType = fn.getAttribute('fn-type')
+      if (fnType) {
+        fn.setAttribute('fn-type', chooseJatsFnType(fnType))
       }
     })
   }
