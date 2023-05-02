@@ -19,6 +19,8 @@ import {
   CommentAnnotation,
   Keyword,
   Model,
+  ObjectTypes,
+  Section,
 } from '@manuscripts/json-schema'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -103,7 +105,8 @@ const insertToken = (
 const extractCommentsFromKeywords = (
   tokens: string[],
   model: Keyword,
-  authorQueriesMap: Map<string, string>
+  authorQueriesMap: Map<string, string>,
+  keywordSectionID?: string
 ): Build<CommentAnnotation>[] => {
   const commentAnnotations: Build<CommentAnnotation>[] = []
   const name = model.name
@@ -113,7 +116,7 @@ const extractCommentsFromKeywords = (
     content = name.replace(token, '')
     const query = authorQueriesMap.get(token)
     const commentAnnotation = buildComment(
-      model.containedGroup ?? uuidv4(),
+      keywordSectionID ?? uuidv4(),
       `${query}`,
       undefined,
       [buildContribution(DEFAULT_PROFILE_ID)],
@@ -123,6 +126,18 @@ const extractCommentsFromKeywords = (
     commentAnnotations.push(commentAnnotation)
   }
   return commentAnnotations
+}
+
+function getKeywordSectionID(
+  manuscriptModels: Array<Model>
+): string | undefined {
+  const sections: Section[] = manuscriptModels.filter(
+    (model) => model.objectType === ObjectTypes.Section
+  ) as Section[]
+  const keywordSection = sections.find(
+    (section) => section.category === 'MPSectionCategory:keywords'
+  )
+  return keywordSection ? keywordSection._id : undefined
 }
 
 export const createComments = (
@@ -140,10 +155,12 @@ export const createComments = (
       )
       commentAnnotations.push(...comments)
     } else if (isKeyword(model)) {
+      const keywordSectionID = getKeywordSectionID(manuscriptModels)
       const comments = extractCommentsFromKeywords(
         tokens,
         model as Keyword,
-        authorQueriesMap
+        authorQueriesMap,
+        keywordSectionID
       )
       commentAnnotations.push(...comments)
     }

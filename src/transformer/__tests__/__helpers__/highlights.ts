@@ -333,7 +333,7 @@ export const createTestModelMapWithKeywordsAndAuthorQuery = () => {
   const comment: CommentAnnotation = {
     _id: 'MPCommentAnnotation:3AAEE869-7DC9-4392-B8C6-9C5FCA522120',
     objectType: 'MPCommentAnnotation',
-    target: 'MPKeywordGroup:test',
+    target: 'MPSection:1',
     createdAt: 0,
     updatedAt: 0,
     manuscriptID: manuscript._id,
@@ -360,6 +360,38 @@ export const createTestModelMapWithKeywordsAndAuthorQuery = () => {
   }
 
   modelMap.set(keywordGroup._id, keywordGroup)
+
+  const keywordsElement: KeywordsElement = {
+    objectType: ObjectTypes.KeywordsElement,
+    _id: 'MPKeywordsElement:1',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: project._id,
+    manuscriptID: manuscript._id,
+    sessionID: 'test',
+    paragraphStyle: 'MPParagraphStyle:1',
+    elementType: 'div',
+    contents: `<div xmlns="http://www.w3.org/1999/xhtml" class="manuscript-keywords MPElement MPParagraphStyle_1" id="MPKeywordsElement:1"><span class="keyword" id="MPKeyword:1">test</span></div>`,
+  }
+
+  modelMap.set(keywordsElement._id, keywordsElement)
+
+  const sectionWithKeywordsElement: Section = {
+    objectType: ObjectTypes.Section,
+    _id: 'MPSection:1',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+    sessionID: 'test',
+    priority: 1,
+    path: ['MPSection:1'],
+    elementIDs: [keywordsElement._id],
+    category: 'MPSectionCategory:keywords',
+    title: 'Keywords',
+  }
+
+  modelMap.set(sectionWithKeywordsElement._id, sectionWithKeywordsElement)
 
   return modelMap
 }

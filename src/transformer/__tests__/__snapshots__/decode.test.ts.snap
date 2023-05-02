@@ -5897,7 +5897,7 @@ Object {
             "contents": "",
             "dataTracked": null,
             "id": "someId",
-            "paragraphStyle": "",
+            "paragraphStyle": "MPParagraphStyle:1",
           },
           "content": Array [
             Object {
@@ -5923,26 +5923,6 @@ Object {
     },
     Object {
       "attrs": Object {
-        "category": "",
-        "comments": null,
-        "dataTracked": null,
-        "generatedLabel": undefined,
-        "id": "someId",
-        "pageBreakStyle": undefined,
-        "titleSuppressed": false,
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "type": "section_title",
-        },
-      ],
-      "type": "section",
-    },
-    Object {
-      "attrs": Object {
         "id": "someId",
       },
       "content": Array [
@@ -5954,7 +5934,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": Object {},
-            "target": "MPKeywordGroup:test",
+            "target": "MPSection:1",
           },
           "type": "comment",
         },
