@@ -104,7 +104,6 @@ const extractCommentsFromKeywords = (
   tokens: string[],
   model: Keyword,
   authorQueriesMap: Map<string, string>,
-  keywordSectionID?: string
 ): Build<CommentAnnotation>[] => {
   const commentAnnotations: Build<CommentAnnotation>[] = []
   const name = model.name
