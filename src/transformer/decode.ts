@@ -26,6 +26,7 @@ import {
   Footnote,
   FootnotesElement,
   Keyword,
+  KeywordGroup,
   KeywordsElement,
   ListElement,
   Listing,
@@ -61,6 +62,7 @@ import {
   FootnotesElementNode,
   KeywordNode,
   KeywordsElementNode,
+  KeywordsGroupNode,
   ListingElementNode,
   ListingNode,
   ManuscriptNode,
@@ -840,25 +842,16 @@ export class Decoder {
       )
     }
 
-    const keywordsSection = getSections(this.modelMap).filter(
-      (section) => section.category === 'MPSectionCategory:keywords'
-    )
+    const keywordGroup = this.getKeywordGroup()
 
-    const keywords = this.getKeywords()
-
-    if (keywordsSection.length === 0 && keywords.length > 0) {
+    if (keywordGroup) {
       const keywordsSection = schema.nodes.keywords_section.createAndFill(
         {
           id: generateNodeID(schema.nodes.keywords_section),
         },
         [
           schema.nodes.section_title_plain.create({}, schema.text('Keywords')),
-          schema.nodes.keywords_element.create(
-            {
-              id: generateNodeID(schema.nodes.keywords_element),
-            },
-            keywords
-          ),
+          keywordGroup,
         ]
       )
       rootSectionNodes.unshift(keywordsSection as SectionNode)
@@ -1024,5 +1017,29 @@ export class Decoder {
       : captionNode
 
     return schema.nodes.figcaption.create({}, [captionTitle, caption])
+  }
+
+  private getKeywordGroup() {
+    const kwdGroup: KeywordGroup | undefined = [...this.modelMap.values()].find(
+      (model) => model.objectType === ObjectTypes.KeywordGroup
+    ) as KeywordGroup
+    if (kwdGroup) {
+      const keywords = this.getKeywords()
+      return schema.nodes.keywords_group.create(
+        {
+          id: kwdGroup._id,
+          type: kwdGroup.type,
+        },
+        [
+          schema.nodes.keywords_element.create(
+            {
+              id: generateNodeID(schema.nodes.keywords_element),
+            },
+            keywords
+          ),
+        ]
+      ) as KeywordsGroupNode
+    }
+    return undefined
   }
 }

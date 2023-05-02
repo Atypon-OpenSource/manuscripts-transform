@@ -192,6 +192,10 @@ describe('decoder', () => {
 
     const result = decoder.createArticleNode()
 
+    replaceIdByType(result, schema.nodes.keywords_element, 'MPKeywordsElement:1')
+    replaceIdByType(result, schema.nodes.keywords_section, 'MPSection:1')
+    replaceIdByType(result, schema.nodes.section, 'MPSection:1')
+
     expect(result).toMatchSnapshot()
   })
 

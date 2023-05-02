@@ -589,34 +589,3 @@ Map {
   },
 }
 `;
-
-exports[`encoder encode keywords element 1`] = `
-Map {
-  "MPSection:1" => Object {
-    "_id": "MPSection:1",
-    "category": "MPSectionCategory:keywords",
-    "elementIDs": Array [
-      "MPKeywordsElement:1",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:1",
-    ],
-    "priority": 1,
-    "title": "Keywords",
-  },
-  "MPKeywordsElement:1" => Object {
-    "_id": "MPKeywordsElement:1",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement MPParagraphStyle_1\\" id=\\"MPKeywordsElement:1\\"><span class=\\"keyword\\" id=\\"MPKeyword:1\\">test</span></div>",
-    "elementType": "div",
-    "objectType": "MPKeywordsElement",
-    "paragraphStyle": "MPParagraphStyle:1",
-  },
-  "MPKeyword:1" => Object {
-    "_id": "MPKeyword:1",
-    "containerID": "MPKeywordsElement:1",
-    "name": "test",
-    "objectType": "MPKeyword",
-  },
-}
-`;

@@ -26,6 +26,7 @@ import {
   FootnotesElement,
   InlineMathFragment,
   Keyword,
+  KeywordGroup,
   KeywordsElement,
   ListElement,
   Listing,
@@ -626,6 +627,9 @@ const encoders: NodeEncoderMap = {
     contents: elementContents(node),
     elementType: 'div',
     paragraphStyle: node.attrs.paragraphStyle || undefined,
+  }),
+  keywords_group: (node): Partial<KeywordGroup> => ({
+    type: node.attrs.type,
   }),
   keywords_section: (node, parent, path, priority): Partial<Section> => ({
     category: buildSectionCategory(node),

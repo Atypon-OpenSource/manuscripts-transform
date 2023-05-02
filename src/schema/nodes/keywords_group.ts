@@ -22,17 +22,18 @@ interface Attrs {
   id: string
 }
 
-export interface KeywordsSectionNode extends ManuscriptNode {
+export interface KeywordsGroupNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const keywordsSection: NodeSpec = {
-  content: 'section_title_plain (keywords_group | placeholder_element)',
+export const keywordsGroup: NodeSpec = {
+  content: '(keywords_element | placeholder_element)',
   attrs: {
     id: { default: '' },
+    type: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block sections',
+  group: 'block',
   selectable: false,
   parseDOM: [
     {
@@ -40,12 +41,12 @@ export const keywordsSection: NodeSpec = {
     },
   ],
   toDOM: (node) => {
-    const keywordsSectionNode = node as KeywordsSectionNode
+    const keywordsGroupNode = node as KeywordsGroupNode
 
     return [
       'div',
       {
-        id: keywordsSectionNode.attrs.id,
+        id: keywordsGroupNode.attrs.id,
         class: 'keywords',
         spellcheck: 'false',
         contenteditable: false,
@@ -55,7 +56,7 @@ export const keywordsSection: NodeSpec = {
   },
 }
 
-export const isKeywordsSectionNode = (
+export const isKeywordsGroupNode = (
   node: ManuscriptNode
-): node is KeywordsSectionNode =>
-  node.type === node.type.schema.nodes.keywords_section
+): node is KeywordsGroupNode =>
+  node.type === node.type.schema.nodes.keywords_group
