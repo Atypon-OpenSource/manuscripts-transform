@@ -48,6 +48,7 @@ export const keywordsSection: NodeSpec = {
         id: keywordsSectionNode.attrs.id,
         class: 'keywords',
         spellcheck: 'false',
+        contenteditable: false,
       },
       0,
     ]
