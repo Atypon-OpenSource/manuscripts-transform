@@ -620,7 +620,7 @@ const encoders: NodeEncoderMap = {
     SVGGlyphs: svgDefs(node.attrs.SVGRepresentation),
   }),
   keyword: (node, parent): Partial<Keyword> => ({
-    containerID: parent.attrs.id,
+    containedGroup: parent.attrs.id,
     name: keywordContents(node),
   }),
   keywords_element: (node): Partial<KeywordsElement> => ({
