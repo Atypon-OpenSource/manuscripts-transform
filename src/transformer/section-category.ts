@@ -26,6 +26,39 @@ const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.toc_section,
 ]
 
+function getCategoryGroup(category: string): string {
+  switch (category) {
+    case 'abstract':
+    case 'abstract-graphical':
+      return 'frontMatter'
+    case 'availability':
+    case 'acknowledgement':
+    case 'competing-interests':
+    case 'con':
+    case 'financial-disclosure':
+    case 'supplementary-material':
+    case 'supported-by':
+    case 'ethics-statement':
+      return 'backMatter'
+    default:
+      return 'body'
+  }
+}
+
+export function groupSectionsByCategory(contents: ManuscriptNode[]) {
+  const groupedContents: { [group: string]: ManuscriptNode[] } = {
+    frontMatter: [],
+    body: [],
+    backMatter: [],
+  }
+  for (const node of contents) {
+    const group = getCategoryGroup(node.type.name)
+    groupedContents[group].push(node)
+  }
+
+  return groupedContents
+}
+
 export const isAnySectionNode = (node: ManuscriptNode): boolean =>
   sectionNodeTypes.includes(node.type)
 
@@ -57,6 +90,9 @@ export type SectionCategory =
   | 'MPSectionCategory:supplementary-material'
   | 'MPSectionCategory:supported-by'
   | 'MPSectionCategory:ethics-statement'
+  | 'MPSectionCategory:body'
+  | 'MPSectionCategory:abstracts'
+  | 'MPSectionCategory:backmatter'
 
 export type SecType =
   | 'abstract'
@@ -88,6 +124,9 @@ export type SecType =
   | 'supplementary-material'
   | 'supported-by'
   | 'ethics-statement'
+  | 'abstracts'
+  | 'body'
+  | 'backmatter'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -168,7 +207,7 @@ export const buildSectionCategory = (
       return 'MPSectionCategory:abstract-graphical'
 
     default:
-      return node.attrs.category || undefined
+      return node.attrs.category || node.attrs.group || undefined
   }
 }
 
@@ -266,6 +305,12 @@ export const chooseSectionCategoryByType = (
       return 'MPSectionCategory:supported-by'
     case 'ethics-statement':
       return 'MPSectionCategory:ethics-statement'
+    case 'body':
+      return 'MPSectionCategory:body'
+    case 'backmatter':
+      return 'MPSectionCategory:backmatter'
+    case 'abstracts':
+      return 'MPSectionCategory:abstracts'
     default:
       return undefined
   }

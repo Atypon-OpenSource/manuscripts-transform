@@ -68,6 +68,7 @@ import { placeholder } from './nodes/placeholder'
 import { placeholderElement } from './nodes/placeholder_element'
 import { pullquoteElement } from './nodes/pullquote_element'
 import { section } from './nodes/section'
+import { sectionContainer } from './nodes/section_container'
 import { sectionLabel } from './nodes/section_label'
 import { sectionTitle } from './nodes/section_title'
 import { table, tableBody } from './nodes/table'
@@ -128,6 +129,7 @@ export * from './nodes/table_row'
 export * from './nodes/text'
 export * from './nodes/toc_element'
 export * from './nodes/toc_section'
+export * from './nodes/section_container'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -198,5 +200,6 @@ export const schema = new Schema<Nodes, Marks>({
     text,
     toc_element: tocElement,
     toc_section: tocSection,
+    section_container: sectionContainer,
   },
 })
