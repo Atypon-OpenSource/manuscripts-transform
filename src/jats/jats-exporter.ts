@@ -912,6 +912,7 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
+      section_container: (node) => ['sec', { group: node.attrs.group }, 0],
       attribution: () => ['attrib', 0],
       bibliography_element: () => '',
       bibliography_item: () => '',

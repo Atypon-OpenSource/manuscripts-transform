@@ -57,6 +57,9 @@ export type SectionCategory =
   | 'MPSectionCategory:supplementary-material'
   | 'MPSectionCategory:supported-by'
   | 'MPSectionCategory:ethics-statement'
+  | 'MPSectionCategory:body'
+  | 'MPSectionCategory:abstracts'
+  | 'MPSectionCategory:backmatter'
 
 export type SecType =
   | 'abstract'
@@ -88,6 +91,9 @@ export type SecType =
   | 'supplementary-material'
   | 'supported-by'
   | 'ethics-statement'
+  | 'abstracts'
+  | 'body'
+  | 'backmatter'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -168,7 +174,7 @@ export const buildSectionCategory = (
       return 'MPSectionCategory:abstract-graphical'
 
     default:
-      return node.attrs.category || undefined
+      return node.attrs.category || node.attrs.group || undefined
   }
 }
 
@@ -266,6 +272,12 @@ export const chooseSectionCategoryByType = (
       return 'MPSectionCategory:supported-by'
     case 'ethics-statement':
       return 'MPSectionCategory:ethics-statement'
+    case 'body':
+      return 'MPSectionCategory:body'
+    case 'backmatter':
+      return 'MPSectionCategory:backmatter'
+    case 'abstracts':
+      return 'MPSectionCategory:abstracts'
     default:
       return undefined
   }
