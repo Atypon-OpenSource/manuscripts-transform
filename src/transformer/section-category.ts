@@ -26,39 +26,6 @@ const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.toc_section,
 ]
 
-function getCategoryGroup(category: string): string {
-  switch (category) {
-    case 'abstract':
-    case 'abstract-graphical':
-      return 'frontMatter'
-    case 'availability':
-    case 'acknowledgement':
-    case 'competing-interests':
-    case 'con':
-    case 'financial-disclosure':
-    case 'supplementary-material':
-    case 'supported-by':
-    case 'ethics-statement':
-      return 'backMatter'
-    default:
-      return 'body'
-  }
-}
-
-export function groupSectionsByCategory(contents: ManuscriptNode[]) {
-  const groupedContents: { [group: string]: ManuscriptNode[] } = {
-    frontMatter: [],
-    body: [],
-    backMatter: [],
-  }
-  for (const node of contents) {
-    const group = getCategoryGroup(node.type.name)
-    groupedContents[group].push(node)
-  }
-
-  return groupedContents
-}
-
 export const isAnySectionNode = (node: ManuscriptNode): boolean =>
   sectionNodeTypes.includes(node.type)
 
