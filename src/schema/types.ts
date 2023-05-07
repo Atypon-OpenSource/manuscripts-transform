@@ -89,6 +89,7 @@ export type Nodes =
   | 'placeholder_element'
   | 'pullquote_element'
   | 'section'
+  | 'section_container'
   | 'section_label'
   | 'section_title'
   | 'section_title_plain'

@@ -253,6 +253,17 @@ const childElements = (node: ManuscriptNode): ManuscriptNode[] => {
 
   return nodes
 }
+const sectionContainerChildElements = (
+  node: ManuscriptNode
+): ManuscriptNode[] => {
+  const nodes: ManuscriptNode[] = []
+  node.forEach((childNode) => {
+    if (isSectionNode(childNode)) {
+      nodes.push(childNode)
+    }
+  })
+  return nodes
+}
 
 const attributeOfNodeType = (
   node: ManuscriptNode,
@@ -662,6 +673,14 @@ const encoders: NodeEncoderMap = {
     paragraphStyle: node.attrs.paragraphStyle || undefined,
     placeholderInnerHTML: node.attrs.placeholder || '',
     quoteType: 'pull',
+  }),
+  section_container: (node, parent, path, priority): Partial<Section> => ({
+    category: buildSectionCategory(node),
+    priority: priority.value++,
+    path: path.concat([node.attrs.id]),
+    elementIDs: sectionContainerChildElements(node)
+      .map((childNode) => childNode.attrs.id)
+      .filter((id) => id),
   }),
   section: (node, parent, path, priority): Partial<Section> => ({
     category: buildSectionCategory(node),
