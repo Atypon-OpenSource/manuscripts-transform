@@ -108,7 +108,8 @@ describe('commands', () => {
   })
 
   test('build bibliographic date', () => {
-    const cslDate = { 'date-parts': [['1998', '20', '1']] }
+    const parts: [[string, string, string]] = [['1998', '20', '1']]
+    const cslDate = { 'date-parts': parts }
     const date = buildBibliographicDate(cslDate)
     expect(date._id).toMatch(/MPBibliographicDate:\S+/)
     expect(date.objectType).toBe(ObjectTypes.BibliographicDate)
