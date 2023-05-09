@@ -224,7 +224,25 @@ export const jatsBodyTransformations = {
     const bodySections = doc.querySelectorAll('body > sec')
     for (const section of bodySections) {
       removeNodeFromParent(section)
-      bodyContainer.append(section)
+      const type = section.getAttribute('sec-type')
+      const category = type ? chooseSectionCategoryByType(type) : undefined
+      if (
+        category &&
+        [
+          'MPSectionCategory:availability',
+          'MPSectionCategory:acknowledgement',
+          'MPSectionCategory:competing-interests',
+          'MPSectionCategory:con',
+          'MPSectionCategory:financial-disclosure',
+          'MPSectionCategory:supplementary-material',
+          'MPSectionCategory:supported-by',
+          'MPSectionCategory:ethics-statement',
+        ].includes(category)
+      ) {
+        backmatterContainer.appendChild(section)
+      } else {
+        bodyContainer.appendChild(section)
+      }
     }
     const abstractNodes = doc.querySelectorAll(
       'front > article-meta > abstract'
