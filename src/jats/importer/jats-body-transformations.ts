@@ -34,6 +34,10 @@ const createSectionContainer = (
     'sec-type',
     category ? chooseSecType(category) : ''
   )
+
+  const title = createElement('title')
+  title.textContent = category ? chooseSecType(category) : ''
+  sectionContainer.appendChild(title)
   return sectionContainer
 }
 
