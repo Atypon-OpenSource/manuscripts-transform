@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@manuscripts/json-schema": "^2.0.0",
-    "@manuscripts/data": "^1.0.1",
+    "@manuscripts/data": "1.0.1",
     "debug": "^4.3.4",
     "jszip": "^3.10.1",
     "mathjax-full": "^3.2.2",

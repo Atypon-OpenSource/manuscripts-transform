@@ -1249,10 +1249,10 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@manuscripts/data@^1.0.1":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@manuscripts/data/-/data-1.0.2.tgz#daf61fe1dfa47503afb4ca0f72540091e6576caf"
-  integrity sha512-mEZM3bkHYGkgz7DK92+6jhOlqmufoKqAK166YlO7GswKspzcg1bM+2+T8O9QuMhYGcma1mnC93EwLPhOFJ5Vjw==
+"@manuscripts/data@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@manuscripts/data/-/data-1.0.1.tgz#0d190cc406d5b21e41a5679b5b0bb989ee4be67e"
+  integrity sha512-0DvssDA4oq2HxorCTgQz+nzRlBcEc8jwylCsh/miMLLk9pajhCk540YrsfuaHcoyjOweVFWxu/Wdqw5gZwF7fw==
 
 "@manuscripts/eslint-config@^0.5.1":
   version "0.5.1"
