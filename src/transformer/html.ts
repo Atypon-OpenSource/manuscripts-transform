@@ -534,6 +534,8 @@ export class HTMLTransformer {
       return ['span', attrs]
     }
 
+    nodes.comment_list = () => ''
+
     const serializer = new DOMSerializer(nodes, marks)
 
     return serializer.serializeFragment(fragment, { document })
