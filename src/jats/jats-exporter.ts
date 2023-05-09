@@ -267,12 +267,12 @@ export class JATSExporter {
 
       const body = this.buildBody(fragment)
       article.appendChild(body)
-
       const back = this.buildBack(body)
       article.appendChild(back)
-
+      this.moveBody(body)
       this.moveAbstracts(front, body)
       this.moveFloatsGroup(body, article)
+      this.removeBackContainer(body)
     }
 
     await this.rewriteIDs(idGenerator)
@@ -733,7 +733,6 @@ export class JATSExporter {
 
     // bibliography element
     let refList = this.document.querySelector('ref-list')
-
     if (!refList) {
       warn('No bibliography element, creating a ref-list anyway')
       refList = this.document.createElement('ref-list')
@@ -912,7 +911,6 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
-      section_container: (node) => ['sec', { group: node.attrs.group }, 0],
       attribution: () => ['attrib', 0],
       bibliography_element: () => '',
       bibliography_item: () => '',
@@ -2026,29 +2024,52 @@ export class JATSExporter {
       table.insertBefore(tfoot, tbody as Element)
     }
   }
-
-  private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
-    const sections = body.querySelectorAll(':scope > sec')
-
-    const abstractSections = Array.from(sections).filter((section) => {
-      const sectionType = section.getAttribute('sec-type')
-
-      if (
-        sectionType === 'abstract' ||
-        sectionType === 'abstract-teaser' ||
-        sectionType === 'abstract-graphical'
-      ) {
-        return true
-      }
-
-      const sectionTitle = section.querySelector(':scope > title')
-
-      if (!sectionTitle) {
-        return false
-      }
-
-      return sectionTitle.textContent === 'Abstract'
+  private moveBody = (body: HTMLElement) => {
+    const container = body.querySelector(':scope > sec[sec-type="body"]')
+    if (!container) {
+      return
+    }
+    const sections = body.querySelectorAll(
+      ':scope > sec[sec-type="body"] > sec'
+    )
+    sections.forEach((section) => {
+      body.appendChild(section.cloneNode(true))
     })
+    body.removeChild(container)
+  }
+  private removeBackContainer = (body: HTMLElement) => {
+    const container = body.querySelector(':scope > sec[sec-type="backmatter"]')
+    if (container) {
+      body.removeChild(container)
+    }
+  }
+  private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
+    const container = body.querySelector(':scope > sec[sec-type="abstracts"]')
+    const sections = container
+      ? body.querySelectorAll(':scope > sec[sec-type="abstracts"] > sec')
+      : body.querySelectorAll(':scope > sec')
+
+    const abstractSections = container
+      ? Array.from(sections)
+      : Array.from(sections).filter((section) => {
+          const sectionType = section.getAttribute('sec-type')
+
+          if (
+            sectionType === 'abstract' ||
+            sectionType === 'abstract-teaser' ||
+            sectionType === 'abstract-graphical'
+          ) {
+            return true
+          }
+
+          const sectionTitle = section.querySelector(':scope > title')
+
+          if (!sectionTitle) {
+            return false
+          }
+
+          return sectionTitle.textContent === 'Abstract'
+        })
 
     if (abstractSections.length) {
       for (const abstractSection of abstractSections) {
@@ -2076,6 +2097,9 @@ export class JATSExporter {
           insertAbstractNode(articleMeta, abstractNode)
         }
       }
+    }
+    if (container) {
+      body.removeChild(container)
     }
   }
 

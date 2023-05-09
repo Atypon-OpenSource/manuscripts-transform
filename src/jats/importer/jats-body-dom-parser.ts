@@ -595,18 +595,6 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'sec[sec-type="abstracts"], sec[sec-type="backmatter"], sec[sec-type="body"]',
-    node: 'section_container',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      return {
-        id: element.getAttribute('id'),
-        group: chooseSectionCategory(element), // 'MPSectionCategory:endnotes',
-      }
-    },
-  },
-  {
     tag: 'sec',
     node: 'section',
     getAttrs: (node) => {
@@ -618,7 +606,6 @@ const nodes: NodeRule[] = [
       }
     },
   },
-
   {
     tag: 'label',
     context: 'section/',
