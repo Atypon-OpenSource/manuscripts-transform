@@ -45,6 +45,8 @@ import serializeToXML from 'w3c-xmlserializer'
 import { iterateChildren } from '../lib/utils'
 import {
   isBibliographySectionNode,
+  isFootnotesSectionNode,
+  isGraphicalAbstractSectionNode,
   isHighlightMarkerNode,
   isSectionNode,
   ManuscriptNode,
@@ -247,7 +249,25 @@ const childElements = (node: ManuscriptNode): ManuscriptNode[] => {
   const nodes: ManuscriptNode[] = []
 
   node.forEach((childNode) => {
-    if (!(isSectionNode(childNode) || isBibliographySectionNode(childNode))) {
+    if (!isSectionNode(childNode)) {
+      nodes.push(childNode)
+    }
+  })
+
+  return nodes
+}
+const sectionChildElements = (node: ManuscriptNode): ManuscriptNode[] => {
+  const nodes: ManuscriptNode[] = []
+
+  node.forEach((childNode) => {
+    if (
+      !(
+        isSectionNode(childNode) ||
+        isBibliographySectionNode(childNode) ||
+        isGraphicalAbstractSectionNode(childNode) ||
+        isFootnotesSectionNode(childNode)
+      )
+    ) {
       nodes.push(childNode)
     }
   })
@@ -672,7 +692,7 @@ const encoders: NodeEncoderMap = {
       inlineContentsOfNodeType(node, node.type.schema.nodes.section_label) ||
       undefined,
     path: path.concat([node.attrs.id]),
-    elementIDs: childElements(node)
+    elementIDs: sectionChildElements(node)
       .map((childNode) => childNode.attrs.id)
       .filter((id) => id),
     titleSuppressed: node.attrs.titleSuppressed || undefined,
