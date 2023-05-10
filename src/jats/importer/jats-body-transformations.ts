@@ -216,43 +216,31 @@ export const jatsBodyTransformations = {
       'abstracts',
       createElement
     )
-    const backmatterContainer = createSectionContainer(
-      'backmatter',
-      createElement
+    const bodySections = doc.querySelectorAll(
+      'body > sec:not([sec-type="backmatter"]), body > sec:not([sec-type])'
     )
 
-    const bodySections = doc.querySelectorAll('body > sec')
-    for (const section of bodySections) {
+    bodySections.forEach((section) => {
       removeNodeFromParent(section)
-      const type = section.getAttribute('sec-type')
-      const category = type ? chooseSectionCategoryByType(type) : undefined
-      if (
-        category &&
-        [
-          'MPSectionCategory:availability',
-          'MPSectionCategory:acknowledgement',
-          'MPSectionCategory:competing-interests',
-          'MPSectionCategory:con',
-          'MPSectionCategory:financial-disclosure',
-          'MPSectionCategory:supplementary-material',
-          'MPSectionCategory:supported-by',
-          'MPSectionCategory:ethics-statement',
-        ].includes(category)
-      ) {
-        backmatterContainer.appendChild(section)
-      } else {
-        bodyContainer.appendChild(section)
-      }
-    }
+      bodyContainer.appendChild(section)
+    })
     const abstractNodes = doc.querySelectorAll(
       'front > article-meta > abstract'
     )
-    for (const abstractNode of abstractNodes) {
+    abstractNodes.forEach((abstractNode) => {
       const abstract = this.createAbstract(abstractNode, createElement)
       removeNodeFromParent(abstractNode)
       abstractsContainer.appendChild(abstract)
+    })
+    body.insertBefore(abstractsContainer, body.firstChild)
+    body.insertBefore(bodyContainer, abstractsContainer.nextSibling)
+    let backmatterContainer = doc.querySelector(
+      'body > sec[sec-type="backmatter"]'
+    )
+    if (!backmatterContainer) {
+      backmatterContainer = createSectionContainer('backmatter', createElement)
+      body.appendChild(backmatterContainer)
     }
-
     // move sections from back to body
     for (const section of doc.querySelectorAll('back > sec')) {
       removeNodeFromParent(section)
@@ -284,9 +272,6 @@ export const jatsBodyTransformations = {
         this.createBibliography(doc, references, createElement)
       )
     }
-    body.insertBefore(abstractsContainer, body.firstChild)
-    body.appendChild(bodyContainer)
-    body.appendChild(backmatterContainer)
   },
   mapFootnotesToSections(
     doc: Document,
@@ -294,6 +279,10 @@ export const jatsBodyTransformations = {
     createElement: (tagName: string) => HTMLElement
   ) {
     const footnoteGroups = [...doc.querySelectorAll('fn[fn-type]')]
+    const backmatterContainer = createSectionContainer(
+      'backmatter',
+      createElement
+    )
     for (const footnote of footnoteGroups) {
       const type = footnote.getAttribute('fn-type') || '' //Cannot be null since it is queried above
       const category = chooseSectionCategoryByType(type)
@@ -310,7 +299,7 @@ export const jatsBodyTransformations = {
         removeNodeFromParent(footnote)
 
         section.setAttribute('sec-type', chooseSecType(category))
-        body.append(section)
+        backmatterContainer.append(section)
       }
     }
 
@@ -328,7 +317,7 @@ export const jatsBodyTransformations = {
 
     if (!footnotesSection && containingGroup.innerHTML) {
       const section = this.createFootnotes([containingGroup], createElement)
-      body.append(section)
+      backmatterContainer.append(section)
     }
 
     // move footnotes without fn-type from back to body section
@@ -349,8 +338,9 @@ export const jatsBodyTransformations = {
         regularFootnoteGroups,
         createElement
       )
-      body.appendChild(footnotes)
+      backmatterContainer.appendChild(footnotes)
     }
+    body.append(backmatterContainer)
   },
   // move captions to the end of their containers
   moveCaptionsToEnd(body: Element) {
