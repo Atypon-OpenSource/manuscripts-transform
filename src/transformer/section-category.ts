@@ -174,7 +174,7 @@ export const buildSectionCategory = (
       return 'MPSectionCategory:abstract-graphical'
 
     default:
-      return node.attrs.category || node.attrs.group || undefined
+      return node.attrs.category || undefined
   }
 }
 
