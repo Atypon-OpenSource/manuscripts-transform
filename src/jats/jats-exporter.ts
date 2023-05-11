@@ -269,7 +269,7 @@ export class JATSExporter {
       article.appendChild(body)
       const back = this.buildBack(body)
       article.appendChild(back)
-      this.moveBody(body)
+      this.unwrapBody(body)
       this.moveAbstracts(front, body)
       this.moveFloatsGroup(body, article)
       this.removeBackContainer(body)
@@ -2024,14 +2024,12 @@ export class JATSExporter {
       table.insertBefore(tfoot, tbody as Element)
     }
   }
-  private moveBody = (body: HTMLElement) => {
+  private unwrapBody = (body: HTMLElement) => {
     const container = body.querySelector(':scope > sec[sec-type="body"]')
     if (!container) {
       return
     }
-    const sections = body.querySelectorAll(
-      ':scope > sec[sec-type="body"] > sec'
-    )
+    const sections = container.querySelectorAll(':scope > sec')
     sections.forEach((section) => {
       body.appendChild(section.cloneNode(true))
     })
@@ -2040,37 +2038,43 @@ export class JATSExporter {
   private removeBackContainer = (body: HTMLElement) => {
     const container = body.querySelector(':scope > sec[sec-type="backmatter"]')
     if (container) {
+      const isContainerEmpty = container.children.length === 0
+      if (!isContainerEmpty) {
+        warn('Backmatter section is not empty.')
+      }
       body.removeChild(container)
     }
   }
   private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
     const container = body.querySelector(':scope > sec[sec-type="abstracts"]')
-    const sections = container
-      ? body.querySelectorAll(':scope > sec[sec-type="abstracts"] > sec')
-      : body.querySelectorAll(':scope > sec')
+    let abstractSections
+    if (container) {
+      abstractSections = Array.from(
+        body.querySelectorAll(':scope > sec[sec-type="abstracts"] > sec')
+      )
+    } else {
+      abstractSections = Array.from(
+        body.querySelectorAll(':scope > sec')
+      ).filter((section) => {
+        const sectionType = section.getAttribute('sec-type')
 
-    const abstractSections = container
-      ? Array.from(sections)
-      : Array.from(sections).filter((section) => {
-          const sectionType = section.getAttribute('sec-type')
+        if (
+          sectionType === 'abstract' ||
+          sectionType === 'abstract-teaser' ||
+          sectionType === 'abstract-graphical'
+        ) {
+          return true
+        }
 
-          if (
-            sectionType === 'abstract' ||
-            sectionType === 'abstract-teaser' ||
-            sectionType === 'abstract-graphical'
-          ) {
-            return true
-          }
+        const sectionTitle = section.querySelector(':scope > title')
 
-          const sectionTitle = section.querySelector(':scope > title')
+        if (!sectionTitle) {
+          return false
+        }
 
-          if (!sectionTitle) {
-            return false
-          }
-
-          return sectionTitle.textContent === 'Abstract'
-        })
-
+        return sectionTitle.textContent === 'Abstract'
+      })
+    }
     if (abstractSections.length) {
       for (const abstractSection of abstractSections) {
         const abstractNode = this.document.createElement('abstract')
