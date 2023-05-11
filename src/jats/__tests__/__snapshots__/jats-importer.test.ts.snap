@@ -4748,7 +4748,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "dataTracked": null,
               },
               "content": Array [
                 Object {
@@ -4765,57 +4765,59 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "alignment": undefined,
-                    "alternatives": undefined,
-                    "attribution": undefined,
-                    "comments": null,
+                    "contents": "",
                     "dataTracked": null,
-                    "figureLayout": "",
-                    "figureStyle": "",
-                    "label": "",
-                    "sizeFraction": 0,
-                    "suppressCaption": false,
-                    "suppressTitle": undefined,
+                    "paragraphStyle": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
+                        "author": undefined,
+                        "containerTitle": undefined,
                         "dataTracked": null,
+                        "doi": undefined,
+                        "issue": undefined,
+                        "issued": undefined,
+                        "literal": undefined,
+                        "page": undefined,
                         "paragraphStyle": "",
-                        "placeholder": "",
+                        "supplement": undefined,
+                        "title": undefined,
+                        "type": undefined,
+                        "volume": undefined,
                       },
-                      "content": Array [
-                        Object {
-                          "text": "The direct interaction of phenobarbital with the epidermal growth factor receptor reveals a new network interface in nuclear receptor signaling.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                      },
-                      "type": "figcaption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "comments": null,
-                        "contents": "",
-                        "dataTracked": null,
-                        "isExecuting": false,
-                        "isExpanded": false,
-                        "language": "",
-                        "languageKey": "null",
-                      },
-                      "type": "listing",
+                      "type": "bibliography_item",
                     },
                   ],
-                  "type": "figure_element",
+                  "type": "bibliography_element",
                 },
               ],
-              "type": "graphical_abstract_section",
+              "type": "bibliography_section",
+            },
+            Object {
+              "attrs": Object {
+                "category": "",
+                "comments": null,
+                "dataTracked": null,
+                "generatedLabel": undefined,
+                "pageBreakStyle": undefined,
+                "titleSuppressed": false,
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "The direct interaction of phenobarbital with the epidermal growth factor receptor reveals a new network interface in nuclear receptor signaling.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "section_title",
+                },
+              ],
+              "type": "section",
             },
           ],
           "type": "section",
@@ -5584,7 +5586,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "dataTracked": null,
               },
               "content": Array [
                 Object {
@@ -5601,80 +5603,34 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "alignment": undefined,
-                    "alternatives": undefined,
-                    "attribution": undefined,
-                    "comments": null,
+                    "contents": "",
                     "dataTracked": null,
-                    "figureLayout": "",
-                    "figureStyle": "",
-                    "label": "",
-                    "sizeFraction": 0,
-                    "suppressCaption": false,
-                    "suppressTitle": undefined,
+                    "paragraphStyle": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
+                        "author": undefined,
+                        "containerTitle": undefined,
                         "dataTracked": null,
+                        "doi": undefined,
+                        "issue": undefined,
+                        "issued": undefined,
+                        "literal": undefined,
+                        "page": undefined,
                         "paragraphStyle": "",
-                        "placeholder": "",
+                        "supplement": undefined,
+                        "title": undefined,
+                        "type": undefined,
+                        "volume": undefined,
                       },
-                      "content": Array [
-                        Object {
-                          "text": "See also, ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "contents": "Day (2008)",
-                            "dataTracked": null,
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": " and ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "label": "Table 1",
-                          },
-                          "type": "cross_reference",
-                        },
-                        Object {
-                          "text": ". Table 1 Table_Head Table_Body* This is a table title continued paragraph * Table_Footnote Block_Quote Source: Wikipedia Paragraph_Continued with a graphic in the middle",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                      },
-                      "type": "figcaption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "comments": null,
-                        "contents": "",
-                        "dataTracked": null,
-                        "isExecuting": false,
-                        "isExpanded": false,
-                        "language": "",
-                        "languageKey": "null",
-                      },
-                      "type": "listing",
+                      "type": "bibliography_item",
                     },
                   ],
-                  "type": "figure_element",
+                  "type": "bibliography_element",
                 },
               ],
-              "type": "graphical_abstract_section",
+              "type": "bibliography_section",
             },
             Object {
               "attrs": Object {
@@ -5692,16 +5648,7 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "H",
-                      "type": "text",
-                    },
-                    Object {
-                      "marks": Array [
-                        Object {
-                          "type": "subscript",
-                        },
-                      ],
-                      "text": "1",
+                      "text": "See also,",
                       "type": "text",
                     },
                   ],
@@ -5716,7 +5663,26 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "This is a hypothesis.",
+                      "attrs": Object {
+                        "contents": "Day (2008)",
+                        "dataTracked": null,
+                        "selectedText": "",
+                      },
+                      "type": "citation",
+                    },
+                    Object {
+                      "text": " and ",
+                      "type": "text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "label": "Table 1",
+                      },
+                      "type": "cross_reference",
+                    },
+                    Object {
+                      "text": ".",
                       "type": "text",
                     },
                   ],
@@ -5724,123 +5690,430 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "comments": null,
+                    "dataTracked": null,
+                    "expandListing": false,
+                    "label": "",
+                    "paragraphStyle": "",
+                    "suppressCaption": false,
+                    "suppressFooter": true,
+                    "suppressHeader": false,
+                    "suppressTitle": undefined,
+                    "tableStyle": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "comments": null,
+                        "dataTracked": null,
+                        "footerRows": 1,
+                        "headerRows": 1,
+                      },
+                      "content": Array [
+                        Object {
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "width": "100%",
+                              },
+                              "type": "table_col",
+                            },
+                          ],
+                          "type": "table_colgroup",
+                        },
+                        Object {
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "placeholder": "",
+                              },
+                              "content": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "align": "left",
+                                    "celltype": "th",
+                                    "colspan": 1,
+                                    "colwidth": null,
+                                    "placeholder": "Data",
+                                    "rowspan": 1,
+                                    "scope": "col",
+                                    "style": "border-left: solid 0.50pt; border-top: solid 0.50pt; border-right: solid 0.50pt; border-bottom: solid 0.50pt",
+                                    "styles": Object {},
+                                    "valign": "top",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "text": "Table_Head",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "type": "table_cell",
+                                },
+                              ],
+                              "type": "table_row",
+                            },
+                            Object {
+                              "attrs": Object {
+                                "placeholder": "",
+                              },
+                              "content": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "align": "left",
+                                    "celltype": "td",
+                                    "colspan": 1,
+                                    "colwidth": null,
+                                    "placeholder": "Data",
+                                    "rowspan": 1,
+                                    "scope": null,
+                                    "style": "border-left: solid 0.50pt; border-top: solid 0.50pt; border-right: solid 0.50pt; border-bottom: solid 0.50pt",
+                                    "styles": Object {},
+                                    "valign": "top",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "text": "Table_Body*",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "type": "table_cell",
+                                },
+                              ],
+                              "type": "table_row",
+                            },
+                          ],
+                          "type": "table_body",
+                        },
+                      ],
+                      "type": "table",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Kinds of tables",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "This is a table title continued paragraph",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "caption",
+                        },
+                      ],
+                      "type": "figcaption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "kind": "table_footnote",
+                        "paragraphStyle": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "comments": null,
+                            "dataTracked": null,
+                            "kind": "footnote",
+                            "paragraphStyle": "",
+                            "placeholder": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "comments": null,
+                                "dataTracked": null,
+                                "paragraphStyle": "",
+                                "placeholder": "",
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "* Table_Footnote",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "paragraph",
+                            },
+                          ],
+                          "type": "footnote",
+                        },
+                      ],
+                      "type": "footnotes_element",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "comments": null,
+                        "contents": "",
+                        "dataTracked": null,
+                        "isExecuting": false,
+                        "isExpanded": false,
+                        "language": "",
+                        "languageKey": "null",
+                      },
+                      "type": "listing",
+                    },
+                  ],
+                  "type": "table_element",
+                },
+                Object {
+                  "attrs": Object {
+                    "comments": null,
                     "dataTracked": null,
                     "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Block_Quote",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+                Object {
+                  "attrs": Object {
+                    "comments": null,
+                    "dataTracked": null,
+                    "paragraphStyle": "",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Source: Wikipedia Paragraph_Continued with a graphic in the middle",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+                Object {
+                  "attrs": Object {
+                    "comments": null,
+                    "dataTracked": null,
+                    "suppressCaption": true,
+                    "suppressTitle": undefined,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "MathMLStringRepresentation": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\">
+          <mml:mrow>
+            <mml:mstyle displaystyle=\\"true\\">
+              <mml:mrow><mml:mo>∫</mml:mo>
+                <mml:mrow/>
+              </mml:mrow>
+            </mml:mstyle><mml:mi>θ</mml:mi><mml:msup>
+            <mml:mrow>
+              <mml:mi>cos</mml:mi></mml:mrow>
+            <mml:mrow>
+              <mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow>
+          </mml:msup>
+            <mml:mfenced>
+              <mml:mrow>
+                <mml:mfrac>
+                  <mml:mi>π</mml:mi>
+                  <mml:mn>2</mml:mn>
+                </mml:mfrac>
+                <mml:mo>−</mml:mo><mml:mi>θ</mml:mi></mml:mrow>
+            </mml:mfenced></mml:mrow>
+        </mml:math>",
+                        "SVGStringRepresentation": "<svg xmlns=\\"http://www.w3.org/2000/svg\\" style=\\"vertical-align: -1.948ex;\\" width=\\"16.64ex\\" height=\\"5.027ex\\" role=\\"img\\" focusable=\\"false\\" viewBox=\\"0 -1361 7354.8 2222\\"><g stroke=\\"currentColor\\" fill=\\"currentColor\\" stroke-width=\\"0\\" transform=\\"scale(1,-1)\\"><g data-mml-node=\\"math\\" xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><g data-mml-node=\\"mrow\\"><g data-mml-node=\\"mstyle\\"><g data-mml-node=\\"mrow\\"><g data-mml-node=\\"mo\\" transform=\\"translate(0 1)\\"><path data-c=\\"222B\\" d=\\"M114 -798Q132 -824 165 -824H167Q195 -824 223 -764T275 -600T320 -391T362 -164Q365 -143 367 -133Q439 292 523 655T645 1127Q651 1145 655 1157T672 1201T699 1257T733 1306T777 1346T828 1360Q884 1360 912 1325T944 1245Q944 1220 932 1205T909 1186T887 1183Q866 1183 849 1198T832 1239Q832 1287 885 1296L882 1300Q879 1303 874 1307T866 1313Q851 1323 833 1323Q819 1323 807 1311T775 1255T736 1139T689 936T633 628Q574 293 510 -5T410 -437T355 -629Q278 -862 165 -862Q125 -862 92 -831T55 -746Q55 -711 74 -698T112 -685Q133 -685 150 -700T167 -741Q167 -789 114 -798Z\\"/></g><g data-mml-node=\\"mrow\\" transform=\\"translate(944,0)\\"/></g></g><g data-mml-node=\\"mi\\" transform=\\"translate(1110.7,0)\\"><path data-c=\\"1D703\\" d=\\"M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z\\"/></g><g data-mml-node=\\"msup\\" transform=\\"translate(1579.7,0)\\"><g data-mml-node=\\"mrow\\"><g data-mml-node=\\"mi\\"><path data-c=\\"63\\" d=\\"M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z\\"/><path data-c=\\"6F\\" d=\\"M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z\\" transform=\\"translate(444,0)\\"/><path data-c=\\"73\\" d=\\"M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z\\" transform=\\"translate(944,0)\\"/></g></g><g data-mml-node=\\"mrow\\" transform=\\"translate(1371,363) scale(0.707)\\"><g data-mml-node=\\"mo\\"><path data-c=\\"2212\\" d=\\"M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z\\"/></g><g data-mml-node=\\"mn\\" transform=\\"translate(778,0)\\"><path data-c=\\"31\\" d=\\"M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z\\"/></g></g></g><g data-mml-node=\\"mfenced\\" transform=\\"translate(3904.3,0)\\"><g data-mml-node=\\"mo\\" transform=\\"translate(0 -0.5)\\"><path data-c=\\"28\\" d=\\"M152 251Q152 646 388 850H416Q422 844 422 841Q422 837 403 816T357 753T302 649T255 482T236 250Q236 124 255 19T301 -147T356 -251T403 -315T422 -340Q422 -343 416 -349H388Q359 -325 332 -296T271 -213T212 -97T170 56T152 251Z\\"/></g><g data-mml-node=\\"mrow\\" transform=\\"translate(458,0)\\"><g data-mml-node=\\"mfrac\\"><g data-mml-node=\\"mi\\" transform=\\"translate(220,394) scale(0.707)\\"><path data-c=\\"1D70B\\" d=\\"M132 -11Q98 -11 98 22V33L111 61Q186 219 220 334L228 358H196Q158 358 142 355T103 336Q92 329 81 318T62 297T53 285Q51 284 38 284Q19 284 19 294Q19 300 38 329T93 391T164 429Q171 431 389 431Q549 431 553 430Q573 423 573 402Q573 371 541 360Q535 358 472 358H408L405 341Q393 269 393 222Q393 170 402 129T421 65T431 37Q431 20 417 5T381 -10Q370 -10 363 -7T347 17T331 77Q330 86 330 121Q330 170 339 226T357 318T367 358H269L268 354Q268 351 249 275T206 114T175 17Q164 -11 132 -11Z\\"/></g><g data-mml-node=\\"mn\\" transform=\\"translate(244.7,-345) scale(0.707)\\"><path data-c=\\"32\\" d=\\"M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z\\"/></g><rect width=\\"603.1\\" height=\\"60\\" x=\\"120\\" y=\\"220\\"/></g><g data-mml-node=\\"mo\\" transform=\\"translate(1065.3,0)\\"><path data-c=\\"2212\\" d=\\"M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z\\"/></g><g data-mml-node=\\"mi\\" transform=\\"translate(2065.5,0)\\"><path data-c=\\"1D703\\" d=\\"M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z\\"/></g></g><g data-mml-node=\\"mo\\" transform=\\"translate(2992.5,0) translate(0 -0.5)\\"><path data-c=\\"29\\" d=\\"M305 251Q305 -145 69 -349H56Q43 -349 39 -347T35 -338Q37 -333 60 -307T108 -239T160 -136T204 27T221 250T204 473T160 636T108 740T60 807T35 839Q35 850 50 850H56H69Q197 743 256 566Q305 425 305 251Z\\"/></g></g></g></g></g></svg>",
+                        "TeXRepresentation": "",
+                        "dataTracked": null,
+                      },
+                      "type": "equation",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "type": "figcaption",
+                    },
+                  ],
+                  "type": "equation_element",
+                },
+                Object {
+                  "attrs": Object {
+                    "category": "",
+                    "comments": null,
+                    "dataTracked": null,
+                    "generatedLabel": undefined,
+                    "pageBreakStyle": undefined,
+                    "titleSuppressed": false,
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "List item",
                       },
                       "content": Array [
                         Object {
-                          "attrs": Object {
-                            "comments": null,
-                            "dataTracked": null,
-                            "paragraphStyle": "",
-                            "placeholder": "",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "Num_Bul_List_1",
-                              "type": "text",
-                            },
-                          ],
-                          "type": "paragraph",
+                          "text": "H",
+                          "type": "text",
                         },
                         Object {
-                          "attrs": Object {
-                            "comments": null,
-                            "dataTracked": null,
-                            "paragraphStyle": "",
-                            "placeholder": "",
-                          },
-                          "content": Array [
+                          "marks": Array [
                             Object {
-                              "text": "List_1_Continued",
-                              "type": "text",
+                              "type": "subscript",
                             },
                           ],
-                          "type": "paragraph",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "paragraphStyle": "",
-                          },
-                          "content": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                                "placeholder": "List item",
-                              },
-                              "content": Array [
-                                Object {
-                                  "attrs": Object {
-                                    "comments": null,
-                                    "dataTracked": null,
-                                    "paragraphStyle": "",
-                                    "placeholder": "",
-                                  },
-                                  "content": Array [
-                                    Object {
-                                      "text": "Num_Bul_List_2",
-                                      "type": "text",
-                                    },
-                                  ],
-                                  "type": "paragraph",
-                                },
-                                Object {
-                                  "attrs": Object {
-                                    "comments": null,
-                                    "dataTracked": null,
-                                    "paragraphStyle": "",
-                                    "placeholder": "",
-                                  },
-                                  "content": Array [
-                                    Object {
-                                      "text": "List_2_Continued",
-                                      "type": "text",
-                                    },
-                                  ],
-                                  "type": "paragraph",
-                                },
-                              ],
-                              "type": "list_item",
-                            },
-                          ],
-                          "type": "bullet_list",
+                          "text": "1",
+                          "type": "text",
                         },
                       ],
-                      "type": "list_item",
+                      "type": "section_label",
                     },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "List item",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "This is a hypothesis.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "section_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "paragraphStyle": "",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
-                            "comments": null,
                             "dataTracked": null,
-                            "paragraphStyle": "",
-                            "placeholder": "",
+                            "placeholder": "List item",
                           },
                           "content": Array [
                             Object {
-                              "text": "level 1, bullet 2",
-                              "type": "text",
+                              "attrs": Object {
+                                "comments": null,
+                                "dataTracked": null,
+                                "paragraphStyle": "",
+                                "placeholder": "",
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "Num_Bul_List_1",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "paragraph",
+                            },
+                            Object {
+                              "attrs": Object {
+                                "comments": null,
+                                "dataTracked": null,
+                                "paragraphStyle": "",
+                                "placeholder": "",
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "List_1_Continued",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "paragraph",
+                            },
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                                "paragraphStyle": "",
+                              },
+                              "content": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "placeholder": "List item",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "comments": null,
+                                        "dataTracked": null,
+                                        "paragraphStyle": "",
+                                        "placeholder": "",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "Num_Bul_List_2",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "paragraph",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "comments": null,
+                                        "dataTracked": null,
+                                        "paragraphStyle": "",
+                                        "placeholder": "",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "List_2_Continued",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "paragraph",
+                                    },
+                                  ],
+                                  "type": "list_item",
+                                },
+                              ],
+                              "type": "bullet_list",
                             },
                           ],
-                          "type": "paragraph",
+                          "type": "list_item",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "List item",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "comments": null,
+                                "dataTracked": null,
+                                "paragraphStyle": "",
+                                "placeholder": "",
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "level 1, bullet 2",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "paragraph",
+                            },
+                          ],
+                          "type": "list_item",
                         },
                       ],
-                      "type": "list_item",
+                      "type": "bullet_list",
                     },
                   ],
-                  "type": "bullet_list",
+                  "type": "section",
                 },
               ],
               "type": "section",
