@@ -2037,21 +2037,20 @@ export class JATSExporter {
   }
   private removeBackContainer = (body: HTMLElement) => {
     const container = body.querySelector(':scope > sec[sec-type="backmatter"]')
-    if (container) {
-      const isContainerEmpty = container.children.length === 0
-      if (!isContainerEmpty) {
-        warn('Backmatter section is not empty.')
-      }
-      body.removeChild(container)
+    if (!container) {
+      return
     }
+    const isContainerEmpty = container.children.length === 0
+    if (!isContainerEmpty) {
+      warn('Backmatter section is not empty.')
+    }
+    body.removeChild(container)
   }
   private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
     const container = body.querySelector(':scope > sec[sec-type="abstracts"]')
     let abstractSections
     if (container) {
-      abstractSections = Array.from(
-        body.querySelectorAll(':scope > sec[sec-type="abstracts"] > sec')
-      )
+      abstractSections = Array.from(container.querySelectorAll(':scope > sec'))
     } else {
       abstractSections = Array.from(
         body.querySelectorAll(':scope > sec')
