@@ -16,7 +16,11 @@
 
 import { BibliographyItem } from '@manuscripts/json-schema'
 
-import { chooseSectionCategoryByType, chooseSecType } from '../../transformer'
+import {
+  chooseSectionCategoryByType,
+  chooseSecType,
+  getSectionTitles,
+} from '../../transformer'
 
 const removeNodeFromParent = (node: Element) =>
   node.parentNode && node.parentNode.removeChild(node)
@@ -29,14 +33,16 @@ const createSectionContainer = (
   createElement: (tagName: string) => HTMLElement
 ) => {
   const sectionContainer = createElement('sec')
-  const category = chooseSectionCategoryByType(type)
+  const sectionCategory = chooseSectionCategoryByType(type)
   sectionContainer.setAttribute(
     'sec-type',
-    category ? chooseSecType(category) : ''
+    sectionCategory ? chooseSecType(sectionCategory) : ''
   )
 
   const title = createElement('title')
-  title.textContent = category ? chooseSecType(category) : ''
+  title.textContent = sectionCategory
+    ? getSectionTitles(sectionCategory)[0]
+    : ' '
   sectionContainer.appendChild(title)
   return sectionContainer
 }

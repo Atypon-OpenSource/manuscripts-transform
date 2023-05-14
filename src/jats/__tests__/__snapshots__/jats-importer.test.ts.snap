@@ -215,7 +215,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 1,
-    "title": "abstracts",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -279,7 +279,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 3,
-    "title": "body",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -590,7 +590,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 13,
-    "title": "backmatter",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -854,7 +854,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 1,
-    "title": "abstracts",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -865,7 +865,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 2,
-    "title": "body",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -1164,7 +1164,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 12,
-    "title": "backmatter",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -1636,7 +1636,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 1,
-    "title": "abstracts",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -1668,7 +1668,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 3,
-    "title": "body",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -2578,7 +2578,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 27,
-    "title": "backmatter",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -4716,12 +4716,6 @@ Object {
           "attrs": Object {
             "dataTracked": null,
           },
-          "content": Array [
-            Object {
-              "text": "abstracts",
-              "type": "text",
-            },
-          ],
           "type": "section_title",
         },
         Object {
@@ -4944,12 +4938,6 @@ Object {
           "attrs": Object {
             "dataTracked": null,
           },
-          "content": Array [
-            Object {
-              "text": "body",
-              "type": "text",
-            },
-          ],
           "type": "section_title",
         },
         Object {
@@ -6258,12 +6246,6 @@ Object {
           "attrs": Object {
             "dataTracked": null,
           },
-          "content": Array [
-            Object {
-              "text": "backmatter",
-              "type": "text",
-            },
-          ],
           "type": "section_title",
         },
         Object {
@@ -6938,7 +6920,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 1,
-    "title": "abstracts",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -6970,7 +6952,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 3,
-    "title": "body",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -8600,7 +8582,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 15,
-    "title": "backmatter",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -11003,7 +10985,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 1,
-    "title": "abstracts",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -11014,7 +10996,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 2,
-    "title": "body",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -11313,7 +11295,7 @@ Array [
       "MPSection:test",
     ],
     "priority": 12,
-    "title": "backmatter",
+    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -11436,12 +11418,6 @@ Object {
           "attrs": Object {
             "dataTracked": null,
           },
-          "content": Array [
-            Object {
-              "text": "abstracts",
-              "type": "text",
-            },
-          ],
           "type": "section_title",
         },
       ],
@@ -11461,12 +11437,6 @@ Object {
           "attrs": Object {
             "dataTracked": null,
           },
-          "content": Array [
-            Object {
-              "text": "body",
-              "type": "text",
-            },
-          ],
           "type": "section_title",
         },
         Object {
@@ -12659,12 +12629,6 @@ Object {
           "attrs": Object {
             "dataTracked": null,
           },
-          "content": Array [
-            Object {
-              "text": "backmatter",
-              "type": "text",
-            },
-          ],
           "type": "section_title",
         },
         Object {
