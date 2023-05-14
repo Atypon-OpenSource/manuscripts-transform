@@ -205,6 +205,74 @@ export const jatsBodyTransformations = {
     section.append(...floatsGroup.children)
     return section
   },
+  moveAbstractsIntoContainer(
+    doc: Document,
+    abstractsContainer: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const abstractNodes = doc.querySelectorAll(
+      'front > article-meta > abstract'
+    )
+    abstractNodes.forEach((abstractNode) => {
+      const abstract = this.createAbstract(abstractNode, createElement)
+      removeNodeFromParent(abstractNode)
+      abstractsContainer.appendChild(abstract)
+    })
+  },
+  wrapBodySections(doc: Document, bodyContainer: Element) {
+    const bodySections = doc.querySelectorAll(
+      'body > sec:not([sec-type="backmatter"]), body > sec:not([sec-type])'
+    )
+    bodySections.forEach((section) => {
+      removeNodeFromParent(section)
+      bodyContainer.appendChild(section)
+    })
+  },
+  moveBackSectionsIntoContainer(doc: Document, backmatterContainer: Element) {
+    for (const section of doc.querySelectorAll('back > sec')) {
+      removeNodeFromParent(section)
+      backmatterContainer.appendChild(section)
+    }
+  },
+  moveAcknowledgmentsIntoContainer(
+    doc: Document,
+    backmatterContainer: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const ackNode = doc.querySelector('back > ack')
+    if (ackNode) {
+      const acknowledgements = this.createAcknowledgments(
+        ackNode,
+        createElement
+      )
+      removeNodeFromParent(ackNode)
+      backmatterContainer.appendChild(acknowledgements)
+    }
+  },
+  moveAppendicesIntoContainer(
+    doc: Document,
+    backmatterContainer: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const appGroup = doc.querySelectorAll('back > app-group > app')
+    for (const app of appGroup) {
+      const appendix = this.createAppendixSection(app, createElement)
+      removeNodeFromParent(app)
+      backmatterContainer.appendChild(appendix)
+    }
+  },
+  moveBibliographyIntoContainer(
+    doc: Document,
+    backmatterContainer: Element,
+    references: BibliographyItem[] | null,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    if (references) {
+      backmatterContainer.appendChild(
+        this.createBibliography(doc, references, createElement)
+      )
+    }
+  },
   moveSectionsToBody(
     doc: Document,
     body: Element,
@@ -216,73 +284,36 @@ export const jatsBodyTransformations = {
       'abstracts',
       createElement
     )
-    const bodySections = doc.querySelectorAll(
-      'body > sec:not([sec-type="backmatter"]), body > sec:not([sec-type])'
-    )
-
-    bodySections.forEach((section) => {
-      removeNodeFromParent(section)
-      bodyContainer.appendChild(section)
-    })
-    const abstractNodes = doc.querySelectorAll(
-      'front > article-meta > abstract'
-    )
-    abstractNodes.forEach((abstractNode) => {
-      const abstract = this.createAbstract(abstractNode, createElement)
-      removeNodeFromParent(abstractNode)
-      abstractsContainer.appendChild(abstract)
-    })
-    body.insertBefore(abstractsContainer, body.firstChild)
-    body.insertBefore(bodyContainer, abstractsContainer.nextSibling)
-    let backmatterContainer = doc.querySelector(
-      'body > sec[sec-type="backmatter"]'
-    )
-    if (!backmatterContainer) {
-      backmatterContainer = createSectionContainer('backmatter', createElement)
-      body.appendChild(backmatterContainer)
-    }
-    // move sections from back to body
-    for (const section of doc.querySelectorAll('back > sec')) {
-      removeNodeFromParent(section)
-      backmatterContainer.appendChild(section)
-    }
-
-    // move acknowledg(e)ments from back to body section
-    const ackNode = doc.querySelector('back > ack')
-    if (ackNode) {
-      const acknowledgements = this.createAcknowledgments(
-        ackNode,
-        createElement
-      )
-      removeNodeFromParent(ackNode)
-      backmatterContainer.appendChild(acknowledgements)
-    }
-
-    //move appendices from back to body
-    const appGroup = doc.querySelectorAll('back > app-group > app')
-
-    for (const app of appGroup) {
-      const appendix = this.createAppendixSection(app, createElement)
-      removeNodeFromParent(app)
-      backmatterContainer.appendChild(appendix)
-    }
-    // move bibliography from back to body section
-    if (references) {
-      backmatterContainer.appendChild(
-        this.createBibliography(doc, references, createElement)
-      )
-    }
-  },
-  mapFootnotesToSections(
-    doc: Document,
-    body: Element,
-    createElement: (tagName: string) => HTMLElement
-  ) {
-    const footnoteGroups = [...doc.querySelectorAll('fn[fn-type]')]
     const backmatterContainer = createSectionContainer(
       'backmatter',
       createElement
     )
+    this.mapFootnotesToSections(doc, backmatterContainer, createElement)
+    this.wrapBodySections(doc, bodyContainer)
+    this.moveAbstractsIntoContainer(doc, abstractsContainer, createElement)
+    this.moveBackSectionsIntoContainer(doc, backmatterContainer)
+    this.moveAcknowledgmentsIntoContainer(
+      doc,
+      backmatterContainer,
+      createElement
+    )
+    this.moveAppendicesIntoContainer(doc, backmatterContainer, createElement)
+    this.moveBibliographyIntoContainer(
+      doc,
+      backmatterContainer,
+      references,
+      createElement
+    )
+    body.insertBefore(abstractsContainer, body.firstChild)
+    body.insertBefore(bodyContainer, abstractsContainer.nextSibling)
+    body.append(backmatterContainer)
+  },
+  mapFootnotesToSections(
+    doc: Document,
+    backmatterContainer: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const footnoteGroups = [...doc.querySelectorAll('fn[fn-type]')]
     for (const footnote of footnoteGroups) {
       const type = footnote.getAttribute('fn-type') || '' //Cannot be null since it is queried above
       const category = chooseSectionCategoryByType(type)
@@ -340,7 +371,6 @@ export const jatsBodyTransformations = {
       )
       backmatterContainer.appendChild(footnotes)
     }
-    body.append(backmatterContainer)
   },
   // move captions to the end of their containers
   moveCaptionsToEnd(body: Element) {
