@@ -914,10 +914,14 @@ export class Decoder {
     return parser.parse(template.content.firstElementChild, options)
   }
 
-  private getKeywords = () => {
+  private getKeywords = (id: string) => {
     const keywordsOfKind = []
-
-    for (const model of this.modelMap.values()) {
+    const keywordsByGroup = [...this.modelMap.values()].filter(
+      (m) =>
+        m.objectType === ObjectTypes.Keyword &&
+        (m as Keyword).containedGroup === id
+    )
+    for (const model of keywordsByGroup) {
       const commentNodes = this.createCommentsNode(model)
       commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
 
@@ -1011,7 +1015,7 @@ export class Decoder {
     ) as KeywordGroup[]
     if (kwdGroupsModels.length > 0) {
       for (const kwdGroupModel of kwdGroupsModels) {
-        const keywords = this.getKeywords()
+        const keywords = this.getKeywords(kwdGroupModel._id)
         const contents: ManuscriptNode[] = []
         if (kwdGroupModel.title) {
           const titleNode = this.parseContents(
