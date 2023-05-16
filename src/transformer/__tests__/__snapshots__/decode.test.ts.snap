@@ -5811,7 +5811,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "comments": Array [],
+                    "comments": null,
                     "contents": "test",
                     "dataTracked": null,
                     "id": "MPKeyword:1",
@@ -5922,7 +5922,7 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "comments": Array [],
+                    "comments": null,
                     "contents": "test",
                     "dataTracked": null,
                     "id": "MPKeyword:1",
@@ -5943,6 +5943,26 @@ Object {
         },
       ],
       "type": "keywords_section",
+    },
+    Object {
+      "attrs": Object {
+        "id": "someId",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "contents": "KeywordQuery",
+            "contributions": Array [],
+            "id": "MPCommentAnnotation:3AAEE869-7DC9-4392-B8C6-9C5FCA522120",
+            "originalText": "",
+            "resolved": false,
+            "selector": Object {},
+            "target": "MPKeywordGroup:1",
+          },
+          "type": "comment",
+        },
+      ],
+      "type": "comment_list",
     },
   ],
   "type": "manuscript",

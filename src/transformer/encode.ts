@@ -624,7 +624,7 @@ const encoders: NodeEncoderMap = {
     name: keywordContents(node),
   }),
   keywords_element: (node): Partial<KeywordsElement> => ({
-    contents: elementContents(node),
+    contents: '<div></div>',
     elementType: 'div',
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),

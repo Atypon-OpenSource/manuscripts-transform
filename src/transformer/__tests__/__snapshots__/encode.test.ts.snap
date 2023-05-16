@@ -607,7 +607,7 @@ Map {
   },
   "MPKeywordsElement:1" => Object {
     "_id": "MPKeywordsElement:1",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement MPParagraphStyle_1\\" id=\\"MPKeywordsElement:1\\"><div id=\\"MPKeywordGroup:test\\" class=\\"keywords\\" spellcheck=\\"false\\" contenteditable=\\"false\\"><span class=\\"keyword\\" id=\\"MPKeyword:1\\">test</span></div></div>",
+    "contents": "<div></div>",
     "elementType": "div",
     "objectType": "MPKeywordsElement",
     "paragraphStyle": "MPParagraphStyle:1",

@@ -173,7 +173,7 @@ Array [
   },
   Object {
     "_id": "MPKeywordsElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement\\" id=\\"MPKeywordsElement:test\\"><div id=\\"MPKeywordGroup:test\\" class=\\"keywords\\" spellcheck=\\"false\\" contenteditable=\\"false\\"><span class=\\"keyword\\" id=\\"MPKeyword:test\\">suicide attempters</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">schizophrenia</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\"><i>DβH</i></span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">attention</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">polymorphism</span></div></div>",
+    "contents": "<div></div>",
     "elementType": "div",
     "objectType": "MPKeywordsElement",
   },
@@ -1500,7 +1500,7 @@ Array [
   },
   Object {
     "_id": "MPKeywordsElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement\\" id=\\"MPKeywordsElement:test\\"><div id=\\"MPKeywordGroup:test\\" class=\\"keywords\\" spellcheck=\\"false\\" contenteditable=\\"false\\"><span class=\\"keyword\\" id=\\"MPKeyword:test\\">pembrolizumab</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">nivolumab</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">low-dose</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">relapsed</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">refractory</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">Hodgkin lymphoma</span></div></div>",
+    "contents": "<div></div>",
     "elementType": "div",
     "objectType": "MPKeywordsElement",
   },
@@ -6510,7 +6510,7 @@ Array [
   },
   Object {
     "_id": "MPKeywordsElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement\\" id=\\"MPKeywordsElement:test\\"><div id=\\"MPKeywordGroup:test\\" class=\\"keywords\\" spellcheck=\\"false\\" contenteditable=\\"false\\"><span class=\\"keyword\\" id=\\"MPKeyword:test\\">D80</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">G00</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">G12</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">G14</span></div></div>",
+    "contents": "<div></div>",
     "elementType": "div",
     "objectType": "MPKeywordsElement",
   },

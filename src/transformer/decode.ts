@@ -922,8 +922,6 @@ export class Decoder {
         (m as Keyword).containedGroup === id
     )
     for (const model of keywordsByGroup) {
-      const commentNodes = this.createCommentsNode(model)
-      commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
 
       if (isKeyword(model)) {
         const keyword = this.parseContents(
@@ -934,7 +932,6 @@ export class Decoder {
             topNode: schema.nodes.keyword.create({
               id: model._id,
               contents: model.name,
-              comments: commentNodes.map((c) => c.attrs.id),
             }),
           }
         ) as KeywordNode
@@ -1016,6 +1013,8 @@ export class Decoder {
     if (kwdGroupsModels.length > 0) {
       for (const kwdGroupModel of kwdGroupsModels) {
         const keywords = this.getKeywords(kwdGroupModel._id)
+        const commentNodes = this.createCommentsNode(kwdGroupModel)
+        commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
         const contents: ManuscriptNode[] = []
         // if (kwdGroupModel.title) {
         //   const titleNode = this.parseContents(
@@ -1033,6 +1032,7 @@ export class Decoder {
           {
             id: kwdGroupModel._id,
             type: kwdGroupModel.type,
+            comments: commentNodes.map((c) => c.attrs.id),
           },
           contents
         ) as KeywordsGroupNode
