@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { Bundle, Journal } from '@manuscripts/json-schema'
+import { Journal } from '@manuscripts/json-schema'
 import debug from 'debug'
 
 import {
@@ -25,52 +25,12 @@ import {
   buildFootnote,
   buildSupplementaryMaterial,
 } from '../../transformer/builders'
-import { createNewBundle, createParentBundle } from '../../transformer/bundles'
-import {
-  loadBundlesMap,
-  loadIssnBundleIndex,
-} from '../../transformer/bundles-data'
-import { ISSN, parseJournalMeta } from './jats-journal-meta-parser'
+import { parseJournalMeta } from './jats-journal-meta-parser'
 
 const warn = debug('manuscripts-transform')
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
-const chooseBundle = async (issns: ISSN[]): Promise<string | undefined> => {
-  const issnBundleIndex = await loadIssnBundleIndex()
-
-  for (const { ISSN } of issns) {
-    const normalizedIssn = ISSN.toUpperCase().replace(/[^0-9X]/g, '')
-
-    if (normalizedIssn in issnBundleIndex) {
-      return issnBundleIndex[normalizedIssn]
-    }
-  }
-}
 
 export const jatsFrontParser = {
-  async loadJournalBundles(issns: ISSN[]) {
-    if (issns.length === 0) {
-      return {
-        manuscript_bundle: undefined,
-        bundleNodes: [],
-      }
-    }
-    const bundleID = await chooseBundle(issns)
-    const bundlesMap = bundleID ? await loadBundlesMap() : undefined
-    const bundle =
-      bundleID && bundlesMap ? createNewBundle(bundleID, bundlesMap) : undefined
-    const parentBundle =
-      bundle && bundleID && bundlesMap
-        ? createParentBundle(bundle, bundlesMap)
-        : undefined
-    // TODO: attach CSL style as attachment?
-    // TODO: choose template using bundle identifier?
-    return {
-      manuscript_bundle: bundle?._id,
-      bundleNodes: [parentBundle, bundle].filter(
-        (v) => v !== undefined
-      ) as Bundle[],
-    }
-  },
   parseCounts(counts: Element | null | undefined) {
     if (counts) {
       const parseCount = (count: string | null | undefined) => {
