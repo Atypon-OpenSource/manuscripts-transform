@@ -922,7 +922,6 @@ export class Decoder {
         (m as Keyword).containedGroup === id
     )
     for (const model of keywordsByGroup) {
-
       if (isKeyword(model)) {
         const keyword = this.parseContents(
           model.name || '',
