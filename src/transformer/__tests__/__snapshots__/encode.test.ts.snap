@@ -607,7 +607,7 @@ Map {
   },
   "MPKeywordsElement:1" => Object {
     "_id": "MPKeywordsElement:1",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement MPParagraphStyle_1\\" id=\\"MPKeywordsElement:1\\"><div id=\\"MPKeywordGroup:test\\" class=\\"keywords\\" spellcheck=\\"false\\" contenteditable=\\"false\\"><h1>KEYWORDS</h1><span class=\\"keyword\\" id=\\"MPKeyword:1\\">test</span></div></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement MPParagraphStyle_1\\" id=\\"MPKeywordsElement:1\\"><div id=\\"MPKeywordGroup:test\\" class=\\"keywords\\" spellcheck=\\"false\\" contenteditable=\\"false\\"><span class=\\"keyword\\" id=\\"MPKeyword:1\\">test</span></div></div>",
     "elementType": "div",
     "objectType": "MPKeywordsElement",
     "paragraphStyle": "MPParagraphStyle:1",
@@ -615,7 +615,6 @@ Map {
   "MPKeywordGroup:test" => Object {
     "_id": "MPKeywordGroup:test",
     "objectType": "MPKeywordGroup",
-    "title": "KEYWORDS",
     "type": "author",
   },
   "MPKeyword:1" => Object {

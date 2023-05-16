@@ -267,7 +267,7 @@ export const createTestModelMapWithKeywords = () => {
     sessionID: 'test',
     paragraphStyle: 'MPParagraphStyle:1',
     elementType: 'div',
-    contents: `<div xmlns="http://www.w3.org/1999/xhtml" class="manuscript-keywords MPElement MPParagraphStyle_1" id="MPKeywordsElement:1"><div id="MPKeywordGroup:test" class="keywords" spellcheck="false" contenteditable="false"><h1>KEYWORDS</h1><span class="keyword" id="MPKeyword:1">test</span></div></div>`,
+    contents: `<div xmlns="http://www.w3.org/1999/xhtml" class="manuscript-keywords MPElement MPParagraphStyle_1" id="MPKeywordsElement:1"><div id="MPKeywordGroup:test" class="keywords" spellcheck="false" contenteditable="false"><span class="keyword" id="MPKeyword:1">test</span></div></div>`,
   }
 
   modelMap.set(keywordsElement._id, keywordsElement)
@@ -298,7 +298,7 @@ export const createTestModelMapWithKeywords = () => {
     sessionID: 'test',
     objectType: 'MPKeywordGroup',
     type: 'author',
-    title: 'KEYWORDS',
+    // title: 'KEYWORDS',
   }
 
   modelMap.set(keywordGroup._id, keywordGroup)
@@ -346,7 +346,7 @@ export const createTestModelMapWithKeywordsAndAuthorQuery = () => {
 
   const keywordsElement: KeywordsElement = {
     contents:
-      '<div xmlns="http://www.w3.org/1999/xhtml" class="manuscript-keywords MPElement" id="MPKeywordsElement:1"><div id="MPKeywordGroup:1" class="keywords" spellcheck="false" contenteditable="false"><h1>KEYWORDS</h1><span class="keyword" id="MPKeyword:1">test</span></div></div>',
+      '<div xmlns="http://www.w3.org/1999/xhtml" class="manuscript-keywords MPElement" id="MPKeywordsElement:1"><div id="MPKeywordGroup:1" class="keywords" spellcheck="false" contenteditable="false"><span class="keyword" id="MPKeyword:1">test</span></div></div>',
     elementType: 'div',
     _id: 'MPKeywordsElement:1',
     createdAt: 0,
@@ -378,7 +378,7 @@ export const createTestModelMapWithKeywordsAndAuthorQuery = () => {
 
   const keywordGroup: KeywordGroup = {
     type: 'author',
-    title: 'KEYWORDS',
+    // title: 'KEYWORDS',
     _id: 'MPKeywordGroup:1',
     createdAt: 0,
     updatedAt: 0,

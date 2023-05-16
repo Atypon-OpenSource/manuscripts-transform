@@ -695,7 +695,7 @@ const nodes: NodeRule[] = [
     tag: 'title',
     node: 'section_title',
     context:
-      'section/|footnotes_section/|bibliography_section/|keywords_section/|keywords_group/',
+      'section/|footnotes_section/|bibliography_section/|keywords_section/',
   },
   {
     tag: 'title',

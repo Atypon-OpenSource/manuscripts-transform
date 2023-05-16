@@ -1017,17 +1017,17 @@ export class Decoder {
       for (const kwdGroupModel of kwdGroupsModels) {
         const keywords = this.getKeywords(kwdGroupModel._id)
         const contents: ManuscriptNode[] = []
-        if (kwdGroupModel.title) {
-          const titleNode = this.parseContents(
-            kwdGroupModel.title,
-            'section_title',
-            this.getComments(kwdGroupModel),
-            {
-              topNode: schema.nodes.section_title.create(),
-            }
-          )
-          contents.push(titleNode)
-        }
+        // if (kwdGroupModel.title) {
+        //   const titleNode = this.parseContents(
+        //     kwdGroupModel.title,
+        //     'section_title',
+        //     this.getComments(kwdGroupModel),
+        //     {
+        //       topNode: schema.nodes.section_title.create(),
+        //     }
+        //   )
+        //   contents.push(titleNode)
+        // }
         contents.push(...keywords)
         const kwdGroupNode = schema.nodes.keywords_group.create(
           {

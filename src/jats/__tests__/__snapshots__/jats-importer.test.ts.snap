@@ -173,14 +173,13 @@ Array [
   },
   Object {
     "_id": "MPKeywordsElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement\\" id=\\"MPKeywordsElement:test\\"><div id=\\"MPKeywordGroup:test\\" class=\\"keywords\\" spellcheck=\\"false\\" contenteditable=\\"false\\"><h1>KEYWORDS:</h1><span class=\\"keyword\\" id=\\"MPKeyword:test\\">suicide attempters</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">schizophrenia</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\"><i>DβH</i></span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">attention</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">polymorphism</span></div></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement\\" id=\\"MPKeywordsElement:test\\"><div id=\\"MPKeywordGroup:test\\" class=\\"keywords\\" spellcheck=\\"false\\" contenteditable=\\"false\\"><span class=\\"keyword\\" id=\\"MPKeyword:test\\">suicide attempters</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">schizophrenia</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\"><i>DβH</i></span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">attention</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">polymorphism</span></div></div>",
     "elementType": "div",
     "objectType": "MPKeywordsElement",
   },
   Object {
     "_id": "MPKeywordGroup:test",
     "objectType": "MPKeywordGroup",
-    "title": "KEYWORDS:",
     "type": "author",
   },
   Object {
@@ -1501,14 +1500,13 @@ Array [
   },
   Object {
     "_id": "MPKeywordsElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement\\" id=\\"MPKeywordsElement:test\\"><div id=\\"MPKeywordGroup:test\\" class=\\"keywords\\" spellcheck=\\"false\\" contenteditable=\\"false\\"><h1>KEYWORDS:</h1><span class=\\"keyword\\" id=\\"MPKeyword:test\\">pembrolizumab</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">nivolumab</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">low-dose</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">relapsed</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">refractory</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">Hodgkin lymphoma</span></div></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement\\" id=\\"MPKeywordsElement:test\\"><div id=\\"MPKeywordGroup:test\\" class=\\"keywords\\" spellcheck=\\"false\\" contenteditable=\\"false\\"><span class=\\"keyword\\" id=\\"MPKeyword:test\\">pembrolizumab</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">nivolumab</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">low-dose</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">relapsed</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">refractory</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">Hodgkin lymphoma</span></div></div>",
     "elementType": "div",
     "objectType": "MPKeywordsElement",
   },
   Object {
     "_id": "MPKeywordGroup:test",
     "objectType": "MPKeywordGroup",
-    "title": "KEYWORDS:",
     "type": "author",
   },
   Object {
@@ -4594,18 +4592,6 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "Keywords:",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "section_title",
-                },
-                Object {
-                  "attrs": Object {
                     "comments": null,
                     "contents": "",
                     "dataTracked": null,
@@ -6524,14 +6510,13 @@ Array [
   },
   Object {
     "_id": "MPKeywordsElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement\\" id=\\"MPKeywordsElement:test\\"><div id=\\"MPKeywordGroup:test\\" class=\\"keywords\\" spellcheck=\\"false\\" contenteditable=\\"false\\"><h1>JEL Classification:</h1><span class=\\"keyword\\" id=\\"MPKeyword:test\\">D80</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">G00</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">G12</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">G14</span></div><div id=\\"MPKeywordGroup:test\\" class=\\"keywords\\" spellcheck=\\"false\\" contenteditable=\\"false\\"><h1>KEYWORDS:</h1><span class=\\"keyword\\" id=\\"MPKeyword:test\\">suicide attempters</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">schizophrenia</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\"><i>DβH</i></span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">attention</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">polymorphism</span></div></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"manuscript-keywords MPElement\\" id=\\"MPKeywordsElement:test\\"><div id=\\"MPKeywordGroup:test\\" class=\\"keywords\\" spellcheck=\\"false\\" contenteditable=\\"false\\"><span class=\\"keyword\\" id=\\"MPKeyword:test\\">D80</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">G00</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">G12</span><span class=\\"keyword\\" id=\\"MPKeyword:test\\">G14</span></div></div>",
     "elementType": "div",
     "objectType": "MPKeywordsElement",
   },
   Object {
     "_id": "MPKeywordGroup:test",
     "objectType": "MPKeywordGroup",
-    "title": "JEL Classification:",
     "type": "author",
   },
   Object {
@@ -6556,42 +6541,6 @@ Array [
     "_id": "MPKeyword:test",
     "containedGroup": "MPKeywordGroup:test",
     "name": "G14",
-    "objectType": "MPKeyword",
-  },
-  Object {
-    "_id": "MPKeywordGroup:test",
-    "objectType": "MPKeywordGroup",
-    "title": "KEYWORDS:",
-    "type": "author",
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "suicide attempters",
-    "objectType": "MPKeyword",
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "schizophrenia",
-    "objectType": "MPKeyword",
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "DβH",
-    "objectType": "MPKeyword",
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "attention",
-    "objectType": "MPKeyword",
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "polymorphism",
     "objectType": "MPKeyword",
   },
   Object {

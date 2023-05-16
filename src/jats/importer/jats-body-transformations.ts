@@ -376,9 +376,8 @@ export const jatsBodyTransformations = {
       title.textContent = 'Keywords'
       section.append(title)
       const kwdGroupsEl = createElement('kwd-group-list')
-      for (const keywordGroup of keywordGroups) {
-        kwdGroupsEl.append(keywordGroup)
-      }
+      // Using the first kwd-group since for the moment we only support single kwd-group
+      kwdGroupsEl.append(keywordGroups[0])
       section.append(kwdGroupsEl)
       body.prepend(section)
     }

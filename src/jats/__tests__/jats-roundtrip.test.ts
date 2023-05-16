@@ -113,7 +113,7 @@ const mediaPathGenerator: MediaPathGenerator = async (element, parentID) => {
 // eslint-disable-next-line jest/no-disabled-tests
 describe('JATS transformer', () => {
   // eslint-disable-next-line jest/no-disabled-tests
-  test.skip('round-trips JATS XML', async () => {
+  test('round-trips JATS XML', async () => {
     const input = await readFixture('jats-import.xml')
     const doc = new DOMParser().parseFromString(input, 'application/xml')
 
