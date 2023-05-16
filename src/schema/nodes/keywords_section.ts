@@ -27,7 +27,7 @@ export interface KeywordsSectionNode extends ManuscriptNode {
 }
 
 export const keywordsSection: NodeSpec = {
-  content: 'section_title_plain (keywords_group | placeholder_element)',
+  content: 'section_title (keywords_element | placeholder_element)',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },

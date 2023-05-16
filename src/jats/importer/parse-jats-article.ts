@@ -104,13 +104,6 @@ export const parseJATSFront = async (front: Element) => {
     ...jatsFrontParser.parseCounts(articleMeta?.querySelector('counts')),
   }
 
-  const keywordGroupNodes = articleMeta?.querySelectorAll('kwd-group')
-  const { keywords, groups: keywordGroups } =
-    jatsFrontParser.parseKeywords(keywordGroupNodes)
-
-  const manuscript_keywordIDs =
-    keywords.length > 0 ? keywords.map((k) => k._id) : undefined
-
   // affiliations
   const { affiliations, affiliationIDs } =
     jatsFrontParser.parseAffiliationNodes([
@@ -155,7 +148,6 @@ export const parseJATSFront = async (front: Element) => {
     ...buildManuscript(),
     ...manuscriptMeta,
     bundle: manuscript_bundle,
-    keywordIDs: manuscript_keywordIDs,
     ...history,
   } as Build<Manuscript> & {
     keywordIDs?: string[]
@@ -165,10 +157,8 @@ export const parseJATSFront = async (front: Element) => {
     models: generateModelIDs([
       manuscript,
       ...bundleNodes,
-      ...keywords,
       ...affiliations,
       ...authors,
-      ...keywordGroups,
       ...footnotes,
       ...correspondingList,
       journal,
@@ -243,6 +233,7 @@ export const parseJATSBody = (
     body,
     createElement
   )
+  jatsBodyTransformations.moveKeywordsToBody(document, body, createElement)
 
   const node = jatsBodyDOMParser.parse(body)
   if (!node.firstChild) {

@@ -630,14 +630,12 @@ const encoders: NodeEncoderMap = {
   }),
   keywords_group: (node): Partial<KeywordGroup> => ({
     type: node.attrs.type,
+    title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
   }),
   keywords_section: (node, parent, path, priority): Partial<Section> => ({
     category: buildSectionCategory(node),
     priority: priority.value++,
-    title: inlineContentsOfNodeType(
-      node,
-      node.type.schema.nodes.section_title_plain
-    ),
+    title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
     path: path.concat([node.attrs.id]),
     elementIDs: childElements(node)
       .map((childNode) => childNode.attrs.id)

@@ -27,7 +27,7 @@ export interface KeywordsGroupNode extends ManuscriptNode {
 }
 
 export const keywordsGroup: NodeSpec = {
-  content: '(keywords_element | placeholder_element)',
+  content: 'section_title? keyword*',
   attrs: {
     id: { default: '' },
     type: { default: '' },

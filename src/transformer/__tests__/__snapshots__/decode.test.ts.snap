@@ -5791,23 +5791,36 @@ Object {
               "type": "text",
             },
           ],
-          "type": "section_title_plain",
+          "type": "section_title",
         },
         Object {
           "attrs": Object {
+            "contents": "",
             "dataTracked": null,
-            "id": "MPKeywordGroup:test",
-            "type": "author",
+            "id": "MPKeywordsElement:1",
+            "paragraphStyle": "MPParagraphStyle:1",
+            "type": "",
           },
           "content": Array [
             Object {
               "attrs": Object {
-                "contents": "",
                 "dataTracked": null,
-                "id": "MPKeywordsElement:1",
-                "paragraphStyle": "",
+                "id": "MPKeywordGroup:test",
+                "type": "author",
               },
               "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "KEYWORDS",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "section_title",
+                },
                 Object {
                   "attrs": Object {
                     "comments": Array [],
@@ -5824,50 +5837,10 @@ Object {
                   "type": "keyword",
                 },
               ],
-              "type": "keywords_element",
+              "type": "keywords_group",
             },
           ],
-          "type": "keywords_group",
-        },
-      ],
-      "type": "keywords_section",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "MPSection:1",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Keywords",
-              "type": "text",
-            },
-          ],
-          "type": "section_title_plain",
-        },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "",
-            "type": "",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "contents": "",
-                "dataTracked": null,
-                "id": "MPKeywordsElement:1",
-                "paragraphStyle": "",
-              },
-              "type": "keywords_element",
-            },
-          ],
-          "type": "keywords_group",
+          "type": "keywords_element",
         },
       ],
       "type": "keywords_section",
@@ -5899,26 +5872,17 @@ Object {
               "type": "text",
             },
           ],
-          "type": "section_title_plain",
+          "type": "section_title",
         },
         Object {
           "attrs": Object {
+            "contents": "",
             "dataTracked": null,
             "id": "",
+            "paragraphStyle": "",
             "type": "",
           },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "contents": "",
-                "dataTracked": null,
-                "id": "MPKeywordsElement:1",
-                "paragraphStyle": "",
-              },
-              "type": "keywords_element",
-            },
-          ],
-          "type": "keywords_group",
+          "type": "keywords_element",
         },
       ],
       "type": "keywords_section",
@@ -5950,23 +5914,36 @@ Object {
               "type": "text",
             },
           ],
-          "type": "section_title_plain",
+          "type": "section_title",
         },
         Object {
           "attrs": Object {
+            "contents": "",
             "dataTracked": null,
-            "id": "MPKeywordGroup:test",
-            "type": "author",
+            "id": "someId",
+            "paragraphStyle": "",
+            "type": "",
           },
           "content": Array [
             Object {
               "attrs": Object {
-                "contents": "",
                 "dataTracked": null,
-                "id": "someId",
-                "paragraphStyle": "",
+                "id": "MPKeywordGroup:1",
+                "type": "author",
               },
               "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "KEYWORDS",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "section_title",
+                },
                 Object {
                   "attrs": Object {
                     "comments": Array [],
@@ -5983,33 +5960,13 @@ Object {
                   "type": "keyword",
                 },
               ],
-              "type": "keywords_element",
+              "type": "keywords_group",
             },
           ],
-          "type": "keywords_group",
+          "type": "keywords_element",
         },
       ],
       "type": "keywords_section",
-    },
-    Object {
-      "attrs": Object {
-        "category": "",
-        "comments": null,
-        "dataTracked": null,
-        "generatedLabel": undefined,
-        "id": "someId",
-        "pageBreakStyle": undefined,
-        "titleSuppressed": false,
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "type": "section_title",
-        },
-      ],
-      "type": "section",
     },
     Object {
       "attrs": Object {
@@ -6024,7 +5981,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": Object {},
-            "target": "MPKeywordGroup:test",
+            "target": "MPKeywordGroup:1",
           },
           "type": "comment",
         },

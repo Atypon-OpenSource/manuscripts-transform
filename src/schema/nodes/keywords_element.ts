@@ -30,11 +30,12 @@ export interface KeywordsElementNode extends ManuscriptNode {
 
 export const keywordsElement: NodeSpec = {
   atom: true,
-  content: 'keyword*',
+  content: 'keywords_group*',
   attrs: {
     id: { default: '' },
     contents: { default: '' },
     paragraphStyle: { default: '' },
+    type: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',

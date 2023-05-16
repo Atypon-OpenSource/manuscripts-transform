@@ -363,4 +363,24 @@ export const jatsBodyTransformations = {
       paragraph?.replaceWith(parent)
     })
   },
+  moveKeywordsToBody(
+    document: Document,
+    body: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const keywordGroups = [...document.querySelectorAll('kwd-group')]
+    if (keywordGroups.length > 0) {
+      const section = createElement('sec')
+      section.setAttribute('sec-type', 'keywords')
+      const title = createElement('title')
+      title.textContent = 'Keywords'
+      section.append(title)
+      const kwdGroupsEl = createElement('kwd-group-list')
+      for (const keywordGroup of keywordGroups) {
+        kwdGroupsEl.append(keywordGroup)
+      }
+      section.append(kwdGroupsEl)
+      body.prepend(section)
+    }
+  },
 }

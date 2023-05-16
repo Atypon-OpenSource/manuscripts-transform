@@ -595,6 +595,23 @@ const nodes: NodeRule[] = [
     },
   },
   {
+    tag: 'sec[sec-type="keywords"]',
+    node: 'keywords_section', // NOTE: higher priority than 'section'
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      return {
+        id: element.getAttribute('id'),
+        category: chooseSectionCategory(element),
+      }
+    },
+  },
+  {
+    tag: 'kwd-group-list',
+    context: 'keywords_section/',
+    node: 'keywords_element',
+  },
+  {
     tag: 'sec',
     node: 'section',
     getAttrs: (node) => {
@@ -605,6 +622,22 @@ const nodes: NodeRule[] = [
         category: chooseSectionCategory(element),
       }
     },
+  },
+  {
+    tag: 'kwd-group',
+    context: 'keywords_element/',
+    node: 'keywords_group',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        type: element.getAttribute('kwd-group-type'),
+      }
+    },
+  },
+  {
+    tag: 'kwd',
+    context: 'keywords_group//',
+    node: 'keyword',
   },
   {
     tag: 'label',
@@ -661,7 +694,8 @@ const nodes: NodeRule[] = [
   {
     tag: 'title',
     node: 'section_title',
-    context: 'section/|footnotes_section/|bibliography_section/',
+    context:
+      'section/|footnotes_section/|bibliography_section/|keywords_section/|keywords_group/',
   },
   {
     tag: 'title',

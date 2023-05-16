@@ -38,8 +38,7 @@ export const keyword: NodeSpec = {
     dataTracked: { default: null },
     comments: { default: null },
   },
-  inline: true,
-  group: 'inline',
+  group: 'block',
   selectable: false,
   parseDOM: [
     {

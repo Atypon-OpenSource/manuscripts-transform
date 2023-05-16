@@ -62,7 +62,6 @@ import {
   FootnotesElementNode,
   KeywordNode,
   KeywordsElementNode,
-  KeywordsGroupNode,
   ListingElementNode,
   ListingNode,
   ManuscriptNode,
@@ -80,6 +79,7 @@ import {
   TOCElementNode,
 } from '../schema'
 import { CommentListNode } from '../schema/nodes/comment_list'
+import { KeywordsGroupNode } from '../schema/nodes/keywords_group'
 import { insertHighlightMarkers } from './highlight-markers'
 import { generateNodeID } from './id'
 import { PlaceholderElement } from './models'
@@ -404,14 +404,14 @@ export class Decoder {
     [ObjectTypes.KeywordsElement]: (data) => {
       const model = data as KeywordsElement
 
-      const keywords = this.getKeywords()
+      const keywordGroups = this.getKeywordGroups()
 
       return schema.nodes.keywords_element.create(
         {
           id: model._id,
           paragraphStyle: model.paragraphStyle,
         },
-        keywords
+        keywordGroups
       ) as KeywordsElementNode
     },
     [ObjectTypes.Keyword]: (data) => {
@@ -610,9 +610,7 @@ export class Decoder {
         .map(this.decode)
         .filter(isManuscriptNode)
 
-      const sectionTitle = isKeywordsSection
-        ? 'section_title_plain'
-        : 'section_title'
+      const sectionTitle = 'section_title'
       const sectionTitleNode: SectionTitleNode = model.title
         ? this.parseContents(model.title, 'h1', this.getComments(model), {
             topNode: schema.nodes[sectionTitle].create(),
@@ -842,21 +840,6 @@ export class Decoder {
       )
     }
 
-    const keywordGroup = this.getKeywordGroup()
-
-    if (keywordGroup) {
-      const keywordsSection = schema.nodes.keywords_section.createAndFill(
-        {
-          id: generateNodeID(schema.nodes.keywords_section),
-        },
-        [
-          schema.nodes.section_title_plain.create({}, schema.text('Keywords')),
-          keywordGroup,
-        ]
-      )
-      rootSectionNodes.unshift(keywordsSection as SectionNode)
-    }
-
     const contents: ManuscriptNode[] = rootSectionNodes
     if (this.comments.size) {
       const comments = schema.nodes.comment_list.createAndFill(
@@ -1019,27 +1002,39 @@ export class Decoder {
     return schema.nodes.figcaption.create({}, [captionTitle, caption])
   }
 
-  private getKeywordGroup() {
-    const kwdGroup: KeywordGroup | undefined = [...this.modelMap.values()].find(
+  private getKeywordGroups() {
+    const kwdGroupNodes: KeywordsGroupNode[] = []
+    const kwdGroupsModels: KeywordGroup[] | undefined = [
+      ...this.modelMap.values(),
+    ].filter(
       (model) => model.objectType === ObjectTypes.KeywordGroup
-    ) as KeywordGroup
-    if (kwdGroup) {
-      const keywords = this.getKeywords()
-      return schema.nodes.keywords_group.create(
-        {
-          id: kwdGroup._id,
-          type: kwdGroup.type,
-        },
-        [
-          schema.nodes.keywords_element.create(
+    ) as KeywordGroup[]
+    if (kwdGroupsModels.length > 0) {
+      for (const kwdGroupModel of kwdGroupsModels) {
+        const keywords = this.getKeywords()
+        const contents: ManuscriptNode[] = []
+        if (kwdGroupModel.title) {
+          const titleNode = this.parseContents(
+            kwdGroupModel.title,
+            'section_title',
+            this.getComments(kwdGroupModel),
             {
-              id: generateNodeID(schema.nodes.keywords_element),
-            },
-            keywords
-          ),
-        ]
-      ) as KeywordsGroupNode
+              topNode: schema.nodes.section_title.create(),
+            }
+          )
+          contents.push(titleNode)
+        }
+        contents.push(...keywords)
+        const kwdGroupNode = schema.nodes.keywords_group.create(
+          {
+            id: kwdGroupModel._id,
+            type: kwdGroupModel.type,
+          },
+          contents
+        ) as KeywordsGroupNode
+        kwdGroupNodes.push(kwdGroupNode)
+      }
     }
-    return undefined
+    return kwdGroupNodes
   }
 }

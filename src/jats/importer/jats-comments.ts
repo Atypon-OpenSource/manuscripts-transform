@@ -103,7 +103,7 @@ const insertToken = (
 const extractCommentsFromKeywords = (
   tokens: string[],
   model: Keyword,
-  authorQueriesMap: Map<string, string>,
+  authorQueriesMap: Map<string, string>
 ): Build<CommentAnnotation>[] => {
   const commentAnnotations: Build<CommentAnnotation>[] = []
   const name = model.name

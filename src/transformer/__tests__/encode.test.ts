@@ -17,7 +17,6 @@
 import {
   CommentAnnotation,
   Keyword,
-  KeywordGroup,
   ObjectTypes,
 } from '@manuscripts/json-schema'
 
@@ -27,6 +26,7 @@ import { ManuscriptModel } from '../models'
 import { createTestDoc } from './__helpers__/doc'
 import {
   createTestModelMapWithHighlights,
+  createTestModelMapWithKeywords,
   createTestModelMapWithKeywordsAndAuthorQuery,
 } from './__helpers__/highlights'
 
@@ -96,8 +96,8 @@ describe('encoder', () => {
     }
   })
 
-  test('encode keywords & authorQuery', async () => {
-    const modelMap = createTestModelMapWithKeywordsAndAuthorQuery()
+  test('encode keywords element', async () => {
+    const modelMap = createTestModelMapWithKeywords()
 
     const decoder = new Decoder(modelMap)
 
@@ -105,30 +105,20 @@ describe('encoder', () => {
 
     const result = encode(doc)
 
+    expect(result).toMatchSnapshot()
+
     const ensureModel = (model: Partial<ManuscriptModel>): ManuscriptModel => {
       model.containerID = 'MPProject:1'
       if (model.objectType !== 'MPKeyword') {
         model.manuscriptID = 'MPManuscript:1'
-      } else {
-        ;(model as Partial<Keyword>).containedGroup = 'MPKeywordGroup:test'
       }
-
-      if (model.objectType === ObjectTypes.CommentAnnotation) {
-        const comment = model as Partial<CommentAnnotation>
-        comment.selector = undefined
-      }
-
-      if (model.objectType === ObjectTypes.KeywordGroup) {
-        ;(model as Partial<KeywordGroup>).title = 'KEYWORDS'
-      }
-
       model.sessionID = 'test'
       model.createdAt = 0
       model.updatedAt = 0
 
       for (const key of Object.keys(model)) {
         const value = model[key as keyof ManuscriptModel]
-        if (value === undefined || value === '' || value === null) {
+        if (value === undefined || value === '') {
           delete model[key as keyof ManuscriptModel]
         }
       }
@@ -136,14 +126,56 @@ describe('encoder', () => {
       return model as ManuscriptModel
     }
 
-    for (const item of modelMap.values()) {
-      const model = result.get(item._id)
-      if (!model) {
-        continue
-      }
-      // @ts-ignore
-      const ensured = ensureModel(model)
-      expect(item).toEqual(ensured)
+    for (const item of result.values()) {
+      const model = ensureModel(item)
+      expect(model).toEqual(modelMap.get(model._id))
     }
   })
+})
+
+test('encode keywords & authorQuery', async () => {
+  const modelMap = createTestModelMapWithKeywordsAndAuthorQuery()
+
+  const decoder = new Decoder(modelMap)
+
+  const doc = decoder.createArticleNode()
+
+  const result = encode(doc)
+
+  const ensureModel = (model: Partial<ManuscriptModel>): ManuscriptModel => {
+    model.containerID = 'MPProject:1'
+    if (model.objectType !== 'MPKeyword') {
+      model.manuscriptID = 'MPManuscript:1'
+    } else {
+      ;(model as Partial<Keyword>).containedGroup = 'MPKeywordGroup:1'
+    }
+
+    if (model.objectType === ObjectTypes.CommentAnnotation) {
+      const comment = model as Partial<CommentAnnotation>
+      comment.selector = undefined
+    }
+
+    model.sessionID = 'test'
+    model.createdAt = 0
+    model.updatedAt = 0
+
+    for (const key of Object.keys(model)) {
+      const value = model[key as keyof ManuscriptModel]
+      if (value === undefined || value === '' || value === null) {
+        delete model[key as keyof ManuscriptModel]
+      }
+    }
+
+    return model as ManuscriptModel
+  }
+
+  for (const item of modelMap.values()) {
+    const model = result.get(item._id)
+    if (!model) {
+      continue
+    }
+    // @ts-ignore
+    const ensured = ensureModel(model)
+    expect(item).toEqual(ensured)
+  }
 })
