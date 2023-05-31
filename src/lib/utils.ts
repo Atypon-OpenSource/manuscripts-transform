@@ -17,6 +17,7 @@
 import { Node as ProsemirrorNode, ResolvedPos } from 'prosemirror-model'
 
 import { ManuscriptEditorState, ManuscriptNode } from '../schema'
+import { isBibliographySectionNode } from '../schema/nodes/bibliography_section'
 import { isGraphicalAbstractSectionNode } from '../schema/nodes/graphical_abstract_section'
 
 export function* iterateChildren(
@@ -53,6 +54,16 @@ export const isInGraphicalAbstractSection = ($pos: ResolvedPos): boolean => {
   for (let i = $pos.depth; i > 0; i--) {
     const node = $pos.node(i)
     if (isGraphicalAbstractSectionNode(node)) {
+      return true
+    }
+  }
+  return false
+}
+
+export const isInBibliographySection = ($pos: ResolvedPos): boolean => {
+  for (let i = $pos.depth; i > 0; i--) {
+    const node = $pos.node(i)
+    if (isBibliographySectionNode(node)) {
       return true
     }
   }
