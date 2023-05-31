@@ -220,7 +220,6 @@ export const parseJATSBody = (
   const orderedFootnotesIDs = createOrderedFootnotesIDs(document)
   jatsBodyTransformations.moveFloatsGroupToBody(document, body, createElement)
   jatsBodyTransformations.ensureSection(body, createElement)
-  jatsBodyTransformations.mapFootnotesToSections(document, body, createElement)
   jatsBodyTransformations.moveSectionsToBody(
     document,
     body,
