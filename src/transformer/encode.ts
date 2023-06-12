@@ -45,6 +45,7 @@ import serializeToXML from 'w3c-xmlserializer'
 
 import { iterateChildren } from '../lib/utils'
 import {
+  hasGroup,
   isHighlightMarkerNode,
   isSectionNode,
   ManuscriptNode,
@@ -253,6 +254,17 @@ const childElements = (node: ManuscriptNode): ManuscriptNode[] => {
   })
 
   return nodes
+}
+const sectionChildElementIds = (node: ManuscriptNode): string[] | undefined => {
+  const nodes: ManuscriptNode[] = []
+
+  node.forEach((childNode) => {
+    if (!hasGroup(childNode.type, 'sections')) {
+      nodes.push(childNode)
+    }
+  })
+
+  return nodes.map((childNode) => childNode.attrs.id).filter((id) => id)
 }
 
 const attributeOfNodeType = (
@@ -673,9 +685,7 @@ const encoders: NodeEncoderMap = {
       inlineContentsOfNodeType(node, node.type.schema.nodes.section_label) ||
       undefined,
     path: path.concat([node.attrs.id]),
-    elementIDs: childElements(node)
-      .map((childNode) => childNode.attrs.id)
-      .filter((id) => id),
+    elementIDs: sectionChildElementIds(node),
     titleSuppressed: node.attrs.titleSuppressed || undefined,
     generatedLabel: node.attrs.generatedLabel || undefined,
     pageBreakStyle: node.attrs.pageBreakStyle || undefined,
