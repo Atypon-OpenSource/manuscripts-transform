@@ -55,7 +55,6 @@ import {
   markProcessingInstructions,
 } from './jats-comments'
 import { jatsFrontParser } from './jats-front-parser'
-import { ISSN } from './jats-journal-meta-parser'
 import { fixBodyPMNode } from './jats-parser-utils'
 import { jatsReferenceParser } from './jats-reference-parser'
 
@@ -80,11 +79,6 @@ export const parseJATSFront = async (front: Element) => {
     ...buildJournal(),
     ...journalMeta,
   } as Journal
-
-  // manuscript bundle (CSL style)
-  const { manuscript_bundle, bundleNodes } =
-    await jatsFrontParser.loadJournalBundles(journal.ISSNs as ISSN[])
-
   const articleMeta = front.querySelector('article-meta')
   const title = articleMeta?.querySelector(
     'title-group > article-title'
@@ -154,7 +148,6 @@ export const parseJATSFront = async (front: Element) => {
   const manuscript = {
     ...buildManuscript(),
     ...manuscriptMeta,
-    bundle: manuscript_bundle,
     keywordIDs: manuscript_keywordIDs,
     ...history,
   } as Build<Manuscript> & {
@@ -164,7 +157,6 @@ export const parseJATSFront = async (front: Element) => {
   return {
     models: generateModelIDs([
       manuscript,
-      ...bundleNodes,
       ...keywords,
       ...affiliations,
       ...authors,
@@ -174,7 +166,6 @@ export const parseJATSFront = async (front: Element) => {
       journal,
       ...supplements,
     ]),
-    bundles: bundleNodes,
   }
 }
 
@@ -229,7 +220,6 @@ export const parseJATSBody = (
   const orderedFootnotesIDs = createOrderedFootnotesIDs(document)
   jatsBodyTransformations.moveFloatsGroupToBody(document, body, createElement)
   jatsBodyTransformations.ensureSection(body, createElement)
-  jatsBodyTransformations.mapFootnotesToSections(document, body, createElement)
   jatsBodyTransformations.moveSectionsToBody(
     document,
     body,
