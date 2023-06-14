@@ -20,6 +20,7 @@ import {
   FigureElement,
   Highlight,
   Keyword,
+  KeywordGroup,
   KeywordsElement,
   Manuscript,
   Model,
@@ -242,6 +243,7 @@ export const createTestModelMapWithKeywords = () => {
   const keyword: Keyword = {
     objectType: ObjectTypes.Keyword,
     _id: 'MPKeyword:1',
+    containedGroup: 'MPKeywordGroup:test',
     createdAt: 0,
     updatedAt: 0,
     containerID: project._id,
@@ -265,7 +267,7 @@ export const createTestModelMapWithKeywords = () => {
     sessionID: 'test',
     paragraphStyle: 'MPParagraphStyle:1',
     elementType: 'div',
-    contents: `<div xmlns="http://www.w3.org/1999/xhtml" class="manuscript-keywords MPElement MPParagraphStyle_1" id="MPKeywordsElement:1"><span class="keyword" id="MPKeyword:1">test</span></div>`,
+    contents: '<div></div>',
   }
 
   modelMap.set(keywordsElement._id, keywordsElement)
@@ -280,12 +282,129 @@ export const createTestModelMapWithKeywords = () => {
     sessionID: 'test',
     priority: 1,
     path: ['MPSection:1'],
-    elementIDs: [keywordsElement._id],
+    elementIDs: ['MPKeywordsElement:1'],
     category: 'MPSectionCategory:keywords',
     title: 'Keywords',
   }
 
   modelMap.set(sectionWithKeywordsElement._id, sectionWithKeywordsElement)
+
+  const keywordGroup: KeywordGroup = {
+    _id: 'MPKeywordGroup:test',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+    sessionID: 'test',
+    objectType: 'MPKeywordGroup',
+    type: 'author',
+    // title: 'KEYWORDS',
+  }
+
+  modelMap.set(keywordGroup._id, keywordGroup)
+  return modelMap
+}
+export const createTestModelMapWithKeywordsAndAuthorQuery = () => {
+  const modelMap = new Map<string, Model>()
+
+  const project: Project = {
+    objectType: ObjectTypes.Project,
+    _id: 'MPProject:1',
+    createdAt: 0,
+    updatedAt: 0,
+    sessionID: 'test',
+    owners: [],
+    writers: [],
+    viewers: [],
+  }
+
+  const manuscript: Manuscript = {
+    objectType: ObjectTypes.Manuscript,
+    _id: 'MPManuscript:1',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: project._id,
+    sessionID: 'test',
+  }
+
+  const keyword: Keyword = {
+    objectType: ObjectTypes.Keyword,
+    _id: 'MPKeyword:1',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: project._id,
+    sessionID: 'test',
+    containedGroup: 'MPKeywordGroup:1',
+    name: 'test',
+  }
+
+  modelMap.set(keyword._id, keyword)
+
+  manuscript.keywordIDs = [keyword._id]
+
+  modelMap.set(manuscript._id, manuscript)
+
+  const keywordsElement: KeywordsElement = {
+    contents: '<div></div>',
+    elementType: 'div',
+    _id: 'MPKeywordsElement:1',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: project._id,
+    sessionID: 'test',
+    manuscriptID: 'MPManuscript:1',
+    objectType: ObjectTypes.KeywordsElement,
+  }
+
+  modelMap.set(keywordsElement._id, keywordsElement)
+
+  const sectionWithKeywordsElement: Section = {
+    category: 'MPSectionCategory:keywords',
+    priority: 1,
+    title: 'Keywords',
+    path: ['MPSection:test'],
+    elementIDs: ['MPKeywordsElement:1'],
+    _id: 'MPSection:test',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: project._id,
+    sessionID: 'test',
+    manuscriptID: 'MPManuscript:1',
+    objectType: ObjectTypes.Section,
+  }
+
+  modelMap.set(sectionWithKeywordsElement._id, sectionWithKeywordsElement)
+
+  const keywordGroup: KeywordGroup = {
+    type: 'author',
+    // title: 'KEYWORDS',
+    _id: 'MPKeywordGroup:1',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: project._id,
+    sessionID: 'test',
+    manuscriptID: 'MPManuscript:1',
+    objectType: ObjectTypes.KeywordGroup,
+  }
+
+  modelMap.set(keywordGroup._id, keywordGroup)
+
+  const comment: CommentAnnotation = {
+    _id: 'MPCommentAnnotation:3AAEE869-7DC9-4392-B8C6-9C5FCA522120',
+    objectType: 'MPCommentAnnotation',
+    target: 'MPKeywordGroup:1',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+    contents: 'KeywordQuery',
+    sessionID: 'test',
+    selector: undefined,
+    contributions: [],
+    resolved: false,
+  }
+
+  modelMap.set(comment._id, comment)
 
   return modelMap
 }

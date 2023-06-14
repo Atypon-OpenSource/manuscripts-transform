@@ -613,9 +613,7 @@ export class JATSExporter {
       articleMeta.appendChild(history)
     }
 
-    if (manuscript.keywordIDs) {
-      this.buildKeywords(articleMeta, manuscript.keywordIDs)
-    }
+    this.buildKeywords(articleMeta)
 
     let countingElements = []
     if (manuscript.genericCounts) {
@@ -915,6 +913,7 @@ export class JATSExporter {
       bibliography_element: () => '',
       bibliography_item: () => '',
       comment_list: () => '',
+      keywords_group: () => '',
       bibliography_section: (node) => [
         'ref-list',
         { id: normalizeID(node.attrs.id) },
@@ -1847,10 +1846,10 @@ export class JATSExporter {
     // }
   }
 
-  private buildKeywords(articleMeta: Node, keywordIDs: string[]) {
-    const keywords = keywordIDs
-      .map((id) => this.modelMap.get(id) as Keyword | undefined)
-      .filter((model) => model && model.name) as Keyword[]
+  private buildKeywords(articleMeta: Node) {
+    const keywords = [...this.modelMap.values()].filter(
+      (model) => model.objectType === ObjectTypes.Keyword
+    ) as Keyword[]
 
     const keywordGroups = new Map<string, Array<Keyword>>()
 
@@ -1889,6 +1888,7 @@ export class JATSExporter {
         kwd.textContent = keyword.name
         kwdGroup.appendChild(kwd)
       }
+      articleMeta.appendChild(kwdGroup)
     }
   }
 

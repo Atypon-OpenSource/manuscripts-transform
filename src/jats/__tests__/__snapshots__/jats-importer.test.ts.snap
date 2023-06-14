@@ -14,13 +14,6 @@ Array [
         "countType": "box",
       },
     ],
-    "keywordIDs": Array [
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-    ],
     "objectType": "MPManuscript",
     "receiveDate": 1576195200,
     "referencesCount": 2,
@@ -28,41 +21,6 @@ Array [
     "tableCount": 0,
     "title": "LW4 Demo Doc basic – change title add date here",
     "wordCount": 2916,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "suicide attempters",
-    "objectType": "MPKeyword",
-    "priority": 1,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "schizophrenia",
-    "objectType": "MPKeyword",
-    "priority": 2,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "DβH",
-    "objectType": "MPKeyword",
-    "priority": 3,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "attention",
-    "objectType": "MPKeyword",
-    "priority": 4,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "polymorphism",
-    "objectType": "MPKeyword",
-    "priority": 5,
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -159,12 +117,6 @@ Array [
     "role": "author",
   },
   Object {
-    "_id": "MPKeywordGroup:test",
-    "objectType": "MPKeywordGroup",
-    "title": "KEYWORDS: ",
-    "type": "author",
-  },
-  Object {
     "_id": "MPCorresponding:test",
     "contents": "To whom correspondence should be addressed: Li Hui, PhD, Research Center of Biological Psychiatry, The Affiliated Guangji Hospital of Soochow University, No. 11 Guangqian Road, Suzhou 215137, Jiangsu Province, China, Tel: +86 51265794237; Fax: +86 51265794237, Email: huili004100@126.com.",
     "label": "*",
@@ -208,13 +160,67 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
+    "category": "MPSectionCategory:keywords",
+    "elementIDs": Array [
+      "MPKeywordsElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 1,
+    "title": "Keywords",
+  },
+  Object {
+    "_id": "MPKeywordsElement:test",
+    "contents": "<div></div>",
+    "elementType": "div",
+    "objectType": "MPKeywordsElement",
+  },
+  Object {
+    "_id": "MPKeywordGroup:test",
+    "objectType": "MPKeywordGroup",
+    "type": "author",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "suicide attempters",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "schizophrenia",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "DβH",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "attention",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "polymorphism",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPSection:test",
     "category": "MPSectionCategory:abstracts",
     "elementIDs": Array [],
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 1,
+    "priority": 2,
     "title": "",
   },
   Object {
@@ -232,7 +238,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 2,
+    "priority": 3,
     "title": "Abstract",
   },
   Object {
@@ -278,7 +284,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 3,
+    "priority": 4,
     "title": "",
   },
   Object {
@@ -295,7 +301,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 4,
+    "priority": 5,
     "title": "Introduction",
   },
   Object {
@@ -335,7 +341,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 5,
+    "priority": 6,
     "title": "Methods",
   },
   Object {
@@ -350,7 +356,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 6,
+    "priority": 7,
     "title": "Subjects",
   },
   Object {
@@ -380,7 +386,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 7,
+    "priority": 8,
     "title": "Clinical and neuropsychological assessment",
   },
   Object {
@@ -415,7 +421,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 8,
+    "priority": 9,
     "title": "Genotyping",
   },
   Object {
@@ -438,7 +444,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 9,
+    "priority": 10,
     "title": "Statistical analysis",
   },
   Object {
@@ -476,7 +482,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 11,
     "title": "Results",
   },
   Object {
@@ -522,7 +528,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 12,
     "title": "Discussion",
   },
   Object {
@@ -571,7 +577,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 13,
     "title": "Conclusions",
   },
   Object {
@@ -589,7 +595,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 14,
     "title": "",
   },
   Object {
@@ -603,7 +609,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 15,
     "title": "Conflict of Interest",
   },
   Object {
@@ -624,7 +630,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 15,
+    "priority": 16,
     "title": "Sources of Funding",
   },
   Object {
@@ -645,7 +651,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 16,
+    "priority": 17,
     "title": "Acknowledgments",
   },
   Object {
@@ -666,7 +672,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 17,
+    "priority": 18,
     "title": "References",
   },
   Object {
@@ -1386,14 +1392,6 @@ Array [
         "countType": "box",
       },
     ],
-    "keywordIDs": Array [
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-    ],
     "objectType": "MPManuscript",
     "receiveDate": 1588550400,
     "referencesCount": 21,
@@ -1402,48 +1400,6 @@ Array [
     "tableCount": 3,
     "title": "Low-dose pembrolizumab and nivolumab were efficacious and safe in relapsed and refractory classical Hodgkin lymphoma: experience in a resource-constrained setting",
     "wordCount": 6069,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "pembrolizumab",
-    "objectType": "MPKeyword",
-    "priority": 1,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "nivolumab",
-    "objectType": "MPKeyword",
-    "priority": 2,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "low-dose",
-    "objectType": "MPKeyword",
-    "priority": 3,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "relapsed",
-    "objectType": "MPKeyword",
-    "priority": 4,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "refractory",
-    "objectType": "MPKeyword",
-    "priority": 5,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "Hodgkin lymphoma",
-    "objectType": "MPKeyword",
-    "priority": 6,
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -1570,12 +1526,6 @@ Array [
     "role": "author",
   },
   Object {
-    "_id": "MPKeywordGroup:test",
-    "objectType": "MPKeywordGroup",
-    "title": "KEYWORDS: ",
-    "type": "author",
-  },
-  Object {
     "_id": "MPFootnote:test",
     "contents": "
           <p>Manuscript information</p>
@@ -1629,13 +1579,73 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
+    "category": "MPSectionCategory:keywords",
+    "elementIDs": Array [
+      "MPKeywordsElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 1,
+    "title": "Keywords",
+  },
+  Object {
+    "_id": "MPKeywordsElement:test",
+    "contents": "<div></div>",
+    "elementType": "div",
+    "objectType": "MPKeywordsElement",
+  },
+  Object {
+    "_id": "MPKeywordGroup:test",
+    "objectType": "MPKeywordGroup",
+    "type": "author",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "pembrolizumab",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "nivolumab",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "low-dose",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "relapsed",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "refractory",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "Hodgkin lymphoma",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPSection:test",
     "category": "MPSectionCategory:abstracts",
     "elementIDs": Array [],
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 1,
+    "priority": 2,
     "title": "",
   },
   Object {
@@ -1649,7 +1659,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 2,
+    "priority": 3,
     "title": "Abstract",
   },
   Object {
@@ -1667,7 +1677,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 3,
+    "priority": 4,
     "title": "",
   },
   Object {
@@ -1685,7 +1695,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 4,
+    "priority": 5,
     "title": "INTRODUCTION",
   },
   Object {
@@ -1756,7 +1766,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 5,
+    "priority": 6,
     "title": "MATERIALS AND METHODS",
   },
   Object {
@@ -1770,7 +1780,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 6,
+    "priority": 7,
     "title": "Patients",
   },
   Object {
@@ -1791,7 +1801,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 7,
+    "priority": 8,
     "title": "Treatment and monitoring",
   },
   Object {
@@ -1814,7 +1824,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 8,
+    "priority": 9,
     "title": "Response assessment",
   },
   Object {
@@ -1841,7 +1851,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 9,
+    "priority": 10,
     "title": "Survivals",
   },
   Object {
@@ -1860,7 +1870,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 11,
     "title": "RESULTS",
   },
   Object {
@@ -1877,7 +1887,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 12,
     "title": "Patients",
   },
   Object {
@@ -2031,7 +2041,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 13,
     "title": "Pembrolizumab cohort",
   },
   Object {
@@ -2053,7 +2063,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 14,
     "title": "Response to pembrolizumab",
   },
   Object {
@@ -2154,7 +2164,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 15,
     "title": "Outcome of mCR patients",
   },
   Object {
@@ -2200,7 +2210,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 15,
+    "priority": 16,
     "title": "Outcome of PR patients",
   },
   Object {
@@ -2221,7 +2231,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 16,
+    "priority": 17,
     "title": "Re-treatment of relapses with pembrolizumab",
   },
   Object {
@@ -2244,7 +2254,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 17,
+    "priority": 18,
     "title": "Adverse events of pembrolizumab treatment",
   },
   Object {
@@ -2265,7 +2275,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 18,
+    "priority": 19,
     "title": "Nivolumab cohort",
   },
   Object {
@@ -2286,7 +2296,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 19,
+    "priority": 20,
     "title": "Response to nivolumab",
   },
   Object {
@@ -2309,7 +2319,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 20,
+    "priority": 21,
     "title": "Outcome of CR patients",
   },
   Object {
@@ -2330,7 +2340,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 21,
+    "priority": 22,
     "title": "Outcome of PR/IR patients",
   },
   Object {
@@ -2351,7 +2361,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 22,
+    "priority": 23,
     "title": "Re-treatment with nivolumab",
   },
   Object {
@@ -2372,7 +2382,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 23,
+    "priority": 24,
     "title": "Adverse events of nivolumab treatment",
   },
   Object {
@@ -2393,7 +2403,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 24,
+    "priority": 25,
     "title": "Molecular responses",
   },
   Object {
@@ -2415,7 +2425,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 25,
+    "priority": 26,
     "title": "Survivals",
   },
   Object {
@@ -2467,7 +2477,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 26,
+    "priority": 27,
     "title": "DISCUSSION",
   },
   Object {
@@ -2577,7 +2587,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 27,
+    "priority": 28,
     "title": "",
   },
   Object {
@@ -2597,7 +2607,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 28,
+    "priority": 29,
     "title": "AUTHOR CONTRIBUTIONS",
   },
   Object {
@@ -2660,7 +2670,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 29,
+    "priority": 30,
     "title": "Acknowledgment and conflicts of interests",
   },
   Object {
@@ -2681,7 +2691,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 30,
+    "priority": 31,
     "title": "Footnotes",
   },
   Object {
@@ -2715,7 +2725,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 31,
+    "priority": 32,
     "title": "REFERENCES",
   },
   Object {
@@ -4702,6 +4712,102 @@ Array [
 exports[`JATS importer parses full JATS body to a ProseMirror doc 1`] = `
 Object {
   "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "Keywords",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "contents": "",
+            "dataTracked": null,
+            "paragraphStyle": "",
+            "type": "",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "type": "author",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "comments": null,
+                    "contents": "",
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Paragraphs",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "keyword",
+                },
+                Object {
+                  "attrs": Object {
+                    "comments": null,
+                    "contents": "",
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "exporting",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "keyword",
+                },
+                Object {
+                  "attrs": Object {
+                    "comments": null,
+                    "contents": "",
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "testing",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "keyword",
+                },
+                Object {
+                  "attrs": Object {
+                    "comments": null,
+                    "contents": "",
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "NLM DTD",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "keyword",
+                },
+              ],
+              "type": "keywords_group",
+            },
+          ],
+          "type": "keywords_element",
+        },
+      ],
+      "type": "keywords_section",
+    },
     Object {
       "attrs": Object {
         "category": "MPSectionCategory:abstracts",
@@ -6750,85 +6856,11 @@ Array [
     "_id": "MPManuscript:test",
     "acceptanceDate": 899683200,
     "articleType": "research-article",
-    "keywordIDs": Array [
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-      "MPKeyword:test",
-    ],
     "objectType": "MPManuscript",
     "receiveDate": 886636800,
     "revisionReceiveDate": 898646400,
     "revisionRequestDate": 892512000,
     "title": "WHEN ELECTIONS FAIL TO RESOLVE UNCERTAINTY: THE CASE OF THE 2016 U.S. <b>PRESIDENTIAL ELECTION</b>",
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "D80",
-    "objectType": "MPKeyword",
-    "priority": 1,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "G00",
-    "objectType": "MPKeyword",
-    "priority": 2,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "G12",
-    "objectType": "MPKeyword",
-    "priority": 3,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "G14",
-    "objectType": "MPKeyword",
-    "priority": 4,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "suicide attempters",
-    "objectType": "MPKeyword",
-    "priority": 5,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "schizophrenia",
-    "objectType": "MPKeyword",
-    "priority": 6,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "DβH",
-    "objectType": "MPKeyword",
-    "priority": 7,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "attention",
-    "objectType": "MPKeyword",
-    "priority": 8,
-  },
-  Object {
-    "_id": "MPKeyword:test",
-    "containedGroup": "MPKeywordGroup:test",
-    "name": "polymorphism",
-    "objectType": "MPKeyword",
-    "priority": 9,
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -6873,18 +6905,6 @@ Array [
     "role": "author",
   },
   Object {
-    "_id": "MPKeywordGroup:test",
-    "objectType": "MPKeywordGroup",
-    "title": "JEL Classification: ",
-    "type": "author",
-  },
-  Object {
-    "_id": "MPKeywordGroup:test",
-    "objectType": "MPKeywordGroup",
-    "title": "KEYWORDS: ",
-    "type": "author",
-  },
-  Object {
     "ISSNs": Array [
       Object {
         "ISSN": "1878-108X",
@@ -6913,13 +6933,61 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
+    "category": "MPSectionCategory:keywords",
+    "elementIDs": Array [
+      "MPKeywordsElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 1,
+    "title": "Keywords",
+  },
+  Object {
+    "_id": "MPKeywordsElement:test",
+    "contents": "<div></div>",
+    "elementType": "div",
+    "objectType": "MPKeywordsElement",
+  },
+  Object {
+    "_id": "MPKeywordGroup:test",
+    "objectType": "MPKeywordGroup",
+    "type": "author",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "D80",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "G00",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "G12",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPKeyword:test",
+    "containedGroup": "MPKeywordGroup:test",
+    "name": "G14",
+    "objectType": "MPKeyword",
+  },
+  Object {
+    "_id": "MPSection:test",
     "category": "MPSectionCategory:abstracts",
     "elementIDs": Array [],
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 1,
+    "priority": 2,
     "title": "",
   },
   Object {
@@ -6933,7 +7001,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 2,
+    "priority": 3,
     "title": "Abstract",
   },
   Object {
@@ -6951,7 +7019,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 3,
+    "priority": 4,
     "title": "",
   },
   Object {
@@ -6976,7 +7044,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 4,
+    "priority": 5,
     "title": "Introduction",
   },
   Object {
@@ -7086,7 +7154,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 5,
+    "priority": 6,
     "title": "Measures of Liquidity and Data Description",
   },
   Object {
@@ -7109,7 +7177,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 6,
+    "priority": 7,
     "title": "Measuring Liquidity",
   },
   Object {
@@ -7395,7 +7463,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 7,
+    "priority": 8,
     "title": "Data Description",
   },
   Object {
@@ -7519,7 +7587,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 8,
+    "priority": 9,
     "title": "Empirical Methodology",
   },
   Object {
@@ -7675,7 +7743,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 9,
+    "priority": 10,
     "title": "Empirical Results",
   },
   Object {
@@ -7698,7 +7766,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 11,
     "title": "Election Uncertainty and Market Liquidity",
   },
   Object {
@@ -8120,7 +8188,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 12,
     "title": "Election Uncertainty and Market Liquidity—Stock Characteristics",
   },
   Object {
@@ -8330,7 +8398,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 13,
     "title": "Election Uncertainty and Market Liquidity—Politically Sensitive Industries",
   },
   Object {
@@ -8443,7 +8511,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 14,
     "title": "Robustness",
   },
   Object {
@@ -8556,7 +8624,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 15,
     "title": "Conclusion",
   },
   Object {
@@ -8581,7 +8649,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 15,
+    "priority": 16,
     "title": "",
   },
   Object {
@@ -8595,7 +8663,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 16,
+    "priority": 17,
     "title": "Footnotes",
   },
   Object {
@@ -8882,7 +8950,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 17,
+    "priority": 18,
     "title": "Table A1",
   },
   Object {
@@ -8943,7 +9011,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 18,
+    "priority": 19,
     "title": "References",
   },
   Object {
