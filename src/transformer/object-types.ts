@@ -17,6 +17,7 @@
 import {
   CommentAnnotation,
   Figure,
+  Keyword,
   Manuscript,
   manuscriptIDTypes,
   Model,
@@ -75,3 +76,5 @@ export const isUserProfile = hasObjectType<UserProfileWithAvatar>(
 export const isCommentAnnotation = hasObjectType<CommentAnnotation>(
   ObjectTypes.CommentAnnotation
 )
+
+export const isKeyword = hasObjectType<Keyword>(ObjectTypes.Keyword)

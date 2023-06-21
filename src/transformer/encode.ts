@@ -26,6 +26,7 @@ import {
   FootnotesElement,
   InlineMathFragment,
   Keyword,
+  KeywordGroup,
   KeywordsElement,
   ListElement,
   Listing,
@@ -44,6 +45,7 @@ import serializeToXML from 'w3c-xmlserializer'
 
 import { iterateChildren } from '../lib/utils'
 import {
+  hasGroup,
   isHighlightMarkerNode,
   isSectionNode,
   ManuscriptNode,
@@ -252,6 +254,17 @@ const childElements = (node: ManuscriptNode): ManuscriptNode[] => {
   })
 
   return nodes
+}
+const sectionChildElementIds = (node: ManuscriptNode): string[] | undefined => {
+  const nodes: ManuscriptNode[] = []
+
+  node.forEach((childNode) => {
+    if (!hasGroup(childNode.type, 'sections')) {
+      nodes.push(childNode)
+    }
+  })
+
+  return nodes.map((childNode) => childNode.attrs.id).filter((id) => id)
 }
 
 const attributeOfNodeType = (
@@ -619,21 +632,22 @@ const encoders: NodeEncoderMap = {
     SVGGlyphs: svgDefs(node.attrs.SVGRepresentation),
   }),
   keyword: (node, parent): Partial<Keyword> => ({
-    containerID: parent.attrs.id,
+    containedGroup: parent.attrs.id,
     name: keywordContents(node),
   }),
   keywords_element: (node): Partial<KeywordsElement> => ({
-    contents: elementContents(node),
+    contents: '<div></div>',
     elementType: 'div',
     paragraphStyle: node.attrs.paragraphStyle || undefined,
+  }),
+  keywords_group: (node): Partial<KeywordGroup> => ({
+    type: node.attrs.type,
+    // title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
   }),
   keywords_section: (node, parent, path, priority): Partial<Section> => ({
     category: buildSectionCategory(node),
     priority: priority.value++,
-    title: inlineContentsOfNodeType(
-      node,
-      node.type.schema.nodes.section_title_plain
-    ),
+    title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
     path: path.concat([node.attrs.id]),
     elementIDs: childElements(node)
       .map((childNode) => childNode.attrs.id)
@@ -671,9 +685,7 @@ const encoders: NodeEncoderMap = {
       inlineContentsOfNodeType(node, node.type.schema.nodes.section_label) ||
       undefined,
     path: path.concat([node.attrs.id]),
-    elementIDs: childElements(node)
-      .map((childNode) => childNode.attrs.id)
-      .filter((id) => id),
+    elementIDs: sectionChildElementIds(node),
     titleSuppressed: node.attrs.titleSuppressed || undefined,
     generatedLabel: node.attrs.generatedLabel || undefined,
     pageBreakStyle: node.attrs.pageBreakStyle || undefined,

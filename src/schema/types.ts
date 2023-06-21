@@ -76,6 +76,7 @@ export type Nodes =
   | 'inline_footnote'
   | 'keyword'
   | 'keywords_element'
+  | 'keywords_group'
   | 'keywords_section'
   | 'link'
   | 'list_item'
