@@ -1899,6 +1899,12 @@ const x = 'y'",
       ],
       "type": "bibliography_section",
     },
+    Object {
+      "attrs": Object {
+        "id": "MPMetaSection:C0C5B8F6-EEA9-461F-A50B-392EFD284D1E",
+      },
+      "type": "comment_list",
+    },
   ],
   "type": "manuscript",
 }
@@ -3532,6 +3538,12 @@ const x = 'y'",
         },
       ],
       "type": "bibliography_section",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPMetaSection:E71D3177-39F9-4DC3-9CEF-469A268E2D97",
+      },
+      "type": "comment_list",
     },
   ],
   "type": "manuscript",
@@ -5437,6 +5449,12 @@ const x = 'y'",
       ],
       "type": "bibliography_section",
     },
+    Object {
+      "attrs": Object {
+        "id": "MPMetaSection:FB909A67-8956-43DD-A440-769E8784B4DD",
+      },
+      "type": "comment_list",
+    },
   ],
   "type": "manuscript",
 }
@@ -5536,6 +5554,12 @@ Object {
         },
       ],
       "type": "section",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPMetaSection:D9BFAC38-F778-4342-9256-6213F7EF8845",
+      },
+      "type": "comment_list",
     },
   ],
   "type": "manuscript",
@@ -5822,6 +5846,12 @@ Object {
       ],
       "type": "keywords_section",
     },
+    Object {
+      "attrs": Object {
+        "id": "MPMetaSection:4519DB1C-0A9B-463F-ADCB-A58258ADF245",
+      },
+      "type": "comment_list",
+    },
   ],
   "type": "manuscript",
 }
@@ -5862,6 +5892,12 @@ Object {
         },
       ],
       "type": "keywords_section",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPMetaSection:E2205E8D-EFE3-4F85-BAB8-48CB26DB034A",
+      },
+      "type": "comment_list",
     },
   ],
   "type": "manuscript",

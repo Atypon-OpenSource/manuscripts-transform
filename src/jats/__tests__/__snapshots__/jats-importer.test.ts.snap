@@ -6237,6 +6237,9 @@ Object {
       ],
       "type": "section",
     },
+    Object {
+      "type": "comment_list",
+    },
   ],
   "type": "manuscript",
 }
@@ -12063,6 +12066,9 @@ Object {
         },
       ],
       "type": "section",
+    },
+    Object {
+      "type": "comment_list",
     },
   ],
   "type": "manuscript",

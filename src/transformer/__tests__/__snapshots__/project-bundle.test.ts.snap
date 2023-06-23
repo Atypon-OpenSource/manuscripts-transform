@@ -711,6 +711,12 @@ Object {
         ],
         "type": "section",
       },
+      Object {
+        "attrs": Object {
+          "id": "MPMetaSection:7B7C8DB3-B8B2-46D2-8B07-1B69CFF734DE",
+        },
+        "type": "comment_list",
+      },
     ],
     "type": "manuscript",
   },
@@ -1911,6 +1917,12 @@ Object {
           },
         ],
         "type": "section",
+      },
+      Object {
+        "attrs": Object {
+          "id": "MPMetaSection:CF8AB40F-E31B-4B58-8666-3B1EB8CBB6F0",
+        },
+        "type": "comment_list",
       },
     ],
     "type": "manuscript",
