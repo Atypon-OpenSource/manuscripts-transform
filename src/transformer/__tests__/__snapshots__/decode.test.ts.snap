@@ -5815,7 +5815,7 @@ Object {
               "type": "text",
             },
           ],
-          "type": "section_title_plain",
+          "type": "section_title",
         },
         Object {
           "attrs": Object {
@@ -5823,22 +5823,33 @@ Object {
             "dataTracked": null,
             "id": "MPKeywordsElement:1",
             "paragraphStyle": "MPParagraphStyle:1",
+            "type": "",
           },
           "content": Array [
             Object {
               "attrs": Object {
-                "comments": Array [],
-                "contents": "test",
                 "dataTracked": null,
-                "id": "MPKeyword:1",
+                "id": "MPKeywordGroup:test",
+                "type": "author",
               },
               "content": Array [
                 Object {
-                  "text": "test",
-                  "type": "text",
+                  "attrs": Object {
+                    "comments": null,
+                    "contents": "test",
+                    "dataTracked": null,
+                    "id": "MPKeyword:1",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "test",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "keyword",
                 },
               ],
-              "type": "keyword",
+              "type": "keywords_group",
             },
           ],
           "type": "keywords_element",
@@ -5879,7 +5890,7 @@ Object {
               "type": "text",
             },
           ],
-          "type": "section_title_plain",
+          "type": "section_title",
         },
         Object {
           "attrs": Object {
@@ -5887,6 +5898,7 @@ Object {
             "dataTracked": null,
             "id": "",
             "paragraphStyle": "",
+            "type": "",
           },
           "type": "keywords_element",
         },
@@ -5897,6 +5909,95 @@ Object {
       "attrs": Object {
         "id": "MPMetaSection:E2205E8D-EFE3-4F85-BAB8-48CB26DB034A",
       },
+      "type": "comment_list",
+    },
+  ],
+  "type": "manuscript",
+}
+`;
+
+exports[`decoder decode keywords with authorQuery 1`] = `
+Object {
+  "attrs": Object {
+    "id": "MPManuscript:1",
+  },
+  "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "someId",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "Keywords",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "contents": "",
+            "dataTracked": null,
+            "id": "someId",
+            "paragraphStyle": "",
+            "type": "",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPKeywordGroup:1",
+                "type": "author",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "comments": null,
+                    "contents": "test",
+                    "dataTracked": null,
+                    "id": "MPKeyword:1",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "test",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "keyword",
+                },
+              ],
+              "type": "keywords_group",
+            },
+          ],
+          "type": "keywords_element",
+        },
+      ],
+      "type": "keywords_section",
+    },
+    Object {
+      "attrs": Object {
+        "id": "someId",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "contents": "KeywordQuery",
+            "contributions": Array [],
+            "id": "MPCommentAnnotation:3AAEE869-7DC9-4392-B8C6-9C5FCA522120",
+            "originalText": "",
+            "resolved": false,
+            "selector": Object {},
+            "target": "MPKeywordGroup:1",
+          },
+          "type": "comment",
+        },
+      ],
       "type": "comment_list",
     },
   ],

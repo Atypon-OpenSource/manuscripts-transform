@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-import { Journal, Keyword, KeywordGroup } from '@manuscripts/json-schema'
+import { Journal } from '@manuscripts/json-schema'
 import debug from 'debug'
 
 import {
-  Build,
   buildAffiliation,
   buildBibliographicName,
   buildContributor,
   buildCorresp,
   buildFootnote,
-  buildKeyword,
-  buildKeywordGroup,
   buildSupplementaryMaterial,
 } from '../../transformer/builders'
 import { parseJournalMeta } from './jats-journal-meta-parser'
@@ -86,39 +83,6 @@ export const jatsFrontParser = {
       }
     }
     return parseJournalMeta(journalMeta)
-  },
-  parseKeywords(keywordGroupNodes?: NodeListOf<Element> | null) {
-    if (!keywordGroupNodes) {
-      return { groups: [], keywords: [] }
-    }
-
-    let keywordPriority = 1
-    const keywordGroups: {
-      groups: Build<KeywordGroup>[]
-      keywords: Build<Keyword>[]
-    } = { groups: [], keywords: [] }
-
-    for (const keywordGroupNode of keywordGroupNodes) {
-      const manuscriptKeywordGroup = buildKeywordGroup({
-        title:
-          keywordGroupNode.querySelector('title')?.textContent || undefined,
-        label:
-          keywordGroupNode.querySelector('label')?.textContent || undefined,
-        type: keywordGroupNode.getAttribute('kwd-group-type') || undefined,
-      })
-      keywordGroups.groups.push(manuscriptKeywordGroup)
-
-      for (const keywordNode of keywordGroupNode.querySelectorAll('kwd')) {
-        if (keywordNode.textContent) {
-          const keyword = buildKeyword(keywordNode.textContent)
-          keyword.priority = keywordPriority++
-          keyword.containedGroup = manuscriptKeywordGroup._id
-          keywordGroups.keywords.push(keyword)
-        }
-      }
-    }
-
-    return keywordGroups
   },
   parseDates(historyNode: Element | null) {
     if (!historyNode) {

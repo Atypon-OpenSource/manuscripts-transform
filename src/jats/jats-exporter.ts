@@ -267,12 +267,12 @@ export class JATSExporter {
 
       const body = this.buildBody(fragment)
       article.appendChild(body)
-
       const back = this.buildBack(body)
       article.appendChild(back)
-
+      this.unwrapBody(body)
       this.moveAbstracts(front, body)
       this.moveFloatsGroup(body, article)
+      this.removeBackContainer(body)
     }
 
     await this.rewriteIDs(idGenerator)
@@ -613,9 +613,7 @@ export class JATSExporter {
       articleMeta.appendChild(history)
     }
 
-    if (manuscript.keywordIDs) {
-      this.buildKeywords(articleMeta, manuscript.keywordIDs)
-    }
+    this.buildKeywords(articleMeta)
 
     let countingElements = []
     if (manuscript.genericCounts) {
@@ -733,7 +731,6 @@ export class JATSExporter {
 
     // bibliography element
     let refList = this.document.querySelector('ref-list')
-
     if (!refList) {
       warn('No bibliography element, creating a ref-list anyway')
       refList = this.document.createElement('ref-list')
@@ -916,6 +913,7 @@ export class JATSExporter {
       bibliography_element: () => '',
       bibliography_item: () => '',
       comment_list: () => '',
+      keywords_group: () => '',
       bibliography_section: (node) => [
         'ref-list',
         { id: normalizeID(node.attrs.id) },
@@ -1848,10 +1846,10 @@ export class JATSExporter {
     // }
   }
 
-  private buildKeywords(articleMeta: Node, keywordIDs: string[]) {
-    const keywords = keywordIDs
-      .map((id) => this.modelMap.get(id) as Keyword | undefined)
-      .filter((model) => model && model.name) as Keyword[]
+  private buildKeywords(articleMeta: Node) {
+    const keywords = [...this.modelMap.values()].filter(
+      (model) => model.objectType === ObjectTypes.Keyword
+    ) as Keyword[]
 
     const keywordGroups = new Map<string, Array<Keyword>>()
 
@@ -1890,6 +1888,7 @@ export class JATSExporter {
         kwd.textContent = keyword.name
         kwdGroup.appendChild(kwd)
       }
+      articleMeta.appendChild(kwdGroup)
     }
   }
 
@@ -2025,30 +2024,56 @@ export class JATSExporter {
       table.insertBefore(tfoot, tbody as Element)
     }
   }
-
-  private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
-    const sections = body.querySelectorAll(':scope > sec')
-
-    const abstractSections = Array.from(sections).filter((section) => {
-      const sectionType = section.getAttribute('sec-type')
-
-      if (
-        sectionType === 'abstract' ||
-        sectionType === 'abstract-teaser' ||
-        sectionType === 'abstract-graphical'
-      ) {
-        return true
-      }
-
-      const sectionTitle = section.querySelector(':scope > title')
-
-      if (!sectionTitle) {
-        return false
-      }
-
-      return sectionTitle.textContent === 'Abstract'
+  private unwrapBody = (body: HTMLElement) => {
+    const container = body.querySelector(':scope > sec[sec-type="body"]')
+    if (!container) {
+      return
+    }
+    const sections = container.querySelectorAll(':scope > sec')
+    sections.forEach((section) => {
+      body.appendChild(section.cloneNode(true))
     })
+    body.removeChild(container)
+  }
+  private removeBackContainer = (body: HTMLElement) => {
+    const container = body.querySelector(':scope > sec[sec-type="backmatter"]')
+    if (!container) {
+      return
+    }
+    const isContainerEmpty = container.children.length === 0
+    if (!isContainerEmpty) {
+      warn('Backmatter section is not empty.')
+    }
+    body.removeChild(container)
+  }
+  private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
+    const container = body.querySelector(':scope > sec[sec-type="abstracts"]')
+    let abstractSections
+    if (container) {
+      abstractSections = Array.from(container.querySelectorAll(':scope > sec'))
+    } else {
+      abstractSections = Array.from(
+        body.querySelectorAll(':scope > sec')
+      ).filter((section) => {
+        const sectionType = section.getAttribute('sec-type')
 
+        if (
+          sectionType === 'abstract' ||
+          sectionType === 'abstract-teaser' ||
+          sectionType === 'abstract-graphical'
+        ) {
+          return true
+        }
+
+        const sectionTitle = section.querySelector(':scope > title')
+
+        if (!sectionTitle) {
+          return false
+        }
+
+        return sectionTitle.textContent === 'Abstract'
+      })
+    }
     if (abstractSections.length) {
       for (const abstractSection of abstractSections) {
         const abstractNode = this.document.createElement('abstract')
@@ -2075,6 +2100,9 @@ export class JATSExporter {
           insertAbstractNode(articleMeta, abstractNode)
         }
       }
+    }
+    if (container) {
+      body.removeChild(container)
     }
   }
 

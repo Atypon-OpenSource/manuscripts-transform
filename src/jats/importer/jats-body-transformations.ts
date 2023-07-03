@@ -16,13 +16,36 @@
 
 import { BibliographyItem } from '@manuscripts/json-schema'
 
-import { chooseSectionCategoryByType, chooseSecType } from '../../transformer'
+import {
+  chooseSectionCategoryByType,
+  chooseSecType,
+  getSectionTitles,
+} from '../../transformer'
 
 const removeNodeFromParent = (node: Element) =>
   node.parentNode && node.parentNode.removeChild(node)
 
 const capitalizeFirstLetter = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1)
+
+const createSectionContainer = (
+  type: string,
+  createElement: (tagName: string) => HTMLElement
+) => {
+  const sectionContainer = createElement('sec')
+  const sectionCategory = chooseSectionCategoryByType(type)
+  sectionContainer.setAttribute(
+    'sec-type',
+    sectionCategory ? chooseSecType(sectionCategory) : ''
+  )
+
+  const title = createElement('title')
+  title.textContent = sectionCategory
+    ? getSectionTitles(sectionCategory)[0]
+    : ' '
+  sectionContainer.appendChild(title)
+  return sectionContainer
+}
 
 export const jatsBodyTransformations = {
   ensureSection(
@@ -188,28 +211,40 @@ export const jatsBodyTransformations = {
     section.append(...floatsGroup.children)
     return section
   },
-  moveSectionsToBody(
+  moveAbstractsIntoContainer(
     doc: Document,
-    body: Element,
-    references: BibliographyItem[] | null,
+    abstractsContainer: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
     const abstractNodes = doc.querySelectorAll(
       'front > article-meta > abstract'
     )
-    for (const abstractNode of abstractNodes) {
+    abstractNodes.forEach((abstractNode) => {
       const abstract = this.createAbstract(abstractNode, createElement)
       removeNodeFromParent(abstractNode)
-      body.insertBefore(abstract, body.firstChild)
-    }
-
-    // move sections from back to body
+      abstractsContainer.appendChild(abstract)
+    })
+  },
+  wrapBodySections(doc: Document, bodyContainer: Element) {
+    const bodySections = doc.querySelectorAll(
+      'body > sec:not([sec-type="backmatter"]), body > sec:not([sec-type])'
+    )
+    bodySections.forEach((section) => {
+      removeNodeFromParent(section)
+      bodyContainer.appendChild(section)
+    })
+  },
+  moveBackSectionsIntoContainer(doc: Document, backmatterContainer: Element) {
     for (const section of doc.querySelectorAll('back > sec')) {
       removeNodeFromParent(section)
-      body.appendChild(section)
+      backmatterContainer.appendChild(section)
     }
-
-    // move acknowledg(e)ments from back to body section
+  },
+  moveAcknowledgmentsIntoContainer(
+    doc: Document,
+    backmatterContainer: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
     const ackNode = doc.querySelector('back > ack')
     if (ackNode) {
       const acknowledgements = this.createAcknowledgments(
@@ -217,25 +252,71 @@ export const jatsBodyTransformations = {
         createElement
       )
       removeNodeFromParent(ackNode)
-      body.appendChild(acknowledgements)
+      backmatterContainer.appendChild(acknowledgements)
     }
-
-    //move appendices from back to body
+  },
+  moveAppendicesIntoContainer(
+    doc: Document,
+    backmatterContainer: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
     const appGroup = doc.querySelectorAll('back > app-group > app')
-
     for (const app of appGroup) {
       const appendix = this.createAppendixSection(app, createElement)
       removeNodeFromParent(app)
-      body.appendChild(appendix)
+      backmatterContainer.appendChild(appendix)
     }
-    // move bibliography from back to body section
+  },
+  moveBibliographyIntoContainer(
+    doc: Document,
+    backmatterContainer: Element,
+    references: BibliographyItem[] | null,
+    createElement: (tagName: string) => HTMLElement
+  ) {
     if (references) {
-      body.appendChild(this.createBibliography(doc, references, createElement))
+      backmatterContainer.appendChild(
+        this.createBibliography(doc, references, createElement)
+      )
     }
+  },
+  moveSectionsToBody(
+    doc: Document,
+    body: Element,
+    references: BibliographyItem[] | null,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const bodyContainer = createSectionContainer('body', createElement)
+    const abstractsContainer = createSectionContainer(
+      'abstracts',
+      createElement
+    )
+    const backmatterContainer = createSectionContainer(
+      'backmatter',
+      createElement
+    )
+    this.mapFootnotesToSections(doc, backmatterContainer, createElement)
+    this.wrapBodySections(doc, bodyContainer)
+    this.moveAbstractsIntoContainer(doc, abstractsContainer, createElement)
+    this.moveBackSectionsIntoContainer(doc, backmatterContainer)
+    this.moveAcknowledgmentsIntoContainer(
+      doc,
+      backmatterContainer,
+      createElement
+    )
+    this.moveAppendicesIntoContainer(doc, backmatterContainer, createElement)
+    this.moveBibliographyIntoContainer(
+      doc,
+      backmatterContainer,
+      references,
+      createElement
+    )
+    body.insertBefore(abstractsContainer, body.firstChild)
+    body.insertBefore(bodyContainer, abstractsContainer.nextSibling)
+    body.append(backmatterContainer)
   },
   mapFootnotesToSections(
     doc: Document,
-    body: Element,
+    backmatterContainer: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
     const footnoteGroups = [...doc.querySelectorAll('fn[fn-type]')]
@@ -255,7 +336,7 @@ export const jatsBodyTransformations = {
         removeNodeFromParent(footnote)
 
         section.setAttribute('sec-type', chooseSecType(category))
-        body.append(section)
+        backmatterContainer.append(section)
       }
     }
 
@@ -273,7 +354,7 @@ export const jatsBodyTransformations = {
 
     if (!footnotesSection && containingGroup.innerHTML) {
       const section = this.createFootnotes([containingGroup], createElement)
-      body.append(section)
+      backmatterContainer.append(section)
     }
 
     // move footnotes without fn-type from back to body section
@@ -294,7 +375,7 @@ export const jatsBodyTransformations = {
         regularFootnoteGroups,
         createElement
       )
-      body.appendChild(footnotes)
+      backmatterContainer.appendChild(footnotes)
     }
   },
   // move captions to the end of their containers
@@ -362,5 +443,24 @@ export const jatsBodyTransformations = {
 
       paragraph?.replaceWith(parent)
     })
+  },
+  moveKeywordsToBody(
+    document: Document,
+    body: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const keywordGroups = [...document.querySelectorAll('kwd-group')]
+    if (keywordGroups.length > 0) {
+      const section = createElement('sec')
+      section.setAttribute('sec-type', 'keywords')
+      const title = createElement('title')
+      title.textContent = 'Keywords'
+      section.append(title)
+      const kwdGroupsEl = createElement('kwd-group-list')
+      // Using the first kwd-group since for the moment we only support single kwd-group
+      kwdGroupsEl.append(keywordGroups[0])
+      section.append(kwdGroupsEl)
+      body.prepend(section)
+    }
   },
 }

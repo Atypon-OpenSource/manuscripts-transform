@@ -13,8 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { Element, ObjectTypes } from '@manuscripts/json-schema'
+// @ts-ignore
+import sectionCategories from '@manuscripts/data/dist/shared/section-categories.json'
+import {
+  Element,
+  ObjectTypes,
+  SectionCategory as SectionCategoryInterface,
+} from '@manuscripts/json-schema'
 
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../schema'
 
@@ -25,6 +30,23 @@ const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.section,
   schema.nodes.toc_section,
 ]
+
+const sectionCategoriesMap = new Map<string, SectionCategoryInterface>(
+  (sectionCategories as Array<SectionCategoryInterface>).map((section) => [
+    section._id,
+    section,
+  ])
+)
+
+export const getSectionTitles = (
+  sectionCategory: SectionCategory
+): string[] => {
+  const category = sectionCategoriesMap.get(sectionCategory)
+  if (category) {
+    return category.titles.length ? category.titles : [' ']
+  }
+  throw new Error(`${sectionCategory} not found in section categories`)
+}
 
 export const isAnySectionNode = (node: ManuscriptNode): boolean =>
   sectionNodeTypes.includes(node.type)
@@ -57,6 +79,9 @@ export type SectionCategory =
   | 'MPSectionCategory:supplementary-material'
   | 'MPSectionCategory:supported-by'
   | 'MPSectionCategory:ethics-statement'
+  | 'MPSectionCategory:body'
+  | 'MPSectionCategory:abstracts'
+  | 'MPSectionCategory:backmatter'
 
 export type SecType =
   | 'abstract'
@@ -88,6 +113,9 @@ export type SecType =
   | 'supplementary-material'
   | 'supported-by'
   | 'ethics-statement'
+  | 'abstracts'
+  | 'body'
+  | 'backmatter'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -266,6 +294,12 @@ export const chooseSectionCategoryByType = (
       return 'MPSectionCategory:supported-by'
     case 'ethics-statement':
       return 'MPSectionCategory:ethics-statement'
+    case 'body':
+      return 'MPSectionCategory:body'
+    case 'backmatter':
+      return 'MPSectionCategory:backmatter'
+    case 'abstracts':
+      return 'MPSectionCategory:abstracts'
     default:
       return undefined
   }
