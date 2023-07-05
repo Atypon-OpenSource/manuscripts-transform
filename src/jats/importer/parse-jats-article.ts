@@ -184,7 +184,7 @@ export const parseJATSReferences = (
     if (body) {
       crossReferences.push(
         ...jatsReferenceParser.parseCrossReferences(
-          [...body.querySelectorAll('xref')],
+          [...body.querySelectorAll('xref'), ...back.querySelectorAll('xref')],
           referenceIDs
         )
       )
