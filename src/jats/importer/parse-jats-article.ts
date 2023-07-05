@@ -98,13 +98,6 @@ export const parseJATSFront = async (front: Element) => {
     ...jatsFrontParser.parseCounts(articleMeta?.querySelector('counts')),
   }
 
-  const keywordGroupNodes = articleMeta?.querySelectorAll('kwd-group')
-  const { keywords, groups: keywordGroups } =
-    jatsFrontParser.parseKeywords(keywordGroupNodes)
-
-  const manuscript_keywordIDs =
-    keywords.length > 0 ? keywords.map((k) => k._id) : undefined
-
   // affiliations
   const { affiliations, affiliationIDs } =
     jatsFrontParser.parseAffiliationNodes([
@@ -148,7 +141,6 @@ export const parseJATSFront = async (front: Element) => {
   const manuscript = {
     ...buildManuscript(),
     ...manuscriptMeta,
-    keywordIDs: manuscript_keywordIDs,
     ...history,
   } as Build<Manuscript> & {
     keywordIDs?: string[]
@@ -157,10 +149,8 @@ export const parseJATSFront = async (front: Element) => {
   return {
     models: generateModelIDs([
       manuscript,
-      ...keywords,
       ...affiliations,
       ...authors,
-      ...keywordGroups,
       ...footnotes,
       ...correspondingList,
       journal,
@@ -220,7 +210,6 @@ export const parseJATSBody = (
   const orderedFootnotesIDs = createOrderedFootnotesIDs(document)
   jatsBodyTransformations.moveFloatsGroupToBody(document, body, createElement)
   jatsBodyTransformations.ensureSection(body, createElement)
-  jatsBodyTransformations.mapFootnotesToSections(document, body, createElement)
   jatsBodyTransformations.moveSectionsToBody(
     document,
     body,
@@ -234,6 +223,7 @@ export const parseJATSBody = (
     body,
     createElement
   )
+  jatsBodyTransformations.moveKeywordsToBody(document, body, createElement)
 
   const node = jatsBodyDOMParser.parse(body)
   if (!node.firstChild) {
