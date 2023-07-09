@@ -5557,7 +5557,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "someId",
+        "id": "COMMENT_LIST",
       },
       "type": "comment_list",
     },
@@ -5859,7 +5859,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "someId",
+        "id": "COMMENT_LIST",
       },
       "type": "comment_list",
     },
@@ -5907,7 +5907,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "someId",
+        "id": "COMMENT_LIST",
       },
       "type": "comment_list",
     },
