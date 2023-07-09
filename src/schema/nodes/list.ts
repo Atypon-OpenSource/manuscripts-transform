@@ -18,8 +18,8 @@ import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { buildElementClass } from '../../lib/attributes'
+import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
-import {getTrimmedAttribute} from "../../lib/utils";
 
 export interface BulletListNode extends ManuscriptNode {
   attrs: {

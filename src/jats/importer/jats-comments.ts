@@ -22,6 +22,7 @@ import {
 } from '@manuscripts/json-schema'
 import { v4 as uuidv4 } from 'uuid'
 
+import { getTrimmedAttribute } from '../../lib/utils'
 import {
   Build,
   buildComment,
@@ -32,7 +33,6 @@ import {
   isHighlightableModel,
   isKeyword,
 } from '../../transformer'
-import { getTrimmedAttribute } from '../../lib/utils'
 
 type ProcessingInstruction = { id: string; queryText: string }
 
