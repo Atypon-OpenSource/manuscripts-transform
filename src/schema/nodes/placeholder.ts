@@ -16,6 +16,7 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
+import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
@@ -43,7 +44,7 @@ export const placeholder: NodeSpec = {
         const dom = p as HTMLDivElement
 
         return {
-          id: dom.getAttribute('id'),
+          id: getTrimmedAttribute(dom, 'id'),
         }
       },
     },

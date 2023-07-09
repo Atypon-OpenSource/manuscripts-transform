@@ -22,29 +22,30 @@ import {
   TableCellStyleKey,
 } from '../../lib/table-cell-styles'
 import { ManuscriptNode, TableNodeSpec } from '../types'
+import {getTrimmedAttribute} from "../../lib/utils";
 
 // NOTE: keep this method as close to the original as possible, for ease of updating
 const getCellAttrs = (p: Node | string) => {
   const dom = p as HTMLTableCellElement
 
   const celltype = dom.tagName.toLowerCase()
-  const widthAttr = dom.getAttribute('data-colwidth')
+  const widthAttr = getTrimmedAttribute(dom, 'data-colwidth')
   const widths =
     widthAttr && /^\d+(,\d+)*$/.test(widthAttr)
       ? widthAttr.split(',').map((s) => Number(s))
       : null
-  const colspan = Number(dom.getAttribute('colspan') || 1)
-  const valign = dom.getAttribute('valign')
-  const align = dom.getAttribute('align')
-  const scope = dom.getAttribute('scope')
-  const style = dom.getAttribute('style')
+  const colspan = Number(getTrimmedAttribute(dom, 'colspan') || 1)
+  const valign = getTrimmedAttribute(dom, 'valign')
+  const align = getTrimmedAttribute(dom, 'align')
+  const scope = getTrimmedAttribute(dom, 'scope')
+  const style = getTrimmedAttribute(dom, 'style')
 
   return {
     celltype,
     colspan,
-    rowspan: Number(dom.getAttribute('rowspan') || 1),
+    rowspan: Number(getTrimmedAttribute(dom, 'rowspan') || 1),
     colwidth: widths && widths.length === colspan ? widths : null,
-    placeholder: dom.getAttribute('data-placeholder-text') || '',
+    placeholder: getTrimmedAttribute(dom, 'data-placeholder-text') || '',
     styles: getTableCellStyles(dom.style),
     valign,
     align,
@@ -70,7 +71,7 @@ export const tableRow: TableNodeSpec = {
       tag: 'tr',
       priority: 80,
       // getAttrs: (dom: HTMLTableRowElement) => ({
-      //   placeholder: dom.getAttribute('data-placeholder-text'),
+      //   placeholder: getTrimmedAttribute(dom, 'data-placeholder-text'),
       // }),
     },
   ],

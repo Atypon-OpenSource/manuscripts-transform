@@ -16,6 +16,7 @@
 
 import { FootnotesOrder } from '@manuscripts/json-schema'
 
+import { getTrimmedAttribute } from '../lib/utils'
 import { buildFootnotesOrder } from './builders'
 
 export type FootnotesOrderIndexList = {
@@ -27,19 +28,19 @@ export const createOrderedFootnotesIDs = (doc: Document) => {
   const footnotesRefs = [...doc.querySelectorAll('xref[ref-type="fn"][rid]')]
   const footnotes = [...doc.querySelectorAll('fn:not([fn-type])')]
   const authorNotesIDs = [...doc.querySelectorAll('author-notes > fn')].map(
-    (an) => an.getAttribute('id')
+    (an) => getTrimmedAttribute(an, 'id')
   )
 
   const orderedFootnotesIDs: Array<string> = []
   footnotesRefs.forEach((ref) => {
-    const refID = ref.getAttribute('rid')
+    const refID = getTrimmedAttribute(ref, 'rid')
     if (refID) {
       orderedFootnotesIDs.push(refID)
     }
   })
 
   footnotes.forEach((footnote) => {
-    const id = footnote.getAttribute('id')
+    const id = getTrimmedAttribute(footnote, 'id')
     if (
       id &&
       !authorNotesIDs.includes(id) &&

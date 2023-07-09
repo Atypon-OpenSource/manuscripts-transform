@@ -38,7 +38,7 @@ import serializeToXML from 'w3c-xmlserializer'
 
 import { nodeFromHTML, textFromHTML } from '../lib/html'
 import { normalizeStyleName } from '../lib/styled-content'
-import { iterateChildren } from '../lib/utils'
+import { getTrimmedAttribute, iterateChildren } from '../lib/utils'
 import {
   ManuscriptFragment,
   ManuscriptMark,
@@ -306,7 +306,7 @@ export class JATSExporter {
     }
 
     for (const xref of figRefs) {
-      const rid = xref.getAttribute('rid') // TODO: split?
+      const rid = getTrimmedAttribute(xref, 'rid') // TODO: split?
 
       if (rid) {
         const nodeName = this.document.getElementById(rid)?.nodeName
@@ -329,7 +329,7 @@ export class JATSExporter {
     mediaPathGenerator: MediaPathGenerator
   ) => {
     for (const fig of this.document.querySelectorAll('fig')) {
-      const parentID = fig.getAttribute('id') as string
+      const parentID = getTrimmedAttribute(fig, 'id') as string
 
       for (const graphic of fig.querySelectorAll('graphic')) {
         const newHref = await mediaPathGenerator(graphic, parentID)
@@ -351,7 +351,7 @@ export class JATSExporter {
     const idMap = new Map<string, string | null>()
 
     for (const element of this.document.querySelectorAll('[id]')) {
-      const previousID = element.getAttribute('id')
+      const previousID = getTrimmedAttribute(element, 'id')
 
       const newID = await idGenerator(element)
 
@@ -367,7 +367,7 @@ export class JATSExporter {
     }
 
     for (const node of this.document.querySelectorAll('[rid]')) {
-      const rids = node.getAttribute('rid')
+      const rids = getTrimmedAttribute(node, 'rid')
 
       if (rids) {
         const newRIDs = rids
@@ -2055,7 +2055,7 @@ export class JATSExporter {
       abstractSections = Array.from(
         body.querySelectorAll(':scope > sec')
       ).filter((section) => {
-        const sectionType = section.getAttribute('sec-type')
+        const sectionType = getTrimmedAttribute(section, 'sec-type')
 
         if (
           sectionType === 'abstract' ||
@@ -2085,7 +2085,7 @@ export class JATSExporter {
           }
         }
 
-        const sectionType = abstractSection.getAttribute('sec-type')
+        const sectionType = getTrimmedAttribute(abstractSection, 'sec-type')
 
         if (sectionType && sectionType !== 'abstract') {
           const [, abstractType] = sectionType.split('-', 2)
@@ -2166,7 +2166,7 @@ export class JATSExporter {
 
     const sections = body.querySelectorAll('sec')
     for (const currentSection of sections) {
-      const currentSectionType = currentSection.getAttribute('sec-type')
+      const currentSectionType = getTrimmedAttribute(currentSection, 'sec-type')
       if (
         currentSectionType &&
         footnoteCategories.indexOf(currentSectionType) >= 0

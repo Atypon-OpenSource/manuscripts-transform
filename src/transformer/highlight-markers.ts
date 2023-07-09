@@ -17,6 +17,7 @@
 import { CommentAnnotation, Model } from '@manuscripts/json-schema'
 
 import { Build, buildComment } from './builders'
+import {getTrimmedAttribute} from "../lib/utils";
 
 export type HighlightableField = 'title' | 'caption' | 'contents'
 
@@ -77,11 +78,11 @@ export const extractHighlightMarkers = (
           continue
         }
 
-        const _id = marker.getAttribute('id')
-        const target = marker.getAttribute('data-target-id')
+        const _id = getTrimmedAttribute(marker, 'id')
+        const target = getTrimmedAttribute(marker, 'data-target-id')
 
         if (_id && target) {
-          const position = marker.getAttribute('data-position')
+          const position = getTrimmedAttribute(marker, 'data-position')
 
           const commentAnnotation = { ...buildComment(target, ''), _id: _id }
 

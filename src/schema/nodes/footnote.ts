@@ -16,6 +16,7 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
+import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
 import { CommentNode } from './comment'
 
@@ -56,11 +57,11 @@ export const footnote: NodeSpec = {
         const dom = p as HTMLDivElement
 
         const attrs: Partial<Attrs> = {
-          id: dom.getAttribute('id') || undefined,
-          kind: (dom.getAttribute('data-kind') || 'footnote') as Kind,
+          id: getTrimmedAttribute(dom, 'id') || undefined,
+          kind: (getTrimmedAttribute(dom, 'data-kind') || 'footnote') as Kind,
         }
 
-        const placeholder = dom.getAttribute('data-placeholder-text')
+        const placeholder = getTrimmedAttribute(dom, 'data-placeholder-text')
 
         if (placeholder) {
           attrs.placeholder = placeholder

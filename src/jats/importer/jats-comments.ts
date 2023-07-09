@@ -32,6 +32,7 @@ import {
   isHighlightableModel,
   isKeyword,
 } from '../../transformer'
+import { getTrimmedAttribute } from '../../lib/utils'
 
 type ProcessingInstruction = { id: string; queryText: string }
 
@@ -48,8 +49,8 @@ export const parseProcessingInstruction = (
     'application/xml'
   ).firstElementChild
   if (processingInstruction) {
-    const queryText = processingInstruction.getAttribute('queryText')
-    const id = processingInstruction.getAttribute('id')
+    const queryText = getTrimmedAttribute(processingInstruction, 'queryText')
+    const id = getTrimmedAttribute(processingInstruction, 'id')
     if (queryText && id) {
       return { queryText, id }
     }

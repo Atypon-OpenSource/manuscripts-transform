@@ -19,6 +19,7 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { buildElementClass } from '../../lib/attributes'
 import { ManuscriptNode } from '../types'
+import {getTrimmedAttribute} from "../../lib/utils";
 
 export interface BulletListNode extends ManuscriptNode {
   attrs: {
@@ -42,7 +43,7 @@ export const bulletList: NodeSpec = {
         const dom = p as HTMLUListElement
 
         return {
-          id: dom.getAttribute('id'),
+          id: getTrimmedAttribute(dom, 'id'),
         }
       },
     },
@@ -87,7 +88,7 @@ export const orderedList: NodeSpec = {
         const dom = p as HTMLOListElement
 
         return {
-          id: dom.getAttribute('id'),
+          id: getTrimmedAttribute(dom, 'id'),
           // order: dom.hasAttribute('start') ? dom.getAttribute('start') : 1,
         }
       },
@@ -134,7 +135,7 @@ export const listItem: NodeSpec = {
         const dom = p as HTMLLIElement
 
         return {
-          placeholder: dom.getAttribute('data-placeholder-text') || '',
+          placeholder: getTrimmedAttribute(dom, 'data-placeholder-text') || '',
         }
       },
     },

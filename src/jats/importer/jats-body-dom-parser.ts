@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-// TODO: remove element.getAttribute('id') and rewrite cross-references?
+// TODO: remove getTrimmedAttribute(element,'id') and rewrite cross-references?
 
 // https://jats.nlm.nih.gov/articleauthoring/tag-library/1.2/
 
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
+import { getTrimmedAttribute, getTrimmedAttributeNS } from '../../lib/utils'
 import { convertMathMLToSVG } from '../../mathjax/mathml-to-svg'
 import { convertTeXToSVG } from '../../mathjax/tex-to-svg'
 import { Marks, Nodes, schema } from '../../schema'
@@ -30,14 +31,14 @@ const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
 const chooseContentType = (graphicNode?: Element): string | undefined => {
   if (graphicNode) {
-    const mimetype = graphicNode.getAttribute('mimetype')
-    const subtype = graphicNode.getAttribute('mime-subtype')
+    const mimetype = getTrimmedAttribute(graphicNode, 'mimetype')
+    const subtype = getTrimmedAttribute(graphicNode, 'mime-subtype')
 
     if (mimetype && subtype) {
       return [mimetype, subtype].join('/')
     }
 
-    const href = graphicNode.getAttributeNS(XLINK_NAMESPACE, 'href')
+    const href = getTrimmedAttributeNS(graphicNode, XLINK_NAMESPACE, 'href')
 
     if (href) {
       return mime.getType(href) || undefined
@@ -72,7 +73,7 @@ const marks: MarkRule[] = [
     tag: 'styled-content',
     mark: 'styled',
     getAttrs: (node) => ({
-      style: (node as Element).getAttribute('style'),
+      style: getTrimmedAttribute(node as Element, 'style'),
     }),
   },
   {
@@ -155,8 +156,8 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
-        language: element.getAttribute('language') ?? '',
+        id: getTrimmedAttribute(element, 'id'),
+        language: getTrimmedAttribute(element, 'language') ?? '',
         contents: element.textContent?.trim() ?? '',
       }
     },
@@ -173,7 +174,7 @@ const nodes: NodeRule[] = [
         SVGRepresentation: string // NOTE: not SVGStringRepresentation
         TeXRepresentation: string
       } = {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
         MathMLRepresentation: '', // default
         SVGRepresentation: '',
         TeXRepresentation: '', // default
@@ -222,7 +223,7 @@ const nodes: NodeRule[] = [
       const caption = element.querySelector('figcaption')
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
         suppressCaption: !caption,
       }
     },
@@ -294,7 +295,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
       }
     },
   },
@@ -305,7 +306,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
       }
     },
   },
@@ -316,8 +317,8 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        href: element.getAttributeNS(XLINK_NAMESPACE, 'href') || '',
-        title: element.getAttributeNS(XLINK_NAMESPACE, 'title') || '',
+        href: getTrimmedAttributeNS(element,XLINK_NAMESPACE, 'href') || '',
+        title: getTrimmedAttributeNS(element,XLINK_NAMESPACE, 'title') || '',
       }
     },
   },
@@ -328,7 +329,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
       }
     },
   },
@@ -339,7 +340,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
       }
     },
   },
@@ -351,7 +352,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
       }
     },
   },
@@ -362,12 +363,12 @@ const nodes: NodeRule[] = [
     getAttrs: (node) => {
       const element = node as HTMLElement
 
-      const position = element.getAttribute('position')
+      const position = getTrimmedAttribute(element,'position')
 
-      const src = element.getAttributeNS(XLINK_NAMESPACE, 'href')
+      const src = getTrimmedAttributeNS(element,XLINK_NAMESPACE, 'href')
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
         contentType: chooseContentType(element || undefined) || '',
         src,
         position,
@@ -384,7 +385,7 @@ const nodes: NodeRule[] = [
         element.removeChild(labelNode)
       }
       const attrib = element.querySelector('attrib')
-      const position = element.getAttribute('position')
+      const position = getTrimmedAttribute(element,'position')
 
       const attribution = attrib
         ? {
@@ -393,7 +394,7 @@ const nodes: NodeRule[] = [
         : undefined
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
         label: labelNode?.textContent?.trim() ?? '',
         attribution: attribution,
         position,
@@ -408,56 +409,56 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       const ref = {
-        id: element.getAttribute('id'),
-        type: element.getAttribute('type'),
+        id: getTrimmedAttribute(element,'id'),
+        type: getTrimmedAttribute(element,'type'),
       } as any
 
-      const author = element.getAttribute('author')
+      const author = getTrimmedAttribute(element,'author')
       if (author) {
         ref.author = author
       }
 
-      const issued = element.getAttribute('issued')
+      const issued = getTrimmedAttribute(element,'issued')
       if (issued) {
         ref.issued = issued
       }
 
-      const containerTitle = element.getAttribute('container-title')
+      const containerTitle = getTrimmedAttribute(element,'container-title')
       if (containerTitle) {
         ref.containerTitle = containerTitle
       }
 
-      const doi = element.getAttribute('doi')
+      const doi = getTrimmedAttribute(element,'doi')
       if (doi) {
         ref.doi = doi
       }
 
-      const volume = element.getAttribute('volume')
+      const volume = getTrimmedAttribute(element,'volume')
       if (volume) {
         ref.volume = volume
       }
 
-      const issue = element.getAttribute('issue')
+      const issue = getTrimmedAttribute(element,'issue')
       if (issue) {
         ref.issue = issue
       }
 
-      const supplement = element.getAttribute('supplement')
+      const supplement = getTrimmedAttribute(element,'supplement')
       if (supplement) {
         ref.supplement = supplement
       }
 
-      const page = element.getAttribute('page')
+      const page = getTrimmedAttribute(element,'page')
       if (page) {
         ref.page = page
       }
 
-      const title = element.getAttribute('title')
+      const title = getTrimmedAttribute(element,'title')
       if (title) {
         ref.title = title
       }
 
-      const literal = element.getAttribute('literal')
+      const literal = getTrimmedAttribute(element,'literal')
       if (literal) {
         ref.literal = literal
       }
@@ -477,7 +478,7 @@ const nodes: NodeRule[] = [
         element.removeChild(titleNode)
       }
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
         contents: '',
       }
     },
@@ -490,7 +491,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
         kind: 'footnote', // TODO: 'endnote' depending on position or attribute?
       }
     },
@@ -502,7 +503,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
         kind: 'table_footnote', // TODO: 'table_endnote' depending on position or attribute?
       }
     },
@@ -515,7 +516,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
         kind: 'footnote', // TODO: 'endnote' depending on position or attribute?
       }
     },
@@ -531,7 +532,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
       }
     },
   },
@@ -542,7 +543,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
       }
     },
   },
@@ -563,7 +564,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
       }
     },
   },
@@ -578,7 +579,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
         // category: chooseSectionCategory(element), // 'MPSectionCategory:endnotes',
       }
     },
@@ -590,7 +591,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
       }
     },
   },
@@ -601,7 +602,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
         category: chooseSectionCategory(element),
       }
     },
@@ -618,7 +619,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
         category: chooseSectionCategory(element),
       }
     },
@@ -630,7 +631,7 @@ const nodes: NodeRule[] = [
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
-        type: element.getAttribute('kwd-group-type'),
+        type: getTrimmedAttribute(element,'kwd-group-type'),
       }
     },
   },
@@ -662,7 +663,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
       }
     },
   },
@@ -673,7 +674,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: element.getAttribute('id'),
+        id: getTrimmedAttribute(element,'id'),
         suppressFooter: !element.querySelector('table > tfoot > tr'),
         suppressHeader: !element.querySelector('table > thead > tr'),
       }
@@ -711,15 +712,15 @@ const nodes: NodeRule[] = [
     node: 'table_cell',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const colspan = element.getAttribute('colspan')
-      const rowspan = element.getAttribute('rowspan')
+      const colspan = getTrimmedAttribute(element,'colspan')
+      const rowspan = getTrimmedAttribute(element,'rowspan')
       return {
         ...(colspan && { colspan }),
         ...(rowspan && { rowspan }),
-        valign: element.getAttribute('valign'),
-        align: element.getAttribute('align'),
-        scope: element.getAttribute('scope'),
-        style: element.getAttribute('style'),
+        valign: getTrimmedAttribute(element,'valign'),
+        align: getTrimmedAttribute(element,'align'),
+        scope: getTrimmedAttribute(element,'scope'),
+        style: getTrimmedAttribute(element,'style'),
       }
     },
   },
@@ -728,16 +729,16 @@ const nodes: NodeRule[] = [
     node: 'table_cell',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const colspan = element.getAttribute('colspan')
-      const rowspan = element.getAttribute('rowspan')
+      const colspan = getTrimmedAttribute(element,'colspan')
+      const rowspan = getTrimmedAttribute(element,'rowspan')
       return {
         celltype: 'th',
         ...(colspan && { colspan }),
         ...(rowspan && { rowspan }),
-        valign: element.getAttribute('valign'),
-        align: element.getAttribute('align'),
-        scope: element.getAttribute('scope'),
-        style: element.getAttribute('style'),
+        valign: getTrimmedAttribute(element,'valign'),
+        align: getTrimmedAttribute(element,'align'),
+        scope: getTrimmedAttribute(element,'scope'),
+        style: getTrimmedAttribute(element,'style'),
       }
     },
   },
@@ -748,7 +749,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        width: element.getAttribute('width'),
+        width: getTrimmedAttribute(element,'width'),
       }
     },
   },
@@ -763,7 +764,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        rid: element.getAttribute('rid'),
+        rid: getTrimmedAttribute(element,'rid'),
         contents: element.textContent, // TODO: innerHTML?
       }
     },
@@ -775,7 +776,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        rid: element.getAttribute('rid'),
+        rid: getTrimmedAttribute(element,'rid'),
         contents: element.textContent,
       }
     },
@@ -787,7 +788,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        rid: element.getAttribute('rid'),
+        rid: getTrimmedAttribute(element,'rid'),
         label: element.textContent,
       }
     },

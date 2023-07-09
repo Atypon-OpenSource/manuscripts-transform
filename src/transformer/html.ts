@@ -30,6 +30,7 @@ import serializeToXML from 'w3c-xmlserializer'
 
 import { createCounter } from '../jats/jats-exporter'
 import { buildStyledContentClass } from '../lib/styled-content'
+import { getTrimmedAttribute } from '../lib/utils'
 import {
   CitationNode,
   CrossReferenceNode,
@@ -71,7 +72,7 @@ const chooseNodeName = (element: Element) => {
 
     return 'figure'
   } else if (nodeName === 'section') {
-    const sectionCategory = element.getAttribute('data-category')
+    const sectionCategory = getTrimmedAttribute(element, 'data-category')
 
     if (sectionCategory) {
       const secType = chooseSecType(sectionCategory as SectionCategory)
@@ -157,7 +158,10 @@ export class HTMLTransformer {
       const parentFigure = image.parentNode
 
       if (parentFigure) {
-        const parentID = (parentFigure as Element).getAttribute('data-uuid')
+        const parentID = getTrimmedAttribute(
+          parentFigure as Element,
+          'data-uuid'
+        )
         if (parentID) {
           const newSrc = await mediaPathGenerator(image, parentID)
           image.setAttribute('src', newSrc)
@@ -172,7 +176,7 @@ export class HTMLTransformer {
     const idMap = new Map<string, string | null>()
 
     for (const element of this.document.querySelectorAll('[id]')) {
-      const previousID = element.getAttribute('id')
+      const previousID = getTrimmedAttribute(element, 'id')
 
       if (previousID && !previousID.match(/^MP[a-z]+:[a-z0-9-]+$/i)) {
         continue
@@ -201,7 +205,7 @@ export class HTMLTransformer {
     }
 
     for (const node of this.document.querySelectorAll('[data-reference-ids]')) {
-      const rids = node.getAttribute('data-reference-ids')
+      const rids = getTrimmedAttribute(node, 'data-reference-ids')
 
       if (rids) {
         const newRIDs = rids
@@ -217,7 +221,7 @@ export class HTMLTransformer {
     }
 
     for (const node of this.document.querySelectorAll('[data-reference-id]')) {
-      const rid = node.getAttribute('data-reference-id')
+      const rid = getTrimmedAttribute(node, 'data-reference-id')
 
       if (rid) {
         const newRID = idMap.get(rid)

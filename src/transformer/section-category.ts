@@ -21,6 +21,7 @@ import {
   SectionCategory as SectionCategoryInterface,
 } from '@manuscripts/json-schema'
 
+import { getTrimmedAttribute } from '../lib/utils'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../schema'
 
 const sectionNodeTypes: ManuscriptNodeType[] = [
@@ -308,7 +309,7 @@ export const chooseSectionCategoryByType = (
 export const chooseSectionCategory = (
   section: HTMLElement
 ): SectionCategory | undefined => {
-  const secType = section.getAttribute('sec-type') as SecType
+  const secType = getTrimmedAttribute(section, 'sec-type') as SecType
   const secCat = chooseSectionCategoryByType(secType)
   if (secCat) {
     return secCat

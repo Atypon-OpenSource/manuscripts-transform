@@ -16,6 +16,7 @@
 
 import { BibliographicName } from '@manuscripts/json-schema'
 
+import { getTrimmedAttribute } from '../../lib/utils'
 import {
   buildAuxiliaryObjectReference,
   buildBibliographicDate,
@@ -45,7 +46,10 @@ export const jatsReferenceParser = {
     const referenceIDs = new Map<string, string>()
     const referenceQueries = new Map<string, string[]>()
     const references = referenceNodes.map((referenceNode) => {
-      const publicationType = referenceNode.getAttribute('publication-type')
+      const publicationType = getTrimmedAttribute(
+        referenceNode,
+        'publication-type'
+      )
 
       const authorNodes = [
         ...referenceNode.querySelectorAll(
@@ -178,7 +182,7 @@ export const jatsReferenceParser = {
         bibliographyItem.author = authors
       }
 
-      const id = referenceNode.getAttribute('id')
+      const id = getTrimmedAttribute(referenceNode, 'id')
 
       if (id) {
         referenceIDs.set(id, bibliographyItem._id)
@@ -205,12 +209,13 @@ export const jatsReferenceParser = {
   ) {
     return flatten(
       crossReferenceNodes.map((crossReferenceNode) => {
-        const rid = crossReferenceNode.getAttribute('rid')
+        const rid = getTrimmedAttribute(crossReferenceNode, 'rid')
         if (!rid) {
           return []
         }
         const modelNodes = []
-        const refType = crossReferenceNode.getAttribute('ref-type')
+        const refType = getTrimmedAttribute(crossReferenceNode, 'ref-type')
+
         switch (refType) {
           case 'bibr':
             {

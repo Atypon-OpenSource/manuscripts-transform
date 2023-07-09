@@ -16,6 +16,7 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
+import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
 import { CommentNode } from './comment'
 
@@ -48,7 +49,7 @@ export const listingElement: NodeSpec = {
         const dom = p as HTMLElement
 
         return {
-          id: dom.getAttribute('id'),
+          id: getTrimmedAttribute(dom, 'id'),
         }
       },
     },

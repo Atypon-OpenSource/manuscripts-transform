@@ -16,6 +16,7 @@
 
 // adapted from 'prosemirror-tables'
 
+import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode, TableNodeSpec } from '../types'
 import { CommentNode } from './comment'
 
@@ -48,7 +49,7 @@ export const table: TableNodeSpec = {
         const dom = p as HTMLTableElement
 
         return {
-          id: dom.getAttribute('id'),
+          id: getTrimmedAttribute(dom, 'id'),
           headerRows: dom.dataset && dom.dataset['header-rows'],
           footerRows: dom.dataset && dom.dataset['footer-rows'],
         }
