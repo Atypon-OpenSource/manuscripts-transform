@@ -174,7 +174,7 @@ const nodes: NodeRule[] = [
         SVGRepresentation: string // NOTE: not SVGStringRepresentation
         TeXRepresentation: string
       } = {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
         MathMLRepresentation: '', // default
         SVGRepresentation: '',
         TeXRepresentation: '', // default
@@ -223,7 +223,7 @@ const nodes: NodeRule[] = [
       const caption = element.querySelector('figcaption')
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
         suppressCaption: !caption,
       }
     },
@@ -295,7 +295,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
       }
     },
   },
@@ -306,7 +306,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
       }
     },
   },
@@ -317,8 +317,8 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        href: getTrimmedAttributeNS(element,XLINK_NAMESPACE, 'href') || '',
-        title: getTrimmedAttributeNS(element,XLINK_NAMESPACE, 'title') || '',
+        href: getTrimmedAttributeNS(element, XLINK_NAMESPACE, 'href') || '',
+        title: getTrimmedAttributeNS(element, XLINK_NAMESPACE, 'title') || '',
       }
     },
   },
@@ -329,7 +329,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
       }
     },
   },
@@ -340,7 +340,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
       }
     },
   },
@@ -352,7 +352,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
       }
     },
   },
@@ -363,12 +363,12 @@ const nodes: NodeRule[] = [
     getAttrs: (node) => {
       const element = node as HTMLElement
 
-      const position = getTrimmedAttribute(element,'position')
+      const position = getTrimmedAttribute(element, 'position')
 
-      const src = getTrimmedAttributeNS(element,XLINK_NAMESPACE, 'href')
+      const src = getTrimmedAttributeNS(element, XLINK_NAMESPACE, 'href')
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
         contentType: chooseContentType(element || undefined) || '',
         src,
         position,
@@ -385,7 +385,7 @@ const nodes: NodeRule[] = [
         element.removeChild(labelNode)
       }
       const attrib = element.querySelector('attrib')
-      const position = getTrimmedAttribute(element,'position')
+      const position = getTrimmedAttribute(element, 'position')
 
       const attribution = attrib
         ? {
@@ -394,7 +394,7 @@ const nodes: NodeRule[] = [
         : undefined
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
         label: labelNode?.textContent?.trim() ?? '',
         attribution: attribution,
         position,
@@ -409,56 +409,56 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       const ref = {
-        id: getTrimmedAttribute(element,'id'),
-        type: getTrimmedAttribute(element,'type'),
+        id: getTrimmedAttribute(element, 'id'),
+        type: getTrimmedAttribute(element, 'type'),
       } as any
 
-      const author = getTrimmedAttribute(element,'author')
+      const author = getTrimmedAttribute(element, 'author')
       if (author) {
         ref.author = author
       }
 
-      const issued = getTrimmedAttribute(element,'issued')
+      const issued = getTrimmedAttribute(element, 'issued')
       if (issued) {
         ref.issued = issued
       }
 
-      const containerTitle = getTrimmedAttribute(element,'container-title')
+      const containerTitle = getTrimmedAttribute(element, 'container-title')
       if (containerTitle) {
         ref.containerTitle = containerTitle
       }
 
-      const doi = getTrimmedAttribute(element,'doi')
+      const doi = getTrimmedAttribute(element, 'doi')
       if (doi) {
         ref.doi = doi
       }
 
-      const volume = getTrimmedAttribute(element,'volume')
+      const volume = getTrimmedAttribute(element, 'volume')
       if (volume) {
         ref.volume = volume
       }
 
-      const issue = getTrimmedAttribute(element,'issue')
+      const issue = getTrimmedAttribute(element, 'issue')
       if (issue) {
         ref.issue = issue
       }
 
-      const supplement = getTrimmedAttribute(element,'supplement')
+      const supplement = getTrimmedAttribute(element, 'supplement')
       if (supplement) {
         ref.supplement = supplement
       }
 
-      const page = getTrimmedAttribute(element,'page')
+      const page = getTrimmedAttribute(element, 'page')
       if (page) {
         ref.page = page
       }
 
-      const title = getTrimmedAttribute(element,'title')
+      const title = getTrimmedAttribute(element, 'title')
       if (title) {
         ref.title = title
       }
 
-      const literal = getTrimmedAttribute(element,'literal')
+      const literal = getTrimmedAttribute(element, 'literal')
       if (literal) {
         ref.literal = literal
       }
@@ -478,7 +478,7 @@ const nodes: NodeRule[] = [
         element.removeChild(titleNode)
       }
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
         contents: '',
       }
     },
@@ -491,7 +491,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
         kind: 'footnote', // TODO: 'endnote' depending on position or attribute?
       }
     },
@@ -503,7 +503,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
         kind: 'table_footnote', // TODO: 'table_endnote' depending on position or attribute?
       }
     },
@@ -516,7 +516,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
         kind: 'footnote', // TODO: 'endnote' depending on position or attribute?
       }
     },
@@ -532,7 +532,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
       }
     },
   },
@@ -543,7 +543,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
       }
     },
   },
@@ -564,7 +564,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
       }
     },
   },
@@ -579,7 +579,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
         // category: chooseSectionCategory(element), // 'MPSectionCategory:endnotes',
       }
     },
@@ -591,7 +591,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
       }
     },
   },
@@ -602,7 +602,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
         category: chooseSectionCategory(element),
       }
     },
@@ -619,7 +619,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
         category: chooseSectionCategory(element),
       }
     },
@@ -631,7 +631,7 @@ const nodes: NodeRule[] = [
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
-        type: getTrimmedAttribute(element,'kwd-group-type'),
+        type: getTrimmedAttribute(element, 'kwd-group-type'),
       }
     },
   },
@@ -663,7 +663,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
       }
     },
   },
@@ -674,7 +674,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        id: getTrimmedAttribute(element,'id'),
+        id: getTrimmedAttribute(element, 'id'),
         suppressFooter: !element.querySelector('table > tfoot > tr'),
         suppressHeader: !element.querySelector('table > thead > tr'),
       }
@@ -712,15 +712,15 @@ const nodes: NodeRule[] = [
     node: 'table_cell',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const colspan = getTrimmedAttribute(element,'colspan')
-      const rowspan = getTrimmedAttribute(element,'rowspan')
+      const colspan = getTrimmedAttribute(element, 'colspan')
+      const rowspan = getTrimmedAttribute(element, 'rowspan')
       return {
         ...(colspan && { colspan }),
         ...(rowspan && { rowspan }),
-        valign: getTrimmedAttribute(element,'valign'),
-        align: getTrimmedAttribute(element,'align'),
-        scope: getTrimmedAttribute(element,'scope'),
-        style: getTrimmedAttribute(element,'style'),
+        valign: getTrimmedAttribute(element, 'valign'),
+        align: getTrimmedAttribute(element, 'align'),
+        scope: getTrimmedAttribute(element, 'scope'),
+        style: getTrimmedAttribute(element, 'style'),
       }
     },
   },
@@ -729,16 +729,16 @@ const nodes: NodeRule[] = [
     node: 'table_cell',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const colspan = getTrimmedAttribute(element,'colspan')
-      const rowspan = getTrimmedAttribute(element,'rowspan')
+      const colspan = getTrimmedAttribute(element, 'colspan')
+      const rowspan = getTrimmedAttribute(element, 'rowspan')
       return {
         celltype: 'th',
         ...(colspan && { colspan }),
         ...(rowspan && { rowspan }),
-        valign: getTrimmedAttribute(element,'valign'),
-        align: getTrimmedAttribute(element,'align'),
-        scope: getTrimmedAttribute(element,'scope'),
-        style: getTrimmedAttribute(element,'style'),
+        valign: getTrimmedAttribute(element, 'valign'),
+        align: getTrimmedAttribute(element, 'align'),
+        scope: getTrimmedAttribute(element, 'scope'),
+        style: getTrimmedAttribute(element, 'style'),
       }
     },
   },
@@ -749,7 +749,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        width: getTrimmedAttribute(element,'width'),
+        width: getTrimmedAttribute(element, 'width'),
       }
     },
   },
@@ -764,7 +764,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        rid: getTrimmedAttribute(element,'rid'),
+        rid: getTrimmedAttribute(element, 'rid'),
         contents: element.textContent, // TODO: innerHTML?
       }
     },
@@ -776,7 +776,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        rid: getTrimmedAttribute(element,'rid'),
+        rid: getTrimmedAttribute(element, 'rid'),
         contents: element.textContent,
       }
     },
@@ -788,7 +788,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        rid: getTrimmedAttribute(element,'rid'),
+        rid: getTrimmedAttribute(element, 'rid'),
         label: element.textContent,
       }
     },
