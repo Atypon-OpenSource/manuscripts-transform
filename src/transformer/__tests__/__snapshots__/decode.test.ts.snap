@@ -1901,7 +1901,7 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
-        "id": "MPMetaSection:9090BDB1-9654-40E6-ACEE-AD88CD139FD8",
+        "id": "COMMENT_LIST",
       },
       "type": "comment_list",
     },
@@ -3541,7 +3541,7 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
-        "id": "MPMetaSection:5DF411AE-A669-4DCF-899F-C0ED40ADF809",
+        "id": "COMMENT_LIST",
       },
       "type": "comment_list",
     },
@@ -5451,7 +5451,7 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
-        "id": "MPMetaSection:AC8CF4FB-E089-4DC3-928E-F8F6B63FDE27",
+        "id": "COMMENT_LIST",
       },
       "type": "comment_list",
     },
@@ -5557,7 +5557,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPMetaSection:2C6059BD-C92A-4552-BCD0-589F6771ABFD",
+        "id": "someId",
       },
       "type": "comment_list",
     },
@@ -5859,7 +5859,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPMetaSection:3DB3DCC0-D85E-4262-BFB3-3A4ED881B984",
+        "id": "someId",
       },
       "type": "comment_list",
     },
@@ -5907,7 +5907,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPMetaSection:66082073-1941-4333-9293-6DA5A6F13263",
+        "id": "someId",
       },
       "type": "comment_list",
     },
