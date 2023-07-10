@@ -17,11 +17,33 @@
 import 'mathjax-full/js/util/entities/all'
 
 import { HTMLAdaptor } from 'mathjax-full/js/adaptors/HTMLAdaptor'
+import { MmlFactory } from 'mathjax-full/js/core/MmlTree/MmlFactory'
 import { HTMLDocument } from 'mathjax-full/js/handlers/html/HTMLDocument'
 import { MathML } from 'mathjax-full/js/input/mathml'
 import { SVG } from 'mathjax-full/js/output/svg'
+import { MmlNodeClass } from 'mathjax-full/ts/core/MmlTree/MmlNode'
+import { PropertyList } from 'mathjax-full/ts/core/Tree/Node'
 
 import { xmlSerializer } from '../transformer'
+
+class MyMmlFactory extends MmlFactory {
+  constructor() {
+    super()
+    // @ts-ignore
+    this.nodeMap.set('image', this.nodeMap.get('none'))
+  }
+  // @ts-ignore
+  public create(
+    kind: string,
+    properties: PropertyList = {},
+    children: MmlNodeClass[] = []
+  ) {
+    if (kind === 'image') {
+      return this.node['none'](properties, children)
+    }
+    return this.node[kind](properties, children)
+  }
+}
 
 // @ts-ignore for MinHTMLElement nodeValue compatibility
 class ManuscriptsHTMLAdaptor extends HTMLAdaptor<HTMLElement, Text, Document> {
@@ -51,6 +73,7 @@ const adaptor = new ManuscriptsHTMLAdaptor(window)
 const doc = new HTMLDocument<HTMLElement, Text, Document>(document, adaptor, {
   InputJax,
   OutputJax,
+  MmlFactory: new MyMmlFactory(),
 })
 
 doc.addStyleSheet()
