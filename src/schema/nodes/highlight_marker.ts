@@ -16,7 +16,6 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
@@ -49,9 +48,9 @@ export const highlightMarker: NodeSpec = {
         const dom = p as HTMLSpanElement
 
         return {
-          id: getTrimmedAttribute(dom, 'id'),
-          tid: getTrimmedAttribute(dom, 'data-target-id'),
-          position: getTrimmedAttribute(dom, 'data-position'),
+          id: dom.getAttribute('id'),
+          tid: dom.getAttribute('data-target-id'),
+          position: dom.getAttribute('data-position'),
         }
       },
     },

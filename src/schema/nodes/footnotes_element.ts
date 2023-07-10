@@ -16,7 +16,6 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
@@ -46,7 +45,7 @@ export const footnotesElement: NodeSpec = {
         const dom = p as HTMLDivElement
 
         return {
-          kind: getTrimmedAttribute(dom, 'data-kind') || 'footnote',
+          kind: dom.getAttribute('data-kind') || 'footnote',
           // paragraphStyle: dom.getAttribute('data-paragraph-style'),
         }
       },

@@ -16,7 +16,6 @@
 
 import { MarkSpec } from 'prosemirror-model'
 
-import { getTrimmedAttribute } from '../lib/utils'
 import { DataTrackedAttrs } from './types'
 
 export const bold: MarkSpec = {
@@ -86,7 +85,7 @@ export const styled: MarkSpec = {
       getAttrs: (dom) => {
         const element = dom as HTMLSpanElement
         return {
-          rid: getTrimmedAttribute(element, 'data-inline-style'),
+          rid: element.getAttribute('data-inline-style'),
         }
       },
     },
@@ -130,11 +129,11 @@ export const tracked_insert: MarkSpec = {
         const dom = ins as HTMLElement
         return {
           dataTracked: {
-            id: getTrimmedAttribute(dom, 'data-track-id'),
-            userID: getTrimmedAttribute(dom, 'data-user-id'),
-            status: getTrimmedAttribute(dom, 'data-track-status'),
+            id: dom.getAttribute('data-track-id'),
+            userID: dom.getAttribute('data-user-id'),
+            status: dom.getAttribute('data-track-status'),
             createdAt: parseInt(
-              getTrimmedAttribute(dom, 'data-track-created-at') || ''
+              dom.getAttribute('data-track-created-at') || ''
             ),
           },
         }
@@ -167,11 +166,11 @@ export const tracked_delete: MarkSpec = {
         const dom = del as HTMLElement
         return {
           dataTracked: {
-            id: getTrimmedAttribute(dom, 'data-track-id'),
-            userID: getTrimmedAttribute(dom, 'data-user-id'),
-            status: getTrimmedAttribute(dom, 'data-track-status'),
+            id: dom.getAttribute('data-track-id'),
+            userID: dom.getAttribute('data-user-id'),
+            status: dom.getAttribute('data-track-status'),
             createdAt: parseInt(
-              getTrimmedAttribute(dom, 'data-track-created-at') || ''
+              dom.getAttribute('data-track-created-at') || ''
             ),
           },
         }

@@ -16,7 +16,6 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
@@ -64,19 +63,18 @@ export const bibliographyItem: NodeSpec = {
         const dom = p as HTMLDivElement
 
         return {
-          id: getTrimmedAttribute(dom, 'id'),
-          type: getTrimmedAttribute(dom, 'data-type'),
-          author: getTrimmedAttribute(dom, 'data-author') || undefined,
-          issued: getTrimmedAttribute(dom, 'data-issued') || undefined,
-          containerTitle:
-            getTrimmedAttribute(dom, 'data-container-title') || undefined,
-          doi: getTrimmedAttribute(dom, 'data-doi') || undefined,
-          volume: getTrimmedAttribute(dom, 'data-volume') || undefined,
-          issue: getTrimmedAttribute(dom, 'data-issue') || undefined,
-          supplement: getTrimmedAttribute(dom, 'data-supplement') || undefined,
-          page: getTrimmedAttribute(dom, 'data-page') || undefined,
-          title: getTrimmedAttribute(dom, 'data-title') || undefined,
-          literal: getTrimmedAttribute(dom, 'data-literal') || undefined,
+          id: dom.getAttribute('id'),
+          type: dom.getAttribute('data-type'),
+          author: dom.getAttribute('data-author') || undefined,
+          issued: dom.getAttribute('data-issued') || undefined,
+          containerTitle: dom.getAttribute('data-container-title') || undefined,
+          doi: dom.getAttribute('data-doi') || undefined,
+          volume: dom.getAttribute('data-volume') || undefined,
+          issue: dom.getAttribute('data-issue') || undefined,
+          supplement: dom.getAttribute('data-supplement') || undefined,
+          page: dom.getAttribute('data-page') || undefined,
+          title: dom.getAttribute('data-title') || undefined,
+          literal: dom.getAttribute('data-literal') || undefined,
         }
       },
     },

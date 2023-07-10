@@ -16,7 +16,6 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
@@ -47,8 +46,8 @@ export const link: NodeSpec = {
         const dom = a as HTMLAnchorElement
 
         return {
-          href: getTrimmedAttribute(dom, 'href') || '',
-          title: getTrimmedAttribute(dom, 'title') || '',
+          href: dom.getAttribute('href') || '',
+          title: dom.getAttribute('title') || '',
         }
       },
     },
@@ -58,7 +57,7 @@ export const link: NodeSpec = {
         const dom = span as HTMLSpanElement
 
         return {
-          href: getTrimmedAttribute(dom, 'data-href') || '',
+          href: dom.getAttribute('data-href') || '',
         }
       },
       priority: 80,

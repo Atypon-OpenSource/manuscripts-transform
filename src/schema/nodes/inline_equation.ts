@@ -17,7 +17,6 @@
 import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
@@ -51,12 +50,11 @@ export const inlineEquation: NodeSpec = {
         const dom = p as HTMLSpanElement
 
         return {
-          id: getTrimmedAttribute(dom, 'id'),
+          id: dom.getAttribute('id'),
           MathMLRepresentation:
-            getTrimmedAttribute(dom, 'data-mathml-representation') || '',
+            dom.getAttribute('data-mathml-representation') || '',
           SVGRepresentation: dom.innerHTML || '',
-          TeXRepresentation:
-            getTrimmedAttribute(dom, 'data-tex-representation') || '',
+          TeXRepresentation: dom.getAttribute('data-tex-representation') || '',
         }
       },
     },

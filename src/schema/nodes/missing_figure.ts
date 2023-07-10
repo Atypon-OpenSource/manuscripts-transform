@@ -16,7 +16,6 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
 
 export interface MissingFigureNode extends ManuscriptNode {
@@ -41,7 +40,7 @@ export const missingFigure: NodeSpec = {
         const element = dom as HTMLElement
 
         return {
-          id: getTrimmedAttribute(element, 'id'),
+          id: element.getAttribute('id'),
         }
       },
     },

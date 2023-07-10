@@ -86,26 +86,3 @@ export const findParentNodeClosestToPos = (
     }
   }
 }
-
-export function getTrimmedAttribute(
-  element: Element | null,
-  attr: string
-): string | null {
-  if (element === null) {
-    return null
-  }
-  const val = element.getAttribute(attr)
-  return val?.trim() ?? null
-}
-
-export function getTrimmedAttributeNS(
-  element: Element | null,
-  namespace: string,
-  attr: string
-): string | null {
-  if (element === null) {
-    return null
-  }
-  const val = element.getAttributeNS(namespace, attr)
-  return val?.trim() ?? null
-}

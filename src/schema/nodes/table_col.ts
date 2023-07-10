@@ -16,7 +16,6 @@
 
 // adapted from 'prosemirror-tables'
 
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode, TableNodeSpec } from '../types'
 
 export type TableColGroupNode = ManuscriptNode
@@ -53,7 +52,7 @@ export const tableCol: TableNodeSpec = {
         const dom = p as HTMLTableColElement
 
         return {
-          width: getTrimmedAttribute(dom, 'width'),
+          width: dom.getAttribute('width'),
         }
       },
     },

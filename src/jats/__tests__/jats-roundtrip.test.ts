@@ -19,7 +19,6 @@ import { parseXml } from 'libxmljs2'
 import mime from 'mime'
 
 import { createCounter, JATSExporter } from '../../jats/jats-exporter'
-import { getTrimmedAttribute, getTrimmedAttributeNS } from '../../lib/utils'
 import { findManuscript } from '../../transformer'
 import { Decoder } from '../../transformer/decode'
 import { IDGenerator, MediaPathGenerator } from '../../types'
@@ -87,7 +86,7 @@ const createIdGenerator = (articleID: string): IDGenerator => {
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
 const mediaPathGenerator: MediaPathGenerator = async (element, parentID) => {
-  const href = getTrimmedAttributeNS(element, XLINK_NAMESPACE, 'href')
+  const href = element.getAttributeNS(XLINK_NAMESPACE, 'href')
 
   if (href) {
     const extension = href.split('.').pop()
@@ -97,8 +96,8 @@ const mediaPathGenerator: MediaPathGenerator = async (element, parentID) => {
     }
   }
 
-  const mimetype = getTrimmedAttribute(element, 'mime-type')
-  const mimeSubtype = getTrimmedAttribute(element, 'mime-subtype')
+  const mimetype = element.getAttribute('mime-type')
+  const mimeSubtype = element.getAttribute('mime-subtype')
 
   if (mimetype && mimeSubtype) {
     const extension = mime.getExtension(`${mimetype}/${mimeSubtype}`)
@@ -120,7 +119,7 @@ describe('JATS transformer', () => {
 
     // TODO: use doctype of input
     const version =
-      getTrimmedAttribute(doc.querySelector('article'), 'dtd-version') || '1.2'
+      doc.querySelector('article')?.getAttribute('dtd-version') || '1.2'
 
     const models = await parseJATSArticle(doc)
 
@@ -168,7 +167,7 @@ describe('JATS transformer', () => {
     const doc = new DOMParser().parseFromString(input, 'application/xml')
 
     const version =
-      getTrimmedAttribute(doc.querySelector('article'), 'dtd-version') || '1.2'
+      doc.querySelector('article')?.getAttribute('dtd-version') || '1.2'
 
     const models = await parseJATSArticle(doc)
 
@@ -231,7 +230,7 @@ describe('JATS transformer roundtrip validation', () => {
 
     // TODO: use doctype of input
     const version =
-      getTrimmedAttribute(doc.querySelector('article'), 'dtd-version') || '1.2'
+      doc.querySelector('article')?.getAttribute('dtd-version') || '1.2'
 
     const models = await parseJATSArticle(doc)
 

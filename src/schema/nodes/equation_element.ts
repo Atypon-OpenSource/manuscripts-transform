@@ -18,7 +18,6 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 import { CommentNode } from './comment'
-import {getTrimmedAttribute} from "../../lib/utils";
 
 interface Attrs {
   id: string
@@ -49,7 +48,7 @@ export const equationElement: NodeSpec = {
         const dom = p as HTMLElement
 
         return {
-          id: getTrimmedAttribute(dom, 'id'),
+          id: dom.getAttribute('id'),
         }
       },
     },

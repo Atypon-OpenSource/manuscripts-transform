@@ -17,7 +17,6 @@
 import { Journal } from '@manuscripts/json-schema'
 import debug from 'debug'
 
-import { getTrimmedAttribute, getTrimmedAttributeNS } from '../../lib/utils'
 import {
   buildAffiliation,
   buildBibliographicName,
@@ -45,8 +44,8 @@ export const jatsFrontParser = {
       const genericCounts = []
       const countElements = counts.querySelectorAll('count')
       for (const element of countElements.values()) {
-        const countType = getTrimmedAttribute(element, 'count-type')
-        const count = parseCount(getTrimmedAttribute(element, 'count'))
+        const countType = element.getAttribute('count-type')
+        const count = parseCount(element.getAttribute('count'))
         if (countType && typeof count === 'number') {
           const genericCount = { count, countType }
           genericCounts.push(genericCount)
@@ -55,19 +54,19 @@ export const jatsFrontParser = {
 
       return {
         wordCount: parseCount(
-          getTrimmedAttribute(counts.querySelector('word-count'), 'count')
+          counts.querySelector('word-count')?.getAttribute('count')
         ),
         figureCount: parseCount(
-          getTrimmedAttribute(counts.querySelector('fig-count'), 'count')
+          counts.querySelector('fig-count')?.getAttribute('count')
         ),
         tableCount: parseCount(
-          getTrimmedAttribute(counts.querySelector('table-count'), 'count')
+          counts.querySelector('table-count')?.getAttribute('count')
         ),
         equationCount: parseCount(
-          getTrimmedAttribute(counts.querySelector('equation-count'), 'count')
+          counts.querySelector('equation-count')?.getAttribute('count')
         ),
         referencesCount: parseCount(
-          getTrimmedAttribute(counts.querySelector('ref-count'), 'count')
+          counts.querySelector('ref-count')?.getAttribute('count')
         ),
         genericCounts: genericCounts.length > 0 ? genericCounts : undefined,
       }
@@ -114,7 +113,7 @@ export const jatsFrontParser = {
     }
 
     for (const date of historyNode.children) {
-      const dateType = getTrimmedAttribute(date, 'date-type')
+      const dateType = date.getAttribute('date-type')
       switch (dateType) {
         case 'received': {
           history.receiveDate = dateToTimestamp(date)
@@ -152,13 +151,10 @@ export const jatsFrontParser = {
     for (const supplementNode of supplementNodes) {
       const supplTitle =
         supplementNode.querySelector('caption > title')?.textContent ?? ''
-      const href =
-        getTrimmedAttributeNS(supplementNode, XLINK_NAMESPACE, 'href') ?? ''
+      const href = supplementNode.getAttributeNS(XLINK_NAMESPACE, 'href') ?? ''
       const supplementaryMaterial = buildSupplementaryMaterial(supplTitle, href)
-      const mimeType = getTrimmedAttribute(supplementNode, 'mimetype') ?? ''
-      const mimeSubtype =
-        getTrimmedAttribute(supplementNode, 'mime-subtype') ?? ''
-
+      const mimeType = supplementNode.getAttribute('mimetype') ?? ''
+      const mimeSubtype = supplementNode.getAttribute('mime-subtype') ?? ''
       if (mimeType && mimeSubtype) {
         supplementaryMaterial.MIME = [mimeType, mimeSubtype].join('/')
       }
@@ -178,7 +174,7 @@ export const jatsFrontParser = {
           continue
         }
 
-        const contentType = getTrimmedAttribute(node, 'content-type')
+        const contentType = node.getAttribute('content-type')
 
         switch (contentType) {
           case null:
@@ -203,9 +199,7 @@ export const jatsFrontParser = {
       const emailNode = affiliationNode.querySelector('email')
       if (emailNode) {
         affiliation.email = {
-          href:
-            getTrimmedAttributeNS(emailNode, XLINK_NAMESPACE, 'href') ||
-            undefined,
+          href: emailNode.getAttributeNS(XLINK_NAMESPACE, 'href') || undefined,
           text: emailNode.textContent || undefined,
         }
       }
@@ -216,7 +210,7 @@ export const jatsFrontParser = {
       affiliation.country =
         affiliationNode.querySelector('country')?.textContent || undefined
 
-      const id = getTrimmedAttribute(affiliationNode, 'id')
+      const id = affiliationNode.getAttribute('id')
 
       if (id) {
         affiliationIDs.set(id, affiliation._id)
@@ -233,7 +227,7 @@ export const jatsFrontParser = {
     const footnoteIDs = new Map<string, string>()
     const footnotes = footnoteNodes.map((footnoteNode) => {
       const fn = buildFootnote('', footnoteNode.innerHTML)
-      const id = getTrimmedAttribute(footnoteNode, 'id')
+      const id = footnoteNode.getAttribute('id')
       if (id) {
         footnoteIDs.set(id, fn._id)
       }
@@ -254,7 +248,7 @@ export const jatsFrontParser = {
       }
       const corresponding = buildCorresp(correspNode.textContent ?? '')
       corresponding.label = label?.textContent || undefined
-      const id = getTrimmedAttribute(correspNode, 'id')
+      const id = correspNode.getAttribute('id')
       if (id) {
         correspondingIDs.set(id, corresponding._id)
       }
@@ -288,7 +282,7 @@ export const jatsFrontParser = {
 
       const contributor = buildContributor(name, 'author', priority)
 
-      const corresponding = getTrimmedAttribute(authorNode, 'corresp') === 'yes'
+      const corresponding = authorNode.getAttribute('corresp') === 'yes'
 
       if (corresponding) {
         contributor.isCorresponding = corresponding
@@ -306,8 +300,8 @@ export const jatsFrontParser = {
 
       for (const xrefNode of xrefNodes) {
         if (xrefNode) {
-          const rid = getTrimmedAttribute(xrefNode, 'rid')
-          const rtype = getTrimmedAttribute(xrefNode, 'ref-type')
+          const rid = xrefNode.getAttribute('rid')
+          const rtype = xrefNode.getAttribute('ref-type')
           if (rid) {
             //check the xref note type, if fn(footnote) then map the note content and id in array
             if (rtype === 'fn') {

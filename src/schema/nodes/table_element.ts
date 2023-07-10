@@ -18,7 +18,6 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 import { CommentNode } from './comment'
-import {getTrimmedAttribute} from "../../lib/utils";
 
 interface Attrs {
   id: string
@@ -62,9 +61,9 @@ export const tableElement: NodeSpec = {
         const element = dom as HTMLTableElement
 
         return {
-          id: getTrimmedAttribute(element, 'id'),
-          paragraphStyle: getTrimmedAttribute(element, 'data-paragraph-style') || '',
-          tableStyle: getTrimmedAttribute(element, 'data-table-style') || '',
+          id: element.getAttribute('id'),
+          paragraphStyle: element.getAttribute('data-paragraph-style') || '',
+          tableStyle: element.getAttribute('data-table-style') || '',
           // table: table ? table.id : null,
         }
       },

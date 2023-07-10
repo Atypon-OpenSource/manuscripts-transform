@@ -17,7 +17,6 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
-import {getTrimmedAttribute} from "../../lib/utils";
 
 interface Attrs {
   placeholder: string
@@ -42,7 +41,7 @@ export const captionTitle: NodeSpec = {
         const dom = node as HTMLSpanElement
 
         return {
-          placeholder: getTrimmedAttribute(dom, 'data-placeholder-text'),
+          placeholder: dom.getAttribute('data-placeholder-text'),
         }
       },
     },

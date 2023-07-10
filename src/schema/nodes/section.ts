@@ -16,7 +16,6 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
 import { CommentNode } from './comment'
 
@@ -78,8 +77,8 @@ export const section: NodeSpec = {
         const element = dom as HTMLElement
 
         return {
-          id: getTrimmedAttribute(element, 'id') || '',
-          category: getTrimmedAttribute(element, 'data-category') || '',
+          id: element.getAttribute('id') || '',
+          category: element.getAttribute('data-category') || '',
           titleSuppressed: element.classList.contains('title-suppressed'),
           generatedLabel: element.classList.contains('generated-label'),
           pageBreakStyle: choosePageBreakStyle(element) || undefined,

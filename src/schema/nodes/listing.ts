@@ -17,7 +17,6 @@
 import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
 import { CommentNode } from './comment'
 
@@ -59,8 +58,8 @@ export const listing: NodeSpec = {
 
         return {
           contents: node.textContent, // TODO: innerText?
-          language: getTrimmedAttribute(node, 'language'),
-          languageKey: getTrimmedAttribute(node, 'languageKey'),
+          language: node.getAttribute('language'),
+          languageKey: node.getAttribute('languageKey'),
         }
       },
       priority: 100,
@@ -72,8 +71,8 @@ export const listing: NodeSpec = {
         const node = p as HTMLPreElement
 
         return {
-          contents: getTrimmedAttribute(node, 'code') || node.textContent,
-          languageKey: getTrimmedAttribute(node, 'language'),
+          contents: node.getAttribute('code') || node.textContent,
+          languageKey: node.getAttribute('language'),
         }
       },
       priority: 90,

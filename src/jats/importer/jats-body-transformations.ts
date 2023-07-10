@@ -16,7 +16,6 @@
 
 import { BibliographyItem } from '@manuscripts/json-schema'
 
-import { getTrimmedAttribute } from '../../lib/utils'
 import {
   chooseSectionCategoryByType,
   chooseSecType,
@@ -86,7 +85,7 @@ export const jatsBodyTransformations = {
     abstractNode: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
-    const abstractType = getTrimmedAttribute(abstractNode, 'abstract-type')
+    const abstractType = abstractNode.getAttribute('abstract-type')
 
     const section = createElement('sec')
     const sectionType = abstractType ? `abstract-${abstractType}` : 'abstract'
@@ -322,7 +321,7 @@ export const jatsBodyTransformations = {
   ) {
     const footnoteGroups = [...doc.querySelectorAll('fn[fn-type]')]
     for (const footnote of footnoteGroups) {
-      const type = getTrimmedAttribute(footnote, 'fn-type') || '' //Cannot be null since it is queried above
+      const type = footnote.getAttribute('fn-type') || '' //Cannot be null since it is queried above
       const category = chooseSectionCategoryByType(type)
       if (category) {
         const section = createElement('sec')
@@ -347,7 +346,7 @@ export const jatsBodyTransformations = {
     const containingGroup = footnotesSectionGroup || createElement('fn-group')
 
     for (const footnote of footnotes) {
-      const type = getTrimmedAttribute(footnote, 'fn-type')
+      const type = footnote.getAttribute('fn-type')
       if (!type) {
         containingGroup.appendChild(footnote)
       }

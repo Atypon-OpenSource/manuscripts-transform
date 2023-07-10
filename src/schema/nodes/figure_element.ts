@@ -16,7 +16,6 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
 import { AttributionNode } from './attribution'
 import { CommentNode } from './comment'
@@ -71,12 +70,11 @@ export const figureElement: NodeSpec = {
         const dom = p as HTMLElement
 
         return {
-          id: getTrimmedAttribute(dom, 'id'),
-          figureStyle: getTrimmedAttribute(dom, 'data-figure-style'),
-          figureLayout: getTrimmedAttribute(dom, 'data-figure-layout'),
-          sizeFraction:
-            Number(getTrimmedAttribute(dom, 'data-size-fraction')) || 0,
-          alignment: getTrimmedAttribute(dom, 'data-alignment') || undefined,
+          id: dom.getAttribute('id'),
+          figureStyle: dom.getAttribute('data-figure-style'),
+          figureLayout: dom.getAttribute('data-figure-layout'),
+          sizeFraction: Number(dom.getAttribute('data-size-fraction')) || 0,
+          alignment: dom.getAttribute('data-alignment') || undefined,
         }
       },
     },

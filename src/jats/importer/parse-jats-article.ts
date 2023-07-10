@@ -30,7 +30,6 @@ import { DOMParser } from 'prosemirror-model'
 
 import { InvalidInput } from '../../errors'
 import { nodeFromHTML } from '../../lib/html'
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../../schema'
 import { auxiliaryObjectTypes, nodeTypesMap } from '../../transformer'
 import {
@@ -338,7 +337,7 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
   const manuscript = findManuscript(frontModelsMap)
 
   if (manuscript) {
-    const articleType = getTrimmedAttribute(articleElement, 'article-type')
+    const articleType = articleElement.getAttribute('article-type')
     manuscript.articleType = articleType || 'other'
   }
 

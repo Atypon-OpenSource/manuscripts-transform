@@ -17,7 +17,6 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
-import {getTrimmedAttribute} from "../../lib/utils";
 
 interface Attrs {
   rid: string
@@ -46,7 +45,7 @@ export const citation: NodeSpec = {
         const dom = p as HTMLSpanElement
 
         return {
-          rid: getTrimmedAttribute(dom, 'data-reference-id'),
+          rid: dom.getAttribute('data-reference-id'),
           contents: dom.innerHTML,
         }
       },

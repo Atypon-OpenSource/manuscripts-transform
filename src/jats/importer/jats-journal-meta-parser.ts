@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import { getTrimmedAttribute } from '../../lib/utils'
-
 export type ISSN = {
   ISSN: string
   publicationType?: string
@@ -37,7 +35,7 @@ export const parseJournalIdentifiers = (
   const elements = journalMeta.querySelectorAll('journal-id')
 
   for (const element of elements) {
-    const journalIDType = getTrimmedAttribute(element, 'journal-id-type')
+    const journalIDType = element.getAttribute('journal-id-type')
     const journalID = element.textContent
 
     if (journalID !== null && journalIDType != null) {
@@ -60,7 +58,7 @@ export const parseJournalAbbreviatedTitles = (
   )
 
   for (const element of elements) {
-    const abbrevType = getTrimmedAttribute(element, 'abbrev-type')
+    const abbrevType = element.getAttribute('abbrev-type')
     const abbreviatedTitle = element.textContent
     if (abbreviatedTitle !== null && abbrevType !== null) {
       output.push({ abbreviatedTitle, abbrevType })
@@ -78,7 +76,7 @@ export const parseJournalISSNs = (journalMeta: Element): Array<ISSN> => {
   const elements = journalMeta.querySelectorAll('issn')
 
   for (const element of elements) {
-    const publicationType = getTrimmedAttribute(element, 'pub-type')
+    const publicationType = element.getAttribute('pub-type')
     const ISSN = element.textContent
     if (publicationType !== null && ISSN !== null) {
       output.push({ publicationType, ISSN })

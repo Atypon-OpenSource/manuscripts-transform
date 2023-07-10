@@ -18,7 +18,6 @@ import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { buildElementClass } from '../../lib/attributes'
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
@@ -48,10 +47,10 @@ export const blockquoteElement: NodeSpec = {
         const dom = blockquote as HTMLQuoteElement
 
         const attrs: Partial<Attrs> = {
-          id: getTrimmedAttribute(dom, 'id') || undefined,
+          id: dom.getAttribute('id') || undefined,
         }
 
-        const placeholder = getTrimmedAttribute(dom, 'data-placeholder-text')
+        const placeholder = dom.getAttribute('data-placeholder-text')
 
         if (placeholder) {
           attrs.placeholder = placeholder
