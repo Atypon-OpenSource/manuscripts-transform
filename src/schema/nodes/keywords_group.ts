@@ -19,49 +19,44 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
-  contents: string
   id: string
-  paragraphStyle?: string
 }
 
-export interface KeywordsElementNode extends ManuscriptNode {
+export interface KeywordsGroupNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const keywordsElement: NodeSpec = {
-  atom: true,
-  content: 'keywords_group*',
+export const keywordsGroup: NodeSpec = {
+  content: 'keyword*',
   attrs: {
     id: { default: '' },
-    contents: { default: '' },
-    paragraphStyle: { default: '' },
     type: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block element',
+  group: 'block',
   selectable: false,
   parseDOM: [
     {
-      tag: 'div.manuscript-keywords',
-      getAttrs: (div) => {
-        const dom = div as HTMLDivElement
-
-        return {
-          contents: dom.innerHTML,
-        }
-      },
+      tag: 'div.keywords',
     },
   ],
   toDOM: (node) => {
-    const keywordsElementNode = node as KeywordsElementNode
+    const keywordsGroupNode = node as KeywordsGroupNode
 
     return [
       'div',
       {
-        class: 'manuscript-keywords',
-        id: keywordsElementNode.attrs.id,
+        id: keywordsGroupNode.attrs.id,
+        class: 'keywords',
+        spellcheck: 'false',
+        contenteditable: false,
       },
       0,
     ]
   },
 }
+
+export const isKeywordsGroupNode = (
+  node: ManuscriptNode
+): node is KeywordsGroupNode =>
+  node.type === node.type.schema.nodes.keywords_group
