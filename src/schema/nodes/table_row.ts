@@ -21,8 +21,8 @@ import {
   serializeTableCellStyles,
   TableCellStyleKey,
 } from '../../lib/table-cell-styles'
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode, TableNodeSpec } from '../types'
+import {getTrimmedAttribute} from "../../lib/utils";
 
 // NOTE: keep this method as close to the original as possible, for ease of updating
 const getCellAttrs = (p: Node | string) => {

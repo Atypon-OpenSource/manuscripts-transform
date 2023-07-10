@@ -16,8 +16,8 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { getTrimmedAttribute } from '../../lib/utils'
 import { ManuscriptNode } from '../types'
+import {getTrimmedAttribute} from "../../lib/utils";
 
 interface Attrs {
   placeholder: string

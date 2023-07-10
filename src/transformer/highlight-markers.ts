@@ -16,8 +16,8 @@
 
 import { CommentAnnotation, Model } from '@manuscripts/json-schema'
 
-import { getTrimmedAttribute } from '../lib/utils'
 import { Build, buildComment } from './builders'
+import {getTrimmedAttribute} from "../lib/utils";
 
 export type HighlightableField = 'title' | 'caption' | 'contents'
 
