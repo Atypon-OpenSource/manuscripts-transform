@@ -764,7 +764,7 @@ const nodes: NodeRule[] = [
 
       return {
         rid: element.getAttribute('rid'),
-        contents: element.textContent, // TODO: innerHTML?
+        contents: element.textContent?.trim(), // TODO: innerHTML?
       }
     },
   },
@@ -776,7 +776,7 @@ const nodes: NodeRule[] = [
 
       return {
         rid: element.getAttribute('rid'),
-        contents: element.textContent,
+        contents: element.textContent?.trim(),
       }
     },
   },
@@ -788,7 +788,7 @@ const nodes: NodeRule[] = [
 
       return {
         rid: element.getAttribute('rid'),
-        label: element.textContent,
+        label: element.textContent?.trim(),
       }
     },
   },
