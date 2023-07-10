@@ -841,7 +841,7 @@ export class Decoder {
     }
 
     const contents: ManuscriptNode[] = rootSectionNodes
-    const comments = schema.nodes.comment_list.createAndFill(undefined, [
+    const comments = schema.nodes.comment_list.createAndFill({}, [
       ...this.comments.values(),
     ]) as CommentListNode
     contents.push(comments)
