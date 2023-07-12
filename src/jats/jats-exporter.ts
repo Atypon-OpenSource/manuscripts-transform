@@ -54,7 +54,6 @@ import { buildTargets, Target } from '../transformer/labels'
 import { isExecutableNodeType, isNodeType } from '../transformer/node-types'
 import { hasObjectType } from '../transformer/object-types'
 import {
-  findLatestManuscriptSubmission,
   findManuscript,
   findManuscriptById,
 } from '../transformer/project-bundle'
@@ -403,7 +402,6 @@ export class JATSExporter {
   protected buildFront = (doi?: string, id?: string, links?: Links) => {
     const manuscript = findManuscript(this.modelMap)
 
-    const submission = findLatestManuscriptSubmission(this.modelMap, manuscript)
 
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/front.html
     const front = this.document.createElement('front')
@@ -471,33 +469,6 @@ export class JATSExporter {
         publisherName.textContent = journal.publisherName
         publisher.appendChild(publisherName)
         journalMeta.appendChild(publisher)
-      }
-    } else {
-      if (submission) {
-        if (submission.journalCode) {
-          const journalID = this.document.createElement('journal-id')
-          journalID.setAttribute('journal-id-type', 'publisher-id')
-          journalID.textContent = submission.journalCode
-          journalMeta.appendChild(journalID)
-        }
-
-        if (submission.journalTitle) {
-          const journalTitleGroup = this.document.createElement(
-            'journal-title-group'
-          )
-          journalMeta.appendChild(journalTitleGroup)
-
-          const journalTitle = this.document.createElement('journal-title')
-          journalTitle.textContent = submission.journalTitle
-          journalTitleGroup.appendChild(journalTitle)
-        }
-
-        if (submission.issn) {
-          const issn = this.document.createElement('issn')
-          issn.setAttribute('pub-type', 'epub')
-          issn.textContent = submission.issn
-          journalMeta.appendChild(issn)
-        }
       }
     }
     if (id) {
