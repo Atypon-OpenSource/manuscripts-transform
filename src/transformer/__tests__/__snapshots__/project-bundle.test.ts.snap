@@ -711,6 +711,12 @@ Object {
         ],
         "type": "section",
       },
+      Object {
+        "attrs": Object {
+          "id": "COMMENT_LIST",
+        },
+        "type": "comment_list",
+      },
     ],
     "type": "manuscript",
   },
@@ -1911,6 +1917,12 @@ Object {
           },
         ],
         "type": "section",
+      },
+      Object {
+        "attrs": Object {
+          "id": "COMMENT_LIST",
+        },
+        "type": "comment_list",
       },
     ],
     "type": "manuscript",
