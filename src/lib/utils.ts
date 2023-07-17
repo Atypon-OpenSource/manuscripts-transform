@@ -86,3 +86,13 @@ export const findParentNodeClosestToPos = (
     }
   }
 }
+
+export const getTrimmedTextContent = (
+  node: Element | Document,
+  querySelector: string
+) => {
+  if (!node) {
+    return null
+  }
+  return node.querySelector(querySelector)?.textContent?.trim()
+}
