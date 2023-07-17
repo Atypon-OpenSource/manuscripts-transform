@@ -6759,6 +6759,9 @@ Object {
       ],
       "type": "section",
     },
+    Object {
+      "type": "comment_list",
+    },
   ],
   "type": "manuscript",
 }
@@ -8645,13 +8648,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Ozsoylev and Werner (2011)</span> argue that ambiguous information results in potential market illiquidity because it reduces market arbitrage opportunities.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Ozsoylev and Werner (2011)</span> argue that ambiguous information results in potential market illiquidity because it reduces market arbitrage opportunities.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Ozsoylev and Werner (2011)</span> argue that ambiguous information results in potential market illiquidity because it reduces market arbitrage opportunities.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Ozsoylev and Werner (2011)</span> argue that ambiguous information results in potential market illiquidity because it reduces market arbitrage opportunities.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8659,13 +8662,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Pasquariello and Zafeiridou (2014)</span> argue that this may not hold when informed participants are reluctant to reveal information via transacting, resulting in lower trading activity before the election outcome.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Pasquariello and Zafeiridou (2014)</span> argue that this may not hold when informed participants are reluctant to reveal information via transacting, resulting in lower trading activity before the election outcome.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Pasquariello and Zafeiridou (2014)</span> argue that this may not hold when informed participants are reluctant to reveal information via transacting, resulting in lower trading activity before the election outcome.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Pasquariello and Zafeiridou (2014)</span> argue that this may not hold when informed participants are reluctant to reveal information via transacting, resulting in lower trading activity before the election outcome.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8687,13 +8690,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Voth (2002)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Mei and Guo (2004)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Li and Born (2006)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Białkowski, Gottschalk, and Wisniewski (2008)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Boutchkova et al. (2012)</span>, and <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Baker, Bloom, and Davis (2016)</span> all provide evidence that increased political uncertainty is associated with increased return volatility in the equity markets. <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Kelly, Pástor, and Veronesi (2016)</span> show that political uncertainty is priced into the option markets as it pertains to implied volatility.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Voth (2002)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Mei and Guo (2004)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Li and Born (2006)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Białkowski, Gottschalk, and Wisniewski (2008)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Boutchkova et al. (2012)</span>, and <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Baker, Bloom, and Davis (2016)</span> all provide evidence that increased political uncertainty is associated with increased return volatility in the equity markets. <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Kelly, Pástor, and Veronesi (2016)</span> show that political uncertainty is priced into the option markets as it pertains to implied volatility.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Voth (2002)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Mei and Guo (2004)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Li and Born (2006)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Białkowski, Gottschalk, and Wisniewski (2008)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Boutchkova et al. (2012)</span>, and <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Baker, Bloom, and Davis (2016)</span> all provide evidence that increased political uncertainty is associated with increased return volatility in the equity markets. <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Kelly, Pástor, and Veronesi (2016)</span> show that political uncertainty is priced into the option markets as it pertains to implied volatility.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Voth (2002)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Mei and Guo (2004)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Li and Born (2006)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Białkowski, Gottschalk, and Wisniewski (2008)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Boutchkova et al. (2012)</span>, and <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Baker, Bloom, and Davis (2016)</span> all provide evidence that increased political uncertainty is associated with increased return volatility in the equity markets. <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Kelly, Pástor, and Veronesi (2016)</span> show that political uncertainty is priced into the option markets as it pertains to implied volatility.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8701,13 +8704,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Pástor and Veronesi (2013)</span> provide evidence that both the magnitude of a political shock and the state of the economy help determine the risk premium required by investors.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Pástor and Veronesi (2013)</span> provide evidence that both the magnitude of a political shock and the state of the economy help determine the risk premium required by investors.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Pástor and Veronesi (2013)</span> provide evidence that both the magnitude of a political shock and the state of the economy help determine the risk premium required by investors.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Pástor and Veronesi (2013)</span> provide evidence that both the magnitude of a political shock and the state of the economy help determine the risk premium required by investors.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8729,13 +8732,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Boutchkova et al. (2012)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Pástor and Veronesi (2012</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">2013</span>), <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Brogaard and Detzel (2015)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Gungoraydinoglu, Çolak, and Öztekin (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Bonaparte, Kumar, and Page (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Bhattacharya et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Marshall et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Liu, Shu, and Wei (2017)</span>, and <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Perignon and Vallée (2017)</span> all examine the effects of political <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">test-author</span>uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Boutchkova et al. (2012)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Pástor and Veronesi (2012</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">2013</span>), <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Brogaard and Detzel (2015)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Gungoraydinoglu, Çolak, and Öztekin (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Bonaparte, Kumar, and Page (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Bhattacharya et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Marshall et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Liu, Shu, and Wei (2017)</span>, and <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Perignon and Vallée (2017)</span> all examine the effects of political <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">test-author</span>uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Boutchkova et al. (2012)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Pástor and Veronesi (2012</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">2013</span>), <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Brogaard and Detzel (2015)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Gungoraydinoglu, Çolak, and Öztekin (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Bonaparte, Kumar, and Page (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Bhattacharya et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Marshall et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Liu, Shu, and Wei (2017)</span>, and <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Perignon and Vallée (2017)</span> all examine the effects of political <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">test-author</span>uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Boutchkova et al. (2012)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Pástor and Veronesi (2012</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">2013</span>), <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Brogaard and Detzel (2015)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Gungoraydinoglu, Çolak, and Öztekin (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Bonaparte, Kumar, and Page (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Bhattacharya et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Marshall et al. (2017)</span>, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Liu, Shu, and Wei (2017)</span>, and <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Perignon and Vallée (2017)</span> all examine the effects of political <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">test-author</span>uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8757,13 +8760,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Holden and Jacobsen (2014)</span> show that the NBBO file is incomplete by itself, but the complete official NBBO can be constructed using the NBBO file and the quote file.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Holden and Jacobsen (2014)</span> show that the NBBO file is incomplete by itself, but the complete official NBBO can be constructed using the NBBO file and the quote file.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Holden and Jacobsen (2014)</span> show that the NBBO file is incomplete by itself, but the complete official NBBO can be constructed using the NBBO file and the quote file.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Holden and Jacobsen (2014)</span> show that the NBBO file is incomplete by itself, but the complete official NBBO can be constructed using the NBBO file and the quote file.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8827,13 +8830,13 @@ Array [
   Object {
     "_id": "MPFootnote:test",
     "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Amihud (2002)</span> documents that smaller, illiquid stocks are associated with greater adverse selection costs. Similarly, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Barry and Brown (1984)</span> document that investors command higher returns on small stocks as compensation for having less available information.</p></div>",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Amihud (2002)</span> documents that smaller, illiquid stocks are associated with greater adverse selection costs. Similarly, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Barry and Brown (1984)</span> document that investors command higher returns on small stocks as compensation for having less available information.</p></div>",
     "kind": "footnote",
     "objectType": "MPFootnote",
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Amihud (2002)</span> documents that smaller, illiquid stocks are associated with greater adverse selection costs. Similarly, <span class=\\"citation\\" data-reference-id=\\"MPBibliographyItem:test\\">Barry and Brown (1984)</span> document that investors command higher returns on small stocks as compensation for having less available information.</p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Amihud (2002)</span> documents that smaller, illiquid stocks are associated with greater adverse selection costs. Similarly, <span class=\\"citation\\" data-reference-id=\\"MPCitation:test\\">Barry and Brown (1984)</span> document that investors command higher returns on small stocks as compensation for having less available information.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -10769,6 +10772,270 @@ Array [
     "referencedObject": "MPTableElement:test",
   },
   Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
+    "_id": "MPCitation:test",
+    "embeddedCitationItems": Array [
+      Object {
+        "_id": "MPCitationItem:test",
+        "bibliographyItem": "MPBibliographyItem:test",
+        "objectType": "MPCitationItem",
+      },
+    ],
+    "objectType": "MPCitation",
+  },
+  Object {
     "_id": "MPElementsOrder:test",
     "elementType": "MPFigureElement",
     "elements": Array [
@@ -12695,6 +12962,9 @@ Object {
         },
       ],
       "type": "section",
+    },
+    Object {
+      "type": "comment_list",
     },
   ],
   "type": "manuscript",
