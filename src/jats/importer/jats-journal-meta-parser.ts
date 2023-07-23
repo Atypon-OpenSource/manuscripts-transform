@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import { getTrimmedTextContent } from '../../lib/utils'
+
 export type ISSN = {
   ISSN: string
   publicationType?: string
@@ -36,7 +38,7 @@ export const parseJournalIdentifiers = (
 
   for (const element of elements) {
     const journalIDType = element.getAttribute('journal-id-type')
-    const journalID = element.textContent
+    const journalID = element.textContent?.trim() ?? element.textContent
 
     if (journalID !== null && journalIDType != null) {
       output.push({ journalIDType, journalID })
@@ -59,7 +61,7 @@ export const parseJournalAbbreviatedTitles = (
 
   for (const element of elements) {
     const abbrevType = element.getAttribute('abbrev-type')
-    const abbreviatedTitle = element.textContent
+    const abbreviatedTitle = element.textContent?.trim() ?? element.textContent
     if (abbreviatedTitle !== null && abbrevType !== null) {
       output.push({ abbreviatedTitle, abbrevType })
     } else if (abbreviatedTitle !== null) {
@@ -77,7 +79,7 @@ export const parseJournalISSNs = (journalMeta: Element): Array<ISSN> => {
 
   for (const element of elements) {
     const publicationType = element.getAttribute('pub-type')
-    const ISSN = element.textContent
+    const ISSN = element.textContent?.trim() ?? element.textContent
     if (publicationType !== null && ISSN !== null) {
       output.push({ publicationType, ISSN })
     } else if (ISSN !== null) {
@@ -94,10 +96,12 @@ export const parseJournalMeta = (journalMeta: Element) => {
     journalIdentifiers: parseJournalIdentifiers(journalMeta),
     ISSNs: parseJournalISSNs(journalMeta),
     publisherName:
-      journalMeta.querySelector('publisher > publisher-name')?.textContent ??
+      getTrimmedTextContent(journalMeta, 'publisher > publisher-name') ??
       undefined,
     title:
-      journalMeta.querySelector('journal-title-group > journal-title')
-        ?.textContent ?? undefined,
+      getTrimmedTextContent(
+        journalMeta,
+        'journal-title-group > journal-title'
+      ) ?? undefined,
   }
 }

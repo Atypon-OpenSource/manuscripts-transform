@@ -110,7 +110,7 @@ export const buildTargets = (
         type: node.type.name,
         id: node.attrs.id,
         label,
-        caption: node.textContent, // TODO: HTML?
+        caption: node.textContent?.trim(), // TODO: HTML?
       })
 
       // TODO: allow an individual figure to be referenced
