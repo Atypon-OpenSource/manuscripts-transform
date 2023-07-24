@@ -17,13 +17,7 @@
 // @ts-ignore
 import project3 from '@manuscripts/examples/data/project-dump-3.json'
 
-import {
-  parseProjectBundle,
-  ProjectBundle,
-} from '../project-bundle'
-
-
-
+import { parseProjectBundle, ProjectBundle } from '../project-bundle'
 
 test('project bundle with no manuscript parameter', () => {
   const result = parseProjectBundle(project3)

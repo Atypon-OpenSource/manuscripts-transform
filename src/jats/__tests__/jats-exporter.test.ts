@@ -406,7 +406,6 @@ describe('JATS exporter', () => {
 
     const { doc, modelMap } = parseProjectBundle(projectBundle)
 
-
     const transformer = new JATSExporter()
     const manuscript = findManuscript(modelMap)
     const xml = await transformer.serializeToJATS(
@@ -513,8 +512,6 @@ describe('JATS exporter', () => {
 
     expect(xml).toMatch(/<self-uri content-type="pdf" xlink:href="123.pdf"\/>/)
   })
-
-
 
   test('Manuscript Counts', async () => {
     const projectBundle = cloneProjectBundle(input)
@@ -748,7 +745,6 @@ describe('JATS exporter', () => {
     const manuscript = Array.from(modelMap.values()).find(
       isManuscript
     ) as Manuscript
-
 
     const transformer = new JATSExporter()
     const xml = await transformer.serializeToJATS(
