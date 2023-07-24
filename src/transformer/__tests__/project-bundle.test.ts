@@ -16,36 +16,8 @@
 
 // @ts-ignore
 import project3 from '@manuscripts/examples/data/project-dump-3.json'
-import { Manuscript, ObjectTypes } from '@manuscripts/json-schema'
 
-import { hasObjectType } from '../object-types'
-import {
-  findLatestManuscriptSubmission,
-  parseProjectBundle,
-  ProjectBundle,
-} from '../project-bundle'
-import { createTestModelMap } from './__helpers__/doc'
-import { submissions } from './__helpers__/submissions'
-
-const isManuscript = hasObjectType<Manuscript>(ObjectTypes.Manuscript)
-
-test('find latest manuscript submission', () => {
-  const modelMap = createTestModelMap()
-
-  for (const submission of submissions) {
-    modelMap.set(submission._id, submission)
-  }
-
-  const manuscript = Array.from(modelMap.values()).find(isManuscript)
-
-  if (!manuscript) {
-    throw new Error('No manuscript found in project bundle')
-  }
-
-  const result = findLatestManuscriptSubmission(modelMap, manuscript)
-
-  expect(result!._id).toBe('MPSubmission:2')
-})
+import { parseProjectBundle, ProjectBundle } from '../project-bundle'
 
 test('project bundle with no manuscript parameter', () => {
   const result = parseProjectBundle(project3)

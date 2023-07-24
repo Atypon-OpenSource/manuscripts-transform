@@ -108,7 +108,7 @@ interface NodeCreatorMap {
 
 export const getModelData = <T extends Model>(model: Model): T => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { _rev, _deleted, updatedAt, createdAt, sessionID, ...data } = model
+  const { updatedAt, createdAt, ...data } = model
 
   return data as T
 }
