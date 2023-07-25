@@ -33,6 +33,7 @@ import {
   ListingElement,
   MissingFigure,
   Model,
+  ObjectTypes,
   ParagraphElement,
   QuoteElement,
   Section,
@@ -62,6 +63,7 @@ import {
 import { PlaceholderElement } from './models'
 import { nodeTypesMap } from './node-types'
 import { buildSectionCategory } from './section-category'
+import { generateID } from './id'
 
 const serializer = DOMSerializer.fromSchema(schema)
 
@@ -797,7 +799,10 @@ interface PrioritizedValue {
   value: number
 }
 
-export const encode = (node: ManuscriptNode): Map<string, Model> => {
+export const encode = (
+  node: ManuscriptNode,
+  preserveWithRepeatedID = false
+): Map<string, Model> => {
   const models: Map<string, Model> = new Map()
 
   const priority: PrioritizedValue = {
@@ -822,9 +827,14 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       }
       const { model } = modelFromNode(child, parent, path, priority)
       if (models.has(model._id)) {
-        throw Error(
-          `Encountered duplicate ids in models map while encoding: ${model._id}`
-        )
+        if (preserveWithRepeatedID) {
+          model._id = generateID(model.objectType as ObjectTypes)
+          // needed to support track changes plugin, specifically tracking of splitting content
+        } else {
+          throw Error(
+            `Encountered duplicate ids in models map while encoding: ${model._id}`
+          )
+        }
       }
       models.set(model._id, model)
       child.forEach(addModel(path.concat(child.attrs.id), child))
