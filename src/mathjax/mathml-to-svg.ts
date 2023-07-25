@@ -18,11 +18,11 @@ import 'mathjax-full/js/util/entities/all'
 
 import { HTMLAdaptor } from 'mathjax-full/js/adaptors/HTMLAdaptor'
 import { MmlFactory } from 'mathjax-full/js/core/MmlTree/MmlFactory'
+import { MmlNodeClass } from 'mathjax-full/js/core/MmlTree/MmlNode'
+import { PropertyList } from 'mathjax-full/js/core/Tree/Node'
 import { HTMLDocument } from 'mathjax-full/js/handlers/html/HTMLDocument'
 import { MathML } from 'mathjax-full/js/input/mathml'
 import { SVG } from 'mathjax-full/js/output/svg'
-import { MmlNodeClass } from 'mathjax-full/js/core/MmlTree/MmlNode'
-import { PropertyList } from 'mathjax-full/js/core/Tree/Node'
 
 import { xmlSerializer } from '../transformer'
 
