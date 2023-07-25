@@ -52,10 +52,8 @@ import {
   RequirementsValidationData,
   Section,
   StatusLabel,
-  Submission,
   Supplement,
   UserProfileAffiliation,
-  UserProfileFootNote,
 } from '@manuscripts/json-schema'
 import serializeToXML from 'w3c-xmlserializer'
 
@@ -428,11 +426,6 @@ export const buildAttribution = (): Build<Attribution> => ({
   objectType: ObjectTypes.Attribution,
 })
 
-export const buildSubmission = (): Build<Submission> => ({
-  _id: generateID(ObjectTypes.Submission),
-  objectType: ObjectTypes.Submission,
-})
-
 export const buildJournal = (): Build<Journal> => ({
   _id: generateID(ObjectTypes.Journal),
   objectType: ObjectTypes.Journal,
@@ -442,16 +435,6 @@ export const buildStatusLabel = (name: string): Build<StatusLabel> => ({
   _id: generateID(ObjectTypes.StatusLabel),
   objectType: ObjectTypes.StatusLabel,
   name,
-})
-
-export const buildUserFootNote = (
-  noteId: string,
-  content: string
-): Build<UserProfileFootNote> => ({
-  _id: generateID(ObjectTypes.UserProfileFootNote),
-  objectType: ObjectTypes.UserProfileFootNote,
-  noteId,
-  content,
 })
 
 export type AuxiliaryObjects =
