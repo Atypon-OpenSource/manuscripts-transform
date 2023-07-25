@@ -328,7 +328,10 @@ export const jatsBodyTransformations = {
         const title = footnote.querySelector('p[content-type="fn-title"]')
         if (title) {
           const sectionTitleElement = createElement('title')
-          sectionTitleElement.textContent = title.textContent
+          const titleTextContent = title.textContent?.trim()
+          if (titleTextContent) {
+            sectionTitleElement.textContent = titleTextContent
+          }
           removeNodeFromParent(title)
           section.append(sectionTitleElement)
         }

@@ -17,6 +17,7 @@
 import { Journal } from '@manuscripts/json-schema'
 import debug from 'debug'
 
+import { getTrimmedTextContent } from '../../lib/utils'
 import {
   buildAffiliation,
   buildBibliographicName,
@@ -101,7 +102,7 @@ export const jatsFrontParser = {
       const selectors = ['year', 'month', 'day']
       const values: Array<number> = []
       for (const selector of selectors) {
-        const value = dateElement.querySelector(selector)?.textContent?.trim()
+        const value = getTrimmedTextContent(dateElement, selector)
         if (!value || isNaN(+value)) {
           return
         }
@@ -150,7 +151,7 @@ export const jatsFrontParser = {
     const supplements = []
     for (const supplementNode of supplementNodes) {
       const supplTitle =
-        supplementNode.querySelector('caption > title')?.textContent ?? ''
+        getTrimmedTextContent(supplementNode, 'caption > title') ?? ''
       const href = supplementNode.getAttributeNS(XLINK_NAMESPACE, 'href') ?? ''
       const supplementaryMaterial = buildSupplementaryMaterial(supplTitle, href)
       const mimeType = supplementNode.getAttribute('mimetype') ?? ''
@@ -168,7 +169,7 @@ export const jatsFrontParser = {
       const affiliation = buildAffiliation('', priority)
 
       for (const node of affiliationNode.querySelectorAll('institution')) {
-        const content = node.textContent
+        const content = node.textContent?.trim()
 
         if (!content) {
           continue
@@ -188,27 +189,27 @@ export const jatsFrontParser = {
       }
 
       affiliation.addressLine1 =
-        affiliationNode.querySelector('addr-line:nth-of-type(1)')
-          ?.textContent || undefined
+        getTrimmedTextContent(affiliationNode, 'addr-line:nth-of-type(1)') ||
+        undefined
       affiliation.addressLine2 =
-        affiliationNode.querySelector('addr-line:nth-of-type(2)')
-          ?.textContent || undefined
+        getTrimmedTextContent(affiliationNode, 'addr-line:nth-of-type(2)') ||
+        undefined
       affiliation.addressLine3 =
-        affiliationNode.querySelector('addr-line:nth-of-type(3)')
-          ?.textContent || undefined
+        getTrimmedTextContent(affiliationNode, 'addr-line:nth-of-type(3)') ||
+        undefined
       const emailNode = affiliationNode.querySelector('email')
       if (emailNode) {
         affiliation.email = {
           href: emailNode.getAttributeNS(XLINK_NAMESPACE, 'href') || undefined,
-          text: emailNode.textContent || undefined,
+          text: emailNode.textContent?.trim() || undefined,
         }
       }
       affiliation.postCode =
-        affiliationNode.querySelector('postal-code')?.textContent || undefined
+        getTrimmedTextContent(affiliationNode, 'postal-code') || undefined
       // affiliation.city =
       //   affiliationNode.querySelector('city')?.textContent || undefined
       affiliation.country =
-        affiliationNode.querySelector('country')?.textContent || undefined
+        getTrimmedTextContent(affiliationNode, 'country') || undefined
 
       const id = affiliationNode.getAttribute('id')
 
@@ -246,8 +247,8 @@ export const jatsFrontParser = {
       if (label) {
         label.remove()
       }
-      const corresponding = buildCorresp(correspNode.textContent ?? '')
-      corresponding.label = label?.textContent || undefined
+      const corresponding = buildCorresp(correspNode.textContent?.trim() ?? '')
+      corresponding.label = label?.textContent?.trim() || undefined
       const id = correspNode.getAttribute('id')
       if (id) {
         correspondingIDs.set(id, corresponding._id)
@@ -268,13 +269,13 @@ export const jatsFrontParser = {
     return authorNodes.map((authorNode, priority) => {
       const name = buildBibliographicName({})
 
-      const given = authorNode.querySelector('name > given-names')?.textContent
+      const given = getTrimmedTextContent(authorNode, 'name > given-names')
 
       if (given) {
         name.given = given
       }
 
-      const surname = authorNode.querySelector('name > surname')?.textContent
+      const surname = getTrimmedTextContent(authorNode, 'name > surname')
 
       if (surname) {
         name.family = surname
@@ -288,9 +289,10 @@ export const jatsFrontParser = {
         contributor.isCorresponding = corresponding
       }
 
-      const orcid = authorNode.querySelector(
+      const orcid = getTrimmedTextContent(
+        authorNode,
         'contrib-id[contrib-id-type="orcid"]'
-      )?.textContent
+      )
 
       if (orcid) {
         contributor.ORCIDIdentifier = orcid
@@ -310,7 +312,7 @@ export const jatsFrontParser = {
               if (footnoteId) {
                 const authorFootNoteRef = {
                   noteID: footnoteId,
-                  noteLabel: xrefNode.textContent || '',
+                  noteLabel: xrefNode.textContent?.trim() || '',
                 }
                 contributor.footnote.push(authorFootNoteRef)
               }
@@ -320,7 +322,7 @@ export const jatsFrontParser = {
               if (correspId) {
                 const authorCorrespRef = {
                   correspID: correspId,
-                  correspLabel: xrefNode.textContent || '',
+                  correspLabel: xrefNode.textContent?.trim() || '',
                 }
                 contributor.corresp.push(authorCorrespRef)
               }

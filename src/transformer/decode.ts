@@ -108,7 +108,7 @@ interface NodeCreatorMap {
 
 export const getModelData = <T extends Model>(model: Model): T => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { _rev, _deleted, updatedAt, createdAt, sessionID, ...data } = model
+  const { updatedAt, createdAt, ...data } = model
 
   return data as T
 }
@@ -841,15 +841,10 @@ export class Decoder {
     }
 
     const contents: ManuscriptNode[] = rootSectionNodes
-    if (this.comments.size) {
-      const comments = schema.nodes.comment_list.createAndFill(
-        {
-          id: generateNodeID(schema.nodes.comment_list),
-        },
-        [...this.comments.values()]
-      ) as CommentListNode
-      contents.push(comments)
-    }
+    const comments = schema.nodes.comment_list.createAndFill({}, [
+      ...this.comments.values(),
+    ]) as CommentListNode
+    contents.push(comments)
 
     return schema.nodes.manuscript.create(
       {
