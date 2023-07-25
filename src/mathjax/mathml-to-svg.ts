@@ -26,7 +26,7 @@ import { PropertyList } from 'mathjax-full/ts/core/Tree/Node'
 
 import { xmlSerializer } from '../transformer'
 
-class MyMmlFactory extends MmlFactory {
+class ManuscriptsMmlFactory extends MmlFactory {
   constructor() {
     super()
     // @ts-ignore
@@ -73,7 +73,7 @@ const adaptor = new ManuscriptsHTMLAdaptor(window)
 const doc = new HTMLDocument<HTMLElement, Text, Document>(document, adaptor, {
   InputJax,
   OutputJax,
-  MmlFactory: new MyMmlFactory(),
+  MmlFactory: new ManuscriptsMmlFactory(),
 })
 
 doc.addStyleSheet()
