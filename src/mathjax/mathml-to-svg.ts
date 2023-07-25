@@ -21,8 +21,8 @@ import { MmlFactory } from 'mathjax-full/js/core/MmlTree/MmlFactory'
 import { HTMLDocument } from 'mathjax-full/js/handlers/html/HTMLDocument'
 import { MathML } from 'mathjax-full/js/input/mathml'
 import { SVG } from 'mathjax-full/js/output/svg'
-import { MmlNodeClass } from 'mathjax-full/ts/core/MmlTree/MmlNode'
-import { PropertyList } from 'mathjax-full/ts/core/Tree/Node'
+import { MmlNodeClass } from 'mathjax-full/js/core/MmlTree/MmlNode'
+import { PropertyList } from 'mathjax-full/js/core/Tree/Node'
 
 import { xmlSerializer } from '../transformer'
 
