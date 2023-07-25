@@ -60,10 +60,10 @@ import {
   extractHighlightMarkers,
   isHighlightableModel,
 } from './highlight-markers'
+import { generateID } from './id'
 import { PlaceholderElement } from './models'
 import { nodeTypesMap } from './node-types'
 import { buildSectionCategory } from './section-category'
-import { generateID } from './id'
 
 const serializer = DOMSerializer.fromSchema(schema)
 
