@@ -17,6 +17,7 @@
 import {
   BibliographyItem,
   CommentAnnotation,
+  Keyword,
   Model,
 } from '@manuscripts/json-schema'
 import { v4 as uuidv4 } from 'uuid'
@@ -29,6 +30,7 @@ import {
   HighlightableModel,
   isCommentAnnotation,
   isHighlightableModel,
+  isKeyword,
 } from '../../transformer'
 
 type ProcessingInstruction = { id: string; queryText: string }
@@ -40,7 +42,7 @@ const DEFAULT_PROFILE_ID =
 export const parseProcessingInstruction = (
   node: Node
 ): ProcessingInstruction | undefined => {
-  const value = `<AuthorQuery ${node.textContent} />`
+  const value = `<AuthorQuery ${node.textContent?.trim()} />`
   const processingInstruction = new DOMParser().parseFromString(
     value,
     'application/xml'
@@ -98,6 +100,31 @@ const insertToken = (
   }
 }
 
+const extractCommentsFromKeywords = (
+  tokens: string[],
+  model: Keyword,
+  authorQueriesMap: Map<string, string>
+): Build<CommentAnnotation>[] => {
+  const commentAnnotations: Build<CommentAnnotation>[] = []
+  const name = model.name
+  const filteredTokens = filterAndSortTokens(tokens, name)
+  let content = name
+  for (const token of filteredTokens) {
+    content = name.replace(token, '')
+    const query = authorQueriesMap.get(token)
+    const commentAnnotation = buildComment(
+      model.containedGroup ?? uuidv4(),
+      `${query}`,
+      undefined,
+      [buildContribution(DEFAULT_PROFILE_ID)],
+      DEFAULT_ANNOTATION_COLOR
+    )
+    model['name'] = content
+    commentAnnotations.push(commentAnnotation)
+  }
+  return commentAnnotations
+}
+
 export const createComments = (
   authorQueriesMap: Map<string, string>,
   manuscriptModels: Array<Model>
@@ -112,10 +139,23 @@ export const createComments = (
         authorQueriesMap
       )
       commentAnnotations.push(...comments)
+    } else if (isKeyword(model)) {
+      const comments = extractCommentsFromKeywords(
+        tokens,
+        model as Keyword,
+        authorQueriesMap
+      )
+      commentAnnotations.push(...comments)
     }
   }
 
   return commentAnnotations
+}
+
+function filterAndSortTokens(tokens: string[], content: string) {
+  return tokens
+    .filter((token) => content.indexOf(token) >= 0)
+    .sort((a, b) => content.indexOf(a) - content.indexOf(b))
 }
 
 /**

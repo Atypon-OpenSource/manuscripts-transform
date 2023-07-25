@@ -25,6 +25,7 @@ import {
   createTestModelMapWithDeprecatedKeywords,
   createTestModelMapWithHighlights,
   createTestModelMapWithKeywords,
+  createTestModelMapWithKeywordsAndAuthorQuery,
 } from './__helpers__/highlights'
 
 const countDescendantsOfType = (
@@ -105,11 +106,8 @@ describe('decoder', () => {
 
   test('getModelData', () => {
     const data = getModelData({
-      _rev: 'x',
-      _deleted: true,
       updatedAt: Date.now(),
       createdAt: Date.now(),
-      sessionID: 'xyz',
       _id: 'MPManuscript:X',
       objectType: ObjectTypes.Manuscript,
     })
@@ -131,7 +129,6 @@ describe('decoder', () => {
       manuscriptID: 'MPManuscript:X',
       updatedAt: Date.now(),
       createdAt: Date.now(),
-      sessionID: 'xyz',
     }
     const sectionB: Section = {
       _id: 'MPSection:B',
@@ -144,7 +141,6 @@ describe('decoder', () => {
       manuscriptID: 'MPManuscript:X',
       updatedAt: Date.now(),
       createdAt: Date.now(),
-      sessionID: 'xyz',
     }
     expect(sortSectionsByPriority(sectionA, sectionA)).toEqual(0)
     expect(sortSectionsByPriority(sectionA, sectionB)).toEqual(-1)
@@ -158,6 +154,19 @@ describe('decoder', () => {
 
     const result = decoder.createArticleNode()
     replaceIdByType(result, schema.nodes.comment_list, 'someId')
+    expect(result).toMatchSnapshot()
+  })
+
+  test('decode keywords with authorQuery', () => {
+    const modelMap = createTestModelMapWithKeywordsAndAuthorQuery()
+
+    const decoder = new Decoder(modelMap)
+
+    const result = decoder.createArticleNode()
+    replaceIdByType(result, schema.nodes.comment_list, 'someId')
+    replaceIdByType(result, schema.nodes.section, 'someId')
+    replaceIdByType(result, schema.nodes.keywords_section, 'someId')
+    replaceIdByType(result, schema.nodes.keywords_element, 'someId')
     expect(result).toMatchSnapshot()
   })
 
@@ -177,6 +186,14 @@ describe('decoder', () => {
     const decoder = new Decoder(modelMap)
 
     const result = decoder.createArticleNode()
+
+    replaceIdByType(
+      result,
+      schema.nodes.keywords_element,
+      'MPKeywordsElement:1'
+    )
+    replaceIdByType(result, schema.nodes.keywords_section, 'MPSection:1')
+    replaceIdByType(result, schema.nodes.section, 'MPSection:1')
 
     expect(result).toMatchSnapshot()
   })

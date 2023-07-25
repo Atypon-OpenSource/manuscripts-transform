@@ -26,6 +26,7 @@ import {
   Footnote,
   FootnotesElement,
   Keyword,
+  KeywordGroup,
   KeywordsElement,
   ListElement,
   Listing,
@@ -78,6 +79,7 @@ import {
   TOCElementNode,
 } from '../schema'
 import { CommentListNode } from '../schema/nodes/comment_list'
+import { KeywordsGroupNode } from '../schema/nodes/keywords_group'
 import { insertHighlightMarkers } from './highlight-markers'
 import { generateNodeID } from './id'
 import { PlaceholderElement } from './models'
@@ -106,7 +108,7 @@ interface NodeCreatorMap {
 
 export const getModelData = <T extends Model>(model: Model): T => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { _rev, _deleted, updatedAt, createdAt, sessionID, ...data } = model
+  const { updatedAt, createdAt, ...data } = model
 
   return data as T
 }
@@ -402,14 +404,14 @@ export class Decoder {
     [ObjectTypes.KeywordsElement]: (data) => {
       const model = data as KeywordsElement
 
-      const keywords = this.getKeywords()
+      const keywordGroups = this.getKeywordGroups()
 
       return schema.nodes.keywords_element.create(
         {
           id: model._id,
           paragraphStyle: model.paragraphStyle,
         },
-        keywords
+        keywordGroups
       ) as KeywordsElementNode
     },
     [ObjectTypes.Keyword]: (data) => {
@@ -608,9 +610,7 @@ export class Decoder {
         .map(this.decode)
         .filter(isManuscriptNode)
 
-      const sectionTitle = isKeywordsSection
-        ? 'section_title_plain'
-        : 'section_title'
+      const sectionTitle = 'section_title'
       const sectionTitleNode: SectionTitleNode = model.title
         ? this.parseContents(model.title, 'h1', this.getComments(model), {
             topNode: schema.nodes[sectionTitle].create(),
@@ -840,40 +840,11 @@ export class Decoder {
       )
     }
 
-    const keywordsSection = getSections(this.modelMap).filter(
-      (section) => section.category === 'MPSectionCategory:keywords'
-    )
-
-    const keywords = this.getKeywords()
-
-    if (keywordsSection.length === 0 && keywords.length > 0) {
-      const keywordsSection = schema.nodes.keywords_section.createAndFill(
-        {
-          id: generateNodeID(schema.nodes.keywords_section),
-        },
-        [
-          schema.nodes.section_title_plain.create({}, schema.text('Keywords')),
-          schema.nodes.keywords_element.create(
-            {
-              id: generateNodeID(schema.nodes.keywords_element),
-            },
-            keywords
-          ),
-        ]
-      )
-      rootSectionNodes.unshift(keywordsSection as SectionNode)
-    }
-
     const contents: ManuscriptNode[] = rootSectionNodes
-    if (this.comments.size) {
-      const comments = schema.nodes.comment_list.createAndFill(
-        {
-          id: generateNodeID(schema.nodes.comment_list),
-        },
-        [...this.comments.values()]
-      ) as CommentListNode
-      contents.push(comments)
-    }
+    const comments = schema.nodes.comment_list.createAndFill({}, [
+      ...this.comments.values(),
+    ]) as CommentListNode
+    contents.push(comments)
 
     return schema.nodes.manuscript.create(
       {
@@ -938,13 +909,14 @@ export class Decoder {
     return parser.parse(template.content.firstElementChild, options)
   }
 
-  private getKeywords = () => {
+  private getKeywords = (id: string) => {
     const keywordsOfKind = []
-
-    for (const model of this.modelMap.values()) {
-      const commentNodes = this.createCommentsNode(model)
-      commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
-
+    const keywordsByGroup = [...this.modelMap.values()].filter(
+      (m) =>
+        m.objectType === ObjectTypes.Keyword &&
+        (m as Keyword).containedGroup === id
+    )
+    for (const model of keywordsByGroup) {
       if (isKeyword(model)) {
         const keyword = this.parseContents(
           model.name || '',
@@ -954,7 +926,6 @@ export class Decoder {
             topNode: schema.nodes.keyword.create({
               id: model._id,
               contents: model.name,
-              comments: commentNodes.map((c) => c.attrs.id),
             }),
           }
         ) as KeywordNode
@@ -1024,5 +995,44 @@ export class Decoder {
       : captionNode
 
     return schema.nodes.figcaption.create({}, [captionTitle, caption])
+  }
+
+  private getKeywordGroups() {
+    const kwdGroupNodes: KeywordsGroupNode[] = []
+    const kwdGroupsModels: KeywordGroup[] | undefined = [
+      ...this.modelMap.values(),
+    ].filter(
+      (model) => model.objectType === ObjectTypes.KeywordGroup
+    ) as KeywordGroup[]
+    if (kwdGroupsModels.length > 0) {
+      for (const kwdGroupModel of kwdGroupsModels) {
+        const keywords = this.getKeywords(kwdGroupModel._id)
+        const commentNodes = this.createCommentsNode(kwdGroupModel)
+        commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
+        const contents: ManuscriptNode[] = []
+        // if (kwdGroupModel.title) {
+        //   const titleNode = this.parseContents(
+        //     kwdGroupModel.title,
+        //     'section_title',
+        //     this.getComments(kwdGroupModel),
+        //     {
+        //       topNode: schema.nodes.section_title.create(),
+        //     }
+        //   )
+        //   contents.push(titleNode)
+        // }
+        contents.push(...keywords)
+        const kwdGroupNode = schema.nodes.keywords_group.create(
+          {
+            id: kwdGroupModel._id,
+            type: kwdGroupModel.type,
+            comments: commentNodes.map((c) => c.attrs.id),
+          },
+          contents
+        ) as KeywordsGroupNode
+        kwdGroupNodes.push(kwdGroupNode)
+      }
+    }
+    return kwdGroupNodes
   }
 }

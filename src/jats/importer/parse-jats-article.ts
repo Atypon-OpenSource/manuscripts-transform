@@ -55,7 +55,6 @@ import {
   markProcessingInstructions,
 } from './jats-comments'
 import { jatsFrontParser } from './jats-front-parser'
-import { ISSN } from './jats-journal-meta-parser'
 import { fixBodyPMNode } from './jats-parser-utils'
 import { jatsReferenceParser } from './jats-reference-parser'
 
@@ -80,11 +79,6 @@ export const parseJATSFront = async (front: Element) => {
     ...buildJournal(),
     ...journalMeta,
   } as Journal
-
-  // manuscript bundle (CSL style)
-  const { manuscript_bundle, bundleNodes } =
-    await jatsFrontParser.loadJournalBundles(journal.ISSNs as ISSN[])
-
   const articleMeta = front.querySelector('article-meta')
   const title = articleMeta?.querySelector(
     'title-group > article-title'
@@ -103,13 +97,6 @@ export const parseJATSFront = async (front: Element) => {
       : undefined,
     ...jatsFrontParser.parseCounts(articleMeta?.querySelector('counts')),
   }
-
-  const keywordGroupNodes = articleMeta?.querySelectorAll('kwd-group')
-  const { keywords, groups: keywordGroups } =
-    jatsFrontParser.parseKeywords(keywordGroupNodes)
-
-  const manuscript_keywordIDs =
-    keywords.length > 0 ? keywords.map((k) => k._id) : undefined
 
   // affiliations
   const { affiliations, affiliationIDs } =
@@ -154,8 +141,6 @@ export const parseJATSFront = async (front: Element) => {
   const manuscript = {
     ...buildManuscript(),
     ...manuscriptMeta,
-    bundle: manuscript_bundle,
-    keywordIDs: manuscript_keywordIDs,
     ...history,
   } as Build<Manuscript> & {
     keywordIDs?: string[]
@@ -164,17 +149,13 @@ export const parseJATSFront = async (front: Element) => {
   return {
     models: generateModelIDs([
       manuscript,
-      ...bundleNodes,
-      ...keywords,
       ...affiliations,
       ...authors,
-      ...keywordGroups,
       ...footnotes,
       ...correspondingList,
       journal,
       ...supplements,
     ]),
-    bundles: bundleNodes,
   }
 }
 
@@ -203,7 +184,7 @@ export const parseJATSReferences = (
     if (body) {
       crossReferences.push(
         ...jatsReferenceParser.parseCrossReferences(
-          [...body.querySelectorAll('xref')],
+          [...body.querySelectorAll('xref'), ...back.querySelectorAll('xref')],
           referenceIDs
         )
       )
@@ -229,7 +210,6 @@ export const parseJATSBody = (
   const orderedFootnotesIDs = createOrderedFootnotesIDs(document)
   jatsBodyTransformations.moveFloatsGroupToBody(document, body, createElement)
   jatsBodyTransformations.ensureSection(body, createElement)
-  jatsBodyTransformations.mapFootnotesToSections(document, body, createElement)
   jatsBodyTransformations.moveSectionsToBody(
     document,
     body,
@@ -243,6 +223,7 @@ export const parseJATSBody = (
     body,
     createElement
   )
+  jatsBodyTransformations.moveKeywordsToBody(document, body, createElement)
 
   const node = jatsBodyDOMParser.parse(body)
   if (!node.firstChild) {

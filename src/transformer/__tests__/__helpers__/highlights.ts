@@ -20,6 +20,7 @@ import {
   FigureElement,
   Highlight,
   Keyword,
+  KeywordGroup,
   KeywordsElement,
   Manuscript,
   Model,
@@ -37,7 +38,6 @@ export const createTestModelMapWithHighlights = () => {
     _id: 'MPProject:1',
     createdAt: 0,
     updatedAt: 0,
-    sessionID: 'test',
     owners: [],
     writers: [],
     viewers: [],
@@ -49,7 +49,6 @@ export const createTestModelMapWithHighlights = () => {
     createdAt: 0,
     updatedAt: 0,
     containerID: project._id,
-    sessionID: 'test',
   }
 
   modelMap.set(manuscript._id, manuscript)
@@ -61,7 +60,6 @@ export const createTestModelMapWithHighlights = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
   }
 
   modelMap.set(paragraphHighlight._id, paragraphHighlight)
@@ -73,7 +71,6 @@ export const createTestModelMapWithHighlights = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
     elementType: 'p',
     paragraphStyle: 'MPParagraphStyle:1',
     contents:
@@ -94,7 +91,6 @@ export const createTestModelMapWithHighlights = () => {
     containerID: project._id,
     contributions: [],
     resolved: false,
-    sessionID: 'test',
   }
 
   modelMap.set(paragraphComment._id, paragraphComment)
@@ -106,7 +102,6 @@ export const createTestModelMapWithHighlights = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
   }
 
   modelMap.set(figureHighlight._id, figureHighlight)
@@ -118,7 +113,6 @@ export const createTestModelMapWithHighlights = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
   }
 
   modelMap.set(figureWithHighlight._id, figureWithHighlight)
@@ -130,7 +124,6 @@ export const createTestModelMapWithHighlights = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
   }
 
   modelMap.set(figureElementHighlight._id, figureElementHighlight)
@@ -142,7 +135,7 @@ export const createTestModelMapWithHighlights = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
+
     elementType: 'figure',
     caption:
       '<p class="caption-description" data-placeholder-text="Caption..." contenteditable="true">A figure with a caption</p>',
@@ -163,7 +156,6 @@ export const createTestModelMapWithHighlights = () => {
     containerID: project._id,
     contributions: [],
     resolved: false,
-    sessionID: 'test',
   }
 
   modelMap.set(figureComment._id, figureComment)
@@ -175,7 +167,6 @@ export const createTestModelMapWithHighlights = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
   }
 
   modelMap.set(sectionHighlight._id, sectionHighlight)
@@ -187,7 +178,7 @@ export const createTestModelMapWithHighlights = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
+
     priority: 1,
     path: ['MPSection:1'],
     elementIDs: [paragraphWithHighlight._id, figureElementWithHighlight._id],
@@ -209,7 +200,6 @@ export const createTestModelMapWithHighlights = () => {
     containerID: project._id,
     contributions: [],
     resolved: false,
-    sessionID: 'test',
   }
 
   modelMap.set(secComment._id, secComment)
@@ -224,7 +214,7 @@ export const createTestModelMapWithKeywords = () => {
     _id: 'MPProject:1',
     createdAt: 0,
     updatedAt: 0,
-    sessionID: 'test',
+
     owners: [],
     writers: [],
     viewers: [],
@@ -236,22 +226,20 @@ export const createTestModelMapWithKeywords = () => {
     createdAt: 0,
     updatedAt: 0,
     containerID: project._id,
-    sessionID: 'test',
   }
 
   const keyword: Keyword = {
     objectType: ObjectTypes.Keyword,
     _id: 'MPKeyword:1',
+    containedGroup: 'MPKeywordGroup:test',
     createdAt: 0,
     updatedAt: 0,
     containerID: project._id,
-    sessionID: 'test',
+
     name: 'test',
   }
 
   modelMap.set(keyword._id, keyword)
-
-  manuscript.keywordIDs = [keyword._id]
 
   modelMap.set(manuscript._id, manuscript)
 
@@ -262,10 +250,10 @@ export const createTestModelMapWithKeywords = () => {
     updatedAt: 0,
     containerID: project._id,
     manuscriptID: manuscript._id,
-    sessionID: 'test',
+
     paragraphStyle: 'MPParagraphStyle:1',
     elementType: 'div',
-    contents: `<div xmlns="http://www.w3.org/1999/xhtml" class="manuscript-keywords MPElement MPParagraphStyle_1" id="MPKeywordsElement:1"><span class="keyword" id="MPKeyword:1">test</span></div>`,
+    contents: '<div></div>',
   }
 
   modelMap.set(keywordsElement._id, keywordsElement)
@@ -277,15 +265,129 @@ export const createTestModelMapWithKeywords = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
+
     priority: 1,
     path: ['MPSection:1'],
-    elementIDs: [keywordsElement._id],
+    elementIDs: ['MPKeywordsElement:1'],
     category: 'MPSectionCategory:keywords',
     title: 'Keywords',
   }
 
   modelMap.set(sectionWithKeywordsElement._id, sectionWithKeywordsElement)
+
+  const keywordGroup: KeywordGroup = {
+    _id: 'MPKeywordGroup:test',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+
+    objectType: 'MPKeywordGroup',
+    type: 'author',
+    // title: 'KEYWORDS',
+  }
+
+  modelMap.set(keywordGroup._id, keywordGroup)
+  return modelMap
+}
+export const createTestModelMapWithKeywordsAndAuthorQuery = () => {
+  const modelMap = new Map<string, Model>()
+
+  const project: Project = {
+    objectType: ObjectTypes.Project,
+    _id: 'MPProject:1',
+    createdAt: 0,
+    updatedAt: 0,
+
+    owners: [],
+    writers: [],
+    viewers: [],
+  }
+
+  const manuscript: Manuscript = {
+    objectType: ObjectTypes.Manuscript,
+    _id: 'MPManuscript:1',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: project._id,
+  }
+
+  const keyword: Keyword = {
+    objectType: ObjectTypes.Keyword,
+    _id: 'MPKeyword:1',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: project._id,
+
+    containedGroup: 'MPKeywordGroup:1',
+    name: 'test',
+  }
+
+  modelMap.set(keyword._id, keyword)
+
+  modelMap.set(manuscript._id, manuscript)
+
+  const keywordsElement: KeywordsElement = {
+    contents: '<div></div>',
+    elementType: 'div',
+    _id: 'MPKeywordsElement:1',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: project._id,
+
+    manuscriptID: 'MPManuscript:1',
+    objectType: ObjectTypes.KeywordsElement,
+  }
+
+  modelMap.set(keywordsElement._id, keywordsElement)
+
+  const sectionWithKeywordsElement: Section = {
+    category: 'MPSectionCategory:keywords',
+    priority: 1,
+    title: 'Keywords',
+    path: ['MPSection:test'],
+    elementIDs: ['MPKeywordsElement:1'],
+    _id: 'MPSection:test',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: project._id,
+
+    manuscriptID: 'MPManuscript:1',
+    objectType: ObjectTypes.Section,
+  }
+
+  modelMap.set(sectionWithKeywordsElement._id, sectionWithKeywordsElement)
+
+  const keywordGroup: KeywordGroup = {
+    type: 'author',
+    // title: 'KEYWORDS',
+    _id: 'MPKeywordGroup:1',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: project._id,
+
+    manuscriptID: 'MPManuscript:1',
+    objectType: ObjectTypes.KeywordGroup,
+  }
+
+  modelMap.set(keywordGroup._id, keywordGroup)
+
+  const comment: CommentAnnotation = {
+    _id: 'MPCommentAnnotation:3AAEE869-7DC9-4392-B8C6-9C5FCA522120',
+    objectType: 'MPCommentAnnotation',
+    target: 'MPKeywordGroup:1',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+    contents: 'KeywordQuery',
+
+    selector: undefined,
+    contributions: [],
+    resolved: false,
+  }
+
+  modelMap.set(comment._id, comment)
 
   return modelMap
 }
@@ -298,7 +400,7 @@ export const createTestModelMapWithDeprecatedKeywords = () => {
     _id: 'MPProject:1',
     createdAt: 0,
     updatedAt: 0,
-    sessionID: 'test',
+
     owners: [],
     writers: [],
     viewers: [],
@@ -310,7 +412,6 @@ export const createTestModelMapWithDeprecatedKeywords = () => {
     createdAt: 0,
     updatedAt: 0,
     containerID: project._id,
-    sessionID: 'test',
   }
 
   modelMap.set(manuscript._id, manuscript)
@@ -322,7 +423,7 @@ export const createTestModelMapWithDeprecatedKeywords = () => {
     updatedAt: 0,
     containerID: project._id,
     manuscriptID: manuscript._id,
-    sessionID: 'test',
+
     paragraphStyle: 'MPParagraphStyle:1',
     elementType: 'p',
     contents: `<p id="MPParagraphElement:1" class="MPElement MPParagraphStyle_1">test</p>`,
@@ -337,7 +438,7 @@ export const createTestModelMapWithDeprecatedKeywords = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
+
     priority: 1,
     path: ['MPSection:1'],
     elementIDs: [paragraphElement._id],

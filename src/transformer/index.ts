@@ -15,7 +15,6 @@
  */
 
 export * from './builders'
-export * from './bundles'
 export * from './decode'
 export * from './document-object-types'
 export * from './encode'
@@ -33,6 +32,5 @@ export * from './object-types'
 export * from './project-bundle'
 export * from './section-category'
 export * from './serializer'
-export * from './shared-data'
 export * from './timestamp'
 export * from './update-identifiers'

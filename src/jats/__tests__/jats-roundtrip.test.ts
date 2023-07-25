@@ -19,6 +19,7 @@ import { parseXml } from 'libxmljs2'
 import mime from 'mime'
 
 import { createCounter, JATSExporter } from '../../jats/jats-exporter'
+import { getTrimmedTextContent } from '../../lib/utils'
 import { findManuscript } from '../../transformer'
 import { Decoder } from '../../transformer/decode'
 import { IDGenerator, MediaPathGenerator } from '../../types'
@@ -132,9 +133,10 @@ describe('JATS transformer', () => {
     const decoder = new Decoder(modelMap)
     const article = decoder.createArticleNode()
 
-    const articleID = doc.querySelector(
+    const articleID = getTrimmedTextContent(
+      doc,
       'article-id[pub-id-type="publisher-id"]'
-    )?.textContent
+    )
 
     const idGenerator = createIdGenerator(articleID as string)
 
@@ -180,9 +182,10 @@ describe('JATS transformer', () => {
     const decoder = new Decoder(modelMap)
     const article = decoder.createArticleNode()
 
-    const articleID = doc.querySelector(
+    const articleID = getTrimmedTextContent(
+      doc,
       'article-id[pub-id-type="publisher-id"]'
-    )?.textContent
+    )
 
     const idGenerator = createIdGenerator(articleID as string)
 
@@ -243,9 +246,10 @@ describe('JATS transformer roundtrip validation', () => {
     const decoder = new Decoder(modelMap)
     const article = decoder.createArticleNode()
 
-    const articleID = doc.querySelector(
+    const articleID = getTrimmedTextContent(
+      doc,
       'article-id[pub-id-type="publisher-id"]'
-    )?.textContent
+    )
 
     const idGenerator = createIdGenerator(articleID as string)
 

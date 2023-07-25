@@ -16,6 +16,7 @@
 
 import { BibliographicName } from '@manuscripts/json-schema'
 
+import { getTrimmedTextContent } from '../../lib/utils'
 import {
   buildAuxiliaryObjectReference,
   buildBibliographicDate,
@@ -60,7 +61,10 @@ export const jatsReferenceParser = {
       const titleNode = referenceNode.querySelector('article-title')
 
       if (titleNode) {
-        bibliographyItem.title = htmlFromJatsNode(titleNode, createElement)
+        bibliographyItem.title = htmlFromJatsNode(
+          titleNode,
+          createElement
+        )?.trim()
       }
 
       const queriesText: string[] = []
@@ -87,44 +91,45 @@ export const jatsReferenceParser = {
             item.nodeType === Node.TEXT_NODE &&
             item.textContent?.match(/[A-Za-z]+/g)
           ) {
-            bibliographyItem.literal = mixedCitation.textContent ?? ''
+            bibliographyItem.literal = mixedCitation.textContent?.trim() ?? ''
             return bibliographyItem
           }
         })
       }
 
-      const source = referenceNode.querySelector('source')?.textContent
+      const source = getTrimmedTextContent(referenceNode, 'source')
 
       if (source) {
         bibliographyItem['container-title'] = source
       }
 
-      const volume = referenceNode.querySelector('volume')?.textContent
+      const volume = getTrimmedTextContent(referenceNode, 'volume')
 
       if (volume) {
         bibliographyItem.volume = volume
       }
 
-      const issue = referenceNode.querySelector('issue')?.textContent
+      const issue = getTrimmedTextContent(referenceNode, 'issue')
 
       if (issue) {
         bibliographyItem.issue = issue
       }
 
-      const supplement = referenceNode.querySelector('supplement')?.textContent
+      const supplement = getTrimmedTextContent(referenceNode, 'supplement')
 
       if (supplement) {
         bibliographyItem.supplement = supplement
       }
 
-      const fpage = referenceNode.querySelector('fpage')?.textContent
-      const lpage = referenceNode.querySelector('lpage')?.textContent
+      const fpage = getTrimmedTextContent(referenceNode, 'fpage')
+
+      const lpage = getTrimmedTextContent(referenceNode, 'lpage')
 
       if (fpage) {
         bibliographyItem.page = lpage ? `${fpage}-${lpage}` : fpage
       }
 
-      const year = referenceNode.querySelector('year')?.textContent
+      const year = getTrimmedTextContent(referenceNode, 'year')
 
       if (year) {
         bibliographyItem.issued = buildBibliographicDate({
@@ -132,9 +137,10 @@ export const jatsReferenceParser = {
         })
       }
 
-      const doi = referenceNode.querySelector(
+      const doi = getTrimmedTextContent(
+        referenceNode,
         'pub-id[pub-id-type="doi"]'
-      )?.textContent
+      )
 
       if (doi) {
         bibliographyItem.DOI = doi
@@ -149,26 +155,26 @@ export const jatsReferenceParser = {
       authorNodes.forEach((authorNode) => {
         const name = buildBibliographicName({})
 
-        const given = authorNode.querySelector('given-names')?.textContent
+        const given = getTrimmedTextContent(authorNode, 'given-names')
 
         if (given) {
           name.given = given
         }
 
-        const family = authorNode.querySelector('surname')?.textContent
+        const family = getTrimmedTextContent(authorNode, 'surname')
 
         if (family) {
           name.family = family
         }
 
-        const suffix = authorNode.querySelector('suffix')?.textContent
+        const suffix = getTrimmedTextContent(authorNode, 'suffix')
 
         if (suffix) {
           name.suffix = suffix
         }
 
         if (authorNode.nodeName === 'collab') {
-          name.literal = authorNode.textContent
+          name.literal = authorNode.textContent?.trim()
         }
 
         authors.push(name)

@@ -14,71 +14,24 @@
  * limitations under the License.
  */
 
-import {
-  Bundle,
-  Journal,
-  Keyword,
-  KeywordGroup,
-} from '@manuscripts/json-schema'
+import { Journal } from '@manuscripts/json-schema'
 import debug from 'debug'
 
+import { getTrimmedTextContent } from '../../lib/utils'
 import {
-  Build,
   buildAffiliation,
   buildBibliographicName,
   buildContributor,
   buildCorresp,
   buildFootnote,
-  buildKeyword,
-  buildKeywordGroup,
   buildSupplementaryMaterial,
 } from '../../transformer/builders'
-import { createNewBundle, createParentBundle } from '../../transformer/bundles'
-import {
-  loadBundlesMap,
-  loadIssnBundleIndex,
-} from '../../transformer/bundles-data'
-import { ISSN, parseJournalMeta } from './jats-journal-meta-parser'
+import { parseJournalMeta } from './jats-journal-meta-parser'
 
 const warn = debug('manuscripts-transform')
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
-const chooseBundle = async (issns: ISSN[]): Promise<string | undefined> => {
-  const issnBundleIndex = await loadIssnBundleIndex()
-
-  for (const { ISSN } of issns) {
-    const normalizedIssn = ISSN.toUpperCase().replace(/[^0-9X]/g, '')
-
-    if (normalizedIssn in issnBundleIndex) {
-      return issnBundleIndex[normalizedIssn]
-    }
-  }
-}
 
 export const jatsFrontParser = {
-  async loadJournalBundles(issns: ISSN[]) {
-    if (issns.length === 0) {
-      return {
-        manuscript_bundle: undefined,
-        bundleNodes: [],
-      }
-    }
-    const bundleID = await chooseBundle(issns)
-    const bundlesMap = bundleID ? await loadBundlesMap() : undefined
-    const bundle =
-      bundleID && bundlesMap ? createNewBundle(bundleID, bundlesMap) : undefined
-    const parentBundle =
-      bundle && bundleID && bundlesMap
-        ? createParentBundle(bundle, bundlesMap)
-        : undefined
-    // TODO: attach CSL style as attachment?
-    // TODO: choose template using bundle identifier?
-    return {
-      manuscript_bundle: bundle?._id,
-      bundleNodes: [parentBundle, bundle].filter(
-        (v) => v !== undefined
-      ) as Bundle[],
-    }
-  },
   parseCounts(counts: Element | null | undefined) {
     if (counts) {
       const parseCount = (count: string | null | undefined) => {
@@ -132,39 +85,6 @@ export const jatsFrontParser = {
     }
     return parseJournalMeta(journalMeta)
   },
-  parseKeywords(keywordGroupNodes?: NodeListOf<Element> | null) {
-    if (!keywordGroupNodes) {
-      return { groups: [], keywords: [] }
-    }
-
-    let keywordPriority = 1
-    const keywordGroups: {
-      groups: Build<KeywordGroup>[]
-      keywords: Build<Keyword>[]
-    } = { groups: [], keywords: [] }
-
-    for (const keywordGroupNode of keywordGroupNodes) {
-      const manuscriptKeywordGroup = buildKeywordGroup({
-        title:
-          keywordGroupNode.querySelector('title')?.textContent || undefined,
-        label:
-          keywordGroupNode.querySelector('label')?.textContent || undefined,
-        type: keywordGroupNode.getAttribute('kwd-group-type') || undefined,
-      })
-      keywordGroups.groups.push(manuscriptKeywordGroup)
-
-      for (const keywordNode of keywordGroupNode.querySelectorAll('kwd')) {
-        if (keywordNode.textContent) {
-          const keyword = buildKeyword(keywordNode.textContent)
-          keyword.priority = keywordPriority++
-          keyword.containedGroup = manuscriptKeywordGroup._id
-          keywordGroups.keywords.push(keyword)
-        }
-      }
-    }
-
-    return keywordGroups
-  },
   parseDates(historyNode: Element | null) {
     if (!historyNode) {
       return undefined
@@ -182,7 +102,7 @@ export const jatsFrontParser = {
       const selectors = ['year', 'month', 'day']
       const values: Array<number> = []
       for (const selector of selectors) {
-        const value = dateElement.querySelector(selector)?.textContent?.trim()
+        const value = getTrimmedTextContent(dateElement, selector)
         if (!value || isNaN(+value)) {
           return
         }
@@ -231,7 +151,7 @@ export const jatsFrontParser = {
     const supplements = []
     for (const supplementNode of supplementNodes) {
       const supplTitle =
-        supplementNode.querySelector('caption > title')?.textContent ?? ''
+        getTrimmedTextContent(supplementNode, 'caption > title') ?? ''
       const href = supplementNode.getAttributeNS(XLINK_NAMESPACE, 'href') ?? ''
       const supplementaryMaterial = buildSupplementaryMaterial(supplTitle, href)
       const mimeType = supplementNode.getAttribute('mimetype') ?? ''
@@ -249,7 +169,7 @@ export const jatsFrontParser = {
       const affiliation = buildAffiliation('', priority)
 
       for (const node of affiliationNode.querySelectorAll('institution')) {
-        const content = node.textContent
+        const content = node.textContent?.trim()
 
         if (!content) {
           continue
@@ -269,27 +189,27 @@ export const jatsFrontParser = {
       }
 
       affiliation.addressLine1 =
-        affiliationNode.querySelector('addr-line:nth-of-type(1)')
-          ?.textContent || undefined
+        getTrimmedTextContent(affiliationNode, 'addr-line:nth-of-type(1)') ||
+        undefined
       affiliation.addressLine2 =
-        affiliationNode.querySelector('addr-line:nth-of-type(2)')
-          ?.textContent || undefined
+        getTrimmedTextContent(affiliationNode, 'addr-line:nth-of-type(2)') ||
+        undefined
       affiliation.addressLine3 =
-        affiliationNode.querySelector('addr-line:nth-of-type(3)')
-          ?.textContent || undefined
+        getTrimmedTextContent(affiliationNode, 'addr-line:nth-of-type(3)') ||
+        undefined
       const emailNode = affiliationNode.querySelector('email')
       if (emailNode) {
         affiliation.email = {
           href: emailNode.getAttributeNS(XLINK_NAMESPACE, 'href') || undefined,
-          text: emailNode.textContent || undefined,
+          text: emailNode.textContent?.trim() || undefined,
         }
       }
       affiliation.postCode =
-        affiliationNode.querySelector('postal-code')?.textContent || undefined
+        getTrimmedTextContent(affiliationNode, 'postal-code') || undefined
       // affiliation.city =
       //   affiliationNode.querySelector('city')?.textContent || undefined
       affiliation.country =
-        affiliationNode.querySelector('country')?.textContent || undefined
+        getTrimmedTextContent(affiliationNode, 'country') || undefined
 
       const id = affiliationNode.getAttribute('id')
 
@@ -327,8 +247,8 @@ export const jatsFrontParser = {
       if (label) {
         label.remove()
       }
-      const corresponding = buildCorresp(correspNode.textContent ?? '')
-      corresponding.label = label?.textContent || undefined
+      const corresponding = buildCorresp(correspNode.textContent?.trim() ?? '')
+      corresponding.label = label?.textContent?.trim() || undefined
       const id = correspNode.getAttribute('id')
       if (id) {
         correspondingIDs.set(id, corresponding._id)
@@ -349,13 +269,13 @@ export const jatsFrontParser = {
     return authorNodes.map((authorNode, priority) => {
       const name = buildBibliographicName({})
 
-      const given = authorNode.querySelector('name > given-names')?.textContent
+      const given = getTrimmedTextContent(authorNode, 'name > given-names')
 
       if (given) {
         name.given = given
       }
 
-      const surname = authorNode.querySelector('name > surname')?.textContent
+      const surname = getTrimmedTextContent(authorNode, 'name > surname')
 
       if (surname) {
         name.family = surname
@@ -369,9 +289,10 @@ export const jatsFrontParser = {
         contributor.isCorresponding = corresponding
       }
 
-      const orcid = authorNode.querySelector(
+      const orcid = getTrimmedTextContent(
+        authorNode,
         'contrib-id[contrib-id-type="orcid"]'
-      )?.textContent
+      )
 
       if (orcid) {
         contributor.ORCIDIdentifier = orcid
@@ -391,7 +312,7 @@ export const jatsFrontParser = {
               if (footnoteId) {
                 const authorFootNoteRef = {
                   noteID: footnoteId,
-                  noteLabel: xrefNode.textContent || '',
+                  noteLabel: xrefNode.textContent?.trim() || '',
                 }
                 contributor.footnote.push(authorFootNoteRef)
               }
@@ -401,7 +322,7 @@ export const jatsFrontParser = {
               if (correspId) {
                 const authorCorrespRef = {
                   correspID: correspId,
-                  correspLabel: xrefNode.textContent || '',
+                  correspLabel: xrefNode.textContent?.trim() || '',
                 }
                 contributor.corresp.push(authorCorrespRef)
               }

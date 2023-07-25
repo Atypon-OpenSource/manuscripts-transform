@@ -56,6 +56,7 @@ import { inlineEquation } from './nodes/inline_equation'
 import { inlineFootnote } from './nodes/inline_footnote'
 import { keyword } from './nodes/keyword'
 import { keywordsElement } from './nodes/keywords_element'
+import { keywordsGroup } from './nodes/keywords_group'
 import { keywordsSection } from './nodes/keywords_section'
 import { link } from './nodes/link'
 import { bulletList, listItem, orderedList } from './nodes/list'
@@ -173,6 +174,7 @@ export const schema = new Schema<Nodes, Marks>({
     keyword,
     keywords_element: keywordsElement,
     keywords_section: keywordsSection,
+    keywords_group: keywordsGroup,
     link,
     list_item: listItem,
     listing,
