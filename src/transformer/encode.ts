@@ -44,7 +44,7 @@ import {
 import { DOMSerializer } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
-import { iterateChildren } from '../lib/utils'
+import { iterateChildren, modelsEqual } from '../lib/utils'
 import {
   hasGroup,
   isHighlightMarkerNode,
@@ -826,8 +826,10 @@ export const encode = (
         return
       }
       const { model } = modelFromNode(child, parent, path, priority)
-      if (models.has(model._id)) {
-        if (preserveWithRepeatedID) {
+
+      const existingModel = models.get(model._id)
+      if (existingModel) {
+        if (preserveWithRepeatedID && !modelsEqual(model, existingModel)) {
           model._id = generateID(model.objectType as ObjectTypes)
           // needed to support track changes plugin, specifically tracking of splitting content
         } else {
