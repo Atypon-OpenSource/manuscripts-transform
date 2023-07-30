@@ -42,7 +42,7 @@ const DEFAULT_PROFILE_ID =
 export const parseProcessingInstruction = (
   node: Node
 ): ProcessingInstruction | undefined => {
-  const value = `<AuthorQuery ${node.textContent} />`
+  const value = `<AuthorQuery ${node.textContent?.trim()} />`
   const processingInstruction = new DOMParser().parseFromString(
     value,
     'application/xml'

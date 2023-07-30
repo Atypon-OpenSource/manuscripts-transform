@@ -22,7 +22,6 @@ export const journalMeta: Journal = {
   objectType: 'MPJournal',
   updatedAt: 1,
   createdAt: 1,
-  sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
   ISSNs: [{ ISSN: '123-45', publicationType: 'print' }],
   abbreviatedTitles: [{ abbreviatedTitle: 'title', abbrevType: 'publisher' }],
   journalIdentifiers: [{ journalID: 'Some id', journalIDType: 'pmc' }],

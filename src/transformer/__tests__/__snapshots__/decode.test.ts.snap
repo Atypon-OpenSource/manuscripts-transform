@@ -1899,6 +1899,12 @@ const x = 'y'",
       ],
       "type": "bibliography_section",
     },
+    Object {
+      "attrs": Object {
+        "id": "COMMENT_LIST",
+      },
+      "type": "comment_list",
+    },
   ],
   "type": "manuscript",
 }
@@ -3532,6 +3538,12 @@ const x = 'y'",
         },
       ],
       "type": "bibliography_section",
+    },
+    Object {
+      "attrs": Object {
+        "id": "COMMENT_LIST",
+      },
+      "type": "comment_list",
     },
   ],
   "type": "manuscript",
@@ -5437,6 +5449,12 @@ const x = 'y'",
       ],
       "type": "bibliography_section",
     },
+    Object {
+      "attrs": Object {
+        "id": "COMMENT_LIST",
+      },
+      "type": "comment_list",
+    },
   ],
   "type": "manuscript",
 }
@@ -5536,6 +5554,12 @@ Object {
         },
       ],
       "type": "section",
+    },
+    Object {
+      "attrs": Object {
+        "id": "COMMENT_LIST",
+      },
+      "type": "comment_list",
     },
   ],
   "type": "manuscript",
@@ -5833,6 +5857,12 @@ Object {
       ],
       "type": "keywords_section",
     },
+    Object {
+      "attrs": Object {
+        "id": "COMMENT_LIST",
+      },
+      "type": "comment_list",
+    },
   ],
   "type": "manuscript",
 }
@@ -5874,6 +5904,12 @@ Object {
         },
       ],
       "type": "keywords_section",
+    },
+    Object {
+      "attrs": Object {
+        "id": "COMMENT_LIST",
+      },
+      "type": "comment_list",
     },
   ],
   "type": "manuscript",

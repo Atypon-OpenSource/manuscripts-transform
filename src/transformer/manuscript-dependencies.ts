@@ -19,7 +19,7 @@ import { generateID } from './id'
 
 export const fromPrototype = <T extends Model>(model: T) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { _id, _rev, ...data } = model
+  const { _id, ...data } = model
 
   const output = {
     ...data,

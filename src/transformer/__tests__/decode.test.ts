@@ -106,11 +106,8 @@ describe('decoder', () => {
 
   test('getModelData', () => {
     const data = getModelData({
-      _rev: 'x',
-      _deleted: true,
       updatedAt: Date.now(),
       createdAt: Date.now(),
-      sessionID: 'xyz',
       _id: 'MPManuscript:X',
       objectType: ObjectTypes.Manuscript,
     })
@@ -132,7 +129,6 @@ describe('decoder', () => {
       manuscriptID: 'MPManuscript:X',
       updatedAt: Date.now(),
       createdAt: Date.now(),
-      sessionID: 'xyz',
     }
     const sectionB: Section = {
       _id: 'MPSection:B',
@@ -145,7 +141,6 @@ describe('decoder', () => {
       manuscriptID: 'MPManuscript:X',
       updatedAt: Date.now(),
       createdAt: Date.now(),
-      sessionID: 'xyz',
     }
     expect(sortSectionsByPriority(sectionA, sectionA)).toEqual(0)
     expect(sortSectionsByPriority(sectionA, sectionB)).toEqual(-1)
