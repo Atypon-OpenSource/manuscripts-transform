@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import fs from 'fs'
 import { Node as ProsemirrorNode, ResolvedPos } from 'prosemirror-model'
 
 import { ManuscriptEditorState, ManuscriptNode } from '../schema'
@@ -95,4 +96,9 @@ export const getTrimmedTextContent = (
     return null
   }
   return node.querySelector(querySelector)?.textContent?.trim()
+}
+
+export const loadJsonData = (filePath: string) => {
+  const rawData = fs.readFileSync(filePath, 'utf-8')
+  return JSON.parse(rawData)
 }

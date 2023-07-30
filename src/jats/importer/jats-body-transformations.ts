@@ -19,7 +19,7 @@ import { BibliographyItem } from '@manuscripts/json-schema'
 import {
   chooseSectionCategoryByType,
   chooseSecType,
-  getSectionTitles,
+  getCoreSectionTitles,
 } from '../../transformer'
 
 const removeNodeFromParent = (node: Element) =>
@@ -41,7 +41,7 @@ const createSectionContainer = (
 
   const title = createElement('title')
   title.textContent = sectionCategory
-    ? getSectionTitles(sectionCategory)[0]
+    ? getCoreSectionTitles(sectionCategory)[0]
     : ' '
   sectionContainer.appendChild(title)
   return sectionContainer

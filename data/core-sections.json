@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "MPSectionCategory:abstracts",
+    "name": "Abstracts",
+    "desc": "Abstracts section for grouping",
+    "objectType": "MPSectionCategory",
+    "titles": [],
+    "priority": 120
+  },
+  {
+    "_id": "MPSectionCategory:backmatter",
+    "name": "Backmatter",
+    "desc": "Backmatter section for grouping",
+    "objectType": "MPSectionCategory",
+    "titles": [],
+    "priority": 170
+  },
+  {
+    "_id": "MPSectionCategory:body",
+    "name": "Body",
+    "desc": "Body section for grouping",
+    "objectType": "MPSectionCategory",
+    "titles": [],
+    "priority": 190
+  }
+]
