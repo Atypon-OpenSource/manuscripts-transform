@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 // @ts-ignore
-import {
-  Element,
-  ObjectTypes,
-  SectionCategory as SectionCategoryInterface,
-} from '@manuscripts/json-schema'
+import { Element, ObjectTypes } from '@manuscripts/json-schema'
 
-import { loadJsonData } from '../lib/utils'
+import coreSections from '../../data/core-sections.json'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../schema'
+
+export { coreSections }
 
 const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.bibliography_section,
@@ -31,15 +29,11 @@ const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.toc_section,
 ]
 
-export const coreSections = loadJsonData(
-  __dirname + '/../../data/core-sections.json'
-)
-
 export const getCoreSectionTitles = (
   sectionCategory: SectionCategory
 ): string[] => {
-  const category: SectionCategoryInterface = coreSections.find(
-    (section: SectionCategoryInterface) => section._id === sectionCategory
+  const category = coreSections.find(
+    (section) => section._id === sectionCategory
   )
   if (category) {
     return category.titles.length ? category.titles : [' ']
