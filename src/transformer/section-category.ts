@@ -16,10 +16,8 @@
 // @ts-ignore
 import { Element, ObjectTypes } from '@manuscripts/json-schema'
 
-import coreSections from '../../data/core-sections.json'
+import { coreSections } from '../lib/core-sections'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../schema'
-
-export { coreSections }
 
 const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.bibliography_section,

@@ -11,7 +11,7 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "removeComments": true,
-    "resolveJsonModule": true,
+    "resolveJsonModule": false,
     "skipLibCheck": true,
     "strict": true,
     "strictPropertyInitialization": false,
