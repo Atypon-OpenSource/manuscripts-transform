@@ -38,7 +38,7 @@ export interface BibliographyItemNode extends ManuscriptNode {
 }
 
 export const bibliographyItem: NodeSpec = {
-  content: 'inline*',
+  content: 'inline{0}',
   attrs: {
     id: { default: '' },
     type: { default: undefined },
