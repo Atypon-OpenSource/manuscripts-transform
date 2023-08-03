@@ -4754,7 +4754,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Teaser Abstract",
+                  "text": "Teaser: Heads up!",
                   "type": "text",
                 },
               ],
@@ -4762,76 +4762,18 @@ Object {
             },
             Object {
               "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "Teaser: Heads up!",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "section_title",
-                },
-                Object {
-                  "attrs": Object {
-                    "contents": "",
-                    "dataTracked": null,
-                    "paragraphStyle": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "author": undefined,
-                        "containerTitle": undefined,
-                        "dataTracked": null,
-                        "doi": undefined,
-                        "issue": undefined,
-                        "issued": undefined,
-                        "literal": undefined,
-                        "page": undefined,
-                        "paragraphStyle": "",
-                        "supplement": undefined,
-                        "title": undefined,
-                        "type": undefined,
-                        "volume": undefined,
-                      },
-                      "type": "bibliography_item",
-                    },
-                  ],
-                  "type": "bibliography_element",
-                },
-              ],
-              "type": "bibliography_section",
-            },
-            Object {
-              "attrs": Object {
-                "category": "",
                 "comments": null,
                 "dataTracked": null,
-                "generatedLabel": undefined,
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
+                "paragraphStyle": "",
+                "placeholder": "",
               },
               "content": Array [
                 Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "The direct interaction of phenobarbital with the epidermal growth factor receptor reveals a new network interface in nuclear receptor signaling.",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "section_title",
+                  "text": "The direct interaction of phenobarbital with the epidermal growth factor receptor reveals a new network interface in nuclear receptor signaling.",
+                  "type": "text",
                 },
               ],
-              "type": "section",
+              "type": "paragraph",
             },
           ],
           "type": "section",
