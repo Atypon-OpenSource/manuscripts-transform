@@ -91,11 +91,13 @@ export const jatsBodyTransformations = {
     const sectionType = abstractType ? `abstract-${abstractType}` : 'abstract'
     section.setAttribute('sec-type', sectionType)
 
-    const title = createElement('title')
-    title.textContent = abstractType
-      ? `${capitalizeFirstLetter(abstractType)} Abstract`
-      : 'Abstract'
-    section.appendChild(title)
+    if (!abstractNode.querySelector('abstract > title')) {
+      const title = createElement('title')
+      title.textContent = abstractType
+        ? `${capitalizeFirstLetter(abstractType)} Abstract`
+        : 'Abstract'
+      section.appendChild(title)
+    }
 
     while (abstractNode.firstChild) {
       section.appendChild(abstractNode.firstChild)
