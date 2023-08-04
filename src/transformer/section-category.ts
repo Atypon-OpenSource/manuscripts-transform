@@ -16,7 +16,7 @@
 // @ts-ignore
 import { Element, ObjectTypes } from '@manuscripts/json-schema'
 
-import { coreSections } from '../lib/core-sections'
+import { coreSectionCategories } from '../lib/core-section-categories'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../schema'
 
 const sectionNodeTypes: ManuscriptNodeType[] = [
@@ -30,7 +30,7 @@ const sectionNodeTypes: ManuscriptNodeType[] = [
 export const getCoreSectionTitles = (
   sectionCategory: SectionCategory
 ): string[] => {
-  const category = coreSections.find(
+  const category = coreSectionCategories.find(
     (section) => section._id === sectionCategory
   )
   if (category) {
