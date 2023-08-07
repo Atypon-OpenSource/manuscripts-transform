@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-// @ts-ignore
-import projectDump from '@manuscripts/examples/data/project-dump.json'
 import { Model } from '@manuscripts/json-schema'
 
+import projectDump from '../../../__tests__/data/project-dump.json'
 import { Decoder } from '../../decode'
 
 export const createTestModelMap = (): Map<string, Model> => {

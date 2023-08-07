@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 
-// @ts-ignore
-import projectDump from '@manuscripts/examples/data/project-dump.json'
-// @ts-ignore
-import projectDumpWithCitations from '@manuscripts/examples/data/project-dump-2.json'
 import {
   Equation,
   Keyword,
@@ -30,6 +26,8 @@ import {
 } from '@manuscripts/json-schema'
 import { Element as XMLElement, parseXml } from 'libxmljs2'
 
+import projectDump from '../../__tests__/data/project-dump.json'
+import projectDumpWithCitations from '../../__tests__/data/project-dump-2.json'
 import {
   findManuscript,
   isManuscript,
