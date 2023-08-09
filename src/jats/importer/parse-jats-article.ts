@@ -224,7 +224,6 @@ export const parseJATSBody = (
     createElement
   )
   jatsBodyTransformations.moveKeywordsToBody(document, body, createElement)
-
   const node = jatsBodyDOMParser.parse(body)
   if (!node.firstChild) {
     throw new Error('No content was parsed from the JATS article body')

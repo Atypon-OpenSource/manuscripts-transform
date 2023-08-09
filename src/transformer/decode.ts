@@ -15,6 +15,7 @@
  */
 
 import {
+  Affiliation,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
@@ -46,6 +47,7 @@ import { DOMParser, ParseOptions } from 'prosemirror-model'
 
 import { MissingElement } from '../errors'
 import {
+  AffiliationNode,
   BibliographyElementNode,
   BibliographyItemNode,
   BlockquoteElementNode,
@@ -80,6 +82,7 @@ import {
 } from '../schema'
 import { CommentListNode } from '../schema/nodes/comment_list'
 import { KeywordsGroupNode } from '../schema/nodes/keywords_group'
+import { MetaSectionNode } from '../schema/nodes/meta_section'
 import { insertHighlightMarkers } from './highlight-markers'
 import { generateNodeID } from './id'
 import { PlaceholderElement } from './models'
@@ -136,6 +139,8 @@ const getSections = (modelMap: Map<string, Model>) =>
   getModelsByType<Section>(modelMap, ObjectTypes.Section).sort(
     sortSectionsByPriority
   )
+const getAffiliations = (modelMap: Map<string, Model>) =>
+  getModelsByType<Affiliation>(modelMap, ObjectTypes.Affiliation)
 
 export const isManuscriptNode = (
   model: ManuscriptNode | null
@@ -770,6 +775,19 @@ export class Decoder {
         originalText: model.originalText,
       }) as CommentNode
     },
+    [ObjectTypes.Affiliation]: (data) => {
+      const model = data as Affiliation
+
+      return schema.nodes.affiliation.create({
+        id: model._id,
+        institution: model.institution,
+        addressLine1: model.addressLine1,
+        addressLine2: model.addressLine2,
+        addressLine3: model.addressLine3,
+        postCode: model.postCode,
+        country: model.country,
+      }) as AffiliationNode
+    },
   }
 
   private createCommentsNode(model: Model) {
@@ -825,9 +843,7 @@ export class Decoder {
     let rootSections = getSections(this.modelMap).filter(
       (section) => !section.path || section.path.length <= 1
     )
-
     rootSections = this.addGeneratedLabels(rootSections)
-
     const rootSectionNodes = rootSections
       .map(this.decode)
       .filter(isManuscriptNode) as SectionNode[]
@@ -839,13 +855,30 @@ export class Decoder {
         }) as SectionNode
       )
     }
-
-    const contents: ManuscriptNode[] = rootSectionNodes
+    const affiliationNodes: AffiliationNode[] = []
+    const affiliations = getAffiliations(this.modelMap)
+    affiliations.forEach((affiliation) => {
+      const affiliationNode = schema.nodes.affiliation.createAndFill(
+        affiliation
+      ) as AffiliationNode
+      if (affiliationNode) {
+        affiliationNodes.push(affiliationNode)
+      }
+    })
     const comments = schema.nodes.comment_list.createAndFill({}, [
       ...this.comments.values(),
     ]) as CommentListNode
-    contents.push(comments)
 
+    const metaSectionNode = schema.nodes.meta_section.createAndFill(
+      {
+        id: generateNodeID(schema.nodes.meta_section),
+      },
+      [...affiliationNodes, comments]
+    ) as MetaSectionNode
+
+    const contents: ManuscriptNode[] = rootSectionNodes
+
+    contents.push(metaSectionNode)
     return schema.nodes.manuscript.create(
       {
         id: manuscriptID || this.getManuscriptID(),

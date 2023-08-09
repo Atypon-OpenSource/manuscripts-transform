@@ -15,6 +15,7 @@
  */
 
 import {
+  Affiliation,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
@@ -40,7 +41,7 @@ import {
   TableElement,
   TOCElement,
 } from '@manuscripts/json-schema'
-import { DOMSerializer } from 'prosemirror-model'
+import { DOMSerializer, Node } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { iterateChildren } from '../lib/utils'
@@ -389,7 +390,7 @@ const fromJson = (json: string) => {
 
 function figureElementEncoder<T>(node: ManuscriptNode) {
   // eslint-disable-next-line prettier/prettier
-  return {
+    return {
     containedObjectIDs: containedParagraphIDs(node)?.concat(
       containedFigureIDs(node)
     ),
@@ -420,7 +421,7 @@ function figureElementEncoder<T>(node: ManuscriptNode) {
     figureStyle: node.attrs.figureStyle || undefined,
     figureLayout: node.attrs.figureLayout || undefined,
     // eslint-disable-next-line prettier/prettier
-  } as unknown as Partial<T>
+    } as unknown as Partial<T>
 }
 
 type NodeEncoder = (
@@ -735,6 +736,18 @@ const encoders: NodeEncoderMap = {
       .map((childNode) => childNode.attrs.id)
       .filter((id) => id),
   }),
+
+  affiliation: (node, parent, path, priority): Partial<Affiliation> => ({
+    _id: node.attrs.id,
+    objectType: node.attrs.objectType,
+    priority: priority.value++,
+    institution: node.attrs.institution,
+    addressLine1: node.attrs.addressLine1,
+    addressLine2: node.attrs.addressLine2,
+    addressLine3: node.attrs.addressLine3,
+    postCode: node.attrs.postCode,
+    country: node.attrs.country,
+  }),
 }
 
 const modelData = (
@@ -814,6 +827,9 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       if (isHighlightMarkerNode(child)) {
         return
       }
+      if (child.type === schema.nodes.meta_section) {
+        return
+      }
       if (child.type === schema.nodes.comment_list) {
         return
       }
@@ -830,13 +846,28 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       child.forEach(addModel(path.concat(child.attrs.id), child))
     }
   node.forEach((cNode) => {
-    if (cNode.type === schema.nodes.comment_list) {
-      cNode.forEach((child) => {
-        const { model } = modelFromNode(child, cNode, [], priority)
-        models.set(model._id, model)
-      })
+    if (cNode.type === schema.nodes.meta_section) {
+      processMetaSectionNode(cNode, models, priority)
     }
   })
   node.forEach(addModel([], node))
   return models
+}
+
+const processMetaSectionNode = (
+  node: Node,
+  models: Map<string, Model>,
+  priority: PrioritizedValue
+) => {
+  node.forEach((child) => {
+    if (child.type === schema.nodes.comment_list) {
+      child.forEach((child) => {
+        const { model } = modelFromNode(child, node, [], priority)
+        models.set(model._id, model)
+      })
+    } else {
+      const { model } = modelFromNode(child, node, [], priority)
+      models.set(model._id, model)
+    }
+  })
 }

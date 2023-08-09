@@ -29,6 +29,7 @@ import {
   tracked_insert,
   underline,
 } from './marks'
+import { affiliation } from './nodes/affiliation'
 import { attribution } from './nodes/attribution'
 import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographyItem } from './nodes/bibliography_item'
@@ -63,6 +64,7 @@ import { bulletList, listItem, orderedList } from './nodes/list'
 import { listing } from './nodes/listing'
 import { listingElement } from './nodes/listing_element'
 import { manuscript } from './nodes/manuscript'
+import { metaSection } from './nodes/meta_section'
 import { missingFigure } from './nodes/missing_figure'
 import { paragraph } from './nodes/paragraph'
 import { placeholder } from './nodes/placeholder'
@@ -129,6 +131,7 @@ export * from './nodes/table_row'
 export * from './nodes/text'
 export * from './nodes/toc_element'
 export * from './nodes/toc_section'
+export * from './nodes/affiliation'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -200,5 +203,7 @@ export const schema = new Schema<Nodes, Marks>({
     text,
     toc_element: tocElement,
     toc_section: tocSection,
+    affiliation,
+    meta_section: metaSection,
   },
 })
