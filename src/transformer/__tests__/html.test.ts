@@ -14,15 +14,10 @@
  * limitations under the License.
  */
 
-// @ts-ignore
-import projectDump from '@manuscripts/examples/data/project-dump.json'
-// @ts-ignore
-import projectDump2 from '@manuscripts/examples/data/project-dump-2.json'
-// @ts-ignore
-import projectDump3 from '@manuscripts/examples/data/project-dump-3.json'
-// @ts-ignore
-import projectDump5 from '@manuscripts/examples/data/project-dump-5.json'
-
+import projectDump from '../../__tests__/data/project-dump.json'
+import projectDump2 from '../../__tests__/data/project-dump-2.json'
+import projectDump3 from '../../__tests__/data/project-dump-3.json'
+import projectDump5 from '../../__tests__/data/project-dump-5.json'
 import { HTMLTransformer } from '../html'
 import { parseProjectBundle, ProjectBundle } from '../project-bundle'
 
@@ -79,7 +74,9 @@ describe('html', () => {
   })
 
   test('export with cross-references', async () => {
-    const { doc, modelMap } = parseProjectBundle(projectDump5)
+    const { doc, modelMap } = parseProjectBundle(
+      projectDump5 as unknown as ProjectBundle
+    )
 
     const transformer = new HTMLTransformer()
     const result = await transformer.serializeToHTML(doc.content, modelMap)
