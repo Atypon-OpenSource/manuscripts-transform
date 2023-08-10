@@ -17,6 +17,11 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
+interface email {
+  href: string
+  text: string
+}
+
 interface Attrs {
   id: string
   objectType: string
@@ -27,6 +32,7 @@ interface Attrs {
   addressLine3: string
   postCode: string
   country: string
+  email: email
 }
 
 export interface AffiliationNode extends ManuscriptNode {
@@ -36,7 +42,6 @@ export interface AffiliationNode extends ManuscriptNode {
 export const affiliation: NodeSpec = {
   attrs: {
     id: { default: '' },
-    objectType: { default: 'MPAffiliation' },
     institution: { default: '' },
     department: { default: '' },
     addressLine1: { default: '' },
@@ -44,6 +49,12 @@ export const affiliation: NodeSpec = {
     addressLine3: { default: '' },
     postCode: { default: '' },
     country: { default: '' },
+    email: {
+      default: {
+        href: ' ',
+        text: ' ',
+      },
+    },
   },
 }
 

@@ -19,6 +19,7 @@ import {
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
+  Contributor,
   Equation,
   EquationElement,
   Figure,
@@ -738,8 +739,6 @@ const encoders: NodeEncoderMap = {
   }),
 
   affiliation: (node, parent, path, priority): Partial<Affiliation> => ({
-    _id: node.attrs.id,
-    objectType: node.attrs.objectType,
     priority: priority.value++,
     institution: node.attrs.institution,
     addressLine1: node.attrs.addressLine1,
@@ -747,6 +746,16 @@ const encoders: NodeEncoderMap = {
     addressLine3: node.attrs.addressLine3,
     postCode: node.attrs.postCode,
     country: node.attrs.country,
+  }),
+  contributor: (node, parent, path, priority): Partial<Contributor> => ({
+    priority: priority.value++,
+    role: node.attrs.role,
+    affiliations: node.attrs.affiliations,
+    bibliographicName: node.attrs.bibliographicName,
+    userID: node.attrs.userID,
+    invitationID: node.attrs.invitationID,
+    isCorresponding: node.attrs.isCorresponding,
+    ORCIDIdentifier: node.attrs.ORCIDIdentifier,
   }),
 }
 
@@ -830,9 +839,6 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       if (child.type === schema.nodes.meta_section) {
         return
       }
-      if (child.type === schema.nodes.comment_list) {
-        return
-      }
       if (placeholders.includes(child.type.name)) {
         return
       }
@@ -859,15 +865,19 @@ const processMetaSectionNode = (
   models: Map<string, Model>,
   priority: PrioritizedValue
 ) => {
-  node.forEach((child) => {
-    if (child.type === schema.nodes.comment_list) {
-      child.forEach((child) => {
-        const { model } = modelFromNode(child, node, [], priority)
-        models.set(model._id, model)
-      })
-    } else {
-      const { model } = modelFromNode(child, node, [], priority)
-      models.set(model._id, model)
-    }
-  })
+  processNodeRecursively(node, models, priority)
+}
+const processNodeRecursively = (
+  node: Node,
+  models: Map<string, Model>,
+  priority: PrioritizedValue
+) => {
+  if (!node.content) {
+    const { model } = modelFromNode(node, node, [], priority)
+    models.set(model._id, model)
+  } else {
+    node.forEach((child) => {
+      processNodeRecursively(child, models, priority)
+    })
+  }
 }

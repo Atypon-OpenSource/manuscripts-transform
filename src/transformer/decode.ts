@@ -19,6 +19,7 @@ import {
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
+  Contributor,
   Element,
   Equation,
   EquationElement,
@@ -47,6 +48,7 @@ import { DOMParser, ParseOptions } from 'prosemirror-model'
 
 import { MissingElement } from '../errors'
 import {
+  AffiliationListNode,
   AffiliationNode,
   BibliographyElementNode,
   BibliographyItemNode,
@@ -55,6 +57,8 @@ import {
   CaptionNode,
   CaptionTitleNode,
   CommentNode,
+  ContributorListNode,
+  ContributorNode,
   EquationElementNode,
   EquationNode,
   FigCaptionNode,
@@ -141,6 +145,8 @@ const getSections = (modelMap: Map<string, Model>) =>
   )
 const getAffiliations = (modelMap: Map<string, Model>) =>
   getModelsByType<Affiliation>(modelMap, ObjectTypes.Affiliation)
+const getContributors = (modelMap: Map<string, Model>) =>
+  getModelsByType<Affiliation>(modelMap, ObjectTypes.Contributor)
 
 export const isManuscriptNode = (
   model: ManuscriptNode | null
@@ -788,6 +794,78 @@ export class Decoder {
         country: model.country,
       }) as AffiliationNode
     },
+    [ObjectTypes.Contributor]: (data) => {
+      const model = data as Contributor
+
+      return schema.nodes.contributor.create({
+        id: model._id,
+        role: model.role,
+        affiliations: model.affiliations,
+        bibliographicName: model.bibliographicName,
+        userID: model.userID,
+        invitationID: model.invitationID,
+        isCorresponding: model.isCorresponding,
+        ORCIDIdentifier: model.ORCIDIdentifier,
+      }) as ContributorNode
+    },
+  }
+
+  private createAffiliationListNode() {
+    const affiliationNodes = getAffiliations(this.modelMap)
+      .map((affiliation) => this.decode(affiliation) as AffiliationNode)
+      .filter(Boolean) as AffiliationNode[]
+
+    return schema.nodes.affiliation_list.createAndFill(
+      {},
+      affiliationNodes
+    ) as AffiliationListNode
+  }
+
+  private createContributorListNode() {
+    const contributorNodes = getContributors(this.modelMap)
+      .map((contributor) => this.decode(contributor) as ContributorNode)
+      .filter(Boolean) as ContributorNode[]
+
+    return schema.nodes.contributor_list.createAndFill(
+      {},
+      contributorNodes
+    ) as ContributorListNode
+  }
+
+  private createMetaSectionNode() {
+    const affiliationListNode = this.createAffiliationListNode()
+    const contributorListNode = this.createContributorListNode()
+    const commentListNode = this.createCommentListNode()
+    return schema.nodes.meta_section.createAndFill(
+      {
+        id: generateNodeID(schema.nodes.meta_section),
+      },
+      [affiliationListNode, contributorListNode, commentListNode]
+    ) as MetaSectionNode
+  }
+
+  private createCommentListNode() {
+    return schema.nodes.comment_list.createAndFill({}, [
+      ...this.comments.values(),
+    ]) as CommentListNode
+  }
+
+  private createRootSectionNodes() {
+    let rootSections = getSections(this.modelMap).filter(
+      (section) => !section.path || section.path.length <= 1
+    )
+    rootSections = this.addGeneratedLabels(rootSections)
+    const rootSectionNodes = rootSections
+      .map(this.decode)
+      .filter(isManuscriptNode) as SectionNode[]
+    if (!rootSectionNodes.length) {
+      rootSectionNodes.push(
+        schema.nodes.section.createAndFill({
+          id: generateNodeID(schema.nodes.section),
+        }) as SectionNode
+      )
+    }
+    return rootSectionNodes
   }
 
   private createCommentsNode(model: Model) {
@@ -840,45 +918,10 @@ export class Decoder {
     this.modelMap.get(id) as T | undefined
 
   public createArticleNode = (manuscriptID?: string): ManuscriptNode => {
-    let rootSections = getSections(this.modelMap).filter(
-      (section) => !section.path || section.path.length <= 1
-    )
-    rootSections = this.addGeneratedLabels(rootSections)
-    const rootSectionNodes = rootSections
-      .map(this.decode)
-      .filter(isManuscriptNode) as SectionNode[]
+    const rootSectionNodes = this.createRootSectionNodes()
+    const metaSectionNode = this.createMetaSectionNode()
+    const contents: ManuscriptNode[] = [...rootSectionNodes, metaSectionNode]
 
-    if (!rootSectionNodes.length) {
-      rootSectionNodes.push(
-        schema.nodes.section.createAndFill({
-          id: generateNodeID(schema.nodes.section),
-        }) as SectionNode
-      )
-    }
-    const affiliationNodes: AffiliationNode[] = []
-    const affiliations = getAffiliations(this.modelMap)
-    affiliations.forEach((affiliation) => {
-      const affiliationNode = schema.nodes.affiliation.createAndFill(
-        affiliation
-      ) as AffiliationNode
-      if (affiliationNode) {
-        affiliationNodes.push(affiliationNode)
-      }
-    })
-    const comments = schema.nodes.comment_list.createAndFill({}, [
-      ...this.comments.values(),
-    ]) as CommentListNode
-
-    const metaSectionNode = schema.nodes.meta_section.createAndFill(
-      {
-        id: generateNodeID(schema.nodes.meta_section),
-      },
-      [...affiliationNodes, comments]
-    ) as MetaSectionNode
-
-    const contents: ManuscriptNode[] = rootSectionNodes
-
-    contents.push(metaSectionNode)
     return schema.nodes.manuscript.create(
       {
         id: manuscriptID || this.getManuscriptID(),

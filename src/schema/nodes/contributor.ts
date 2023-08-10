@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2023 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,23 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+import { Affiliation, BibliographicName } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
+  role: string
+  affiliations: Affiliation[]
+  bibliographicName: BibliographicName
+  userID: string
+  invitationID: string
+  isCorresponding: boolean
+  ORCIDIdentifier: string
 }
 
-export interface MetaSectionNode extends ManuscriptNode {
+export interface ContributorNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const metaSection: NodeSpec = {
-  content: 'affiliation_list contributor_list comment_list',
+export const contributor: NodeSpec = {
   attrs: {
-    id: { default: 'META_SECTION' },
+    id: { default: '' },
+    role: { default: '' },
+    affiliations: { default: [] },
+    bibliographicName: { default: {} },
+    userID: { default: '' },
+    invitationID: { default: '' },
+    isCorresponding: { default: undefined },
+    ORCIDIdentifier: { default: '' },
   },
-  group: 'block sections',
 }
