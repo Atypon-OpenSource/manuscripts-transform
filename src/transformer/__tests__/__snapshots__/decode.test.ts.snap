@@ -1901,9 +1901,88 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
-        "id": "COMMENT_LIST",
+        "id": "META_SECTION",
       },
-      "type": "comment_list",
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "id": "AFFILIATION_LIST",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "addressLine1": "",
+                "addressLine2": "",
+                "addressLine3": "",
+                "country": "United Kingdom",
+                "department": "",
+                "email": Object {
+                  "href": " ",
+                  "text": " ",
+                },
+                "id": "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
+                "institution": "University of Examples",
+                "postCode": "",
+              },
+              "type": "affiliation",
+            },
+          ],
+          "type": "affiliation_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "CONTRIBUTOR_LIST",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "ORCIDIdentifier": "",
+                "affiliations": Array [
+                  "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
+                ],
+                "bibliographicName": Object {
+                  "_id": "MPBibliographicName:24C5AC82-0130-4C94-A6D7-E8A2699EAAC8",
+                  "family": "Author",
+                  "given": "Example",
+                  "objectType": "MPBibliographicName",
+                },
+                "id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
+                "invitationID": "",
+                "isCorresponding": undefined,
+                "role": "author",
+                "userID": "",
+              },
+              "type": "contributor",
+            },
+            Object {
+              "attrs": Object {
+                "ORCIDIdentifier": "",
+                "affiliations": Array [],
+                "bibliographicName": Object {
+                  "_id": "MPBibliographicName:E5B649B2-1B97-46FF-AA36-ADDC3B532517",
+                  "family": "Author",
+                  "given": "Corresponding",
+                  "objectType": "MPBibliographicName",
+                },
+                "id": "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
+                "invitationID": "",
+                "isCorresponding": 1,
+                "role": "author",
+                "userID": "",
+              },
+              "type": "contributor",
+            },
+          ],
+          "type": "contributor_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "COMMENT_LIST",
+          },
+          "type": "comment_list",
+        },
+      ],
+      "type": "meta_section",
     },
   ],
   "type": "manuscript",
@@ -3541,9 +3620,88 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
-        "id": "COMMENT_LIST",
+        "id": "META_SECTION",
       },
-      "type": "comment_list",
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "id": "AFFILIATION_LIST",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "addressLine1": "",
+                "addressLine2": "",
+                "addressLine3": "",
+                "country": "United Kingdom",
+                "department": "",
+                "email": Object {
+                  "href": " ",
+                  "text": " ",
+                },
+                "id": "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
+                "institution": "University of Examples",
+                "postCode": "",
+              },
+              "type": "affiliation",
+            },
+          ],
+          "type": "affiliation_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "CONTRIBUTOR_LIST",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "ORCIDIdentifier": "",
+                "affiliations": Array [
+                  "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
+                ],
+                "bibliographicName": Object {
+                  "_id": "MPBibliographicName:24C5AC82-0130-4C94-A6D7-E8A2699EAAC8",
+                  "family": "Author",
+                  "given": "Example",
+                  "objectType": "MPBibliographicName",
+                },
+                "id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
+                "invitationID": "",
+                "isCorresponding": undefined,
+                "role": "author",
+                "userID": "",
+              },
+              "type": "contributor",
+            },
+            Object {
+              "attrs": Object {
+                "ORCIDIdentifier": "",
+                "affiliations": Array [],
+                "bibliographicName": Object {
+                  "_id": "MPBibliographicName:E5B649B2-1B97-46FF-AA36-ADDC3B532517",
+                  "family": "Author",
+                  "given": "Corresponding",
+                  "objectType": "MPBibliographicName",
+                },
+                "id": "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
+                "invitationID": "",
+                "isCorresponding": 1,
+                "role": "author",
+                "userID": "",
+              },
+              "type": "contributor",
+            },
+          ],
+          "type": "contributor_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "COMMENT_LIST",
+          },
+          "type": "comment_list",
+        },
+      ],
+      "type": "meta_section",
     },
   ],
   "type": "manuscript",
@@ -5451,9 +5609,88 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
-        "id": "COMMENT_LIST",
+        "id": "META_SECTION",
       },
-      "type": "comment_list",
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "id": "AFFILIATION_LIST",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "addressLine1": "",
+                "addressLine2": "",
+                "addressLine3": "",
+                "country": "United Kingdom",
+                "department": "",
+                "email": Object {
+                  "href": " ",
+                  "text": " ",
+                },
+                "id": "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
+                "institution": "University of Examples",
+                "postCode": "",
+              },
+              "type": "affiliation",
+            },
+          ],
+          "type": "affiliation_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "CONTRIBUTOR_LIST",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "ORCIDIdentifier": "",
+                "affiliations": Array [
+                  "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
+                ],
+                "bibliographicName": Object {
+                  "_id": "MPBibliographicName:24C5AC82-0130-4C94-A6D7-E8A2699EAAC8",
+                  "family": "Author",
+                  "given": "Example",
+                  "objectType": "MPBibliographicName",
+                },
+                "id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
+                "invitationID": "",
+                "isCorresponding": undefined,
+                "role": "author",
+                "userID": "",
+              },
+              "type": "contributor",
+            },
+            Object {
+              "attrs": Object {
+                "ORCIDIdentifier": "",
+                "affiliations": Array [],
+                "bibliographicName": Object {
+                  "_id": "MPBibliographicName:E5B649B2-1B97-46FF-AA36-ADDC3B532517",
+                  "family": "Author",
+                  "given": "Corresponding",
+                  "objectType": "MPBibliographicName",
+                },
+                "id": "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
+                "invitationID": "",
+                "isCorresponding": 1,
+                "role": "author",
+                "userID": "",
+              },
+              "type": "contributor",
+            },
+          ],
+          "type": "contributor_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "COMMENT_LIST",
+          },
+          "type": "comment_list",
+        },
+      ],
+      "type": "meta_section",
     },
   ],
   "type": "manuscript",
@@ -5557,9 +5794,29 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "COMMENT_LIST",
+        "id": "META_SECTION",
       },
-      "type": "comment_list",
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "id": "AFFILIATION_LIST",
+          },
+          "type": "affiliation_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "CONTRIBUTOR_LIST",
+          },
+          "type": "contributor_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "COMMENT_LIST",
+          },
+          "type": "comment_list",
+        },
+      ],
+      "type": "meta_section",
     },
   ],
   "type": "manuscript",
@@ -5740,53 +5997,73 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "someId",
+        "id": "META_SECTION",
       },
       "content": Array [
         Object {
           "attrs": Object {
-            "contents": "Test Comment",
-            "contributions": Array [],
-            "id": "MPCommentAnnotation:test",
-            "originalText": "",
-            "resolved": false,
-            "selector": Object {
-              "from": 166,
-              "to": 175,
-            },
-            "target": "MPParagraphElement:1",
+            "id": "AFFILIATION_LIST",
           },
-          "type": "comment",
+          "type": "affiliation_list",
         },
         Object {
           "attrs": Object {
-            "contents": "",
-            "contributions": Array [],
-            "id": "MPCommentAnnotation:test1",
-            "originalText": "",
-            "resolved": false,
-            "selector": Object {},
-            "target": "MPFigureElement:1",
+            "id": "CONTRIBUTOR_LIST",
           },
-          "type": "comment",
+          "type": "contributor_list",
         },
         Object {
           "attrs": Object {
-            "contents": "",
-            "contributions": Array [],
-            "id": "MPCommentAnnotation:test2",
-            "originalText": "",
-            "resolved": false,
-            "selector": Object {
-              "from": 23,
-              "to": 32,
-            },
-            "target": "MPSection:1",
+            "id": "someId",
           },
-          "type": "comment",
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "contents": "Test Comment",
+                "contributions": Array [],
+                "id": "MPCommentAnnotation:test",
+                "originalText": "",
+                "resolved": false,
+                "selector": Object {
+                  "from": 166,
+                  "to": 175,
+                },
+                "target": "MPParagraphElement:1",
+              },
+              "type": "comment",
+            },
+            Object {
+              "attrs": Object {
+                "contents": "",
+                "contributions": Array [],
+                "id": "MPCommentAnnotation:test1",
+                "originalText": "",
+                "resolved": false,
+                "selector": Object {},
+                "target": "MPFigureElement:1",
+              },
+              "type": "comment",
+            },
+            Object {
+              "attrs": Object {
+                "contents": "",
+                "contributions": Array [],
+                "id": "MPCommentAnnotation:test2",
+                "originalText": "",
+                "resolved": false,
+                "selector": Object {
+                  "from": 23,
+                  "to": 32,
+                },
+                "target": "MPSection:1",
+              },
+              "type": "comment",
+            },
+          ],
+          "type": "comment_list",
         },
       ],
-      "type": "comment_list",
+      "type": "meta_section",
     },
   ],
   "type": "manuscript",
@@ -5859,9 +6136,29 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "COMMENT_LIST",
+        "id": "META_SECTION",
       },
-      "type": "comment_list",
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "id": "AFFILIATION_LIST",
+          },
+          "type": "affiliation_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "CONTRIBUTOR_LIST",
+          },
+          "type": "contributor_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "COMMENT_LIST",
+          },
+          "type": "comment_list",
+        },
+      ],
+      "type": "meta_section",
     },
   ],
   "type": "manuscript",
@@ -5907,9 +6204,29 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "COMMENT_LIST",
+        "id": "META_SECTION",
       },
-      "type": "comment_list",
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "id": "AFFILIATION_LIST",
+          },
+          "type": "affiliation_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "CONTRIBUTOR_LIST",
+          },
+          "type": "contributor_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "COMMENT_LIST",
+          },
+          "type": "comment_list",
+        },
+      ],
+      "type": "meta_section",
     },
   ],
   "type": "manuscript",
@@ -5982,23 +6299,43 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "someId",
+        "id": "META_SECTION",
       },
       "content": Array [
         Object {
           "attrs": Object {
-            "contents": "KeywordQuery",
-            "contributions": Array [],
-            "id": "MPCommentAnnotation:3AAEE869-7DC9-4392-B8C6-9C5FCA522120",
-            "originalText": "",
-            "resolved": false,
-            "selector": Object {},
-            "target": "MPKeywordGroup:1",
+            "id": "AFFILIATION_LIST",
           },
-          "type": "comment",
+          "type": "affiliation_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "CONTRIBUTOR_LIST",
+          },
+          "type": "contributor_list",
+        },
+        Object {
+          "attrs": Object {
+            "id": "someId",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "contents": "KeywordQuery",
+                "contributions": Array [],
+                "id": "MPCommentAnnotation:3AAEE869-7DC9-4392-B8C6-9C5FCA522120",
+                "originalText": "",
+                "resolved": false,
+                "selector": Object {},
+                "target": "MPKeywordGroup:1",
+              },
+              "type": "comment",
+            },
+          ],
+          "type": "comment_list",
         },
       ],
-      "type": "comment_list",
+      "type": "meta_section",
     },
   ],
   "type": "manuscript",

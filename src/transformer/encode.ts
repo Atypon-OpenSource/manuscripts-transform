@@ -738,8 +738,7 @@ const encoders: NodeEncoderMap = {
       .filter((id) => id),
   }),
 
-  affiliation: (node, parent, path, priority): Partial<Affiliation> => ({
-    priority: priority.value++,
+  affiliation: (node): Partial<Affiliation> => ({
     institution: node.attrs.institution,
     addressLine1: node.attrs.addressLine1,
     addressLine2: node.attrs.addressLine2,
@@ -747,8 +746,7 @@ const encoders: NodeEncoderMap = {
     postCode: node.attrs.postCode,
     country: node.attrs.country,
   }),
-  contributor: (node, parent, path, priority): Partial<Contributor> => ({
-    priority: priority.value++,
+  contributor: (node): Partial<Contributor> => ({
     role: node.attrs.role,
     affiliations: node.attrs.affiliations,
     bibliographicName: node.attrs.bibliographicName,
