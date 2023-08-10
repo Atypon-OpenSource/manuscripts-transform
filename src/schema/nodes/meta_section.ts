@@ -32,4 +32,5 @@ export const metaSection: NodeSpec = {
     id: { default: 'META_SECTION' },
   },
   group: 'block sections',
+  toDOM: () => ['section', 0],
 }
