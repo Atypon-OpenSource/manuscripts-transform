@@ -17,7 +17,7 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface email {
+interface Email {
   href: string
   text: string
 }
@@ -32,7 +32,7 @@ interface Attrs {
   addressLine3: string
   postCode: string
   country: string
-  email: email
+  email: Email
 }
 
 export interface AffiliationNode extends ManuscriptNode {
