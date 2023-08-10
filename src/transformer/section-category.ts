@@ -32,10 +32,9 @@ const sectionNodeTypes: ManuscriptNodeType[] = [
 ]
 
 const sectionCategoriesMap = new Map<string, SectionCategoryInterface>(
-  (sectionCategories as Array<SectionCategoryInterface>).map((section) => [
-    section._id,
-    section,
-  ])
+  (sectionCategories as unknown as Array<SectionCategoryInterface>).map(
+    (section) => [section._id, section]
+  )
 )
 
 export const getSectionTitles = (
