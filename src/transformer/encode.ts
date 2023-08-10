@@ -872,7 +872,10 @@ const processNodeRecursively = (
   models: Map<string, Model>,
   priority: PrioritizedValue
 ) => {
-  if (!node.content) {
+  if (
+    (!node.content || node.content.size === 0) &&
+    nodeTypesMap.get(node.type)
+  ) {
     const { model } = modelFromNode(node, node, [], priority)
     models.set(model._id, model)
   } else {

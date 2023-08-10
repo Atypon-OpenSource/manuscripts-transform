@@ -836,12 +836,11 @@ export class Decoder {
     const affiliationListNode = this.createAffiliationListNode()
     const contributorListNode = this.createContributorListNode()
     const commentListNode = this.createCommentListNode()
-    return schema.nodes.meta_section.createAndFill(
-      {
-        id: generateNodeID(schema.nodes.meta_section),
-      },
-      [affiliationListNode, contributorListNode, commentListNode]
-    ) as MetaSectionNode
+    return schema.nodes.meta_section.createAndFill({}, [
+      affiliationListNode,
+      contributorListNode,
+      commentListNode,
+    ]) as MetaSectionNode
   }
 
   private createCommentListNode() {
