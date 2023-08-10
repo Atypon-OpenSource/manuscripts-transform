@@ -38,6 +38,8 @@ export interface BibliographyItemNode extends ManuscriptNode {
 }
 
 export const bibliographyItem: NodeSpec = {
+  // this is to help the prosemirror decoration to reach HTML of this node
+  content: 'inline{0}',
   attrs: {
     id: { default: '' },
     type: { default: undefined },
