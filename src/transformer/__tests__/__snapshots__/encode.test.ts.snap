@@ -9,8 +9,8 @@ Map {
     "addressLine3": "",
     "country": "United Kingdom",
     "email": Object {
-      "href": " ",
-      "text": " ",
+      "href": "ExampleEmail@Example.com",
+      "text": "Test text",
     },
     "institution": "University of Examples",
     "objectType": "MPAffiliation",

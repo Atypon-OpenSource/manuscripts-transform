@@ -51,8 +51,8 @@ export const affiliation: NodeSpec = {
     country: { default: '' },
     email: {
       default: {
-        href: ' ',
-        text: ' ',
+        href: undefined,
+        text: undefined,
       },
     },
   },

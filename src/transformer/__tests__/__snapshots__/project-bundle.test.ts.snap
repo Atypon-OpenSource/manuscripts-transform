@@ -729,8 +729,8 @@ Object {
                   "country": "United States",
                   "department": "",
                   "email": Object {
-                    "href": " ",
-                    "text": " ",
+                    "href": undefined,
+                    "text": undefined,
                   },
                   "id": "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
                   "institution": "University of Cunning",
@@ -1998,8 +1998,8 @@ Object {
                   "country": "United States",
                   "department": "",
                   "email": Object {
-                    "href": " ",
-                    "text": " ",
+                    "href": undefined,
+                    "text": undefined,
                   },
                   "id": "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
                   "institution": "University of Cunning",
