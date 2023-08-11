@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-// @ts-ignore
-import project3 from '@manuscripts/examples/data/project-dump-3.json'
-
+import project3 from '../../__tests__/data/project-dump-3.json'
 import { parseProjectBundle, ProjectBundle } from '../project-bundle'
 
 test('project bundle with no manuscript parameter', () => {
