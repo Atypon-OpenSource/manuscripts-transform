@@ -32,6 +32,10 @@
       "county": "",
       "createdAt": 1538472835.419208,
       "department": "Dept of Examples",
+       "email":  {
+         "href":"mailto:" ,
+        "text": "mail"
+       },
       "institution": "University of Examples",
       "objectType": "MPAffiliation",
       "postCode": "",
