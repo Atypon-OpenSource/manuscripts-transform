@@ -792,6 +792,7 @@ export class Decoder {
         addressLine3: model.addressLine3,
         postCode: model.postCode,
         country: model.country,
+        email: model.email,
       }) as AffiliationNode
     },
     [ObjectTypes.Contributor]: (data) => {

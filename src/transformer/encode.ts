@@ -745,6 +745,7 @@ const encoders: NodeEncoderMap = {
     addressLine3: node.attrs.addressLine3,
     postCode: node.attrs.postCode,
     country: node.attrs.country,
+    email: node.attrs.email,
   }),
   contributor: (node): Partial<Contributor> => ({
     role: node.attrs.role,

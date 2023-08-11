@@ -8,6 +8,10 @@ Map {
     "addressLine2": "",
     "addressLine3": "",
     "country": "United Kingdom",
+    "email": Object {
+      "href": " ",
+      "text": " ",
+    },
     "institution": "University of Examples",
     "objectType": "MPAffiliation",
     "postCode": "",

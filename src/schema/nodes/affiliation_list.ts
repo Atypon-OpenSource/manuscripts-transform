@@ -30,5 +30,4 @@ export const affiliationList: NodeSpec = {
   attrs: {
     id: { default: 'AFFILIATION_LIST' },
   },
-  toDOM: () => ['section', 0],
 }
