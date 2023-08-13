@@ -30,4 +30,6 @@ export const contributorList: NodeSpec = {
   attrs: {
     id: { default: 'CONTRIBUTOR_LIST' },
   },
+  toDOM: () => ['section', 0],
+
 }
