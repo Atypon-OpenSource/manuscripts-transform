@@ -56,7 +56,6 @@ export const affiliation: NodeSpec = {
       },
     },
   },
-  toDOM: () => ['section', 0],
 }
 
 export const isAffiliationNode = (
