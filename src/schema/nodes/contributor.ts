@@ -44,4 +44,5 @@ export const contributor: NodeSpec = {
     isCorresponding: { default: undefined },
     ORCIDIdentifier: { default: '' },
   },
+  toDOM: () => ['section', 0],
 }

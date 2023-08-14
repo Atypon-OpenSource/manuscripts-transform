@@ -31,5 +31,4 @@ export const contributorList: NodeSpec = {
     id: { default: 'CONTRIBUTOR_LIST' },
   },
   toDOM: () => ['section', 0],
-
 }

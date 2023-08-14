@@ -391,7 +391,7 @@ const fromJson = (json: string) => {
 
 function figureElementEncoder<T>(node: ManuscriptNode) {
   // eslint-disable-next-line prettier/prettier
-    return {
+  return {
     containedObjectIDs: containedParagraphIDs(node)?.concat(
       containedFigureIDs(node)
     ),
@@ -422,7 +422,7 @@ function figureElementEncoder<T>(node: ManuscriptNode) {
     figureStyle: node.attrs.figureStyle || undefined,
     figureLayout: node.attrs.figureLayout || undefined,
     // eslint-disable-next-line prettier/prettier
-    } as unknown as Partial<T>
+  } as unknown as Partial<T>
 }
 
 type NodeEncoder = (
@@ -864,22 +864,13 @@ const processMetaSectionNode = (
   models: Map<string, Model>,
   priority: PrioritizedValue
 ) => {
-  processNodeRecursively(node, models, priority)
-}
-const processNodeRecursively = (
-  node: Node,
-  models: Map<string, Model>,
-  priority: PrioritizedValue
-) => {
-  if (
-    (!node.content || node.content.size === 0) &&
-    nodeTypesMap.get(node.type)
-  ) {
-    const { model } = modelFromNode(node, node, [], priority)
-    models.set(model._id, model)
-  } else {
-    node.forEach((child) => {
-      processNodeRecursively(child, models, priority)
-    })
-  }
+  node.descendants((child) => {
+    if (
+      (!child.content || child.content.size === 0) &&
+      nodeTypesMap.get(child.type)
+    ) {
+      const { model } = modelFromNode(child, node, [], priority)
+      models.set(model._id, model)
+    }
+  })
 }
