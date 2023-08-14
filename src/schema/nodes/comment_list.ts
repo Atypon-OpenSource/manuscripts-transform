@@ -31,4 +31,5 @@ export const commentList: NodeSpec = {
   attrs: {
     id: { default: 'COMMENT_LIST' },
   },
+  toDOM: () => ['section', 0],
 }
