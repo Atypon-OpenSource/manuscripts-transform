@@ -2292,6 +2292,7 @@
       "updatedAt": 1538472590.478792
     },
     {
+      "ORCIDIdentifier": "",
       "_id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
       "_rev": "131-f8add0194691b6beba3ba881ea1b2ea6",
       "affiliations": ["MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08"],
@@ -2306,16 +2307,21 @@
       "email": "user@example.com",
       "fullName": "Example Author",
       "grants": ["MPGrant:EFF99DA8-065D-4DC8-B6DA-521F36371547"],
+      "invitationID": "",
       "isJointContributor": true,
       "lastName": "Author",
       "objectType": "MPContributor",
       "prename": "Example",
       "role": "author",
-      "updatedAt": 1538472894.363645
+      "updatedAt": 1538472894.363645,
+      "userID": ""
+      
     },
     {
+      "ORCIDIdentifier": "",
       "_id": "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
       "_rev": "57-71c71bf50c1031325470337f179e9bf3",
+      "affiliations": [],
       "bibliographicName": {
         "given": "Corresponding",
         "_id": "MPBibliographicName:E5B649B2-1B97-46FF-AA36-ADDC3B532517",
@@ -2325,13 +2331,15 @@
       "createdAt": 1538472784.250826,
       "email": "author@example.com",
       "fullName": "Corresponding Author",
+      "invitationID": "",
       "isCorresponding": 1,
       "lastName": "Author",
       "objectType": "MPContributor",
       "prename": "Corresponding",
       "priority": 1,
       "role": "author",
-      "updatedAt": 1538472823.003292
+      "updatedAt": 1538472823.003292,
+      "userID": ""
     },
     {
       "_id": "MPContentSummary:1D670781-8A04-4F15-A5D8-AABEEF8C4675",
