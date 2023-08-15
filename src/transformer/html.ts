@@ -534,7 +534,7 @@ export class HTMLTransformer {
       return ['span', attrs]
     }
 
-    nodes.comment_list = () => ''
+    nodes.meta_section = () => ''
 
     const serializer = new DOMSerializer(nodes, marks)
 

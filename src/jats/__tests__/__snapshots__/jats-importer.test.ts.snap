@@ -6702,7 +6702,18 @@ Object {
       "type": "section",
     },
     Object {
-      "type": "comment_list",
+      "content": Array [
+        Object {
+          "type": "affiliation_list",
+        },
+        Object {
+          "type": "contributor_list",
+        },
+        Object {
+          "type": "comment_list",
+        },
+      ],
+      "type": "meta_section",
     },
   ],
   "type": "manuscript",
@@ -12906,7 +12917,18 @@ Object {
       "type": "section",
     },
     Object {
-      "type": "comment_list",
+      "content": Array [
+        Object {
+          "type": "affiliation_list",
+        },
+        Object {
+          "type": "contributor_list",
+        },
+        Object {
+          "type": "comment_list",
+        },
+      ],
+      "type": "meta_section",
     },
   ],
   "type": "manuscript",
