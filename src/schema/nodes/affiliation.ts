@@ -24,7 +24,6 @@ interface Email {
 
 interface Attrs {
   id: string
-  objectType: string
   institution: string
   department: string
   addressLine1: string
