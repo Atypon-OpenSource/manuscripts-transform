@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2023 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,13 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export * from './lib/core-section-categories'
-export * from './lib/table-cell-styles'
-export * from './lib/utils'
-export * from './mathjax'
-export * from './schema'
-export * from './transformer'
-export * from './jats'
-export * from './types'
-export * from './errors'
-export { isSectionLabelNode } from './schema/nodes/section_label'
+import { NodeSpec } from 'prosemirror-model'
+
+import { ManuscriptNode } from '../types'
+
+interface Attrs {
+  id: string
+}
+
+export interface ContributorListNode extends ManuscriptNode {
+  attrs: Attrs
+}
+
+export const contributorList: NodeSpec = {
+  content: 'contributor*',
+  attrs: {
+    id: { default: 'CONTRIBUTOR_LIST' },
+  },
+  toDOM: () => ['section', 0],
+}

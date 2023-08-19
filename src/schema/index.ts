@@ -29,6 +29,8 @@ import {
   tracked_insert,
   underline,
 } from './marks'
+import { affiliation } from './nodes/affiliation'
+import { affiliationList } from './nodes/affiliation_list'
 import { attribution } from './nodes/attribution'
 import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographyItem } from './nodes/bibliography_item'
@@ -39,6 +41,8 @@ import { captionTitle } from './nodes/caption_title'
 import { citation } from './nodes/citation'
 import { comment } from './nodes/comment'
 import { commentList } from './nodes/comment_list'
+import { contributor } from './nodes/contributor'
+import { contributorList } from './nodes/contributor_list'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
 import { equation } from './nodes/equation'
@@ -63,6 +67,7 @@ import { bulletList, listItem, orderedList } from './nodes/list'
 import { listing } from './nodes/listing'
 import { listingElement } from './nodes/listing_element'
 import { manuscript } from './nodes/manuscript'
+import { metaSection } from './nodes/meta_section'
 import { missingFigure } from './nodes/missing_figure'
 import { paragraph } from './nodes/paragraph'
 import { placeholder } from './nodes/placeholder'
@@ -129,6 +134,11 @@ export * from './nodes/table_row'
 export * from './nodes/text'
 export * from './nodes/toc_element'
 export * from './nodes/toc_section'
+export * from './nodes/affiliation'
+export * from './nodes/affiliation_list'
+export * from './nodes/meta_section'
+export * from './nodes/contributor_list'
+export * from './nodes/contributor'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -200,5 +210,10 @@ export const schema = new Schema<Nodes, Marks>({
     text,
     toc_element: tocElement,
     toc_section: tocSection,
+    affiliation,
+    meta_section: metaSection,
+    affiliation_list: affiliationList,
+    contributor_list: contributorList,
+    contributor: contributor,
   },
 })

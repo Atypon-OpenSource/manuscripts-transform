@@ -713,9 +713,71 @@ Object {
       },
       Object {
         "attrs": Object {
-          "id": "COMMENT_LIST",
+          "id": "META_SECTION",
         },
-        "type": "comment_list",
+        "content": Array [
+          Object {
+            "attrs": Object {
+              "id": "AFFILIATION_LIST",
+            },
+            "content": Array [
+              Object {
+                "attrs": Object {
+                  "addressLine1": "20A Charles River Rd",
+                  "addressLine2": "",
+                  "addressLine3": "",
+                  "country": "United States",
+                  "department": "",
+                  "email": Object {
+                    "href": undefined,
+                    "text": undefined,
+                  },
+                  "id": "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
+                  "institution": "University of Cunning",
+                  "postCode": "02453",
+                },
+                "type": "affiliation",
+              },
+            ],
+            "type": "affiliation_list",
+          },
+          Object {
+            "attrs": Object {
+              "id": "CONTRIBUTOR_LIST",
+            },
+            "content": Array [
+              Object {
+                "attrs": Object {
+                  "ORCIDIdentifier": "",
+                  "affiliations": Array [
+                    "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
+                  ],
+                  "bibliographicName": Object {
+                    "_id": "MPBibliographicName:9678650F-C40B-4EBB-8620-15E335899379",
+                    "family": "Ydenberg",
+                    "given": "Casey",
+                    "objectType": "MPBibliographicName",
+                    "suffix": "",
+                  },
+                  "id": "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
+                  "invitationID": "",
+                  "isCorresponding": true,
+                  "role": "author",
+                  "userID": "User_ydenberg@gmail.com",
+                },
+                "type": "contributor",
+              },
+            ],
+            "type": "contributor_list",
+          },
+          Object {
+            "attrs": Object {
+              "id": "COMMENT_LIST",
+            },
+            "type": "comment_list",
+          },
+        ],
+        "type": "meta_section",
       },
     ],
     "type": "manuscript",
@@ -1920,9 +1982,89 @@ Object {
       },
       Object {
         "attrs": Object {
-          "id": "COMMENT_LIST",
+          "id": "META_SECTION",
         },
-        "type": "comment_list",
+        "content": Array [
+          Object {
+            "attrs": Object {
+              "id": "AFFILIATION_LIST",
+            },
+            "content": Array [
+              Object {
+                "attrs": Object {
+                  "addressLine1": "20A Charles River Rd",
+                  "addressLine2": "",
+                  "addressLine3": "",
+                  "country": "United States",
+                  "department": "",
+                  "email": Object {
+                    "href": undefined,
+                    "text": undefined,
+                  },
+                  "id": "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
+                  "institution": "University of Cunning",
+                  "postCode": "02453",
+                },
+                "type": "affiliation",
+              },
+            ],
+            "type": "affiliation_list",
+          },
+          Object {
+            "attrs": Object {
+              "id": "CONTRIBUTOR_LIST",
+            },
+            "content": Array [
+              Object {
+                "attrs": Object {
+                  "ORCIDIdentifier": "",
+                  "affiliations": Array [
+                    "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
+                  ],
+                  "bibliographicName": Object {
+                    "_id": "MPBibliographicName:9678650F-C40B-4EBB-8620-15E335899379",
+                    "family": "Ydenberg",
+                    "given": "Casey",
+                    "objectType": "MPBibliographicName",
+                    "suffix": "",
+                  },
+                  "id": "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
+                  "invitationID": "",
+                  "isCorresponding": true,
+                  "role": "author",
+                  "userID": "User_ydenberg@gmail.com",
+                },
+                "type": "contributor",
+              },
+              Object {
+                "attrs": Object {
+                  "ORCIDIdentifier": "",
+                  "affiliations": Array [],
+                  "bibliographicName": Object {
+                    "_id": "MPBibliographicName:5C1F1C56-F6A4-4422-9159-506DFAAAAD80",
+                    "family": "Ydenberg",
+                    "given": "Casey",
+                    "objectType": "MPBibliographicName",
+                  },
+                  "id": "MPContributor:58C5EF20-2B67-4FE1-B1E5-294613DD7A6A",
+                  "invitationID": "",
+                  "isCorresponding": undefined,
+                  "role": "author",
+                  "userID": "User_ydenberg@gmail.com",
+                },
+                "type": "contributor",
+              },
+            ],
+            "type": "contributor_list",
+          },
+          Object {
+            "attrs": Object {
+              "id": "COMMENT_LIST",
+            },
+            "type": "comment_list",
+          },
+        ],
+        "type": "meta_section",
       },
     ],
     "type": "manuscript",
