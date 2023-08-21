@@ -19,7 +19,7 @@ import { BibliographyItem } from '@manuscripts/json-schema'
 import {
   chooseSectionCategoryByType,
   chooseSecType,
-  getSectionTitles,
+  getCoreSectionTitles,
 } from '../../transformer'
 
 const removeNodeFromParent = (node: Element) =>
@@ -41,7 +41,7 @@ const createSectionContainer = (
 
   const title = createElement('title')
   title.textContent = sectionCategory
-    ? getSectionTitles(sectionCategory)[0]
+    ? getCoreSectionTitles(sectionCategory)[0]
     : ' '
   sectionContainer.appendChild(title)
   return sectionContainer
@@ -91,11 +91,13 @@ export const jatsBodyTransformations = {
     const sectionType = abstractType ? `abstract-${abstractType}` : 'abstract'
     section.setAttribute('sec-type', sectionType)
 
-    const title = createElement('title')
-    title.textContent = abstractType
-      ? `${capitalizeFirstLetter(abstractType)} Abstract`
-      : 'Abstract'
-    section.appendChild(title)
+    if (!abstractNode.querySelector('abstract > title')) {
+      const title = createElement('title')
+      title.textContent = abstractType
+        ? `${capitalizeFirstLetter(abstractType)} Abstract`
+        : 'Abstract'
+      section.appendChild(title)
+    }
 
     while (abstractNode.firstChild) {
       section.appendChild(abstractNode.firstChild)
@@ -328,7 +330,10 @@ export const jatsBodyTransformations = {
         const title = footnote.querySelector('p[content-type="fn-title"]')
         if (title) {
           const sectionTitleElement = createElement('title')
-          sectionTitleElement.textContent = title.textContent
+          const titleTextContent = title.textContent?.trim()
+          if (titleTextContent) {
+            sectionTitleElement.textContent = titleTextContent
+          }
           removeNodeFromParent(title)
           section.append(sectionTitleElement)
         }

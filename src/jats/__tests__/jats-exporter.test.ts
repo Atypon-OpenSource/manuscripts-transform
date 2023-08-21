@@ -14,15 +14,10 @@
  * limitations under the License.
  */
 
-// @ts-ignore
-import projectDump from '@manuscripts/examples/data/project-dump.json'
-// @ts-ignore
-import projectDumpWithCitations from '@manuscripts/examples/data/project-dump-2.json'
 import {
   Equation,
   Keyword,
   Manuscript,
-  Model,
   ObjectTypes,
   ParagraphElement,
   Section,
@@ -31,6 +26,8 @@ import {
 } from '@manuscripts/json-schema'
 import { Element as XMLElement, parseXml } from 'libxmljs2'
 
+import projectDump from '../../__tests__/data/project-dump.json'
+import projectDumpWithCitations from '../../__tests__/data/project-dump-2.json'
 import {
   findManuscript,
   isManuscript,
@@ -38,7 +35,6 @@ import {
   ProjectBundle,
 } from '../../transformer'
 import { journalMeta } from '../../transformer/__tests__/__helpers__/journal-meta'
-import { submissions } from '../../transformer/__tests__/__helpers__/submissions'
 import { JATSExporter } from '../jats-exporter'
 import { Version } from '../jats-versions'
 import { readFixture } from './files'
@@ -119,7 +115,6 @@ describe('JATS exporter', () => {
       manuscriptID: 'MPManuscript:1',
       containerID: 'MPProject:1',
       path: ['MPSection:123'],
-      sessionID: 'foo',
       priority: 0,
     }
 
@@ -155,7 +150,6 @@ describe('JATS exporter', () => {
       manuscriptID: 'MPManuscript:1',
       containerID: 'MPProject:1',
       path: ['MPSection:123'],
-      sessionID: 'foo',
       priority: 0,
     }
 
@@ -171,7 +165,6 @@ describe('JATS exporter', () => {
       manuscriptID: 'MPManuscript:1',
       containerID: 'MPProject:1',
       path: ['MPSection:124'],
-      sessionID: 'foo',
       priority: 0,
     }
 
@@ -187,7 +180,6 @@ describe('JATS exporter', () => {
       manuscriptID: 'MPManuscript:1',
       containerID: 'MPProject:1',
       path: ['MPSection:125'],
-      sessionID: 'foo',
       priority: 0,
     }
 
@@ -315,7 +307,6 @@ describe('JATS exporter', () => {
       manuscriptID: 'MPManuscript:1',
       containerID: 'MPProject:1',
       path: ['MPSection:123'],
-      sessionID: 'foo',
       priority: 0,
     }
 
@@ -346,7 +337,6 @@ describe('JATS exporter', () => {
       manuscriptID: 'MPManuscript:1',
       containerID: 'MPProject:1',
       path: ['MPSection:123'],
-      sessionID: 'foo',
       priority: 3,
     }
 
@@ -414,10 +404,6 @@ describe('JATS exporter', () => {
 
     const { doc, modelMap } = parseProjectBundle(projectBundle)
 
-    for (const submission of submissions) {
-      modelMap.set(submission._id, submission)
-    }
-
     const transformer = new JATSExporter()
     const manuscript = findManuscript(modelMap)
     const xml = await transformer.serializeToJATS(
@@ -432,12 +418,6 @@ describe('JATS exporter', () => {
     )
 
     expect(xml).toMatchSnapshot('jats-export-submitted')
-
-    const output = parseXMLWithDTD(xml)
-
-    expect(output.get<XMLElement>('//journal-id')!.text()).toBe('bar')
-    expect(output.get<XMLElement>('//journal-title')!.text()).toBe('Bar')
-    expect(output.get<XMLElement>('//issn')!.text()).toBe('2222-2222')
   })
 
   test('journal metadata', async () => {
@@ -529,49 +509,6 @@ describe('JATS exporter', () => {
     expect(errors).toHaveLength(0)
 
     expect(xml).toMatch(/<self-uri content-type="pdf" xlink:href="123.pdf"\/>/)
-  })
-
-  test('Export keywords groups', async () => {
-    const projectBundle = cloneProjectBundle(input)
-
-    const { doc, modelMap } = parseProjectBundle(projectBundle)
-    const keywords = [
-      {
-        _id: 'MPKeywordGroup:test',
-        objectType: 'MPKeywordGroup',
-        type: 'author',
-        title: 'test title',
-        label: 'label',
-      },
-      {
-        _id: 'MPKeyword:test',
-        objectType: 'MPKeyword',
-        name: 'suicide attempters',
-        containedGroup: 'MPKeywordGroup:test',
-        priority: 5,
-      },
-    ]
-    const manuscript = findManuscript(modelMap)
-    manuscript.keywordIDs = ['MPKeyword:test']
-
-    for (const value of keywords) {
-      modelMap.set(value._id, value as unknown as Model)
-    }
-    const transformer = new JATSExporter()
-    const xml = await transformer.serializeToJATS(
-      doc.content,
-      modelMap,
-      manuscript._id,
-      {
-        version: '1.2',
-      }
-    )
-
-    const { errors } = parseXMLWithDTD(xml)
-
-    expect(errors).toHaveLength(0)
-
-    expect(xml).toMatchSnapshot()
   })
 
   test('Manuscript Counts', async () => {
@@ -786,7 +723,6 @@ describe('JATS exporter', () => {
         updatedAt: 0,
         name: 'Foo',
         containerID: 'MPProject:1',
-        sessionID: 'foo',
         priority: 0,
       },
       {
@@ -796,7 +732,6 @@ describe('JATS exporter', () => {
         updatedAt: 0,
         name: 'Bar',
         containerID: 'MPProject:1',
-        sessionID: 'foo',
         priority: 0,
       },
     ]
@@ -808,8 +743,6 @@ describe('JATS exporter', () => {
     const manuscript = Array.from(modelMap.values()).find(
       isManuscript
     ) as Manuscript
-
-    manuscript.keywordIDs = keywords.map((keyword) => keyword._id)
 
     const transformer = new JATSExporter()
     const xml = await transformer.serializeToJATS(
@@ -889,7 +822,6 @@ describe('JATS exporter', () => {
     const supple: Supplement = {
       containerID: '',
       manuscriptID: '',
-      sessionID: '',
       createdAt: 0,
       updatedAt: 0,
       _id: 'MPSupplement:B5B88C22-FBE7-4C03-811D-938424F7B452',
@@ -944,7 +876,6 @@ describe('JATS exporter', () => {
         title: `a title for ${category}`,
         createdAt: 0,
         updatedAt: 0,
-        sessionID: 'foo',
         manuscriptID: 'MPManuscript:1',
         containerID: 'MPProject:1',
       }
@@ -965,9 +896,14 @@ describe('JATS exporter', () => {
     const resultDoc = parseXMLWithDTD(xml)
 
     for (const category of footnoteCategories) {
-      const fn = resultDoc.get(
-        `/article/back/fn-group/fn[@fn-type="${category}"]`
-      )
+      const fnType =
+        category === 'competing-interests' ? 'coi-statement' : category
+      let fn = resultDoc.get(`/article/back/fn-group/fn[@fn-type="${fnType}"]`)
+      if (fnType === 'coi-statement') {
+        fn = resultDoc.get(
+          `/article/front/article-meta/author-notes/fn[@fn-type="${fnType}"]`
+        )
+      }
       expect(fn).not.toBeUndefined()
     }
   })

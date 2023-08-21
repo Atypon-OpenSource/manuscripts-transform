@@ -33,7 +33,6 @@ export const createTestModelMapWithCitations = () => {
     _id: 'MPProject:1',
     createdAt: 0,
     updatedAt: 0,
-    sessionID: 'test',
     owners: [],
     writers: [],
     viewers: [],
@@ -45,7 +44,6 @@ export const createTestModelMapWithCitations = () => {
     createdAt: 0,
     updatedAt: 0,
     containerID: project._id,
-    sessionID: 'test',
   }
 
   modelMap.set(manuscript._id, manuscript)
@@ -58,7 +56,6 @@ export const createTestModelMapWithCitations = () => {
     updatedAt: 0,
     containerID: project._id,
     manuscriptID: manuscript._id,
-    sessionID: 'test',
   }
 
   const paragraphCitation: Citation = {
@@ -76,7 +73,6 @@ export const createTestModelMapWithCitations = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
   }
 
   modelMap.set(paragraphCitation._id, paragraphCitation)
@@ -88,7 +84,6 @@ export const createTestModelMapWithCitations = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
     elementType: 'p',
     paragraphStyle: 'MPParagraphStyle:1',
     contents: `<p xmlns="http://www.w3.org/1999/xhtml" id="MPParagraphElement:1" class="MPElement MPParagraphStyle_1" data-object-type="MPParagraphElement">This sentence contains a citation<span class="citation" data-reference-id="${paragraphCitation._id}">1</span>.</p>`,
@@ -103,7 +98,6 @@ export const createTestModelMapWithCitations = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
     elementType: 'p',
     paragraphStyle: 'MPParagraphStyle:1',
     contents: `<p xmlns="http://www.w3.org/1999/xhtml" id="MPParagraphElement:1" class="MPElement MPParagraphStyle_1" data-object-type="MPParagraphElement">This sentence contains a citation<span class="citation" data-href="https://example.com">example.com</span>.</p>`,
@@ -118,7 +112,6 @@ export const createTestModelMapWithCitations = () => {
     updatedAt: 0,
     manuscriptID: manuscript._id,
     containerID: project._id,
-    sessionID: 'test',
     priority: 1,
     path: ['MPSection:1'],
     elementIDs: [paragraphWithCitation._id, paragraphWithLink._id],

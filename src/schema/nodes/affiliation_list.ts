@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2023 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
@@ -22,14 +21,14 @@ interface Attrs {
   id: string
 }
 
-export interface CommentListNode extends ManuscriptNode {
+export interface AffiliationListNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const commentList: NodeSpec = {
-  content: 'comment*',
+export const affiliationList: NodeSpec = {
+  content: 'affiliation*',
   attrs: {
-    id: { default: 'COMMENT_LIST' },
+    id: { default: 'AFFILIATION_LIST' },
   },
   toDOM: () => ['section', 0],
 }

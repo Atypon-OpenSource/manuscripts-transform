@@ -54,11 +54,13 @@ import { buildTargets, Target } from '../transformer/labels'
 import { isExecutableNodeType, isNodeType } from '../transformer/node-types'
 import { hasObjectType } from '../transformer/object-types'
 import {
-  findLatestManuscriptSubmission,
   findManuscript,
   findManuscriptById,
 } from '../transformer/project-bundle'
-import { chooseSecType } from '../transformer/section-category'
+import {
+  chooseJatsFnType,
+  chooseSecType,
+} from '../transformer/section-category'
 import { IDGenerator, MediaPathGenerator } from '../types'
 import { selectVersionIds, Version } from './jats-versions'
 
@@ -268,11 +270,13 @@ export class JATSExporter {
       const body = this.buildBody(fragment)
       article.appendChild(body)
       const back = this.buildBack(body)
+      this.moveCoiStatementToAuthorNotes(back, front)
       article.appendChild(back)
       this.unwrapBody(body)
       this.moveAbstracts(front, body)
       this.moveFloatsGroup(body, article)
       this.removeBackContainer(body)
+      this.updateFootnoteTypes(front, back)
     }
 
     await this.rewriteIDs(idGenerator)
@@ -403,8 +407,6 @@ export class JATSExporter {
   protected buildFront = (doi?: string, id?: string, links?: Links) => {
     const manuscript = findManuscript(this.modelMap)
 
-    const submission = findLatestManuscriptSubmission(this.modelMap, manuscript)
-
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/front.html
     const front = this.document.createElement('front')
 
@@ -471,33 +473,6 @@ export class JATSExporter {
         publisherName.textContent = journal.publisherName
         publisher.appendChild(publisherName)
         journalMeta.appendChild(publisher)
-      }
-    } else {
-      if (submission) {
-        if (submission.journalCode) {
-          const journalID = this.document.createElement('journal-id')
-          journalID.setAttribute('journal-id-type', 'publisher-id')
-          journalID.textContent = submission.journalCode
-          journalMeta.appendChild(journalID)
-        }
-
-        if (submission.journalTitle) {
-          const journalTitleGroup = this.document.createElement(
-            'journal-title-group'
-          )
-          journalMeta.appendChild(journalTitleGroup)
-
-          const journalTitle = this.document.createElement('journal-title')
-          journalTitle.textContent = submission.journalTitle
-          journalTitleGroup.appendChild(journalTitle)
-        }
-
-        if (submission.issn) {
-          const issn = this.document.createElement('issn')
-          issn.setAttribute('pub-type', 'epub')
-          issn.textContent = submission.issn
-          journalMeta.appendChild(issn)
-        }
       }
     }
     if (id) {
@@ -909,6 +884,11 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
+      contributor_list: () => '',
+      contributor: () => '',
+      affiliation_list: () => '',
+      affiliation: () => '',
+      meta_section: () => '',
       attribution: () => ['attrib', 0],
       bibliography_element: () => '',
       bibliography_item: () => '',
@@ -2230,5 +2210,40 @@ export class JATSExporter {
     }
 
     return name
+  }
+
+  private moveCoiStatementToAuthorNotes(back: HTMLElement, front: HTMLElement) {
+    const fnGroups = back.querySelectorAll('fn-group')
+    fnGroups.forEach((fnGroup) => {
+      if (fnGroup) {
+        const coiStatement = fnGroup.querySelector(
+          'fn[fn-type="competing-interests"]'
+        )
+        if (coiStatement) {
+          const authorNotes = this.document.createElement('author-notes')
+          authorNotes.append(coiStatement)
+          const articleMeta = front.querySelector('article-meta')
+          if (articleMeta) {
+            const authorNoteEl = articleMeta.querySelector('author-notes')
+            if (authorNoteEl) {
+              authorNoteEl.append(...authorNotes.childNodes)
+            } else {
+              articleMeta.appendChild(authorNotes)
+            }
+          }
+        }
+      }
+    })
+  }
+
+  private updateFootnoteTypes(front: HTMLElement, body: HTMLElement) {
+    const footnotes: Element[] = [...front.querySelectorAll('fn').values()]
+    footnotes.push(...body.querySelectorAll('fn'))
+    footnotes.forEach((fn) => {
+      const fnType = fn.getAttribute('fn-type')
+      if (fnType) {
+        fn.setAttribute('fn-type', chooseJatsFnType(fnType))
+      }
+    })
   }
 }

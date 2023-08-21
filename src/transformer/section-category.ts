@@ -14,13 +14,9 @@
  * limitations under the License.
  */
 // @ts-ignore
-import sectionCategories from '@manuscripts/data/dist/shared/section-categories.json'
-import {
-  Element,
-  ObjectTypes,
-  SectionCategory as SectionCategoryInterface,
-} from '@manuscripts/json-schema'
+import { Element, ObjectTypes } from '@manuscripts/json-schema'
 
+import { coreSectionCategories } from '../lib/core-section-categories'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../schema'
 
 const sectionNodeTypes: ManuscriptNodeType[] = [
@@ -31,21 +27,16 @@ const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.toc_section,
 ]
 
-const sectionCategoriesMap = new Map<string, SectionCategoryInterface>(
-  (sectionCategories as Array<SectionCategoryInterface>).map((section) => [
-    section._id,
-    section,
-  ])
-)
-
-export const getSectionTitles = (
+export const getCoreSectionTitles = (
   sectionCategory: SectionCategory
 ): string[] => {
-  const category = sectionCategoriesMap.get(sectionCategory)
+  const category = coreSectionCategories.find(
+    (section) => section._id === sectionCategory
+  )
   if (category) {
     return category.titles.length ? category.titles : [' ']
   }
-  throw new Error(`${sectionCategory} not found in section categories`)
+  throw new Error(`${sectionCategory} not found in core sections`)
 }
 
 export const isAnySectionNode = (node: ManuscriptNode): boolean =>
@@ -197,6 +188,16 @@ export const buildSectionCategory = (
 
     default:
       return node.attrs.category || undefined
+  }
+}
+
+export const chooseJatsFnType = (footnoteType: string): string => {
+  switch (footnoteType) {
+    case 'competing-interests':
+      return 'coi-statement'
+
+    default:
+      return footnoteType
   }
 }
 
