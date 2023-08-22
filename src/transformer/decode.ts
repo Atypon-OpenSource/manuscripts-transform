@@ -451,6 +451,7 @@ export class Decoder {
             {
               topNode: schema.nodes.ordered_list.create({
                 id: model._id,
+                listStyleType: model.listStyleType,
                 paragraphStyle: model.paragraphStyle,
                 comments: commentNodes.map((c) => c.attrs.id),
               }),
