@@ -429,7 +429,7 @@
     },
     {
       "caption": "Some comparisons",
-      "containedObjectID": "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
+      "containedObjectIDs": ["MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745"],
       "containerID": "MPProject:ADC69637-C321-4158-8E24-F92068D4727D",
       "createdAt": 1558709469,
       "elementType": "table",

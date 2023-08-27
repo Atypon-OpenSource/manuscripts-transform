@@ -27,6 +27,7 @@ import {
   FigureElement,
   Footnote,
   FootnotesElement,
+  FootnotesElementWrapper,
   Keyword,
   KeywordGroup,
   KeywordsElement,
@@ -44,7 +45,7 @@ import {
   TOCElement,
 } from '@manuscripts/json-schema'
 import debug from 'debug'
-import { DOMParser, ParseOptions } from 'prosemirror-model'
+import { DOMParser, Node, ParseOptions } from 'prosemirror-model'
 
 import { MissingElement } from '../errors'
 import {
@@ -66,6 +67,7 @@ import {
   FigureNode,
   FootnoteNode,
   FootnotesElementNode,
+  FootnotesElementWrapperNode,
   KeywordNode,
   KeywordsElementNode,
   ListingElementNode,
@@ -157,6 +159,7 @@ const isParagraphElement = hasObjectType<ParagraphElement>(
 )
 
 const isFootnote = hasObjectType<Footnote>(ObjectTypes.Footnote)
+// const hasParentWrap = ( )
 
 const isKeyword = hasObjectType<Keyword>(ObjectTypes.Keyword)
 
@@ -357,14 +360,17 @@ export class Decoder {
       ) as EquationElementNode
     },
     [ObjectTypes.FootnotesElement]: (data) => {
-      const model = data as FootnotesElement
+      const foonotesElementModel = data as FootnotesElement
 
-      const collateByKind = model.collateByKind || 'footnote'
-
+      const collateByKind = foonotesElementModel.collateByKind || 'footnote'
       const footnotesOfKind = []
-
       for (const model of this.modelMap.values()) {
-        if (isFootnote(model) && model.kind === collateByKind) {
+        if (
+          isFootnote(model) &&
+          model.kind === collateByKind &&
+          (model.containingObject === undefined ||
+            model.containingObject === foonotesElementModel._id)
+        ) {
           const commentNodes = this.createCommentsNode(model)
           commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
           const footnote = this.parseContents(
@@ -390,15 +396,13 @@ export class Decoder {
 
       return schema.nodes.footnotes_element.create(
         {
-          id: model._id,
-          kind: model.collateByKind,
+          id: foonotesElementModel._id,
+          kind: foonotesElementModel.collateByKind,
           // placeholder: model.placeholderInnerHTML,
-          paragraphStyle: model.paragraphStyle,
+          paragraphStyle: foonotesElementModel.paragraphStyle,
         },
         footnotesOfKind
       ) as FootnotesElementNode
-
-      // TODO: collect and add footnotes?
     },
     [ObjectTypes.Footnote]: (data) => {
       const model = data as Footnote
@@ -582,6 +586,32 @@ export class Decoder {
       }
     },
 
+    [ObjectTypes.FootnotesElementWrapper]: (data) => {
+      const model = data as FootnotesElementWrapper
+      const paragraphElementsIDs = this.getContainedObjectIDs(
+        model,
+        'MPParagraphElement'
+      )
+      const footnotesIDs = this.getContainedObjectIDs(model, 'MPFootnote')
+      const footnotesElementIDs = this.getContainedObjectIDs(
+        model,
+        'MPFootnotesElement'
+      )
+      const footnotesElements = this.createFootnotesElements(
+        model,
+        footnotesElementIDs
+      )
+      const footnotes = this.createFootnotes(model, footnotesIDs)
+      const paragraphs = this.createParagraphs(model, paragraphElementsIDs)
+      const content = [...paragraphs, ...footnotesElements, ...footnotes]
+      return schema.nodes.footnotes_element_wrapper.create(
+        {
+          id: model._id,
+        },
+        content
+      )
+    },
+
     [ObjectTypes.Section]: (data) => {
       const model = data as Section
 
@@ -698,52 +728,27 @@ export class Decoder {
     },
     [ObjectTypes.TableElement]: (data) => {
       const model = data as TableElement
-
-      const tableModel = this.getModel<Table>(model.containedObjectID)
-
-      let table: TableNode | PlaceholderNode
-      if (tableModel) {
-        table = this.decode(tableModel) as TableNode
-      } else if (this.allowMissingElements) {
-        table = schema.nodes.placeholder.create({
-          id: model.containedObjectID,
-          label: 'A table',
-        }) as PlaceholderNode
-      } else {
-        throw new MissingElement(model.containedObjectID)
-      }
-
+      const table = this.createTable(model)
+      const tableFootnotes = this.createFootnotesElementWrapper(model)
       const figcaption: FigCaptionNode = this.getFigcaption(model)
-      const commentNodes = this.createCommentsNode(model)
+      const commentNodes = this.createCommentsNode(data)
       commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
 
-      const content: ManuscriptNode[] = [table, figcaption]
+      const content: ManuscriptNode[] = tableFootnotes
+        ? [table, figcaption, tableFootnotes]
+        : [table, figcaption]
 
       if (model.listingID) {
-        const listingModel = this.getModel<Listing>(model.listingID)
-        let listing: ListingNode | PlaceholderNode
-
-        if (listingModel) {
-          listing = this.decode(listingModel) as ListingNode
-        } else if (this.allowMissingElements) {
-          listing = schema.nodes.placeholder.create({
-            id: model.listingID,
-            label: 'A listing',
-          }) as PlaceholderNode
-        } else {
-          throw new MissingElement(model.listingID)
-        }
-
+        const listing = this.createListing(model)
         content.push(listing)
       } else {
         const listing = schema.nodes.listing.create()
         content.push(listing)
       }
-
       return schema.nodes.table_element.createChecked(
         {
           id: model._id,
-          table: model.containedObjectID,
+          table: this.getContainedObjectIDs(model, 'MPTable')[0],
           suppressCaption: model.suppressCaption,
           suppressTitle: Boolean(
             model.suppressTitle === undefined ? true : model.suppressTitle
@@ -884,19 +889,7 @@ export class Decoder {
 
   private extractListing(model: FigureElement) {
     if (model.listingID) {
-      const listingModel = this.getModel<Listing>(model.listingID)
-      let listing: ListingNode | PlaceholderNode
-      if (listingModel) {
-        listing = this.decode(listingModel) as ListingNode
-      } else if (this.allowMissingElements) {
-        listing = schema.nodes.placeholder.create({
-          id: model.listingID,
-          label: 'A listing',
-        }) as PlaceholderNode
-      } else {
-        throw new MissingElement(model.listingID)
-      }
-      return listing
+      return this.createListing(model)
     }
   }
 
@@ -1071,6 +1064,142 @@ export class Decoder {
       : captionNode
 
     return schema.nodes.figcaption.create({}, [captionTitle, caption])
+  }
+
+  private createFootnotesElements(
+    model: FootnotesElementWrapper,
+    footnotesElementIDs: string[]
+  ) {
+    const footnotesElements: (PlaceholderNode | FootnotesElementNode)[] = []
+    footnotesElementIDs?.forEach((footnotesElementID) => {
+      const footnotesElementModel =
+        this.getModel<FootnotesElement>(footnotesElementID)
+
+      let footnotesElement: FootnotesElementNode | PlaceholderNode
+      if (footnotesElementModel) {
+        footnotesElement = this.decode(
+          footnotesElementModel
+        ) as FootnotesElementNode
+      } else if (this.allowMissingElements) {
+        footnotesElement = schema.nodes.placeholder.create({
+          id: footnotesElementIDs,
+          label: 'Footnotes element',
+        }) as PlaceholderNode
+      } else {
+        throw new MissingElement(footnotesElementID)
+      }
+      footnotesElements.push(footnotesElement)
+    })
+    return footnotesElements
+  }
+
+  private createParagraphs(model: any, paragraphElementsIDs: string[]) {
+    const paragraphElements: Node[] = []
+    paragraphElementsIDs?.forEach((paragraphElementID) => {
+      const paragraphElementModel =
+        this.getModel<ParagraphElement>(paragraphElementID)
+
+      let paragraphElement
+      if (paragraphElementModel) {
+        paragraphElement = this.decode(paragraphElementModel) as ParagraphNode
+      } else if (this.allowMissingElements) {
+        paragraphElement = schema.nodes.placeholder.create({
+          _id: paragraphElementID,
+          containerID: model._id,
+          elementType: 'p',
+          objectType: ExtraObjectTypes.PlaceholderElement,
+          createdAt: timestamp(),
+          updatedAt: timestamp(),
+        })
+      } else {
+        throw new MissingElement(paragraphElementID)
+      }
+      paragraphElements.push(paragraphElement)
+    })
+    return paragraphElements
+  }
+  private createFootnotes(
+    model: FootnotesElementWrapper,
+    footnotesIDs: string[]
+  ) {
+    const footnotes: FootnoteNode[] = []
+    footnotesIDs?.forEach((footnoteID) => {
+      const footnoteModel = this.getModel<Footnote>(footnoteID)
+      if (footnoteModel) {
+        const commentNodes = this.createCommentsNode(footnoteModel)
+        commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
+        const footnote = this.parseContents(
+          footnoteModel.contents || '<div></div>',
+          undefined,
+          this.getComments(footnoteModel),
+          {
+            topNode: schema.nodes.footnote.create({
+              id: footnoteModel._id,
+              kind: footnoteModel.kind,
+              comments: commentNodes.map((c) => c.attrs.id),
+            }),
+          }
+        ) as FootnoteNode
+        footnotes.push(footnote)
+      }
+    })
+    return footnotes
+  }
+
+  private createTable(model: TableElement) {
+    const tableId = this.getContainedObjectIDs(model, 'MPTable')[0]
+    const tableModel = this.getModel<Table>(tableId)
+
+    let table: TableNode | PlaceholderNode
+    if (tableModel) {
+      table = this.decode(tableModel) as TableNode
+    } else if (this.allowMissingElements) {
+      table = schema.nodes.placeholder.create({
+        id: tableId,
+        label: 'A table',
+      }) as PlaceholderNode
+    } else {
+      throw new MissingElement(tableId)
+    }
+    return table
+  }
+
+  private createFootnotesElementWrapper(model: TableElement) {
+    const tableFootnotesId = this.getContainedObjectIDs(
+      model,
+      'MPFootnotesElementWrapper'
+    )[0]
+    const tableFootnotesModel =
+      this.getModel<FootnotesElementWrapper>(tableFootnotesId)
+
+    return tableFootnotesModel
+      ? (this.decode(tableFootnotesModel) as FootnotesElementWrapperNode)
+      : undefined
+  }
+  private getContainedObjectIDs(model: any, type: string): string[] {
+    return (
+      model.containedObjectIDs?.filter((id: string) =>
+        id.startsWith(type + ':')
+      ) ||
+      model.containedObjectID ||
+      []
+    )
+  }
+  private createListing(model: any) {
+    const listingModel = this.getModel<Listing>(model.listingID)
+    let listing: ListingNode | PlaceholderNode
+
+    if (listingModel) {
+      listing = this.decode(listingModel) as ListingNode
+    } else if (this.allowMissingElements) {
+      listing = schema.nodes.placeholder.create({
+        id: model.listingID,
+        label: 'A listing',
+      }) as PlaceholderNode
+    } else {
+      throw new MissingElement(model.listingID)
+    }
+    return listing
   }
 
   private getKeywordGroups() {
