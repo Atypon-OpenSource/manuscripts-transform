@@ -120,6 +120,7 @@ export const underline: MarkSpec = {
 export const tracked_insert: MarkSpec = {
   excludes: 'tracked_insert tracked_delete',
   attrs: {
+    isBlock: { default: null },
     dataTracked: { default: null },
   },
   parseDOM: [
@@ -141,10 +142,11 @@ export const tracked_insert: MarkSpec = {
     },
   ],
   toDOM: (el) => {
+    const block = el.attrs.isBlock ? 'track-block-node' : ''
     const dataTracked: Partial<DataTrackedAttrs> = el.attrs.dataTracked || {}
     const { status = 'pending', id, userID, createdAt } = dataTracked
     const attrs = {
-      class: `inserted ${status}`,
+      class: `inserted ${status} ${block}`,
       'data-track-status': status,
       ...(id && { 'data-track-id': id }),
       ...(userID && { 'data-user-id': userID }),
@@ -157,6 +159,7 @@ export const tracked_insert: MarkSpec = {
 export const tracked_delete: MarkSpec = {
   excludes: 'tracked_insert tracked_delete',
   attrs: {
+    isBlock: { default: null },
     dataTracked: { default: null },
   },
   parseDOM: [
@@ -178,10 +181,11 @@ export const tracked_delete: MarkSpec = {
     },
   ],
   toDOM: (el) => {
+    const block = el.attrs.isBlock ? 'track-block-node' : ''
     const dataTracked: Partial<DataTrackedAttrs> = el.attrs.dataTracked || {}
     const { status = 'pending', id, userID, createdAt } = dataTracked
     const attrs = {
-      class: `deleted ${status}`,
+      class: `deleted ${status} ${block}`,
       'data-track-status': status,
       ...(id && { 'data-track-id': id }),
       ...(userID && { 'data-user-id': userID }),

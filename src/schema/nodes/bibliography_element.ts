@@ -28,7 +28,8 @@ export interface BibliographyElementNode extends ManuscriptNode {
 }
 
 export const bibliographyElement: NodeSpec = {
-  content: '(bibliography_item | placeholder)+',
+  content: '(bibliography_item | placeholder)*',
+  marks: 'tracked_insert tracked_delete',
   attrs: {
     id: { default: '' },
     contents: { default: '' },
