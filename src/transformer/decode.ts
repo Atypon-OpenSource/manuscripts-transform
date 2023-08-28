@@ -159,7 +159,6 @@ const isParagraphElement = hasObjectType<ParagraphElement>(
 )
 
 const isFootnote = hasObjectType<Footnote>(ObjectTypes.Footnote)
-// const hasParentWrap = ( )
 
 const isKeyword = hasObjectType<Keyword>(ObjectTypes.Keyword)
 
