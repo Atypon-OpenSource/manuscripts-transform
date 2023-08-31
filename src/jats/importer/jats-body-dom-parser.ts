@@ -485,7 +485,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'fn-group',
     node: 'footnotes_element',
-    context: 'footnotes_section/|footnotes_element_wrapper/',
+    context: 'footnotes_section/|footnotes_element',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
@@ -497,20 +497,20 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'table-wrap-foot',
-    node: 'footnotes_element_wrapper',
+    node: 'footnotes_element',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
       return {
         id: element.getAttribute('id'),
+        kind: 'table_footnote', // TODO: 'table_endnote' depending on position or attribute?
       }
     },
   },
   {
     tag: 'fn',
     node: 'footnote',
-    context:
-      'footnotes_element/|footnotes_element_wrapper/|footnotes_element_wrapper/footnotes_element/',
+    context: 'footnotes_element/',
     getAttrs: (node) => {
       const element = node as HTMLElement
 

@@ -35,7 +35,7 @@ export const footnotesElement: NodeSpec = {
     paragraphStyle: { default: '' },
     dataTracked: { default: null },
   },
-  content: 'footnote+',
+  content: '(paragraph | footnotes_element | footnote)+',
   group: 'block element',
   selectable: false,
   parseDOM: [

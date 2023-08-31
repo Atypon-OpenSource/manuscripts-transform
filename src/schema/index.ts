@@ -52,7 +52,6 @@ import { figure } from './nodes/figure'
 import { figureElement } from './nodes/figure_element'
 import { footnote } from './nodes/footnote'
 import { footnotesElement } from './nodes/footnotes_element'
-import { footnotesElementWrapper } from './nodes/footnotes_element_wrapper'
 import { footnotesSection } from './nodes/footnotes_section'
 import { graphicalAbstractSection } from './nodes/graphical_abstract_section'
 import { hardBreak } from './nodes/hard_break'
@@ -140,7 +139,6 @@ export * from './nodes/affiliation_list'
 export * from './nodes/meta_section'
 export * from './nodes/contributor_list'
 export * from './nodes/contributor'
-export * from './nodes/footnotes_element_wrapper'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -217,6 +215,5 @@ export const schema = new Schema<Nodes, Marks>({
     affiliation_list: affiliationList,
     contributor_list: contributorList,
     contributor: contributor,
-    footnotes_element_wrapper: footnotesElementWrapper,
   },
 })

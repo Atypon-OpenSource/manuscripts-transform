@@ -1874,7 +1874,7 @@
       "_rev": "1-f01f7995cd38a0b307d729eadaf44e51",
       "collateByKind": "footnote",
       "collection": "elements",
-      "contents": "<div></div>",
+      "contents": "<div xmlns=\"http://www.w3.org/1999/xhtml\" class=\"footnotes\" id=\"MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E\" data-kind=\"footnote\" paragraphstyle=\"MPParagraphStyle:76353811-8E1D-4D11-A1B5-C960C9EEEFCD\"><div class=\"footnote-text\" id=\"MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791\" data-kind=\"footnote\"><p class=\"MPElement\" data-object-type=\"MPParagraphElement\">This is a footnote.</p></div></div>",
       "createdAt": 1538473899,
       "elementType": "div",
       "objectType": "MPFootnotesElement",
