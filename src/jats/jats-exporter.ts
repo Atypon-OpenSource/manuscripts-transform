@@ -85,6 +85,7 @@ const warn = debug('manuscripts-transform')
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
 const normalizeID = (id: string) => id.replace(/:/g, '_')
+const specialFootnotesElements = ['table-wrap-foot']
 
 const parser = DOMParser.fromSchema(schema)
 
@@ -1362,13 +1363,28 @@ export class JATSExporter {
       if (footnotesNode) {
         element.appendChild(this.serializeNode(footnotesNode))
       }
-
+      moveFootnotesToFnGroup(element)
       if (isExecutableNodeType(node.type)) {
         processExecutableNode(node, element)
       }
       return element
     }
+    const moveFootnotesToFnGroup = (element: HTMLElement) => {
+      specialFootnotesElements.forEach((specialFootnotesElement) => {
+        const footnotesElement = element.querySelector(specialFootnotesElement)
+        const fnGroup = footnotesElement?.querySelector('fn-group')
+        const footnotes = footnotesElement?.querySelectorAll('fn')
 
+        if (!fnGroup && footnotes && footnotes.length > 0) {
+          const newFnGroup = this.document.createElement('fn-group')
+          footnotes.forEach((fn) => {
+            newFnGroup.appendChild(fn)
+          })
+
+          footnotesElement?.appendChild(newFnGroup)
+        }
+      })
+    }
     const processExecutableNode = (node: ManuscriptNode, element: Element) => {
       const listingNode = findChildNodeOfType(
         node,
