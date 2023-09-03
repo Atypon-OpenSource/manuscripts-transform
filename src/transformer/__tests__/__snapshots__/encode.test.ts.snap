@@ -325,10 +325,9 @@ Map {
   "MPTableElement:82BD8BAF-D136-4536-AD9C-92C30B9D7315" => Object {
     "_id": "MPTableElement:82BD8BAF-D136-4536-AD9C-92C30B9D7315",
     "caption": "A table",
-    "containedObjectIDs": Array [
-      "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
-    ],
+    "containedObjectID": "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
     "elementType": "table",
+    "footnotesElementID": "",
     "listingID": undefined,
     "objectType": "MPTableElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -348,10 +347,9 @@ Map {
   "MPTableElement:E0D445B4-18C4-43D3-97B3-1076A7BB5CF4" => Object {
     "_id": "MPTableElement:E0D445B4-18C4-43D3-97B3-1076A7BB5CF4",
     "caption": "A table with hidden header",
-    "containedObjectIDs": Array [
-      "MPTable:7E83812B-A759-4D38-C1C5-F6507D2FC2A9",
-    ],
+    "containedObjectID": "MPTable:7E83812B-A759-4D38-C1C5-F6507D2FC2A9",
     "elementType": "table",
+    "footnotesElementID": "",
     "listingID": undefined,
     "objectType": "MPTableElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -371,10 +369,9 @@ Map {
   "MPTableElement:1DF69096-DBA3-47B0-B8C2-E06491E4C655" => Object {
     "_id": "MPTableElement:1DF69096-DBA3-47B0-B8C2-E06491E4C655",
     "caption": "A table with hidden footer",
-    "containedObjectIDs": Array [
-      "MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8",
-    ],
+    "containedObjectID": "MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8",
     "elementType": "table",
+    "footnotesElementID": "",
     "listingID": undefined,
     "objectType": "MPTableElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -394,10 +391,9 @@ Map {
   "MPTableElement:89CF51B2-A20C-4AB9-CBD9-F47DAF167DAA" => Object {
     "_id": "MPTableElement:89CF51B2-A20C-4AB9-CBD9-F47DAF167DAA",
     "caption": "A table with hidden caption",
-    "containedObjectIDs": Array [
-      "MPTable:6C045963-404A-4E1E-FF81-B40E9772A6A6",
-    ],
+    "containedObjectID": "MPTable:6C045963-404A-4E1E-FF81-B40E9772A6A6",
     "elementType": "table",
+    "footnotesElementID": "",
     "listingID": undefined,
     "objectType": "MPTableElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
