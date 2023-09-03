@@ -1374,7 +1374,6 @@ export class JATSExporter {
         const footnotesElement = element.querySelector(specialFootnotesElement)
         const fnGroup = footnotesElement?.querySelector('fn-group')
         const footnotes = footnotesElement?.querySelectorAll('fn')
-
         if (!fnGroup && footnotes && footnotes.length > 0) {
           const newFnGroup = this.document.createElement('fn-group')
           footnotes.forEach((fn) => {
