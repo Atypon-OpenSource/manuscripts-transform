@@ -5596,6 +5596,7 @@ Object {
                       "attrs": Object {
                         "contents": "Day (2008)",
                         "dataTracked": null,
+                        "embeddedCitationItems": null,
                         "selectedText": "",
                       },
                       "type": "citation",
@@ -12732,6 +12733,7 @@ Object {
                   "attrs": Object {
                     "contents": "1",
                     "dataTracked": null,
+                    "embeddedCitationItems": null,
                     "selectedText": "",
                   },
                   "type": "citation",
@@ -12755,6 +12757,7 @@ Object {
                   "attrs": Object {
                     "contents": "2,3",
                     "dataTracked": null,
+                    "embeddedCitationItems": null,
                     "selectedText": "",
                   },
                   "type": "citation",
@@ -12778,6 +12781,7 @@ Object {
                   "attrs": Object {
                     "contents": "1–3",
                     "dataTracked": null,
+                    "embeddedCitationItems": null,
                     "selectedText": "",
                   },
                   "type": "citation",
