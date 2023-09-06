@@ -1337,6 +1337,15 @@ export class JATSExporter {
         element.appendChild(this.serializeNode(figcaptionNode))
       }
 
+      const footnotesNode = findChildNodeOfType(
+        node,
+        node.type.schema.nodes.footnotes_element
+      )
+
+      if (footnotesNode) {
+        element.appendChild(this.serializeNode(footnotesNode))
+      }
+
       node.forEach((childNode) => {
         if (childNode.type === contentNodeType) {
           if (childNode.attrs.id) {
@@ -1353,14 +1362,6 @@ export class JATSExporter {
         const attribution = this.document.createElement('attrib')
         attribution.textContent = node.attrs.attribution.literal
         element.appendChild(attribution)
-      }
-      const footnotesNode = findChildNodeOfType(
-        node,
-        node.type.schema.nodes.footnotes_element
-      )
-
-      if (footnotesNode) {
-        element.appendChild(this.serializeNode(footnotesNode))
       }
 
       if (isExecutableNodeType(node.type)) {
