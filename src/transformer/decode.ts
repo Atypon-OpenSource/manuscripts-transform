@@ -27,7 +27,6 @@ import {
   FigureElement,
   Footnote,
   FootnotesElement,
-  FootnotesElementWrapper,
   Keyword,
   KeywordGroup,
   KeywordsElement,
@@ -42,6 +41,7 @@ import {
   Section,
   Table,
   TableElement,
+  TableElementFooter,
   TOCElement,
 } from '@manuscripts/json-schema'
 import debug from 'debug'
@@ -67,7 +67,6 @@ import {
   FigureNode,
   FootnoteNode,
   FootnotesElementNode,
-  FootnotesElementWrapperNode,
   KeywordNode,
   KeywordsElementNode,
   ListingElementNode,
@@ -82,6 +81,7 @@ import {
   schema,
   SectionNode,
   SectionTitleNode,
+  TableElementFooterNode,
   TableElementNode,
   TableNode,
   TOCElementNode,
@@ -367,8 +367,7 @@ export class Decoder {
         if (
           isFootnote(model) &&
           model.kind === collateByKind &&
-          (model.containingObject === undefined ||
-            model.containingObject === foonotesElementModel._id)
+          model.containingObject === foonotesElementModel._id
         ) {
           const commentNodes = this.createCommentsNode(model)
           commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
@@ -589,13 +588,12 @@ export class Decoder {
           throw new Error('Unknown block type')
       }
     },
-
-    [ObjectTypes.FootnotesElementWrapper]: (data) => {
-      const model = data as FootnotesElementWrapper
+    [ObjectTypes.TableElementFooter]: (data) => {
+      const model = data as TableElementFooter
       const content = model.containedObjectIDs.map((id) =>
         this.decode(this.modelMap.get(id) as Model)
       ) as ManuscriptNode[]
-      return schema.nodes.footnotes_element_wrapper.create(
+      return schema.nodes.table_element_footer.create(
         {
           id: model._id,
         },
@@ -720,13 +718,13 @@ export class Decoder {
     [ObjectTypes.TableElement]: (data) => {
       const model = data as TableElement
       const table = this.createTable(model)
-      const tableFootnotes = this.createFootnotesElementWrapper(model)
+      const tableElementFooter = this.createTableElementFooter(model)
       const figcaption: FigCaptionNode = this.getFigcaption(model)
       const commentNodes = this.createCommentsNode(data)
       commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
 
-      const content: ManuscriptNode[] = tableFootnotes
-        ? [table, figcaption, tableFootnotes]
+      const content: ManuscriptNode[] = tableElementFooter
+        ? [table, figcaption, tableElementFooter]
         : [table, figcaption]
 
       if (model.listingID) {
@@ -739,7 +737,7 @@ export class Decoder {
       return schema.nodes.table_element.createChecked(
         {
           id: model._id,
-          table: this.getContainedObjectIDs(model, 'MPTable')[0],
+          table: model.containedObjectID,
           suppressCaption: model.suppressCaption,
           suppressTitle: Boolean(
             model.suppressTitle === undefined ? true : model.suppressTitle
@@ -1058,7 +1056,7 @@ export class Decoder {
   }
 
   private createTable(model: TableElement) {
-    const tableId = this.getContainedObjectIDs(model, 'MPTable')[0]
+    const tableId = model.containedObjectID
     const tableModel = this.getModel<Table>(tableId)
 
     let table: TableNode | PlaceholderNode
@@ -1075,26 +1073,17 @@ export class Decoder {
     return table
   }
 
-  private createFootnotesElementWrapper(model: TableElement) {
-    const tableFootnotesId = this.getContainedObjectIDs(
-      model,
-      'MPFootnotesElementWrapper'
-    )[0]
-    const tableFootnotesModel =
-      this.getModel<FootnotesElementWrapper>(tableFootnotesId)
+  private createTableElementFooter(model: TableElement) {
+    const tableElementFooterID = model.tableElementFooterID
+    if (!tableElementFooterID) {
+      return undefined
+    }
+    const tableElementFooterModel =
+      this.getModel<TableElementFooter>(tableElementFooterID)
 
-    return tableFootnotesModel
-      ? (this.decode(tableFootnotesModel) as FootnotesElementWrapperNode)
+    return tableElementFooterModel
+      ? (this.decode(tableElementFooterModel) as TableElementFooterNode)
       : undefined
-  }
-  private getContainedObjectIDs(model: any, type: string): string[] {
-    return (
-      model.containedObjectIDs?.filter((id: string) =>
-        id.startsWith(type + ':')
-      ) ||
-      model.containedObjectID ||
-      []
-    )
   }
   private createListing(model: any) {
     const listingModel = this.getModel<Listing>(model.listingID)

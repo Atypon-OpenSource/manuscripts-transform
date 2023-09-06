@@ -485,7 +485,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'fn-group',
     node: 'footnotes_element',
-    context: 'footnotes_section/|footnotes_element_wrapper/',
+    context: 'footnotes_section/|table_element_footer/',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
@@ -497,7 +497,7 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'table-wrap-foot',
-    node: 'footnotes_element_wrapper',
+    node: 'table_element_footer',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
@@ -509,8 +509,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'fn',
     node: 'footnote',
-    context:
-      'footnotes_element/|footnotes_element_wrapper/|footnotes_element_wrapper/footnotes_element/',
+    context: 'footnotes_element/|table_element_footer/',
     getAttrs: (node) => {
       const element = node as HTMLElement
 

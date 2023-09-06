@@ -985,12 +985,11 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "Test",
-    "containedObjectIDs": Array [
-      "MPTable:test",
-    ],
+    "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
+    "tableElementFooterID": "",
   },
   Object {
     "_id": "MPTable:test",
@@ -1868,14 +1867,12 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "",
-    "containedObjectIDs": Array [
-      "MPTable:test",
-      "MPFootnotesElementWrapper:test",
-    ],
+    "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
+    "tableElementFooterID": "MPTableElementFooter:test",
     "title": "Eleven patients with relapsed/refractory Hodgkin lymphoma treated with low-dose pembrolizumab",
   },
   Object {
@@ -1884,11 +1881,11 @@ Array [
     "objectType": "MPTable",
   },
   Object {
-    "_id": "MPFootnotesElementWrapper:test",
+    "_id": "MPTableElementFooter:test",
     "containedObjectIDs": Array [
       "MPParagraphElement:test",
     ],
-    "objectType": "MPFootnotesElementWrapper",
+    "objectType": "MPTableElementFooter",
   },
   Object {
     "_id": "MPParagraphElement:test",
@@ -1906,14 +1903,12 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "",
-    "containedObjectIDs": Array [
-      "MPTable:test",
-      "MPFootnotesElementWrapper:test",
-    ],
+    "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
+    "tableElementFooterID": "MPTableElementFooter:test",
     "title": "Six patients with relapsed/refractory Hodgkin lymphoma treated with low-dose nivolumab",
   },
   Object {
@@ -1922,11 +1917,11 @@ Array [
     "objectType": "MPTable",
   },
   Object {
-    "_id": "MPFootnotesElementWrapper:test",
+    "_id": "MPTableElementFooter:test",
     "containedObjectIDs": Array [
       "MPParagraphElement:test",
     ],
-    "objectType": "MPFootnotesElementWrapper",
+    "objectType": "MPTableElementFooter",
   },
   Object {
     "_id": "MPParagraphElement:test",
@@ -1944,14 +1939,12 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "",
-    "containedObjectIDs": Array [
-      "MPTable:test",
-      "MPFootnotesElementWrapper:test",
-    ],
+    "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
+    "tableElementFooterID": "MPTableElementFooter:test",
     "title": "Clinicopathologic features and treatment outcome of patients with relapsed/refractory classical Hodgkin lymphoma treated by pembrolizumab and nivolumab",
   },
   Object {
@@ -1960,11 +1953,11 @@ Array [
     "objectType": "MPTable",
   },
   Object {
-    "_id": "MPFootnotesElementWrapper:test",
+    "_id": "MPTableElementFooter:test",
     "containedObjectIDs": Array [
       "MPParagraphElement:test",
     ],
-    "objectType": "MPFootnotesElementWrapper",
+    "objectType": "MPTableElementFooter",
   },
   Object {
     "_id": "MPParagraphElement:test",
@@ -5782,7 +5775,7 @@ Object {
                           "type": "paragraph",
                         },
                       ],
-                      "type": "footnotes_element_wrapper",
+                      "type": "table_element_footer",
                     },
                     Object {
                       "attrs": Object {
@@ -7336,14 +7329,12 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "",
-    "containedObjectIDs": Array [
-      "MPTable:test",
-      "MPFootnotesElementWrapper:test",
-    ],
+    "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
+    "tableElementFooterID": "MPTableElementFooter:test",
     "title": "Descriptive Statistics.",
   },
   Object {
@@ -7352,11 +7343,11 @@ Array [
     "objectType": "MPTable",
   },
   Object {
-    "_id": "MPFootnotesElementWrapper:test",
+    "_id": "MPTableElementFooter:test",
     "containedObjectIDs": Array [
       "MPParagraphElement:test",
     ],
-    "objectType": "MPFootnotesElementWrapper",
+    "objectType": "MPTableElementFooter",
   },
   Object {
     "_id": "MPParagraphElement:test",
@@ -8799,13 +8790,11 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "",
-    "containedObjectIDs": Array [
-      "MPTable:test",
-      "MPFootnotesElementWrapper:test",
-    ],
+    "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
+    "tableElementFooterID": "MPTableElementFooter:test",
     "title": "Difference between exporting vs. non-exporting firms",
   },
   Object {
@@ -8814,12 +8803,12 @@ Array [
     "objectType": "MPTable",
   },
   Object {
-    "_id": "MPFootnotesElementWrapper:test",
+    "_id": "MPTableElementFooter:test",
     "containedObjectIDs": Array [
       "MPParagraphElement:test",
       "MPParagraphElement:test",
     ],
-    "objectType": "MPFootnotesElementWrapper",
+    "objectType": "MPTableElementFooter",
   },
   Object {
     "_id": "MPParagraphElement:test",
@@ -11283,12 +11272,11 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "Test",
-    "containedObjectIDs": Array [
-      "MPTable:test",
-    ],
+    "containedObjectID": "MPTable:test",
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
+    "tableElementFooterID": "",
   },
   Object {
     "_id": "MPTable:test",

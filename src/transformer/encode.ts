@@ -26,7 +26,6 @@ import {
   FigureElement,
   Footnote,
   FootnotesElement,
-  FootnotesElementWrapper,
   InlineMathFragment,
   Keyword,
   KeywordGroup,
@@ -41,6 +40,7 @@ import {
   Section,
   Table,
   TableElement,
+  TableElementFooter,
   TOCElement,
 } from '@manuscripts/json-schema'
 import { DOMSerializer, Node } from 'prosemirror-model'
@@ -350,17 +350,6 @@ const containedBibliographyItemIDs = (node: ManuscriptNode): string[] => {
   const bibliographyItemNodeType = node.type.schema.nodes.bibliography_item
   return containedObjectIDs(node, [bibliographyItemNodeType])
 }
-const tableContainedIDs = (node: ManuscriptNode): string[] => {
-  const tableElementType = node.type.schema.nodes.table
-  return containedObjectIDs(node, [tableElementType])
-}
-const footnotesElementWrapperContainedIDs = (
-  node: ManuscriptNode
-): string[] => {
-  const footnotesElementWrapperNodeType =
-    node.type.schema.nodes.footnotes_element_wrapper
-  return containedObjectIDs(node, [footnotesElementWrapperNodeType])
-}
 const containedObjectIDs = (
   node: ManuscriptNode,
   nodeTypes?: ManuscriptNodeType[]
@@ -615,7 +604,7 @@ const encoders: NodeEncoderMap = {
     elementType: 'div',
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
-  footnotes_element_wrapper: (node): Partial<FootnotesElementWrapper> => ({
+  table_element_footer: (node): Partial<TableElementFooter> => ({
     containedObjectIDs: containedObjectIDs(node),
   }),
   footnotes_section: (node, parent, path, priority): Partial<Section> => ({
@@ -712,10 +701,12 @@ const encoders: NodeEncoderMap = {
     listingAttachment: node.attrs.listingAttachment || undefined,
   }),
   table_element: (node): Partial<TableElement> => ({
-    containedObjectIDs: [
-      ...tableContainedIDs(node),
-      ...footnotesElementWrapperContainedIDs(node),
-    ],
+    containedObjectID: attributeOfNodeType(node, 'table', 'id'),
+    tableElementFooterID: attributeOfNodeType(
+      node,
+      'table_element_footer',
+      'id'
+    ),
     caption: inlineContentOfChildNodeType(
       node,
       node.type.schema.nodes.figcaption,

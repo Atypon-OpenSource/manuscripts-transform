@@ -20,20 +20,17 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  kind?: string
-  paragraphStyle?: string
 }
 
-export interface FootnotesElementWrapperNode extends ManuscriptNode {
+export interface TableElementFooterNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const footnotesElementWrapper: NodeSpec = {
+export const tableElementFooter: NodeSpec = {
   attrs: {
     id: { default: '' },
   },
-  content: '(paragraph | footnotes_element | footnote)+',
+  content: '(paragraph | footnotes_element)+',
   group: 'block element',
-  selectable: false,
   toDOM: () => ['table-wrap-foot', 0],
 }
