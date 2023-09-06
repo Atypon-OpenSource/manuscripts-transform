@@ -30,9 +30,9 @@ export const createOrderedFootnotesIDs = (doc: Document) => {
   const authorNotesIDs = [...doc.querySelectorAll('author-notes > fn')].map(
     (an) => an.getAttribute('id')
   )
-  const tableFootnotesIDs = [
+  const tableElementFooters = [
     ...doc.querySelectorAll('table-wrap-foot > fn'),
-  ].map((tableFootnote) => tableFootnote.getAttribute('id'))
+  ].map((footer) => footer.getAttribute('id'))
 
   const orderedFootnotesIDs: Array<string> = []
   footnotesRefs.forEach((ref) => {
@@ -48,7 +48,7 @@ export const createOrderedFootnotesIDs = (doc: Document) => {
       id &&
       !authorNotesIDs.includes(id) &&
       !orderedFootnotesIDs.includes(id) &&
-      !tableFootnotesIDs.includes(id)
+      !tableElementFooters.includes(id)
     ) {
       orderedFootnotesIDs.push(id)
     }
