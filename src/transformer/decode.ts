@@ -723,7 +723,7 @@ export class Decoder {
       return schema.nodes.table_element.createChecked(
         {
           id: model._id,
-          table: this.getContainedObjectIDs(model, ObjectTypes.Table)[0],
+          table: this.getContainedObjectIDs(model, 'MPTable')[0],
           suppressCaption: model.suppressCaption,
           suppressTitle: Boolean(
             model.suppressTitle === undefined ? true : model.suppressTitle
@@ -1042,19 +1042,19 @@ export class Decoder {
   }
 
   private createTable(model: TableElement) {
-    const tableID = this.getContainedObjectIDs(model, ObjectTypes.Table)[0]
-    const tableModel = this.getModel<Table>(tableID)
+    const tableId = this.getContainedObjectIDs(model, 'MPTable')[0]
+    const tableModel = this.getModel<Table>(tableId)
 
     let table: TableNode | PlaceholderNode
     if (tableModel) {
       table = this.decode(tableModel) as TableNode
     } else if (this.allowMissingElements) {
       table = schema.nodes.placeholder.create({
-        id: tableID,
+        id: tableId,
         label: 'A table',
       }) as PlaceholderNode
     } else {
-      throw new MissingElement(tableID)
+      throw new MissingElement(tableId)
     }
     return table
   }
@@ -1062,12 +1062,12 @@ export class Decoder {
   private createTableFootnotesElement(
     model: TableElement
   ): FootnotesElementNode | undefined {
-    const tableFootnotesID = this.getContainedObjectIDs(
+    const tableFootnotesId = this.getContainedObjectIDs(
       model,
-      ObjectTypes.FootnotesElement
+      'MPFootnotesElement'
     )[0]
     const tableFootnotesModel = this.getModel<FootnotesElement>(
-      tableFootnotesID
+      tableFootnotesId
     ) as FootnotesElement
     const doc = document.createElement('div')
     doc.innerHTML = tableFootnotesModel?.contents
@@ -1095,13 +1095,14 @@ export class Decoder {
         ) as FootnotesElementNode)
       : undefined
   }
-  private getContainedObjectIDs(model: any, type: ObjectTypes): string[] {
-    // avoid breaking schema for tableElement by checking containedObjectID
-    return model.containedObjectIDs?.filter((id: string) =>
-      id.startsWith(type + ':')
-    ) || model.containedObjectID
-      ? model.containedObjectID
-      : []
+  private getContainedObjectIDs(model: any, type: string): string[] {
+    return (
+      model.containedObjectIDs?.filter((id: string) =>
+        id.startsWith(type + ':')
+      ) ||
+      model.containedObjectID ||
+      []
+    )
   }
   private createListing(model: any) {
     const listingModel = this.getModel<Listing>(model.listingID)
