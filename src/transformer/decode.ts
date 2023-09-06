@@ -720,7 +720,7 @@ export class Decoder {
       const table = this.createTable(model)
       const tableElementFooter = this.createTableElementFooter(model)
       const figcaption: FigCaptionNode = this.getFigcaption(model)
-      const commentNodes = this.createCommentsNode(data)
+      const commentNodes = this.createCommentsNode(model)
       commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
 
       const content: ManuscriptNode[] = tableElementFooter
