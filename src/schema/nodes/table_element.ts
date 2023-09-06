@@ -38,7 +38,7 @@ export interface TableElementNode extends ManuscriptNode {
 
 export const tableElement: NodeSpec = {
   content:
-    '(table | placeholder) figcaption? footnotes_element? (listing | placeholder)',
+    '(table | placeholder) figcaption? footnotes_element_wrapper? (listing | placeholder)',
   attrs: {
     id: { default: '' },
     paragraphStyle: { default: '' },

@@ -27,6 +27,7 @@ import {
   FigureElement,
   Footnote,
   FootnotesElement,
+  FootnotesElementWrapper,
   Keyword,
   KeywordGroup,
   KeywordsElement,
@@ -44,7 +45,7 @@ import {
   TOCElement,
 } from '@manuscripts/json-schema'
 import debug from 'debug'
-import { DOMParser, Node, ParseOptions } from 'prosemirror-model'
+import { DOMParser, ParseOptions } from 'prosemirror-model'
 
 import { MissingElement } from '../errors'
 import {
@@ -66,6 +67,7 @@ import {
   FigureNode,
   FootnoteNode,
   FootnotesElementNode,
+  FootnotesElementWrapperNode,
   KeywordNode,
   KeywordsElementNode,
   ListingElementNode,
@@ -357,15 +359,16 @@ export class Decoder {
       ) as EquationElementNode
     },
     [ObjectTypes.FootnotesElement]: (data) => {
-      const footnotesElementModel = data as FootnotesElement
-      const collateByKind = footnotesElementModel.collateByKind || 'footnote'
+      const foonotesElementModel = data as FootnotesElement
+
+      const collateByKind = foonotesElementModel.collateByKind || 'footnote'
       const footnotesOfKind = []
       for (const model of this.modelMap.values()) {
         if (
           isFootnote(model) &&
           model.kind === collateByKind &&
           (model.containingObject === undefined ||
-            model.containingObject === footnotesElementModel._id)
+            model.containingObject === foonotesElementModel._id)
         ) {
           const commentNodes = this.createCommentsNode(model)
           commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
@@ -392,10 +395,10 @@ export class Decoder {
 
       return schema.nodes.footnotes_element.create(
         {
-          id: footnotesElementModel._id,
-          kind: footnotesElementModel.collateByKind,
+          id: foonotesElementModel._id,
+          kind: foonotesElementModel.collateByKind,
           // placeholder: model.placeholderInnerHTML,
-          paragraphStyle: footnotesElementModel.paragraphStyle,
+          paragraphStyle: foonotesElementModel.paragraphStyle,
         },
         footnotesOfKind
       ) as FootnotesElementNode
@@ -587,6 +590,19 @@ export class Decoder {
       }
     },
 
+    [ObjectTypes.FootnotesElementWrapper]: (data) => {
+      const model = data as FootnotesElementWrapper
+      const content = model.containedObjectIDs.map((id) =>
+        this.decode(this.modelMap.get(id) as Model)
+      ) as ManuscriptNode[]
+      return schema.nodes.footnotes_element_wrapper.create(
+        {
+          id: model._id,
+        },
+        content
+      )
+    },
+
     [ObjectTypes.Section]: (data) => {
       const model = data as Section
 
@@ -704,7 +720,7 @@ export class Decoder {
     [ObjectTypes.TableElement]: (data) => {
       const model = data as TableElement
       const table = this.createTable(model)
-      const tableFootnotes = this.createTableFootnotesElement(model)
+      const tableFootnotes = this.createFootnotesElementWrapper(model)
       const figcaption: FigCaptionNode = this.getFigcaption(model)
       const commentNodes = this.createCommentsNode(data)
       commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
@@ -1059,40 +1075,16 @@ export class Decoder {
     return table
   }
 
-  private createTableFootnotesElement(
-    model: TableElement
-  ): FootnotesElementNode | undefined {
+  private createFootnotesElementWrapper(model: TableElement) {
     const tableFootnotesId = this.getContainedObjectIDs(
       model,
-      'MPFootnotesElement'
+      'MPFootnotesElementWrapper'
     )[0]
-    const tableFootnotesModel = this.getModel<FootnotesElement>(
-      tableFootnotesId
-    ) as FootnotesElement
-    const doc = document.createElement('div')
-    doc.innerHTML = tableFootnotesModel?.contents
-    const content: Node[] = []
-    const documentContent = doc.querySelector('div[data-kind="table_footnote"]')
-    if (documentContent) {
-      Array.from(documentContent.children).forEach((child) => {
-        const id = child.getAttribute('id')
-        if (id) {
-          const childModel = this.getModel(id)
-          if (childModel) {
-            const decodedContent = this.decode(childModel) as ManuscriptNode
-            content.push(decodedContent)
-          }
-        }
-      })
-    }
-    return content.length
-      ? (schema.nodes.footnotes_element.create(
-          {
-            id: tableFootnotesModel._id,
-            kind: 'table_footnote',
-          },
-          content
-        ) as FootnotesElementNode)
+    const tableFootnotesModel =
+      this.getModel<FootnotesElementWrapper>(tableFootnotesId)
+
+    return tableFootnotesModel
+      ? (this.decode(tableFootnotesModel) as FootnotesElementWrapperNode)
       : undefined
   }
   private getContainedObjectIDs(model: any, type: string): string[] {

@@ -884,6 +884,7 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
+      footnotes_element_wrapper: () => ['table-wrap-foot', 0],
       contributor_list: () => '',
       contributor: () => '',
       affiliation_list: () => '',
@@ -1366,6 +1367,13 @@ export class JATSExporter {
 
       if (isExecutableNodeType(node.type)) {
         processExecutableNode(node, element)
+      }
+      const foonotesWrapperNode = findChildNodeOfType(
+        node,
+        node.type.schema.nodes.footnotes_element_wrapper
+      )
+      if (foonotesWrapperNode) {
+        element.appendChild(this.serializeNode(foonotesWrapperNode))
       }
       return element
     }

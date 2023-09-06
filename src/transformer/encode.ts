@@ -26,6 +26,7 @@ import {
   FigureElement,
   Footnote,
   FootnotesElement,
+  FootnotesElementWrapper,
   InlineMathFragment,
   Keyword,
   KeywordGroup,
@@ -349,13 +350,16 @@ const containedBibliographyItemIDs = (node: ManuscriptNode): string[] => {
   const bibliographyItemNodeType = node.type.schema.nodes.bibliography_item
   return containedObjectIDs(node, [bibliographyItemNodeType])
 }
-const containedTableID = (node: ManuscriptNode): string[] => {
+const tableContainedIDs = (node: ManuscriptNode): string[] => {
   const tableElementType = node.type.schema.nodes.table
   return containedObjectIDs(node, [tableElementType])
 }
-const containedFootnotesElementID = (node: ManuscriptNode): string[] => {
-  const footnotesElementNodeType = node.type.schema.nodes.footnotes_element
-  return containedObjectIDs(node, [footnotesElementNodeType])
+const footnotesElementWrapperContainedIDs = (
+  node: ManuscriptNode
+): string[] => {
+  const footnotesElementWrapperNodeType =
+    node.type.schema.nodes.footnotes_element_wrapper
+  return containedObjectIDs(node, [footnotesElementWrapperNodeType])
 }
 const containedObjectIDs = (
   node: ManuscriptNode,
@@ -607,9 +611,12 @@ const encoders: NodeEncoderMap = {
     kind: node.attrs.kind || 'footnote',
   }),
   footnotes_element: (node): Partial<FootnotesElement> => ({
-    contents: contents(node),
+    contents: '<div></div>', // contents(node), // TODO: empty div instead?
     elementType: 'div',
     paragraphStyle: node.attrs.paragraphStyle || undefined,
+  }),
+  footnotes_element_wrapper: (node): Partial<FootnotesElementWrapper> => ({
+    containedObjectIDs: containedObjectIDs(node),
   }),
   footnotes_section: (node, parent, path, priority): Partial<Section> => ({
     category: buildSectionCategory(node),
@@ -706,8 +713,8 @@ const encoders: NodeEncoderMap = {
   }),
   table_element: (node): Partial<TableElement> => ({
     containedObjectIDs: [
-      ...containedTableID(node),
-      ...containedFootnotesElementID(node),
+      ...tableContainedIDs(node),
+      ...footnotesElementWrapperContainedIDs(node),
     ],
     caption: inlineContentOfChildNodeType(
       node,
