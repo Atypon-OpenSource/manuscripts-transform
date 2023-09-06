@@ -484,13 +484,8 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'fn-group',
-    context: 'table-wrap-foot/footnotes_element',
-    ignore: true,
-  },
-  {
-    tag: 'fn-group',
     node: 'footnotes_element',
-    context: 'footnotes_section',
+    context: 'footnotes_section/|footnotes_element',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
