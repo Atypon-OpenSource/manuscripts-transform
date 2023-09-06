@@ -44,7 +44,7 @@ import {
   TOCElement,
 } from '@manuscripts/json-schema'
 import debug from 'debug'
-import { DOMParser, ParseOptions } from 'prosemirror-model'
+import { DOMParser, Node, ParseOptions } from 'prosemirror-model'
 
 import { MissingElement } from '../errors'
 import {
@@ -723,7 +723,7 @@ export class Decoder {
       return schema.nodes.table_element.createChecked(
         {
           id: model._id,
-          table: model.containedObjectID,
+          table: this.getContainedObjectIDs(model, ObjectTypes.Table)[0],
           suppressCaption: model.suppressCaption,
           suppressTitle: Boolean(
             model.suppressTitle === undefined ? true : model.suppressTitle
@@ -1042,8 +1042,9 @@ export class Decoder {
   }
 
   private createTable(model: TableElement) {
-    const tableID = model.containedObjectID
+    const tableID = this.getContainedObjectIDs(model, ObjectTypes.Table)[0]
     const tableModel = this.getModel<Table>(tableID)
+
     let table: TableNode | PlaceholderNode
     if (tableModel) {
       table = this.decode(tableModel) as TableNode
@@ -1061,37 +1062,29 @@ export class Decoder {
   private createTableFootnotesElement(
     model: TableElement
   ): FootnotesElementNode | undefined {
-    const tableFootnotesID = model.footnotesElementID
-    if (!tableFootnotesID) {
-      return undefined
-    }
+    const tableFootnotesID = this.getContainedObjectIDs(
+      model,
+      ObjectTypes.FootnotesElement
+    )[0]
     const tableFootnotesModel = this.getModel<FootnotesElement>(
       tableFootnotesID
     ) as FootnotesElement
-
-    if (!tableFootnotesModel) {
-      return undefined
-    }
-    const tableFootnotesContainer = document.createElement('div')
-    tableFootnotesContainer.innerHTML = tableFootnotesModel.contents
-    const documentContent = tableFootnotesContainer.querySelector(
-      'div[data-kind="table_footnote"]'
-    )
-    if (!documentContent) {
-      return undefined
-    }
-    const content: ManuscriptNode[] = []
-    Array.from(documentContent.children).forEach((child) => {
-      const id = child.getAttribute('id')
-      if (id) {
-        const childModel = this.getModel(id)
-        if (childModel) {
-          const decodedContent = this.decode(childModel) as ManuscriptNode
-          content.push(decodedContent)
+    const doc = document.createElement('div')
+    doc.innerHTML = tableFootnotesModel?.contents
+    const content: Node[] = []
+    const documentContent = doc.querySelector('div[data-kind="table_footnote"]')
+    if (documentContent) {
+      Array.from(documentContent.children).forEach((child) => {
+        const id = child.getAttribute('id')
+        if (id) {
+          const childModel = this.getModel(id)
+          if (childModel) {
+            const decodedContent = this.decode(childModel) as ManuscriptNode
+            content.push(decodedContent)
+          }
         }
-      }
-    })
-
+      })
+    }
     return content.length
       ? (schema.nodes.footnotes_element.create(
           {
@@ -1102,10 +1095,15 @@ export class Decoder {
         ) as FootnotesElementNode)
       : undefined
   }
-  private createListing(model: FigureElement | TableElement) {
-    if (!model.listingID) {
-      throw new Error('No listing ID')
-    }
+  private getContainedObjectIDs(model: any, type: ObjectTypes): string[] {
+    // avoid breaking schema for tableElement by checking containedObjectID
+    return model.containedObjectIDs?.filter((id: string) =>
+      id.startsWith(type + ':')
+    ) || model.containedObjectID
+      ? model.containedObjectID
+      : []
+  }
+  private createListing(model: any) {
     const listingModel = this.getModel<Listing>(model.listingID)
     let listing: ListingNode | PlaceholderNode
 

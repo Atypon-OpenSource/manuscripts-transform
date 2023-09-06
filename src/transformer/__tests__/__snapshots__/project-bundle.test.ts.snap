@@ -1063,7 +1063,9 @@ Object {
     "MPTableElement:36132CFA-A6D0-4D8D-A347-0CF1136002FD" => Object {
       "_id": "MPTableElement:36132CFA-A6D0-4D8D-A347-0CF1136002FD",
       "caption": "Some comparisons",
-      "containedObjectID": "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
+      "containedObjectIDs": Array [
+        "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
+      ],
       "containerID": "MPProject:ADC69637-C321-4158-8E24-F92068D4727D",
       "createdAt": 1558709469,
       "elementType": "table",
@@ -2509,7 +2511,9 @@ Object {
     "MPTableElement:36132CFA-A6D0-4D8D-A347-0CF1136002FD" => Object {
       "_id": "MPTableElement:36132CFA-A6D0-4D8D-A347-0CF1136002FD",
       "caption": "Some comparisons",
-      "containedObjectID": "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
+      "containedObjectIDs": Array [
+        "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
+      ],
       "containerID": "MPProject:ADC69637-C321-4158-8E24-F92068D4727D",
       "createdAt": 1558709469,
       "elementType": "table",

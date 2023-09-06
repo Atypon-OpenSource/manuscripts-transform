@@ -349,6 +349,14 @@ const containedBibliographyItemIDs = (node: ManuscriptNode): string[] => {
   const bibliographyItemNodeType = node.type.schema.nodes.bibliography_item
   return containedObjectIDs(node, [bibliographyItemNodeType])
 }
+const containedTableID = (node: ManuscriptNode): string[] => {
+  const tableElementType = node.type.schema.nodes.table
+  return containedObjectIDs(node, [tableElementType])
+}
+const containedFootnotesElementID = (node: ManuscriptNode): string[] => {
+  const footnotesElementNodeType = node.type.schema.nodes.footnotes_element
+  return containedObjectIDs(node, [footnotesElementNodeType])
+}
 const containedObjectIDs = (
   node: ManuscriptNode,
   nodeTypes?: ManuscriptNodeType[]
@@ -697,8 +705,10 @@ const encoders: NodeEncoderMap = {
     listingAttachment: node.attrs.listingAttachment || undefined,
   }),
   table_element: (node): Partial<TableElement> => ({
-    containedObjectID: attributeOfNodeType(node, 'table', 'id'),
-    footnotesElementID: attributeOfNodeType(node, 'footnotes_element', 'id'),
+    containedObjectIDs: [
+      ...containedTableID(node),
+      ...containedFootnotesElementID(node),
+    ],
     caption: inlineContentOfChildNodeType(
       node,
       node.type.schema.nodes.figcaption,

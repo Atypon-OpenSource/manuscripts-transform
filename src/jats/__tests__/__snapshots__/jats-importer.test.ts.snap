@@ -985,9 +985,10 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "Test",
-    "containedObjectID": "MPTable:test",
+    "containedObjectIDs": Array [
+      "MPTable:test",
+    ],
     "elementType": "table",
-    "footnotesElementID": "",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
   },
@@ -1867,9 +1868,11 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "",
-    "containedObjectID": "MPTable:test",
+    "containedObjectIDs": Array [
+      "MPTable:test",
+      "MPFootnotesElement:test",
+    ],
     "elementType": "table",
-    "footnotesElementID": "MPFootnotesElement:test",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
@@ -1902,9 +1905,11 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "",
-    "containedObjectID": "MPTable:test",
+    "containedObjectIDs": Array [
+      "MPTable:test",
+      "MPFootnotesElement:test",
+    ],
     "elementType": "table",
-    "footnotesElementID": "MPFootnotesElement:test",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
@@ -1937,9 +1942,11 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "",
-    "containedObjectID": "MPTable:test",
+    "containedObjectIDs": Array [
+      "MPTable:test",
+      "MPFootnotesElement:test",
+    ],
     "elementType": "table",
-    "footnotesElementID": "MPFootnotesElement:test",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
@@ -7331,9 +7338,11 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "",
-    "containedObjectID": "MPTable:test",
+    "containedObjectIDs": Array [
+      "MPTable:test",
+      "MPFootnotesElement:test",
+    ],
     "elementType": "table",
-    "footnotesElementID": "MPFootnotesElement:test",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
@@ -8791,9 +8800,11 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "",
-    "containedObjectID": "MPTable:test",
+    "containedObjectIDs": Array [
+      "MPTable:test",
+      "MPFootnotesElement:test",
+    ],
     "elementType": "table",
-    "footnotesElementID": "MPFootnotesElement:test",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "title": "Difference between exporting vs. non-exporting firms",
@@ -11271,9 +11282,10 @@ Array [
   Object {
     "_id": "MPTableElement:test",
     "caption": "Test",
-    "containedObjectID": "MPTable:test",
+    "containedObjectIDs": Array [
+      "MPTable:test",
+    ],
     "elementType": "table",
-    "footnotesElementID": "",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
   },
