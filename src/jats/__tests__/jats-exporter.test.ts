@@ -43,7 +43,7 @@ import { readFixture } from './files'
 const input = projectDump as ProjectBundle
 const inputWithCitations = projectDumpWithCitations as ProjectBundle
 const inputWithTableElementFooters =
-  projectDumpWithTableElementFooters as unknown as ProjectBundle
+  projectDumpWithTableElementFooters as ProjectBundle
 
 const cloneProjectBundle = (input: ProjectBundle): ProjectBundle =>
   JSON.parse(JSON.stringify(input))
