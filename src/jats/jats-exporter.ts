@@ -1246,11 +1246,7 @@ export class JATSExporter {
       section_title_plain: () => ['title', 0],
       table: (node) => ['table', { id: normalizeID(node.attrs.id) }, 0],
       table_element: (node) => {
-        const element = createTableElement(
-          node,
-          'table-wrap',
-          node.type.schema.nodes.table
-        )
+        const element = createTableElement(node)
         element.setAttribute('position', 'anchor')
         return element
       },
@@ -1383,15 +1379,12 @@ export class JATSExporter {
 
       return element
     }
-    const createTableElement = (
-      node: ManuscriptNode,
-      nodeName: string,
-      contentNodeType: ManuscriptNodeType
-    ) => {
+    const createTableElement = (node: ManuscriptNode) => {
+      const nodeName = 'table-wrap'
       const element = createElement(node, nodeName)
       appendLabels(element, node)
       appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
-      processChildNodes(element, node, contentNodeType)
+      appendChildNodeOfType(element, node, node.type.schema.nodes.table)
       appendChildNodeOfType(
         element,
         node,

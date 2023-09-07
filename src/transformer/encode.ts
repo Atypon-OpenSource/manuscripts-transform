@@ -358,9 +358,7 @@ const containedObjectIDs = (
 
   for (let i = 0; i < node.childCount; i++) {
     const childNode = node.child(i)
-    if (!nodeTypes) {
-      ids.push(childNode.attrs.id)
-    } else if (nodeTypes.includes(childNode.type)) {
+    if (!nodeTypes || nodeTypes.includes(childNode.type)) {
       ids.push(childNode.attrs.id)
     }
   }

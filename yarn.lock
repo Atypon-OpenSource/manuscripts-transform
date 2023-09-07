@@ -1258,10 +1258,10 @@
     eslint-config-prettier "^8.5.0"
     prettier "^2.8.1"
 
-"@manuscripts/json-schema@2.1.1-LEAN-2715-v5":
-  version "2.1.1-LEAN-2715-v5"
-  resolved "https://registry.yarnpkg.com/@manuscripts/json-schema/-/json-schema-2.1.1-LEAN-2715-v5.tgz#3fc245851d39cdc05d4a46d91f70d9ac4dc7e97c"
-  integrity sha512-xTOSOAg0NQVxSb5K32C3Ro0lj99AvCf36upHYPTq/j0CCGb1QKap9OGeoDHHKLFSHeJP3panPx23iNfvxi0QDA==
+"@manuscripts/json-schema@2.1.1-LEAN-2715-v6":
+  version "2.1.1-LEAN-2715-v6"
+  resolved "https://registry.yarnpkg.com/@manuscripts/json-schema/-/json-schema-2.1.1-LEAN-2715-v6.tgz#4f0377d117677bb198cf01b16beb6dcee98d589c"
+  integrity sha512-qfKq7PNrBAfxT7BdG3d31LAmvNYvbBEUIcOI2YJ+s9lXVT7LoNxMcoxab1fGsdNAGdMEc+Z1gQ2fdiqo6Z6MNg==
   dependencies:
     ajv "^8.12.0"
     deepmerge "^4.3.1"
