@@ -34,6 +34,7 @@ export interface ContributorNode extends ManuscriptNode {
 }
 
 export const contributor: NodeSpec = {
+  isMetaNode: true,
   attrs: {
     id: { default: '' },
     role: { default: '' },

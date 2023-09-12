@@ -39,6 +39,7 @@ export interface AffiliationNode extends ManuscriptNode {
 }
 
 export const affiliation: NodeSpec = {
+  isMetaNode: true,
   attrs: {
     id: { default: '' },
     institution: { default: '' },

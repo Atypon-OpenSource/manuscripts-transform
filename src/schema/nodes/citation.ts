@@ -30,6 +30,7 @@ export interface CitationNode extends ManuscriptNode {
 
 export const citation: NodeSpec = {
   inline: true,
+  isMetaNode: true,
   group: 'inline',
   draggable: true,
   atom: true,
