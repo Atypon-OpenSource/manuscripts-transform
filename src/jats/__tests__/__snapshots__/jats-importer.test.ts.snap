@@ -5059,6 +5059,7 @@ Object {
                                     },
                                     Object {
                                       "attrs": Object {
+                                        "customLabel": "",
                                         "dataTracked": null,
                                         "label": "Equation 1",
                                       },
@@ -5070,6 +5071,7 @@ Object {
                                     },
                                     Object {
                                       "attrs": Object {
+                                        "customLabel": "",
                                         "dataTracked": null,
                                         "label": "Figure 1",
                                       },
@@ -5408,6 +5410,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "customLabel": "",
                     "dataTracked": null,
                     "label": "Box 1",
                   },
@@ -5419,6 +5422,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "customLabel": "",
                     "dataTracked": null,
                     "label": "Appendix A",
                   },
@@ -5626,6 +5630,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Table 1",
                       },
