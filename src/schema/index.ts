@@ -25,6 +25,7 @@ import {
   styled,
   subscript,
   superscript,
+  tracked_attrs_update,
   tracked_delete,
   tracked_insert,
   underline,
@@ -153,6 +154,7 @@ export const schema = new Schema<Nodes, Marks>({
     underline,
     tracked_insert,
     tracked_delete,
+    tracked_attrs_update,
   },
   nodes: {
     comment,

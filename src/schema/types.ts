@@ -46,6 +46,7 @@ export type Marks =
   | 'underline'
   | 'tracked_insert'
   | 'tracked_delete'
+  | 'tracked_attrs_update'
 
 export type Nodes =
   | 'attribution'

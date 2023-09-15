@@ -1297,6 +1297,7 @@ export class JATSExporter {
       underline: () => ['underline'],
       tracked_insert: () => ['ins'],
       tracked_delete: () => ['del'],
+      tracked_attrs_update: () => ['div'],
     }
 
     this.serializer = new DOMSerializer(nodes, marks)
