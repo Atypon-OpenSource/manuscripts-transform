@@ -755,37 +755,39 @@ Array [
     "volume": "24",
   },
   Object {
+    "DOI": "https://doi.org/10.1177/1359786810385490",
     "_id": "MPBibliographyItem:test",
     "author": Array [
       Object {
         "_id": "MPBibliographicName:test",
-        "family": "Caldwell",
-        "given": "C.B.",
+        "family": "Hor",
+        "given": "K.",
         "objectType": "MPBibliographicName",
       },
       Object {
         "_id": "MPBibliographicName:test",
-        "family": "Gottesman",
-        "given": "I.I.",
+        "family": "Taylor",
+        "given": "M.",
         "objectType": "MPBibliographicName",
       },
     ],
-    "container-title": "Suicide Life Threat Behav.",
+    "container-title": "J Psychopharmacol.",
     "issue": "4",
     "issued": Object {
       "_id": "MPBibliographicDate:test",
       "date-parts": Array [
         Array [
-          "1992",
+          "2010",
         ],
       ],
       "objectType": "MPBibliographicDate",
     },
     "objectType": "MPBibliographyItem",
-    "page": "479-493",
-    "title": "Schizophrenia-a high-risk factor for suicide: clues to risk reduction.",
+    "page": "81-90",
+    "supplement": "Suppl",
+    "title": "Suicide and schizophrenia: a systematic review of rates and risk factors.",
     "type": "article-journal",
-    "volume": "22",
+    "volume": "24",
   },
   Object {
     "_id": "MPCitation:test",
@@ -846,7 +848,7 @@ Array [
   Object {
     "_id": "MPCommentAnnotation:test",
     "annotationColor": "rgb(250, 224, 150)",
-    "contents": "No table matches the in-text citation \\"tables 4\\". Please supply the missing table or delete the citation.",
+    "contents": "CrossRef reports the issue should be \\"4_suppl\\", not \\"4\\". (Ref. \\"Hor, Taylor, 2010\\")",
     "contributions": Array [
       Object {
         "_id": "MPContribution:test",
