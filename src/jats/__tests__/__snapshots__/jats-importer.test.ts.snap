@@ -680,6 +680,7 @@ Array [
     "containedObjectIDs": Array [
       "MPBibliographyItem:test",
       "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
     ],
     "contents": "",
     "elementType": "div",
@@ -754,6 +755,39 @@ Array [
     "volume": "24",
   },
   Object {
+    "_id": "MPBibliographyItem:test",
+    "author": Array [
+      Object {
+        "_id": "MPBibliographicName:test",
+        "family": "Caldwell",
+        "given": "C.B.",
+        "objectType": "MPBibliographicName",
+      },
+      Object {
+        "_id": "MPBibliographicName:test",
+        "family": "Gottesman",
+        "given": "I.I.",
+        "objectType": "MPBibliographicName",
+      },
+    ],
+    "container-title": "Suicide Life Threat Behav.",
+    "issue": "4",
+    "issued": Object {
+      "_id": "MPBibliographicDate:test",
+      "date-parts": Array [
+        Array [
+          "1992",
+        ],
+      ],
+      "objectType": "MPBibliographicDate",
+    },
+    "objectType": "MPBibliographyItem",
+    "page": "479-493",
+    "title": "Schizophrenia-a high-risk factor for suicide: clues to risk reduction.",
+    "type": "article-journal",
+    "volume": "22",
+  },
+  Object {
     "_id": "MPCitation:test",
     "embeddedCitationItems": Array [
       Object {
@@ -798,6 +832,21 @@ Array [
     "_id": "MPCommentAnnotation:test",
     "annotationColor": "rgb(250, 224, 150)",
     "contents": "CrossRef reports the issue should be \\"4_suppl\\", not \\"4\\". (Ref. \\"Hor, Taylor, 2010\\")",
+    "contributions": Array [
+      Object {
+        "_id": "MPContribution:test",
+        "objectType": "MPContribution",
+        "profileID": "MPUserProfile:test",
+        "timestamp": 1111111111,
+      },
+    ],
+    "objectType": "MPCommentAnnotation",
+    "target": "MPBibliographyItem:test",
+  },
+  Object {
+    "_id": "MPCommentAnnotation:test",
+    "annotationColor": "rgb(250, 224, 150)",
+    "contents": "No table matches the in-text citation \\"tables 4\\". Please supply the missing table or delete the citation.",
     "contributions": Array [
       Object {
         "_id": "MPContribution:test",
