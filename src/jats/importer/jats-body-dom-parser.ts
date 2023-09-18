@@ -536,7 +536,7 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'list[list-type=order]',
+    tag: 'list[list-type]',
     node: 'ordered_list',
     getAttrs: (node) => {
       const element = node as HTMLElement
