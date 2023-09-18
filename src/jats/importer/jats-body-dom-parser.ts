@@ -760,10 +760,13 @@ const nodes: NodeRule[] = [
     node: 'citation',
     getAttrs: (node) => {
       const element = node as HTMLElement
+      const embeddedCitation =
+        element.getAttribute('data-reference-embedded-citation') || 'null'
 
       return {
         rid: element.getAttribute('rid'),
         contents: element.textContent?.trim(), // TODO: innerHTML?
+        embeddedCitationItems: JSON.parse(embeddedCitation),
       }
     },
   },

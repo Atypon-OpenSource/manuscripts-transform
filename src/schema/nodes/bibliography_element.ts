@@ -28,7 +28,8 @@ export interface BibliographyElementNode extends ManuscriptNode {
 }
 
 export const bibliographyElement: NodeSpec = {
-  content: '(bibliography_item | placeholder)+',
+  // before we return + for default element we need to handle that for body-editor and quarterback
+  content: '(bibliography_item | placeholder)*',
   attrs: {
     id: { default: '' },
     contents: { default: '' },
