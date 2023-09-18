@@ -345,11 +345,10 @@ export const jatsBodyTransformations = {
       }
     }
 
-    const footnotes = [...doc.querySelectorAll('fn')]
+    const footnotes = [...doc.querySelectorAll('fn:not(table-wrap-foot fn)')]
     const footnotesSection = doc.querySelector('sec[sec-type="endnotes"]')
     const footnotesSectionGroup = footnotesSection?.querySelector('fn-group')
     const containingGroup = footnotesSectionGroup || createElement('fn-group')
-
     for (const footnote of footnotes) {
       const type = footnote.getAttribute('fn-type')
       if (!type) {
