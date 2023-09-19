@@ -51,11 +51,12 @@ export const citation: NodeSpec = {
           contents: dom.innerHTML,
         }
 
-        const embeddedCitation = JSON.parse(
-          dom.getAttribute('data-reference-embedded-citation') || 'null'
+        const embeddedCitationAttr = dom.getAttribute(
+          'data-reference-embedded-citation'
         )
-        if (embeddedCitation) {
-          attr['embeddedCitationItems'] = embeddedCitation
+
+        if (embeddedCitationAttr) {
+          attr['embeddedCitationItems'] = JSON.parse(embeddedCitationAttr)
         }
 
         return attr
