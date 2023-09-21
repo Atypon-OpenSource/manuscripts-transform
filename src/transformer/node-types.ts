@@ -81,3 +81,10 @@ export const isNodeType = <T extends ManuscriptNode>(
   node: ManuscriptNode,
   type: Nodes
 ): node is T => node.type === node.type.schema.nodes[type]
+
+export const isMetaNode = (nodeType: string) =>
+  nodeType === schema.nodes.bibliography_item.name ||
+  nodeType === schema.nodes.citation.name ||
+  nodeType === schema.nodes.affiliation.name ||
+  nodeType === schema.nodes.contributor.name ||
+  nodeType === schema.nodes.manuscript.name
