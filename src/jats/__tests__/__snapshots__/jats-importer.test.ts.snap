@@ -1042,7 +1042,6 @@ Array [
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
-    "tableElementFooterID": "",
   },
   Object {
     "_id": "MPTable:test",
@@ -11331,7 +11330,6 @@ Array [
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
-    "tableElementFooterID": "",
   },
   Object {
     "_id": "MPTable:test",
