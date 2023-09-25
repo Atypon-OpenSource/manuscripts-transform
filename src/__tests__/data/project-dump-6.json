@@ -1,0 +1,1442 @@
+{
+  "version": "2.0",
+  "data": [
+    {
+      "_id": "MPManuscript:2852F8A6-DF88-433D-AC23-452CBC83EAF0",
+      "objectType": "MPManuscript",
+      "title": "athena1 Demo Doc basicLists – change title add date here",
+      "wordCount": 2973,
+      "figureCount": 0,
+      "tableCount": 0,
+      "equationCount": 0,
+      "referencesCount": 2,
+      "genericCounts": [
+        {
+          "count": 0,
+          "countType": "box"
+        }
+      ],
+      "articleType": "other",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPAffiliation:02D4DE2A-891E-459C-90E9-365B9329A06C",
+      "objectType": "MPAffiliation",
+      "institution": "The Affiliated Guangji Hospital of Soochow University",
+      "priority": 0,
+      "department": "Research Center of Biological Psychiatry",
+      "addressLine1": "Suzhou\n                        ,\n                        Jiangsu",
+      "country": "China",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPAffiliation:6A28F6A5-1E0F-46E7-8E6D-6569B9D163DD",
+      "objectType": "MPAffiliation",
+      "institution": "",
+      "priority": 1,
+      "addressLine1": "Mental Health Center of Yanqing District",
+      "addressLine2": "Beijing",
+      "country": "China",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPAffiliation:D2788430-190D-41A1-A9A6-20E5561FFBD2",
+      "objectType": "MPAffiliation",
+      "institution": "Xinghua Forth People’s Hospital",
+      "priority": 2,
+      "addressLine1": "Xinghua\n                        ,\n                        Jiangsu",
+      "country": "China",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPContributor:3A48DC33-71DA-49A7-92E3-14A85EBA064A",
+      "objectType": "MPContributor",
+      "priority": 0,
+      "role": "author",
+      "affiliations": [
+        "MPAffiliation:02D4DE2A-891E-459C-90E9-365B9329A06C"
+      ],
+      "bibliographicName": {
+        "_id": "MPBibliographicName:FD05F1C5-EF07-45EA-9E66-54210E4E2289",
+        "objectType": "MPBibliographicName",
+        "given": "Li",
+        "family": "Hui"
+      },
+      "isCorresponding": true,
+      "corresp": [
+        {
+          "correspID": "MPCorresponding:8B675184-CF0A-4474-A7B5-78F9BC076131",
+          "correspLabel": "*"
+        }
+      ],
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPContributor:768EA2E6-4A2F-45AB-B5F2-C369E13084CF",
+      "objectType": "MPContributor",
+      "priority": 1,
+      "role": "author",
+      "affiliations": [
+        "MPAffiliation:6A28F6A5-1E0F-46E7-8E6D-6569B9D163DD"
+      ],
+      "bibliographicName": {
+        "_id": "MPBibliographicName:BD84399F-2460-485A-AB6B-34B59F5CDE69",
+        "objectType": "MPBibliographicName",
+        "given": "Wei Ming",
+        "family": "Hu"
+      },
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPContributor:008B7FCE-1AE6-4817-B38F-99BA0F7F7936",
+      "objectType": "MPContributor",
+      "priority": 2,
+      "role": "author",
+      "affiliations": [
+        "MPAffiliation:02D4DE2A-891E-459C-90E9-365B9329A06C"
+      ],
+      "bibliographicName": {
+        "_id": "MPBibliographicName:F0DD7F05-528B-4A3A-91F3-BDA032715EFE",
+        "objectType": "MPBibliographicName",
+        "given": "Zhen Hua",
+        "family": "Zhu"
+      },
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPContributor:DDBA15BD-3C5C-49A1-8CB7-DDAF8219095C",
+      "objectType": "MPContributor",
+      "priority": 3,
+      "role": "author",
+      "affiliations": [
+        "MPAffiliation:D2788430-190D-41A1-A9A6-20E5561FFBD2"
+      ],
+      "bibliographicName": {
+        "_id": "MPBibliographicName:66FB1B28-0BC6-42D8-A9CD-50F95BFD7F3F",
+        "objectType": "MPBibliographicName",
+        "given": "Song Tian",
+        "family": "Gao"
+      },
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPCorresponding:8B675184-CF0A-4474-A7B5-78F9BC076131",
+      "objectType": "MPCorresponding",
+      "contents": "To whom correspondence should be addressed: Li Hui, PhD, Research Center of\n                    Biological Psychiatry, The Affiliated Guangji Hospital of Soochow University, No. 11 Guangqian Road,\n                    Suzhou 215137, Jiangsu Province, China, Tel: +86 51265794237; Fax: +86 5126579423:\n                    huili004100@126.com\n                    .",
+      "label": "*",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPJournal:4259B1F4-13A8-4F5C-B4A4-ECE668D2A3BF",
+      "objectType": "MPJournal",
+      "abbreviatedTitles": [
+        {
+          "abbreviatedTitle": "",
+          "abbrevType": "pubmed"
+        }
+      ],
+      "journalIdentifiers": [
+        {
+          "journalIDType": "publisher-id",
+          "journalID": ""
+        },
+        {
+          "journalIDType": "nlm-ta",
+          "journalID": ""
+        },
+        {
+          "journalIDType": "doi",
+          "journalID": ""
+        }
+      ],
+      "ISSNs": [
+        {
+          "publicationType": "ppub",
+          "ISSN": ""
+        },
+        {
+          "publicationType": "epub",
+          "ISSN": ""
+        }
+      ],
+      "publisherName": "John Wiley and Sons",
+      "title": "",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:keywords",
+      "priority": 1,
+      "title": "Keywords",
+      "path": [
+        "MPSection:746C7C97-CAE3-4EC6-A3A5-A0357907FB12"
+      ],
+      "elementIDs": [
+        "MPKeywordsElement:487BF01F-100C-4E8D-84C4-9E256EF5DD27"
+      ],
+      "_id": "MPSection:746C7C97-CAE3-4EC6-A3A5-A0357907FB12",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "contents": "<div></div>",
+      "elementType": "div",
+      "_id": "MPKeywordsElement:487BF01F-100C-4E8D-84C4-9E256EF5DD27",
+      "objectType": "MPKeywordsElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "type": "author",
+      "_id": "MPKeywordGroup:AD0E091A-FCE3-4EFF-8B72-992DF3750521",
+      "objectType": "MPKeywordGroup",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containedGroup": "MPKeywordGroup:AD0E091A-FCE3-4EFF-8B72-992DF3750521",
+      "name": "suicide attempters",
+      "_id": "MPKeyword:3F1982B3-83CA-45DD-B0B6-B94DE84C9675",
+      "objectType": "MPKeyword",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containedGroup": "MPKeywordGroup:AD0E091A-FCE3-4EFF-8B72-992DF3750521",
+      "name": "schizophrenia",
+      "_id": "MPKeyword:D4BADE90-8D9A-4B61-AB95-2EF1170A7699",
+      "objectType": "MPKeyword",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containedGroup": "MPKeywordGroup:AD0E091A-FCE3-4EFF-8B72-992DF3750521",
+      "name": "DβH",
+      "_id": "MPKeyword:2445A565-17C4-4C7B-98EC-6C0B29F1B2A1",
+      "objectType": "MPKeyword",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containedGroup": "MPKeywordGroup:AD0E091A-FCE3-4EFF-8B72-992DF3750521",
+      "name": "attention",
+      "_id": "MPKeyword:3B1E4133-4315-46AE-A83D-134C563716E6",
+      "objectType": "MPKeyword",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containedGroup": "MPKeywordGroup:AD0E091A-FCE3-4EFF-8B72-992DF3750521",
+      "name": "polymorphism",
+      "_id": "MPKeyword:D803C961-E5A3-4881-9687-656A6C25FE17",
+      "objectType": "MPKeyword",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:abstracts",
+      "priority": 2,
+      "title": "",
+      "path": [
+        "MPSection:269B4033-9686-49EA-B9DB-72ABB7B7D49B"
+      ],
+      "elementIDs": [],
+      "_id": "MPSection:269B4033-9686-49EA-B9DB-72ABB7B7D49B",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:abstract",
+      "priority": 3,
+      "title": "Abstract",
+      "path": [
+        "MPSection:269B4033-9686-49EA-B9DB-72ABB7B7D49B",
+        "MPSection:CBB716AF-DE2F-4144-A6B9-2E68BFEC9A2B"
+      ],
+      "elementIDs": [
+        "MPParagraphElement:C5742318-FA33-4E31-9D29-58F5F793771D",
+        "MPParagraphElement:5AB1A86E-F4A3-4801-B135-5E05CEB122A4",
+        "MPParagraphElement:EEE27ACE-FC98-4E53-AB6F-6262CB96E6FF",
+        "MPParagraphElement:40B5FB3D-54E6-40B6-97C1-E4E638F0F8D6",
+        "MPParagraphElement:FEA6ED82-1A76-4054-B9DE-4076DCB12526"
+      ],
+      "_id": "MPSection:CBB716AF-DE2F-4144-A6B9-2E68BFEC9A2B",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:C5742318-FA33-4E31-9D29-58F5F793771D\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Patients with schizophrenia are at a higher risk for suicide compared with the general population. Dopamine-beta-hydroxylase (DβH) plays a key role in the conversion of dopamine to norepinephrine, which is related to suicidal behavior and cognitive regulation.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:C5742318-FA33-4E31-9D29-58F5F793771D",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:5AB1A86E-F4A3-4801-B135-5E05CEB122A4\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">To examine whether there is the effect of <i>DβH</i> 5’ <i>-</i> insertion/deletion (Ins/Del) polymorphism on cognitive performance in suicide attempters with chronic schizophrenia.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:5AB1A86E-F4A3-4801-B135-5E05CEB122A4",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:EEE27ACE-FC98-4E53-AB6F-6262CB96E6FF\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">This polymorphism was detected in 114 suicide attempters and 617 non-suicide attempters with chronic schizophrenia. Cognitive performance was assessed by the Repeatable Battery for the Assessment of Neuropsychological Status (RBANS).</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:EEE27ACE-FC98-4E53-AB6F-6262CB96E6FF",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:40B5FB3D-54E6-40B6-97C1-E4E638F0F8D6\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">The allelic and genotypic frequencies of this polymorphism between two groups did not differ after controlling for covariaties (both, <i>p</i>  &gt; 0.05). There were no differences in RBANS scores between two groups after adjusting for covariaties (all, <i>p</i>  &gt; 0.05). However, based on the genotype grouping in suicide attempters and non-attempters, the attention score significantly differed after adjusting for covariaties (both, <i>p</i>  &lt; 0.05). Further analysis indicated that this polymorphism was associated with attention score in suicide attempters ( <i>p</i>  &lt; 0.05), but not in non-suicide attempters ( <i>p</i>  &gt; 0.05).</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:40B5FB3D-54E6-40B6-97C1-E4E638F0F8D6",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:FEA6ED82-1A76-4054-B9DE-4076DCB12526\" class=\"MPElement\" data-object-type=\"MPParagraphElement\"><i>DβH</i>5’-Ins/Del polymorphism was not a risk locus of suicide attempters, but it was implicated in attention regulation in suicide attempters with chronic schizophrenia.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:FEA6ED82-1A76-4054-B9DE-4076DCB12526",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:body",
+      "priority": 4,
+      "title": "",
+      "path": [
+        "MPSection:AFBE7F41-97E9-400A-9123-2F4838C0E554"
+      ],
+      "elementIDs": [],
+      "_id": "MPSection:AFBE7F41-97E9-400A-9123-2F4838C0E554",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:introduction",
+      "priority": 5,
+      "title": "INTRODUCTION",
+      "path": [
+        "MPSection:AFBE7F41-97E9-400A-9123-2F4838C0E554",
+        "MPSection:6FA5CD71-A1CB-442E-9B10-6A3A79783F43"
+      ],
+      "elementIDs": [
+        "MPParagraphElement:70B45789-20F9-40B9-A293-6CEE257BCEFC",
+        "MPTableElement:F7C363A3-E258-4BE7-8D1C-80604CB2557B",
+        "MPParagraphElement:8EB047BA-887C-4340-807A-1F37E1361F9D",
+        "MPTableElement:46722735-59E0-49B3-A45B-AFDFE8694ADB",
+        "MPParagraphElement:70A3C499-3761-45E5-8066-37E3D4EFF675",
+        "MPTableElement:8EE8C5B4-D10A-4C38-BF53-0AA941F251B0",
+        "MPParagraphElement:081A0AEE-674D-467B-A1D5-F6D528C66559"
+      ],
+      "_id": "MPSection:6FA5CD71-A1CB-442E-9B10-6A3A79783F43",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:70B45789-20F9-40B9-A293-6CEE257BCEFC\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Patients with schizophrenia are at a higher risk for suicide compared with the general population (see <span class=\"cross-reference\" data-reference-id=\"MPAuxiliaryObjectReference:F56D6892-3875-43BE-8FED-EF888C5595CB\"><span class=\"kind elementIndex\"><b>Table 1</b></span></span> ). Suicide is an important cause of schizophrenic mortality ( <span class=\"citation\" data-reference-id=\"MPCitation:8B680C5E-D6D1-418E-AE1A-A5CAD9429B71\">Hor and Taylor, 2010</span> ). The lifetime prevalence of completed suicide is ranging from 10% to15% in schizophrenia, which is about 8.5–20 times higher than in the general population ( <span class=\"citation\" data-reference-id=\"MPCitation:54D3CB61-EB13-44B5-A1BD-19737F5B8ADE\">Caldwell and Gottesman, 1992</span> ). The risk factors of suicide in schizophrenia are nearly similar to those in the general population (Table 1  ). However, other risk factors of suicide may be specific to schizophrenia including decreased negative symptom, increased positive symptom, mental disintegration fear, higher premorbid IQ, and non-compliance with antipsychotics. Moreover, several studies examining the correlation of cognitive performance with suicidal risk in patients with schizophrenia have reported inconsistent findings. For example, higher cognitive function is found to increase suicidal risk in patients with schizophrenia. In contrast, other studies have indicated that suicide risk is not associated with cognitive performance in patients with schizophrenia. Therefore, the impact of cognitive function on suicidal risk in patients with schizophrenia still needs to be fully understood. In addition, both familial and twins studies found that genetic factors have been involved in suicide attempts, and are associated with cognitive function. These studies have provided evidence that genetic mutations may influence suicide attempts and cognitive regulation in patients with chronic schizophrenia.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:70B45789-20F9-40B9-A293-6CEE257BCEFC",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containedObjectID": "MPTable:271881F0-8D89-499E-913F-8817E76A1128",
+      "tableElementFooterID": "MPTableElementFooter:226F4DB6-5D97-4E83-8C8B-F3B76DC96760",
+      "caption": "",
+      "title": "PHQ-9 Item Mean Scores per Profile ( <i>N</i>  = 499)",
+      "elementType": "table",
+      "listingID": "MPListing:A2DC3283-FB56-451B-93A9-E9DABEE6EFC1",
+      "suppressFooter": true,
+      "_id": "MPTableElement:F7C363A3-E258-4BE7-8D1C-80604CB2557B",
+      "objectType": "MPTableElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "contents": "<table xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPTableElement:F7C363A3-E258-4BE7-8D1C-80604CB2557B\" class=\"MPElement\" data-contained-object-id=\"MPTable:271881F0-8D89-499E-913F-8817E76A1128\"><colgroup><col width=\"12.12%\" /><col width=\"2.08%\" /><col width=\"19.58%\" /><col width=\"26.32%\" /><col width=\"18.57%\" /><col width=\"21.33%\" /></colgroup><thead style=\"display: table-header-group;\"><tr><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"col\" style=\"border-top: solid 0.50pt\">PHQ Items</th><th data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" scope=\"col\" style=\"border-top: solid 0.50pt\"></th><th colspan=\"4\" data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"colgroup\" style=\"border-top: solid 0.50pt\">Profiles of Depression from LPA Model</th></tr><tr><th data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" scope=\"col\" style=\"border-bottom: solid 0.50pt\"></th><th data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" scope=\"col\" style=\"border-bottom: solid 0.50pt\"></th><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"col\" style=\"border-bottom: solid 0.50pt\">1 - Mild depression <br /> ( <i>n</i>  = 104, 20.8%)</th><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"col\" style=\"border-bottom: solid 0.50pt\">2 - Moderate/ somatization <br /> ( <i>n</i>  = 183, 36.7%)</th><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"justify\" scope=\"col\" style=\"border-bottom: solid 0.50pt\">3 - Moderate/ <br /> negative self-view <br /> ( <i>n</i>  = 72, 14.4%)</th><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"col\" style=\"border-bottom: solid 0.50pt\">4 - Severe depression <br /> ( <i>n</i>  = 140, 28.1%)</th></tr></thead><tbody><tr><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"row\" style=\"border-top: solid 0.50pt\">1</td><td data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" style=\"border-top: solid 0.50pt\"></td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" style=\"border-top: solid 0.50pt\">1.71</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" style=\"border-top: solid 0.50pt\">2.09</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" style=\"border-top: solid 0.50pt\">2.00</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" style=\"border-top: solid 0.50pt\">2.59</td></tr><tr><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"row\">2</td><td data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\"></td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\">1.90</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\">1.96</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\">2.04</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\">2.59</td></tr><tr><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"row\" style=\"border-bottom: solid 0.50pt\">Total</td><td data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" style=\"border-bottom: solid 0.50pt\"></td><td data-placeholder-text=\"Data\" valign=\"top\" align=\"center\" style=\"border-bottom: solid 0.50pt\">12.96</td><td data-placeholder-text=\"Data\" valign=\"top\" align=\"center\" style=\"border-bottom: solid 0.50pt\">15.95</td><td data-placeholder-text=\"Data\" valign=\"top\" align=\"center\" style=\"border-bottom: solid 0.50pt\">15.42</td><td data-placeholder-text=\"Data\" valign=\"top\" align=\"center\" style=\"border-bottom: solid 0.50pt\">21.49</td></tr></tbody><tfoot style=\"display: none;\"><tr><td data-placeholder-text=\"Data\" class=\"placeholder\"></td></tr></tfoot></table>",
+      "_id": "MPTable:271881F0-8D89-499E-913F-8817E76A1128",
+      "objectType": "MPTable",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containedObjectIDs": [
+        "MPParagraphElement:166DE32D-CCB6-43FA-ACDE-CB4CBAF1B666",
+        "MPFootnotesElement:C4293C71-0C43-4AA6-B161-421BED336E6E"
+      ],
+      "_id": "MPTableElementFooter:226F4DB6-5D97-4E83-8C8B-F3B76DC96760",
+      "objectType": "MPTableElementFooter",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:166DE32D-CCB6-43FA-ACDE-CB4CBAF1B666\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Below there are fns in an fn-group. There is probably some extraneous information in this table that this table-wrap-foot paragraph is trying to tell us about, but really I'm unsure of what we are expecting here, or how the Editor will currently handle it.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:166DE32D-CCB6-43FA-ACDE-CB4CBAF1B666",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "contents": "<div></div>",
+      "elementType": "div",
+      "_id": "MPFootnotesElement:C4293C71-0C43-4AA6-B161-421BED336E6E",
+      "objectType": "MPFootnotesElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containingObject": "MPFootnotesElement:C4293C71-0C43-4AA6-B161-421BED336E6E",
+      "contents": "<div xmlns=\"http://www.w3.org/1999/xhtml\" class=\"footnote-text\" id=\"MPFootnote:81EEFC2B-87C8-48E5-BAD9-D9207EF8896C\" data-kind=\"footnote\"><p id=\"MPParagraphElement:419E6259-8BFB-443F-AF49-91D7BE3261A2\">Data not available for 1 trial.</p></div>",
+      "kind": "footnote",
+      "_id": "MPFootnote:81EEFC2B-87C8-48E5-BAD9-D9207EF8896C",
+      "objectType": "MPFootnote",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:419E6259-8BFB-443F-AF49-91D7BE3261A2\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Data not available for 1 trial.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:419E6259-8BFB-443F-AF49-91D7BE3261A2",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containingObject": "MPFootnotesElement:C4293C71-0C43-4AA6-B161-421BED336E6E",
+      "contents": "<div xmlns=\"http://www.w3.org/1999/xhtml\" class=\"footnote-text\" id=\"MPFootnote:F5DCE55F-8CF4-44A6-AD89-E8C492D41710\" data-kind=\"footnote\"><p id=\"MPParagraphElement:A231BAB7-E26A-41A9-9267-1A88FE9602C8\">P&lt;0.05 (random effects model).</p></div>",
+      "kind": "footnote",
+      "_id": "MPFootnote:F5DCE55F-8CF4-44A6-AD89-E8C492D41710",
+      "objectType": "MPFootnote",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:A231BAB7-E26A-41A9-9267-1A88FE9602C8\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">P&lt;0.05 (random effects model).</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:A231BAB7-E26A-41A9-9267-1A88FE9602C8",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "contents": "",
+      "languageKey": "null",
+      "_id": "MPListing:A2DC3283-FB56-451B-93A9-E9DABEE6EFC1",
+      "objectType": "MPListing",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:8EB047BA-887C-4340-807A-1F37E1361F9D\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Dopamine beta-hydroxylase (DβH) is a key enzyme that is in charge of catalyzing the conversion of dopamine (DA) to norepinephrine (NE) (see <span class=\"cross-reference\" data-reference-id=\"MPAuxiliaryObjectReference:8D8D15C7-E4E3-4580-A5E4-799AD74C4A36\"><span class=\"kind elementIndex\"><b>Table 2</b></span></span> ). Inhibiting DβH activity will increase DA levels and decrease NE levels, and both of them are linked to suicidal behavior. Several studies have found that NE abnormality might cause behavior and mood deviance that was also closely associated with suicidal behavior. Moreover, <i>DβH</i> promoter polymorphisms are reported to be involved in positive psychotic symptom, cognitive deficits, depression and mental disorders that all of which are associated with suicidal risk. <i>DβH</i> haplotype (consisting of rs1611115, rs1108580, rs2519152 and rs129882) is found to significantly contribute to the development of suicide behavior for alcohol-dependent patients. The above studies suggest that <i>DβH</i> genetic variants may be associated with suicide attempts in chronic schizophrenia.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:8EB047BA-887C-4340-807A-1F37E1361F9D",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containedObjectID": "MPTable:08F45FAC-D931-424A-9299-F0A790B83F12",
+      "tableElementFooterID": "MPTableElementFooter:04EA6958-58F3-41BE-9C96-DABA6FB23792",
+      "caption": "",
+      "title": "PHQ-9 Item Mean Scores per Profile ( <i>N</i>  = 499)",
+      "elementType": "table",
+      "listingID": "MPListing:32C8E8DE-A03E-4AB9-A28F-BD9527FDC2E5",
+      "suppressFooter": true,
+      "_id": "MPTableElement:46722735-59E0-49B3-A45B-AFDFE8694ADB",
+      "objectType": "MPTableElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "contents": "<table xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPTableElement:46722735-59E0-49B3-A45B-AFDFE8694ADB\" class=\"MPElement\" data-contained-object-id=\"MPTable:08F45FAC-D931-424A-9299-F0A790B83F12\"><colgroup><col width=\"12.12%\" /><col width=\"2.08%\" /><col width=\"19.58%\" /><col width=\"26.32%\" /><col width=\"18.57%\" /><col width=\"21.33%\" /></colgroup><thead style=\"display: table-header-group;\"><tr><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"col\" style=\"border-top: solid 0.50pt\">PHQ Items</th><th data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" scope=\"col\" style=\"border-top: solid 0.50pt\"></th><th colspan=\"4\" data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"colgroup\" style=\"border-top: solid 0.50pt\">Profiles of Depression from LPA Model</th></tr><tr><th data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" scope=\"col\" style=\"border-bottom: solid 0.50pt\"></th><th data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" scope=\"col\" style=\"border-bottom: solid 0.50pt\"></th><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"col\" style=\"border-bottom: solid 0.50pt\">1 - Mild depression <br /> ( <i>n</i>  = 104, 20.8%)</th><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"col\" style=\"border-bottom: solid 0.50pt\">2 - Moderate/ somatization <br /> ( <i>n</i>  = 183, 36.7%)</th><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"justify\" scope=\"col\" style=\"border-bottom: solid 0.50pt\">3 - Moderate/ <br /> negative self-view <br /> ( <i>n</i>  = 72, 14.4%)</th><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"col\" style=\"border-bottom: solid 0.50pt\">4 - Severe depression <br /> ( <i>n</i>  = 140, 28.1%)</th></tr></thead><tbody><tr><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"row\" style=\"border-top: solid 0.50pt\">1</td><td data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" style=\"border-top: solid 0.50pt\"></td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" style=\"border-top: solid 0.50pt\">1.71</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" style=\"border-top: solid 0.50pt\">2.09</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" style=\"border-top: solid 0.50pt\">2.00</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" style=\"border-top: solid 0.50pt\">2.59</td></tr><tr><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"row\">2</td><td data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\"></td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\">1.90</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\">1.96</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\">2.04</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\">2.59</td></tr><tr><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"row\" style=\"border-bottom: solid 0.50pt\">Total</td><td data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" style=\"border-bottom: solid 0.50pt\"></td><td data-placeholder-text=\"Data\" valign=\"top\" align=\"center\" style=\"border-bottom: solid 0.50pt\">12.96</td><td data-placeholder-text=\"Data\" valign=\"top\" align=\"center\" style=\"border-bottom: solid 0.50pt\">15.95</td><td data-placeholder-text=\"Data\" valign=\"top\" align=\"center\" style=\"border-bottom: solid 0.50pt\">15.42</td><td data-placeholder-text=\"Data\" valign=\"top\" align=\"center\" style=\"border-bottom: solid 0.50pt\">21.49</td></tr></tbody><tfoot style=\"display: none;\"><tr><td data-placeholder-text=\"Data\" class=\"placeholder\"></td></tr></tfoot></table>",
+      "_id": "MPTable:08F45FAC-D931-424A-9299-F0A790B83F12",
+      "objectType": "MPTable",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containedObjectIDs": [
+        "MPParagraphElement:8A14C021-633A-4253-B604-F78FD2996A29",
+        "MPFootnotesElement:972B17B9-5108-450A-AED7-038760B2C98C"
+      ],
+      "_id": "MPTableElementFooter:04EA6958-58F3-41BE-9C96-DABA6FB23792",
+      "objectType": "MPTableElementFooter",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:8A14C021-633A-4253-B604-F78FD2996A29\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Below there are fns not in fn-group. There is probably some extraneous information in this table that this table-wrap-foot paragraph is trying to tell us about, but really I'm unsure of what we are expecting here, or how the Editor will currently handle it.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:8A14C021-633A-4253-B604-F78FD2996A29",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "contents": "<div></div>",
+      "elementType": "div",
+      "_id": "MPFootnotesElement:972B17B9-5108-450A-AED7-038760B2C98C",
+      "objectType": "MPFootnotesElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containingObject": "MPFootnotesElement:972B17B9-5108-450A-AED7-038760B2C98C",
+      "contents": "<div xmlns=\"http://www.w3.org/1999/xhtml\" class=\"footnote-text\" id=\"MPFootnote:1C487E1B-AE61-4929-BD60-715500F68A4A\" data-kind=\"footnote\"><p id=\"MPParagraphElement:A5AC8D5A-188F-434A-9F54-5FAAE0CC4E75\">Data not available for 1 trial.</p></div>",
+      "kind": "footnote",
+      "_id": "MPFootnote:1C487E1B-AE61-4929-BD60-715500F68A4A",
+      "objectType": "MPFootnote",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:A5AC8D5A-188F-434A-9F54-5FAAE0CC4E75\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Data not available for 1 trial.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:A5AC8D5A-188F-434A-9F54-5FAAE0CC4E75",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containingObject": "MPFootnotesElement:972B17B9-5108-450A-AED7-038760B2C98C",
+      "contents": "<div xmlns=\"http://www.w3.org/1999/xhtml\" class=\"footnote-text\" id=\"MPFootnote:D32D3061-5B47-4401-A728-36C177862811\" data-kind=\"footnote\"><p id=\"MPParagraphElement:E82448CF-5296-407B-86E2-8EEE981552BE\">P&lt;0.05 (random effects model).</p></div>",
+      "kind": "footnote",
+      "_id": "MPFootnote:D32D3061-5B47-4401-A728-36C177862811",
+      "objectType": "MPFootnote",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:E82448CF-5296-407B-86E2-8EEE981552BE\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">P&lt;0.05 (random effects model).</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:E82448CF-5296-407B-86E2-8EEE981552BE",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "contents": "",
+      "languageKey": "null",
+      "_id": "MPListing:32C8E8DE-A03E-4AB9-A28F-BD9527FDC2E5",
+      "objectType": "MPListing",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:70A3C499-3761-45E5-8066-37E3D4EFF675\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">DβH catalyzes the conversion of DA to NE in the central nervous system that both of which influence cognitive performance in schizophrenia (see <span class=\"cross-reference\" data-reference-id=\"MPAuxiliaryObjectReference:8F31A0BB-00B4-4A73-AA3A-7AF6E72A25DB\"><span class=\"kind elementIndex\"><b>Table 3</b></span></span> ). Cognitive deficits have been reported to be inversely associated with plasma DβH (pDβH) activity in patients with schizophrenia. DβH has been shown to be involved in mood regulation and attention deficits. Also, the <i>DβH</i> knockout mice are unable to synthesis NE that is involved with cognitive deficits. Several studies have shown that <i>DβH</i> genetic variants are associated with cognitive deficits. For example, it has been found that <i>DβH</i> 5’-1021C/T polymorphism is involved in executive performance in children and adolescents with attention-deficit/hyperactivity disorder (ADHD). It is also involved in attention abnormality for neural facial expression and sustained attention in the healthy population. Other <i>DβH</i> genetic variants are reported to contribute to sustained attention deficits in ADHD and spatial working memory deficits in the healthy population. Taken together, these results support that <i>DβH</i> genetic variants might be associated with cognitive function in suicide attempters with chronic schizophrenia.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:70A3C499-3761-45E5-8066-37E3D4EFF675",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containedObjectID": "MPTable:15230081-E230-4D1C-9C41-F93ACA31EA9C",
+      "tableElementFooterID": "MPTableElementFooter:DAB8A0B1-59D2-4656-B2D9-2EE8EF461810",
+      "caption": "",
+      "title": "PHQ-9 Item Mean Scores per Profile ( <i>N</i>  = 499)",
+      "elementType": "table",
+      "listingID": "MPListing:85453F3E-7D93-459B-BF43-AC8CD1CE228A",
+      "suppressFooter": true,
+      "_id": "MPTableElement:8EE8C5B4-D10A-4C38-BF53-0AA941F251B0",
+      "objectType": "MPTableElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "contents": "<table xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPTableElement:8EE8C5B4-D10A-4C38-BF53-0AA941F251B0\" class=\"MPElement\" data-contained-object-id=\"MPTable:15230081-E230-4D1C-9C41-F93ACA31EA9C\"><colgroup><col width=\"12.12%\" /><col width=\"2.08%\" /><col width=\"19.58%\" /><col width=\"26.32%\" /><col width=\"18.57%\" /><col width=\"21.33%\" /></colgroup><thead style=\"display: table-header-group;\"><tr><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"col\" style=\"border-top: solid 0.50pt\">PHQ Items</th><th data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" scope=\"col\" style=\"border-top: solid 0.50pt\"></th><th colspan=\"4\" data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"colgroup\" style=\"border-top: solid 0.50pt\">Profiles of Depression from LPA Model</th></tr><tr><th data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" scope=\"col\" style=\"border-bottom: solid 0.50pt\"></th><th data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" scope=\"col\" style=\"border-bottom: solid 0.50pt\"></th><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"col\" style=\"border-bottom: solid 0.50pt\">1 - Mild depression <br /> ( <i>n</i>  = 104, 20.8%)</th><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"col\" style=\"border-bottom: solid 0.50pt\">2 - Moderate/ somatization <br /> ( <i>n</i>  = 183, 36.7%)</th><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"justify\" scope=\"col\" style=\"border-bottom: solid 0.50pt\">3 - Moderate/ <br /> negative self-view <br /> ( <i>n</i>  = 72, 14.4%)</th><th data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"col\" style=\"border-bottom: solid 0.50pt\">4 - Severe depression <br /> ( <i>n</i>  = 140, 28.1%)</th></tr></thead><tbody><tr><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"row\" style=\"border-top: solid 0.50pt\">1</td><td data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" style=\"border-top: solid 0.50pt\"></td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" style=\"border-top: solid 0.50pt\">1.71</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" style=\"border-top: solid 0.50pt\">2.09</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" style=\"border-top: solid 0.50pt\">2.00</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" style=\"border-top: solid 0.50pt\">2.59</td></tr><tr><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"row\">2</td><td data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\"></td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\">1.90</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\">1.96</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\">2.04</td><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\">2.59</td></tr><tr><td data-placeholder-text=\"Data\" valign=\"middle\" align=\"center\" scope=\"row\" style=\"border-bottom: solid 0.50pt\">Total</td><td data-placeholder-text=\"Data\" class=\"placeholder\" valign=\"middle\" align=\"left\" style=\"border-bottom: solid 0.50pt\"></td><td data-placeholder-text=\"Data\" valign=\"top\" align=\"center\" style=\"border-bottom: solid 0.50pt\">12.96</td><td data-placeholder-text=\"Data\" valign=\"top\" align=\"center\" style=\"border-bottom: solid 0.50pt\">15.95</td><td data-placeholder-text=\"Data\" valign=\"top\" align=\"center\" style=\"border-bottom: solid 0.50pt\">15.42</td><td data-placeholder-text=\"Data\" valign=\"top\" align=\"center\" style=\"border-bottom: solid 0.50pt\">21.49</td></tr></tbody><tfoot style=\"display: none;\"><tr><td data-placeholder-text=\"Data\" class=\"placeholder\"></td></tr></tfoot></table>",
+      "_id": "MPTable:15230081-E230-4D1C-9C41-F93ACA31EA9C",
+      "objectType": "MPTable",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "containedObjectIDs": [
+        "MPParagraphElement:95184B60-8B2A-4CD0-A2B2-3F727B1AA790",
+        "MPParagraphElement:669C8F17-3C05-4423-9DFD-8264A488AB59",
+        "MPParagraphElement:685CA333-1635-44DC-833D-07CFFDD621B5"
+      ],
+      "_id": "MPTableElementFooter:DAB8A0B1-59D2-4656-B2D9-2EE8EF461810",
+      "objectType": "MPTableElementFooter",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:95184B60-8B2A-4CD0-A2B2-3F727B1AA790\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">This table-wrap-foot only has some ps. There is probably some extraneous information in this table that this table-wrap-foot paragraph is trying to tell us about, but really I'm unsure of what we are expecting here, or how the Editor will currently handle it.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:95184B60-8B2A-4CD0-A2B2-3F727B1AA790",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:669C8F17-3C05-4423-9DFD-8264A488AB59\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">this is the second table-wrap-foot p.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:669C8F17-3C05-4423-9DFD-8264A488AB59",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:685CA333-1635-44DC-833D-07CFFDD621B5\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">This quick brown fox jumped into the third p of this table-wrap-foot and ate some biscuits.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:685CA333-1635-44DC-833D-07CFFDD621B5",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "contents": "",
+      "languageKey": "null",
+      "_id": "MPListing:85453F3E-7D93-459B-BF43-AC8CD1CE228A",
+      "objectType": "MPListing",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:081A0AEE-674D-467B-A1D5-F6D528C66559\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">A 19-bp insertion/deletion polymorphism localized 4.5kb from <i>DβH</i> 5’ flank transcriptional starting site on chromosome 9q34 is named <i>DβH</i> 5’-Ins/Del polymorphism. It is a functional locus, which has been reported to influence DβH activity. The pDβH activity in individuals with <i>DβH</i> 5’-Del/Del is only half of those in individuals with <i>DβH</i> 5’-Ins/Ins. Previous studies have indicated that this polymorphism is associated with cognitive abnormality in older women, average reaction response time in Chinese females, attention bias for negative faces in the young subjects, and post-error slowing in the young Caucasian healthy adults that are correlated with suicidal behavior. <i>DβH</i> haplotype (consisting of <i>DβH</i> 5’-del allele and 11 allele of GT <sub>n</sub> repeats) is linked to suicide attempts in schizophrenia. Interestingly, <i>DβH</i> 5’-Ins/Del polymorphism is implicated in attention in patients with chronic schizophrenia. Taken together, these results suggest that this polymorphism might be involved in cognitive regulation and the development of suicide attempts in chronic schizophrenia. However, no studies have examined <i>DβH</i> 5’-Ins/Del polymorphism in relation to cognitive function and the development of suicide attempts in chronic schizophrenia. Thus, the objectives of this study are to examine whether <i>DβH</i> 5’-Ins/Del polymorphism influences cognitive regulation, and further contributes to the development of suicide attempts in chronic schizophrenia.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:081A0AEE-674D-467B-A1D5-F6D528C66559",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:materials-method",
+      "priority": 6,
+      "title": "METHODS",
+      "path": [
+        "MPSection:AFBE7F41-97E9-400A-9123-2F4838C0E554",
+        "MPSection:0584EACC-1335-4DF7-A7B0-56A19D89F77B"
+      ],
+      "elementIDs": [],
+      "_id": "MPSection:0584EACC-1335-4DF7-A7B0-56A19D89F77B",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "priority": 7,
+      "title": "Subjects",
+      "path": [
+        "MPSection:AFBE7F41-97E9-400A-9123-2F4838C0E554",
+        "MPSection:0584EACC-1335-4DF7-A7B0-56A19D89F77B",
+        "MPSection:F3728B8B-998C-4857-8690-C5B4B09CB8F8"
+      ],
+      "elementIDs": [
+        "MPParagraphElement:56F84526-C733-4FA1-8918-E1671C610502",
+        "MPParagraphElement:FF9D4B39-72FE-4C59-AC80-F890A40163A9"
+      ],
+      "_id": "MPSection:F3728B8B-998C-4857-8690-C5B4B09CB8F8",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:56F84526-C733-4FA1-8918-E1671C610502\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">731 patients with chronic schizophrenia (male = 615, female = 116) were enrolled from Beijing HuiLongGuan Hospital. The following inclusion criteria were applied: (a) 19–73 years of age; (b) DSM–IV diagnosis of schizophrenia; (c) length of illness longer than of 2 years; (d) receiving a stable dose of oral antipsychotics for more than 1 year; and (e) provided signed informed consent. Oral antipsychotics mainly included clozapine, perphenazine, risperidone, sulpiride, haloperidol and chlorpromazine. The mean dose of antipsychotics (as chlorpromazine equivalents) was 457.1 mg/days.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:56F84526-C733-4FA1-8918-E1671C610502",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:FF9D4B39-72FE-4C59-AC80-F890A40163A9\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">All patients were Han Chinese recruited from the Beijing area. Any patients with any abnormalities whatsoever were excluded, including cardiovascular disease, cerebrovascular disease, infections, cancer, unstable diabetes, uncontrolled hypertension, pregnancy, and drug or alcohol abuse. The Institutional Review Board, HuiLongGuan Hospital approved the protocol and informed consent of this study, and signed informed consent was obtained from each patient before recruitment.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:FF9D4B39-72FE-4C59-AC80-F890A40163A9",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "priority": 8,
+      "title": "Clinical and neuropsychological assessment",
+      "path": [
+        "MPSection:AFBE7F41-97E9-400A-9123-2F4838C0E554",
+        "MPSection:0584EACC-1335-4DF7-A7B0-56A19D89F77B",
+        "MPSection:E1373E61-7EC8-4E77-A6A1-2CFD9ADB0CFC"
+      ],
+      "elementIDs": [
+        "MPParagraphElement:328CA3AF-EE51-49A4-AA45-A7E1C08195B5",
+        "MPParagraphElement:B5E622A9-418F-49E1-B0C6-41D7A8A8A8CF",
+        "MPParagraphElement:B59C8730-733A-43F1-B44F-003279AF35AC"
+      ],
+      "_id": "MPSection:E1373E61-7EC8-4E77-A6A1-2CFD9ADB0CFC",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:328CA3AF-EE51-49A4-AA45-A7E1C08195B5\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">A detailed questionnaire included the social-demographic and clinical information, which was obtained from each patient and their available medical records.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:328CA3AF-EE51-49A4-AA45-A7E1C08195B5",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:B5E622A9-418F-49E1-B0C6-41D7A8A8A8CF\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Based on the World Health Organization (WHO) report, the outcome-based term “fatal suicide behavior” or “completed suicide” was proposed for the actions of suicide that caused death, and “non-fatal suicidal behavior” was for the actions of suicide that did not lead to death. Such actions were called “attempted suicide.” Hence, suicide attempt was defined as an intentionally self-destructive action that performed some intent to die, but not causing death in this study. During the interview, each patient was asked about the following details information: the attempts number, the method and date of each suicide attempt. “In your entire life, did you ever attempt suicide”? was asked. Afterwards, each patient was asked to say “yes” or “no.” The suicide attempts history was confirmed by the information of medical records or subject (s) relatives.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:B5E622A9-418F-49E1-B0C6-41D7A8A8A8CF",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:B59C8730-733A-43F1-B44F-003279AF35AC\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Cognition was assessed using the Repeatable Battery for the Assessment of Neuropsychological Status (RBANS, Form A). The detailed contents and assessing process of RBANS have been reported in previous studies of our research group.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:B59C8730-733A-43F1-B44F-003279AF35AC",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "priority": 9,
+      "title": "Genotyping",
+      "path": [
+        "MPSection:AFBE7F41-97E9-400A-9123-2F4838C0E554",
+        "MPSection:0584EACC-1335-4DF7-A7B0-56A19D89F77B",
+        "MPSection:B9302A07-4281-474D-8A35-743AFB71C6DC"
+      ],
+      "elementIDs": [
+        "MPParagraphElement:E589265D-C71F-449A-B31F-BEA03D4AE178"
+      ],
+      "_id": "MPSection:B9302A07-4281-474D-8A35-743AFB71C6DC",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:E589265D-C71F-449A-B31F-BEA03D4AE178\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">The genotype of <i>DβH</i> 5’-Ins/Del was identified by the same method as reported in our previous study. Two independent investigators who were blinded to the clinical information of subjects confirmed the genotype of this polymorphism. If the assignments of genotype that they confirmed were inconsistent, these samples would further be repeated.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:E589265D-C71F-449A-B31F-BEA03D4AE178",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "priority": 10,
+      "title": "Statistical analysis",
+      "path": [
+        "MPSection:AFBE7F41-97E9-400A-9123-2F4838C0E554",
+        "MPSection:0584EACC-1335-4DF7-A7B0-56A19D89F77B",
+        "MPSection:38A51C5B-25C3-4150-9302-DE3747DC94F0"
+      ],
+      "elementIDs": [
+        "MPParagraphElement:70AF17D3-C421-4AE4-B0F8-FF93393AB5E3",
+        "MPParagraphElement:EAFD036A-1E01-40AC-989A-0BDC6865B563",
+        "MPParagraphElement:F0C3F5D2-18C4-4011-AF62-6FB9E60C299A"
+      ],
+      "_id": "MPSection:38A51C5B-25C3-4150-9302-DE3747DC94F0",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:70AF17D3-C421-4AE4-B0F8-FF93393AB5E3\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">The Hardy–Weinberg equilibrium (HWE) for the genotype distributions of this polymorphism was examined using the program of HWSIM. The frequencies of this polymorphism allele and genotype were compared between suicide attempters and non-attempters with chronic schizophrenia by Chi Squared (χ <sup>2</sup> ) tests. The differences of the groups were compared by χ <sup>2</sup> for categorical variables, and one-way ANOVA (ANOVA) for continuous variables. Fisher’s least significant difference procedure performed post-hoc comparisons between the sub-groups. When ANOVA identified the differences in RBANS scores based on genotype grouping in each research group, the effects of demographic and clinical characters were examined by adding them to the analysis model as covariates.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:70AF17D3-C421-4AE4-B0F8-FF93393AB5E3",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:EAFD036A-1E01-40AC-989A-0BDC6865B563\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">For the main models, analyses of covariance (ANCOVA) were constructed. The <i>DβH</i> 5’-Ins/Del genotypes were considered as the independent variables, and RBANS scores, including RBANS total score, 5 subscale scores, and 12 subtests scores were considered as the dependent variables. Age, sex, education, age of the first hospitalization, age of onset, duration of illness, daily antipsychotic doses, and duration of current antipsychotics were considered as covariates.The main effects of genotype, diagnosis, and genotype x diagnosis were tested in each model. Stepwise multivariate analysis was further used to investigate the impacts of the variables on RBANS scores. SPSS 17.0 was performed for the statistical analysis.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:EAFD036A-1E01-40AC-989A-0BDC6865B563",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:F0C3F5D2-18C4-4011-AF62-6FB9E60C299A\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">The sample power was calculated by Quanto software that has been reported in previous study, with the frequencies of known risk allele, and the suicide attempt prevalence of 9.2% in schizophrenia, and examining dominant, recessive, and log additive models. The significance levels were set at 0.05.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:F0C3F5D2-18C4-4011-AF62-6FB9E60C299A",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:results",
+      "priority": 11,
+      "title": "RESULTS",
+      "path": [
+        "MPSection:AFBE7F41-97E9-400A-9123-2F4838C0E554",
+        "MPSection:6F1FF654-4DC2-4357-B83C-E3C068795BB0"
+      ],
+      "elementIDs": [
+        "MPParagraphElement:61AF50D8-A725-4F6C-B13B-19C1024AA480",
+        "MPParagraphElement:1CE4F143-EDD7-4F37-9B54-5C7EFA3F8A10",
+        "MPParagraphElement:826B51DF-4A3C-4DD2-927E-179D966E83A4",
+        "MPParagraphElement:9795FBF8-FA9A-4BC5-A679-10FDFD07DF41"
+      ],
+      "_id": "MPSection:6F1FF654-4DC2-4357-B83C-E3C068795BB0",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:61AF50D8-A725-4F6C-B13B-19C1024AA480\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">The comparisons of demographic, clinical and DβH polymorphism data between suicide attempters and non-attempters with chronic schizophrenia are summarized in the ether. Two groups differed significantly in the duration of illness ( <i>F</i>  = 4.86, <i>p</i>  &lt; 0.05). The distributions of <i>DβH</i> 5’-Ins/Del genotypes were consistent with HWE in suicide attempters group or suicide non-attempters group (both, <i>p</i>  &gt; 0.05). A significant difference in <i>DβH</i> allele distribution was found between two groups (χ <sup>2</sup>  = 3.92, df = 1, <i>p</i>  &lt; 0.05), but no difference in <i>DβH</i> genotype distribution (χ <sup>2</sup>  = 4.60, df = 2, <i>p</i>  = 0.10). After controlling for age and sex, there were no significant differences in <i>DβH</i> allele and genotype distributions between two groups (both, <i>p</i>  &gt; 0.05).</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:61AF50D8-A725-4F6C-B13B-19C1024AA480",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:1CE4F143-EDD7-4F37-9B54-5C7EFA3F8A10\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">The RBANS data was available for 87 suicide attempters and 449 non-suicide attempters with chronic schizophrenia. The RBANS total and subscores in suicide attempters versus non-attempters with chronic schizophrenia grouped by DβH 5’-Ins/Del genotype are summarized in the ether. There were no significant differences in RBANS scores between two groups (all, <i>p</i>  &gt; 0.05). The interaction role between DβH genotype and diagnosis did not influence RBANS scores in all patients (all, <i>p</i>  &gt; 0.05). However, there were significant differences in attention and semantic fluency scores among three groups (all patients with Del/Del, all patients with Ins/Del and all patients with Ins/Ins) ( <i>F</i>  = 3.96, <i>p</i>  = 0.02; <i>F</i>  = 3.98, <i>p</i>  = 0.02). Further analysis found that the comparisons of RBANS scores were still not difference between two groups (all, <i>p</i>  &gt; 0.05) as well as no effect of genotype x diagnosis on RBANS scores in all patients (all, <i>p</i>  &gt; 0.05) after adjusting for the confounding variables. However, there was a significant difference in attention score among genotype grouping in suicide attempters ( <i>F</i>  = 3.73, <i>p</i>  = 0.03) as well as this difference also was found in non-suicide attempters ( <i>F</i>  = 3.00, <i>p</i>  = 0.04) after adjusting for the confounding variables.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:1CE4F143-EDD7-4F37-9B54-5C7EFA3F8A10",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:826B51DF-4A3C-4DD2-927E-179D966E83A4\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Stepwise multivariate regression analysis identified that the variables including genotype of this polymorphism (β = 5.74, <i>t</i>  = −2.62, <i>p</i>  = 0.01), and sex ((β = 25.74, <i>t</i>  = 5.17, <i>p</i>  &lt; 0.001) were independently related to attention score in suicide attempters with chronic schizophrenia, with R <sup>2</sup>  = 34.9. The variables including sex (β = 7.13, <i>t</i>  = 2.82, <i>p</i>  = 0.01), education (β = 0.61, <i>t</i>  = 3.76, <i>p</i>  &lt; 0.001), age of the first hospitalization (β = 0.66, <i>t</i>  = 5.06, <i>p</i>  &lt; 0.001), and daily antipsychotic dose (β = 0.003, <i>t</i>  = 1.98, <i>p</i>  = 0.05) contributed to attention score in non-suicide attempters with chronic schizophrenia, with R <sup>2</sup>  = 14.3.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:826B51DF-4A3C-4DD2-927E-179D966E83A4",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:9795FBF8-FA9A-4BC5-A679-10FDFD07DF41\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">This sample had 0.78–0.99 statistical power to detect this polymorphism associated with suicide attempts in chronic schizophrenia through three models, with a genetic effect of 2.0 (a = 0.05, two-tailed test).</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:9795FBF8-FA9A-4BC5-A679-10FDFD07DF41",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:discussion",
+      "priority": 12,
+      "title": "DISCUSSION",
+      "path": [
+        "MPSection:AFBE7F41-97E9-400A-9123-2F4838C0E554",
+        "MPSection:B2B7EE3E-766C-498A-88CD-698624931D59"
+      ],
+      "elementIDs": [
+        "MPParagraphElement:8F3CD149-BE14-4C5D-A45E-BB6D09AB8B48",
+        "MPParagraphElement:3E835C40-D346-4DD5-BFF5-2567DEA554E6",
+        "MPParagraphElement:1967C87A-8C60-4B48-841B-79CA7A709E62",
+        "MPParagraphElement:47E73E08-77C6-4CA8-9694-AE9A1D2034A8",
+        "MPParagraphElement:9F88177E-3E41-40FD-B800-12E00CE65B68"
+      ],
+      "_id": "MPSection:B2B7EE3E-766C-498A-88CD-698624931D59",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:8F3CD149-BE14-4C5D-A45E-BB6D09AB8B48\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">To our knowledge, it is the first study to investigate the relationships among <i>DβH</i> 5’-Ins/Del polymorphism, cognition and suicide attempts in chronic schizophrenia. We found that this polymorphism was significantly associated with attention function in suicide attempters with chronic schizophrenia. However, this polymorphism was not a risk genetic locus for suicide attempts in chronic schizophrenia and there were no significant differences in cognitive function between two groups.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:8F3CD149-BE14-4C5D-A45E-BB6D09AB8B48",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:3E835C40-D346-4DD5-BFF5-2567DEA554E6\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Our finding showed that <i>DβH</i> 5’-Ins/Del polymorphism might not directly contribute to suicide attempts in patients with chronic schizophrenia. This finding was consistent with a study reporting that this polymorphism did not play a role in suicide attempts with chronic schizophrenia in the European population. Another study has reported that <i>DβH</i> rs2519152 polymorphism was not related to suicide attempts in subjects with psychiatric disorders. Any one of these <i>DβH</i> polymorphisms, such as rs1611115, rs1108580, rs2519152 and rs129882 was not significantly associated with suicidal behavior in alcohol-dependent patients. However, the <i>DβH</i> haplotype including <i>DβH</i> 5’-del allele was reported to influence suicide attempts in chronic schizophrenia. Also, a study supported a significant relationship between <i>DβH</i> haplotype (including rs1611115, rs1108580, rs2519152 and rs129882) and suicidal behavior in alcohol-dependent patients. These results suggested that further studies investigating <i>DβH</i> haplotype associated with suicide attempts in chronic schizophrenia are warranted.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:3E835C40-D346-4DD5-BFF5-2567DEA554E6",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:1967C87A-8C60-4B48-841B-79CA7A709E62\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">This study found no significant differences in all cognitive domains between both groups, which was consistent with the findings of two previous studies. However, higher cognitive function may increase the suicide risk in patients with schizophrenia. Another study also indicated that individuals with higher executive performance were more likely to perform the plan of their suicide. We still could not provide a reasonable explanation for these inconsistent findings of cognitive performance in suicide attempts with schizophrenia. Several factors including age, sex, education, body mass index, smoking status, age of onset, age of the first hospitalization, duration of illness, antipsychotic information, genetic background and the difference in cognitive assessment instruments may be responsible for these discrepancies, which deserves future investigation.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:1967C87A-8C60-4B48-841B-79CA7A709E62",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:47E73E08-77C6-4CA8-9694-AE9A1D2034A8\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Interestingly, this study also found that <i>DβH</i> 5’-Ins/Del polymorphism was related to attention function in suicide attempters with chronic schizophrenia. The underlying mechanism responsible for <i>DβH</i> 5’-Ins/Del polymorphism influenced on attention function could reflect the variables of <i>DβH</i> transcriptional activity and alter the balance of DA and NE in the relevant brain regions. This mechanism was consistent with poorer cognitive function in elderly women and patients with chronic schizophrenia. A study has found that the interaction between <i>DβH</i> 5’-Ins/Del polymorphism and the variants of monoamine oxidase A significantly influenced attention performance for the expression of negative face in the young Han population. Previous studies also indicated the effect of <i>DβH</i> 5’-1021C/T polymorphism on attention bias for the expression of neural face and sustained attention in the healthy subjects. The other variants in <i>DβH</i> gene also were reported to influence attention deficits in children ADHD. DβH was in charge of conversion of DA to NE that also was closely associated with the regulation of attention function. These findings further supported that <i>DβH</i> 5’-Ins/Del polymorphism might be involved in the regulation of attention in the suicide attempters with chronic schizophrenia.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:47E73E08-77C6-4CA8-9694-AE9A1D2034A8",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:9F88177E-3E41-40FD-B800-12E00CE65B68\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">This study had several limitations. Firstly, due to limited resources, it was very difficult for us to recruit a large sample of suicide attempters with chronic schizophrenia, which may cause the bias of our findings in the statistical analysis. Hence, our findings need to be replicated in a larger and matched sample. Secondly, only a functional single nucleotide ( <i>DβH</i> 5’-Ins/Del) polymorphism was tested. Further studies will investigate other <i>DβH</i> functional polymorphisms and haplotypes whether all of which were involved in cognitive regulation, and were associated with suicide attempts in chronic schizophrenia. Finally, although we performed quality controls, genotype misclassification was still possible. These factors related to cognitive performance and suicide behavior in chronic schizophrenia should be considered in future studies.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:9F88177E-3E41-40FD-B800-12E00CE65B68",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:conclusions",
+      "priority": 13,
+      "title": "CONCLUSIONS",
+      "path": [
+        "MPSection:AFBE7F41-97E9-400A-9123-2F4838C0E554",
+        "MPSection:DA385B01-CBC8-4088-8A14-F74F19103F0A"
+      ],
+      "elementIDs": [
+        "MPParagraphElement:170420E6-5B02-4963-B775-1A9BF73C23FD"
+      ],
+      "_id": "MPSection:DA385B01-CBC8-4088-8A14-F74F19103F0A",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:170420E6-5B02-4963-B775-1A9BF73C23FD\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">This study indicated that <i>DβH</i> 5’-Ins/Del polymorphism might not influence suicide attempts in chronic schizophrenia, and cognitive function in suicide attempters is similar to that in non-suicide attempters with chronic schizophrenia. However, this polymorphism might contribute to the regulation of attention in suicide attempters with chronic schizophrenia. Moreover, these findings remain preliminary, which need to be replicated in the larger and matched sample of the different ethnicities.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:170420E6-5B02-4963-B775-1A9BF73C23FD",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:backmatter",
+      "priority": 14,
+      "title": "",
+      "path": [
+        "MPSection:66D76FE6-C4F4-4C7D-A286-4417E62C54F0"
+      ],
+      "elementIDs": [],
+      "_id": "MPSection:66D76FE6-C4F4-4C7D-A286-4417E62C54F0",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:competing-interests",
+      "priority": 15,
+      "title": "CONFLICT OF INTEREST",
+      "path": [
+        "MPSection:66D76FE6-C4F4-4C7D-A286-4417E62C54F0",
+        "MPSection:3A632B9D-3319-4912-8E71-8D28214EE49F"
+      ],
+      "elementIDs": [
+        "MPParagraphElement:B8E9666B-D7E8-4CAE-97A6-E447471B95D2"
+      ],
+      "_id": "MPSection:3A632B9D-3319-4912-8E71-8D28214EE49F",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:B8E9666B-D7E8-4CAE-97A6-E447471B95D2\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">No conflicts of interest have been declared.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:B8E9666B-D7E8-4CAE-97A6-E447471B95D2",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:financial-disclosure",
+      "priority": 16,
+      "title": "FUNDING INFORMATION",
+      "path": [
+        "MPSection:66D76FE6-C4F4-4C7D-A286-4417E62C54F0",
+        "MPSection:A7504A35-B2AF-4DFF-8C40-844E4AC93C37"
+      ],
+      "elementIDs": [
+        "MPParagraphElement:3FAF0DD6-D019-4510-BABE-5BED1E56E35B"
+      ],
+      "_id": "MPSection:A7504A35-B2AF-4DFF-8C40-844E4AC93C37",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:3FAF0DD6-D019-4510-BABE-5BED1E56E35B\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:3FAF0DD6-D019-4510-BABE-5BED1E56E35B",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:acknowledgement",
+      "priority": 17,
+      "title": "ACKNOWLEDGMENTS",
+      "path": [
+        "MPSection:66D76FE6-C4F4-4C7D-A286-4417E62C54F0",
+        "MPSection:39519F47-DFBA-4C5C-B5FE-4C735B03FAD7"
+      ],
+      "elementIDs": [
+        "MPParagraphElement:AC9213DF-FA2E-4B34-A67C-902219C45B54"
+      ],
+      "_id": "MPSection:39519F47-DFBA-4C5C-B5FE-4C735B03FAD7",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "p",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:AC9213DF-FA2E-4B34-A67C-902219C45B54\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">We should like to thank Dr. Da Chun Chen, Zhi Ren Wang, Jia Li, Song Chen, and Gui Gang Yang for all of their hark work and significant contributions toward this work.</p>",
+      "placeholderInnerHTML": "",
+      "_id": "MPParagraphElement:AC9213DF-FA2E-4B34-A67C-902219C45B54",
+      "objectType": "MPParagraphElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "category": "MPSectionCategory:bibliography",
+      "priority": 18,
+      "title": "REFERENCES",
+      "path": [
+        "MPSection:66D76FE6-C4F4-4C7D-A286-4417E62C54F0",
+        "MPSection:E560D6C4-AB56-4E2B-93A9-74C3AC74E586"
+      ],
+      "elementIDs": [
+        "MPBibliographyElement:6A093772-F8A9-4E6F-A458-EB69E9C9C714"
+      ],
+      "_id": "MPSection:E560D6C4-AB56-4E2B-93A9-74C3AC74E586",
+      "objectType": "MPSection",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "elementType": "div",
+      "contents": "",
+      "containedObjectIDs": [
+        "MPBibliographyItem:68D04F69-1F03-482A-9A25-07D93E2A0B34",
+        "MPBibliographyItem:45106598-0D9A-441D-8943-F60BD7E1FE1A"
+      ],
+      "_id": "MPBibliographyElement:6A093772-F8A9-4E6F-A458-EB69E9C9C714",
+      "objectType": "MPBibliographyElement",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "type": "article-journal",
+      "author": [
+        {
+          "_id": "MPBibliographicName:26180C25-0E00-4DC9-A2C2-14F89EAB7160",
+          "objectType": "MPBibliographicName",
+          "given": "C.B.",
+          "family": "Caldwell"
+        },
+        {
+          "_id": "MPBibliographicName:A070B0C9-E000-412E-858A-587FE4F1B1D4",
+          "objectType": "MPBibliographicName",
+          "given": "I.I.",
+          "family": "Gottesman"
+        }
+      ],
+      "issued": {
+        "date-parts": [
+          [
+            "1992"
+          ]
+        ],
+        "_id": "MPBibliographicDate:FFC87FF6-A0D1-418D-AFF0-28A07D76E1B6",
+        "objectType": "MPBibliographicDate"
+      },
+      "container-title": "Suicide Life Threat Behav.",
+      "volume": "22",
+      "issue": "4",
+      "page": "479-493",
+      "title": "Schizophrenia-a high-risk factor for suicide: clues to risk reduction.",
+      "_id": "MPBibliographyItem:68D04F69-1F03-482A-9A25-07D93E2A0B34",
+      "objectType": "MPBibliographyItem",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "type": "article-journal",
+      "author": [
+        {
+          "_id": "MPBibliographicName:8D987588-ECFD-4A67-9920-E7A833C7BC64",
+          "objectType": "MPBibliographicName",
+          "given": "K.",
+          "family": "Hor"
+        },
+        {
+          "_id": "MPBibliographicName:0E9452C1-51CB-421C-A346-9FB176836743",
+          "objectType": "MPBibliographicName",
+          "given": "M.",
+          "family": "Taylor"
+        }
+      ],
+      "issued": {
+        "date-parts": [
+          [
+            "2010"
+          ]
+        ],
+        "_id": "MPBibliographicDate:464D07AA-5C41-4430-B7EF-7A007D9604C2",
+        "objectType": "MPBibliographicDate"
+      },
+      "container-title": "J Psychopharmacol.",
+      "DOI": "https://doi.org/10.1177/1359786810385490",
+      "volume": "24",
+      "issue": "4",
+      "supplement": "Suppl",
+      "page": "81-90",
+      "title": "Suicide and schizophrenia: a systematic review of rates and risk factors.",
+      "_id": "MPBibliographyItem:45106598-0D9A-441D-8943-F60BD7E1FE1A",
+      "objectType": "MPBibliographyItem",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPAuxiliaryObjectReference:F56D6892-3875-43BE-8FED-EF888C5595CB",
+      "objectType": "MPAuxiliaryObjectReference",
+      "referencedObject": "MPTableElement:F7C363A3-E258-4BE7-8D1C-80604CB2557B",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPCitation:8B680C5E-D6D1-418E-AE1A-A5CAD9429B71",
+      "objectType": "MPCitation",
+      "embeddedCitationItems": [
+        {
+          "_id": "MPCitationItem:E80931C5-6273-498A-B506-8C92F6776B27",
+          "objectType": "MPCitationItem",
+          "bibliographyItem": "MPBibliographyItem:45106598-0D9A-441D-8943-F60BD7E1FE1A"
+        }
+      ],
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPCitation:54D3CB61-EB13-44B5-A1BD-19737F5B8ADE",
+      "objectType": "MPCitation",
+      "embeddedCitationItems": [
+        {
+          "_id": "MPCitationItem:2F0DC336-663B-43A8-B64F-A671E47E1DE3",
+          "objectType": "MPCitationItem",
+          "bibliographyItem": "MPBibliographyItem:68D04F69-1F03-482A-9A25-07D93E2A0B34"
+        }
+      ],
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPAuxiliaryObjectReference:8D8D15C7-E4E3-4580-A5E4-799AD74C4A36",
+      "objectType": "MPAuxiliaryObjectReference",
+      "referencedObject": "MPTableElement:46722735-59E0-49B3-A45B-AFDFE8694ADB",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPAuxiliaryObjectReference:8F31A0BB-00B4-4A73-AA3A-7AF6E72A25DB",
+      "objectType": "MPAuxiliaryObjectReference",
+      "referencedObject": "MPTableElement:8EE8C5B4-D10A-4C38-BF53-0AA941F251B0",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPElementsOrder:470F3D00-C1D9-45F1-B366-85DA06741215",
+      "objectType": "MPElementsOrder",
+      "elementType": "MPTableElement",
+      "elements": [
+        "MPTableElement:F7C363A3-E258-4BE7-8D1C-80604CB2557B",
+        "MPTableElement:46722735-59E0-49B3-A45B-AFDFE8694ADB",
+        "MPTableElement:8EE8C5B4-D10A-4C38-BF53-0AA941F251B0"
+      ],
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPFootnotesOrder:C57A934D-1AEB-422F-86CE-B28B0C9A9857",
+      "objectType": "MPFootnotesOrder",
+      "footnotesList": [
+        {
+          "index": 0,
+          "id": "MPFootnote:81EEFC2B-87C8-48E5-BAD9-D9207EF8896C"
+        },
+        {
+          "index": 1,
+          "id": "MPFootnote:F5DCE55F-8CF4-44A6-AD89-E8C492D41710"
+        }
+      ],
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPCommentAnnotation:1F1D21DA-E1E3-4E99-973C-AB5ECAF7FE39",
+      "objectType": "MPCommentAnnotation",
+      "target": "MPParagraphElement:70B45789-20F9-40B9-A293-6CEE257BCEFC",
+      "selector": {
+        "from": 1014,
+        "to": 1014
+      },
+      "contents": "No table matches the in-text citation                 \"Table 1\". Please supply the missing table or delete the citation.",
+      "contributions": [
+        {
+          "_id": "MPContribution:EDA736E9-38B2-451A-9939-435B0B3703A0",
+          "objectType": "MPContribution",
+          "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
+          "timestamp": 1694452224
+        }
+      ],
+      "annotationColor": "rgb(250, 224, 150)",
+      "createdAt": 1694452224865,
+      "updatedAt": 1694452224865,
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
+    }
+  ]
+}
