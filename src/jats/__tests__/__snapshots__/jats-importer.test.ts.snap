@@ -680,6 +680,7 @@ Array [
     "containedObjectIDs": Array [
       "MPBibliographyItem:test",
       "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
     ],
     "contents": "",
     "elementType": "div",
@@ -717,6 +718,41 @@ Array [
     "title": "Schizophrenia-a high-risk factor for suicide: clues to risk reduction.",
     "type": "article-journal",
     "volume": "22",
+  },
+  Object {
+    "DOI": "https://doi.org/10.1177/1359786810385490",
+    "_id": "MPBibliographyItem:test",
+    "author": Array [
+      Object {
+        "_id": "MPBibliographicName:test",
+        "family": "Hor",
+        "given": "K.",
+        "objectType": "MPBibliographicName",
+      },
+      Object {
+        "_id": "MPBibliographicName:test",
+        "family": "Taylor",
+        "given": "M.",
+        "objectType": "MPBibliographicName",
+      },
+    ],
+    "container-title": "J Psychopharmacol.",
+    "issue": "4",
+    "issued": Object {
+      "_id": "MPBibliographicDate:test",
+      "date-parts": Array [
+        Array [
+          "2010",
+        ],
+      ],
+      "objectType": "MPBibliographicDate",
+    },
+    "objectType": "MPBibliographyItem",
+    "page": "81-90",
+    "supplement": "Suppl",
+    "title": "Suicide and schizophrenia: a systematic review of rates and risk factors.",
+    "type": "article-journal",
+    "volume": "24",
   },
   Object {
     "DOI": "https://doi.org/10.1177/1359786810385490",
@@ -793,6 +829,21 @@ Array [
       "to": 827,
     },
     "target": "MPParagraphElement:test",
+  },
+  Object {
+    "_id": "MPCommentAnnotation:test",
+    "annotationColor": "rgb(250, 224, 150)",
+    "contents": "CrossRef reports the issue should be \\"4_suppl\\", not \\"4\\". (Ref. \\"Hor, Taylor, 2010\\")",
+    "contributions": Array [
+      Object {
+        "_id": "MPContribution:test",
+        "objectType": "MPContribution",
+        "profileID": "MPUserProfile:test",
+        "timestamp": 1111111111,
+      },
+    ],
+    "objectType": "MPCommentAnnotation",
+    "target": "MPBibliographyItem:test",
   },
   Object {
     "_id": "MPCommentAnnotation:test",
