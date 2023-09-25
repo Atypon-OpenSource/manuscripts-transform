@@ -700,11 +700,8 @@ const encoders: NodeEncoderMap = {
   }),
   table_element: (node): Partial<TableElement> => ({
     containedObjectID: attributeOfNodeType(node, 'table', 'id'),
-    tableElementFooterID: attributeOfNodeType(
-      node,
-      'table_element_footer',
-      'id'
-    ),
+    tableElementFooterID:
+      attributeOfNodeType(node, 'table_element_footer', 'id') || undefined,
     caption: inlineContentOfChildNodeType(
       node,
       node.type.schema.nodes.figcaption,
