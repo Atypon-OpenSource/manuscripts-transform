@@ -28,6 +28,7 @@ import { Element as XMLElement, parseXml } from 'libxmljs2'
 
 import projectDump from '../../__tests__/data/project-dump.json'
 import projectDumpWithCitations from '../../__tests__/data/project-dump-2.json'
+import projectDumpWithTableElementFooters from '../../__tests__/data/project-dump-6.json'
 import {
   findManuscript,
   isManuscript,
@@ -41,6 +42,8 @@ import { readFixture } from './files'
 
 const input = projectDump as ProjectBundle
 const inputWithCitations = projectDumpWithCitations as ProjectBundle
+const inputWithTableElementFooters =
+  projectDumpWithTableElementFooters as ProjectBundle
 
 const cloneProjectBundle = (input: ProjectBundle): ProjectBundle =>
   JSON.parse(JSON.stringify(input))
@@ -212,6 +215,29 @@ describe('JATS exporter', () => {
     )
 
     expect(abstractGraphical).not.toBeUndefined()
+  })
+  test('export table-wrap-foot', async () => {
+    const projectBundle = cloneProjectBundle(inputWithTableElementFooters)
+    const { doc, modelMap } = parseProjectBundle(projectBundle)
+
+    const transformer = new JATSExporter()
+    const manuscript = findManuscript(modelMap)
+    const xml = await transformer.serializeToJATS(
+      doc.content,
+      modelMap,
+      manuscript._id
+    )
+
+    const resultDoc = parseXMLWithDTD(xml)
+    const tableWrapFoot = resultDoc.get('//table-wrap/table-wrap-foot')
+    const fnGroup = resultDoc.get('//table-wrap/table-wrap-foot/fn-group')
+    const fn = resultDoc.get('//table-wrap/table-wrap-foot/fn-group/fn')
+    const paragraph = resultDoc.get('//table-wrap/table-wrap-foot/p')
+
+    expect(tableWrapFoot).not.toBeUndefined()
+    expect(fnGroup).not.toBeUndefined()
+    expect(fn).not.toBeUndefined()
+    expect(paragraph).not.toBeUndefined()
   })
 
   test('export table rowspan & colspan & multiple headers', async () => {
