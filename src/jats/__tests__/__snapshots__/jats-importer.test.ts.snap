@@ -5596,15 +5596,6 @@ Object {
                     "dataTracked": null,
                     "paragraphStyle": "",
                   },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "label": "",
-                      },
-                      "type": "placeholder",
-                    },
-                  ],
                   "type": "bibliography_element",
                 },
               ],
