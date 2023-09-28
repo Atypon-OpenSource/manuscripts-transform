@@ -211,6 +211,8 @@ export class Decoder {
     [ObjectTypes.BibliographyItem]: (data) => {
       const model = data as BibliographyItem
 
+      const commentNodes = this.createCommentsNode(model)
+      commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
       return schema.nodes.bibliography_item.create({
         id: model._id,
         type: model.type,
@@ -224,6 +226,7 @@ export class Decoder {
         page: model.page,
         title: model.title,
         literal: model.literal,
+        comments: commentNodes.map((c) => c.attrs.id),
       }) as BibliographyItemNode
     },
     [ExtraObjectTypes.PlaceholderElement]: (data) => {
@@ -458,6 +461,7 @@ export class Decoder {
             {
               topNode: schema.nodes.ordered_list.create({
                 id: model._id,
+                listStyleType: model.listStyleType,
                 paragraphStyle: model.paragraphStyle,
                 comments: commentNodes.map((c) => c.attrs.id),
               }),
