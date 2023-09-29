@@ -39,9 +39,9 @@ export const contributor: NodeSpec = {
     role: { default: '' },
     affiliations: { default: [] },
     bibliographicName: { default: {} },
-    userID: { default: '' },
-    invitationID: { default: '' },
+    userID: { default: undefined },
+    invitationID: { default: undefined },
     isCorresponding: { default: undefined },
-    ORCIDIdentifier: { default: '' },
+    ORCIDIdentifier: { default: undefined },
   },
 }
