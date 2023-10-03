@@ -1193,7 +1193,11 @@ export class JATSExporter {
         graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', '')
         return graphic
       },
-      ordered_list: () => ['list', { 'list-type': 'order' }, 0],
+      ordered_list: (node) => [
+        'list',
+        { 'list-type': node.attrs.listStyleType ?? 'order' },
+        0,
+      ],
       paragraph: (node) => {
         if (!node.childCount) {
           return ''

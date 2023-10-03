@@ -680,6 +680,7 @@ Array [
     "containedObjectIDs": Array [
       "MPBibliographyItem:test",
       "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
     ],
     "contents": "",
     "elementType": "div",
@@ -717,6 +718,41 @@ Array [
     "title": "Schizophrenia-a high-risk factor for suicide: clues to risk reduction.",
     "type": "article-journal",
     "volume": "22",
+  },
+  Object {
+    "DOI": "https://doi.org/10.1177/1359786810385490",
+    "_id": "MPBibliographyItem:test",
+    "author": Array [
+      Object {
+        "_id": "MPBibliographicName:test",
+        "family": "Hor",
+        "given": "K.",
+        "objectType": "MPBibliographicName",
+      },
+      Object {
+        "_id": "MPBibliographicName:test",
+        "family": "Taylor",
+        "given": "M.",
+        "objectType": "MPBibliographicName",
+      },
+    ],
+    "container-title": "J Psychopharmacol.",
+    "issue": "4",
+    "issued": Object {
+      "_id": "MPBibliographicDate:test",
+      "date-parts": Array [
+        Array [
+          "2010",
+        ],
+      ],
+      "objectType": "MPBibliographicDate",
+    },
+    "objectType": "MPBibliographyItem",
+    "page": "81-90",
+    "supplement": "Suppl",
+    "title": "Suicide and schizophrenia: a systematic review of rates and risk factors.",
+    "type": "article-journal",
+    "volume": "24",
   },
   Object {
     "DOI": "https://doi.org/10.1177/1359786810385490",
@@ -793,6 +829,21 @@ Array [
       "to": 827,
     },
     "target": "MPParagraphElement:test",
+  },
+  Object {
+    "_id": "MPCommentAnnotation:test",
+    "annotationColor": "rgb(250, 224, 150)",
+    "contents": "CrossRef reports the issue should be \\"4_suppl\\", not \\"4\\". (Ref. \\"Hor, Taylor, 2010\\")",
+    "contributions": Array [
+      Object {
+        "_id": "MPContribution:test",
+        "objectType": "MPContribution",
+        "profileID": "MPUserProfile:test",
+        "timestamp": 1111111111,
+      },
+    ],
+    "objectType": "MPCommentAnnotation",
+    "target": "MPBibliographyItem:test",
   },
   Object {
     "_id": "MPCommentAnnotation:test",
@@ -911,14 +962,16 @@ Array [
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol>",
+    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol>",
     "elementType": "ol",
+    "listStyleType": "order",
     "objectType": "MPListElement",
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list<ol id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ol>",
+    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ol>",
     "elementType": "ol",
+    "listStyleType": "order",
     "objectType": "MPListElement",
   },
   Object {
@@ -929,7 +982,7 @@ Array [
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ol id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ul>",
+    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ul>",
     "elementType": "ul",
     "objectType": "MPListElement",
   },
@@ -989,7 +1042,6 @@ Array [
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
-    "tableElementFooterID": "",
   },
   Object {
     "_id": "MPTable:test",
@@ -11198,14 +11250,16 @@ Array [
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol>",
+    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol>",
     "elementType": "ol",
+    "listStyleType": "order",
     "objectType": "MPListElement",
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list<ol id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ol>",
+    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ol>",
     "elementType": "ol",
+    "listStyleType": "order",
     "objectType": "MPListElement",
   },
   Object {
@@ -11216,7 +11270,7 @@ Array [
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ol id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ul>",
+    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ul>",
     "elementType": "ul",
     "objectType": "MPListElement",
   },
@@ -11276,7 +11330,6 @@ Array [
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
-    "tableElementFooterID": "",
   },
   Object {
     "_id": "MPTable:test",
@@ -11667,6 +11720,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
+                "listStyleType": "order",
                 "paragraphStyle": "",
               },
               "content": Array [
@@ -11724,6 +11778,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
+                "listStyleType": "order",
                 "paragraphStyle": "",
               },
               "content": Array [
@@ -11751,6 +11806,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "listStyleType": "order",
                         "paragraphStyle": "",
                       },
                       "content": Array [
@@ -11931,6 +11987,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "listStyleType": "order",
                         "paragraphStyle": "",
                       },
                       "content": Array [
