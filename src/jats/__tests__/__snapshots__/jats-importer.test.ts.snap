@@ -5595,26 +5595,6 @@ Object {
                     "dataTracked": null,
                     "paragraphStyle": "",
                   },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "author": undefined,
-                        "containerTitle": undefined,
-                        "dataTracked": null,
-                        "doi": undefined,
-                        "issue": undefined,
-                        "issued": undefined,
-                        "literal": undefined,
-                        "page": undefined,
-                        "paragraphStyle": "",
-                        "supplement": undefined,
-                        "title": undefined,
-                        "type": undefined,
-                        "volume": undefined,
-                      },
-                      "type": "bibliography_item",
-                    },
-                  ],
                   "type": "bibliography_element",
                 },
               ],
@@ -11529,16 +11509,10 @@ Array [
   },
   Object {
     "_id": "MPBibliographyElement:test",
-    "containedObjectIDs": Array [
-      "MPBibliographyItem:test",
-    ],
+    "containedObjectIDs": Array [],
     "contents": "",
     "elementType": "div",
     "objectType": "MPBibliographyElement",
-  },
-  Object {
-    "_id": "MPBibliographyItem:test",
-    "objectType": "MPBibliographyItem",
   },
   Object {
     "_id": "MPElementsOrder:test",

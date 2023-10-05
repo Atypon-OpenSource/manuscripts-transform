@@ -193,12 +193,6 @@ export class Decoder {
         }
       })
 
-      if (!references.length) {
-        references.push(
-          schema.nodes.placeholder.createAndFill() as PlaceholderNode
-        )
-      }
-
       return schema.nodes.bibliography_element.createChecked(
         {
           id: model._id,
