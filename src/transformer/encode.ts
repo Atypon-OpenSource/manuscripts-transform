@@ -663,6 +663,7 @@ const encoders: NodeEncoderMap = {
   ordered_list: (node): Partial<ListElement> => ({
     elementType: 'ol',
     contents: listContents(node),
+    listStyleType: node.attrs.listStyleType,
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
   paragraph: (node): Partial<ParagraphElement> => ({
@@ -700,11 +701,8 @@ const encoders: NodeEncoderMap = {
   }),
   table_element: (node): Partial<TableElement> => ({
     containedObjectID: attributeOfNodeType(node, 'table', 'id'),
-    tableElementFooterID: attributeOfNodeType(
-      node,
-      'table_element_footer',
-      'id'
-    ),
+    tableElementFooterID:
+      attributeOfNodeType(node, 'table_element_footer', 'id') || undefined,
     caption: inlineContentOfChildNodeType(
       node,
       node.type.schema.nodes.figcaption,

@@ -67,6 +67,7 @@ export const bulletList: NodeSpec = {
 export interface OrderedListNode extends ManuscriptNode {
   attrs: {
     id: string
+    listStyleType: string
     paragraphStyle: string
   }
 }
@@ -77,6 +78,7 @@ export const orderedList: NodeSpec = {
   attrs: {
     id: { default: '' },
     // order: { default: 1 },
+    listStyleType: { default: null },
     paragraphStyle: { default: '' },
     dataTracked: { default: null },
   },
@@ -88,6 +90,7 @@ export const orderedList: NodeSpec = {
 
         return {
           id: dom.getAttribute('id'),
+          listStyleType: dom.getAttribute('list-type'),
           // order: dom.hasAttribute('start') ? dom.getAttribute('start') : 1,
         }
       },
@@ -101,6 +104,7 @@ export const orderedList: NodeSpec = {
           'ol',
           {
             id: orderedListNode.attrs.id,
+            'list-type': orderedListNode.attrs.listStyleType,
             // start: node.attrs.order === 1 ? undefined : node.attrs.order,
             class: buildElementClass(orderedListNode.attrs),
             'data-object-type': ObjectTypes.ListElement,

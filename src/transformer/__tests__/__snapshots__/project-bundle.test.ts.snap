@@ -343,6 +343,7 @@ Object {
                 "attrs": Object {
                   "dataTracked": null,
                   "id": "MPListElement:EFDBD9B7-19D2-44A4-8686-C31572CCB72C",
+                  "listStyleType": null,
                   "paragraphStyle": "",
                 },
                 "content": Array [
@@ -748,7 +749,7 @@ Object {
             "content": Array [
               Object {
                 "attrs": Object {
-                  "ORCIDIdentifier": "",
+                  "ORCIDIdentifier": undefined,
                   "affiliations": Array [
                     "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
                   ],
@@ -760,7 +761,7 @@ Object {
                     "suffix": "",
                   },
                   "id": "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
-                  "invitationID": "",
+                  "invitationID": undefined,
                   "isCorresponding": true,
                   "role": "author",
                   "userID": "User_ydenberg@gmail.com",
@@ -1612,6 +1613,7 @@ Object {
                 "attrs": Object {
                   "dataTracked": null,
                   "id": "MPListElement:EFDBD9B7-19D2-44A4-8686-C31572CCB72C",
+                  "listStyleType": null,
                   "paragraphStyle": "",
                 },
                 "content": Array [
@@ -2017,7 +2019,7 @@ Object {
             "content": Array [
               Object {
                 "attrs": Object {
-                  "ORCIDIdentifier": "",
+                  "ORCIDIdentifier": undefined,
                   "affiliations": Array [
                     "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
                   ],
@@ -2029,7 +2031,7 @@ Object {
                     "suffix": "",
                   },
                   "id": "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
-                  "invitationID": "",
+                  "invitationID": undefined,
                   "isCorresponding": true,
                   "role": "author",
                   "userID": "User_ydenberg@gmail.com",
@@ -2038,7 +2040,7 @@ Object {
               },
               Object {
                 "attrs": Object {
-                  "ORCIDIdentifier": "",
+                  "ORCIDIdentifier": undefined,
                   "affiliations": Array [],
                   "bibliographicName": Object {
                     "_id": "MPBibliographicName:5C1F1C56-F6A4-4422-9159-506DFAAAAD80",
@@ -2047,7 +2049,7 @@ Object {
                     "objectType": "MPBibliographicName",
                   },
                   "id": "MPContributor:58C5EF20-2B67-4FE1-B1E5-294613DD7A6A",
-                  "invitationID": "",
+                  "invitationID": undefined,
                   "isCorresponding": undefined,
                   "role": "author",
                   "userID": "User_ydenberg@gmail.com",
