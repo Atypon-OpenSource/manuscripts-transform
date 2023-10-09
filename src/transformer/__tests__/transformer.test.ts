@@ -44,7 +44,7 @@ test('transformer', async () => {
     }
 
     for (const [key, value] of Object.entries(item)) {
-      if (value === undefined) {
+      if (value === undefined || value === null) {
         // @ts-ignore
         delete item[key]
       }

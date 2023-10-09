@@ -2085,7 +2085,6 @@
       "objectType": "MPTableElement",
       "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
       "sessionID": "67B27E3B-1E1E-42E2-9B9D-2D2123AA95F6",
-      "tableElementFooterID": "",
       "suppressFooter": true,
       "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
       "updatedAt": 1538472486.955807
@@ -2101,7 +2100,6 @@
       "objectType": "MPTableElement",
       "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
       "sessionID": "fb8b3d44-9515-4747-c7d8-a30fb1bc188b",
-      "tableElementFooterID": "",
       "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA"
     },
     {
@@ -2115,7 +2113,6 @@
       "objectType": "MPTableElement",
       "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
       "sessionID": "fb8b3d44-9515-4747-c7d8-a30fb1bc188b",
-      "tableElementFooterID": "",
       "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA"
     },
     {
@@ -2130,7 +2127,6 @@
       "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
       "sessionID": "fb8b3d44-9515-4747-c7d8-a30fb1bc188b",
       "suppressHeader": true,
-      "tableElementFooterID": "",
       "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
       "updatedAt": 1538472467.565576
     },
