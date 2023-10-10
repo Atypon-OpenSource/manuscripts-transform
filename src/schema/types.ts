@@ -109,6 +109,8 @@ export type Nodes =
   | 'contributor_list'
   | 'contributor'
   | 'table_element_footer'
+  | 'title'
+
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 
