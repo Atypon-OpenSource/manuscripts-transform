@@ -82,6 +82,7 @@ import { tableElement } from './nodes/table_element'
 import { tableElementFooter } from './nodes/table_element_footer'
 import { tableCell, tableRow } from './nodes/table_row'
 import { text } from './nodes/text'
+import { title } from './nodes/title'
 import { tocElement } from './nodes/toc_element'
 import { tocSection } from './nodes/toc_section'
 import { Marks, Nodes } from './types'
@@ -141,6 +142,7 @@ export * from './nodes/contributor'
 export * from './nodes/table_element_footer'
 export * from './nodes/affiliations_section'
 export * from './nodes/contributors_section'
+export * from './nodes/title'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -218,5 +220,6 @@ export const schema = new Schema<Nodes, Marks>({
     table_element_footer: tableElementFooter,
     affiliations_section: affiliationsSection,
     contributors_section: contributorsSection,
+    title,
   },
 })
