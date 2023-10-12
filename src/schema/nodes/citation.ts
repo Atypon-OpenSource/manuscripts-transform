@@ -38,7 +38,7 @@ export const citation: NodeSpec = {
     contents: { default: '' },
     selectedText: { default: '' },
     dataTracked: { default: null },
-    embeddedCitationItems: { default: null },
+    embeddedCitationItems: { default: [] },
   },
   parseDOM: [
     {

@@ -490,7 +490,7 @@ const x = 'y'",
   },
   "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB" => Object {
     "_id": "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2\\">A hyperlink</span></p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2\\" data-reference-embedded-citation=\\"[]\\">A hyperlink</span></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
