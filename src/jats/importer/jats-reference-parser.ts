@@ -233,7 +233,14 @@ export const jatsReferenceParser = {
                 crossReferenceNode.setAttribute('rid', citation._id)
                 crossReferenceNode.setAttribute(
                   'data-reference-embedded-citation',
-                  JSON.stringify(citation.embeddedCitationItems)
+                  JSON.stringify(
+                    citation.embeddedCitationItems.map(
+                      ({ _id: id, bibliographyItem }) => ({
+                        id,
+                        bibliographyItem,
+                      })
+                    )
+                  )
                 )
               } else {
                 crossReferenceNode.removeAttribute('rid')
