@@ -220,6 +220,6 @@ export const schema = new Schema<Nodes, Marks>({
     contributor_list: contributorList,
     contributor: contributor,
     table_element_footer: tableElementFooter,
-    title,
+    title: title,
   },
 })

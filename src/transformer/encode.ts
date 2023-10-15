@@ -42,6 +42,7 @@ import {
   TableElement,
   TableElementFooter,
   TOCElement,
+  Title,
 } from '@manuscripts/json-schema'
 import { DOMSerializer, Node } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
@@ -761,6 +762,9 @@ const encoders: NodeEncoderMap = {
     isCorresponding: node.attrs.isCorresponding,
     ORCIDIdentifier: node.attrs.ORCIDIdentifier,
   }),
+  title: (node): Partial<Title> => ({
+    contents: node.attrs.contents,
+  })
 }
 
 const modelData = (

@@ -43,6 +43,8 @@ import {
   TableElement,
   TableElementFooter,
   TOCElement,
+  Title
+  
 } from '@manuscripts/json-schema'
 import debug from 'debug'
 import { DOMParser, ParseOptions } from 'prosemirror-model'
@@ -85,6 +87,7 @@ import {
   TableElementNode,
   TableNode,
   TOCElementNode,
+  TitleNode,
 } from '../schema'
 import { CommentListNode } from '../schema/nodes/comment_list'
 import { KeywordsGroupNode } from '../schema/nodes/keywords_group'
@@ -801,6 +804,15 @@ export class Decoder {
         ORCIDIdentifier: model.ORCIDIdentifier,
       }) as ContributorNode
     },
+    [ObjectTypes.Title]: (data)=> {
+      const model = data as Title
+      return this.parseContents(model.contents || '<div></div>',
+      undefined,
+      this.getComments(model),
+      {
+        topNode: schema.nodes.title.create()
+      }) as TitleNode
+    }
   }
 
   private createAffiliationListNode() {
