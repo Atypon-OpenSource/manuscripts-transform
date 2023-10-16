@@ -21,6 +21,7 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   rid: string
   contents: string
+  embeddedCitationItems: { id: string; bibliographyItem: string }[]
 }
 
 export interface CitationNode extends ManuscriptNode {
@@ -37,6 +38,7 @@ export const citation: NodeSpec = {
     contents: { default: '' },
     selectedText: { default: '' },
     dataTracked: { default: null },
+    embeddedCitationItems: { default: [] },
   },
   parseDOM: [
     {
@@ -44,10 +46,20 @@ export const citation: NodeSpec = {
       getAttrs: (p) => {
         const dom = p as HTMLSpanElement
 
-        return {
+        const attr: { [key: string]: string | null } = {
           rid: dom.getAttribute('data-reference-id'),
           contents: dom.innerHTML,
         }
+
+        const embeddedCitationAttr = dom.getAttribute(
+          'data-reference-embedded-citation'
+        )
+
+        if (embeddedCitationAttr) {
+          attr['embeddedCitationItems'] = JSON.parse(embeddedCitationAttr)
+        }
+
+        return attr
       },
     },
   ],
@@ -57,6 +69,14 @@ export const citation: NodeSpec = {
     const dom = document.createElement('span')
     dom.className = 'citation'
     dom.setAttribute('data-reference-id', citationNode.attrs.rid)
+
+    if (citationNode.attrs.embeddedCitationItems) {
+      dom.setAttribute(
+        'data-reference-embedded-citation',
+        JSON.stringify(citationNode.attrs.embeddedCitationItems)
+      )
+    }
+
     dom.innerHTML = citationNode.attrs.contents
 
     return dom

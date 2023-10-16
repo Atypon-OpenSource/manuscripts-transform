@@ -454,8 +454,10 @@ const encoders: NodeEncoderMap = {
       literal,
     } = node.attrs
 
-    const author = fromJson(node.attrs.author)
-    const issued = fromJson(node.attrs.issued)
+    const getObjectAtrr = (obj: string | object) =>
+      typeof obj === 'string' ? fromJson(obj) : obj
+    const author = getObjectAtrr(node.attrs.author)
+    const issued = getObjectAtrr(node.attrs.issued)
 
     const ref = {
       type,
