@@ -28,10 +28,9 @@ export interface TitleNode extends ManuscriptNode {
 
 export const title: NodeSpec = {
   content: 'text*',
-  marks: '',
+  marks: 'italic smallcaps subscript superscript',
 
   attrs: {
-    tabindex: { default: '2' },
     dataTracked: { default: null },
   },
   group: 'block',
@@ -39,14 +38,7 @@ export const title: NodeSpec = {
 
   parseDOM: [
     {
-      tag: 'div',
-      getAttrs: (node) => {
-        const dom = node as HTMLElement
-
-        return {
-          tabindex: dom.getAttribute('tabindex') || '',
-        }
-      },
+      tag: 'div'
     },
   ],
 
@@ -66,4 +58,5 @@ export const title: NodeSpec = {
 
     return ['div', attrs, 0]
   },
+
 }
