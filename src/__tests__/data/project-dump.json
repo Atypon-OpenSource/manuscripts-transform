@@ -2066,7 +2066,7 @@
       "_id": "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB",
       "_rev": "5-a20975ce424a7bfb06182c5b1280905e",
       "collection": "elements",
-      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB\" class=\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\" data-object-type=\"MPParagraphElement\"><span class=\"citation\" data-reference-id=\"MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2\">A hyperlink</span></p>",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB\" class=\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\" data-object-type=\"MPParagraphElement\"><span class=\"citation\" data-reference-id=\"MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2\" data-reference-embedded-citation=\"[{&quot;id&quot;:&quot;MPCitationItem:2B3C3557-01FB-4142-A20F-62804E85B596&quot;,&quot;bibliographyItem&quot;:&quot;MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5&quot;}]\">A hyperlink</span></p>",
       "createdAt": 1538472681,
       "elementType": "p",
       "objectType": "MPParagraphElement",
