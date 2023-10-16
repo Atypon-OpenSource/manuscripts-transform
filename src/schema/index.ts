@@ -80,6 +80,7 @@ import { sectionTitle } from './nodes/section_title'
 import { table, tableBody } from './nodes/table'
 import { tableCol, tableColGroup } from './nodes/table_col'
 import { tableElement } from './nodes/table_element'
+import { tableElementFooter } from './nodes/table_element_footer'
 import { tableCell, tableRow } from './nodes/table_row'
 import { text } from './nodes/text'
 import { tocElement } from './nodes/toc_element'
@@ -140,6 +141,7 @@ export * from './nodes/affiliation_list'
 export * from './nodes/meta_section'
 export * from './nodes/contributor_list'
 export * from './nodes/contributor'
+export * from './nodes/table_element_footer'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -217,5 +219,6 @@ export const schema = new Schema<Nodes, Marks>({
     affiliation_list: affiliationList,
     contributor_list: contributorList,
     contributor: contributor,
+    table_element_footer: tableElementFooter,
   },
 })

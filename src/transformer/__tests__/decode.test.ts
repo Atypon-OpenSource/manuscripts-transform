@@ -85,11 +85,10 @@ describe('decoder', () => {
     modelMap.delete('MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8')
     modelMap.delete('MPFigureElement:A5D68C57-B5BB-4D10-E0C3-ECED717A2AA7')
     modelMap.delete('MPParagraphElement:05A0ED43-8928-4C69-A17C-0A98795001CD')
-    modelMap.delete('MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5')
     modelMap.delete('MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2')
 
     const afterDoc = createDoc(modelMap)
-    expect(countDescendantsOfType(afterDoc, schema.nodes.placeholder)).toBe(2)
+    expect(countDescendantsOfType(afterDoc, schema.nodes.placeholder)).toBe(1)
     expect(
       countDescendantsOfType(afterDoc, schema.nodes.placeholder_element)
     ).toBe(2)

@@ -1,5 +1,5 @@
 /*!
- * © 2023 Atypon Systems LLC
+ * © 2019 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,36 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Affiliation, BibliographicName } from '@manuscripts/json-schema'
+
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  role: string
-  affiliations: Affiliation[]
-  bibliographicName: BibliographicName
-  userID: string
-  invitationID: string
-  isCorresponding: boolean
-  ORCIDIdentifier: string
 }
 
-export interface ContributorNode extends ManuscriptNode {
+export interface TableElementFooterNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const contributor: NodeSpec = {
-  isMetaNode: true,
+export const tableElementFooter: NodeSpec = {
   attrs: {
     id: { default: '' },
-    role: { default: '' },
-    affiliations: { default: [] },
-    bibliographicName: { default: {} },
-    userID: { default: undefined },
-    invitationID: { default: undefined },
-    isCorresponding: { default: undefined },
-    ORCIDIdentifier: { default: undefined },
   },
+  content: '(paragraph | footnotes_element)+',
+  group: 'block element',
+  toDOM: () => ['table-wrap-foot', 0],
 }

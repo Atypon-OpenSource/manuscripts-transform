@@ -327,6 +327,7 @@ Object {
           "attrs": Object {
             "dataTracked": null,
             "id": "MPListElement:D1C6E3B5-C549-47B8-B051-1F534E8AA7E7",
+            "listStyleType": null,
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
@@ -397,6 +398,7 @@ Object {
           "attrs": Object {
             "dataTracked": null,
             "id": "MPListElement:AF5341C4-5E24-40BF-B853-F966726431EB",
+            "listStyleType": null,
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
@@ -426,6 +428,7 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": null,
+                    "listStyleType": null,
                     "paragraphStyle": "",
                   },
                   "content": Array [
@@ -2282,6 +2285,7 @@ Object {
           "attrs": Object {
             "dataTracked": null,
             "id": "MPListElement:D1C6E3B5-C549-47B8-B051-1F534E8AA7E7",
+            "listStyleType": null,
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
@@ -2352,6 +2356,7 @@ Object {
           "attrs": Object {
             "dataTracked": null,
             "id": "MPListElement:AF5341C4-5E24-40BF-B853-F966726431EB",
+            "listStyleType": null,
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
@@ -2381,6 +2386,7 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": null,
+                    "listStyleType": null,
                     "paragraphStyle": "",
                   },
                   "content": Array [
@@ -3608,11 +3614,22 @@ const x = 'y'",
           "content": Array [
             Object {
               "attrs": Object {
+                "author": undefined,
+                "containerTitle": undefined,
                 "dataTracked": null,
-                "id": "",
-                "label": "",
+                "doi": undefined,
+                "id": "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5",
+                "issue": undefined,
+                "issued": undefined,
+                "literal": undefined,
+                "page": undefined,
+                "paragraphStyle": "",
+                "supplement": undefined,
+                "title": "A hyperlink",
+                "type": undefined,
+                "volume": undefined,
               },
-              "type": "placeholder",
+              "type": "bibliography_item",
             },
           ],
           "type": "bibliography_element",
@@ -4037,6 +4054,7 @@ Object {
           "attrs": Object {
             "dataTracked": null,
             "id": "MPListElement:D1C6E3B5-C549-47B8-B051-1F534E8AA7E7",
+            "listStyleType": null,
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
@@ -4107,6 +4125,7 @@ Object {
           "attrs": Object {
             "dataTracked": null,
             "id": "MPListElement:AF5341C4-5E24-40BF-B853-F966726431EB",
+            "listStyleType": null,
             "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
           },
           "content": Array [
@@ -4136,6 +4155,7 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": null,
+                    "listStyleType": null,
                     "paragraphStyle": "",
                   },
                   "content": Array [
@@ -6043,7 +6063,7 @@ Object {
                 "id": "MPCommentAnnotation:test1",
                 "originalText": "",
                 "resolved": false,
-                "selector": Object {},
+                "selector": undefined,
                 "target": "MPFigureElement:1",
               },
               "type": "comment",
@@ -6330,7 +6350,7 @@ Object {
                 "id": "MPCommentAnnotation:3AAEE869-7DC9-4392-B8C6-9C5FCA522120",
                 "originalText": "",
                 "resolved": false,
-                "selector": Object {},
+                "selector": undefined,
                 "target": "MPKeywordGroup:1",
               },
               "type": "comment",

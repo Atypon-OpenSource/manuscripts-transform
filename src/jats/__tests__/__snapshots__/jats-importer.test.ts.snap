@@ -680,6 +680,7 @@ Array [
     "containedObjectIDs": Array [
       "MPBibliographyItem:test",
       "MPBibliographyItem:test",
+      "MPBibliographyItem:test",
     ],
     "contents": "",
     "elementType": "div",
@@ -717,6 +718,41 @@ Array [
     "title": "Schizophrenia-a high-risk factor for suicide: clues to risk reduction.",
     "type": "article-journal",
     "volume": "22",
+  },
+  Object {
+    "DOI": "https://doi.org/10.1177/1359786810385490",
+    "_id": "MPBibliographyItem:test",
+    "author": Array [
+      Object {
+        "_id": "MPBibliographicName:test",
+        "family": "Hor",
+        "given": "K.",
+        "objectType": "MPBibliographicName",
+      },
+      Object {
+        "_id": "MPBibliographicName:test",
+        "family": "Taylor",
+        "given": "M.",
+        "objectType": "MPBibliographicName",
+      },
+    ],
+    "container-title": "J Psychopharmacol.",
+    "issue": "4",
+    "issued": Object {
+      "_id": "MPBibliographicDate:test",
+      "date-parts": Array [
+        Array [
+          "2010",
+        ],
+      ],
+      "objectType": "MPBibliographicDate",
+    },
+    "objectType": "MPBibliographyItem",
+    "page": "81-90",
+    "supplement": "Suppl",
+    "title": "Suicide and schizophrenia: a systematic review of rates and risk factors.",
+    "type": "article-journal",
+    "volume": "24",
   },
   Object {
     "DOI": "https://doi.org/10.1177/1359786810385490",
@@ -793,6 +829,21 @@ Array [
       "to": 1359,
     },
     "target": "MPParagraphElement:test",
+  },
+  Object {
+    "_id": "MPCommentAnnotation:test",
+    "annotationColor": "rgb(250, 224, 150)",
+    "contents": "CrossRef reports the issue should be \\"4_suppl\\", not \\"4\\". (Ref. \\"Hor, Taylor, 2010\\")",
+    "contributions": Array [
+      Object {
+        "_id": "MPContribution:test",
+        "objectType": "MPContribution",
+        "profileID": "MPUserProfile:test",
+        "timestamp": 1111111111,
+      },
+    ],
+    "objectType": "MPCommentAnnotation",
+    "target": "MPBibliographyItem:test",
   },
   Object {
     "_id": "MPCommentAnnotation:test",
@@ -911,14 +962,16 @@ Array [
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol>",
+    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol>",
     "elementType": "ol",
+    "listStyleType": "order",
     "objectType": "MPListElement",
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list<ol id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ol>",
+    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ol>",
     "elementType": "ol",
+    "listStyleType": "order",
     "objectType": "MPListElement",
   },
   Object {
@@ -929,7 +982,7 @@ Array [
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ol id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ul>",
+    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ul>",
     "elementType": "ul",
     "objectType": "MPListElement",
   },
@@ -1871,6 +1924,7 @@ Array [
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
+    "tableElementFooterID": "MPTableElementFooter:test",
     "title": "Eleven patients with relapsed/refractory Hodgkin lymphoma treated with low-dose pembrolizumab",
   },
   Object {
@@ -1879,17 +1933,11 @@ Array [
     "objectType": "MPTable",
   },
   Object {
-    "_id": "MPFootnotesElement:test",
-    "contents": "<div></div>",
-    "elementType": "div",
-    "objectType": "MPFootnotesElement",
-  },
-  Object {
-    "_id": "MPFootnote:test",
-    "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">Dx: stage at diagnosis; CPI: stage at the start of checkpoint inhibitor; 1: response determined by positron emission tomography computed tomography; 2: total dose at the time of best response; 3: dose of pembrolizumab at 2 mg/kg and hence 130 mg per cycle; CR: complete response; PR: partial response; PD: progressive disease; SD: stable disease; ABVD: adriamycin, bleomcyin, vinblastine, dacarbazine; DHAP: cytarabine, cisplatinum, dexamethasone; Benda: bendamustine; BV: brentuximab vedotin; AHSCT: autologous hematopoietic stem cell transplantation; Gem: gemcitabine; BEACOPP: bleomycin, etoposide, adriamycin, cyclophosphamide, vincristine, procarbazine, prednisolone; GDP: gemcitabine, cisplatinum, dexamethasone; AAVD: brentuximab, adriamycin, vinblastine, dacarbazine; pem: pembrolizumab; CR: complete response; PR: partial response; m: months;</p></div>",
-    "kind": "footnote",
-    "objectType": "MPFootnote",
+    "_id": "MPTableElementFooter:test",
+    "containedObjectIDs": Array [
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPTableElementFooter",
   },
   Object {
     "_id": "MPParagraphElement:test",
@@ -1912,6 +1960,7 @@ Array [
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
+    "tableElementFooterID": "MPTableElementFooter:test",
     "title": "Six patients with relapsed/refractory Hodgkin lymphoma treated with low-dose nivolumab",
   },
   Object {
@@ -1920,17 +1969,11 @@ Array [
     "objectType": "MPTable",
   },
   Object {
-    "_id": "MPFootnotesElement:test",
-    "contents": "<div></div>",
-    "elementType": "div",
-    "objectType": "MPFootnotesElement",
-  },
-  Object {
-    "_id": "MPFootnote:test",
-    "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">Dx: stage at diagnosis; CPI: stage at the start of checkpoint inhibitor; 1: response determined by positron emission tomography computed tomography; 2: total dose at the time of best response; CR: complete response; PR: partial response; PD: progressive disease; SD: stable disease; IR: indeterminate response; ABVD: adriamycin, bleomcyin, vinblastine, dacarbazine; DHAP: cytarabine, cisplatinum, dexamethasone; COPP: cyclophosphamide, vincristine, procarbazine, prednisolone; allo-HSCT: allogeneic hematopoietic stem cell transplantation; Benda: bendamustine; BV: brentuximab vedotin; RT: radiotherapy; AHSCT: autologous hematopoietic stem cell transplantation; Gem: gemcitabine; BEACOPP: bleomycin, etoposide, adriamycin, cyclophosphamide, vincristine, procarbazine, prednisolone; GDP: gemcitabine, cisplatinum, dexamethasone</p></div>",
-    "kind": "footnote",
-    "objectType": "MPFootnote",
+    "_id": "MPTableElementFooter:test",
+    "containedObjectIDs": Array [
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPTableElementFooter",
   },
   Object {
     "_id": "MPParagraphElement:test",
@@ -1953,6 +1996,7 @@ Array [
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
+    "tableElementFooterID": "MPTableElementFooter:test",
     "title": "Clinicopathologic features and treatment outcome of patients with relapsed/refractory classical Hodgkin lymphoma treated by pembrolizumab and nivolumab",
   },
   Object {
@@ -1961,17 +2005,11 @@ Array [
     "objectType": "MPTable",
   },
   Object {
-    "_id": "MPFootnotesElement:test",
-    "contents": "<div></div>",
-    "elementType": "div",
-    "objectType": "MPFootnotesElement",
-  },
-  Object {
-    "_id": "MPFootnote:test",
-    "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">ABVD: adriamycin, bleomycin, vinblastine, dacarbazine; PET2-adpated approach: treatment approach based on positron emission tomography computed tomography data after two cycles of treatment; HSCT: hematopoietic stem cell transplantation</p></div>",
-    "kind": "footnote",
-    "objectType": "MPFootnote",
+    "_id": "MPTableElementFooter:test",
+    "containedObjectIDs": Array [
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPTableElementFooter",
   },
   Object {
     "_id": "MPParagraphElement:test",
@@ -5753,41 +5791,24 @@ Object {
                       "type": "figcaption",
                     },
                     Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "kind": "table_footnote",
-                        "paragraphStyle": "",
-                      },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "comments": null,
                             "dataTracked": null,
-                            "kind": "footnote",
                             "paragraphStyle": "",
                             "placeholder": "",
                           },
                           "content": Array [
                             Object {
-                              "attrs": Object {
-                                "comments": null,
-                                "dataTracked": null,
-                                "paragraphStyle": "",
-                                "placeholder": "",
-                              },
-                              "content": Array [
-                                Object {
-                                  "text": "* Table_Footnote",
-                                  "type": "text",
-                                },
-                              ],
-                              "type": "paragraph",
+                              "text": "* Table_Footnote",
+                              "type": "text",
                             },
                           ],
-                          "type": "footnote",
+                          "type": "paragraph",
                         },
                       ],
-                      "type": "footnotes_element",
+                      "type": "table_element_footer",
                     },
                     Object {
                       "attrs": Object {
@@ -7346,6 +7367,7 @@ Array [
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
     "suppressFooter": true,
+    "tableElementFooterID": "MPTableElementFooter:test",
     "title": "Descriptive Statistics.",
   },
   Object {
@@ -8811,6 +8833,7 @@ Array [
     "elementType": "table",
     "listingID": "MPListing:test",
     "objectType": "MPTableElement",
+    "tableElementFooterID": "MPTableElementFooter:test",
     "title": "Difference between exporting vs. non-exporting firms",
   },
   Object {
@@ -8819,17 +8842,12 @@ Array [
     "objectType": "MPTable",
   },
   Object {
-    "_id": "MPFootnotesElement:test",
-    "contents": "<div></div>",
-    "elementType": "div",
-    "objectType": "MPFootnotesElement",
-  },
-  Object {
-    "_id": "MPFootnote:test",
-    "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">Source: GEOSTAT Statistics Survey of Enterprises for 2006-2017.</p><p id=\\"MPParagraphElement:test\\">Notes: HIC = high income country. Exporters are firms that exported in at least 1 year of the sample. EU / HIC exporters are firms that exported to the EU / high income country in at least 1 year of the sample. Column 2: difference in means in log workers, log wages, log turnover between exporters and non-exporters, controlling for year and 1-digit industry. Column 3: difference in means between firms that export to at least one EU destination and non-EU exporters, controlling for year and 1-digit industry. Column 4: difference in means between firms that export to at least one HIC destination and non-HIC exporters, controlling for year and 1-digit industry. ***Significant at the 1% level, **Significant at the 5% level, *Significant at the 10% level.</p></div>",
-    "kind": "footnote",
-    "objectType": "MPFootnote",
+    "_id": "MPTableElementFooter:test",
+    "containedObjectIDs": Array [
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPTableElementFooter",
   },
   Object {
     "_id": "MPParagraphElement:test",
@@ -11219,14 +11237,16 @@ Array [
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol>",
+    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol>",
     "elementType": "ol",
+    "listStyleType": "order",
     "objectType": "MPListElement",
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list<ol id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ol>",
+    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ol>",
     "elementType": "ol",
+    "listStyleType": "order",
     "objectType": "MPListElement",
   },
   Object {
@@ -11237,7 +11257,7 @@ Array [
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ol id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ul>",
+    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ul>",
     "elementType": "ul",
     "objectType": "MPListElement",
   },
@@ -11681,6 +11701,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
+                "listStyleType": "order",
                 "paragraphStyle": "",
               },
               "content": Array [
@@ -11738,6 +11759,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
+                "listStyleType": "order",
                 "paragraphStyle": "",
               },
               "content": Array [
@@ -11765,6 +11787,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "listStyleType": "order",
                         "paragraphStyle": "",
                       },
                       "content": Array [
@@ -11945,6 +11968,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "listStyleType": "order",
                         "paragraphStyle": "",
                       },
                       "content": Array [
