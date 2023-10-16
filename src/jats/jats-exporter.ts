@@ -1242,12 +1242,6 @@ export class JATSExporter {
 
         return ['sec', attrs, 0]
       },
-      title: (node) => {
-        if (!node.textContent) {
-          return ''
-        }
-        return ['title', 0]
-      },
       section_label: () => ['label', 0],
       section_title: () => ['title', 0],
       section_title_plain: () => ['title', 0],
