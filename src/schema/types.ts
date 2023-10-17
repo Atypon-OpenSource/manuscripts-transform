@@ -111,7 +111,6 @@ export type Nodes =
   | 'contributors_section'
   | 'title'
 
-
 export type ManuscriptSchema = Schema<Nodes, Marks>
 
 export type ManuscriptEditorState = EditorState

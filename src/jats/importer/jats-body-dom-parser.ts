@@ -837,6 +837,33 @@ const nodes: NodeRule[] = [
     context: 'figcaption/',
   },
   {
+    tag: 'article-title',
+    node: 'title',
+    context: 'front/',
+    getContent: (node, schema) => {
+      const element = node as HTMLElement
+      const content = []
+
+      const title = element.querySelector('article-title')
+
+      if (title) {
+        const articleTitle = schema.nodes.title.create()
+        const titleText = title.textContent
+
+        if (titleText !== null) {
+          // Trim the text content if it's not null
+          const trimmedText = titleText.trim()
+          const trimmedTitleNode = document.createElement('article-title')
+          trimmedTitleNode.textContent = trimmedText
+          content.push(
+            jatsBodyDOMParser.parse(trimmedTitleNode, { topNode: articleTitle })
+          )
+        }
+      }
+      return Fragment.from(content) as Fragment
+    },
+  },
+  {
     tag: 'tr',
     node: 'table_row',
   },
