@@ -111,7 +111,6 @@ export type Nodes =
   | 'table_element_footer'
   | 'title'
 
-
 export type ManuscriptSchema = Schema<Nodes, Marks>
 
 export type ManuscriptEditorState = EditorState
