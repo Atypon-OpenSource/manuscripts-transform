@@ -20,36 +20,17 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  paragraphStyle: string
 }
 
-export interface BibliographyElementNode extends ManuscriptNode {
+export interface TableElementFooterNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const bibliographyElement: NodeSpec = {
-  content: 'bibliography_item*',
+export const tableElementFooter: NodeSpec = {
   attrs: {
     id: { default: '' },
-    contents: { default: '' },
-    paragraphStyle: { default: '' },
-    dataTracked: { default: null },
   },
-  selectable: false,
+  content: '(paragraph | footnotes_element)+',
   group: 'block element',
-  parseDOM: [
-    {
-      tag: 'div.csl-bib-body',
-      getAttrs: () => {
-        return {
-          contents: '',
-        }
-      },
-    },
-  ],
-  toDOM: () => {
-    const dom = document.createElement('div')
-    dom.className = 'csl-bib-body'
-    return dom
-  },
+  toDOM: () => ['table-wrap-foot', 0],
 }

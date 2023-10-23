@@ -40,6 +40,7 @@ import {
   Section,
   Table,
   TableElement,
+  TableElementFooter,
   TOCElement,
 } from '@manuscripts/json-schema'
 import { DOMSerializer, Node } from 'prosemirror-model'
@@ -349,17 +350,15 @@ const containedBibliographyItemIDs = (node: ManuscriptNode): string[] => {
   const bibliographyItemNodeType = node.type.schema.nodes.bibliography_item
   return containedObjectIDs(node, [bibliographyItemNodeType])
 }
-
 const containedObjectIDs = (
   node: ManuscriptNode,
-  nodeTypes: ManuscriptNodeType[]
+  nodeTypes?: ManuscriptNodeType[]
 ): string[] => {
   const ids: string[] = []
 
   for (let i = 0; i < node.childCount; i++) {
     const childNode = node.child(i)
-
-    if (nodeTypes.includes(childNode.type)) {
+    if (!nodeTypes || nodeTypes.includes(childNode.type)) {
       ids.push(childNode.attrs.id)
     }
   }
@@ -454,8 +453,10 @@ const encoders: NodeEncoderMap = {
       literal,
     } = node.attrs
 
-    const author = fromJson(node.attrs.author)
-    const issued = fromJson(node.attrs.issued)
+    const getObjectAtrr = (obj: string | object) =>
+      typeof obj === 'string' ? fromJson(obj) : obj
+    const author = getObjectAtrr(node.attrs.author)
+    const issued = getObjectAtrr(node.attrs.issued)
 
     const ref = {
       type,
@@ -603,6 +604,9 @@ const encoders: NodeEncoderMap = {
     elementType: 'div',
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
+  table_element_footer: (node): Partial<TableElementFooter> => ({
+    containedObjectIDs: containedObjectIDs(node),
+  }),
   footnotes_section: (node, parent, path, priority): Partial<Section> => ({
     category: buildSectionCategory(node),
     priority: priority.value++,
@@ -661,6 +665,7 @@ const encoders: NodeEncoderMap = {
   ordered_list: (node): Partial<ListElement> => ({
     elementType: 'ol',
     contents: listContents(node),
+    listStyleType: node.attrs.listStyleType,
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
   paragraph: (node): Partial<ParagraphElement> => ({
@@ -698,6 +703,8 @@ const encoders: NodeEncoderMap = {
   }),
   table_element: (node): Partial<TableElement> => ({
     containedObjectID: attributeOfNodeType(node, 'table', 'id'),
+    tableElementFooterID:
+      attributeOfNodeType(node, 'table_element_footer', 'id') || undefined,
     caption: inlineContentOfChildNodeType(
       node,
       node.type.schema.nodes.figcaption,

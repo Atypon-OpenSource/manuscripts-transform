@@ -18,7 +18,6 @@ import {
   Affiliation,
   AuxiliaryObjectReference,
   BibliographyItem,
-  Citation,
   Contributor,
   ContributorRole,
   Corresponding,
@@ -40,6 +39,7 @@ import { nodeFromHTML, textFromHTML } from '../lib/html'
 import { normalizeStyleName } from '../lib/styled-content'
 import { iterateChildren } from '../lib/utils'
 import {
+  CitationNode,
   ManuscriptFragment,
   ManuscriptMark,
   ManuscriptNode,
@@ -884,6 +884,7 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
+      table_element_footer: () => ['table-wrap-foot', 0],
       contributor_list: () => '',
       contributor: () => '',
       affiliation_list: () => '',
@@ -914,17 +915,13 @@ export class JATSExporter {
           return node.attrs.label
         }
 
-        const citation = getModel<Citation>(node.attrs.rid)
-
-        if (!citation) {
-          warn(`Missing citation ${node.attrs.rid}`)
-          return ''
-        }
-
-        const rids = citation.embeddedCitationItems.filter((item) => {
+        const rids = (
+          node.attrs
+            .embeddedCitationItems as CitationNode['attrs']['embeddedCitationItems']
+        ).filter((item) => {
           if (!this.modelMap.has(item.bibliographyItem)) {
             warn(
-              `Missing ${item.bibliographyItem} referenced by ${citation._id}`
+              `Missing ${item.bibliographyItem} referenced by ${node.attrs.rid}`
             )
             return false
           }
@@ -933,7 +930,7 @@ export class JATSExporter {
         })
 
         if (!rids.length) {
-          warn(`${citation._id} has no confirmed rids`)
+          warn(`${node.attrs.rid} has no confirmed rids`)
           return ''
         }
 
@@ -1192,7 +1189,11 @@ export class JATSExporter {
         graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', '')
         return graphic
       },
-      ordered_list: () => ['list', { 'list-type': 'order' }, 0],
+      ordered_list: (node) => [
+        'list',
+        { 'list-type': node.attrs.listStyleType ?? 'order' },
+        0,
+      ],
       paragraph: (node) => {
         if (!node.childCount) {
           return ''
@@ -1245,11 +1246,7 @@ export class JATSExporter {
       section_title_plain: () => ['title', 0],
       table: (node) => ['table', { id: normalizeID(node.attrs.id) }, 0],
       table_element: (node) => {
-        const element = createFigureElement(
-          node,
-          'table-wrap',
-          node.type.schema.nodes.table
-        )
+        const element = createTableElement(node)
         element.setAttribute('position', 'anchor')
         return element
       },
@@ -1301,19 +1298,30 @@ export class JATSExporter {
 
     this.serializer = new DOMSerializer(nodes, marks)
 
-    const createFigureElement = (
+    const processChildNodes = (
+      element: HTMLElement,
       node: ManuscriptNode,
-      nodeName: string,
-      contentNodeType: ManuscriptNodeType,
-      figType?: string
+      contentNodeType: ManuscriptNodeType
     ) => {
+      node.forEach((childNode) => {
+        if (childNode.type === contentNodeType) {
+          if (childNode.attrs.id) {
+            element.appendChild(this.serializeNode(childNode))
+          }
+        } else if (childNode.type === node.type.schema.nodes.paragraph) {
+          element.appendChild(this.serializeNode(childNode))
+        } else if (childNode.type === node.type.schema.nodes.missing_figure) {
+          element.appendChild(this.serializeNode(childNode))
+        }
+      })
+    }
+    const createElement = (node: ManuscriptNode, nodeName: string) => {
       const element = this.document.createElement(nodeName)
       element.setAttribute('id', normalizeID(node.attrs.id))
+      return element
+    }
 
-      if (figType) {
-        element.setAttribute('fig-type', figType)
-      }
-
+    const appendLabels = (element: HTMLElement, node: ManuscriptNode) => {
       if (node.attrs.label) {
         const label = this.document.createElement('label')
         label.textContent = node.attrs.label
@@ -1327,47 +1335,64 @@ export class JATSExporter {
           element.appendChild(label)
         }
       }
-
-      const figcaptionNode = findChildNodeOfType(
-        node,
-        node.type.schema.nodes.figcaption
-      )
-
-      if (figcaptionNode) {
-        element.appendChild(this.serializeNode(figcaptionNode))
-      }
-
-      const footnotesNode = findChildNodeOfType(
-        node,
-        node.type.schema.nodes.footnotes_element
-      )
-
-      if (footnotesNode) {
-        element.appendChild(this.serializeNode(footnotesNode))
-      }
-
-      node.forEach((childNode) => {
-        if (childNode.type === contentNodeType) {
-          if (childNode.attrs.id) {
-            element.appendChild(this.serializeNode(childNode))
-          }
-        } else if (childNode.type === node.type.schema.nodes.paragraph) {
-          element.appendChild(this.serializeNode(childNode))
-        } else if (childNode.type === node.type.schema.nodes.missing_figure) {
-          element.appendChild(this.serializeNode(childNode))
-        }
-      })
-
+    }
+    const appendAttributions = (element: HTMLElement, node: ManuscriptNode) => {
       if (node.attrs.attribution) {
         const attribution = this.document.createElement('attrib')
         attribution.textContent = node.attrs.attribution.literal
         element.appendChild(attribution)
       }
+    }
+    const appendChildNodeOfType = (
+      element: HTMLElement,
+      node: ManuscriptNode,
+      type: ManuscriptNodeType
+    ) => {
+      const childNode = findChildNodeOfType(node, type)
+      if (childNode) {
+        element.appendChild(this.serializeNode(childNode))
+      }
+    }
+    const createFigureElement = (
+      node: ManuscriptNode,
+      nodeName: string,
+      contentNodeType: ManuscriptNodeType,
+      figType?: string
+    ) => {
+      const element = createElement(node, nodeName)
 
+      if (figType) {
+        element.setAttribute('fig-type', figType)
+      }
+      appendLabels(element, node)
+      appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
+      appendChildNodeOfType(
+        element,
+        node,
+        node.type.schema.nodes.footnotes_element
+      )
+      processChildNodes(element, node, contentNodeType)
+      appendAttributions(element, node)
       if (isExecutableNodeType(node.type)) {
         processExecutableNode(node, element)
       }
 
+      return element
+    }
+    const createTableElement = (node: ManuscriptNode) => {
+      const nodeName = 'table-wrap'
+      const element = createElement(node, nodeName)
+      appendLabels(element, node)
+      appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
+      appendChildNodeOfType(element, node, node.type.schema.nodes.table)
+      appendChildNodeOfType(
+        element,
+        node,
+        node.type.schema.nodes.table_element_footer
+      )
+      if (isExecutableNodeType(node.type)) {
+        processExecutableNode(node, element)
+      }
       return element
     }
 

@@ -1335,7 +1335,7 @@
       "objectType": "MPTableElement"
     },
     {
-      "containedObjectID": "MPTable:986E1701-6B86-41D0-A6D7-51019B2123FB",
+      "containedObjectID":"MPTable:986E1701-6B86-41D0-A6D7-51019B2123FB",
       "caption": "Referenced table",
       "elementType": "table",
       "listingID": "MPListing:C64E6FB7-3261-41BC-A796-EC7191CBC909",

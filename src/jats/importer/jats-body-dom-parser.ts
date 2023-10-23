@@ -485,7 +485,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'fn-group',
     node: 'footnotes_element',
-    context: 'footnotes_section/', // TODO: in table footer
+    context: 'footnotes_section/|table_element_footer/',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
@@ -497,20 +497,19 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'table-wrap-foot',
-    node: 'footnotes_element',
+    node: 'table_element_footer',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
       return {
         id: element.getAttribute('id'),
-        kind: 'table_footnote', // TODO: 'table_endnote' depending on position or attribute?
       }
     },
   },
   {
     tag: 'fn',
     node: 'footnote',
-    context: 'footnotes_element/',
+    context: 'footnotes_element/|table_element_footer/',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
@@ -536,13 +535,14 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'list[list-type=order]',
+    tag: 'list[list-type]',
     node: 'ordered_list',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
       return {
         id: element.getAttribute('id'),
+        listStyleType: element.getAttribute('list-type'),
       }
     },
   },
@@ -761,10 +761,16 @@ const nodes: NodeRule[] = [
     node: 'citation',
     getAttrs: (node) => {
       const element = node as HTMLElement
+      const embeddedCitationAttr = element.getAttribute(
+        'data-reference-embedded-citation'
+      )
 
       return {
         rid: element.getAttribute('rid'),
         contents: element.textContent?.trim(), // TODO: innerHTML?
+        embeddedCitationItems: embeddedCitationAttr
+          ? JSON.parse(embeddedCitationAttr)
+          : null,
       }
     },
   },
