@@ -1706,6 +1706,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Figure 1",
                 "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
@@ -1730,6 +1731,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Table 1",
                 "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
@@ -1754,6 +1756,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Equation 1",
                 "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
@@ -3445,6 +3448,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Figure 1",
                 "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
@@ -3469,6 +3473,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Table 1",
                 "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
@@ -3493,6 +3498,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Equation 1",
                 "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
@@ -5443,6 +5449,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Figure 1",
                 "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
@@ -5467,6 +5474,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Table 1",
                 "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
@@ -5491,6 +5499,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Equation 1",
                 "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",

@@ -21,6 +21,7 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   rid: string
   label: string
+  customLabel: string
 }
 
 export interface CrossReferenceNode extends ManuscriptNode {
@@ -35,6 +36,7 @@ export const crossReference: NodeSpec = {
   attrs: {
     rid: { default: '' },
     label: { default: '' },
+    customLabel: { default: '' },
     dataTracked: { default: null },
   },
   parseDOM: [
@@ -64,7 +66,11 @@ export const crossReference: NodeSpec = {
         {
           class: 'kind elementIndex',
         },
-        ['b', crossReferenceNode.attrs.label],
+        [
+          'b',
+          crossReferenceNode.attrs.customLabel ||
+            crossReferenceNode.attrs.label,
+        ],
       ],
     ]
   },

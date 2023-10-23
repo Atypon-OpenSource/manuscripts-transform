@@ -1005,7 +1005,7 @@ export class JATSExporter {
           xref.setAttribute('rid', rid)
         }
 
-        xref.textContent = node.attrs.label
+        xref.textContent = node.attrs.customLabel || node.attrs.label
 
         return xref
       },
