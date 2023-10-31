@@ -488,7 +488,8 @@ export class HTMLTransformer {
       }
       // TODO:: handle multiple reference
 
-      element.textContent = crossReferenceNode.attrs.label
+      element.textContent =
+        crossReferenceNode.attrs.customLabel || crossReferenceNode.attrs.label
 
       return element
     }
