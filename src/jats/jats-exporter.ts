@@ -1811,6 +1811,24 @@ export class JATSExporter {
           authorNotesEl.appendChild(correspondingEl)
         })
         if (authorNotesEl.childNodes.length > 0) {
+          const appendableSelector = [
+            'contrib-group',
+            'title-group',
+            'article-id',
+          ]
+          const appendable = [
+            ...(articleMeta as HTMLElement).querySelectorAll(
+              appendableSelector.join(', ')
+            ),
+          ]
+          for (let i = 0; i < appendableSelector.length; i++) {
+            const sel = appendableSelector[i]
+            const match = appendable.find((el) => el.matches(sel))
+            if (match) {
+              articleMeta.insertBefore(authorNotesEl, match.nextSibling)
+              break
+            }
+          }
           articleMeta.appendChild(authorNotesEl)
         }
       }
