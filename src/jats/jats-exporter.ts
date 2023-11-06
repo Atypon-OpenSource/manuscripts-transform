@@ -30,7 +30,6 @@ import {
   Model,
   ObjectTypes,
   Supplement,
-  Title,
 } from '@manuscripts/json-schema'
 import debug from 'debug'
 import { DOMOutputSpec, DOMParser, DOMSerializer } from 'prosemirror-model'
@@ -423,10 +422,6 @@ export class JATSExporter {
       (model) => model.objectType === ObjectTypes.Journal
     ) as Journal | undefined
 
-    const articleTitle = [...this.modelMap.values()].find(
-      (model) => model.objectType === ObjectTypes.Title
-    ) as Title
-
     if (journal) {
       if (journal.journalIdentifiers) {
         for (const item of journal.journalIdentifiers) {
@@ -508,9 +503,9 @@ export class JATSExporter {
       }
     }
 
-    if (articleTitle.contents) {
+    if (manuscript.title) {
       const element = this.document.createElement('article-title')
-      this.setTitleContent(element, articleTitle.contents)
+      this.setTitleContent(element, manuscript.title)
       titleGroup.appendChild(element)
     }
 

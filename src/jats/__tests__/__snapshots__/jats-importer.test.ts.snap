@@ -19,6 +19,7 @@ Array [
     "referencesCount": 2,
     "revisionReceiveDate": 1597276800,
     "tableCount": 0,
+    "title": "LW4 Demo Doc basic – change title add date here",
     "wordCount": 2916,
   },
   Object {
@@ -156,10 +157,6 @@ Array [
     "objectType": "MPJournal",
     "publisherName": "Atypon ReX",
     "title": "Human Psychopharmacology: Clinical and Experimental",
-  },
-  Object {
-    "_id": "undefined:CC82D7A8-5A08-48A8-93CB-0B40B6131C52",
-    "contents": "LW4 Demo Doc basic – change title add date here",
   },
   Object {
     "_id": "MPSection:test",
@@ -882,6 +879,7 @@ Array [
     "objectType": "MPManuscript",
     "referencesCount": 2,
     "tableCount": 0,
+    "title": "A complete manuscript",
     "wordCount": 2910,
   },
   Object {
@@ -903,10 +901,6 @@ Array [
     "abbreviatedTitles": Array [],
     "journalIdentifiers": Array [],
     "objectType": "MPJournal",
-  },
-  Object {
-    "_id": "undefined:508885D5-664F-430D-B5A3-A275ACB5C5CB",
-    "contents": "A complete manuscript",
   },
   Object {
     "_id": "MPSection:test",
@@ -1457,6 +1451,7 @@ Array [
     "revisionReceiveDate": 1595721600,
     "runningTitle": "low-dose anti-PD1 antibodies in cHL",
     "tableCount": 3,
+    "title": "Low-dose pembrolizumab and nivolumab were efficacious and safe in relapsed and refractory classical Hodgkin lymphoma: experience in a resource-constrained setting",
     "wordCount": 6069,
   },
   Object {
@@ -1632,10 +1627,6 @@ Array [
     "objectType": "MPJournal",
     "publisherName": "John Wiley and Sons",
     "title": "Hematological Oncology",
-  },
-  Object {
-    "_id": "undefined:E84BE671-4899-48CA-A0DA-4B7CAF1BCE85",
-    "contents": "Low-dose pembrolizumab and nivolumab were efficacious and safe in relapsed and refractory classical Hodgkin lymphoma: experience in a resource-constrained setting",
   },
   Object {
     "_id": "MPSection:test",
@@ -4603,6 +4594,7 @@ Array [
     "objectType": "MPManuscript",
     "referencesCount": 2,
     "tableCount": 0,
+    "title": "A complete manuscript",
     "wordCount": 2910,
   },
   Object {
@@ -4624,10 +4616,6 @@ Array [
     "abbreviatedTitles": Array [],
     "journalIdentifiers": Array [],
     "objectType": "MPJournal",
-  },
-  Object {
-    "_id": "undefined:2B917C13-C682-48D7-B5F1-EA8198653CC0",
-    "contents": "A complete manuscript",
   },
 ]
 `;
@@ -4647,6 +4635,7 @@ Array [
     "objectType": "MPManuscript",
     "referencesCount": 2,
     "tableCount": 0,
+    "title": "A complete manuscript",
     "wordCount": 2910,
   },
   Object {
@@ -4668,10 +4657,6 @@ Array [
     "abbreviatedTitles": Array [],
     "journalIdentifiers": Array [],
     "objectType": "MPJournal",
-  },
-  Object {
-    "_id": "undefined:CC5979E6-739D-4425-98A5-4AC7D182E8D9",
-    "contents": "A complete manuscript",
   },
 ]
 `;
@@ -6752,6 +6737,7 @@ Array [
     "receiveDate": 886636800,
     "revisionReceiveDate": 898646400,
     "revisionRequestDate": 892512000,
+    "title": "WHEN ELECTIONS FAIL TO RESOLVE UNCERTAINTY: THE CASE OF THE 2016 U.S. <b>PRESIDENTIAL ELECTION</b>",
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -6821,10 +6807,6 @@ Array [
     "objectType": "MPJournal",
     "publisherName": "Inera",
     "title": "NLM-Export",
-  },
-  Object {
-    "_id": "undefined:2418FB06-1981-46D2-8529-77B5D4A71D0E",
-    "contents": "WHEN ELECTIONS FAIL TO RESOLVE UNCERTAINTY: THE CASE OF THE 2016 U.S. <b>PRESIDENTIAL ELECTION</b>",
   },
   Object {
     "_id": "MPSection:test",
@@ -11171,6 +11153,7 @@ Array [
     "objectType": "MPManuscript",
     "referencesCount": 2,
     "tableCount": 0,
+    "title": "A complete manuscript",
     "wordCount": 2910,
   },
   Object {
@@ -11192,10 +11175,6 @@ Array [
     "abbreviatedTitles": Array [],
     "journalIdentifiers": Array [],
     "objectType": "MPJournal",
-  },
-  Object {
-    "_id": "undefined:7C56958F-CD6A-4EBA-BF25-B7675CF21E60",
-    "contents": "A complete manuscript",
   },
   Object {
     "_id": "MPSection:test",
@@ -11592,6 +11571,7 @@ Array [
     "objectType": "MPManuscript",
     "referencesCount": 2,
     "tableCount": 0,
+    "title": "A complete manuscript",
     "wordCount": 2910,
   },
   Object {
@@ -11613,10 +11593,6 @@ Array [
     "abbreviatedTitles": Array [],
     "journalIdentifiers": Array [],
     "objectType": "MPJournal",
-  },
-  Object {
-    "_id": "undefined:24534150-7120-4997-A971-F848C7889CB6",
-    "contents": "A complete manuscript",
   },
 ]
 `;
