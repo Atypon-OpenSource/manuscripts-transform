@@ -107,9 +107,9 @@ export type Nodes =
   | 'meta_section'
   | 'contributor'
   | 'table_element_footer'
+  | 'article_title'
   | 'affiliations_section'
   | 'contributors_section'
-  | 'title'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

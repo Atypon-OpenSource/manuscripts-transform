@@ -16,6 +16,7 @@
 
 import {
   Affiliation,
+  ArticleTitle,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
@@ -41,7 +42,6 @@ import {
   Table,
   TableElement,
   TableElementFooter,
-  Title,
   TOCElement,
 } from '@manuscripts/json-schema'
 import { DOMSerializer, Node } from 'prosemirror-model'
@@ -784,7 +784,7 @@ const encoders: NodeEncoderMap = {
     corresp: node.attrs.corresp,
     priority: node.attrs.priority,
   }),
-  title: (node): Partial<Title> => ({
+  article_title: (node): Partial<ArticleTitle> => ({
     contents: node.attrs.contents,
   }),
 }

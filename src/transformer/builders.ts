@@ -97,7 +97,6 @@ export const buildProject = (owner: string): Build<Project> => ({
 export const buildManuscript = (title = ''): Build<Manuscript> => ({
   _id: generateID(ObjectTypes.Manuscript),
   objectType: ObjectTypes.Manuscript,
-  title,
 })
 
 export type ContributorRoleType = 'author'

@@ -16,6 +16,7 @@
 
 import {
   Affiliation,
+  ArticleTitle,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
@@ -42,7 +43,6 @@ import {
   Table,
   TableElement,
   TableElementFooter,
-  Title,
   TOCElement,
 } from '@manuscripts/json-schema'
 import debug from 'debug'
@@ -51,6 +51,7 @@ import { DOMParser, ParseOptions } from 'prosemirror-model'
 import { MissingElement } from '../errors'
 import {
   AffiliationNode,
+  ArticleTitleNode,
   BibliographyElementNode,
   BibliographyItemNode,
   BlockquoteElementNode,
@@ -85,7 +86,6 @@ import {
   TableElementFooterNode,
   TableElementNode,
   TableNode,
-  TitleNode,
   TOCElementNode,
 } from '../schema'
 import { AffiliationsSectionNode } from '../schema/nodes/affiliations_section'
@@ -814,8 +814,8 @@ export class Decoder {
         priority: model.priority,
       }) as ContributorNode
     },
-    [ObjectTypes.Title]: (data) => {
-      const model = data as Title
+    [ObjectTypes.ArticleTitle]: (data) => {
+      const model = data as ArticleTitle
       return this.parseContents(
         model.contents || '<div></div>',
         undefined,
@@ -823,7 +823,7 @@ export class Decoder {
         {
           topNode: schema.nodes.title.create(),
         }
-      ) as TitleNode
+      ) as ArticleTitleNode
     },
   }
 

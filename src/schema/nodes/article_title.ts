@@ -22,11 +22,11 @@ interface Attrs {
   id: string
 }
 
-export interface TitleNode extends ManuscriptNode {
+export interface ArticleTitleNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const title: NodeSpec = {
+export const articleTitle: NodeSpec = {
   content: 'text*',
   marks: 'italic smallcaps subscript superscript',
 

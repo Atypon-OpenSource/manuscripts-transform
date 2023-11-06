@@ -837,8 +837,8 @@ const nodes: NodeRule[] = [
     context: 'figcaption/',
   },
   {
-    tag: 'article-title',
-    node: 'title',
+    tag: 'article_title',
+    node: 'article_title',
     context: 'front/',
     getContent: (node, schema) => {
       const element = node as HTMLElement
