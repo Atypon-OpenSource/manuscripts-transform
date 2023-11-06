@@ -267,9 +267,6 @@ export class HTMLTransformer {
     front.appendChild(articleMeta)
 
     const articleTitle = this.document.createElement('h1')
-    if (manuscript.title) {
-      articleTitle.innerHTML = manuscript.title
-    }
     if (journal?.title) {
       articleTitle.setAttribute('data-journal', journal.title)
     }

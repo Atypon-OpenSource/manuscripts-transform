@@ -503,11 +503,11 @@ export class JATSExporter {
       }
     }
 
-    if (manuscript.title) {
-      const element = this.document.createElement('article-title')
-      this.setTitleContent(element, manuscript.title)
-      titleGroup.appendChild(element)
-    }
+    // if (manuscript.title) {
+    //   const element = this.document.createElement('article-title')
+    //   this.setTitleContent(element, manuscript.title)
+    //   titleGroup.appendChild(element)
+    // }
 
     if (manuscript.subtitle) {
       const element = this.document.createElement('subtitle')
@@ -895,7 +895,6 @@ export class JATSExporter {
       bibliography_item: () => '',
       comment_list: () => '',
       keywords_group: () => '',
-      title: () => '',
       bibliography_section: (node) => [
         'ref-list',
         { id: normalizeID(node.attrs.id) },
@@ -1241,6 +1240,11 @@ export class JATSExporter {
         }
 
         return ['sec', attrs, 0]
+      },
+      article_title: (node) => {
+        const articleTitle = this.document.createElement('article-title')
+        articleTitle.textContent = node.textContent
+        return articleTitle
       },
       section_label: () => ['label', 0],
       section_title: () => ['title', 0],
