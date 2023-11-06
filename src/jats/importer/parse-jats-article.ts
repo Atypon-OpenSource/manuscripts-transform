@@ -86,6 +86,7 @@ export const parseJATSFront = async (front: Element) => {
   const runningTitle = articleMeta?.querySelector(
     'title-group > alt-title[alt-title-type="right-running"]'
   )?.innerHTML
+
   const manuscriptMeta = {
     subtitle: subtitle ? inlineContentsFromJATSTitle(subtitle) : undefined,
     runningTitle: runningTitle
@@ -93,7 +94,6 @@ export const parseJATSFront = async (front: Element) => {
       : undefined,
     ...jatsFrontParser.parseCounts(articleMeta?.querySelector('counts')),
   }
-
   // affiliations
   const { affiliations, affiliationIDs } =
     jatsFrontParser.parseAffiliationNodes([
@@ -150,8 +150,8 @@ export const parseJATSFront = async (front: Element) => {
       ...footnotes,
       ...correspondingList,
       journal,
-      ...supplements,
-    ]),
+      ...supplements
+        ]),
   }
 }
 
@@ -388,3 +388,4 @@ export const getElementsOrder = (node: ManuscriptNode) => {
 
   return models
 }
+

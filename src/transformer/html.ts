@@ -48,7 +48,7 @@ import { generateAttachmentFilename } from './filename'
 import { buildTargets, Target } from './labels'
 import { isNodeType } from './node-types'
 import { hasObjectType } from './object-types'
-import { findJournal, findManuscript } from './project-bundle'
+import { findJournal, findManuscript, findTitle } from './project-bundle'
 import { chooseSecType, SectionCategory } from './section-category'
 
 const chooseNodeName = (element: Element) => {
@@ -233,6 +233,7 @@ export class HTMLTransformer {
     // associated with others should have been stripped out via parseProjectBundle
     const manuscript = findManuscript(this.modelMap)
     const journal = findJournal(this.modelMap)
+    const title = findTitle(this.modelMap)
 
     if (!manuscript) {
       throw new Error('Manuscript not found in project modelMap')
@@ -267,8 +268,8 @@ export class HTMLTransformer {
     front.appendChild(articleMeta)
 
     const articleTitle = this.document.createElement('h1')
-    if (manuscript.title) {
-      articleTitle.innerHTML = manuscript.title
+    if (title) {
+      front.appendChild(articleTitle)
     }
     if (journal?.title) {
       articleTitle.setAttribute('data-journal', journal.title)
@@ -287,6 +288,7 @@ export class HTMLTransformer {
     // if (manuscript.keywordIDs) {
     //   this.buildKeywords(articleMeta, manuscript.keywordIDs)
     // }
+    alert("mmm")
 
     return front
   }

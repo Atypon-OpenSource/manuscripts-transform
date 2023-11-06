@@ -19,6 +19,7 @@ import {
   Manuscript,
   Model,
   ObjectTypes,
+  Title,
 } from '@manuscripts/json-schema'
 
 import { Decoder } from './decode'
@@ -66,10 +67,20 @@ export const findManuscript = (modelMap: Map<string, Model>): Manuscript => {
 }
 
 const isJournal = hasObjectType<Journal>(ObjectTypes.Journal)
+const isTitle = hasObjectType<Title>(ObjectTypes.Title)
 
 export const findJournal = (modelMap: Map<string, Model>) => {
   for (const model of modelMap.values()) {
     if (isJournal(model)) {
+      return model
+    }
+  }
+
+  return null
+}
+export const findTitle = (modelMap: Map<string, Model>) => {
+  for (const model of modelMap.values()) {
+    if (isTitle(model)) {
       return model
     }
   }
