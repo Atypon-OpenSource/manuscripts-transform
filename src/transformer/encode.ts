@@ -16,7 +16,6 @@
 
 import {
   Affiliation,
-  Title,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
@@ -42,6 +41,7 @@ import {
   Table,
   TableElement,
   TableElementFooter,
+  Title,
   TOCElement,
 } from '@manuscripts/json-schema'
 import { DOMSerializer, Node } from 'prosemirror-model'
