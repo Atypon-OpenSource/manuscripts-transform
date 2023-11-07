@@ -31,7 +31,7 @@ import {
 } from './marks'
 import { affiliation } from './nodes/affiliation'
 import { affiliationList } from './nodes/affiliation_list'
-import { articleTitle } from './nodes/article_title'
+import { Title } from './nodes/title'
 import { attribution } from './nodes/attribution'
 import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographyItem } from './nodes/bibliography_item'
@@ -142,7 +142,7 @@ export * from './nodes/meta_section'
 export * from './nodes/contributor_list'
 export * from './nodes/contributor'
 export * from './nodes/table_element_footer'
-export * from './nodes/article_title'
+export * from './nodes/title'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -220,6 +220,6 @@ export const schema = new Schema<Nodes, Marks>({
     contributor_list: contributorList,
     contributor: contributor,
     table_element_footer: tableElementFooter,
-    article_title: articleTitle,
+    title: Title,
   },
 })

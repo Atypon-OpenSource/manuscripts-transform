@@ -16,7 +16,7 @@
 
 import {
   Affiliation,
-  ArticleTitle,
+  Title,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
@@ -764,8 +764,8 @@ const encoders: NodeEncoderMap = {
     isCorresponding: node.attrs.isCorresponding,
     ORCIDIdentifier: node.attrs.ORCIDIdentifier,
   }),
-  article_title: (node): Partial<ArticleTitle> => ({
-    contents: node.attrs.contents,
+  title: (node): Partial<Title> => ({
+    articleTitle: node.attrs.articleTitle,
   }),
 }
 

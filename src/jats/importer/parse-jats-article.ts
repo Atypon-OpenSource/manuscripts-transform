@@ -80,6 +80,9 @@ export const parseJATSFront = async (front: Element) => {
     ...journalMeta,
   } as Journal
   const articleMeta = front.querySelector('article-meta')
+  const title = articleMeta?.querySelector(
+    'title-group > article-title'
+  )?.innerHTML
   const subtitle = articleMeta?.querySelector(
     'title-group > subtitle'
   )?.innerHTML
@@ -87,6 +90,7 @@ export const parseJATSFront = async (front: Element) => {
     'title-group > alt-title[alt-title-type="right-running"]'
   )?.innerHTML
   const manuscriptMeta = {
+    title: title ? inlineContentsFromJATSTitle(title) : undefined,
     subtitle: subtitle ? inlineContentsFromJATSTitle(subtitle) : undefined,
     runningTitle: runningTitle
       ? inlineContentsFromJATSTitle(runningTitle)

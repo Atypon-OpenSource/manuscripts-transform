@@ -16,7 +16,7 @@
 
 import {
   Affiliation,
-  ArticleTitle,
+  Title,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
@@ -52,7 +52,6 @@ import { MissingElement } from '../errors'
 import {
   AffiliationListNode,
   AffiliationNode,
-  ArticleTitleNode,
   BibliographyElementNode,
   BibliographyItemNode,
   BlockquoteElementNode,
@@ -86,6 +85,7 @@ import {
   TableElementFooterNode,
   TableElementNode,
   TableNode,
+  TitleNode,
   TOCElementNode,
 } from '../schema'
 import { CommentListNode } from '../schema/nodes/comment_list'
@@ -803,16 +803,16 @@ export class Decoder {
         ORCIDIdentifier: model.ORCIDIdentifier,
       }) as ContributorNode
     },
-    [ObjectTypes.ArticleTitle]: (data) => {
-      const model = data as ArticleTitle
+    [ObjectTypes.Title]: (data) => {
+      const model = data as Title
       return this.parseContents(
-        model.contents || '<div></div>',
+        model.articleTitle || '<div></div>',
         undefined,
         this.getComments(model),
         {
           topNode: schema.nodes.title.create(),
         }
-      ) as ArticleTitleNode
+      ) as TitleNode
     },
   }
 
