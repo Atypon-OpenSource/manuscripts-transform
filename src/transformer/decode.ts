@@ -16,7 +16,6 @@
 
 import {
   Affiliation,
-  Title,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
@@ -43,6 +42,7 @@ import {
   Table,
   TableElement,
   TableElementFooter,
+  Title,
   TOCElement,
 } from '@manuscripts/json-schema'
 import debug from 'debug'

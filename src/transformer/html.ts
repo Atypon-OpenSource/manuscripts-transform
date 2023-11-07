@@ -235,7 +235,6 @@ export class HTMLTransformer {
     const journal = findJournal(this.modelMap)
     const title = findTitle(this.modelMap)
 
-
     if (!manuscript) {
       throw new Error('Manuscript not found in project modelMap')
     }

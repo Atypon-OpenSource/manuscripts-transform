@@ -406,8 +406,7 @@ export class JATSExporter {
 
   protected buildFront = (doi?: string, id?: string, links?: Links) => {
     const manuscript = findManuscript(this.modelMap)
-    const title = findTitle (this.modelMap)
-
+    const title = findTitle(this.modelMap)
 
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/front.html
     const front = this.document.createElement('front')
@@ -1272,7 +1271,7 @@ export class JATSExporter {
       toc_element: () => '',
       toc_section: () => '',
       comment: () => '',
-      title: () => ''
+      title: () => '',
     }
 
     const marks: MarkSpecs = {
