@@ -56,6 +56,7 @@ import { hasObjectType } from '../transformer/object-types'
 import {
   findManuscript,
   findManuscriptById,
+  findTitle,
 } from '../transformer/project-bundle'
 import {
   chooseJatsFnType,
@@ -259,7 +260,6 @@ export class JATSExporter {
       this.modelMap,
       manuscriptID
     )
-
     article.setAttribute('article-type', manuscript.articleType || 'other')
 
     if (!frontMatterOnly) {
@@ -406,6 +406,8 @@ export class JATSExporter {
 
   protected buildFront = (doi?: string, id?: string, links?: Links) => {
     const manuscript = findManuscript(this.modelMap)
+    const title = findTitle (this.modelMap)
+
 
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/front.html
     const front = this.document.createElement('front')
@@ -503,22 +505,22 @@ export class JATSExporter {
       }
     }
 
-    // if (manuscript.title) {
-    //   const element = this.document.createElement('article-title')
-    //   this.setTitleContent(element, manuscript.title)
-    //   titleGroup.appendChild(element)
-    // }
-
-    if (manuscript.subtitle) {
-      const element = this.document.createElement('subtitle')
-      this.setTitleContent(element, manuscript.subtitle)
+    if (title.articleTitle) {
+      const element = this.document.createElement('article-title')
+      this.setTitleContent(element, title.articleTitle)
       titleGroup.appendChild(element)
     }
 
-    if (manuscript.runningTitle) {
+    if (title.subtitle) {
+      const element = this.document.createElement('subtitle')
+      this.setTitleContent(element, title.subtitle)
+      titleGroup.appendChild(element)
+    }
+
+    if (title.runningTitle) {
       const element = this.document.createElement('alt-title')
       element.setAttribute('alt-title-type', 'right-running')
-      this.setTitleContent(element, manuscript.runningTitle)
+      this.setTitleContent(element, title.runningTitle)
       titleGroup.appendChild(element)
     }
 
@@ -1241,11 +1243,6 @@ export class JATSExporter {
 
         return ['sec', attrs, 0]
       },
-      article_title: (node) => {
-        const articleTitle = this.document.createElement('article-title')
-        articleTitle.textContent = node.textContent
-        return articleTitle
-      },
       section_label: () => ['label', 0],
       section_title: () => ['title', 0],
       section_title_plain: () => ['title', 0],
@@ -1275,6 +1272,7 @@ export class JATSExporter {
       toc_element: () => '',
       toc_section: () => '',
       comment: () => '',
+      title: () => ''
     }
 
     const marks: MarkSpecs = {

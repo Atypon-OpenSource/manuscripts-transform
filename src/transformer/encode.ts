@@ -16,7 +16,7 @@
 
 import {
   Affiliation,
-  ArticleTitle,
+  Title,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
@@ -784,8 +784,8 @@ const encoders: NodeEncoderMap = {
     corresp: node.attrs.corresp,
     priority: node.attrs.priority,
   }),
-  article_title: (node): Partial<ArticleTitle> => ({
-    contents: node.attrs.contents,
+  title: (node): Partial<Title> => ({
+    articleTitle: node.attrs.articleTitle,
   }),
 }
 

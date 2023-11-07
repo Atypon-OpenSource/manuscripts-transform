@@ -16,7 +16,7 @@
 
 import {
   Affiliation,
-  ArticleTitle,
+  Title,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
@@ -51,7 +51,6 @@ import { DOMParser, ParseOptions } from 'prosemirror-model'
 import { MissingElement } from '../errors'
 import {
   AffiliationNode,
-  ArticleTitleNode,
   BibliographyElementNode,
   BibliographyItemNode,
   BlockquoteElementNode,
@@ -86,6 +85,7 @@ import {
   TableElementFooterNode,
   TableElementNode,
   TableNode,
+  TitleNode,
   TOCElementNode,
 } from '../schema'
 import { AffiliationsSectionNode } from '../schema/nodes/affiliations_section'
@@ -814,16 +814,16 @@ export class Decoder {
         priority: model.priority,
       }) as ContributorNode
     },
-    [ObjectTypes.ArticleTitle]: (data) => {
-      const model = data as ArticleTitle
+    [ObjectTypes.Title]: (data) => {
+      const model = data as Title
       return this.parseContents(
-        model.contents || '<div></div>',
+        model.articleTitle || '<div></div>',
         undefined,
         this.getComments(model),
         {
           topNode: schema.nodes.title.create(),
         }
-      ) as ArticleTitleNode
+      ) as TitleNode
     },
   }
 
