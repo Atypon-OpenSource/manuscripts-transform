@@ -786,6 +786,8 @@ const encoders: NodeEncoderMap = {
   }),
   title: (node): Partial<Title> => ({
     articleTitle: node.attrs.articleTitle,
+    subtitle: node.attrs.subtitle,
+    runningTitle: node.attrs.runningTitle
   }),
 }
 

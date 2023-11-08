@@ -816,14 +816,13 @@ export class Decoder {
     },
     [ObjectTypes.Title]: (data) => {
       const model = data as Title
-      return this.parseContents(
-        model.articleTitle || '<div></div>',
-        undefined,
-        this.getComments(model),
-        {
-          topNode: schema.nodes.title.create(),
-        }
-      ) as TitleNode
+
+      return schema.nodes.title.create({
+        id: model._id,
+        articleTitle: model.articleTitle,
+        subtitle: model.subtitle,
+        runningTitle: model.runningTitle,
+      }) as TitleNode
     },
   }
 
