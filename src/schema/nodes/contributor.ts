@@ -38,10 +38,17 @@ export const contributor: NodeSpec = {
     id: { default: '' },
     role: { default: '' },
     affiliations: { default: [] },
+    footnote: { default: undefined },
+    corresp: { default: undefined },
     bibliographicName: { default: {} },
     userID: { default: undefined },
     invitationID: { default: undefined },
     isCorresponding: { default: undefined },
     ORCIDIdentifier: { default: undefined },
   },
+  group: 'block element',
+  toDOM: () => ['span'],
 }
+export const isContributorNode = (
+  node: ManuscriptNode
+): node is ContributorNode => node.type === node.type.schema.nodes.contributor

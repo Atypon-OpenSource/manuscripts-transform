@@ -21,14 +21,21 @@ interface Attrs {
   id: string
 }
 
-export interface AffiliationListNode extends ManuscriptNode {
+export interface AffiliationsSectionNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const affiliationList: NodeSpec = {
+export const affiliationsSection: NodeSpec = {
   content: 'affiliation*',
   attrs: {
-    id: { default: 'AFFILIATION_LIST' },
+    id: { default: '' },
+    dataTracked: { default: null },
   },
+  group: 'block sections',
+  selectable: false,
   toDOM: () => ['section', 0],
 }
+export const isAffiliationsSectionNode = (
+  node: ManuscriptNode
+): node is AffiliationsSectionNode =>
+  node.type === node.type.schema.nodes.affiliations_section

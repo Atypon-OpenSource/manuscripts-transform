@@ -49,7 +49,6 @@ import { DOMParser, ParseOptions } from 'prosemirror-model'
 
 import { MissingElement } from '../errors'
 import {
-  AffiliationListNode,
   AffiliationNode,
   BibliographyElementNode,
   BibliographyItemNode,
@@ -57,8 +56,8 @@ import {
   BulletListNode,
   CaptionNode,
   CaptionTitleNode,
+  CommentListNode,
   CommentNode,
-  ContributorListNode,
   ContributorNode,
   EquationElementNode,
   EquationNode,
@@ -72,6 +71,7 @@ import {
   ListingElementNode,
   ListingNode,
   ManuscriptNode,
+  MetaSectionNode,
   MissingFigureNode,
   OrderedListNode,
   ParagraphNode,
@@ -86,9 +86,9 @@ import {
   TableNode,
   TOCElementNode,
 } from '../schema'
-import { CommentListNode } from '../schema/nodes/comment_list'
+import { AffiliationsSectionNode } from '../schema/nodes/affiliations_section'
+import { ContributorsSectionNode } from '../schema/nodes/contributors_section'
 import { KeywordsGroupNode } from '../schema/nodes/keywords_group'
-import { MetaSectionNode } from '../schema/nodes/meta_section'
 import { insertHighlightMarkers } from './highlight-markers'
 import { generateNodeID } from './id'
 import { PlaceholderElement } from './models'
@@ -161,6 +161,12 @@ const isParagraphElement = hasObjectType<ParagraphElement>(
 const isFootnote = hasObjectType<Footnote>(ObjectTypes.Footnote)
 
 const isKeyword = hasObjectType<Keyword>(ObjectTypes.Keyword)
+const isKeywordsSection = (model: Section) =>
+  model.category === 'MPSectionCategory:keywords'
+const isAffiliationsSection = (model: Section) =>
+  model.category === 'MPSectionCategory:affiliations'
+const isContributorsSection = (model: Section) =>
+  model.category === 'MPSectionCategory:contributors'
 
 const hasParentSection = (id: string) => (section: Section) =>
   section.path &&
@@ -601,9 +607,6 @@ export class Decoder {
 
     [ObjectTypes.Section]: (data) => {
       const model = data as Section
-
-      const isKeywordsSection = model.category === 'MPSectionCategory:keywords'
-
       const elements: Element[] = []
 
       if (model.elementIDs) {
@@ -612,7 +615,7 @@ export class Decoder {
 
           if (element) {
             // ignore deprecated editable paragraph elements in keywords sections
-            if (isKeywordsSection && isParagraphElement(element)) {
+            if (isKeywordsSection(model) && isParagraphElement(element)) {
               continue
             }
 
@@ -668,15 +671,18 @@ export class Decoder {
       )
       const commentNodes = this.createCommentsNode(model)
       commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
-
-      const content: ManuscriptNode[] = (
-        sectionLabelNode
-          ? [sectionLabelNode, sectionTitleNode]
-          : [sectionTitleNode]
-      )
-        .concat(elementNodes)
-        .concat(nestedSections)
-
+      let content: ManuscriptNode[]
+      if (isAffiliationsSection(model) || isContributorsSection(model)) {
+        content = elementNodes.concat(nestedSections)
+      } else {
+        content = (
+          sectionLabelNode
+            ? [sectionLabelNode, sectionTitleNode]
+            : [sectionTitleNode]
+        )
+          .concat(elementNodes)
+          .concat(nestedSections)
+      }
       const sectionNode = sectionNodeType.createAndFill(
         {
           id: model._id,
@@ -785,6 +791,7 @@ export class Decoder {
         postCode: model.postCode,
         country: model.country,
         email: model.email,
+        department: model.department,
       }) as AffiliationNode
     },
     [ObjectTypes.Contributor]: (data) => {
@@ -799,39 +806,15 @@ export class Decoder {
         invitationID: model.invitationID,
         isCorresponding: model.isCorresponding,
         ORCIDIdentifier: model.ORCIDIdentifier,
+        footnote: model.footnote,
+        corresp: model.corresp,
       }) as ContributorNode
     },
   }
 
-  private createAffiliationListNode() {
-    const affiliationNodes = getAffiliations(this.modelMap)
-      .map((affiliation) => this.decode(affiliation) as AffiliationNode)
-      .filter(Boolean) as AffiliationNode[]
-
-    return schema.nodes.affiliation_list.createAndFill(
-      {},
-      affiliationNodes
-    ) as AffiliationListNode
-  }
-
-  private createContributorListNode() {
-    const contributorNodes = getContributors(this.modelMap)
-      .map((contributor) => this.decode(contributor) as ContributorNode)
-      .filter(Boolean) as ContributorNode[]
-
-    return schema.nodes.contributor_list.createAndFill(
-      {},
-      contributorNodes
-    ) as ContributorListNode
-  }
-
   private createMetaSectionNode() {
-    const affiliationListNode = this.createAffiliationListNode()
-    const contributorListNode = this.createContributorListNode()
     const commentListNode = this.createCommentListNode()
     return schema.nodes.meta_section.createAndFill({}, [
-      affiliationListNode,
-      contributorListNode,
       commentListNode,
     ]) as MetaSectionNode
   }
@@ -842,6 +825,52 @@ export class Decoder {
     ]) as CommentListNode
   }
 
+  private handleMissingRootSectionNodes(rootSectionNodes: SectionNode[]) {
+    if (
+      !rootSectionNodes.find(
+        (node) => node.type.name === 'affiliations_section'
+      )
+    ) {
+      this.createAffiliationSectionNode(rootSectionNodes)
+    }
+    if (
+      !rootSectionNodes.find(
+        (node) => node.type.name === 'contributors_section'
+      )
+    ) {
+      this.createContributorSectionNode(rootSectionNodes)
+    }
+  }
+  private createAffiliationSectionNode(rootSectionNodes: ManuscriptNode[]) {
+    const affiliationNodes = getAffiliations(this.modelMap)
+      .map((affiliation) => this.decode(affiliation) as AffiliationNode)
+      .filter(Boolean) as AffiliationNode[]
+    if (affiliationNodes.length) {
+      const node = schema.nodes.affiliations_section.createAndFill(
+        {
+          id: generateNodeID(schema.nodes.section),
+        },
+        affiliationNodes
+      ) as AffiliationsSectionNode
+      rootSectionNodes.unshift(node)
+    }
+  }
+
+  private createContributorSectionNode(rootSectionNodes: ManuscriptNode[]) {
+    const contributorNodes = getContributors(this.modelMap)
+      .map((contributor) => this.decode(contributor) as ContributorNode)
+      .filter(Boolean) as ContributorNode[]
+    if (contributorNodes.length) {
+      const node = schema.nodes.contributors_section.createAndFill(
+        {
+          id: generateNodeID(schema.nodes.section),
+        },
+        contributorNodes
+      ) as ContributorsSectionNode
+      rootSectionNodes.unshift(node)
+    }
+  }
+
   private createRootSectionNodes() {
     let rootSections = getSections(this.modelMap).filter(
       (section) => !section.path || section.path.length <= 1
@@ -850,6 +879,7 @@ export class Decoder {
     const rootSectionNodes = rootSections
       .map(this.decode)
       .filter(isManuscriptNode) as SectionNode[]
+    this.handleMissingRootSectionNodes(rootSectionNodes)
     if (!rootSectionNodes.length) {
       rootSectionNodes.push(
         schema.nodes.section.createAndFill({

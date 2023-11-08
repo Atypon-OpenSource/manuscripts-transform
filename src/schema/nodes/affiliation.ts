@@ -55,6 +55,8 @@ export const affiliation: NodeSpec = {
       },
     },
   },
+  group: 'block element',
+  toDOM: () => ['span'],
 }
 
 export const isAffiliationNode = (

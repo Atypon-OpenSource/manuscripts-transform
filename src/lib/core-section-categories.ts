@@ -28,7 +28,7 @@ export const coreSectionCategories = [
     desc: 'Backmatter section for grouping',
     objectType: 'MPSectionCategory',
     titles: [],
-    priority: 170,
+    priority: 180,
   },
   {
     _id: 'MPSectionCategory:body',
@@ -36,6 +36,6 @@ export const coreSectionCategories = [
     desc: 'Body section for grouping',
     objectType: 'MPSectionCategory',
     titles: [],
-    priority: 190,
+    priority: 200,
   },
 ]

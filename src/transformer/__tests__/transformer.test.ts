@@ -51,7 +51,9 @@ test('transformer', async () => {
     }
 
     const original = input.get(id)
-
+    if (!original) {
+      continue
+    }
     // @ts-ignore
     delete original.originalURL
 

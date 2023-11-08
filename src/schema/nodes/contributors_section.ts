@@ -21,14 +21,21 @@ interface Attrs {
   id: string
 }
 
-export interface ContributorListNode extends ManuscriptNode {
+export interface ContributorsSectionNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const contributorList: NodeSpec = {
+export const contributorsSection: NodeSpec = {
   content: 'contributor*',
   attrs: {
-    id: { default: 'CONTRIBUTOR_LIST' },
+    id: { default: '' },
+    dataTracked: { default: null },
   },
+  group: 'block sections',
+  selectable: false,
   toDOM: () => ['section', 0],
 }
+export const isContributorsSectionNode = (
+  node: ManuscriptNode
+): node is ContributorsSectionNode =>
+  node.type === node.type.schema.nodes.contributors_section
