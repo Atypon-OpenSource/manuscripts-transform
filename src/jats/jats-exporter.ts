@@ -18,7 +18,6 @@ import {
   Affiliation,
   AuxiliaryObjectReference,
   BibliographyItem,
-  Citation,
   Contributor,
   ContributorRole,
   Corresponding,
@@ -40,6 +39,7 @@ import { nodeFromHTML, textFromHTML } from '../lib/html'
 import { normalizeStyleName } from '../lib/styled-content'
 import { iterateChildren } from '../lib/utils'
 import {
+  CitationNode,
   ManuscriptFragment,
   ManuscriptMark,
   ManuscriptNode,
@@ -915,17 +915,13 @@ export class JATSExporter {
           return node.attrs.label
         }
 
-        const citation = getModel<Citation>(node.attrs.rid)
-
-        if (!citation) {
-          warn(`Missing citation ${node.attrs.rid}`)
-          return ''
-        }
-
-        const rids = citation.embeddedCitationItems.filter((item) => {
+        const rids = (
+          node.attrs
+            .embeddedCitationItems as CitationNode['attrs']['embeddedCitationItems']
+        ).filter((item) => {
           if (!this.modelMap.has(item.bibliographyItem)) {
             warn(
-              `Missing ${item.bibliographyItem} referenced by ${citation._id}`
+              `Missing ${item.bibliographyItem} referenced by ${node.attrs.rid}`
             )
             return false
           }
@@ -934,7 +930,7 @@ export class JATSExporter {
         })
 
         if (!rids.length) {
-          warn(`${citation._id} has no confirmed rids`)
+          warn(`${node.attrs.rid} has no confirmed rids`)
           return ''
         }
 
@@ -1008,7 +1004,7 @@ export class JATSExporter {
           xref.setAttribute('rid', rid)
         }
 
-        xref.textContent = node.attrs.label
+        xref.textContent = node.attrs.customLabel || node.attrs.label
 
         return xref
       },

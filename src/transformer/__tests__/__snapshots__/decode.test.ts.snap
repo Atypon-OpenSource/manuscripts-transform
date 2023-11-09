@@ -1706,6 +1706,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Figure 1",
                 "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
@@ -1730,6 +1731,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Table 1",
                 "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
@@ -1754,6 +1756,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Equation 1",
                 "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
@@ -1776,6 +1779,12 @@ const x = 'y'",
               "attrs": Object {
                 "contents": "A hyperlink",
                 "dataTracked": null,
+                "embeddedCitationItems": Array [
+                  Object {
+                    "bibliographyItem": "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5",
+                    "id": "MPCitationItem:2B3C3557-01FB-4142-A20F-62804E85B596",
+                  },
+                ],
                 "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
                 "selectedText": "",
               },
@@ -3439,6 +3448,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Figure 1",
                 "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
@@ -3463,6 +3473,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Table 1",
                 "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
@@ -3487,6 +3498,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Equation 1",
                 "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
@@ -3509,6 +3521,12 @@ const x = 'y'",
               "attrs": Object {
                 "contents": "A hyperlink",
                 "dataTracked": null,
+                "embeddedCitationItems": Array [
+                  Object {
+                    "bibliographyItem": "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5",
+                    "id": "MPCitationItem:2B3C3557-01FB-4142-A20F-62804E85B596",
+                  },
+                ],
                 "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
                 "selectedText": "",
               },
@@ -3612,11 +3630,22 @@ const x = 'y'",
           "content": Array [
             Object {
               "attrs": Object {
+                "author": undefined,
+                "containerTitle": undefined,
                 "dataTracked": null,
-                "id": "",
-                "label": "",
+                "doi": undefined,
+                "id": "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5",
+                "issue": undefined,
+                "issued": undefined,
+                "literal": undefined,
+                "page": undefined,
+                "paragraphStyle": "",
+                "supplement": undefined,
+                "title": "A hyperlink",
+                "type": undefined,
+                "volume": undefined,
               },
-              "type": "placeholder",
+              "type": "bibliography_item",
             },
           ],
           "type": "bibliography_element",
@@ -5420,6 +5449,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Figure 1",
                 "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
@@ -5444,6 +5474,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Table 1",
                 "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
@@ -5468,6 +5499,7 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
+                "customLabel": "",
                 "dataTracked": null,
                 "label": "Equation 1",
                 "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
@@ -5490,6 +5522,12 @@ const x = 'y'",
               "attrs": Object {
                 "contents": "A hyperlink",
                 "dataTracked": null,
+                "embeddedCitationItems": Array [
+                  Object {
+                    "bibliographyItem": "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5",
+                    "id": "MPCitationItem:2B3C3557-01FB-4142-A20F-62804E85B596",
+                  },
+                ],
                 "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
                 "selectedText": "",
               },
@@ -5752,6 +5790,7 @@ Object {
               "attrs": Object {
                 "contents": "1",
                 "dataTracked": null,
+                "embeddedCitationItems": Array [],
                 "rid": "MPCitation:1",
                 "selectedText": "",
               },
