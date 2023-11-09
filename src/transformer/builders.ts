@@ -54,6 +54,7 @@ import {
   StatusLabel,
   Supplement,
   UserProfileAffiliation,
+  Title,
 } from '@manuscripts/json-schema'
 import serializeToXML from 'w3c-xmlserializer'
 
@@ -456,4 +457,10 @@ export const buildElementsOrder = (
   objectType: ObjectTypes.ElementsOrder,
   elementType: elementType,
   elements: [],
+})
+
+export const buildTitle = (articleTitle: string): Build<Title> => ({
+  _id: generateID(ObjectTypes.Title),
+  objectType: ObjectTypes.Title,
+  articleTitle
 })
