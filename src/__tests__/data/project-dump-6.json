@@ -4,7 +4,6 @@
     {
       "_id": "MPManuscript:2852F8A6-DF88-433D-AC23-452CBC83EAF0",
       "objectType": "MPManuscript",
-      "title": "athena1 Demo Doc basicLists – change title add date here",
       "wordCount": 2973,
       "figureCount": 0,
       "tableCount": 0,
@@ -18,6 +17,16 @@
       ],
       "articleType": "other",
       "containerID": "MPProject:1"
+    },
+    {
+      "_id": "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+      "createdAt": 1538472121.690101,
+      "updatedAt": 1538472121.690101,
+      "objectType": "MPTitle",
+      "articleTitle": "main title",
+      "subtitle": " subtitle",
+      "runningTitle": "running title",
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0"
     },
     {
       "_id": "MPAffiliation:02D4DE2A-891E-459C-90E9-365B9329A06C",

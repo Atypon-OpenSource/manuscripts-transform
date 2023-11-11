@@ -23,6 +23,7 @@ import {
   Section,
   Supplement,
   Table,
+  Title
 } from '@manuscripts/json-schema'
 import { Element as XMLElement, parseXml } from 'libxmljs2'
 
@@ -157,6 +158,18 @@ describe('JATS exporter', () => {
     }
 
     projectBundle.data.push(abstractModel1)
+
+    const abstractModel12: Title = {
+      _id: 'MPTitle:123',
+      objectType: 'MPTitle',
+      createdAt: 0,
+      updatedAt: 0,
+      articleTitle: 'Abstract',
+      manuscriptID: 'MPManuscript:1',
+      containerID: 'MPProject:1',
+    }
+
+    projectBundle.data.push(abstractModel12)
 
     const abstractModel2: Section = {
       _id: 'MPSection:124',

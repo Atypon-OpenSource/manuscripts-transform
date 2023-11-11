@@ -416,6 +416,14 @@
       "manuscriptID": "MPManuscript:C561C3BB-E558-4E80-BE10-9E41FE6AC18A"
     },
     {
+      "_id": "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+      "createdAt": 1538472121.690101,
+      "updatedAt": 1538472121.690101,
+      "objectType": "MPTitle",
+      "articleTitle": "main title",
+      "subtitle": " subtitle",
+      "runningTitle": "running title"    },
+    {
       "uri": "https://dictionary.casrai.org/Contributor_Roles/Resources",
       "name": "Resources",
       "desc": "Provision of study materials, reagents, materials, patients, laboratory samples, animals, instrumentation, computing resources, or other analysis tools.",
