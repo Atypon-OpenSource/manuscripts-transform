@@ -111,6 +111,7 @@ export const findManuscriptById = (
     `There is no manuscript found for the following _id (${manuscriptID})`
   )
 }
+
 const isTitle = hasObjectType<Title>(ObjectTypes.Journal)
 
 export const findTitle = (modelMap: Map<string, Model>): Title => {

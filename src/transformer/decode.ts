@@ -152,6 +152,9 @@ const getAffiliations = (modelMap: Map<string, Model>) =>
 const getContributors = (modelMap: Map<string, Model>) =>
   getModelsByType<Affiliation>(modelMap, ObjectTypes.Contributor)
 
+const getTitle = (modelMap: Map<string, Model>) =>
+  getModelsByType<Title>(modelMap, ObjectTypes.Title)
+
 export const isManuscriptNode = (
   model: ManuscriptNode | null
 ): model is ManuscriptNode => model !== null
@@ -814,16 +817,13 @@ export class Decoder {
         priority: model.priority,
       }) as ContributorNode
     },
-    [ObjectTypes.Title]: (data) => {
-      const model = data as Title
+  }
 
-      return schema.nodes.title.create({
-        id: model._id,
-        articleTitle: model.articleTitle,
-        subtitle: model.subtitle,
-        runningTitle: model.runningTitle,
-      }) as TitleNode
-    },
+
+  private createTitleNode() {
+    const titleModel = getTitle(this.modelMap)
+    const titleNode = this.decode(titleModel[0]) as TitleNode
+    return titleNode
   }
 
   private createMetaSectionNode() {
@@ -942,9 +942,14 @@ export class Decoder {
     this.modelMap.get(id) as T | undefined
 
   public createArticleNode = (manuscriptID?: string): ManuscriptNode => {
+    const articleTitleNode = this.createTitleNode()
     const rootSectionNodes = this.createRootSectionNodes()
     const metaSectionNode = this.createMetaSectionNode()
-    const contents: ManuscriptNode[] = [...rootSectionNodes, metaSectionNode]
+    const contents: ManuscriptNode[] = [
+      articleTitleNode,
+      ...rootSectionNodes,
+      metaSectionNode,
+    ]
 
     return schema.nodes.manuscript.create(
       {
