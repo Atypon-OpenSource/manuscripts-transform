@@ -53,6 +53,7 @@ import {
   Section,
   StatusLabel,
   Supplement,
+  Title,
   UserProfileAffiliation,
 } from '@manuscripts/json-schema'
 import serializeToXML from 'w3c-xmlserializer'
@@ -97,7 +98,12 @@ export const buildProject = (owner: string): Build<Project> => ({
 export const buildManuscript = (title = ''): Build<Manuscript> => ({
   _id: generateID(ObjectTypes.Manuscript),
   objectType: ObjectTypes.Manuscript,
-  title,
+})
+
+export const buildTitle = (articleTitle: string): Build<Title> => ({
+  _id: generateID(ObjectTypes.Title),
+  objectType: ObjectTypes.Title,
+  articleTitle,
 })
 
 export type ContributorRoleType = 'author'

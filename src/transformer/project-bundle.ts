@@ -19,6 +19,7 @@ import {
   Manuscript,
   Model,
   ObjectTypes,
+  Title,
 } from '@manuscripts/json-schema'
 
 import { Decoder } from './decode'
@@ -32,7 +33,7 @@ export interface ProjectBundle {
 
 export const parseProjectBundle = (
   projectBundle: ProjectBundle,
-  manuscriptID?: string
+  manuscriptID?: string,
 ) => {
   const manuscriptData = manuscriptID
     ? (projectBundle.data as ManuscriptModel[]).filter(
@@ -109,4 +110,16 @@ export const findManuscriptById = (
   throw new Error(
     `There is no manuscript found for the following _id (${manuscriptID})`
   )
+}
+
+const isTitle = hasObjectType<Title>(ObjectTypes.Journal)
+
+export const findTitle = (modelMap: Map<string, Model>): Title => {
+  for (const model of modelMap.values()) {
+    if (isTitle(model)) {
+      return model
+    }
+  }
+
+  throw new Error('No Title found')
 }

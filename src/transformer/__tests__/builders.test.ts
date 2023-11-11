@@ -35,6 +35,7 @@ import {
   buildParagraph,
   buildProject,
   buildStatusLabel,
+  buildTitle,
 } from '../builders'
 
 describe('commands', () => {
@@ -52,12 +53,22 @@ describe('commands', () => {
     const manuscriptA = buildManuscript('Teh title')
     expect(manuscriptA._id).toMatch(/MPManuscript:\S+/)
     expect(manuscriptA.objectType).toBe(ObjectTypes.Manuscript)
-    expect(manuscriptA.title).toBe('Teh title')
 
     const manuscriptB = buildManuscript()
     expect(manuscriptB._id).toMatch(/MPManuscript:\S+/)
     expect(manuscriptB.objectType).toBe(ObjectTypes.Manuscript)
-    expect(manuscriptB.title).toBe('')
+  })
+
+  test('build title', () => {
+    const titleA = buildTitle('Teh title')
+    expect(titleA._id).toMatch(/MPTitle:\S+/)
+    expect(titleA.objectType).toBe(ObjectTypes.Title)
+    expect(titleA.articleTitle).toBe('Teh title')
+
+    const titleB = buildTitle('Another title')
+    expect(titleB._id).toMatch(/MPTitle:\S+/)
+    expect(titleB.objectType).toBe(ObjectTypes.Title)
+    expect(titleB.articleTitle).toBe('Another title')
   })
 
   test('build contributor', () => {
