@@ -25,6 +25,7 @@ import {
   Manuscript,
   Model,
   ObjectTypes,
+  Title,
 } from '@manuscripts/json-schema'
 import { DOMParser } from 'prosemirror-model'
 
@@ -80,7 +81,7 @@ export const parseJATSFront = async (front: Element) => {
     ...journalMeta,
   } as Journal
   const articleMeta = front.querySelector('article-meta')
-  const title = articleMeta?.querySelector(
+  const articleTitle = articleMeta?.querySelector(
     'title-group > article-title'
   )?.innerHTML
   const subtitle = articleMeta?.querySelector(
@@ -90,13 +91,18 @@ export const parseJATSFront = async (front: Element) => {
     'title-group > alt-title[alt-title-type="right-running"]'
   )?.innerHTML
   const manuscriptMeta = {
-    title: title ? inlineContentsFromJATSTitle(title) : undefined,
+    ...jatsFrontParser.parseCounts(articleMeta?.querySelector('counts')),
+  }
+
+  const title = {
+    articleTitle: articleTitle
+      ? inlineContentsFromJATSTitle(articleTitle)
+      : undefined,
     subtitle: subtitle ? inlineContentsFromJATSTitle(subtitle) : undefined,
     runningTitle: runningTitle
       ? inlineContentsFromJATSTitle(runningTitle)
       : undefined,
-    ...jatsFrontParser.parseCounts(articleMeta?.querySelector('counts')),
-  }
+  } as Title
 
   // affiliations
   const { affiliations, affiliationIDs } =
@@ -149,6 +155,7 @@ export const parseJATSFront = async (front: Element) => {
   return {
     models: generateModelIDs([
       manuscript,
+      title,
       ...affiliations,
       ...authors,
       ...footnotes,

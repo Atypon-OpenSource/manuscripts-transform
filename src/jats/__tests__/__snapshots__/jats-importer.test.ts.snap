@@ -19,8 +19,11 @@ Array [
     "referencesCount": 2,
     "revisionReceiveDate": 1597276800,
     "tableCount": 0,
-    "title": "LW4 Demo Doc basic – change title add date here",
     "wordCount": 2916,
+  },
+  Object {
+    "_id": "undefined:958D677A-9978-4182-AB08-7437A0A1028B",
+    "articleTitle": "LW4 Demo Doc basic – change title add date here",
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -879,8 +882,11 @@ Array [
     "objectType": "MPManuscript",
     "referencesCount": 2,
     "tableCount": 0,
-    "title": "A complete manuscript",
     "wordCount": 2910,
+  },
+  Object {
+    "_id": "undefined:F8EF6FEE-D310-49C0-8FE4-76C5EF2AE9B8",
+    "articleTitle": "A complete manuscript",
   },
   Object {
     "_id": "MPContributor:test",
@@ -1449,10 +1455,13 @@ Array [
     "receiveDate": 1588550400,
     "referencesCount": 21,
     "revisionReceiveDate": 1595721600,
-    "runningTitle": "low-dose anti-PD1 antibodies in cHL",
     "tableCount": 3,
-    "title": "Low-dose pembrolizumab and nivolumab were efficacious and safe in relapsed and refractory classical Hodgkin lymphoma: experience in a resource-constrained setting",
     "wordCount": 6069,
+  },
+  Object {
+    "_id": "undefined:CACCABA6-39E3-41E7-8131-CEE32D4300D5",
+    "articleTitle": "Low-dose pembrolizumab and nivolumab were efficacious and safe in relapsed and refractory classical Hodgkin lymphoma: experience in a resource-constrained setting",
+    "runningTitle": "low-dose anti-PD1 antibodies in cHL",
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -4594,8 +4603,11 @@ Array [
     "objectType": "MPManuscript",
     "referencesCount": 2,
     "tableCount": 0,
-    "title": "A complete manuscript",
     "wordCount": 2910,
+  },
+  Object {
+    "_id": "undefined:6241EEB2-F4A3-4B59-B347-225D7CF7EDF2",
+    "articleTitle": "A complete manuscript",
   },
   Object {
     "_id": "MPContributor:test",
@@ -4635,8 +4647,11 @@ Array [
     "objectType": "MPManuscript",
     "referencesCount": 2,
     "tableCount": 0,
-    "title": "A complete manuscript",
     "wordCount": 2910,
+  },
+  Object {
+    "_id": "undefined:D3ACC0C5-A3A3-4057-9C36-B84BB431E181",
+    "articleTitle": "A complete manuscript",
   },
   Object {
     "_id": "MPContributor:test",
@@ -6737,7 +6752,10 @@ Array [
     "receiveDate": 886636800,
     "revisionReceiveDate": 898646400,
     "revisionRequestDate": 892512000,
-    "title": "WHEN ELECTIONS FAIL TO RESOLVE UNCERTAINTY: THE CASE OF THE 2016 U.S. <b>PRESIDENTIAL ELECTION</b>",
+  },
+  Object {
+    "_id": "undefined:0446024C-0EAC-43DD-AB9E-CCDDBED2FE17",
+    "articleTitle": "WHEN ELECTIONS FAIL TO RESOLVE UNCERTAINTY: THE CASE OF THE 2016 U.S. <b>PRESIDENTIAL ELECTION</b>",
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -11153,8 +11171,11 @@ Array [
     "objectType": "MPManuscript",
     "referencesCount": 2,
     "tableCount": 0,
-    "title": "A complete manuscript",
     "wordCount": 2910,
+  },
+  Object {
+    "_id": "undefined:A35D9F19-5C41-4407-B2FA-C57D09B7C173",
+    "articleTitle": "A complete manuscript",
   },
   Object {
     "_id": "MPContributor:test",
@@ -11571,8 +11592,11 @@ Array [
     "objectType": "MPManuscript",
     "referencesCount": 2,
     "tableCount": 0,
-    "title": "A complete manuscript",
     "wordCount": 2910,
+  },
+  Object {
+    "_id": "undefined:DA1BF9A0-D3F9-4FAC-97D9-373952EC0D38",
+    "articleTitle": "A complete manuscript",
   },
   Object {
     "_id": "MPContributor:test",

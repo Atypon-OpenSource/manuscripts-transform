@@ -798,32 +798,6 @@ const nodes: NodeRule[] = [
       }
     },
   },
-  {
-    tag: 'title-group',
-    node: 'title',
-    context: 'front/',
-    getContent: (node, schema) => {
-      const element = node as HTMLElement
-      const content = []
-      const title = schema.nodes.title.create()
-      const articleTitle = element.querySelector('article-title')
-      if (articleTitle) {
-        content.push(jatsBodyDOMParser.parse(articleTitle, { topNode: title }))
-      }
-      const subtitle = element.querySelector('subtitle')
-      if (subtitle) {
-        content.push(jatsBodyDOMParser.parse(subtitle, { topNode: title }))
-      }
-      const runningTitle = element.querySelector(
-        'alt-title[alt-title-type="right-running"]'
-      )
-      if (runningTitle) {
-        content.push(jatsBodyDOMParser.parse(runningTitle, { topNode: title }))
-      }
-
-      return Fragment.from(content) as Fragment
-    },
-  },
 ]
 
 // metadata

@@ -260,6 +260,7 @@ export class JATSExporter {
       this.modelMap,
       manuscriptID
     )
+
     article.setAttribute('article-type', manuscript.articleType || 'other')
 
     if (!frontMatterOnly) {
@@ -885,6 +886,7 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
+      title: () => '',
       table_element_footer: () => ['table-wrap-foot', 0],
       contributor_list: () => '',
       contributor: () => '',
@@ -1271,7 +1273,6 @@ export class JATSExporter {
       toc_element: () => '',
       toc_section: () => '',
       comment: () => '',
-      title: () => '',
     }
 
     const marks: MarkSpecs = {
