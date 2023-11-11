@@ -435,6 +435,11 @@ type NodeEncoder = (
 type NodeEncoderMap = { [key in Nodes]?: NodeEncoder }
 
 const encoders: NodeEncoderMap = {
+  title: (node): Partial<Title> => ({
+    articleTitle: node.attrs.articleTitle,
+    subtitle: node.attrs.subtitle,
+    runningTitle: node.attrs.runningTitle,
+  }),
   bibliography_element: (node): Partial<BibliographyElement> => ({
     elementType: 'div',
     contents: '',
@@ -763,11 +768,6 @@ const encoders: NodeEncoderMap = {
     invitationID: node.attrs.invitationID,
     isCorresponding: node.attrs.isCorresponding,
     ORCIDIdentifier: node.attrs.ORCIDIdentifier,
-  }),
-  title: (node): Partial<Title> => ({
-    articleTitle: node.attrs.articleTitle,
-    subtitle: node.attrs.subtitle,
-    runningTitle: node.attrs.runningTitle
   }),
 }
 
