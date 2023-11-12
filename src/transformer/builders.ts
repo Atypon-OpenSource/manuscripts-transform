@@ -94,7 +94,7 @@ export const buildProject = (owner: string): Build<Project> => ({
   title: '',
 })
 
-export const buildManuscript = (title = ''): Build<Manuscript> => ({
+export const buildManuscript = (): Build<Manuscript> => ({
   _id: generateID(ObjectTypes.Manuscript),
   objectType: ObjectTypes.Manuscript,
 })

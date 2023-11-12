@@ -50,13 +50,6 @@ Map {
     "role": "author",
     "userID": "",
   },
-  "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1" => Object {
-    "_id": "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
-    "articleTitle": "main title",
-    "objectType": "MPTitle",
-    "runningTitle": "",
-    "subtitle": "",
-  },
   "MPSection:DFCBE345-A12D-451E-8320-723F25D2F472" => Object {
     "_id": "MPSection:DFCBE345-A12D-451E-8320-723F25D2F472",
     "category": "MPSectionCategory:toc",
@@ -553,6 +546,13 @@ const x = 'y'",
     "objectType": "MPBibliographyItem",
     "title": "A hyperlink",
     "type": undefined,
+  },
+  "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1" => Object {
+    "_id": "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+    "articleTitle": "main title",
+    "objectType": "MPTitle",
+    "runningTitle": "running title",
+    "subtitle": "subtitle",
   },
 }
 `;

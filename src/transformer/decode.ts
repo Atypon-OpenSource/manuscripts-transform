@@ -812,13 +812,20 @@ export class Decoder {
       return schema.nodes.title.create({
         id: model._id,
         articleTitle: model.articleTitle,
+        subtitle: model.subtitle,
+        runningTitle: model.runningTitle,
       }) as TitleNode
     },
   }
   private createTitleNode() {
     const titleModel = getTitle(this.modelMap)
-    const titleNode = this.decode(titleModel) as TitleNode
-    return titleNode
+
+    if (titleModel) {
+      const titleNode = this.decode(titleModel) as TitleNode
+      return titleNode
+    } else {
+      return null
+    }
   }
   private createAffiliationListNode() {
     const affiliationNodes = getAffiliations(this.modelMap)
@@ -918,11 +925,10 @@ export class Decoder {
     const articleTitleNode = this.createTitleNode()
     const rootSectionNodes = this.createRootSectionNodes()
     const metaSectionNode = this.createMetaSectionNode()
-    const contents: ManuscriptNode[] = [
-      articleTitleNode,
-      ...rootSectionNodes,
-      metaSectionNode,
-    ]
+    const contents: ManuscriptNode[] = [...rootSectionNodes, metaSectionNode]
+    if (articleTitleNode) {
+      contents.push(articleTitleNode)
+    }
 
     return schema.nodes.manuscript.create(
       {
