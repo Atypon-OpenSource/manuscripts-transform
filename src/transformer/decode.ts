@@ -153,7 +153,7 @@ const getContributors = (modelMap: Map<string, Model>) =>
   getModelsByType<Affiliation>(modelMap, ObjectTypes.Contributor)
 
 const getTitle = (modelMap: Map<string, Model>) =>
-  getModelsByType<Title>(modelMap, ObjectTypes.Title)
+  getModelsByType<Title>(modelMap, ObjectTypes.Title)[0]
 
 export const isManuscriptNode = (
   model: ManuscriptNode | null
@@ -806,10 +806,18 @@ export class Decoder {
         ORCIDIdentifier: model.ORCIDIdentifier,
       }) as ContributorNode
     },
+    [ObjectTypes.Title]: (data) => {
+      const model = data as Title
+
+      return schema.nodes.title.create({
+        id: model._id,
+        articleTitle: model.articleTitle,
+      }) as TitleNode
+    },
   }
   private createTitleNode() {
     const titleModel = getTitle(this.modelMap)
-    const titleNode = this.decode(titleModel[0]) as TitleNode
+    const titleNode = this.decode(titleModel) as TitleNode
     return titleNode
   }
   private createAffiliationListNode() {

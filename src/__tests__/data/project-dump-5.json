@@ -729,7 +729,6 @@
     },
     {
       "objectType": "MPManuscript",
-      "title": "Project Bundle Example 1",
       "priority": 1,
       "pageLayout": "MPPageLayout:7893C450-2BEA-46FA-AFCF-EE6856F8960D",
       "bundle": "MPBundle:F381C461-D224-4E87-9EE1-F5296F37917C",
@@ -1513,6 +1512,17 @@
       "objectType": "MPAuxiliaryObjectReference",
       "referencedObject": "MPListingElement:D16B207B-FF0D-4895-BEC1-D2AD8E6DB35E",
       "containerID": "MPProject:F83DB6EF-813D-4785-BE3A-E99405A9AA34"
+    },
+    {
+      "_id": "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+      "containerID": "MPProject:F83DB6EF-813D-4785-BE3A-E99405A9AA34",
+      "manuscriptID": "MPManuscript:C561C3BB-E558-4E80-BE10-9E41FE6AC18A",
+      "createdAt": 1538472121.690101,
+      "updatedAt": 1538472121.690101,
+      "objectType": "MPTitle",
+      "articleTitle": "main title",
+      "subtitle": " subtitle",
+      "runningTitle": "running title"   
     }
   ]
 }
