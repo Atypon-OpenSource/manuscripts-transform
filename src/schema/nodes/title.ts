@@ -20,6 +20,9 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
+  articleTitle: string
+  subtitle: string
+  runningTitle: string
 }
 
 export interface TitleNode extends ManuscriptNode {
@@ -32,6 +35,9 @@ export const Title: NodeSpec = {
 
   attrs: {
     id: { default: '' },
+    articleTitle: { default: '' },
+    subtitle: { default: '' },
+    runningTitle: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',

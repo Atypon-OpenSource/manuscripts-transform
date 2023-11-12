@@ -22,8 +22,9 @@ Array [
     "wordCount": 2916,
   },
   Object {
-    "_id": "undefined:B911AD47-3F99-4F67-A96B-110181798711",
+    "_id": "MPTitle:test",
     "articleTitle": "LW4 Demo Doc basic – change title add date here",
+    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -885,8 +886,9 @@ Array [
     "wordCount": 2910,
   },
   Object {
-    "_id": "undefined:E5E5A1D1-1EC4-4EEE-831A-B5B22B3CE42E",
+    "_id": "MPTitle:test",
     "articleTitle": "A complete manuscript",
+    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPContributor:test",
@@ -1459,8 +1461,9 @@ Array [
     "wordCount": 6069,
   },
   Object {
-    "_id": "undefined:9E881BB9-F853-4EB3-B2B2-D30DF768A3DA",
+    "_id": "MPTitle:test",
     "articleTitle": "Low-dose pembrolizumab and nivolumab were efficacious and safe in relapsed and refractory classical Hodgkin lymphoma: experience in a resource-constrained setting",
+    "objectType": "MPTitle",
     "runningTitle": "low-dose anti-PD1 antibodies in cHL",
   },
   Object {
@@ -4606,8 +4609,9 @@ Array [
     "wordCount": 2910,
   },
   Object {
-    "_id": "undefined:6E28E513-6269-4920-893A-085A66D0AF40",
+    "_id": "MPTitle:test",
     "articleTitle": "A complete manuscript",
+    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPContributor:test",
@@ -4650,8 +4654,9 @@ Array [
     "wordCount": 2910,
   },
   Object {
-    "_id": "undefined:7CD54FF7-7320-4864-A199-935E61EB7D4F",
+    "_id": "MPTitle:test",
     "articleTitle": "A complete manuscript",
+    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPContributor:test",
@@ -6754,8 +6759,9 @@ Array [
     "revisionRequestDate": 892512000,
   },
   Object {
-    "_id": "undefined:7D514F0B-2540-466B-A921-854C8369F46F",
+    "_id": "MPTitle:test",
     "articleTitle": "WHEN ELECTIONS FAIL TO RESOLVE UNCERTAINTY: THE CASE OF THE 2016 U.S. <b>PRESIDENTIAL ELECTION</b>",
+    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -11174,8 +11180,9 @@ Array [
     "wordCount": 2910,
   },
   Object {
-    "_id": "undefined:1F2D733C-326C-43D7-9609-580EA8F82B63",
+    "_id": "MPTitle:test",
     "articleTitle": "A complete manuscript",
+    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPContributor:test",
@@ -11595,8 +11602,9 @@ Array [
     "wordCount": 2910,
   },
   Object {
-    "_id": "undefined:5916097F-A05F-48AD-ACE5-33C3C0C80EFD",
+    "_id": "MPTitle:test",
     "articleTitle": "A complete manuscript",
+    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPContributor:test",

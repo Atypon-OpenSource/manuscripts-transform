@@ -95,6 +95,8 @@ export const parseJATSFront = async (front: Element) => {
   }
 
   const title = {
+    objectType: ObjectTypes.Title,
+    _id: generateID(ObjectTypes.Title),
     articleTitle: articleTitle
       ? inlineContentsFromJATSTitle(articleTitle)
       : undefined,

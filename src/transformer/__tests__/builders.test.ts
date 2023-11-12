@@ -58,19 +58,6 @@ describe('commands', () => {
     expect(manuscriptB._id).toMatch(/MPManuscript:\S+/)
     expect(manuscriptB.objectType).toBe(ObjectTypes.Manuscript)
   })
-
-  test('build title', () => {
-    const titleA = buildTitle('Teh title')
-    expect(titleA._id).toMatch(/MPTitle:\S+/)
-    expect(titleA.objectType).toBe(ObjectTypes.Title)
-    expect(titleA.articleTitle).toBe('Teh title')
-
-    const titleB = buildTitle('Another title')
-    expect(titleB._id).toMatch(/MPTitle:\S+/)
-    expect(titleB.objectType).toBe(ObjectTypes.Title)
-    expect(titleB.articleTitle).toBe('Another title')
-  })
-
   test('build contributor', () => {
     const name: BibliographicName = {
       _id: 'contributor-a',

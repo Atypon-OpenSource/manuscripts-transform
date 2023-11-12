@@ -8,8 +8,11 @@ Object {
   "content": Array [
     Object {
       "attrs": Object {
+        "articleTitle": "main title",
         "dataTracked": null,
         "id": "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+        "runningTitle": "",
+        "subtitle": "",
       },
       "type": "title",
     },
@@ -2016,8 +2019,11 @@ Object {
   "content": Array [
     Object {
       "attrs": Object {
+        "articleTitle": "main title",
         "dataTracked": null,
         "id": "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+        "runningTitle": "",
+        "subtitle": "",
       },
       "type": "title",
     },
@@ -3765,8 +3771,11 @@ Object {
   "content": Array [
     Object {
       "attrs": Object {
+        "articleTitle": "main title",
         "dataTracked": null,
         "id": "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+        "runningTitle": "",
+        "subtitle": "",
       },
       "type": "title",
     },
