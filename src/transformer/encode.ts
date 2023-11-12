@@ -439,6 +439,7 @@ const encoders: NodeEncoderMap = {
     articleTitle: node.attrs.articleTitle,
     subtitle: node.attrs.subtitle,
     runningTitle: node.attrs.runningTitle,
+    _id: node.attrs._id,
   }),
   bibliography_element: (node): Partial<BibliographyElement> => ({
     elementType: 'div',

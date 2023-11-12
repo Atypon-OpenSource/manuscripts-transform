@@ -35,7 +35,6 @@ import {
   buildParagraph,
   buildProject,
   buildStatusLabel,
-  buildTitle,
 } from '../builders'
 
 describe('commands', () => {
