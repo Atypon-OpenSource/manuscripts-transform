@@ -217,7 +217,7 @@ describe('JATS transformer', () => {
       .replace(/\sxlink:href="(.*?)"/g, '')
       .replace(/\s{2,}/g, '')
       .replace('<app-group/>', '')
-      .replace('<article-title>Footnotes</article-title>', '')
+      .replace('<title>Footnotes</title>', '')
       .replace(/element-citation/g, 'mixed-citation')
 
     expect(formattedOutput).toBe(formattedInput)
