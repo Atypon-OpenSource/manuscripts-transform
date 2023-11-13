@@ -233,6 +233,33 @@ export const chooseSecType = (sectionCategory: SectionCategory): SecType => {
   }
 }
 
+export const chooseCoreSectionBySection = (section: string): string => {
+  switch (section) {
+    case 'MPSectionCategory:abstract':
+    case 'MPSectionCategory:abstract-teaser':
+    case 'MPSectionCategory:abstract-graphical':
+      return 'MPSectionCategory:abstracts'
+    case 'MPSectionCategory:acknowledgement':
+    case 'MPSectionCategory:availability':
+    case 'MPSectionCategory:conclusions':
+    case 'MPSectionCategory:bibliography':
+    case 'MPSectionCategory:discussion':
+    case 'MPSectionCategory:endnotes':
+    case 'MPSectionCategory:appendices':
+    case 'MPSectionCategory:competing-interests':
+    case 'MPSectionCategory:con':
+    case 'MPSectionCategory:deceased':
+    case 'MPSectionCategory:ethics-statement':
+    case 'MPSectionCategory:financial-disclosure':
+    case 'MPSectionCategory:supplementary-material':
+    case 'MPSectionCategory:supported-by':
+    case 'MPSectionCategory:abbreviations':
+    case 'MPSectionCategory:results':
+      return 'MPSectionCategory:backmatter'
+  }
+  return 'MPSectionCategory:body'
+}
+
 export const chooseSectionCategoryByType = (
   secType: string
 ): SectionCategory | undefined => {

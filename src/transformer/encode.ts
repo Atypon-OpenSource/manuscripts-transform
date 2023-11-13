@@ -868,6 +868,14 @@ export const encode = (
   // TODO: parents array, to get closest parent with an id for containingObject
   const addModel =
     (path: string[], parent: ManuscriptNode) => (child: ManuscriptNode) => {
+      if (
+        child.type === schema.nodes.abstract_core_section ||
+        child.type === schema.nodes.body_core_section ||
+        child.type === schema.nodes.backmatter_core_section
+      ) {
+        child.forEach(addModel([], child))
+        return
+      }
       if (!child.attrs.id) {
         return
       }

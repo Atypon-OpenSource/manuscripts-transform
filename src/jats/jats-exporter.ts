@@ -671,10 +671,11 @@ export class JATSExporter {
     }
   }
   protected buildBody = (fragment: ManuscriptFragment) => {
-    const content = this.serializeFragment(fragment)
     const body = this.document.createElement('body')
-    body.appendChild(content)
-
+    fragment.forEach((cFragment) => {
+      const serializedNode = this.serializeNode(cFragment)
+      body.append(...serializedNode.childNodes)
+    })
     this.fixBody(body, fragment)
 
     return body
@@ -898,6 +899,9 @@ export class JATSExporter {
       bibliography_item: () => '',
       comment_list: () => '',
       keywords_group: () => '',
+      body_core_section: () => ['body', 0],
+      abstract_core_section: () => ['abstract', 0],
+      backmatter_core_section: () => ['backmatter', 0],
       bibliography_section: (node) => [
         'ref-list',
         { id: normalizeID(node.attrs.id) },

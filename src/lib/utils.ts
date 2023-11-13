@@ -111,6 +111,19 @@ export const getTrimmedTextContent = (
   return node.querySelector(querySelector)?.textContent?.trim()
 }
 
+export const groupBy = <T, K extends keyof any>(
+  list: T[],
+  getKey: (item: T) => K
+) =>
+  list.reduce((previous, currentItem) => {
+    const group = getKey(currentItem)
+    if (!previous[group]) {
+      previous[group] = []
+    }
+    previous[group].push(currentItem)
+    return previous
+  }, {} as Record<K, T[]>)
+
 export function modelsEqual(model: Model, model2: Model) {
   for (const v in model) {
     for (const v2 in model2) {

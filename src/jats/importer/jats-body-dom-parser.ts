@@ -746,6 +746,18 @@ const nodes: NodeRule[] = [
     node: 'keywords_element',
   },
   {
+    tag: 'sec[sec-type="abstracts"]',
+    node: 'abstract_core_section',
+  },
+  {
+    tag: 'sec[sec-type="body"]',
+    node: 'body_core_section',
+  },
+  {
+    tag: 'sec[sec-type="backmatter"]',
+    node: 'backmatter_core_section',
+  },
+  {
     tag: 'sec',
     node: 'section',
     getAttrs: (node) => {

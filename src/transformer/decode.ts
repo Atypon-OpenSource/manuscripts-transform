@@ -46,9 +46,10 @@ import {
   TOCElement,
 } from '@manuscripts/json-schema'
 import debug from 'debug'
-import { DOMParser, ParseOptions } from 'prosemirror-model'
+import { DOMParser, NodeType, ParseOptions } from 'prosemirror-model'
 
 import { MissingElement } from '../errors'
+import { groupBy } from '../lib/utils'
 import {
   AffiliationNode,
   BibliographyElementNode,
@@ -102,6 +103,7 @@ import {
   isManuscript,
 } from './object-types'
 import {
+  chooseCoreSectionBySection,
   chooseSectionLableName,
   chooseSectionNodeType,
   chooseSecType,
@@ -901,9 +903,49 @@ export class Decoder {
     let rootSections = getSections(this.modelMap).filter(
       (section) => !section.path || section.path.length <= 1
     )
+
     rootSections = this.addGeneratedLabels(rootSections)
-    const rootSectionNodes = rootSections
+    const sectionGroups = groupBy(rootSections, (sec) => {
+      return chooseCoreSectionBySection(sec.category ?? '')
+    })
+    this.ensureCoreSectionsExist(sectionGroups)
+    const absSectionNode = sectionGroups['MPSectionCategory:abstracts']
       .map(this.decode)
+      .filter(isManuscriptNode)
+    const bodySectionNodes = sectionGroups['MPSectionCategory:body']
+      .map(this.decode)
+      .filter(isManuscriptNode)
+    const backmatterSectionNodes = sectionGroups['MPSectionCategory:backmatter']
+      .map(this.decode)
+      .filter(isManuscriptNode)
+
+    const abstractCoreSectionNodes = this.createAndFill(
+      schema.nodes.abstract_core_section,
+      absSectionNode
+    )
+
+    const bodyCoreSectionNodes = this.createAndFill(
+      schema.nodes.body_core_section,
+      bodySectionNodes
+    )
+
+    const backmatterCoreSectionNodes = this.createAndFill(
+      schema.nodes.backmatter_core_section,
+      backmatterSectionNodes
+    )
+
+    return [
+      abstractCoreSectionNodes,
+      bodyCoreSectionNodes,
+      backmatterCoreSectionNodes,
+    ]
+  }
+  private ensureCoreSectionsExist(coreSections: Record<string, Section[]>) {
+    if (!coreSections['MPSectionCategory:abstracts']) {
+      coreSections['MPSectionCategory:abstracts'] = []
+    }
+    if (!coreSections['MPSectionCategory:body']) {
+      coreSections['MPSectionCategory:body'] = []
       .filter(isManuscriptNode) as SectionNode[]
     this.handleMissingRootSectionNodes(rootSectionNodes)
     if (!rootSectionNodes.length) {
@@ -913,7 +955,18 @@ export class Decoder {
         }) as SectionNode
       )
     }
-    return rootSectionNodes
+    if (!coreSections['MPSectionCategory:backmatter']) {
+      coreSections['MPSectionCategory:backmatter'] = []
+    }
+  }
+
+  private createAndFill(nodeType: NodeType, content: ManuscriptNode[]) {
+    return nodeType.createAndFill(
+      {
+        id: generateNodeID(nodeType),
+      },
+      content
+    ) as SectionNode
   }
 
   private createCommentsNode(model: Model) {

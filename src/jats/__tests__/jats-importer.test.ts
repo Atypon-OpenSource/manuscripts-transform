@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { parseJATSArticle, parseJATSBody, parseJATSFront } from '../importer'
+import { parseJATSArticle, parseJATSBody } from '../importer'
 import { readAndParseFixture } from './files'
 import { normalizeIDs, normalizeTimestamps } from './ids'
 
@@ -109,14 +109,6 @@ describe('JATS importer', () => {
     const models = await parseJATSArticle(
       await readAndParseFixture('jats-example-no-body.xml')
     )
-    expect(normalizeIDs(models)).toMatchSnapshot()
-  })
-
-  test('parses JATS front to Manuscripts models', async () => {
-    const article = await readAndParseFixture('jats-example.xml')
-    const front = article.querySelector('front') as Element
-    const { models } = await parseJATSFront(front)
-
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 

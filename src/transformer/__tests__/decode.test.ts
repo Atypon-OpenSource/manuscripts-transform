@@ -68,7 +68,17 @@ const createDoc = (
 describe('decoder', () => {
   test('create test doc', async () => {
     const doc = createTestDoc()
-
+    replaceIdByType(
+      doc,
+      schema.nodes.abstract_core_section,
+      'MPSection:abstracts'
+    )
+    replaceIdByType(doc, schema.nodes.body_core_section, 'MPSection:body')
+    replaceIdByType(
+      doc,
+      schema.nodes.backmatter_core_section,
+      'MPSection:backmatter'
+    )
     expect(doc).toMatchSnapshot()
   })
 
@@ -80,6 +90,17 @@ describe('decoder', () => {
     expect(
       countDescendantsOfType(beforeDoc, schema.nodes.placeholder_element)
     ).toBe(0)
+    replaceIdByType(
+      beforeDoc,
+      schema.nodes.abstract_core_section,
+      'MPSection:abstracts'
+    )
+    replaceIdByType(beforeDoc, schema.nodes.body_core_section, 'MPSection:body')
+    replaceIdByType(
+      beforeDoc,
+      schema.nodes.backmatter_core_section,
+      'MPSection:backmatter'
+    )
     expect(beforeDoc).toMatchSnapshot('decoded-without-placeholders')
 
     modelMap.delete('MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8')
@@ -92,6 +113,17 @@ describe('decoder', () => {
     expect(
       countDescendantsOfType(afterDoc, schema.nodes.placeholder_element)
     ).toBe(2)
+    replaceIdByType(
+      afterDoc,
+      schema.nodes.abstract_core_section,
+      'MPSection:abstracts'
+    )
+    replaceIdByType(afterDoc, schema.nodes.body_core_section, 'MPSection:body')
+    replaceIdByType(
+      afterDoc,
+      schema.nodes.backmatter_core_section,
+      'MPSection:backmatter'
+    )
     expect(afterDoc).toMatchSnapshot('decoded-with-placeholders')
   })
 
@@ -153,6 +185,17 @@ describe('decoder', () => {
 
     const result = decoder.createArticleNode()
     replaceIdByType(result, schema.nodes.comment_list, 'someId')
+    replaceIdByType(
+      result,
+      schema.nodes.abstract_core_section,
+      'MPSection:abstracts'
+    )
+    replaceIdByType(result, schema.nodes.body_core_section, 'MPSection:body')
+    replaceIdByType(
+      result,
+      schema.nodes.backmatter_core_section,
+      'MPSection:backmatter'
+    )
     expect(result).toMatchSnapshot()
   })
 
@@ -166,6 +209,17 @@ describe('decoder', () => {
     replaceIdByType(result, schema.nodes.section, 'someId')
     replaceIdByType(result, schema.nodes.keywords_section, 'someId')
     replaceIdByType(result, schema.nodes.keywords_element, 'someId')
+    replaceIdByType(
+      result,
+      schema.nodes.abstract_core_section,
+      'MPSection:abstracts'
+    )
+    replaceIdByType(result, schema.nodes.body_core_section, 'MPSection:body')
+    replaceIdByType(
+      result,
+      schema.nodes.backmatter_core_section,
+      'MPSection:backmatter'
+    )
     replaceIdByType(result, schema.nodes.title, 'someId')
 
     expect(result).toMatchSnapshot()
@@ -178,6 +232,17 @@ describe('decoder', () => {
 
     const result = decoder.createArticleNode()
 
+    replaceIdByType(
+      result,
+      schema.nodes.abstract_core_section,
+      'MPSection:abstracts'
+    )
+    replaceIdByType(result, schema.nodes.body_core_section, 'MPSection:body')
+    replaceIdByType(
+      result,
+      schema.nodes.backmatter_core_section,
+      'MPSection:backmatter'
+    )
     expect(result).toMatchSnapshot()
   })
 
@@ -196,6 +261,18 @@ describe('decoder', () => {
     replaceIdByType(result, schema.nodes.keywords_section, 'MPSection:1')
     replaceIdByType(result, schema.nodes.section, 'MPSection:1')
 
+    replaceIdByType(
+      result,
+      schema.nodes.abstract_core_section,
+      'MPSection:abstracts'
+    )
+    replaceIdByType(result, schema.nodes.body_core_section, 'MPSection:body')
+    replaceIdByType(
+      result,
+      schema.nodes.backmatter_core_section,
+      'MPSection:backmatter'
+    )
+
     expect(result).toMatchSnapshot()
   })
 
@@ -205,7 +282,17 @@ describe('decoder', () => {
     const decoder = new Decoder(modelMap)
 
     const result = decoder.createArticleNode()
-
+    replaceIdByType(
+      result,
+      schema.nodes.abstract_core_section,
+      'MPSection:abstracts'
+    )
+    replaceIdByType(result, schema.nodes.body_core_section, 'MPSection:body')
+    replaceIdByType(
+      result,
+      schema.nodes.backmatter_core_section,
+      'MPSection:backmatter'
+    )
     expect(result).toMatchSnapshot()
   })
 })

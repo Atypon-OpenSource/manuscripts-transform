@@ -28,6 +28,9 @@ import {
 } from '../schema'
 
 export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
+  [schema.nodes.abstract_core_section, ObjectTypes.Section],
+  [schema.nodes.body_core_section, ObjectTypes.Section],
+  [schema.nodes.backmatter_core_section, ObjectTypes.Section],
   [schema.nodes.comment, ObjectTypes.CommentAnnotation],
   [schema.nodes.bibliography_item, ObjectTypes.BibliographyItem],
   [schema.nodes.bibliography_element, ObjectTypes.BibliographyElement],

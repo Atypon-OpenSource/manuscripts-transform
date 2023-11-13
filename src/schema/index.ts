@@ -42,7 +42,8 @@ import { citation } from './nodes/citation'
 import { comment } from './nodes/comment'
 import { commentList } from './nodes/comment_list'
 import { contributor } from './nodes/contributor'
-import { contributorsSection } from './nodes/contributors_section'
+import { contributorList } from './nodes/contributor_list'
+import { coreSection } from './nodes/core_section'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
 import { equation } from './nodes/equation'
@@ -170,6 +171,9 @@ export const schema = new Schema<Nodes, Marks>({
     caption,
     caption_title: captionTitle,
     citation,
+    abstract_core_section: coreSection,
+    body_core_section: coreSection,
+    backmatter_core_section: coreSection,
     cross_reference: crossReference,
     doc,
     equation,
