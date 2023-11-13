@@ -49,7 +49,7 @@ describe('commands', () => {
   })
 
   test('build manuscript', () => {
-    const manuscriptA = buildManuscript('Teh title')
+    const manuscriptA = buildManuscript()
     expect(manuscriptA._id).toMatch(/MPManuscript:\S+/)
     expect(manuscriptA.objectType).toBe(ObjectTypes.Manuscript)
 
