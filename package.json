@@ -1,7 +1,7 @@
 {
   "name": "@manuscripts/transform",
   "description": "ProseMirror transformer for Manuscripts applications",
-  "version": "1.5.0-LEAN-2852-8",
+  "version": "1.5.0-LEAN-2852-9",
   "repository": "github:Atypon-OpenSource/manuscripts-transform",
   "license": "Apache-2.0",
   "main": "dist/cjs",
