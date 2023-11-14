@@ -109,7 +109,7 @@ export type Nodes =
   | 'contributor_list'
   | 'contributor'
   | 'table_element_footer'
-  | 'title'
+  | 'titles'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

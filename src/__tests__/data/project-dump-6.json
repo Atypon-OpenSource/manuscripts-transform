@@ -1438,13 +1438,13 @@
       "containerID": "MPProject:1"
     },
     {
-      "_id": "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+      "_id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
       "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
       "containerID": "MPProject:1",
       "createdAt": 1538472121.690101,
       "updatedAt": 1538472121.690101,
-      "objectType": "MPTitle",
-      "articleTitle": "main title",
+      "objectType": "MPTitles",
+      "title": "main title",
       "subtitle": "subtitle",
       "runningTitle": "running title"   
     }

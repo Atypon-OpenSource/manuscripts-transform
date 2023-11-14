@@ -42,7 +42,7 @@ import {
   Table,
   TableElement,
   TableElementFooter,
-  Title,
+  Titles,
   TOCElement,
 } from '@manuscripts/json-schema'
 import debug from 'debug'
@@ -85,7 +85,7 @@ import {
   TableElementFooterNode,
   TableElementNode,
   TableNode,
-  TitleNode,
+  TitlesNode,
   TOCElementNode,
 } from '../schema'
 import { CommentListNode } from '../schema/nodes/comment_list'
@@ -151,9 +151,6 @@ const getAffiliations = (modelMap: Map<string, Model>) =>
   getModelsByType<Affiliation>(modelMap, ObjectTypes.Affiliation)
 const getContributors = (modelMap: Map<string, Model>) =>
   getModelsByType<Affiliation>(modelMap, ObjectTypes.Contributor)
-
-const getTitle = (modelMap: Map<string, Model>) =>
-  getModelsByType<Title>(modelMap, ObjectTypes.Title)[0]
 
 export const isManuscriptNode = (
   model: ManuscriptNode | null
@@ -806,23 +803,23 @@ export class Decoder {
         ORCIDIdentifier: model.ORCIDIdentifier,
       }) as ContributorNode
     },
-    [ObjectTypes.Title]: (data) => {
-      const model = data as Title
+    [ObjectTypes.Titles]: (data) => {
+      const model = data as Titles
 
-      return schema.nodes.title.create({
+      return schema.nodes.titles.create({
         id: model._id,
-        articleTitle: model.articleTitle,
+        title: model.title,
         subtitle: model.subtitle,
         runningTitle: model.runningTitle,
-      }) as TitleNode
+      }) as TitlesNode
     },
   }
-  private createTitleNode() {
-    const titleModel = getTitle(this.modelMap)
+  private createTitlesNode() {
+    const titlesModel = getModelsByType<Titles>(this.modelMap, ObjectTypes.Titles)[0]
 
-    if (titleModel) {
-      const titleNode = this.decode(titleModel) as TitleNode
-      return titleNode
+    if (titlesModel) {
+      const titlesNode = this.decode(titlesModel) as TitlesNode
+      return titlesNode
     } else {
       return null
     }
@@ -922,12 +919,12 @@ export class Decoder {
     this.modelMap.get(id) as T | undefined
 
   public createArticleNode = (manuscriptID?: string): ManuscriptNode => {
-    const articleTitleNode = this.createTitleNode()
+    const titlesNode = this.createTitlesNode()
     const rootSectionNodes = this.createRootSectionNodes()
     const metaSectionNode = this.createMetaSectionNode()
     const contents: ManuscriptNode[] = [...rootSectionNodes, metaSectionNode]
-    if (articleTitleNode) {
-      contents.push(articleTitleNode)
+    if (titlesNode) {
+      contents.push(titlesNode)
     }
 
     return schema.nodes.manuscript.create(

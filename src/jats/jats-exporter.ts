@@ -56,7 +56,7 @@ import { hasObjectType } from '../transformer/object-types'
 import {
   findManuscript,
   findManuscriptById,
-  findTitle,
+  findTitles,
 } from '../transformer/project-bundle'
 import {
   chooseJatsFnType,
@@ -407,7 +407,7 @@ export class JATSExporter {
 
   protected buildFront = (doi?: string, id?: string, links?: Links) => {
     const manuscript = findManuscript(this.modelMap)
-    const title = findTitle(this.modelMap)
+    const titles = findTitles(this.modelMap)
 
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/front.html
     const front = this.document.createElement('front')
@@ -505,22 +505,22 @@ export class JATSExporter {
       }
     }
 
-    if (title.articleTitle) {
+    if (titles.title) {
       const element = this.document.createElement('article-title')
-      this.setTitleContent(element, title.articleTitle)
+      this.setTitleContent(element, titles.title)
       titleGroup.appendChild(element)
     }
 
-    if (title.subtitle) {
+    if (titles.subtitle) {
       const element = this.document.createElement('subtitle')
-      this.setTitleContent(element, title.subtitle)
+      this.setTitleContent(element, titles.subtitle)
       titleGroup.appendChild(element)
     }
 
-    if (title.runningTitle) {
+    if (titles.runningTitle) {
       const element = this.document.createElement('alt-title')
       element.setAttribute('alt-title-type', 'right-running')
-      this.setTitleContent(element, title.runningTitle)
+      this.setTitleContent(element, titles.runningTitle)
       titleGroup.appendChild(element)
     }
 
@@ -886,7 +886,7 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
-      title: () => '',
+      titles: () => '',
       table_element_footer: () => ['table-wrap-foot', 0],
       contributor_list: () => '',
       contributor: () => '',

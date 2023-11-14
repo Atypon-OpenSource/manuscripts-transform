@@ -3,6 +3,11 @@
 exports[`JATS importer parses JATS AuthorQueries example to Manuscripts models 1`] = `
 Array [
   Object {
+    "_id": "MPTitles:test",
+    "objectType": "MPTitles",
+    "title": "LW4 Demo Doc basic – change title add date here",
+  },
+  Object {
     "_id": "MPManuscript:test",
     "acceptanceDate": 1599091200,
     "articleType": "other",
@@ -20,11 +25,6 @@ Array [
     "revisionReceiveDate": 1597276800,
     "tableCount": 0,
     "wordCount": 2916,
-  },
-  Object {
-    "_id": "MPTitle:test",
-    "articleTitle": "LW4 Demo Doc basic – change title add date here",
-    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -870,6 +870,11 @@ Array [
 exports[`JATS importer parses JATS article to Manuscripts models 1`] = `
 Array [
   Object {
+    "_id": "MPTitles:test",
+    "objectType": "MPTitles",
+    "title": "A complete manuscript",
+  },
+  Object {
     "_id": "MPManuscript:test",
     "articleType": "other",
     "equationCount": 0,
@@ -884,11 +889,6 @@ Array [
     "referencesCount": 2,
     "tableCount": 0,
     "wordCount": 2910,
-  },
-  Object {
-    "_id": "MPTitle:test",
-    "articleTitle": "A complete manuscript",
-    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPContributor:test",
@@ -1442,6 +1442,12 @@ Array [
 exports[`JATS importer parses JATS article with tables and table footnotes 1`] = `
 Array [
   Object {
+    "_id": "MPTitles:test",
+    "objectType": "MPTitles",
+    "runningTitle": "low-dose anti-PD1 antibodies in cHL",
+    "title": "Low-dose pembrolizumab and nivolumab were efficacious and safe in relapsed and refractory classical Hodgkin lymphoma: experience in a resource-constrained setting",
+  },
+  Object {
     "_id": "MPManuscript:test",
     "acceptanceDate": 1599004800,
     "articleType": "other",
@@ -1459,12 +1465,6 @@ Array [
     "revisionReceiveDate": 1595721600,
     "tableCount": 3,
     "wordCount": 6069,
-  },
-  Object {
-    "_id": "MPTitle:test",
-    "articleTitle": "Low-dose pembrolizumab and nivolumab were efficacious and safe in relapsed and refractory classical Hodgkin lymphoma: experience in a resource-constrained setting",
-    "objectType": "MPTitle",
-    "runningTitle": "low-dose anti-PD1 antibodies in cHL",
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -4593,6 +4593,11 @@ Array [
 exports[`JATS importer parses JATS front only example to Manuscripts models 1`] = `
 Array [
   Object {
+    "_id": "MPTitles:test",
+    "objectType": "MPTitles",
+    "title": "A complete manuscript",
+  },
+  Object {
     "_id": "MPManuscript:test",
     "articleType": "other",
     "equationCount": 0,
@@ -4607,11 +4612,6 @@ Array [
     "referencesCount": 2,
     "tableCount": 0,
     "wordCount": 2910,
-  },
-  Object {
-    "_id": "MPTitle:test",
-    "articleTitle": "A complete manuscript",
-    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPContributor:test",
@@ -4639,6 +4639,11 @@ Array [
 exports[`JATS importer parses JATS front to Manuscripts models 1`] = `
 Array [
   Object {
+    "_id": "MPTitles:test",
+    "objectType": "MPTitles",
+    "title": "A complete manuscript",
+  },
+  Object {
     "_id": "MPManuscript:test",
     "equationCount": 0,
     "figureCount": 0,
@@ -4652,11 +4657,6 @@ Array [
     "referencesCount": 2,
     "tableCount": 0,
     "wordCount": 2910,
-  },
-  Object {
-    "_id": "MPTitle:test",
-    "articleTitle": "A complete manuscript",
-    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPContributor:test",
@@ -6750,6 +6750,11 @@ Object {
 exports[`JATS importer parses full JATS example to Manuscripts models 1`] = `
 Array [
   Object {
+    "_id": "MPTitles:test",
+    "objectType": "MPTitles",
+    "title": "WHEN ELECTIONS FAIL TO RESOLVE UNCERTAINTY: THE CASE OF THE 2016 U.S. <b>PRESIDENTIAL ELECTION</b>",
+  },
+  Object {
     "_id": "MPManuscript:test",
     "acceptanceDate": 899683200,
     "articleType": "research-article",
@@ -6757,11 +6762,6 @@ Array [
     "receiveDate": 886636800,
     "revisionReceiveDate": 898646400,
     "revisionRequestDate": 892512000,
-  },
-  Object {
-    "_id": "MPTitle:test",
-    "articleTitle": "WHEN ELECTIONS FAIL TO RESOLVE UNCERTAINTY: THE CASE OF THE 2016 U.S. <b>PRESIDENTIAL ELECTION</b>",
-    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -11164,6 +11164,11 @@ Array [
 exports[`JATS importer parses full JATS no back example to Manuscripts models 1`] = `
 Array [
   Object {
+    "_id": "MPTitles:test",
+    "objectType": "MPTitles",
+    "title": "A complete manuscript",
+  },
+  Object {
     "_id": "MPManuscript:test",
     "articleType": "other",
     "equationCount": 0,
@@ -11178,11 +11183,6 @@ Array [
     "referencesCount": 2,
     "tableCount": 0,
     "wordCount": 2910,
-  },
-  Object {
-    "_id": "MPTitle:test",
-    "articleTitle": "A complete manuscript",
-    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPContributor:test",
@@ -11586,6 +11586,11 @@ Array [
 exports[`JATS importer parses full JATS no body example to Manuscripts models 1`] = `
 Array [
   Object {
+    "_id": "MPTitles:test",
+    "objectType": "MPTitles",
+    "title": "A complete manuscript",
+  },
+  Object {
     "_id": "MPManuscript:test",
     "articleType": "other",
     "equationCount": 0,
@@ -11600,11 +11605,6 @@ Array [
     "referencesCount": 2,
     "tableCount": 0,
     "wordCount": 2910,
-  },
-  Object {
-    "_id": "MPTitle:test",
-    "articleTitle": "A complete manuscript",
-    "objectType": "MPTitle",
   },
   Object {
     "_id": "MPContributor:test",

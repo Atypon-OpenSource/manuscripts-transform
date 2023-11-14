@@ -547,12 +547,12 @@ const x = 'y'",
     "title": "A hyperlink",
     "type": undefined,
   },
-  "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1" => Object {
-    "_id": "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
-    "articleTitle": "main title",
-    "objectType": "MPTitle",
+  "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1" => Object {
+    "_id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+    "objectType": "MPTitles",
     "runningTitle": "running title",
     "subtitle": "subtitle",
+    "title": "main title",
   },
 }
 `;
