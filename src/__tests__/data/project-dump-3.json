@@ -471,13 +471,13 @@
       "_id": "MPTableElement:36132CFA-A6D0-4D8D-A347-0CF1136002FD"
     },
     {
-      "_id": "MPTitle:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+      "_id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
       "createdAt": 1538472121.690101,
       "updatedAt": 1538472121.690101,
       "manuscriptID": "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8",
       "containerID": "MPProject:ADC69637-C321-4158-8E24-F92068D4727D",
-      "objectType": "MPTitle",
-      "articleTitle": "main title",
+      "objectType": "MPTitles",
+      "title": "main title",
       "subtitle": "subtitle",
       "runningTitle": "running title"   
     }

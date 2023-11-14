@@ -20,22 +20,22 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  articleTitle: string
+  title: string
   subtitle: string
   runningTitle: string
 }
 
-export interface TitleNode extends ManuscriptNode {
+export interface TitlesNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const Title: NodeSpec = {
+export const Titles: NodeSpec = {
   content: 'text*',
   marks: 'italic smallcaps subscript superscript',
 
   attrs: {
     id: { default: '' },
-    articleTitle: { default: '' },
+    title: { default: '' },
     subtitle: { default: '' },
     runningTitle: { default: '' },
     dataTracked: { default: null },
