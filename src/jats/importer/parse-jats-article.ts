@@ -15,10 +15,12 @@
  */
 
 import {
+  Affiliation,
   AuxiliaryObjectReference,
   BibliographyItem,
   Citation,
   CommentAnnotation,
+  Contributor,
   ElementsOrder,
   FootnotesOrder,
   Journal,
@@ -149,13 +151,13 @@ export const parseJATSFront = async (front: Element) => {
   return {
     models: generateModelIDs([
       manuscript,
-      ...affiliations,
-      ...authors,
       ...footnotes,
       ...correspondingList,
       journal,
       ...supplements,
     ]),
+    authors: [...authors],
+    affiliations: [...affiliations],
   }
 }
 
@@ -202,6 +204,8 @@ export const parseJATSBody = (
   document: Document,
   body: Element,
   bibliographyItems: BibliographyItem[] | null,
+  authors: Build<Contributor>[],
+  affiliations: Build<Affiliation>[],
   refModels: Model[],
   referenceIdsMap: Map<string, string> | undefined,
   footnotesOrder?: FootnotesOrder
@@ -224,6 +228,18 @@ export const parseJATSBody = (
     createElement
   )
   jatsBodyTransformations.moveKeywordsToBody(document, body, createElement)
+  jatsBodyTransformations.moveAffiliationsToBody(
+    document,
+    affiliations,
+    body,
+    createElement
+  )
+  jatsBodyTransformations.moveAuthorsToBody(
+    document,
+    authors,
+    body,
+    createElement
+  )
   const node = jatsBodyDOMParser.parse(body)
   if (!node.firstChild) {
     throw new Error('No content was parsed from the JATS article body')
@@ -308,7 +324,11 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
   const authorQueriesMap = markProcessingInstructions(doc)
 
   const createElement = createElementFn(document)
-  const { models: frontModels /*, bundles*/ } = await parseJATSFront(front)
+  const {
+    models: frontModels,
+    authors,
+    affiliations,
+  } = await parseJATSFront(front)
   const { references, crossReferences, referenceQueriesMap, referenceIdsMap } =
     parseJATSReferences(back, body, createElement)
 
@@ -322,6 +342,8 @@ export const parseJATSArticle = async (doc: Document): Promise<Model[]> => {
       doc,
       body,
       references as BibliographyItem[],
+      authors,
+      affiliations,
       crossReferences,
       referenceIdsMap,
       footnotesOrder
