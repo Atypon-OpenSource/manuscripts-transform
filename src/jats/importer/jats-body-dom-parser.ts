@@ -599,10 +599,9 @@ const nodes: NodeRule[] = [
     node: 'affiliations_section', // NOTE: higher priority than 'section'
     getAttrs: (node) => {
       const element = node as HTMLElement
-
       return {
         id: element.getAttribute('id'),
-        category: chooseSectionCategory(element),
+        category: 'MPSectionCategory:affiliations',
       }
     },
   },
@@ -658,10 +657,9 @@ const nodes: NodeRule[] = [
     node: 'contributors_section', // NOTE: higher priority than 'section'
     getAttrs: (node) => {
       const element = node as HTMLElement
-
       return {
         id: element.getAttribute('id'),
-        category: chooseSectionCategory(element),
+        category: 'MPSectionCategory:contributors',
       }
     },
   },
