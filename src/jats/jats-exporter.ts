@@ -887,10 +887,10 @@ export class JATSExporter {
 
     const nodes: NodeSpecs = {
       titles: () => '',
+      affiliations_section: () => '',
+      contributors_section: () => '',
       table_element_footer: () => ['table-wrap-foot', 0],
-      contributor_list: () => '',
       contributor: () => '',
-      affiliation_list: () => '',
       affiliation: () => '',
       meta_section: () => '',
       attribution: () => ['attrib', 0],

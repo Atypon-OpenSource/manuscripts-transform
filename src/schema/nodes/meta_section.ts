@@ -27,7 +27,7 @@ export interface MetaSectionNode extends ManuscriptNode {
 }
 
 export const metaSection: NodeSpec = {
-  content: 'affiliation_list contributor_list comment_list',
+  content: 'comment_list',
   attrs: {
     id: { default: 'META_SECTION' },
   },

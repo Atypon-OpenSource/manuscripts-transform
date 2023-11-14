@@ -14,9 +14,14 @@
  * limitations under the License.
  */
 
-import { BibliographyItem } from '@manuscripts/json-schema'
+import {
+  Affiliation,
+  BibliographyItem,
+  Contributor,
+} from '@manuscripts/json-schema'
 
 import {
+  Build,
   chooseSectionCategoryByType,
   chooseSecType,
   getCoreSectionTitles,
@@ -399,6 +404,83 @@ export const jatsBodyTransformations = {
       if (tableFooter.parentNode) {
         tableFooter.parentNode.appendChild(tableFooter)
       }
+    }
+  },
+  moveAffiliationsToBody(
+    doc: Document,
+    affiliations: Build<Affiliation>[] | undefined,
+    body: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    if (affiliations?.length) {
+      const section = createElement('sec')
+      section.setAttribute('sec-type', 'affiliations')
+      affiliations.forEach((affiliation) => {
+        const item = doc.createElement('aff')
+        item.setAttribute('id', affiliation._id)
+        affiliation.institution &&
+          item.setAttribute('institution', affiliation.institution)
+        affiliation.email &&
+          item.setAttribute('email', JSON.stringify(affiliation.email))
+        affiliation.department &&
+          item.setAttribute('department', affiliation.department)
+        affiliation.addressLine1 &&
+          item.setAttribute('addressLine1', affiliation.addressLine1)
+        affiliation.addressLine2 &&
+          item.setAttribute('addressLine2', affiliation.addressLine2)
+        affiliation.addressLine3 &&
+          item.setAttribute('addressLine3', affiliation.addressLine3)
+        affiliation.postCode &&
+          item.setAttribute('postCode', affiliation.postCode)
+        affiliation.country && item.setAttribute('country', affiliation.country)
+        ;(affiliation.priority === 0 || affiliation.priority) &&
+          item.setAttribute('priority', affiliation.priority.toString())
+
+        section.appendChild(item)
+      })
+      body.prepend(section)
+    }
+  },
+  moveAuthorsToBody(
+    doc: Document,
+    authors: Build<Contributor>[] | undefined,
+    body: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    if (authors?.length) {
+      const section = createElement('sec')
+      section.setAttribute('sec-type', 'contributors')
+      authors.forEach((author) => {
+        const item = doc.createElement('contrib')
+        item.setAttribute('id', author._id)
+        author.role && item.setAttribute('role', author.role)
+        author.affiliations &&
+          item.setAttribute('affiliations', JSON.stringify(author.affiliations))
+        author.footnote &&
+          item.setAttribute('footnote', JSON.stringify(author.footnote))
+        author.corresp &&
+          item.setAttribute('corresp', JSON.stringify(author.corresp))
+        author.bibliographicName &&
+          item.setAttribute(
+            'bibliographicName',
+            JSON.stringify(author.bibliographicName)
+          )
+        author.userID && item.setAttribute('userID', author.userID)
+        author.invitationID &&
+          item.setAttribute('invitationID', author.invitationID)
+        author.isCorresponding &&
+          item.setAttribute(
+            'isCorresponding',
+            JSON.stringify(author.isCorresponding)
+          )
+        author.ORCIDIdentifier &&
+          item.setAttribute('ORCIDIdentifier', author.ORCIDIdentifier)
+        ;(author.priority === 0 || author.priority) &&
+          item.setAttribute('priority', author.priority.toString())
+
+        section.appendChild(item)
+      })
+      body.prepend(section)
     }
   },
   moveFloatsGroupToBody(

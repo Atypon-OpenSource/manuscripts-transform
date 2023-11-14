@@ -666,6 +666,22 @@ const encoders: NodeEncoderMap = {
       .map((childNode) => childNode.attrs.id)
       .filter((id) => id),
   }),
+  affiliations_section: (node, parent, path, priority): Partial<Section> => ({
+    category: buildSectionCategory(node),
+    priority: priority.value++,
+    path: path.concat([node.attrs.id]),
+    elementIDs: childElements(node)
+      .map((childNode) => childNode.attrs.id)
+      .filter((id) => id),
+  }),
+  contributors_section: (node, parent, path, priority): Partial<Section> => ({
+    category: buildSectionCategory(node),
+    priority: priority.value++,
+    path: path.concat([node.attrs.id]),
+    elementIDs: childElements(node)
+      .map((childNode) => childNode.attrs.id)
+      .filter((id) => id),
+  }),
   missing_figure: (node): Partial<MissingFigure> => ({
     position: node.attrs.position || undefined,
   }),
@@ -760,6 +776,7 @@ const encoders: NodeEncoderMap = {
     postCode: node.attrs.postCode,
     country: node.attrs.country,
     email: node.attrs.email,
+    priority: node.attrs.priority,
   }),
   contributor: (node): Partial<Contributor> => ({
     role: node.attrs.role,
@@ -769,6 +786,9 @@ const encoders: NodeEncoderMap = {
     invitationID: node.attrs.invitationID,
     isCorresponding: node.attrs.isCorresponding,
     ORCIDIdentifier: node.attrs.ORCIDIdentifier,
+    footnote: node.attrs.footnote,
+    corresp: node.attrs.corresp,
+    priority: node.attrs.priority,
   }),
 }
 

@@ -27,30 +27,61 @@ Array [
     "wordCount": 2916,
   },
   Object {
-    "_id": "MPAffiliation:test",
-    "addressLine1": "Suzhou, Jiangsu",
-    "country": "China",
-    "department": "Research Center of Biological Psychiatry",
-    "institution": "The Affiliated Guangji Hospital of Soochow University",
-    "objectType": "MPAffiliation",
-    "priority": 0,
+    "_id": "MPCorresponding:test",
+    "contents": "To whom correspondence should be addressed: Li Hui, PhD, Research Center of Biological Psychiatry, The Affiliated Guangji Hospital of Soochow University, No. 11 Guangqian Road, Suzhou 215137, Jiangsu Province, China, Tel: +86 51265794237; Fax: +86 51265794237, Email: huili004100@126.com.",
+    "label": "*",
+    "objectType": "MPCorresponding",
   },
   Object {
-    "_id": "MPAffiliation:test",
-    "addressLine1": "Mental Health Center of Yanqing District",
-    "addressLine2": "Beijing",
-    "country": "China",
-    "institution": "",
-    "objectType": "MPAffiliation",
+    "ISSNs": Array [
+      Object {
+        "ISSN": "0885-6222",
+        "publicationType": "ppub",
+      },
+      Object {
+        "ISSN": "1540-1235",
+        "publicationType": "epub",
+      },
+    ],
+    "_id": "MPJournal:test",
+    "abbreviatedTitles": Array [
+      Object {
+        "abbrevType": "pubmed",
+        "abbreviatedTitle": "Human Psychopharmacology: Clinical and Experimental",
+      },
+    ],
+    "journalIdentifiers": Array [
+      Object {
+        "journalID": "HUP-19-0076",
+        "journalIDType": "publisher-id",
+      },
+      Object {
+        "journalID": "Human Psychopharmacology: Clinical and Experimental",
+        "journalIDType": "nlm-ta",
+      },
+      Object {
+        "journalID": "",
+        "journalIDType": "doi",
+      },
+    ],
+    "objectType": "MPJournal",
+    "publisherName": "Atypon ReX",
+    "title": "Human Psychopharmacology: Clinical and Experimental",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:contributors",
+    "elementIDs": Array [
+      "MPContributor:test",
+      "MPContributor:test",
+      "MPContributor:test",
+      "MPContributor:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
     "priority": 1,
-  },
-  Object {
-    "_id": "MPAffiliation:test",
-    "addressLine1": "Xinghua, Jiangsu",
-    "country": "China",
-    "institution": "Xinghua Forth People’s Hospital",
-    "objectType": "MPAffiliation",
-    "priority": 2,
   },
   Object {
     "ORCIDIdentifier": "https://orcid.org/0000-0001-6162-1335",
@@ -121,46 +152,54 @@ Array [
     "role": "author",
   },
   Object {
-    "_id": "MPCorresponding:test",
-    "contents": "To whom correspondence should be addressed: Li Hui, PhD, Research Center of Biological Psychiatry, The Affiliated Guangji Hospital of Soochow University, No. 11 Guangqian Road, Suzhou 215137, Jiangsu Province, China, Tel: +86 51265794237; Fax: +86 51265794237, Email: huili004100@126.com.",
-    "label": "*",
-    "objectType": "MPCorresponding",
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:affiliations",
+    "elementIDs": Array [
+      "MPAffiliation:test",
+      "MPAffiliation:test",
+      "MPAffiliation:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 2,
   },
   Object {
-    "ISSNs": Array [
-      Object {
-        "ISSN": "0885-6222",
-        "publicationType": "ppub",
-      },
-      Object {
-        "ISSN": "1540-1235",
-        "publicationType": "epub",
-      },
-    ],
-    "_id": "MPJournal:test",
-    "abbreviatedTitles": Array [
-      Object {
-        "abbrevType": "pubmed",
-        "abbreviatedTitle": "Human Psychopharmacology: Clinical and Experimental",
-      },
-    ],
-    "journalIdentifiers": Array [
-      Object {
-        "journalID": "HUP-19-0076",
-        "journalIDType": "publisher-id",
-      },
-      Object {
-        "journalID": "Human Psychopharmacology: Clinical and Experimental",
-        "journalIDType": "nlm-ta",
-      },
-      Object {
-        "journalID": "",
-        "journalIDType": "doi",
-      },
-    ],
-    "objectType": "MPJournal",
-    "publisherName": "Atypon ReX",
-    "title": "Human Psychopharmacology: Clinical and Experimental",
+    "_id": "MPAffiliation:test",
+    "addressLine1": "Suzhou, Jiangsu",
+    "addressLine2": "",
+    "addressLine3": "",
+    "country": "China",
+    "email": Object {},
+    "institution": "The Affiliated Guangji Hospital of Soochow University",
+    "objectType": "MPAffiliation",
+    "postCode": "",
+    "priority": 0,
+  },
+  Object {
+    "_id": "MPAffiliation:test",
+    "addressLine1": "Mental Health Center of Yanqing District",
+    "addressLine2": "Beijing",
+    "addressLine3": "",
+    "country": "China",
+    "email": Object {},
+    "institution": "",
+    "objectType": "MPAffiliation",
+    "postCode": "",
+    "priority": 1,
+  },
+  Object {
+    "_id": "MPAffiliation:test",
+    "addressLine1": "Xinghua, Jiangsu",
+    "addressLine2": "",
+    "addressLine3": "",
+    "country": "China",
+    "email": Object {},
+    "institution": "Xinghua Forth People’s Hospital",
+    "objectType": "MPAffiliation",
+    "postCode": "",
+    "priority": 2,
   },
   Object {
     "_id": "MPSection:test",
@@ -172,7 +211,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 1,
+    "priority": 3,
     "title": "Keywords",
   },
   Object {
@@ -224,7 +263,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 2,
+    "priority": 4,
     "title": "",
   },
   Object {
@@ -242,7 +281,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 3,
+    "priority": 5,
     "title": "Abstract",
   },
   Object {
@@ -288,7 +327,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 4,
+    "priority": 6,
     "title": "",
   },
   Object {
@@ -305,7 +344,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 5,
+    "priority": 7,
     "title": "Introduction",
   },
   Object {
@@ -345,7 +384,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 6,
+    "priority": 8,
     "title": "Methods",
   },
   Object {
@@ -360,7 +399,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 7,
+    "priority": 9,
     "title": "Subjects",
   },
   Object {
@@ -390,7 +429,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 8,
+    "priority": 10,
     "title": "Clinical and neuropsychological assessment",
   },
   Object {
@@ -425,7 +464,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 9,
+    "priority": 11,
     "title": "Genotyping",
   },
   Object {
@@ -448,7 +487,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 12,
     "title": "Statistical analysis",
   },
   Object {
@@ -486,7 +525,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 13,
     "title": "Results",
   },
   Object {
@@ -532,7 +571,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 14,
     "title": "Discussion",
   },
   Object {
@@ -581,7 +620,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 15,
     "title": "Conclusions",
   },
   Object {
@@ -599,7 +638,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 16,
     "title": "",
   },
   Object {
@@ -613,7 +652,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 15,
+    "priority": 17,
     "title": "Conflict of Interest",
   },
   Object {
@@ -634,7 +673,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 16,
+    "priority": 18,
     "title": "Sources of Funding",
   },
   Object {
@@ -655,7 +694,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 17,
+    "priority": 19,
     "title": "Acknowledgments",
   },
   Object {
@@ -676,7 +715,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 18,
+    "priority": 20,
     "title": "References",
   },
   Object {
@@ -891,6 +930,25 @@ Array [
     "wordCount": 2910,
   },
   Object {
+    "ISSNs": Array [],
+    "_id": "MPJournal:test",
+    "abbreviatedTitles": Array [],
+    "journalIdentifiers": Array [],
+    "objectType": "MPJournal",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:contributors",
+    "elementIDs": Array [
+      "MPContributor:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 1,
+  },
+  Object {
     "_id": "MPContributor:test",
     "affiliations": Array [],
     "bibliographicName": Object {
@@ -904,13 +962,6 @@ Array [
     "role": "author",
   },
   Object {
-    "ISSNs": Array [],
-    "_id": "MPJournal:test",
-    "abbreviatedTitles": Array [],
-    "journalIdentifiers": Array [],
-    "objectType": "MPJournal",
-  },
-  Object {
     "_id": "MPSection:test",
     "category": "MPSectionCategory:abstracts",
     "elementIDs": Array [],
@@ -918,7 +969,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 1,
+    "priority": 2,
     "title": "",
   },
   Object {
@@ -929,7 +980,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 2,
+    "priority": 3,
     "title": "",
   },
   Object {
@@ -942,7 +993,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 3,
+    "priority": 4,
     "title": "Paragraphs",
   },
   Object {
@@ -965,7 +1016,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 4,
+    "priority": 5,
     "title": "Lists",
   },
   Object {
@@ -1004,7 +1055,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 5,
+    "priority": 6,
     "title": "Figures",
   },
   Object {
@@ -1040,7 +1091,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 6,
+    "priority": 7,
     "title": "Tables",
   },
   Object {
@@ -1073,7 +1124,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 7,
+    "priority": 8,
     "title": "Equations",
   },
   Object {
@@ -1114,7 +1165,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 8,
+    "priority": 9,
     "title": "Listings",
   },
   Object {
@@ -1141,7 +1192,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 9,
+    "priority": 10,
     "title": "Inline",
   },
   Object {
@@ -1168,7 +1219,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 11,
     "title": "Quotes",
   },
   Object {
@@ -1198,7 +1249,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 12,
     "title": "Citations",
   },
   Object {
@@ -1230,7 +1281,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 13,
     "title": "",
   },
   Object {
@@ -1244,7 +1295,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 14,
     "title": "CONFLICT OF INTEREST",
   },
   Object {
@@ -1265,7 +1316,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 15,
     "title": "FUNDING INFORMATION",
   },
   Object {
@@ -1286,7 +1337,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 15,
+    "priority": 16,
     "title": "Bibliography",
   },
   Object {
@@ -1467,19 +1518,71 @@ Array [
     "wordCount": 6069,
   },
   Object {
-    "_id": "MPAffiliation:test",
-    "country": "Hong Kong",
-    "department": "Department of Medicine",
-    "institution": "Queen Mary Hospital",
-    "objectType": "MPAffiliation",
-    "priority": 0,
+    "_id": "MPFootnote:test",
+    "contents": "
+          <p>Manuscript information</p>
+        ",
+    "kind": "footnote",
+    "objectType": "MPFootnote",
   },
   Object {
-    "_id": "MPAffiliation:test",
-    "country": "Hong Kong",
-    "department": "Department of Diagnostic Radiology",
-    "institution": "Queen Mary Hospital",
-    "objectType": "MPAffiliation",
+    "_id": "MPCorresponding:test",
+    "contents": "CorrespondenceY.L. Kwong, Department of Medicine, Professorial Block, Queen Mary Hospital, Pokfulam Road, Hong Kong, China, Email:
+          ylkwong@hkucc.hku.hk",
+    "objectType": "MPCorresponding",
+  },
+  Object {
+    "ISSNs": Array [
+      Object {
+        "ISSN": "0278-0232",
+        "publicationType": "ppub",
+      },
+      Object {
+        "ISSN": "1540-1233",
+        "publicationType": "epub",
+      },
+    ],
+    "_id": "MPJournal:test",
+    "abbreviatedTitles": Array [
+      Object {
+        "abbrevType": "pubmed",
+        "abbreviatedTitle": "Hematological Oncology",
+      },
+    ],
+    "journalIdentifiers": Array [
+      Object {
+        "journalID": "HON",
+        "journalIDType": "publisher-id",
+      },
+      Object {
+        "journalID": "Hematological Oncology",
+        "journalIDType": "nlm-ta",
+      },
+      Object {
+        "journalID": "",
+        "journalIDType": "doi",
+      },
+    ],
+    "objectType": "MPJournal",
+    "publisherName": "John Wiley and Sons",
+    "title": "Hematological Oncology",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:contributors",
+    "elementIDs": Array [
+      "MPContributor:test",
+      "MPContributor:test",
+      "MPContributor:test",
+      "MPContributor:test",
+      "MPContributor:test",
+      "MPContributor:test",
+      "MPContributor:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
     "priority": 1,
   },
   Object {
@@ -1591,54 +1694,41 @@ Array [
     "role": "author",
   },
   Object {
-    "_id": "MPFootnote:test",
-    "contents": "
-          <p>Manuscript information</p>
-        ",
-    "kind": "footnote",
-    "objectType": "MPFootnote",
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:affiliations",
+    "elementIDs": Array [
+      "MPAffiliation:test",
+      "MPAffiliation:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 2,
   },
   Object {
-    "_id": "MPCorresponding:test",
-    "contents": "CorrespondenceY.L. Kwong, Department of Medicine, Professorial Block, Queen Mary Hospital, Pokfulam Road, Hong Kong, China, Email:
-          ylkwong@hkucc.hku.hk",
-    "objectType": "MPCorresponding",
+    "_id": "MPAffiliation:test",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "country": "Hong Kong",
+    "email": Object {},
+    "institution": "Queen Mary Hospital",
+    "objectType": "MPAffiliation",
+    "postCode": "",
+    "priority": 0,
   },
   Object {
-    "ISSNs": Array [
-      Object {
-        "ISSN": "0278-0232",
-        "publicationType": "ppub",
-      },
-      Object {
-        "ISSN": "1540-1233",
-        "publicationType": "epub",
-      },
-    ],
-    "_id": "MPJournal:test",
-    "abbreviatedTitles": Array [
-      Object {
-        "abbrevType": "pubmed",
-        "abbreviatedTitle": "Hematological Oncology",
-      },
-    ],
-    "journalIdentifiers": Array [
-      Object {
-        "journalID": "HON",
-        "journalIDType": "publisher-id",
-      },
-      Object {
-        "journalID": "Hematological Oncology",
-        "journalIDType": "nlm-ta",
-      },
-      Object {
-        "journalID": "",
-        "journalIDType": "doi",
-      },
-    ],
-    "objectType": "MPJournal",
-    "publisherName": "John Wiley and Sons",
-    "title": "Hematological Oncology",
+    "_id": "MPAffiliation:test",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "country": "Hong Kong",
+    "email": Object {},
+    "institution": "Queen Mary Hospital",
+    "objectType": "MPAffiliation",
+    "postCode": "",
+    "priority": 1,
   },
   Object {
     "_id": "MPSection:test",
@@ -1650,7 +1740,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 1,
+    "priority": 3,
     "title": "Keywords",
   },
   Object {
@@ -1708,7 +1798,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 2,
+    "priority": 4,
     "title": "",
   },
   Object {
@@ -1722,7 +1812,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 3,
+    "priority": 5,
     "title": "Abstract",
   },
   Object {
@@ -1740,7 +1830,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 4,
+    "priority": 6,
     "title": "",
   },
   Object {
@@ -1758,7 +1848,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 5,
+    "priority": 7,
     "title": "INTRODUCTION",
   },
   Object {
@@ -1805,7 +1895,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 6,
+    "priority": 8,
     "title": "MATERIALS AND METHODS",
   },
   Object {
@@ -1819,7 +1909,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 7,
+    "priority": 9,
     "title": "Patients",
   },
   Object {
@@ -1840,7 +1930,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 8,
+    "priority": 10,
     "title": "Treatment and monitoring",
   },
   Object {
@@ -1861,7 +1951,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 9,
+    "priority": 11,
     "title": "Response assessment",
   },
   Object {
@@ -1882,7 +1972,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 12,
     "title": "Survivals",
   },
   Object {
@@ -1901,7 +1991,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 13,
     "title": "RESULTS",
   },
   Object {
@@ -1918,7 +2008,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 14,
     "title": "Patients",
   },
   Object {
@@ -2047,7 +2137,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 15,
     "title": "Pembrolizumab cohort",
   },
   Object {
@@ -2069,7 +2159,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 16,
     "title": "Response to pembrolizumab",
   },
   Object {
@@ -2170,7 +2260,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 15,
+    "priority": 17,
     "title": "Outcome of mCR patients",
   },
   Object {
@@ -2214,7 +2304,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 16,
+    "priority": 18,
     "title": "Outcome of PR patients",
   },
   Object {
@@ -2235,7 +2325,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 17,
+    "priority": 19,
     "title": "Re-treatment of relapses with pembrolizumab",
   },
   Object {
@@ -2256,7 +2346,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 18,
+    "priority": 20,
     "title": "Adverse events of pembrolizumab treatment",
   },
   Object {
@@ -2277,7 +2367,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 19,
+    "priority": 21,
     "title": "Nivolumab cohort",
   },
   Object {
@@ -2298,7 +2388,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 20,
+    "priority": 22,
     "title": "Response to nivolumab",
   },
   Object {
@@ -2319,7 +2409,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 21,
+    "priority": 23,
     "title": "Outcome of CR patients",
   },
   Object {
@@ -2340,7 +2430,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 22,
+    "priority": 24,
     "title": "Outcome of PR/IR patients",
   },
   Object {
@@ -2361,7 +2451,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 23,
+    "priority": 25,
     "title": "Re-treatment with nivolumab",
   },
   Object {
@@ -2382,7 +2472,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 24,
+    "priority": 26,
     "title": "Adverse events of nivolumab treatment",
   },
   Object {
@@ -2403,7 +2493,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 25,
+    "priority": 27,
     "title": "Molecular responses",
   },
   Object {
@@ -2425,7 +2515,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 26,
+    "priority": 28,
     "title": "Survivals",
   },
   Object {
@@ -2477,7 +2567,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 27,
+    "priority": 29,
     "title": "DISCUSSION",
   },
   Object {
@@ -2551,7 +2641,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 28,
+    "priority": 30,
     "title": "",
   },
   Object {
@@ -2571,7 +2661,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 29,
+    "priority": 31,
     "title": "AUTHOR CONTRIBUTIONS",
   },
   Object {
@@ -2634,7 +2724,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 30,
+    "priority": 32,
     "title": "Acknowledgment and conflicts of interests",
   },
   Object {
@@ -2655,7 +2745,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 31,
+    "priority": 33,
     "title": "Footnotes",
   },
   Object {
@@ -2689,7 +2779,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 32,
+    "priority": 34,
     "title": "REFERENCES",
   },
   Object {
@@ -4614,19 +4704,6 @@ Array [
     "wordCount": 2910,
   },
   Object {
-    "_id": "MPContributor:test",
-    "affiliations": Array [],
-    "bibliographicName": Object {
-      "_id": "MPBibliographicName:test",
-      "family": "User",
-      "given": "Developer",
-      "objectType": "MPBibliographicName",
-    },
-    "objectType": "MPContributor",
-    "priority": 0,
-    "role": "author",
-  },
-  Object {
     "ISSNs": Array [],
     "_id": "MPJournal:test",
     "abbreviatedTitles": Array [],
@@ -4657,19 +4734,6 @@ Array [
     "referencesCount": 2,
     "tableCount": 0,
     "wordCount": 2910,
-  },
-  Object {
-    "_id": "MPContributor:test",
-    "affiliations": Array [],
-    "bibliographicName": Object {
-      "_id": "MPBibliographicName:test",
-      "family": "User",
-      "given": "Developer",
-      "objectType": "MPBibliographicName",
-    },
-    "objectType": "MPContributor",
-    "priority": 0,
-    "role": "author",
   },
   Object {
     "ISSNs": Array [],
@@ -6731,12 +6795,6 @@ Object {
     Object {
       "content": Array [
         Object {
-          "type": "affiliation_list",
-        },
-        Object {
-          "type": "contributor_list",
-        },
-        Object {
           "type": "comment_list",
         },
       ],
@@ -6764,15 +6822,43 @@ Array [
     "revisionRequestDate": 892512000,
   },
   Object {
-    "_id": "MPAffiliation:test",
-    "institution": "",
-    "objectType": "MPAffiliation",
-    "priority": 0,
+    "ISSNs": Array [
+      Object {
+        "ISSN": "1878-108X",
+      },
+    ],
+    "_id": "MPJournal:test",
+    "abbreviatedTitles": Array [
+      Object {
+        "abbrevType": "pubmed",
+        "abbreviatedTitle": "NLM-Export",
+      },
+    ],
+    "journalIdentifiers": Array [
+      Object {
+        "journalID": "NLM-Export",
+        "journalIDType": "publisher-id",
+      },
+      Object {
+        "journalID": "NLM-Export",
+        "journalIDType": "nlm-ta",
+      },
+    ],
+    "objectType": "MPJournal",
+    "publisherName": "Inera",
+    "title": "NLM-Export",
   },
   Object {
-    "_id": "MPAffiliation:test",
-    "institution": "",
-    "objectType": "MPAffiliation",
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:contributors",
+    "elementIDs": Array [
+      "MPContributor:test",
+      "MPContributor:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
     "priority": 1,
   },
   Object {
@@ -6806,31 +6892,41 @@ Array [
     "role": "author",
   },
   Object {
-    "ISSNs": Array [
-      Object {
-        "ISSN": "1878-108X",
-      },
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:affiliations",
+    "elementIDs": Array [
+      "MPAffiliation:test",
+      "MPAffiliation:test",
     ],
-    "_id": "MPJournal:test",
-    "abbreviatedTitles": Array [
-      Object {
-        "abbrevType": "pubmed",
-        "abbreviatedTitle": "NLM-Export",
-      },
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
     ],
-    "journalIdentifiers": Array [
-      Object {
-        "journalID": "NLM-Export",
-        "journalIDType": "publisher-id",
-      },
-      Object {
-        "journalID": "NLM-Export",
-        "journalIDType": "nlm-ta",
-      },
-    ],
-    "objectType": "MPJournal",
-    "publisherName": "Inera",
-    "title": "NLM-Export",
+    "priority": 2,
+  },
+  Object {
+    "_id": "MPAffiliation:test",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "country": "",
+    "email": Object {},
+    "institution": "",
+    "objectType": "MPAffiliation",
+    "postCode": "",
+    "priority": 0,
+  },
+  Object {
+    "_id": "MPAffiliation:test",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "country": "",
+    "email": Object {},
+    "institution": "",
+    "objectType": "MPAffiliation",
+    "postCode": "",
+    "priority": 1,
   },
   Object {
     "_id": "MPSection:test",
@@ -6842,7 +6938,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 1,
+    "priority": 3,
     "title": "Keywords",
   },
   Object {
@@ -6888,7 +6984,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 2,
+    "priority": 4,
     "title": "",
   },
   Object {
@@ -6902,7 +6998,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 3,
+    "priority": 5,
     "title": "Abstract",
   },
   Object {
@@ -6920,7 +7016,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 4,
+    "priority": 6,
     "title": "",
   },
   Object {
@@ -6945,7 +7041,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 5,
+    "priority": 7,
     "title": "Introduction",
   },
   Object {
@@ -7055,7 +7151,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 6,
+    "priority": 8,
     "title": "Measures of Liquidity and Data Description",
   },
   Object {
@@ -7078,7 +7174,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 7,
+    "priority": 9,
     "title": "Measuring Liquidity",
   },
   Object {
@@ -7364,7 +7460,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 8,
+    "priority": 10,
     "title": "Data Description",
   },
   Object {
@@ -7483,7 +7579,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 9,
+    "priority": 11,
     "title": "Empirical Methodology",
   },
   Object {
@@ -7639,7 +7735,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 12,
     "title": "Empirical Results",
   },
   Object {
@@ -7662,7 +7758,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 13,
     "title": "Election Uncertainty and Market Liquidity",
   },
   Object {
@@ -8084,7 +8180,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 14,
     "title": "Election Uncertainty and Market Liquidity—Stock Characteristics",
   },
   Object {
@@ -8294,7 +8390,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 15,
     "title": "Election Uncertainty and Market Liquidity—Politically Sensitive Industries",
   },
   Object {
@@ -8407,7 +8503,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 16,
     "title": "Robustness",
   },
   Object {
@@ -8520,7 +8616,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 15,
+    "priority": 17,
     "title": "Conclusion",
   },
   Object {
@@ -8545,7 +8641,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 16,
+    "priority": 18,
     "title": "",
   },
   Object {
@@ -8559,7 +8655,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 17,
+    "priority": 19,
     "title": "Footnotes",
   },
   Object {
@@ -8846,7 +8942,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 18,
+    "priority": 20,
     "title": "Table A1",
   },
   Object {
@@ -8903,7 +8999,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 19,
+    "priority": 21,
     "title": "References",
   },
   Object {
@@ -11185,6 +11281,25 @@ Array [
     "wordCount": 2910,
   },
   Object {
+    "ISSNs": Array [],
+    "_id": "MPJournal:test",
+    "abbreviatedTitles": Array [],
+    "journalIdentifiers": Array [],
+    "objectType": "MPJournal",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:contributors",
+    "elementIDs": Array [
+      "MPContributor:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 1,
+  },
+  Object {
     "_id": "MPContributor:test",
     "affiliations": Array [],
     "bibliographicName": Object {
@@ -11198,13 +11313,6 @@ Array [
     "role": "author",
   },
   Object {
-    "ISSNs": Array [],
-    "_id": "MPJournal:test",
-    "abbreviatedTitles": Array [],
-    "journalIdentifiers": Array [],
-    "objectType": "MPJournal",
-  },
-  Object {
     "_id": "MPSection:test",
     "category": "MPSectionCategory:abstracts",
     "elementIDs": Array [],
@@ -11212,7 +11320,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 1,
+    "priority": 2,
     "title": "",
   },
   Object {
@@ -11223,7 +11331,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 2,
+    "priority": 3,
     "title": "",
   },
   Object {
@@ -11236,7 +11344,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 3,
+    "priority": 4,
     "title": "Paragraphs",
   },
   Object {
@@ -11259,7 +11367,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 4,
+    "priority": 5,
     "title": "Lists",
   },
   Object {
@@ -11298,7 +11406,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 5,
+    "priority": 6,
     "title": "Figures",
   },
   Object {
@@ -11334,7 +11442,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 6,
+    "priority": 7,
     "title": "Tables",
   },
   Object {
@@ -11367,7 +11475,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 7,
+    "priority": 8,
     "title": "Equations",
   },
   Object {
@@ -11408,7 +11516,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 8,
+    "priority": 9,
     "title": "Listings",
   },
   Object {
@@ -11435,7 +11543,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 9,
+    "priority": 10,
     "title": "Inline",
   },
   Object {
@@ -11462,7 +11570,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 11,
     "title": "Quotes",
   },
   Object {
@@ -11492,7 +11600,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 12,
     "title": "Citations",
   },
   Object {
@@ -11524,7 +11632,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 13,
     "title": "",
   },
   Object {
@@ -11538,7 +11646,7 @@ Array [
       "MPSection:test",
       "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 14,
     "title": "References",
   },
   Object {
@@ -11605,19 +11713,6 @@ Array [
     "referencesCount": 2,
     "tableCount": 0,
     "wordCount": 2910,
-  },
-  Object {
-    "_id": "MPContributor:test",
-    "affiliations": Array [],
-    "bibliographicName": Object {
-      "_id": "MPBibliographicName:test",
-      "family": "User",
-      "given": "Developer",
-      "objectType": "MPBibliographicName",
-    },
-    "objectType": "MPContributor",
-    "priority": 0,
-    "role": "author",
   },
   Object {
     "ISSNs": Array [],
@@ -12951,12 +13046,6 @@ Object {
     },
     Object {
       "content": Array [
-        Object {
-          "type": "affiliation_list",
-        },
-        Object {
-          "type": "contributor_list",
-        },
         Object {
           "type": "comment_list",
         },
