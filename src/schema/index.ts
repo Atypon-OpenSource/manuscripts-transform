@@ -139,6 +139,8 @@ export * from './nodes/affiliation'
 export * from './nodes/meta_section'
 export * from './nodes/contributor'
 export * from './nodes/table_element_footer'
+export * from './nodes/affiliations_section'
+export * from './nodes/contributors_section'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {

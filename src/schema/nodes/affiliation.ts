@@ -32,6 +32,7 @@ interface Attrs {
   postCode: string
   country: string
   email: Email
+  priority: number
 }
 
 export interface AffiliationNode extends ManuscriptNode {
@@ -48,6 +49,7 @@ export const affiliation: NodeSpec = {
     addressLine3: { default: '' },
     postCode: { default: '' },
     country: { default: '' },
+    priority: { default: undefined },
     email: {
       default: {
         href: undefined,

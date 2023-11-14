@@ -80,6 +80,7 @@ Map {
     "institution": "University of Examples",
     "objectType": "MPAffiliation",
     "postCode": "",
+    "priority": 1,
   },
   "MPSection:DFCBE345-A12D-451E-8320-723F25D2F472" => Object {
     "_id": "MPSection:DFCBE345-A12D-451E-8320-723F25D2F472",

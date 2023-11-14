@@ -99,6 +99,7 @@ Array [
     ],
     "isCorresponding": true,
     "objectType": "MPContributor",
+    "priority": 0,
     "role": "author",
   },
   Object {
@@ -113,6 +114,7 @@ Array [
       "objectType": "MPBibliographicName",
     },
     "objectType": "MPContributor",
+    "priority": 1,
     "role": "author",
   },
   Object {
@@ -127,6 +129,7 @@ Array [
       "objectType": "MPBibliographicName",
     },
     "objectType": "MPContributor",
+    "priority": 2,
     "role": "author",
   },
   Object {
@@ -141,6 +144,7 @@ Array [
       "objectType": "MPBibliographicName",
     },
     "objectType": "MPContributor",
+    "priority": 3,
     "role": "author",
   },
   Object {
@@ -167,6 +171,7 @@ Array [
     "institution": "The Affiliated Guangji Hospital of Soochow University",
     "objectType": "MPAffiliation",
     "postCode": "",
+    "priority": 0,
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -178,6 +183,7 @@ Array [
     "institution": "",
     "objectType": "MPAffiliation",
     "postCode": "",
+    "priority": 1,
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -189,6 +195,7 @@ Array [
     "institution": "Xinghua Forth People’s Hospital",
     "objectType": "MPAffiliation",
     "postCode": "",
+    "priority": 2,
   },
   Object {
     "_id": "MPSection:test",
@@ -943,6 +950,7 @@ Array [
       "objectType": "MPBibliographicName",
     },
     "objectType": "MPContributor",
+    "priority": 0,
     "role": "author",
   },
   Object {
@@ -1577,6 +1585,7 @@ Array [
       "objectType": "MPBibliographicName",
     },
     "objectType": "MPContributor",
+    "priority": 0,
     "role": "author",
   },
   Object {
@@ -1591,6 +1600,7 @@ Array [
       "objectType": "MPBibliographicName",
     },
     "objectType": "MPContributor",
+    "priority": 1,
     "role": "author",
   },
   Object {
@@ -1605,6 +1615,7 @@ Array [
       "objectType": "MPBibliographicName",
     },
     "objectType": "MPContributor",
+    "priority": 2,
     "role": "author",
   },
   Object {
@@ -1619,6 +1630,7 @@ Array [
       "objectType": "MPBibliographicName",
     },
     "objectType": "MPContributor",
+    "priority": 3,
     "role": "author",
   },
   Object {
@@ -1634,6 +1646,7 @@ Array [
       "objectType": "MPBibliographicName",
     },
     "objectType": "MPContributor",
+    "priority": 4,
     "role": "author",
   },
   Object {
@@ -1648,6 +1661,7 @@ Array [
       "objectType": "MPBibliographicName",
     },
     "objectType": "MPContributor",
+    "priority": 5,
     "role": "author",
   },
   Object {
@@ -1664,6 +1678,7 @@ Array [
     },
     "isCorresponding": true,
     "objectType": "MPContributor",
+    "priority": 6,
     "role": "author",
   },
   Object {
@@ -1689,6 +1704,7 @@ Array [
     "institution": "Queen Mary Hospital",
     "objectType": "MPAffiliation",
     "postCode": "",
+    "priority": 0,
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -1700,6 +1716,7 @@ Array [
     "institution": "Queen Mary Hospital",
     "objectType": "MPAffiliation",
     "postCode": "",
+    "priority": 1,
   },
   Object {
     "_id": "MPSection:test",
@@ -6832,6 +6849,7 @@ Array [
       "objectType": "MPBibliographicName",
     },
     "objectType": "MPContributor",
+    "priority": 0,
     "role": "author",
   },
   Object {
@@ -6846,6 +6864,7 @@ Array [
       "objectType": "MPBibliographicName",
     },
     "objectType": "MPContributor",
+    "priority": 1,
     "role": "author",
   },
   Object {
@@ -6871,6 +6890,7 @@ Array [
     "institution": "",
     "objectType": "MPAffiliation",
     "postCode": "",
+    "priority": 0,
   },
   Object {
     "_id": "MPAffiliation:test",
@@ -6882,6 +6902,7 @@ Array [
     "institution": "",
     "objectType": "MPAffiliation",
     "postCode": "",
+    "priority": 1,
   },
   Object {
     "_id": "MPSection:test",
@@ -11260,6 +11281,7 @@ Array [
       "objectType": "MPBibliographicName",
     },
     "objectType": "MPContributor",
+    "priority": 0,
     "role": "author",
   },
   Object {

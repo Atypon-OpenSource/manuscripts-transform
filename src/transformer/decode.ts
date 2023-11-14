@@ -792,6 +792,7 @@ export class Decoder {
         country: model.country,
         email: model.email,
         department: model.department,
+        priority: model.priority,
       }) as AffiliationNode
     },
     [ObjectTypes.Contributor]: (data) => {
@@ -808,6 +809,7 @@ export class Decoder {
         ORCIDIdentifier: model.ORCIDIdentifier,
         footnote: model.footnote,
         corresp: model.corresp,
+        priority: model.priority,
       }) as ContributorNode
     },
   }

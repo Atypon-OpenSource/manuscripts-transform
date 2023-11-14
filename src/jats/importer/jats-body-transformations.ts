@@ -433,6 +433,9 @@ export const jatsBodyTransformations = {
         affiliation.postCode &&
           item.setAttribute('postCode', affiliation.postCode)
         affiliation.country && item.setAttribute('country', affiliation.country)
+        ;(affiliation.priority == 0 || affiliation.priority) &&
+          item.setAttribute('priority', affiliation.priority.toString())
+
         section.appendChild(item)
       })
       body.prepend(section)
@@ -472,6 +475,8 @@ export const jatsBodyTransformations = {
           )
         author.ORCIDIdentifier &&
           item.setAttribute('ORCIDIdentifier', author.ORCIDIdentifier)
+        ;(author.priority == 0 || author.priority) &&
+          item.setAttribute('priority', author.priority.toString())
 
         section.appendChild(item)
       })

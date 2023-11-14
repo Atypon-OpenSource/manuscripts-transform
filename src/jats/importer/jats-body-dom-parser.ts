@@ -649,6 +649,10 @@ const nodes: NodeRule[] = [
       if (country) {
         aff.country = country
       }
+      const priority = element.getAttribute('priority')
+      if (priority) {
+        aff.priority = parseInt(priority) 
+      }
       return aff
     },
   },
@@ -701,7 +705,10 @@ const nodes: NodeRule[] = [
       if (userID) {
         contrib.userID = userID
       }
-
+      const priority = element.getAttribute('priority')
+      if (priority) {
+        contrib.priority = parseInt(priority) as number
+      }
       const invitationID = element.getAttribute('invitationID')
       if (invitationID) {
         contrib.invitationID = invitationID

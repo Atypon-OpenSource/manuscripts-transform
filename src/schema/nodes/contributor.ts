@@ -27,6 +27,7 @@ interface Attrs {
   invitationID: string
   isCorresponding: boolean
   ORCIDIdentifier: string
+  priority: number
 }
 
 export interface ContributorNode extends ManuscriptNode {
@@ -45,6 +46,7 @@ export const contributor: NodeSpec = {
     invitationID: { default: undefined },
     isCorresponding: { default: undefined },
     ORCIDIdentifier: { default: undefined },
+    priority: { default: undefined },
   },
   group: 'block element',
   toDOM: () => ['span'],
