@@ -651,7 +651,7 @@ const nodes: NodeRule[] = [
       }
       const priority = element.getAttribute('priority')
       if (priority) {
-        aff.priority = parseInt(priority) 
+        aff.priority = parseInt(priority)
       }
       return aff
     },
@@ -707,7 +707,7 @@ const nodes: NodeRule[] = [
       }
       const priority = element.getAttribute('priority')
       if (priority) {
-        contrib.priority = parseInt(priority) as number
+        contrib.priority = parseInt(priority)
       }
       const invitationID = element.getAttribute('invitationID')
       if (invitationID) {

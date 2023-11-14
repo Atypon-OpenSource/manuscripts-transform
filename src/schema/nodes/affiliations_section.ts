@@ -26,7 +26,7 @@ export interface AffiliationsSectionNode extends ManuscriptNode {
 }
 
 export const affiliationsSection: NodeSpec = {
-  content: 'affiliation*',
+  content: 'section_title? affiliation*',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
