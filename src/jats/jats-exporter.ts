@@ -231,7 +231,7 @@ export class JATSExporter {
     return map
   }
   private generateCitationContent(node: Node) {
-    const citationItems = node.attrs.embeddedCitationItems.map(
+    const citationItems = node.attrs.embeddedCitationItems?.map(
       ({ bibliographyItem }: { bibliographyItem: BibliographyItem }) => ({
         id: bibliographyItem,
       })
