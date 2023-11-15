@@ -268,7 +268,7 @@ export class JATSExporter {
     this.modelMap = modelMap
     this.models = Array.from(this.modelMap.values())
     if (citationStyle) {
-      this.citeProcEngine = CitationProvider.getInstance({
+      this.citeProcEngine = CitationProvider.getEngine({
         bibliographyItemsMap: this.getBibliographyItemsMap(),
         citationStyle: citationStyle,
         locale: locale,
@@ -1018,8 +1018,8 @@ export class JATSExporter {
         const xref = this.document.createElement('xref')
         const referencedObject = getModel<Model>(
           auxiliaryObjectReference.referencedObject ||
-            (auxiliaryObjectReference?.referencedObjects &&
-              auxiliaryObjectReference.referencedObjects[0])
+          (auxiliaryObjectReference?.referencedObjects &&
+            auxiliaryObjectReference.referencedObjects[0])
         )
 
         if (referencedObject) {

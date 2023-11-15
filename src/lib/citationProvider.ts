@@ -26,16 +26,16 @@ interface Props {
 }
 
 export class CitationProvider {
-  private static instance: CiteProc.Engine | null = null
+  private static engine: CiteProc.Engine | null = null
   private constructor() {
     //The constructor is intentionally left empty as part of the Singleton pattern.
   }
-  static getInstance(props: Props): CiteProc.Engine {
-    if (!CitationProvider.instance) {
-      CitationProvider.instance = CitationProvider.createCiteProcEngine(props)
+  static getEngine(props: Props): CiteProc.Engine {
+    if (!CitationProvider.engine) {
+      CitationProvider.engine = CitationProvider.createCiteProcEngine(props)
     }
 
-    return CitationProvider.instance
+    return CitationProvider.engine
   }
   public static createCiteProcEngine(props: Props) {
     const { bibliographyItemsMap, citationStyle, locale } = props
@@ -62,14 +62,17 @@ export class CitationProvider {
       type: item?.type || 'article-journal',
     }
   }
-
+  public static recreateEngine(props: Props): CiteProc.Engine {
+    CitationProvider.engine = CitationProvider.createCiteProcEngine(props)
+    return CitationProvider.engine
+  }
   public static generateCitationContent(
     citationID: string,
     citationItems: string[],
     props: Props
   ) {
-    const engineInstance = CitationProvider.getInstance(props)
-    return engineInstance.previewCitationCluster(
+    const engine = CitationProvider.getEngine(props)
+    return engine.previewCitationCluster(
       {
         citationID: citationID,
         citationItems: citationItems,
