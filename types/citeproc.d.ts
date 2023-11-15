@@ -38,9 +38,4 @@ declare module 'citeproc' {
 
   type Locale = Record<string, unknown>
 
-  type Node = {
-    name: string
-    attrs: Record<string, unknown>
-    children: Node[]
-  }
 }
