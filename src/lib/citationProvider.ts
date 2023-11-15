@@ -66,20 +66,4 @@ export class CitationProvider {
     CitationProvider.engine = CitationProvider.createCiteProcEngine(props)
     return CitationProvider.engine
   }
-  public static generateCitationContent(
-    citationID: string,
-    citationItems: string[],
-    props: Props
-  ) {
-    const engine = CitationProvider.getEngine(props)
-    return engine.previewCitationCluster(
-      {
-        citationID: citationID,
-        citationItems: citationItems,
-      },
-      [],
-      [],
-      'text'
-    )
-  }
 }

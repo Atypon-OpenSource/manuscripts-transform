@@ -14,15 +14,6 @@
  * limitations under the License.
  */
 declare module 'citeproc' {
-  interface Citation {
-    citationItems: Array<{ id: string; prefix?: string; suffix?: string }>
-    properties?: {
-      mode?: string
-      noteIndex?: number
-      infix?: string
-    }
-  }
-
   interface SystemOptions {
     retrieveLocale: (id: string) => string | Document | Locale
     retrieveItem: (id: string) => CSL.Data
@@ -44,11 +35,6 @@ declare module 'citeproc' {
       format
     ): string
   }
-
-  export function getLocaleNames(
-    style: string | Record<string, unknown>,
-    preferredLocale: string
-  ): string[]
 
   type Locale = Record<string, unknown>
 
