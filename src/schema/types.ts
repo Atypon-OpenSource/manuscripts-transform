@@ -109,6 +109,8 @@ export type Nodes =
   | 'table_element_footer'
   | 'affiliations_section'
   | 'contributors_section'
+  | 'affiliation_list'
+  | 'contributor_list'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

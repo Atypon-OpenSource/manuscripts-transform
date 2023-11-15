@@ -30,6 +30,7 @@ import {
   underline,
 } from './marks'
 import { affiliation } from './nodes/affiliation'
+import { affiliationList } from './nodes/affiliation_list'
 import { affiliationsSection } from './nodes/affiliations_section'
 import { attribution } from './nodes/attribution'
 import { bibliographyElement } from './nodes/bibliography_element'
@@ -42,6 +43,7 @@ import { citation } from './nodes/citation'
 import { comment } from './nodes/comment'
 import { commentList } from './nodes/comment_list'
 import { contributor } from './nodes/contributor'
+import { contributorList } from './nodes/contributor_list'
 import { contributorsSection } from './nodes/contributors_section'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
@@ -218,5 +220,7 @@ export const schema = new Schema<Nodes, Marks>({
     table_element_footer: tableElementFooter,
     affiliations_section: affiliationsSection,
     contributors_section: contributorsSection,
+    affiliation_list: affiliationList,
+    contributor_list: contributorList,
   },
 })
