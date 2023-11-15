@@ -9,6 +9,86 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
+        "id": "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "ORCIDIdentifier": "",
+            "affiliations": Array [
+              "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
+            ],
+            "bibliographicName": Object {
+              "_id": "MPBibliographicName:24C5AC82-0130-4C94-A6D7-E8A2699EAAC8",
+              "family": "Author",
+              "given": "Example",
+              "objectType": "MPBibliographicName",
+            },
+            "corresp": undefined,
+            "footnote": undefined,
+            "id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
+            "invitationID": "",
+            "isCorresponding": undefined,
+            "priority": undefined,
+            "role": "author",
+            "userID": "",
+          },
+          "type": "contributor",
+        },
+        Object {
+          "attrs": Object {
+            "ORCIDIdentifier": "",
+            "affiliations": Array [],
+            "bibliographicName": Object {
+              "_id": "MPBibliographicName:E5B649B2-1B97-46FF-AA36-ADDC3B532517",
+              "family": "Author",
+              "given": "Corresponding",
+              "objectType": "MPBibliographicName",
+            },
+            "corresp": undefined,
+            "footnote": undefined,
+            "id": "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
+            "invitationID": "",
+            "isCorresponding": 1,
+            "priority": undefined,
+            "role": "author",
+            "userID": "",
+          },
+          "type": "contributor",
+        },
+      ],
+      "type": "contributors_section",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPSection:71C77CD7-71B9-4A09-AAB5-6B24DD06D618",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "addressLine1": "",
+            "addressLine2": "",
+            "addressLine3": "",
+            "country": "United Kingdom",
+            "department": "Dept of Examples",
+            "email": Object {
+              "href": "mailto:",
+              "text": "mail",
+            },
+            "id": "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
+            "institution": "University of Examples",
+            "postCode": "",
+            "priority": 1,
+          },
+          "type": "affiliation",
+        },
+      ],
+      "type": "affiliations_section",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:DFCBE345-A12D-451E-8320-723F25D2F472",
       },
       "content": Array [
@@ -1918,77 +1998,6 @@ const x = 'y'",
       "content": Array [
         Object {
           "attrs": Object {
-            "id": "AFFILIATION_LIST",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "addressLine1": "",
-                "addressLine2": "",
-                "addressLine3": "",
-                "country": "United Kingdom",
-                "department": "",
-                "email": Object {
-                  "href": "mailto:",
-                  "text": "mail",
-                },
-                "id": "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
-                "institution": "University of Examples",
-                "postCode": "",
-              },
-              "type": "affiliation",
-            },
-          ],
-          "type": "affiliation_list",
-        },
-        Object {
-          "attrs": Object {
-            "id": "CONTRIBUTOR_LIST",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "ORCIDIdentifier": "",
-                "affiliations": Array [
-                  "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
-                ],
-                "bibliographicName": Object {
-                  "_id": "MPBibliographicName:24C5AC82-0130-4C94-A6D7-E8A2699EAAC8",
-                  "family": "Author",
-                  "given": "Example",
-                  "objectType": "MPBibliographicName",
-                },
-                "id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
-                "invitationID": "",
-                "isCorresponding": undefined,
-                "role": "author",
-                "userID": "",
-              },
-              "type": "contributor",
-            },
-            Object {
-              "attrs": Object {
-                "ORCIDIdentifier": "",
-                "affiliations": Array [],
-                "bibliographicName": Object {
-                  "_id": "MPBibliographicName:E5B649B2-1B97-46FF-AA36-ADDC3B532517",
-                  "family": "Author",
-                  "given": "Corresponding",
-                  "objectType": "MPBibliographicName",
-                },
-                "id": "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
-                "invitationID": "",
-                "isCorresponding": 1,
-                "role": "author",
-                "userID": "",
-              },
-              "type": "contributor",
-            },
-          ],
-          "type": "contributor_list",
-        },
-        Object {
-          "attrs": Object {
             "id": "COMMENT_LIST",
           },
           "type": "comment_list",
@@ -2007,6 +2016,86 @@ Object {
     "id": "MPManuscript:8EB79C14-9F61-483A-902F-A0B8EF5973C9",
   },
   "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "ORCIDIdentifier": "",
+            "affiliations": Array [
+              "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
+            ],
+            "bibliographicName": Object {
+              "_id": "MPBibliographicName:24C5AC82-0130-4C94-A6D7-E8A2699EAAC8",
+              "family": "Author",
+              "given": "Example",
+              "objectType": "MPBibliographicName",
+            },
+            "corresp": undefined,
+            "footnote": undefined,
+            "id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
+            "invitationID": "",
+            "isCorresponding": undefined,
+            "priority": undefined,
+            "role": "author",
+            "userID": "",
+          },
+          "type": "contributor",
+        },
+        Object {
+          "attrs": Object {
+            "ORCIDIdentifier": "",
+            "affiliations": Array [],
+            "bibliographicName": Object {
+              "_id": "MPBibliographicName:E5B649B2-1B97-46FF-AA36-ADDC3B532517",
+              "family": "Author",
+              "given": "Corresponding",
+              "objectType": "MPBibliographicName",
+            },
+            "corresp": undefined,
+            "footnote": undefined,
+            "id": "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
+            "invitationID": "",
+            "isCorresponding": 1,
+            "priority": undefined,
+            "role": "author",
+            "userID": "",
+          },
+          "type": "contributor",
+        },
+      ],
+      "type": "contributors_section",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPSection:71C77CD7-71B9-4A09-AAB5-6B24DD06D618",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "addressLine1": "",
+            "addressLine2": "",
+            "addressLine3": "",
+            "country": "United Kingdom",
+            "department": "Dept of Examples",
+            "email": Object {
+              "href": "mailto:",
+              "text": "mail",
+            },
+            "id": "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
+            "institution": "University of Examples",
+            "postCode": "",
+            "priority": 1,
+          },
+          "type": "affiliation",
+        },
+      ],
+      "type": "affiliations_section",
+    },
     Object {
       "attrs": Object {
         "dataTracked": null,
@@ -3660,77 +3749,6 @@ const x = 'y'",
       "content": Array [
         Object {
           "attrs": Object {
-            "id": "AFFILIATION_LIST",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "addressLine1": "",
-                "addressLine2": "",
-                "addressLine3": "",
-                "country": "United Kingdom",
-                "department": "",
-                "email": Object {
-                  "href": "mailto:",
-                  "text": "mail",
-                },
-                "id": "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
-                "institution": "University of Examples",
-                "postCode": "",
-              },
-              "type": "affiliation",
-            },
-          ],
-          "type": "affiliation_list",
-        },
-        Object {
-          "attrs": Object {
-            "id": "CONTRIBUTOR_LIST",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "ORCIDIdentifier": "",
-                "affiliations": Array [
-                  "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
-                ],
-                "bibliographicName": Object {
-                  "_id": "MPBibliographicName:24C5AC82-0130-4C94-A6D7-E8A2699EAAC8",
-                  "family": "Author",
-                  "given": "Example",
-                  "objectType": "MPBibliographicName",
-                },
-                "id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
-                "invitationID": "",
-                "isCorresponding": undefined,
-                "role": "author",
-                "userID": "",
-              },
-              "type": "contributor",
-            },
-            Object {
-              "attrs": Object {
-                "ORCIDIdentifier": "",
-                "affiliations": Array [],
-                "bibliographicName": Object {
-                  "_id": "MPBibliographicName:E5B649B2-1B97-46FF-AA36-ADDC3B532517",
-                  "family": "Author",
-                  "given": "Corresponding",
-                  "objectType": "MPBibliographicName",
-                },
-                "id": "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
-                "invitationID": "",
-                "isCorresponding": 1,
-                "role": "author",
-                "userID": "",
-              },
-              "type": "contributor",
-            },
-          ],
-          "type": "contributor_list",
-        },
-        Object {
-          "attrs": Object {
             "id": "COMMENT_LIST",
           },
           "type": "comment_list",
@@ -3749,6 +3767,86 @@ Object {
     "id": "MPManuscript:8EB79C14-9F61-483A-902F-A0B8EF5973C9",
   },
   "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "ORCIDIdentifier": "",
+            "affiliations": Array [
+              "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
+            ],
+            "bibliographicName": Object {
+              "_id": "MPBibliographicName:24C5AC82-0130-4C94-A6D7-E8A2699EAAC8",
+              "family": "Author",
+              "given": "Example",
+              "objectType": "MPBibliographicName",
+            },
+            "corresp": undefined,
+            "footnote": undefined,
+            "id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
+            "invitationID": "",
+            "isCorresponding": undefined,
+            "priority": undefined,
+            "role": "author",
+            "userID": "",
+          },
+          "type": "contributor",
+        },
+        Object {
+          "attrs": Object {
+            "ORCIDIdentifier": "",
+            "affiliations": Array [],
+            "bibliographicName": Object {
+              "_id": "MPBibliographicName:E5B649B2-1B97-46FF-AA36-ADDC3B532517",
+              "family": "Author",
+              "given": "Corresponding",
+              "objectType": "MPBibliographicName",
+            },
+            "corresp": undefined,
+            "footnote": undefined,
+            "id": "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
+            "invitationID": "",
+            "isCorresponding": 1,
+            "priority": undefined,
+            "role": "author",
+            "userID": "",
+          },
+          "type": "contributor",
+        },
+      ],
+      "type": "contributors_section",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPSection:71C77CD7-71B9-4A09-AAB5-6B24DD06D618",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "addressLine1": "",
+            "addressLine2": "",
+            "addressLine3": "",
+            "country": "United Kingdom",
+            "department": "Dept of Examples",
+            "email": Object {
+              "href": "mailto:",
+              "text": "mail",
+            },
+            "id": "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
+            "institution": "University of Examples",
+            "postCode": "",
+            "priority": 1,
+          },
+          "type": "affiliation",
+        },
+      ],
+      "type": "affiliations_section",
+    },
     Object {
       "attrs": Object {
         "dataTracked": null,
@@ -5661,77 +5759,6 @@ const x = 'y'",
       "content": Array [
         Object {
           "attrs": Object {
-            "id": "AFFILIATION_LIST",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "addressLine1": "",
-                "addressLine2": "",
-                "addressLine3": "",
-                "country": "United Kingdom",
-                "department": "",
-                "email": Object {
-                  "href": "mailto:",
-                  "text": "mail",
-                },
-                "id": "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
-                "institution": "University of Examples",
-                "postCode": "",
-              },
-              "type": "affiliation",
-            },
-          ],
-          "type": "affiliation_list",
-        },
-        Object {
-          "attrs": Object {
-            "id": "CONTRIBUTOR_LIST",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "ORCIDIdentifier": "",
-                "affiliations": Array [
-                  "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
-                ],
-                "bibliographicName": Object {
-                  "_id": "MPBibliographicName:24C5AC82-0130-4C94-A6D7-E8A2699EAAC8",
-                  "family": "Author",
-                  "given": "Example",
-                  "objectType": "MPBibliographicName",
-                },
-                "id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
-                "invitationID": "",
-                "isCorresponding": undefined,
-                "role": "author",
-                "userID": "",
-              },
-              "type": "contributor",
-            },
-            Object {
-              "attrs": Object {
-                "ORCIDIdentifier": "",
-                "affiliations": Array [],
-                "bibliographicName": Object {
-                  "_id": "MPBibliographicName:E5B649B2-1B97-46FF-AA36-ADDC3B532517",
-                  "family": "Author",
-                  "given": "Corresponding",
-                  "objectType": "MPBibliographicName",
-                },
-                "id": "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
-                "invitationID": "",
-                "isCorresponding": 1,
-                "role": "author",
-                "userID": "",
-              },
-              "type": "contributor",
-            },
-          ],
-          "type": "contributor_list",
-        },
-        Object {
-          "attrs": Object {
             "id": "COMMENT_LIST",
           },
           "type": "comment_list",
@@ -5845,18 +5872,6 @@ Object {
         "id": "META_SECTION",
       },
       "content": Array [
-        Object {
-          "attrs": Object {
-            "id": "AFFILIATION_LIST",
-          },
-          "type": "affiliation_list",
-        },
-        Object {
-          "attrs": Object {
-            "id": "CONTRIBUTOR_LIST",
-          },
-          "type": "contributor_list",
-        },
         Object {
           "attrs": Object {
             "id": "COMMENT_LIST",
@@ -6050,18 +6065,6 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "id": "AFFILIATION_LIST",
-          },
-          "type": "affiliation_list",
-        },
-        Object {
-          "attrs": Object {
-            "id": "CONTRIBUTOR_LIST",
-          },
-          "type": "contributor_list",
-        },
-        Object {
-          "attrs": Object {
             "id": "someId",
           },
           "content": Array [
@@ -6189,18 +6192,6 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "id": "AFFILIATION_LIST",
-          },
-          "type": "affiliation_list",
-        },
-        Object {
-          "attrs": Object {
-            "id": "CONTRIBUTOR_LIST",
-          },
-          "type": "contributor_list",
-        },
-        Object {
-          "attrs": Object {
             "id": "COMMENT_LIST",
           },
           "type": "comment_list",
@@ -6255,18 +6246,6 @@ Object {
         "id": "META_SECTION",
       },
       "content": Array [
-        Object {
-          "attrs": Object {
-            "id": "AFFILIATION_LIST",
-          },
-          "type": "affiliation_list",
-        },
-        Object {
-          "attrs": Object {
-            "id": "CONTRIBUTOR_LIST",
-          },
-          "type": "contributor_list",
-        },
         Object {
           "attrs": Object {
             "id": "COMMENT_LIST",
@@ -6350,18 +6329,6 @@ Object {
         "id": "META_SECTION",
       },
       "content": Array [
-        Object {
-          "attrs": Object {
-            "id": "AFFILIATION_LIST",
-          },
-          "type": "affiliation_list",
-        },
-        Object {
-          "attrs": Object {
-            "id": "CONTRIBUTOR_LIST",
-          },
-          "type": "contributor_list",
-        },
         Object {
           "attrs": Object {
             "id": "someId",
