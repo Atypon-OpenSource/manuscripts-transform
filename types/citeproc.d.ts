@@ -18,9 +18,6 @@ declare module 'citeproc' {
     retrieveLocale: (id: string) => string | Document | Locale
     retrieveItem: (id: string) => CSL.Data
   }
-
-  type Bibliography = string[]
-
   export class Engine {
     constructor(
       sys: SystemOptions,

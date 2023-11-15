@@ -37,7 +37,6 @@ import {
   DOMOutputSpec,
   DOMParser,
   DOMSerializer,
-  Node,
 } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
@@ -230,9 +229,9 @@ export class JATSExporter {
     })
     return map
   }
-  private generateCitationContent(node: Node) {
+  private generateCitationContent(node: CitationNode) {
     const citationItems = node.attrs.embeddedCitationItems?.map(
-      ({ bibliographyItem }: { bibliographyItem: BibliographyItem }) => ({
+      ({ bibliographyItem }: { bibliographyItem: string }) => ({
         id: bibliographyItem,
       })
     )
@@ -987,7 +986,7 @@ export class JATSExporter {
           rids.map((item) => normalizeID(item.bibliographyItem)).join(' ')
         )
         if (this.citeProcEngine) {
-          xref.textContent = this.generateCitationContent(node)
+          xref.textContent = this.generateCitationContent(node as CitationNode)
         } else if (node.attrs.contents) {
           // TODO: convert markup to JATS?
           // xref.innerHTML = node.attrs.contents
