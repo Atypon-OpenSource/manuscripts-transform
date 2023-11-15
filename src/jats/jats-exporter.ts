@@ -31,10 +31,17 @@ import {
   ObjectTypes,
   Supplement,
 } from '@manuscripts/json-schema'
+import CiteProc from 'citeproc'
 import debug from 'debug'
-import { DOMOutputSpec, DOMParser, DOMSerializer } from 'prosemirror-model'
+import {
+  DOMOutputSpec,
+  DOMParser,
+  DOMSerializer,
+  Node,
+} from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
+import { CitationProvider } from '../lib/citationProvider'
 import { nodeFromHTML, textFromHTML } from '../lib/html'
 import { normalizeStyleName } from '../lib/styled-content'
 import { iterateChildren } from '../lib/utils'
@@ -201,15 +208,44 @@ export interface JATSExporterOptions {
   citationType?: 'element' | 'mixed'
   idGenerator?: IDGenerator
   mediaPathGenerator?: MediaPathGenerator
+  citationStyle?: string
+  locale?: string
 }
 
 export class JATSExporter {
   protected document: Document
+  protected citeProcEngine: CiteProc.Engine
   protected modelMap: Map<string, Model>
+  protected bibliographyItemsMap: Map<string, BibliographyItem>
   protected models: Model[]
   protected serializer: DOMSerializer
   protected labelTargets?: Map<string, Target>
 
+  private getBibliographyItemsMap(): Map<string, BibliographyItem> {
+    const map = new Map<string, BibliographyItem>()
+    this.modelMap.forEach((model) => {
+      if (model.objectType === ObjectTypes.BibliographyItem) {
+        map.set(model._id, model as BibliographyItem)
+      }
+    })
+    return map
+  }
+  private generateCitationContent(node: Node) {
+    const citationItems = node.attrs.embeddedCitationItems.map(
+      ({ bibliographyItem }: { bibliographyItem: BibliographyItem }) => ({
+        id: bibliographyItem,
+      })
+    )
+    return this.citeProcEngine.previewCitationCluster(
+      {
+        citationID: node.attrs.rid,
+        citationItems: citationItems,
+      },
+      [],
+      [],
+      'text'
+    )
+  }
   public serializeToJATS = async (
     fragment: ManuscriptFragment,
     modelMap: Map<string, Model>,
@@ -225,11 +261,19 @@ export class JATSExporter {
       // citationType,
       idGenerator,
       mediaPathGenerator,
+      citationStyle,
+      locale,
     } = options
 
     this.modelMap = modelMap
     this.models = Array.from(this.modelMap.values())
-
+    if (citationStyle) {
+      this.citeProcEngine = CitationProvider.getInstance({
+        bibliographyItemsMap: this.getBibliographyItemsMap(),
+        citationStyle: citationStyle,
+        locale: locale,
+      })
+    }
     this.createSerializer()
 
     const versionIds = selectVersionIds(version)
@@ -942,8 +986,9 @@ export class JATSExporter {
           'rid',
           rids.map((item) => normalizeID(item.bibliographyItem)).join(' ')
         )
-
-        if (node.attrs.contents) {
+        if (this.citeProcEngine) {
+          xref.textContent = this.generateCitationContent(node)
+        } else if (node.attrs.contents) {
           // TODO: convert markup to JATS?
           // xref.innerHTML = node.attrs.contents
           const text = textFromHTML(node.attrs.contents)

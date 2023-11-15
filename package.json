@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@manuscripts/json-schema": "^2.2.0",
+    "citeproc": "^2.4.63",
     "debug": "^4.3.4",
     "jszip": "^3.10.1",
     "mathjax-full": "^3.2.2",
@@ -63,7 +64,6 @@
     "eslint-plugin-mdx": "^2.0.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-simple-import-sort": "^8.0.0",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.2",
