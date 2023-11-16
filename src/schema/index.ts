@@ -82,7 +82,7 @@ import { tableElement } from './nodes/table_element'
 import { tableElementFooter } from './nodes/table_element_footer'
 import { tableCell, tableRow } from './nodes/table_row'
 import { text } from './nodes/text'
-import { Titles } from './nodes/titles'
+import { titles } from './nodes/titles'
 import { tocElement } from './nodes/toc_element'
 import { tocSection } from './nodes/toc_section'
 import { Marks, Nodes } from './types'
@@ -218,7 +218,7 @@ export const schema = new Schema<Nodes, Marks>({
     meta_section: metaSection,
     contributor: contributor,
     table_element_footer: tableElementFooter,
-    titles: Titles,
+    titles: titles,
     affiliations_section: affiliationsSection,
     contributors_section: contributorsSection,
   },

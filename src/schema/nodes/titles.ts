@@ -29,7 +29,7 @@ export interface TitlesNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const Titles: NodeSpec = {
+export const titles: NodeSpec = {
   content: 'text*',
   marks: 'italic smallcaps subscript superscript',
 
