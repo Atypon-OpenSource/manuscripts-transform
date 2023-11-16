@@ -595,6 +595,140 @@ const nodes: NodeRule[] = [
     },
   },
   {
+    tag: 'sec[sec-type="affiliations"]',
+    node: 'affiliations_section', // NOTE: higher priority than 'section'
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+        category: 'MPSectionCategory:affiliations',
+      }
+    },
+  },
+  {
+    tag: 'aff',
+    node: 'affiliation',
+    context: 'affiliations_section/',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      const aff = {
+        id: element.getAttribute('id'),
+      } as any
+      const institution = element.getAttribute('institution')
+      if (institution) {
+        aff.institution = institution
+      }
+      const email = element.getAttribute('email')
+      if (email) {
+        aff.bibliographicName = JSON.parse(email)
+      }
+      const department = element.getAttribute('department')
+      if (department) {
+        aff.department = department
+      }
+      const addressLine1 = element.getAttribute('addressLine1')
+      if (addressLine1) {
+        aff.addressLine1 = addressLine1
+      }
+
+      const addressLine2 = element.getAttribute('addressLine2')
+      if (addressLine2) {
+        aff.addressLine2 = addressLine2
+      }
+
+      const addressLine3 = element.getAttribute('addressLine3')
+      if (addressLine3) {
+        aff.addressLine3 = addressLine3
+      }
+
+      const postCode = element.getAttribute('postCode')
+      if (postCode) {
+        aff.postCode = postCode
+      }
+      const country = element.getAttribute('country')
+      if (country) {
+        aff.country = country
+      }
+      const priority = element.getAttribute('priority')
+      if (priority) {
+        aff.priority = parseInt(priority)
+      }
+      return aff
+    },
+  },
+  {
+    tag: 'sec[sec-type="contributors"]',
+    node: 'contributors_section', // NOTE: higher priority than 'section'
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+        category: 'MPSectionCategory:contributors',
+      }
+    },
+  },
+  {
+    tag: 'contrib',
+    node: 'contributor',
+    context: 'contributors_section/',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      const contrib = {
+        id: element.getAttribute('id'),
+      } as any
+
+      const role = element.getAttribute('role')
+      if (role) {
+        contrib.role = role
+      }
+
+      const affiliations = element.getAttribute('affiliations')
+      if (affiliations) {
+        contrib.affiliations = JSON.parse(affiliations)
+      }
+
+      const footnote = element.getAttribute('footnote')
+      if (footnote) {
+        contrib.footnote = JSON.parse(footnote)
+      }
+
+      const corresp = element.getAttribute('corresp')
+      if (corresp) {
+        contrib.corresp = JSON.parse(corresp)
+      }
+      const bibliographicName = element.getAttribute('bibliographicName')
+      if (bibliographicName) {
+        contrib.bibliographicName = JSON.parse(bibliographicName)
+      }
+      const userID = element.getAttribute('userID')
+      if (userID) {
+        contrib.userID = userID
+      }
+      const priority = element.getAttribute('priority')
+      if (priority) {
+        contrib.priority = parseInt(priority)
+      }
+      const invitationID = element.getAttribute('invitationID')
+      if (invitationID) {
+        contrib.invitationID = invitationID
+      }
+      const objectType = element.getAttribute('objectType')
+      if (objectType) {
+        contrib.objectType = objectType
+      }
+      const isCorresponding = element.getAttribute('isCorresponding')
+      if (isCorresponding) {
+        contrib.isCorresponding = JSON.parse(isCorresponding)
+      }
+      const ORCIDIdentifier = element.getAttribute('ORCIDIdentifier')
+      if (ORCIDIdentifier) {
+        contrib.ORCIDIdentifier = ORCIDIdentifier
+      }
+      return contrib
+    },
+  },
+  {
     tag: 'sec[sec-type="keywords"]',
     node: 'keywords_section', // NOTE: higher priority than 'section'
     getAttrs: (node) => {

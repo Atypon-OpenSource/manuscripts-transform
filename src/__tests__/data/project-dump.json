@@ -2,6 +2,32 @@
   "version": "2.0",
   "data": [
     {
+      "_id": "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9",
+      "_rev": "4-898cae6f58b00ac8b03c1dec70eaa3df",
+      "category": "MPSectionCategory:contributors",
+      "collection": "sections",
+      "createdAt": 1538472729,
+      "elementIDs": ["MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6","MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2"],
+      "objectType": "MPSection",
+      "path": ["MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9"],
+      "priority": 1,
+      "sessionID": "fb8b3d44-9515-4747-c7d8-a30fb1bc188b",
+      "title": ""
+    },
+    {
+      "_id": "MPSection:71C77CD7-71B9-4A09-AAB5-6B24DD06D618",
+      "_rev": "4-898cae6f58b00ac8b03c1dec70eaa3df",
+      "category": "MPSectionCategory:affiliations",
+      "collection": "sections",
+      "createdAt": 1538472729,
+      "elementIDs": ["MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08"],
+      "objectType": "MPSection",
+      "path": ["MPSection:71C77CD7-71B9-4A09-AAB5-6B24DD06D618"],
+      "priority": 2,
+      "sessionID": "fb8b3d44-9515-4747-c7d8-a30fb1bc188b",
+      "title": ""
+    },
+    {
       "_id": "MPFigure:AD65D628-A904-4DC4-A026-F8F4C08F6557",
       "_rev": "3-16c9025f8d2f4705a67337146f88bb2f",
       "contentType": "image/png",
@@ -32,10 +58,10 @@
       "county": "",
       "createdAt": 1538472835.419208,
       "department": "Dept of Examples",
-       "email":  {
-         "href":"mailto:" ,
+      "email":  {
+        "href":"mailto:" ,
         "text": "mail"
-       },
+      },
       "institution": "University of Examples",
       "objectType": "MPAffiliation",
       "postCode": "",
@@ -68,7 +94,7 @@
       "objectType": "MPSection",
       "path": ["MPSection:77786D47-6060-4FBC-BC13-5FA754968D6A"],
       "placeholderTitle": "",
-      "priority": 2,
+      "priority": 4,
       "sessionID": "fb8b3d44-9515-4747-c7d8-a30fb1bc188b",
       "title": "First section",
       "updatedAt": 1538472122.495019
@@ -82,7 +108,7 @@
       "elementIDs": ["MPTOCElement:657C54DB-78B5-4206-E322-170F68263A01"],
       "objectType": "MPSection",
       "path": ["MPSection:DFCBE345-A12D-451E-8320-723F25D2F472"],
-      "priority": 1,
+      "priority": 3,
       "sessionID": "fb8b3d44-9515-4747-c7d8-a30fb1bc188b",
       "title": "Table of Contents"
     },
@@ -97,7 +123,7 @@
       ],
       "objectType": "MPSection",
       "path": ["MPSection:E07B0D52-9642-4D58-E577-26F8804E3DEE"],
-      "priority": 4,
+      "priority": 6,
       "sessionID": "58d96cc7-c834-4810-8f39-55cbca7eef93",
       "title": "Bibliography"
     },
@@ -129,7 +155,7 @@
       ],
       "objectType": "MPSection",
       "path": ["MPSection:F8EE617B-484B-4CF2-F1CA-014F5307D5CF"],
-      "priority": 3,
+      "priority": 5,
       "sessionID": "F027CEDE-1DAF-4172-BAE1-9AC95580BD8A",
       "title": "Section Two",
       "titleSuppressed": true,
@@ -2336,7 +2362,6 @@
       "lastName": "Author",
       "objectType": "MPContributor",
       "prename": "Corresponding",
-      "priority": 1,
       "role": "author",
       "updatedAt": 1538472823.003292,
       "userID": ""
