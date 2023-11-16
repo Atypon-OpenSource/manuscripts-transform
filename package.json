@@ -6,6 +6,7 @@
   "license": "Apache-2.0",
   "main": "dist/cjs",
   "module": "dist/es",
+
   "types": "dist/types",
   "files": [
     "dist"
