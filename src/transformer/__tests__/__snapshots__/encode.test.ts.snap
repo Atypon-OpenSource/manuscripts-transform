@@ -584,7 +584,7 @@ const x = 'y'",
     "objectType": "MPTitles",
     "runningTitle": "running title",
     "subtitle": "subtitle",
-    "title": "main title",
+    "title": "",
   },
 }
 `;

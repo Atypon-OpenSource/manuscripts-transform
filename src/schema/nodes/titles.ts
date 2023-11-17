@@ -31,7 +31,7 @@ export interface TitlesNode extends ManuscriptNode {
 
 export const titles: NodeSpec = {
   content: 'text*',
-  marks: 'italic smallcaps subscript superscript',
+  marks: 'italic smallcaps subscript superscript tracked_insert tracked_delete',
 
   attrs: {
     id: { default: '' },
@@ -42,5 +42,5 @@ export const titles: NodeSpec = {
   },
   group: 'block element',
   parseDOM: [{ tag: 'div' }],
-  toDOM: () => ['div', 0],
+  toDOM: () => ['div', { class: 'article-title' }, 0],
 }

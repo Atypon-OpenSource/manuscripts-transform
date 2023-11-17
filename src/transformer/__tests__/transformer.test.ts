@@ -29,11 +29,11 @@ test('transformer', async () => {
   for (const [id, item] of input.entries()) {
     if (output.has(id)) {
       output.set(id, {
-        ...item,
         ...output.get(id),
-      })
+        ...item, // Swap the order to ensure item properties override output properties
+      });
     } else {
-      output.set(id, item)
+      output.set(id, item);
     }
   }
 

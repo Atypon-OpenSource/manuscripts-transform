@@ -187,12 +187,13 @@ export class Decoder {
     [ObjectTypes.Titles]: (data) => {
       const model = data as Titles
 
-      return schema.nodes.titles.create({
-        id: model._id,
-        title: model.title,
-        subtitle: model.subtitle,
-        runningTitle: model.runningTitle,
-      }) as TitlesNode
+      return this.parseContents(model.title || '', 'div', undefined, {
+        topNode: schema.nodes.titles.create({
+          id: model._id,
+          subtitle: model.subtitle,
+          runningTitle: model.runningTitle,
+        }),
+      })
     },
     [ObjectTypes.BibliographyElement]: (data) => {
       const model = data as BibliographyElement

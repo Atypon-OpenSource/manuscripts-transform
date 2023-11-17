@@ -816,8 +816,14 @@ Object {
           "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
           "runningTitle": "running title",
           "subtitle": "subtitle",
-          "title": "main title",
+          "title": "",
         },
+        "content": Array [
+          Object {
+            "text": "main title",
+            "type": "text",
+          },
+        ],
         "type": "titles",
       },
     ],
@@ -2172,8 +2178,14 @@ Object {
           "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
           "runningTitle": "running title",
           "subtitle": "subtitle",
-          "title": "main title",
+          "title": "",
         },
+        "content": Array [
+          Object {
+            "text": "main title",
+            "type": "text",
+          },
+        ],
         "type": "titles",
       },
     ],
