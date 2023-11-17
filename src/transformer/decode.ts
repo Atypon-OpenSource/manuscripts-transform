@@ -184,6 +184,17 @@ export class Decoder {
   >()
 
   private creators: NodeCreatorMap = {
+    [ObjectTypes.Titles]: (data) => {
+      const model = data as Titles
+
+      return this.parseContents(model.title || '', 'div', undefined, {
+        topNode: schema.nodes.titles.create({
+          id: model._id,
+          subtitle: model.subtitle,
+          runningTitle: model.runningTitle,
+        }),
+      })
+    },
     [ObjectTypes.BibliographyElement]: (data) => {
       const model = data as BibliographyElement
 
