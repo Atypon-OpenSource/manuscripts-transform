@@ -459,8 +459,10 @@ export const buildElementsOrder = (
   elements: [],
 })
 
-export const buildTitles = (articleTitle?: string): Build<Titles> => ({
+export const buildTitles = (): Build<Titles> => ({
   _id: generateID(ObjectTypes.Titles),
   objectType: ObjectTypes.Titles,
-  title: articleTitle || '',
+  title: 'test',
+  subtitle: 'test',
+  runningTitle: 'test',
 })

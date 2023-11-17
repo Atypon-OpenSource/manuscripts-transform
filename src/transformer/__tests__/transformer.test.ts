@@ -31,9 +31,9 @@ test('transformer', async () => {
       output.set(id, {
         ...output.get(id),
         ...item, // Swap the order to ensure item properties override output properties
-      });
+      })
     } else {
-      output.set(id, item);
+      output.set(id, item)
     }
   }
 

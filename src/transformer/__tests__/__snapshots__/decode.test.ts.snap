@@ -5827,16 +5827,6 @@ Object {
   "content": Array [
     Object {
       "attrs": Object {
-        "dataTracked": null,
-        "id": "MPTitles:E00440DD-A171-4CE7-A484-4FCF8E05CE22",
-        "runningTitle": "",
-        "subtitle": "",
-        "title": "",
-      },
-      "type": "titles",
-    },
-    Object {
-      "attrs": Object {
         "category": "",
         "comments": Array [],
         "dataTracked": null,
@@ -5950,16 +5940,6 @@ Object {
     "id": "MPManuscript:1",
   },
   "content": Array [
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "MPTitles:0BF3F178-2184-45F9-A8D4-809FA05AD391",
-        "runningTitle": "",
-        "subtitle": "",
-        "title": "",
-      },
-      "type": "titles",
-    },
     Object {
       "attrs": Object {
         "category": "",
@@ -6198,16 +6178,6 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:D51E228D-F1B4-4367-BB79-47DC0D03246B",
-        "runningTitle": "",
-        "subtitle": "",
-        "title": "",
-      },
-      "type": "titles",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
         "id": "MPSection:1",
       },
       "content": Array [
@@ -6291,16 +6261,6 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:8CB08768-8CC0-4850-AF25-18F2A4A55FD2",
-        "runningTitle": "",
-        "subtitle": "",
-        "title": "",
-      },
-      "type": "titles",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
         "id": "MPSection:1",
       },
       "content": Array [
@@ -6354,16 +6314,6 @@ Object {
     "id": "MPManuscript:1",
   },
   "content": Array [
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "MPTitles:4D4BDC67-279D-4871-86CA-CD61F7908D38",
-        "runningTitle": "",
-        "subtitle": "",
-        "title": "",
-      },
-      "type": "titles",
-    },
     Object {
       "attrs": Object {
         "dataTracked": null,

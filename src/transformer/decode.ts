@@ -91,6 +91,7 @@ import {
 import { AffiliationsSectionNode } from '../schema/nodes/affiliations_section'
 import { ContributorsSectionNode } from '../schema/nodes/contributors_section'
 import { KeywordsGroupNode } from '../schema/nodes/keywords_group'
+import { buildTitles } from './builders'
 import { insertHighlightMarkers } from './highlight-markers'
 import { generateNodeID } from './id'
 import { PlaceholderElement } from './models'
@@ -108,7 +109,6 @@ import {
   SectionCategory,
 } from './section-category'
 import { timestamp } from './timestamp'
-import { buildTitles } from './builders'
 
 const warn = debug('manuscripts-transform')
 
@@ -194,7 +194,7 @@ export class Decoder {
           subtitle: model.subtitle,
           runningTitle: model.runningTitle,
         }),
-      })
+      }) as TitlesNode
     },
     [ObjectTypes.BibliographyElement]: (data) => {
       const model = data as BibliographyElement
@@ -887,11 +887,17 @@ export class Decoder {
     }
   }
   private createTitlesNode() {
-    const titlesModel =
-      getModelsByType<Titles>(this.modelMap, ObjectTypes.Titles)?.at(0) ||
-      (buildTitles() as Titles)
+    const titlesModel = getModelsByType<Titles>(
+      this.modelMap,
+      ObjectTypes.Titles
+    )[0]
 
-    return this.decode(titlesModel) as TitlesNode
+    if (titlesModel) {
+      const titlesNode = this.decode(titlesModel) as TitlesNode
+      return titlesNode
+    } else {
+      return null
+    }
   }
 
   private createRootSectionNodes() {
@@ -954,7 +960,10 @@ export class Decoder {
     const titlesNode = this.createTitlesNode()
     const rootSectionNodes = this.createRootSectionNodes()
     const metaSectionNode = this.createMetaSectionNode()
-    const contents: ManuscriptNode[] = [titlesNode, ...rootSectionNodes, metaSectionNode]
+    const contents: ManuscriptNode[] = [...rootSectionNodes, metaSectionNode]
+    if (titlesNode) {
+      contents.unshift(titlesNode)
+    }
 
     return schema.nodes.manuscript.create(
       {
