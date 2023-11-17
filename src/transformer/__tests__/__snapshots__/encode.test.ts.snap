@@ -627,13 +627,6 @@ Map {
     },
     "target": "MPSection:1",
   },
-  "MPTitles:8A5E41C7-E395-4BDF-B7B9-0ABC8D599C84" => Object {
-    "_id": "MPTitles:8A5E41C7-E395-4BDF-B7B9-0ABC8D599C84",
-    "objectType": "MPTitles",
-    "runningTitle": "",
-    "subtitle": "",
-    "title": "",
-  },
   "MPSection:1" => Object {
     "_id": "MPSection:1",
     "category": undefined,
@@ -692,13 +685,6 @@ Map {
 
 exports[`encoder encode keywords element 1`] = `
 Map {
-  "MPTitles:3679CF8C-2A3B-4669-98D1-8F6F5978EB8D" => Object {
-    "_id": "MPTitles:3679CF8C-2A3B-4669-98D1-8F6F5978EB8D",
-    "objectType": "MPTitles",
-    "runningTitle": "",
-    "subtitle": "",
-    "title": "",
-  },
   "MPSection:1" => Object {
     "_id": "MPSection:1",
     "category": "MPSectionCategory:keywords",

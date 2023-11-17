@@ -40,66 +40,60 @@ describe('encoder', () => {
   })
 
   test('encode highlight markers', async () => {
-    const modelMap = createTestModelMapWithHighlights();
-  
-    const decoder = new Decoder(modelMap);
-    const doc = decoder.createArticleNode();
-    const result = encode(doc);
-  
-    expect(result).toMatchSnapshot();
-  
+    const modelMap = createTestModelMapWithHighlights()
+
+    const decoder = new Decoder(modelMap)
+
+    const doc = decoder.createArticleNode()
+
+    const result = encode(doc)
+
+    expect(result).toMatchSnapshot()
+
     const ensureModel = (model: Partial<ManuscriptModel>): ManuscriptModel => {
-      model.containerID = 'MPProject:1';
-      model.manuscriptID = 'MPManuscript:1';
-      model.createdAt = 0;
-      model.updatedAt = 0;
-  
-      const foundModel = modelMap.get(model._id);
-      if (!foundModel) {
-        throw new Error(`Model not found in modelMap: ${model._id}`);
-      }
-  
+      model.containerID = 'MPProject:1'
+      model.manuscriptID = 'MPManuscript:1'
+      model.createdAt = 0
+      model.updatedAt = 0
+
       const isEmptyObj = (object: unknown) => {
         if (Array.isArray(object) && object.length === 0) {
-          return false;
+          return false
         }
         if (typeof object !== 'object') {
-          return false;
+          return false
         }
         for (const _ in object) {
-          return false;
+          return false
         }
-        return true;
-      };
-  
+        return true
+      }
+
       for (const key of Object.keys(model)) {
-        const value = model[key as keyof ManuscriptModel];
+        const value = model[key as keyof ManuscriptModel]
         if (
           value === undefined ||
           value === '' ||
           value === null ||
           isEmptyObj(value)
         ) {
-          delete model[key as keyof ManuscriptModel];
+          delete model[key as keyof ManuscriptModel]
         }
       }
-  
       if (
         model.objectType === ObjectTypes.CommentAnnotation &&
         !(model as Partial<CommentAnnotation>).contents
       ) {
-        (model as CommentAnnotation).contents = '';
+        ;(model as CommentAnnotation).contents = ''
       }
-  
-      return model as ManuscriptModel;
-    };
-  
-    for (const item of result.values()) {
-      const model = ensureModel(item);
-      expect(model).toEqual(modelMap.get(model._id));
+      return model as ManuscriptModel
     }
-  });
-  
+
+    for (const item of result.values()) {
+      const model = ensureModel(item)
+      expect(model).toEqual(modelMap.get(model._id))
+    }
+  })
 
   test('encode keywords element', async () => {
     const modelMap = createTestModelMapWithKeywords()
