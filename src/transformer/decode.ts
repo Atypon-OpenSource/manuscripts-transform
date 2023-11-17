@@ -91,7 +91,6 @@ import {
 import { AffiliationsSectionNode } from '../schema/nodes/affiliations_section'
 import { ContributorsSectionNode } from '../schema/nodes/contributors_section'
 import { KeywordsGroupNode } from '../schema/nodes/keywords_group'
-import { buildTitles } from './builders'
 import { insertHighlightMarkers } from './highlight-markers'
 import { generateNodeID } from './id'
 import { PlaceholderElement } from './models'
