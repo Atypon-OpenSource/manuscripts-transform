@@ -108,6 +108,7 @@ import {
   SectionCategory,
 } from './section-category'
 import { timestamp } from './timestamp'
+import { buildTitles } from './builders'
 
 const warn = debug('manuscripts-transform')
 
@@ -187,7 +188,7 @@ export class Decoder {
     [ObjectTypes.Titles]: (data) => {
       const model = data as Titles
 
-      return this.parseContents(model.title || '', 'div', undefined, {
+      return this.parseContents(model.title, 'div', undefined, {
         topNode: schema.nodes.titles.create({
           id: model._id,
           subtitle: model.subtitle,
@@ -886,17 +887,11 @@ export class Decoder {
     }
   }
   private createTitlesNode() {
-    const titlesModel = getModelsByType<Titles>(
-      this.modelMap,
-      ObjectTypes.Titles
-    )[0]
+    const titlesModel =
+      getModelsByType<Titles>(this.modelMap, ObjectTypes.Titles)?.at(0) ||
+      (buildTitles() as Titles)
 
-    if (titlesModel) {
-      const titlesNode = this.decode(titlesModel) as TitlesNode
-      return titlesNode
-    } else {
-      return null
-    }
+    return this.decode(titlesModel) as TitlesNode
   }
 
   private createRootSectionNodes() {
@@ -959,11 +954,7 @@ export class Decoder {
     const titlesNode = this.createTitlesNode()
     const rootSectionNodes = this.createRootSectionNodes()
     const metaSectionNode = this.createMetaSectionNode()
-    const contents: ManuscriptNode[] = [...rootSectionNodes, metaSectionNode]
-
-    if (titlesNode) {
-      contents.push(titlesNode)
-    }
+    const contents: ManuscriptNode[] = [titlesNode, ...rootSectionNodes, metaSectionNode]
 
     return schema.nodes.manuscript.create(
       {

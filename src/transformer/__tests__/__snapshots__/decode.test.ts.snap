@@ -9,6 +9,22 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
+        "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+        "runningTitle": "running title",
+        "subtitle": "subtitle",
+        "title": "",
+      },
+      "content": Array [
+        Object {
+          "text": "main",
+          "type": "text",
+        },
+      ],
+      "type": "titles",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9",
       },
       "content": Array [
@@ -2005,6 +2021,17 @@ const x = 'y'",
       ],
       "type": "meta_section",
     },
+  ],
+  "type": "manuscript",
+}
+`;
+
+exports[`decoder create test doc with missing data: decoded-with-placeholders 1`] = `
+Object {
+  "attrs": Object {
+    "id": "MPManuscript:8EB79C14-9F61-483A-902F-A0B8EF5973C9",
+  },
+  "content": Array [
     Object {
       "attrs": Object {
         "dataTracked": null,
@@ -2021,17 +2048,6 @@ const x = 'y'",
       ],
       "type": "titles",
     },
-  ],
-  "type": "manuscript",
-}
-`;
-
-exports[`decoder create test doc with missing data: decoded-with-placeholders 1`] = `
-Object {
-  "attrs": Object {
-    "id": "MPManuscript:8EB79C14-9F61-483A-902F-A0B8EF5973C9",
-  },
-  "content": Array [
     Object {
       "attrs": Object {
         "dataTracked": null,
@@ -3772,6 +3788,17 @@ const x = 'y'",
       ],
       "type": "meta_section",
     },
+  ],
+  "type": "manuscript",
+}
+`;
+
+exports[`decoder create test doc with missing data: decoded-without-placeholders 1`] = `
+Object {
+  "attrs": Object {
+    "id": "MPManuscript:8EB79C14-9F61-483A-902F-A0B8EF5973C9",
+  },
+  "content": Array [
     Object {
       "attrs": Object {
         "dataTracked": null,
@@ -3788,17 +3815,6 @@ const x = 'y'",
       ],
       "type": "titles",
     },
-  ],
-  "type": "manuscript",
-}
-`;
-
-exports[`decoder create test doc with missing data: decoded-without-placeholders 1`] = `
-Object {
-  "attrs": Object {
-    "id": "MPManuscript:8EB79C14-9F61-483A-902F-A0B8EF5973C9",
-  },
-  "content": Array [
     Object {
       "attrs": Object {
         "dataTracked": null,
@@ -5798,22 +5814,6 @@ const x = 'y'",
       ],
       "type": "meta_section",
     },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
-        "runningTitle": "running title",
-        "subtitle": "subtitle",
-        "title": "",
-      },
-      "content": Array [
-        Object {
-          "text": "main",
-          "type": "text",
-        },
-      ],
-      "type": "titles",
-    },
   ],
   "type": "manuscript",
 }
@@ -5825,6 +5825,16 @@ Object {
     "id": "MPManuscript:1",
   },
   "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPTitles:E00440DD-A171-4CE7-A484-4FCF8E05CE22",
+        "runningTitle": "",
+        "subtitle": "",
+        "title": "",
+      },
+      "type": "titles",
+    },
     Object {
       "attrs": Object {
         "category": "",
@@ -5940,6 +5950,16 @@ Object {
     "id": "MPManuscript:1",
   },
   "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPTitles:0BF3F178-2184-45F9-A8D4-809FA05AD391",
+        "runningTitle": "",
+        "subtitle": "",
+        "title": "",
+      },
+      "type": "titles",
+    },
     Object {
       "attrs": Object {
         "category": "",
@@ -6178,6 +6198,16 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
+        "id": "MPTitles:D51E228D-F1B4-4367-BB79-47DC0D03246B",
+        "runningTitle": "",
+        "subtitle": "",
+        "title": "",
+      },
+      "type": "titles",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:1",
       },
       "content": Array [
@@ -6261,6 +6291,16 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
+        "id": "MPTitles:8CB08768-8CC0-4850-AF25-18F2A4A55FD2",
+        "runningTitle": "",
+        "subtitle": "",
+        "title": "",
+      },
+      "type": "titles",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:1",
       },
       "content": Array [
@@ -6314,6 +6354,16 @@ Object {
     "id": "MPManuscript:1",
   },
   "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPTitles:4D4BDC67-279D-4871-86CA-CD61F7908D38",
+        "runningTitle": "",
+        "subtitle": "",
+        "title": "",
+      },
+      "type": "titles",
+    },
     Object {
       "attrs": Object {
         "dataTracked": null,

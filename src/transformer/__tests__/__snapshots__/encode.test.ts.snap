@@ -2,6 +2,13 @@
 
 exports[`encoder encode a test doc 1`] = `
 Map {
+  "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1" => Object {
+    "_id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+    "objectType": "MPTitles",
+    "runningTitle": "running title",
+    "subtitle": "subtitle",
+    "title": "",
+  },
   "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9" => Object {
     "_id": "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9",
     "category": "MPSectionCategory:contributors",
@@ -579,13 +586,6 @@ const x = 'y'",
     "title": "A hyperlink",
     "type": undefined,
   },
-  "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1" => Object {
-    "_id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
-    "objectType": "MPTitles",
-    "runningTitle": "running title",
-    "subtitle": "subtitle",
-    "title": "",
-  },
 }
 `;
 
@@ -626,6 +626,13 @@ Map {
       "to": 32,
     },
     "target": "MPSection:1",
+  },
+  "MPTitles:8A5E41C7-E395-4BDF-B7B9-0ABC8D599C84" => Object {
+    "_id": "MPTitles:8A5E41C7-E395-4BDF-B7B9-0ABC8D599C84",
+    "objectType": "MPTitles",
+    "runningTitle": "",
+    "subtitle": "",
+    "title": "",
   },
   "MPSection:1" => Object {
     "_id": "MPSection:1",
@@ -685,6 +692,13 @@ Map {
 
 exports[`encoder encode keywords element 1`] = `
 Map {
+  "MPTitles:3679CF8C-2A3B-4669-98D1-8F6F5978EB8D" => Object {
+    "_id": "MPTitles:3679CF8C-2A3B-4669-98D1-8F6F5978EB8D",
+    "objectType": "MPTitles",
+    "runningTitle": "",
+    "subtitle": "",
+    "title": "",
+  },
   "MPSection:1" => Object {
     "_id": "MPSection:1",
     "category": "MPSectionCategory:keywords",
