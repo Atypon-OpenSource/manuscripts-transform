@@ -627,8 +627,8 @@ Map {
     },
     "target": "MPSection:1",
   },
-  "MPTitles:1" => Object {
-    "_id": "MPTitles:1",
+  "MPTitles:324E31B8-D23C-4696-89AF-771770AC0543" => Object {
+    "_id": "MPTitles:324E31B8-D23C-4696-89AF-771770AC0543",
     "objectType": "MPTitles",
     "runningTitle": "runningTitle",
     "subtitle": "subtitle",
@@ -692,8 +692,8 @@ Map {
 
 exports[`encoder encode keywords element 1`] = `
 Map {
-  "MPTitles:1" => Object {
-    "_id": "MPTitles:1",
+  "MPTitles:1E82DEA1-D3B7-4716-B541-230D218BCB1F" => Object {
+    "_id": "MPTitles:1E82DEA1-D3B7-4716-B541-230D218BCB1F",
     "objectType": "MPTitles",
     "runningTitle": "runningTitle",
     "subtitle": "subtitle",
