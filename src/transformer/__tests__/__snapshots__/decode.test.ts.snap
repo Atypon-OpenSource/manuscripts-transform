@@ -5779,6 +5779,16 @@ Object {
   "content": Array [
     Object {
       "attrs": Object {
+        "dataTracked": null,
+        "id": "MPTitles:77B99EC5-4A39-4077-B652-3739B22C5D3A",
+        "runningTitle": "runningTitle",
+        "subtitle": "subtitle",
+        "title": "",
+      },
+      "type": "titles",
+    },
+    Object {
+      "attrs": Object {
         "category": "",
         "comments": Array [],
         "dataTracked": null,
@@ -5892,6 +5902,22 @@ Object {
     "id": "MPManuscript:1",
   },
   "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPTitles:1",
+        "runningTitle": "runningTitle",
+        "subtitle": "subtitle",
+        "title": "",
+      },
+      "content": Array [
+        Object {
+          "text": "main title",
+          "type": "text",
+        },
+      ],
+      "type": "titles",
+    },
     Object {
       "attrs": Object {
         "category": "",
@@ -6130,6 +6156,16 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
+        "id": "MPTitles:308D9D5B-E5D7-4D04-A230-84F0B19B32FF",
+        "runningTitle": "runningTitle",
+        "subtitle": "subtitle",
+        "title": "",
+      },
+      "type": "titles",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:1",
       },
       "content": Array [
@@ -6213,6 +6249,22 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
+        "id": "MPTitles:1",
+        "runningTitle": "runningTitle",
+        "subtitle": "subtitle",
+        "title": "",
+      },
+      "content": Array [
+        Object {
+          "text": "main title",
+          "type": "text",
+        },
+      ],
+      "type": "titles",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:1",
       },
       "content": Array [
@@ -6266,6 +6318,16 @@ Object {
     "id": "MPManuscript:1",
   },
   "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPTitles:AEEF275B-9954-4E09-9D1A-3F0E1EFB9EDA",
+        "runningTitle": "runningTitle",
+        "subtitle": "subtitle",
+        "title": "",
+      },
+      "type": "titles",
+    },
     Object {
       "attrs": Object {
         "dataTracked": null,
