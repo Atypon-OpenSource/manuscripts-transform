@@ -627,6 +627,13 @@ Map {
     },
     "target": "MPSection:1",
   },
+  "MPTitles:1" => Object {
+    "_id": "MPTitles:1",
+    "objectType": "MPTitles",
+    "runningTitle": "runningTitle",
+    "subtitle": "subtitle",
+    "title": "",
+  },
   "MPSection:1" => Object {
     "_id": "MPSection:1",
     "category": undefined,
@@ -685,6 +692,13 @@ Map {
 
 exports[`encoder encode keywords element 1`] = `
 Map {
+  "MPTitles:1" => Object {
+    "_id": "MPTitles:1",
+    "objectType": "MPTitles",
+    "runningTitle": "runningTitle",
+    "subtitle": "subtitle",
+    "title": "",
+  },
   "MPSection:1" => Object {
     "_id": "MPSection:1",
     "category": "MPSectionCategory:keywords",
