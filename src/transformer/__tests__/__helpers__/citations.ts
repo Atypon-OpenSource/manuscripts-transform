@@ -23,6 +23,7 @@ import {
   ParagraphElement,
   Project,
   Section,
+  Titles,
 } from '@manuscripts/json-schema'
 
 export const createTestModelMapWithCitations = () => {
@@ -47,6 +48,19 @@ export const createTestModelMapWithCitations = () => {
   }
 
   modelMap.set(manuscript._id, manuscript)
+
+  const titles:Titles = {
+    objectType: ObjectTypes.Titles,
+    _id: 'MPTitles:1',
+    title: 'main title',
+    subtitle: 'subtitle',
+    runningTitle: 'runningTitle',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+  }
+  modelMap.set(titles._id, titles)
 
   const bibliographyItem: BibliographyItem = {
     objectType: ObjectTypes.BibliographyItem,
