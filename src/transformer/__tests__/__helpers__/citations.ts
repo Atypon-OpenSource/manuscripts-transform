@@ -49,7 +49,7 @@ export const createTestModelMapWithCitations = () => {
 
   modelMap.set(manuscript._id, manuscript)
 
-  const titles:Titles = {
+  const titles: Titles = {
     objectType: ObjectTypes.Titles,
     _id: 'MPTitles:1',
     title: 'main title',
