@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
+import { CommentNode } from './comment'
 
 interface Attrs {
   id: string
-  MathMLRepresentation: string
-  SVGRepresentation: string
-  TeXRepresentation: string
+  suppressCaption: boolean
+  suppressTitle?: boolean
+  title: string
+  comments?: CommentNode[]
 }
 
 export interface InlineEquationNode extends ManuscriptNode {
@@ -31,53 +32,39 @@ export interface InlineEquationNode extends ManuscriptNode {
 }
 
 export const inlineEquation: NodeSpec = {
-  // TODO: rid?
+  content: '(equation | placeholder)',
   attrs: {
     id: { default: '' },
-    MathMLRepresentation: { default: '' },
-    SVGRepresentation: { default: '' },
-    TeXRepresentation: { default: '' },
+    suppressCaption: { default: true },
+    suppressTitle: { default: undefined },
     dataTracked: { default: null },
+    comments: { default: null },
+    title: { default: 'Equation' },
   },
-  atom: true,
-  inline: true,
-  draggable: true,
-  group: 'inline',
+  selectable: false,
+  group: 'block element',
   parseDOM: [
     {
-      tag: `span.${ObjectTypes.InlineMathFragment}`,
+      tag: 'inline-formula',
       getAttrs: (p) => {
-        const dom = p as HTMLSpanElement
+        const dom = p as HTMLElement
 
         return {
           id: dom.getAttribute('id'),
-          MathMLRepresentation:
-            dom.getAttribute('data-mathml-representation') || '',
-          SVGRepresentation: dom.innerHTML || '',
-          TeXRepresentation: dom.getAttribute('data-tex-representation') || '',
         }
       },
     },
-    // TODO: convert MathML from pasted math elements?
   ],
   toDOM: (node) => {
-    const inlineEquationNode = node as InlineEquationNode
+    const equationElementNode = node as InlineEquationNode
 
-    const dom = document.createElement('span')
-    dom.classList.add(ObjectTypes.InlineMathFragment)
-    dom.setAttribute('id', inlineEquationNode.attrs.id)
-    dom.setAttribute(
-      'data-tex-representation',
-      inlineEquationNode.attrs.TeXRepresentation
-    )
-    if (inlineEquationNode.attrs.MathMLRepresentation) {
-      dom.setAttribute(
-        'data-mathml-representation',
-        inlineEquationNode.attrs.MathMLRepresentation
-      )
-    }
-    dom.innerHTML = inlineEquationNode.attrs.SVGRepresentation
-
-    return dom
+    return [
+      'inline-formula',
+      {
+        class: 'equation', // TODO: suppress-caption?
+        id: equationElementNode.attrs.id,
+      },
+      0,
+    ]
   },
 }

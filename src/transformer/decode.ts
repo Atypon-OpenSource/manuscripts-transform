@@ -27,6 +27,7 @@ import {
   FigureElement,
   Footnote,
   FootnotesElement,
+  InlineMathFragment,
   Keyword,
   KeywordGroup,
   KeywordsElement,
@@ -88,6 +89,7 @@ import {
 } from '../schema'
 import { AffiliationsSectionNode } from '../schema/nodes/affiliations_section'
 import { ContributorsSectionNode } from '../schema/nodes/contributors_section'
+import { InlineEquationNode } from '../schema/nodes/inline_equation'
 import { KeywordsGroupNode } from '../schema/nodes/keywords_group'
 import { insertHighlightMarkers } from './highlight-markers'
 import { generateNodeID } from './id'
@@ -326,9 +328,7 @@ export class Decoder {
 
       return schema.nodes.equation.createChecked({
         id: model._id,
-        MathMLStringRepresentation: model.MathMLStringRepresentation,
-        SVGStringRepresentation: model.SVGStringRepresentation,
-        TeXRepresentation: model.TeXRepresentation,
+        content: model.content,
       }) as EquationNode
     },
     [ObjectTypes.EquationElement]: (data) => {
@@ -348,18 +348,46 @@ export class Decoder {
         throw new MissingElement(model.containedObjectID)
       }
 
-      const figcaption: FigCaptionNode = this.getFigcaption(model)
-
       return schema.nodes.equation_element.createChecked(
         {
           id: model._id,
           suppressCaption: Boolean(model.suppressCaption),
+          title: model.title,
           suppressTitle: Boolean(
             model.suppressTitle === undefined ? true : model.suppressTitle
           ),
         },
-        [equation, figcaption]
+        [equation]
       ) as EquationElementNode
+    },
+    [ObjectTypes.InlineMathFragment]: (data) => {
+      const model = data as InlineMathFragment
+
+      const equationModel = this.getModel<Equation>(model.containedObjectID)
+      let equation: EquationNode | PlaceholderNode
+
+      if (equationModel) {
+        equation = this.decode(equationModel) as EquationNode
+      } else if (this.allowMissingElements) {
+        equation = schema.nodes.placeholder.create({
+          id: model.containedObjectID,
+          label: 'An equation',
+        }) as PlaceholderNode
+      } else {
+        throw new MissingElement(model.containedObjectID)
+      }
+
+      return schema.nodes.inline_equation.createChecked(
+        {
+          id: model._id,
+          suppressCaption: Boolean(model.suppressCaption),
+          title: model.title,
+          suppressTitle: Boolean(
+            model.suppressTitle === undefined ? true : model.suppressTitle
+          ),
+        },
+        [equation]
+      ) as InlineEquationNode
     },
     [ObjectTypes.FootnotesElement]: (data) => {
       const foonotesElementModel = data as FootnotesElement

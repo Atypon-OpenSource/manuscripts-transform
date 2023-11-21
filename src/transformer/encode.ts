@@ -113,15 +113,6 @@ const listContents = (node: ManuscriptNode): string => {
   return serializeToXML(output)
 }
 
-const svgDefs = (svg: string): string | undefined => {
-  const template = document.createElement('template')
-  template.innerHTML = svg.trim()
-
-  const defs = template.content.querySelector('defs')
-
-  return defs ? serializeToXML(defs) : undefined
-}
-
 const tableRowDisplayStyle = (tagName: string, parent: ManuscriptNode) => {
   switch (tagName) {
     case 'thead':
@@ -552,27 +543,22 @@ const encoders: NodeEncoderMap = {
         : false,
   }),
   equation: (node): Partial<Equation> => ({
-    MathMLStringRepresentation:
-      node.attrs.MathMLStringRepresentation || undefined,
-    TeXRepresentation: node.attrs.TeXRepresentation,
-    SVGStringRepresentation: node.attrs.SVGStringRepresentation,
-    // title: 'Equation',
+    content: node.attrs.content,
   }),
   equation_element: (node): Partial<EquationElement> => ({
     containedObjectID: attributeOfNodeType(node, 'equation', 'id'),
-    caption: inlineContentOfChildNodeType(
-      node,
-      node.type.schema.nodes.figcaption,
-      node.type.schema.nodes.caption
-    ),
-    title: inlineContentOfChildNodeType(
-      node,
-      node.type.schema.nodes.figcaption,
-      node.type.schema.nodes.caption_title,
-      false
-    ),
+    title: node.attrs.title,
     elementType: 'p',
-    suppressCaption: Boolean(node.attrs.suppressCaption) || undefined,
+    suppressTitle:
+      node.attrs.suppressTitle === undefined ||
+      node.attrs.suppressTitle === true
+        ? undefined
+        : false,
+  }),
+  inline_equation: (node): Partial<InlineMathFragment> => ({
+    containedObjectID: attributeOfNodeType(node, 'equation', 'id'),
+    title: node.attrs.title,
+    elementType: 'div',
     suppressTitle:
       node.attrs.suppressTitle === undefined ||
       node.attrs.suppressTitle === true
@@ -629,13 +615,6 @@ const encoders: NodeEncoderMap = {
     elementIDs: childElements(node)
       .map((childNode) => childNode.attrs.id)
       .filter((id) => id),
-  }),
-  inline_equation: (node, parent): Partial<InlineMathFragment> => ({
-    containingObject: parent.attrs.id,
-    // MathMLRepresentation: node.attrs.MathMLRepresentation || undefined,
-    TeXRepresentation: node.attrs.TeXRepresentation,
-    SVGRepresentation: node.attrs.SVGRepresentation,
-    SVGGlyphs: svgDefs(node.attrs.SVGRepresentation),
   }),
   keyword: (node, parent): Partial<Keyword> => ({
     containedGroup: parent.attrs.id,

@@ -1010,32 +1010,25 @@ export class JATSExporter {
       },
       doc: () => '',
       equation: (node) => {
-        const formula = this.document.createElement('disp-formula')
-        formula.setAttribute('id', normalizeID(node.attrs.id))
-
-        // const alternatives = this.document.createElement('alternatives')
-        // formula.appendChild(alternatives)
-
-        if (node.attrs.TeXRepresentation) {
-          const math = this.document.createElement('tex-math')
-          math.textContent = node.attrs.TeXRepresentation
-          formula.appendChild(math)
-        } else if (node.attrs.MathMLStringRepresentation) {
-          const math = this.nodeFromJATS(node.attrs.MathMLStringRepresentation)
-          if (math) {
-            formula.appendChild(math)
-          }
-        }
-
-        return formula
+        const math = this.nodeFromJATS(node.attrs.content)
+        return math as Element
       },
-      equation_element: (node) =>
-        createFigureElement(
-          node,
-          'fig',
-          node.type.schema.nodes.equation,
-          'equation'
-        ),
+      inline_equation: (node) => {
+        const eqElement = this.document.createElement('inline-formula')
+        const title = this.document.createElement('title')
+        title.textContent = node.attrs.title
+        eqElement.append(title)
+        processChildNodes(eqElement, node, schema.nodes.equation)
+        return eqElement
+      },
+      equation_element: (node) => {
+        const eqElement = this.document.createElement('disp-formula')
+        const title = this.document.createElement('title')
+        title.textContent = node.attrs.title
+        eqElement.append(title)
+        processChildNodes(eqElement, node, schema.nodes.equation)
+        return eqElement
+      },
       figcaption: (node) => {
         if (!node.textContent) {
           return ''
@@ -1108,27 +1101,6 @@ export class JATSExporter {
       },
       hard_break: () => ['break'],
       highlight_marker: () => '',
-      inline_equation: (node) => {
-        const formula = this.document.createElement('inline-formula')
-        formula.setAttribute('id', normalizeID(node.attrs.id))
-        if (node.attrs.TeXRepresentation) {
-          const math = this.document.createElement('tex-math')
-          math.textContent = node.attrs.TeXRepresentation
-          formula.appendChild(math)
-        } else if (node.attrs.MathMLRepresentation) {
-          const math = this.nodeFromJATS(node.attrs.MathMLRepresentation)
-          if (math) {
-            formula.appendChild(math)
-          }
-        } else if (node.attrs.SVGRepresentation) {
-          const math = this.nodeFromJATS(node.attrs.SVGRepresentation)
-          if (math) {
-            formula.appendChild(math)
-          }
-        }
-
-        return formula
-      },
       inline_footnote: (node) => {
         const xref = this.document.createElement('xref')
         xref.setAttribute('ref-type', 'fn')

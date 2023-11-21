@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2023 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,25 +17,47 @@
 import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
+import { convertTeXToMathML } from '../../mathjax/tex-to-mathml'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  MathMLStringRepresentation: string
-  SVGStringRepresentation: string
-  TeXRepresentation: string
+  content: string
 }
 
 export interface EquationNode extends ManuscriptNode {
   attrs: Attrs
 }
 
+export const getEquationAttrs = (p: string | HTMLElement) => {
+  const element = p as HTMLElement
+  const container = element.querySelector('alternatives') ?? element
+  let content: string | null = ''
+  for (const child of container.childNodes) {
+    // remove namespace prefix
+    // TODO: real namespaces
+    const nodeName = child.nodeName.replace(/^[a-z]:/, '')
+
+    switch (nodeName) {
+      case 'tex-math':
+        content = convertTeXToMathML((child as Element).innerHTML, true)
+        break
+      case 'mml:math':
+        ;(child as Element).removeAttribute('id')
+        content = (child as Element).innerHTML
+        break
+    }
+  }
+  return {
+    id: element.getAttribute('id'),
+    content: content,
+  }
+}
+
 export const equation: NodeSpec = {
   attrs: {
     id: { default: '' },
-    MathMLStringRepresentation: { default: '' },
-    SVGStringRepresentation: { default: '' },
-    TeXRepresentation: { default: '' },
+    content: { default: '' },
     dataTracked: { default: null },
     // placeholder: { default: 'Click to edit equation' },
   },
@@ -43,38 +65,15 @@ export const equation: NodeSpec = {
   parseDOM: [
     {
       tag: `div.${ObjectTypes.Equation}`,
-      getAttrs: (p) => {
-        const dom = p as HTMLDivElement
-
-        return {
-          id: dom.getAttribute('id'),
-          MathMLStringRepresentation: dom.getAttribute(
-            'data-mathml-string-representation'
-          ),
-          SVGStringRepresentation: dom.innerHTML,
-          TeXRepresentation: dom.getAttribute('data-tex-representation'),
-        }
-      },
+      getAttrs: (p) => getEquationAttrs(p),
     },
     // TODO: convert MathML from pasted math elements?
   ],
-  toDOM: (node) => {
+  toDOM: (node: ManuscriptNode) => {
     const equationNode = node as EquationNode
-
     const dom = document.createElement('div')
     dom.setAttribute('id', equationNode.attrs.id)
-    dom.classList.add(ObjectTypes.Equation)
-    if (equationNode.attrs.MathMLStringRepresentation) {
-      dom.setAttribute(
-        'data-mathml-string-representation',
-        equationNode.attrs.MathMLStringRepresentation
-      )
-    }
-    dom.setAttribute(
-      'data-tex-representation',
-      equationNode.attrs.TeXRepresentation
-    )
-    dom.innerHTML = equationNode.attrs.SVGStringRepresentation
+    dom.innerHTML = equationNode.attrs.content
 
     return dom
   },

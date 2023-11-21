@@ -23,6 +23,7 @@ interface Attrs {
   id: string
   suppressCaption: boolean
   suppressTitle?: boolean
+  title: string
   comments?: CommentNode[]
 }
 
@@ -31,19 +32,20 @@ export interface EquationElementNode extends ManuscriptNode {
 }
 
 export const equationElement: NodeSpec = {
-  content: '(equation | placeholder) figcaption',
+  content: '(equation | placeholder)',
   attrs: {
     id: { default: '' },
     suppressCaption: { default: true },
     suppressTitle: { default: undefined },
     dataTracked: { default: null },
     comments: { default: null },
+    title: { default: 'Equation' },
   },
   selectable: false,
   group: 'block element',
   parseDOM: [
     {
-      tag: 'figure.equation',
+      tag: 'disp-formula',
       getAttrs: (p) => {
         const dom = p as HTMLElement
 
@@ -57,7 +59,7 @@ export const equationElement: NodeSpec = {
     const equationElementNode = node as EquationElementNode
 
     return [
-      'figure',
+      'disp-formula',
       {
         class: 'equation', // TODO: suppress-caption?
         id: equationElementNode.attrs.id,

@@ -21,10 +21,8 @@
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
-import { convertMathMLToSVG } from '../../mathjax/mathml-to-svg'
-import { convertTeXToSVG } from '../../mathjax/tex-to-svg'
-import { Marks, Nodes, schema } from '../../schema'
-import { chooseSectionCategory, xmlSerializer } from '../../transformer'
+import { getEquationAttrs, Marks, Nodes, schema } from '../../schema'
+import { chooseSectionCategory } from '../../transformer'
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
@@ -166,51 +164,16 @@ const nodes: NodeRule[] = [
     node: 'inline_equation',
     getAttrs: (node) => {
       const element = node as HTMLElement
-
-      const attrs: {
-        id: string | null
-        MathMLRepresentation: string // NOTE: not MathMLStringRepresentation
-        SVGRepresentation: string // NOTE: not SVGStringRepresentation
-        TeXRepresentation: string
-      } = {
+      return {
         id: element.getAttribute('id'),
-        MathMLRepresentation: '', // default
-        SVGRepresentation: '',
-        TeXRepresentation: '', // default
       }
-
-      const container = element.querySelector('alternatives') ?? element
-
-      for (const child of container.childNodes) {
-        // remove namespace prefix
-        // TODO: real namespaces
-        const nodeName = child.nodeName.replace(/^[a-z]:/, '')
-
-        switch (nodeName) {
-          case 'tex-math':
-            attrs.TeXRepresentation = child.textContent?.trim() ?? ''
-            if (attrs.TeXRepresentation) {
-              attrs.SVGRepresentation =
-                convertTeXToSVG(attrs.TeXRepresentation, true) ?? ''
-            }
-            break
-
-          case 'mml:math':
-            ;(child as Element).removeAttribute('id')
-            // FIXME: remove namespace?
-            attrs.MathMLRepresentation = xmlSerializer.serializeToString(child)
-            // TODO: convert MathML to TeX with mml2tex?
-            if (attrs.MathMLRepresentation) {
-              attrs.SVGRepresentation =
-                convertMathMLToSVG(attrs.MathMLRepresentation, true) ?? ''
-            }
-            // TODO: add format property (TeX or MathML)
-            // TODO: make MathMLRepresentation editable
-            break
-        }
-      }
-
-      return attrs
+    },
+    getContent: (node, schema) => {
+      const element = node as HTMLElement
+      const attrs = getEquationAttrs(element)
+      return Fragment.from([
+        schema.nodes.equation.createChecked(attrs),
+      ]) as Fragment
     },
   },
   {
@@ -218,72 +181,15 @@ const nodes: NodeRule[] = [
     node: 'equation_element',
     getAttrs: (node) => {
       const element = node as HTMLElement
-
-      const caption = element.querySelector('figcaption')
-
       return {
         id: element.getAttribute('id'),
-        suppressCaption: !caption,
       }
     },
     getContent: (node, schema) => {
       const element = node as HTMLElement
-
-      const attrs: {
-        MathMLStringRepresentation: string
-        SVGStringRepresentation: string
-        TeXRepresentation: string
-      } = {
-        // id: generateID(ObjectTypes.Equation)
-        MathMLStringRepresentation: '',
-        SVGStringRepresentation: '',
-        TeXRepresentation: '',
-      }
-
-      const container = element.querySelector('alternatives') ?? element
-
-      for (const child of container.childNodes) {
-        // remove namespace prefix
-        // TODO: real namespaces
-        const nodeName = child.nodeName.replace(/^[a-z]:/, '')
-
-        switch (nodeName) {
-          case 'tex-math':
-            attrs.TeXRepresentation = child.textContent?.trim() ?? ''
-            if (attrs.TeXRepresentation) {
-              attrs.SVGStringRepresentation =
-                convertTeXToSVG(attrs.TeXRepresentation, true) ?? ''
-            }
-            break
-
-          case 'mml:math':
-            ;(child as Element).removeAttribute('id')
-            // TODO: remove namespace?
-            attrs.MathMLStringRepresentation =
-              xmlSerializer.serializeToString(child)
-            // TODO: convert MathML to TeX with mml2tex?
-            if (attrs.MathMLStringRepresentation) {
-              attrs.SVGStringRepresentation =
-                convertMathMLToSVG(attrs.MathMLStringRepresentation, true) ?? ''
-            }
-            // TODO: add format property (TeX or MathML)
-            // TODO: make MathMLRepresentation editable
-            break
-        }
-      }
-
-      const caption = element.querySelector('figcaption')
-
-      const figcaption = schema.nodes.figcaption.create()
-
+      const attrs = getEquationAttrs(element)
       return Fragment.from([
         schema.nodes.equation.createChecked(attrs),
-        caption
-          ? // TODO This seems very illegal
-            jatsBodyDOMParser.parse(caption, {
-              topNode: figcaption,
-            })
-          : figcaption,
       ]) as Fragment
     },
   },

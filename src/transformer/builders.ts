@@ -36,7 +36,6 @@ import {
   FootnotesOrder,
   Highlight,
   HighlightMarker,
-  InlineMathFragment,
   InlineStyle,
   Journal,
   Keyword,
@@ -296,16 +295,6 @@ export const buildValidation = (
   _id: generateID(ObjectTypes.RequirementsValidation),
   objectType: ObjectTypes.RequirementsValidation,
   results,
-})
-
-export const buildInlineMathFragment = (
-  containingObject: string,
-  TeXRepresentation: string
-): Build<InlineMathFragment> => ({
-  _id: generateID(ObjectTypes.InlineMathFragment),
-  objectType: ObjectTypes.InlineMathFragment,
-  containingObject: containingObject || undefined,
-  TeXRepresentation,
 })
 
 export const buildFootnote = (
