@@ -29,7 +29,7 @@ export interface EquationNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const getEquationAttrs = (p: string | HTMLElement) => {
+export const getEquationContent = (p: string | HTMLElement) => {
   const element = p as HTMLElement
   const container = element.querySelector('alternatives') ?? element
   let content: string | null = ''
@@ -40,11 +40,11 @@ export const getEquationAttrs = (p: string | HTMLElement) => {
 
     switch (nodeName) {
       case 'tex-math':
-        content = convertTeXToMathML((child as Element).innerHTML, true)
+        content = convertTeXToMathML((child as Element).outerHTML, true)
         break
       case 'mml:math':
         ;(child as Element).removeAttribute('id')
-        content = (child as Element).innerHTML
+        content = (child as Element).outerHTML
         break
     }
   }
@@ -65,7 +65,7 @@ export const equation: NodeSpec = {
   parseDOM: [
     {
       tag: `div.${ObjectTypes.Equation}`,
-      getAttrs: (p) => getEquationAttrs(p),
+      getAttrs: (p) => getEquationContent(p),
     },
     // TODO: convert MathML from pasted math elements?
   ],

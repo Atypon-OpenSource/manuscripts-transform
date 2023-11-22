@@ -556,14 +556,7 @@ const encoders: NodeEncoderMap = {
         : false,
   }),
   inline_equation: (node): Partial<InlineMathFragment> => ({
-    containedObjectID: attributeOfNodeType(node, 'equation', 'id'),
-    title: node.attrs.title,
-    elementType: 'div',
-    suppressTitle:
-      node.attrs.suppressTitle === undefined ||
-      node.attrs.suppressTitle === true
-        ? undefined
-        : false,
+    content: node.attrs.content,
   }),
   figure: (node): Partial<Figure> => ({
     contentType: node.attrs.contentType || undefined,

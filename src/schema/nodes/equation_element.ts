@@ -23,7 +23,6 @@ interface Attrs {
   id: string
   suppressCaption: boolean
   suppressTitle?: boolean
-  title: string
   comments?: CommentNode[]
 }
 
@@ -39,7 +38,6 @@ export const equationElement: NodeSpec = {
     suppressTitle: { default: undefined },
     dataTracked: { default: null },
     comments: { default: null },
-    title: { default: 'Equation' },
   },
   selectable: false,
   group: 'block element',

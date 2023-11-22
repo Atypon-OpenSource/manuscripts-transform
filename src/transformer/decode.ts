@@ -351,7 +351,6 @@ export class Decoder {
       return schema.nodes.equation_element.createChecked(
         {
           id: model._id,
-          suppressCaption: Boolean(model.suppressCaption),
           title: model.title,
           suppressTitle: Boolean(
             model.suppressTitle === undefined ? true : model.suppressTitle
@@ -363,31 +362,10 @@ export class Decoder {
     [ObjectTypes.InlineMathFragment]: (data) => {
       const model = data as InlineMathFragment
 
-      const equationModel = this.getModel<Equation>(model.containedObjectID)
-      let equation: EquationNode | PlaceholderNode
-
-      if (equationModel) {
-        equation = this.decode(equationModel) as EquationNode
-      } else if (this.allowMissingElements) {
-        equation = schema.nodes.placeholder.create({
-          id: model.containedObjectID,
-          label: 'An equation',
-        }) as PlaceholderNode
-      } else {
-        throw new MissingElement(model.containedObjectID)
-      }
-
-      return schema.nodes.inline_equation.createChecked(
-        {
-          id: model._id,
-          suppressCaption: Boolean(model.suppressCaption),
-          title: model.title,
-          suppressTitle: Boolean(
-            model.suppressTitle === undefined ? true : model.suppressTitle
-          ),
-        },
-        [equation]
-      ) as InlineEquationNode
+      return schema.nodes.inline_equation.createChecked({
+        id: model._id,
+        content: model.content,
+      }) as InlineEquationNode
     },
     [ObjectTypes.FootnotesElement]: (data) => {
       const foonotesElementModel = data as FootnotesElement

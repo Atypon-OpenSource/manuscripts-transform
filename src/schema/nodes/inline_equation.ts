@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
@@ -24,6 +25,7 @@ interface Attrs {
   suppressCaption: boolean
   suppressTitle?: boolean
   title: string
+  content: string
   comments?: CommentNode[]
 }
 
@@ -32,39 +34,39 @@ export interface InlineEquationNode extends ManuscriptNode {
 }
 
 export const inlineEquation: NodeSpec = {
-  content: '(equation | placeholder)',
   attrs: {
     id: { default: '' },
     suppressCaption: { default: true },
     suppressTitle: { default: undefined },
     dataTracked: { default: null },
     comments: { default: null },
+    content: { default: '' },
     title: { default: 'Equation' },
   },
   selectable: false,
-  group: 'block element',
+  atom: true,
+  inline: true,
+  draggable: true,
+  group: 'inline',
   parseDOM: [
     {
-      tag: 'inline-formula',
+      tag: `span.${ObjectTypes.InlineMathFragment}`,
       getAttrs: (p) => {
         const dom = p as HTMLElement
 
         return {
           id: dom.getAttribute('id'),
+          content: dom.innerHTML,
         }
       },
     },
   ],
   toDOM: (node) => {
-    const equationElementNode = node as InlineEquationNode
-
-    return [
-      'inline-formula',
-      {
-        class: 'equation', // TODO: suppress-caption?
-        id: equationElementNode.attrs.id,
-      },
-      0,
-    ]
+    const inlineEquationNode = node as InlineEquationNode
+    const dom = document.createElement('span')
+    dom.classList.add(ObjectTypes.InlineMathFragment)
+    dom.setAttribute('id', inlineEquationNode.attrs.id)
+    dom.innerHTML = inlineEquationNode.attrs.content
+    return dom
   },
 }

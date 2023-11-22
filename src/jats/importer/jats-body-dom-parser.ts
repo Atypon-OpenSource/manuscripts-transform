@@ -21,7 +21,7 @@
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
-import { getEquationAttrs, Marks, Nodes, schema } from '../../schema'
+import { getEquationContent, Marks, Nodes, schema } from '../../schema'
 import { chooseSectionCategory } from '../../transformer'
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
@@ -166,14 +166,8 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
       return {
         id: element.getAttribute('id'),
+        content: getEquationContent(element).content,
       }
-    },
-    getContent: (node, schema) => {
-      const element = node as HTMLElement
-      const attrs = getEquationAttrs(element)
-      return Fragment.from([
-        schema.nodes.equation.createChecked(attrs),
-      ]) as Fragment
     },
   },
   {
@@ -187,7 +181,7 @@ const nodes: NodeRule[] = [
     },
     getContent: (node, schema) => {
       const element = node as HTMLElement
-      const attrs = getEquationAttrs(element)
+      const attrs = getEquationContent(element)
       return Fragment.from([
         schema.nodes.equation.createChecked(attrs),
       ]) as Fragment

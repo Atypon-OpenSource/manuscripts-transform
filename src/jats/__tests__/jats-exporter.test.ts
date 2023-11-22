@@ -800,9 +800,8 @@ describe('JATS exporter', () => {
     projectBundle.data.find((el) => {
       if (el._id === 'MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403') {
         const equation = el as Equation
-        equation.MathMLStringRepresentation = mathMLFragment
+        equation.content = mathMLFragment
         // @ts-ignore
-        delete equation.TeXRepresentation
       }
     })
     const { doc, modelMap } = parseProjectBundle(projectBundle)

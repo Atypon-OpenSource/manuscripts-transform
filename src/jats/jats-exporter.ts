@@ -290,6 +290,7 @@ export class JATSExporter {
 
   private nodeFromJATS = (JATSFragment: string) => {
     JATSFragment = JATSFragment.trim()
+    JATSFragment = JATSFragment.replace('&nbsp;', ' ')
 
     if (!JATSFragment.length) {
       return null
@@ -1015,17 +1016,14 @@ export class JATSExporter {
       },
       inline_equation: (node) => {
         const eqElement = this.document.createElement('inline-formula')
-        const title = this.document.createElement('title')
-        title.textContent = node.attrs.title
-        eqElement.append(title)
-        processChildNodes(eqElement, node, schema.nodes.equation)
+        eqElement.setAttribute('id', normalizeID(node.attrs.id))
+        const math = this.nodeFromJATS(node.attrs.content)
+        eqElement.append(math as Element)
         return eqElement
       },
       equation_element: (node) => {
         const eqElement = this.document.createElement('disp-formula')
-        const title = this.document.createElement('title')
-        title.textContent = node.attrs.title
-        eqElement.append(title)
+        eqElement.setAttribute('id', normalizeID(node.attrs.id))
         processChildNodes(eqElement, node, schema.nodes.equation)
         return eqElement
       },
