@@ -25,7 +25,7 @@ export interface ActualManuscriptNode extends ManuscriptNode {
 }
 
 export const manuscript: NodeSpec = {
-  content: '(section | sections)+ meta_section', // sections is a group of elements that have group: sections
+  content: 'titles (section | sections)+ meta_section', // sections is a group of elements that have group: sections
   attrs: {
     id: { default: '' },
   },
