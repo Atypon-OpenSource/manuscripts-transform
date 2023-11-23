@@ -41,6 +41,6 @@ export const titles: NodeSpec = {
     dataTracked: { default: null },
   },
   group: 'block element',
-  parseDOM: [{ tag: 'div.article-titles' }],
-  toDOM: () => ['div', { class: 'article-titles' }, 0],
+  parseDOM: [{ tag: 'div' }],
+  toDOM: () => ['div', { class: 'article-title' }, 0],
 }
