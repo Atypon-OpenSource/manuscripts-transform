@@ -668,22 +668,6 @@ const encoders: NodeEncoderMap = {
       .map((childNode) => childNode.attrs.id)
       .filter((id) => id),
   }),
-  affiliations_section: (node, parent, path, priority): Partial<Section> => ({
-    category: buildSectionCategory(node),
-    priority: priority.value++,
-    path: path.concat([node.attrs.id]),
-    elementIDs: childElements(node)
-      .map((childNode) => childNode.attrs.id)
-      .filter((id) => id),
-  }),
-  contributors_section: (node, parent, path, priority): Partial<Section> => ({
-    category: buildSectionCategory(node),
-    priority: priority.value++,
-    path: path.concat([node.attrs.id]),
-    elementIDs: childElements(node)
-      .map((childNode) => childNode.attrs.id)
-      .filter((id) => id),
-  }),
   missing_figure: (node): Partial<MissingFigure> => ({
     position: node.attrs.position || undefined,
   }),
@@ -871,7 +855,9 @@ export const encode = (
       if (
         child.type === schema.nodes.abstract_core_section ||
         child.type === schema.nodes.body_core_section ||
-        child.type === schema.nodes.backmatter_core_section
+        child.type === schema.nodes.backmatter_core_section ||
+        child.type === schema.nodes.affiliations_section ||
+        child.type === schema.nodes.contributors_section
       ) {
         child.forEach(addModel([], child))
         return

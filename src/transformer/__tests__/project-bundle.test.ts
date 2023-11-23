@@ -31,6 +31,18 @@ test('project bundle with no manuscript parameter', () => {
     schema.nodes.backmatter_core_section,
     'MPSection:backmatter'
   )
+  replaceIdByType(
+    result.doc,
+    schema.nodes.affiliations_section,
+    'MPSection:affiliations'
+  )
+  replaceIdByType(
+    result.doc,
+    schema.nodes.contributors_section,
+    'MPSection:contributors'
+  )
+  replaceIdByType(result.doc, schema.nodes.contributor, 'MPSection:contributor')
+  replaceIdByType(result.doc, schema.nodes.affiliation, 'MPSection:aff')
   expect(result).toMatchSnapshot('project-bundle')
 })
 
@@ -44,6 +56,18 @@ test('project bundle for a specific manuscript', () => {
     schema.nodes.abstract_core_section,
     'MPSection:abstracts'
   )
+  replaceIdByType(
+    result.doc,
+    schema.nodes.contributors_section,
+    'MPSection:contSec'
+  )
+  replaceIdByType(
+    result.doc,
+    schema.nodes.affiliations_section,
+    'MPSection:affSec'
+  )
+  replaceIdByType(result.doc, schema.nodes.contributor, 'MPSection:cont')
+  replaceIdByType(result.doc, schema.nodes.affiliation, 'MPSection:aff')
   replaceIdByType(result.doc, schema.nodes.body_core_section, 'MPSection:body')
   replaceIdByType(
     result.doc,

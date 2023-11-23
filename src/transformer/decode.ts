@@ -867,30 +867,28 @@ export class Decoder {
     const affiliationNodes = getAffiliations(this.modelMap)
       .map((affiliation) => this.decode(affiliation) as AffiliationNode)
       .filter(Boolean) as AffiliationNode[]
-    if (affiliationNodes.length) {
-      const node = schema.nodes.affiliations_section.createAndFill(
-        {
-          id: generateNodeID(schema.nodes.section),
-        },
-        affiliationNodes
-      ) as AffiliationsSectionNode
-      rootSectionNodes.unshift(node)
-    }
+
+    const node = schema.nodes.affiliations_section.createAndFill(
+      {
+        id: generateNodeID(schema.nodes.section),
+      },
+      affiliationNodes
+    ) as AffiliationsSectionNode
+    rootSectionNodes.unshift(node)
   }
 
   private createContributorSectionNode(rootSectionNodes: ManuscriptNode[]) {
     const contributorNodes = getContributors(this.modelMap)
       .map((contributor) => this.decode(contributor) as ContributorNode)
       .filter(Boolean) as ContributorNode[]
-    if (contributorNodes.length) {
-      const node = schema.nodes.contributors_section.createAndFill(
-        {
-          id: generateNodeID(schema.nodes.section),
-        },
-        contributorNodes
-      ) as ContributorsSectionNode
-      rootSectionNodes.unshift(node)
-    }
+
+    const node = schema.nodes.contributors_section.createAndFill(
+      {
+        id: generateNodeID(schema.nodes.section),
+      },
+      contributorNodes
+    ) as ContributorsSectionNode
+    rootSectionNodes.unshift(node)
   }
   private createTitleNode() {
     const titles =
@@ -900,9 +898,13 @@ export class Decoder {
   }
 
   private createRootSectionNodes() {
-    let rootSections = getSections(this.modelMap).filter(
-      (section) => !section.path || section.path.length <= 1
-    )
+    let rootSections = getSections(this.modelMap)
+      .filter((section) => !section.path || section.path.length <= 1)
+      .filter(
+        (section) =>
+          section.category !== 'MPSectionCategory:contributors' &&
+          section.category !== 'MPSectionCategory:affiliations'
+      )
 
     rootSections = this.addGeneratedLabels(rootSections)
     const sectionGroups = groupBy(rootSections, (sec) => {
@@ -1009,6 +1011,7 @@ export class Decoder {
   public createArticleNode = (manuscriptID?: string): ManuscriptNode => {
     const titlesNode = this.createTitleNode()
     const rootSectionNodes = this.createRootSectionNodes()
+    this.handleMissingRootSectionNodes(rootSectionNodes)
     const metaSectionNode = this.createMetaSectionNode()
     const contents: ManuscriptNode[] = [
       titlesNode,

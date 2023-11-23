@@ -73,6 +73,10 @@ describe('decoder', () => {
       schema.nodes.abstract_core_section,
       'MPSection:abstracts'
     )
+    replaceIdByType(doc, schema.nodes.affiliations_section, 'MPSection:aff-sec')
+    replaceIdByType(doc, schema.nodes.contributors_section, 'MPSection:con-sec')
+    replaceIdByType(doc, schema.nodes.affiliation, 'MPSection:aff')
+    replaceIdByType(doc, schema.nodes.contributor, 'MPSection:cont')
     replaceIdByType(doc, schema.nodes.body_core_section, 'MPSection:body')
     replaceIdByType(
       doc,
@@ -95,6 +99,18 @@ describe('decoder', () => {
       schema.nodes.abstract_core_section,
       'MPSection:abstracts'
     )
+    replaceIdByType(
+      beforeDoc,
+      schema.nodes.affiliations_section,
+      'MPSection:affSec'
+    )
+    replaceIdByType(
+      beforeDoc,
+      schema.nodes.contributors_section,
+      'MPSection:conSec'
+    )
+    replaceIdByType(beforeDoc, schema.nodes.affiliation, 'MPSection:aff')
+    replaceIdByType(beforeDoc, schema.nodes.contributor, 'MPSection:cont')
     replaceIdByType(beforeDoc, schema.nodes.body_core_section, 'MPSection:body')
     replaceIdByType(
       beforeDoc,
@@ -124,6 +140,18 @@ describe('decoder', () => {
       schema.nodes.backmatter_core_section,
       'MPSection:backmatter'
     )
+    replaceIdByType(
+      afterDoc,
+      schema.nodes.affiliations_section,
+      'MPSection:affSec'
+    )
+    replaceIdByType(
+      afterDoc,
+      schema.nodes.contributors_section,
+      'MPSection:conSec'
+    )
+    replaceIdByType(afterDoc, schema.nodes.affiliation, 'MPSection:aff')
+    replaceIdByType(afterDoc, schema.nodes.contributor, 'MPSection:cont')
     expect(afterDoc).toMatchSnapshot('decoded-with-placeholders')
   })
 
@@ -196,6 +224,16 @@ describe('decoder', () => {
       schema.nodes.backmatter_core_section,
       'MPSection:backmatter'
     )
+    replaceIdByType(
+      result,
+      schema.nodes.contributors_section,
+      'MPSection:contributors_section'
+    )
+    replaceIdByType(
+      result,
+      schema.nodes.affiliations_section,
+      'MPSection:affiliations_section'
+    )
     expect(result).toMatchSnapshot()
   })
 
@@ -220,6 +258,16 @@ describe('decoder', () => {
       schema.nodes.backmatter_core_section,
       'MPSection:backmatter'
     )
+    replaceIdByType(
+      result,
+      schema.nodes.contributors_section,
+      'MPSection:contributors_section'
+    )
+    replaceIdByType(
+      result,
+      schema.nodes.affiliations_section,
+      'MPSection:affiliations_section'
+    )
     replaceIdByType(result, schema.nodes.title, 'someId')
 
     expect(result).toMatchSnapshot()
@@ -242,6 +290,16 @@ describe('decoder', () => {
       result,
       schema.nodes.backmatter_core_section,
       'MPSection:backmatter'
+    )
+    replaceIdByType(
+      result,
+      schema.nodes.contributors_section,
+      'MPSection:contributors_section'
+    )
+    replaceIdByType(
+      result,
+      schema.nodes.affiliations_section,
+      'MPSection:affiliations_section'
     )
     expect(result).toMatchSnapshot()
   })
@@ -272,7 +330,16 @@ describe('decoder', () => {
       schema.nodes.backmatter_core_section,
       'MPSection:backmatter'
     )
-
+    replaceIdByType(
+      result,
+      schema.nodes.contributors_section,
+      'MPSection:contributors_section'
+    )
+    replaceIdByType(
+      result,
+      schema.nodes.affiliations_section,
+      'MPSection:affiliations_section'
+    )
     expect(result).toMatchSnapshot()
   })
 
@@ -292,6 +359,16 @@ describe('decoder', () => {
       result,
       schema.nodes.backmatter_core_section,
       'MPSection:backmatter'
+    )
+    replaceIdByType(
+      result,
+      schema.nodes.contributors_section,
+      'MPSection:contributors_section'
+    )
+    replaceIdByType(
+      result,
+      schema.nodes.affiliations_section,
+      'MPSection:affiliations_section'
     )
     expect(result).toMatchSnapshot()
   })
