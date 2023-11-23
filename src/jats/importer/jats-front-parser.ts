@@ -25,7 +25,7 @@ import {
   buildCorresp,
   buildFootnote,
   buildSupplementaryMaterial,
-} from '../../transformer/builders'
+} from '../../transformer'
 import { parseJournalMeta } from './jats-journal-meta-parser'
 
 const warn = debug('manuscripts-transform')
