@@ -107,7 +107,7 @@ export type Nodes =
   | 'meta_section'
   | 'contributor'
   | 'table_element_footer'
-  | 'titles'
+  | 'title'
   | 'affiliations_section'
   | 'contributors_section'
 

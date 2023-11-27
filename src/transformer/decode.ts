@@ -85,7 +85,7 @@ import {
   TableElementFooterNode,
   TableElementNode,
   TableNode,
-  TitlesNode,
+  TitleNode,
   TOCElementNode,
 } from '../schema'
 import { AffiliationsSectionNode } from '../schema/nodes/affiliations_section'
@@ -189,12 +189,10 @@ export class Decoder {
       const model = data as Titles
 
       return this.parseContents(model.title, 'div', undefined, {
-        topNode: schema.nodes.titles.create({
+        topNode: schema.nodes.title.create({
           id: model._id,
-          subtitle: model.subtitle,
-          runningTitle: model.runningTitle,
         }),
-      }) as TitlesNode
+      }) as TitleNode
     },
     [ObjectTypes.BibliographyElement]: (data) => {
       const model = data as BibliographyElement
@@ -886,11 +884,11 @@ export class Decoder {
       rootSectionNodes.unshift(node)
     }
   }
-  private createTitlesNode() {
-    const titlesModel =
-      getModelsByType<Titles>(this.modelMap, ObjectTypes.Titles)?.at(0) ||
+  private createTitleNode() {
+    const titles =
+      getModelsByType<Titles>(this.modelMap, ObjectTypes.Titles)[0] ||
       (buildTitles() as Titles)
-    return this.decode(titlesModel) as TitlesNode
+    return this.decode(titles) as TitleNode
   }
 
   private createRootSectionNodes() {
@@ -950,7 +948,7 @@ export class Decoder {
     this.modelMap.get(id) as T | undefined
 
   public createArticleNode = (manuscriptID?: string): ManuscriptNode => {
-    const titlesNode = this.createTitlesNode()
+    const titlesNode = this.createTitleNode()
     const rootSectionNodes = this.createRootSectionNodes()
     const metaSectionNode = this.createMetaSectionNode()
     const contents: ManuscriptNode[] = [

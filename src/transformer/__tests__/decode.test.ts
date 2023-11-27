@@ -166,7 +166,7 @@ describe('decoder', () => {
     replaceIdByType(result, schema.nodes.section, 'someId')
     replaceIdByType(result, schema.nodes.keywords_section, 'someId')
     replaceIdByType(result, schema.nodes.keywords_element, 'someId')
-    replaceIdByType(result, schema.nodes.titles, 'someId')
+    replaceIdByType(result, schema.nodes.title, 'someId')
 
     expect(result).toMatchSnapshot()
   })

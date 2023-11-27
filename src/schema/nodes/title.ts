@@ -25,22 +25,19 @@ interface Attrs {
   runningTitle: string
 }
 
-export interface TitlesNode extends ManuscriptNode {
+export interface TitleNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const titles: NodeSpec = {
-  content: '(text | highlight_marker)*',
+export const title: NodeSpec = {
+  content: 'text*',
   marks: 'italic smallcaps subscript superscript tracked_insert tracked_delete',
 
   attrs: {
     id: { default: '' },
-    title: { default: '' },
-    subtitle: { default: '' },
-    runningTitle: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',
-  parseDOM: [{ tag: 'div.article-titles' }],
-  toDOM: () => ['div', { class: 'article-titles' }, 0],
+  parseDOM: [{ tag: 'div' }],
+  toDOM: () => ['div', 0],
 }

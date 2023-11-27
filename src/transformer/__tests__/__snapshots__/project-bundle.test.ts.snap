@@ -11,9 +11,6 @@ Object {
         "attrs": Object {
           "dataTracked": null,
           "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
-          "runningTitle": "running title",
-          "subtitle": "subtitle",
-          "title": "",
         },
         "content": Array [
           Object {
@@ -21,7 +18,7 @@ Object {
             "type": "text",
           },
         ],
-        "type": "titles",
+        "type": "title",
       },
       Object {
         "attrs": Object {
@@ -1181,9 +1178,6 @@ Object {
         "attrs": Object {
           "dataTracked": null,
           "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
-          "runningTitle": "running title",
-          "subtitle": "subtitle",
-          "title": "",
         },
         "content": Array [
           Object {
@@ -1191,7 +1185,7 @@ Object {
             "type": "text",
           },
         ],
-        "type": "titles",
+        "type": "title",
       },
       Object {
         "attrs": Object {
