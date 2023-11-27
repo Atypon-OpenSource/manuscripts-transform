@@ -35,6 +35,7 @@ export interface ContributorNode extends ManuscriptNode {
 }
 
 export const contributor: NodeSpec = {
+  content: 'inline*',
   attrs: {
     id: { default: '' },
     role: { default: '' },
@@ -49,7 +50,16 @@ export const contributor: NodeSpec = {
     priority: { default: undefined },
   },
   group: 'block element',
-  toDOM: () => ['span'],
+  toDOM: (node) => {
+    const contributorNode = node as ContributorNode
+    return [
+      'span',
+      {
+        class: 'contributor',
+        id: contributorNode.attrs.id,
+      },
+    ]
+  },
 }
 export const isContributorNode = (
   node: ManuscriptNode

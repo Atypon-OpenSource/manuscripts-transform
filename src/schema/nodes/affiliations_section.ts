@@ -28,12 +28,34 @@ export interface AffiliationsSectionNode extends ManuscriptNode {
 export const affiliationsSection: NodeSpec = {
   content: 'section_title? affiliation*',
   attrs: {
-    id: { default: '' },
+    id: { default: 'META_SECTION_AFFILLIATIONS' },
     dataTracked: { default: null },
   },
   group: 'block sections',
   selectable: false,
-  toDOM: () => ['section', 0],
+  parseDOM: [
+    {
+      tag: 'section.affiliations',
+      getAttrs: (section) => {
+        const dom = section as HTMLElement
+
+        return {
+          contents: dom.innerHTML,
+        }
+      },
+    },
+  ],
+  toDOM: (node) => {
+    const affiliationsSectionNode = node as AffiliationsSectionNode
+    return [
+      'section',
+      {
+        class: 'affiliations',
+        id: affiliationsSectionNode.attrs.id,
+      },
+      0
+    ]
+  },
 }
 export const isAffiliationsSectionNode = (
   node: ManuscriptNode

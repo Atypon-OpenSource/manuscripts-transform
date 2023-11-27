@@ -28,12 +28,22 @@ export interface ContributorsSectionNode extends ManuscriptNode {
 export const contributorsSection: NodeSpec = {
   content: 'section_title? contributor*',
   attrs: {
-    id: { default: '' },
+    id: { default: 'META_SECTION_CONTRIBUTORS' },
     dataTracked: { default: null },
   },
   group: 'block sections',
   selectable: false,
-  toDOM: () => ['section', 0],
+  toDOM: (node) => {
+    const contributorsSectionNode = node as ContributorsSectionNode
+    return [
+      'section',
+      {
+        class: 'contributors',
+        id: contributorsSectionNode.attrs.id,
+      },
+      0
+    ]
+  },
 }
 export const isContributorsSectionNode = (
   node: ManuscriptNode
