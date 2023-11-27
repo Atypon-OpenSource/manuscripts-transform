@@ -435,7 +435,7 @@ type NodeEncoder = (
 type NodeEncoderMap = { [key in Nodes]?: NodeEncoder }
 
 const encoders: NodeEncoderMap = {
-  titles: (node): Partial<Titles> => ({
+  title: (node): Partial<Titles> => ({
     title: node.attrs.title,
     subtitle: node.attrs.subtitle,
     runningTitle: node.attrs.runningTitle,
