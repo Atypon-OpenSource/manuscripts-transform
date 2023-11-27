@@ -280,7 +280,7 @@ export const jatsBodyTransformations = {
     references: BibliographyItem[] | null,
     createElement: (tagName: string) => HTMLElement
   ) {
-    if (references) {
+    if (references && references.length) {
       backmatterContainer.appendChild(
         this.createBibliography(doc, references, createElement)
       )
