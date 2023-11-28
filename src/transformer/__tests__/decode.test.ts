@@ -77,6 +77,7 @@ describe('decoder', () => {
     replaceIdByType(doc, schema.nodes.contributors_section, 'MPSection:con-sec')
     replaceIdByType(doc, schema.nodes.affiliation, 'MPSection:aff')
     replaceIdByType(doc, schema.nodes.contributor, 'MPSection:cont')
+    replaceIdByType(doc, schema.nodes.keywords_section, 'MPSection:kwd')
     replaceIdByType(doc, schema.nodes.body_core_section, 'MPSection:body')
     replaceIdByType(
       doc,
@@ -111,6 +112,7 @@ describe('decoder', () => {
     )
     replaceIdByType(beforeDoc, schema.nodes.affiliation, 'MPSection:aff')
     replaceIdByType(beforeDoc, schema.nodes.contributor, 'MPSection:cont')
+    replaceIdByType(beforeDoc, schema.nodes.keywords_section, 'MPSection:kwd')
     replaceIdByType(beforeDoc, schema.nodes.body_core_section, 'MPSection:body')
     replaceIdByType(
       beforeDoc,
@@ -152,6 +154,7 @@ describe('decoder', () => {
     )
     replaceIdByType(afterDoc, schema.nodes.affiliation, 'MPSection:aff')
     replaceIdByType(afterDoc, schema.nodes.contributor, 'MPSection:cont')
+    replaceIdByType(afterDoc, schema.nodes.keywords_section, 'MPSection:kwd')
     expect(afterDoc).toMatchSnapshot('decoded-with-placeholders')
   })
 
@@ -218,6 +221,7 @@ describe('decoder', () => {
       schema.nodes.abstract_core_section,
       'MPSection:abstracts'
     )
+    replaceIdByType(result, schema.nodes.keywords_section, 'MPSection:kwd')
     replaceIdByType(result, schema.nodes.body_core_section, 'MPSection:body')
     replaceIdByType(
       result,
@@ -285,6 +289,7 @@ describe('decoder', () => {
       schema.nodes.abstract_core_section,
       'MPSection:abstracts'
     )
+    replaceIdByType(result, schema.nodes.keywords_section, 'MPSection:kwd')
     replaceIdByType(result, schema.nodes.body_core_section, 'MPSection:body')
     replaceIdByType(
       result,
@@ -354,6 +359,7 @@ describe('decoder', () => {
       schema.nodes.abstract_core_section,
       'MPSection:abstracts'
     )
+    replaceIdByType(result, schema.nodes.keywords_section, 'MPSection:kwd')
     replaceIdByType(result, schema.nodes.body_core_section, 'MPSection:body')
     replaceIdByType(
       result,

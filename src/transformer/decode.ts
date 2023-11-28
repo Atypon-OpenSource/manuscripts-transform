@@ -70,6 +70,7 @@ import {
   FootnotesElementNode,
   KeywordNode,
   KeywordsElementNode,
+  KeywordsSectionNode,
   ListingElementNode,
   ListingNode,
   ManuscriptNode,
@@ -154,6 +155,9 @@ const getAffiliations = (modelMap: Map<string, Model>) =>
   getModelsByType<Affiliation>(modelMap, ObjectTypes.Affiliation)
 const getContributors = (modelMap: Map<string, Model>) =>
   getModelsByType<Affiliation>(modelMap, ObjectTypes.Contributor)
+
+const getKeywordElements = (modelMap: Map<string, Model>) =>
+  getModelsByType<KeywordsElement>(modelMap, ObjectTypes.KeywordsElement)
 
 export const isManuscriptNode = (
   model: ManuscriptNode | null
@@ -849,6 +853,11 @@ export class Decoder {
 
   private handleMissingRootSectionNodes(rootSectionNodes: SectionNode[]) {
     if (
+      !rootSectionNodes.find((node) => node.type.name === 'keywords_section')
+    ) {
+      this.createKeywordsSectionNode(rootSectionNodes)
+    }
+    if (
       !rootSectionNodes.find(
         (node) => node.type.name === 'affiliations_section'
       )
@@ -897,13 +906,29 @@ export class Decoder {
     return this.decode(titles) as TitleNode
   }
 
+  private createKeywordsSectionNode(rootSectionNodes: ManuscriptNode[]) {
+    const keywordElementNodes = getKeywordElements(this.modelMap)
+      .map((keywordEl) => this.decode(keywordEl) as KeywordsElementNode)
+      .filter(Boolean) as KeywordsGroupNode[]
+    if (keywordElementNodes) {
+      const node = schema.nodes.keywords_section.createAndFill(
+        {
+          id: generateNodeID(schema.nodes.section),
+        },
+        keywordElementNodes
+      ) as KeywordsSectionNode
+      rootSectionNodes.unshift(node)
+    }
+  }
+
   private createRootSectionNodes() {
     let rootSections = getSections(this.modelMap)
       .filter((section) => !section.path || section.path.length <= 1)
       .filter(
         (section) =>
           section.category !== 'MPSectionCategory:contributors' &&
-          section.category !== 'MPSectionCategory:affiliations'
+          section.category !== 'MPSectionCategory:affiliations' &&
+          section.category !== 'MPSectionCategory:keywords'
       )
 
     rootSections = this.addGeneratedLabels(rootSections)

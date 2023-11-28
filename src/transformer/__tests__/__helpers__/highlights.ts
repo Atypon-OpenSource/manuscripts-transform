@@ -285,23 +285,6 @@ export const createTestModelMapWithKeywords = () => {
 
   modelMap.set(keywordsElement._id, keywordsElement)
 
-  const sectionWithKeywordsElement: Section = {
-    objectType: ObjectTypes.Section,
-    _id: 'MPSection:1',
-    createdAt: 0,
-    updatedAt: 0,
-    manuscriptID: manuscript._id,
-    containerID: project._id,
-
-    priority: 1,
-    path: ['MPSection:1'],
-    elementIDs: ['MPKeywordsElement:1'],
-    category: 'MPSectionCategory:keywords',
-    title: 'Keywords',
-  }
-
-  modelMap.set(sectionWithKeywordsElement._id, sectionWithKeywordsElement)
-
   const keywordGroup: KeywordGroup = {
     _id: 'MPKeywordGroup:test',
     createdAt: 0,

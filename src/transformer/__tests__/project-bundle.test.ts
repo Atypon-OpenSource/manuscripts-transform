@@ -43,6 +43,7 @@ test('project bundle with no manuscript parameter', () => {
   )
   replaceIdByType(result.doc, schema.nodes.contributor, 'MPSection:contributor')
   replaceIdByType(result.doc, schema.nodes.affiliation, 'MPSection:aff')
+  replaceIdByType(result.doc, schema.nodes.keywords_section, 'MPSection:kwd')
   expect(result).toMatchSnapshot('project-bundle')
 })
 
@@ -66,6 +67,7 @@ test('project bundle for a specific manuscript', () => {
     schema.nodes.affiliations_section,
     'MPSection:affSec'
   )
+  replaceIdByType(result.doc, schema.nodes.keywords_section, 'MPSection:kwd')
   replaceIdByType(result.doc, schema.nodes.contributor, 'MPSection:cont')
   replaceIdByType(result.doc, schema.nodes.affiliation, 'MPSection:aff')
   replaceIdByType(result.doc, schema.nodes.body_core_section, 'MPSection:body')

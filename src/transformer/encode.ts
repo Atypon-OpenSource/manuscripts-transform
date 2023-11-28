@@ -659,15 +659,6 @@ const encoders: NodeEncoderMap = {
     type: node.attrs.type,
     // title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
   }),
-  keywords_section: (node, parent, path, priority): Partial<Section> => ({
-    category: buildSectionCategory(node),
-    priority: priority.value++,
-    title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
-    path: path.concat([node.attrs.id]),
-    elementIDs: childElements(node)
-      .map((childNode) => childNode.attrs.id)
-      .filter((id) => id),
-  }),
   missing_figure: (node): Partial<MissingFigure> => ({
     position: node.attrs.position || undefined,
   }),
@@ -838,6 +829,17 @@ interface PrioritizedValue {
   value: number
 }
 
+function isCoreSection(child: Node) {
+  return (
+    child.type === schema.nodes.abstract_core_section ||
+    child.type === schema.nodes.body_core_section ||
+    child.type === schema.nodes.backmatter_core_section ||
+    child.type === schema.nodes.affiliations_section ||
+    child.type === schema.nodes.contributors_section ||
+    child.type === schema.nodes.keywords_section
+  )
+}
+
 export const encode = (
   node: ManuscriptNode,
   preserveWithRepeatedID = false
@@ -852,13 +854,7 @@ export const encode = (
   // TODO: parents array, to get closest parent with an id for containingObject
   const addModel =
     (path: string[], parent: ManuscriptNode) => (child: ManuscriptNode) => {
-      if (
-        child.type === schema.nodes.abstract_core_section ||
-        child.type === schema.nodes.body_core_section ||
-        child.type === schema.nodes.backmatter_core_section ||
-        child.type === schema.nodes.affiliations_section ||
-        child.type === schema.nodes.contributors_section
-      ) {
+      if (isCoreSection(child)) {
         child.forEach(addModel([], child))
         return
       }
