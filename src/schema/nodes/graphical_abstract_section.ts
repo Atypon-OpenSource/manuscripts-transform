@@ -31,6 +31,7 @@ export const graphicalAbstractSection: NodeSpec = {
   attrs: {
     id: { default: '' },
     category: { default: '' },
+    dataTracked: { default: null },
   },
   group: 'block sections',
   selectable: false,
