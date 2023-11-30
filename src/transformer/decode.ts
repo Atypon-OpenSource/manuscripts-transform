@@ -852,23 +852,13 @@ export class Decoder {
   }
 
   private handleMissingRootSectionNodes(rootSectionNodes: SectionNode[]) {
-    if (
-      !rootSectionNodes.find((node) => node.type.name === 'keywords_section')
-    ) {
+    if (!rootSectionNodes.find((node) => node.type.name === 'keywords')) {
       this.createKeywordsSectionNode(rootSectionNodes)
     }
-    if (
-      !rootSectionNodes.find(
-        (node) => node.type.name === 'affiliations_section'
-      )
-    ) {
+    if (!rootSectionNodes.find((node) => node.type.name === 'affiliations')) {
       this.createAffiliationSectionNode(rootSectionNodes)
     }
-    if (
-      !rootSectionNodes.find(
-        (node) => node.type.name === 'contributors_section'
-      )
-    ) {
+    if (!rootSectionNodes.find((node) => node.type.name === 'contributors')) {
       this.createContributorSectionNode(rootSectionNodes)
     }
   }
@@ -877,7 +867,7 @@ export class Decoder {
       .map((affiliation) => this.decode(affiliation) as AffiliationNode)
       .filter(Boolean) as AffiliationNode[]
 
-    const node = schema.nodes.affiliations_section.createAndFill(
+    const node = schema.nodes.affiliations.createAndFill(
       {
         id: generateNodeID(schema.nodes.section),
       },
@@ -891,7 +881,7 @@ export class Decoder {
       .map((contributor) => this.decode(contributor) as ContributorNode)
       .filter(Boolean) as ContributorNode[]
 
-    const node = schema.nodes.contributors_section.createAndFill(
+    const node = schema.nodes.contributors.createAndFill(
       {
         id: generateNodeID(schema.nodes.section),
       },
@@ -911,7 +901,7 @@ export class Decoder {
       .map((keywordEl) => this.decode(keywordEl) as KeywordsElementNode)
       .filter(Boolean) as KeywordsGroupNode[]
     if (keywordElementNodes) {
-      const node = schema.nodes.keywords_section.createAndFill(
+      const node = schema.nodes.keywords.createAndFill(
         {
           id: generateNodeID(schema.nodes.section),
         },
@@ -947,17 +937,17 @@ export class Decoder {
       .filter(isManuscriptNode)
 
     const abstractCoreSectionNodes = this.createAndFill(
-      schema.nodes.abstract_core_section,
+      schema.nodes.abstracts,
       absSectionNode
     )
 
     const bodyCoreSectionNodes = this.createAndFill(
-      schema.nodes.body_core_section,
+      schema.nodes.body,
       bodySectionNodes
     )
 
     const backmatterCoreSectionNodes = this.createAndFill(
-      schema.nodes.backmatter_core_section,
+      schema.nodes.backmatter,
       backmatterSectionNodes
     )
 

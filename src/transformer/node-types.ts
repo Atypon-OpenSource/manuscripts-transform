@@ -28,9 +28,9 @@ import {
 } from '../schema'
 
 export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
-  [schema.nodes.abstract_core_section, ObjectTypes.Section],
-  [schema.nodes.body_core_section, ObjectTypes.Section],
-  [schema.nodes.backmatter_core_section, ObjectTypes.Section],
+  [schema.nodes.abstracts, ObjectTypes.Section],
+  [schema.nodes.body, ObjectTypes.Section],
+  [schema.nodes.backmatter, ObjectTypes.Section],
   [schema.nodes.comment, ObjectTypes.CommentAnnotation],
   [schema.nodes.bibliography_item, ObjectTypes.BibliographyItem],
   [schema.nodes.bibliography_element, ObjectTypes.BibliographyElement],
@@ -52,7 +52,7 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.inline_equation, ObjectTypes.InlineMathFragment],
   [schema.nodes.keyword, ObjectTypes.Keyword],
   [schema.nodes.keywords_element, ObjectTypes.KeywordsElement],
-  [schema.nodes.keywords_section, ObjectTypes.Section],
+  [schema.nodes.keywords, ObjectTypes.Section],
   [schema.nodes.keywords_group, ObjectTypes.KeywordGroup],
   [schema.nodes.listing, ObjectTypes.Listing],
   [schema.nodes.listing_element, ObjectTypes.ListingElement],
@@ -69,9 +69,9 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.affiliation, ObjectTypes.Affiliation],
   [schema.nodes.contributor, ObjectTypes.Contributor],
   [schema.nodes.table_element_footer, ObjectTypes.TableElementFooter],
+  [schema.nodes.contributors, ObjectTypes.Section],
+  [schema.nodes.affiliations, ObjectTypes.Section],
   [schema.nodes.title, ObjectTypes.Titles],
-  [schema.nodes.contributors_section, ObjectTypes.Section],
-  [schema.nodes.affiliations_section, ObjectTypes.Section],
 ])
 
 export const isExecutableNodeType = (type: ManuscriptNodeType) =>

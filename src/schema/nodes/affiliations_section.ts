@@ -60,4 +60,4 @@ export const affiliationsSection: NodeSpec = {
 export const isAffiliationsSectionNode = (
   node: ManuscriptNode
 ): node is AffiliationsSectionNode =>
-  node.type === node.type.schema.nodes.affiliations_section
+  node.type === node.type.schema.nodes.affiliations

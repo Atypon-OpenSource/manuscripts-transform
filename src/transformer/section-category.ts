@@ -22,7 +22,7 @@ import { ManuscriptNode, ManuscriptNodeType, schema } from '../schema'
 const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.bibliography_section,
   schema.nodes.footnotes_section,
-  schema.nodes.keywords_section,
+  schema.nodes.keywords,
   schema.nodes.section,
   schema.nodes.toc_section,
 ]
@@ -126,12 +126,12 @@ export const chooseSectionNodeType = (
       return schema.nodes.footnotes_section
 
     case 'MPSectionCategory:keywords':
-      return schema.nodes.keywords_section
+      return schema.nodes.keywords
     case 'MPSectionCategory:affiliations':
-      return schema.nodes.affiliations_section
+      return schema.nodes.affiliations
 
     case 'MPSectionCategory:contributors':
-      return schema.nodes.contributors_section
+      return schema.nodes.contributors
 
     case 'MPSectionCategory:toc':
       return schema.nodes.toc_section
@@ -186,7 +186,7 @@ export const buildSectionCategory = (
     case schema.nodes.footnotes_section:
       return 'MPSectionCategory:endnotes'
 
-    case schema.nodes.keywords_section:
+    case schema.nodes.keywords:
       return 'MPSectionCategory:keywords'
 
     case schema.nodes.toc_section:
@@ -194,9 +194,9 @@ export const buildSectionCategory = (
 
     case schema.nodes.graphical_abstract_section:
       return 'MPSectionCategory:abstract-graphical'
-    case schema.nodes.affiliations_section:
+    case schema.nodes.affiliations:
       return 'MPSectionCategory:affiliations'
-    case schema.nodes.contributors_section:
+    case schema.nodes.contributors:
       return 'MPSectionCategory:contributors'
 
     default:

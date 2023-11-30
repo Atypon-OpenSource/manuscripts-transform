@@ -888,8 +888,8 @@ export class JATSExporter {
 
     const nodes: NodeSpecs = {
       title: () => '',
-      affiliations_section: () => '',
-      contributors_section: () => '',
+      affiliations: () => '',
+      contributors: () => '',
       table_element_footer: () => ['table-wrap-foot', 0],
       contributor: () => '',
       affiliation: () => '',
@@ -899,9 +899,9 @@ export class JATSExporter {
       bibliography_item: () => '',
       comment_list: () => '',
       keywords_group: () => '',
-      body_core_section: () => ['body', 0],
-      abstract_core_section: () => ['abstract', 0],
-      backmatter_core_section: () => ['backmatter', 0],
+      body: () => ['body', 0],
+      abstracts: () => ['abstract', 0],
+      backmatter: () => ['backmatter', 0],
       bibliography_section: (node) => [
         'ref-list',
         { id: normalizeID(node.attrs.id) },
@@ -1146,7 +1146,7 @@ export class JATSExporter {
       },
       keyword: () => '',
       keywords_element: () => '',
-      keywords_section: () => '',
+      keywords: () => '',
       link: (node) => {
         const text = node.textContent
 

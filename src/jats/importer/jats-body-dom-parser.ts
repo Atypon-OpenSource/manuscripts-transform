@@ -596,7 +596,7 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'sec[sec-type="affiliations"]',
-    node: 'affiliations_section', // NOTE: higher priority than 'section'
+    node: 'affiliations', // NOTE: higher priority than 'section'
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
@@ -608,7 +608,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'aff',
     node: 'affiliation',
-    context: 'affiliations_section/',
+    context: 'affiliations/',
     getAttrs: (node) => {
       const element = node as HTMLElement
       const aff = {
@@ -658,7 +658,7 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'sec[sec-type="contributors"]',
-    node: 'contributors_section', // NOTE: higher priority than 'section'
+    node: 'contributors', // NOTE: higher priority than 'section'
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
@@ -670,7 +670,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'contrib',
     node: 'contributor',
-    context: 'contributors_section/',
+    context: 'contributors/',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
@@ -730,7 +730,7 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'sec[sec-type="keywords"]',
-    node: 'keywords_section', // NOTE: higher priority than 'section'
+    node: 'keywords', // NOTE: higher priority than 'section'
     getAttrs: (node) => {
       const element = node as HTMLElement
 
@@ -742,20 +742,20 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'kwd-group-list',
-    context: 'keywords_section/',
+    context: 'keywords/',
     node: 'keywords_element',
   },
   {
     tag: 'sec[sec-type="abstracts"]',
-    node: 'abstract_core_section',
+    node: 'abstracts',
   },
   {
     tag: 'sec[sec-type="body"]',
-    node: 'body_core_section',
+    node: 'body',
   },
   {
     tag: 'sec[sec-type="backmatter"]',
-    node: 'backmatter_core_section',
+    node: 'backmatter',
   },
   {
     tag: 'sec',
@@ -840,8 +840,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'title',
     node: 'section_title',
-    context:
-      'section/|footnotes_section/|bibliography_section/|keywords_section/',
+    context: 'section/|footnotes_section/|bibliography_section/|keywords/',
   },
   {
     tag: 'title',

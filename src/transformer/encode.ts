@@ -831,12 +831,12 @@ interface PrioritizedValue {
 
 function isCoreSection(child: Node) {
   return (
-    child.type === schema.nodes.abstract_core_section ||
-    child.type === schema.nodes.body_core_section ||
-    child.type === schema.nodes.backmatter_core_section ||
-    child.type === schema.nodes.affiliations_section ||
-    child.type === schema.nodes.contributors_section ||
-    child.type === schema.nodes.keywords_section
+    child.type === schema.nodes.abstracts ||
+    child.type === schema.nodes.body ||
+    child.type === schema.nodes.backmatter ||
+    child.type === schema.nodes.affiliations ||
+    child.type === schema.nodes.contributors ||
+    child.type === schema.nodes.keywords
   )
 }
 
