@@ -26,7 +26,7 @@ export interface ContributorsSectionNode extends ManuscriptNode {
 }
 
 export const contributorsSection: NodeSpec = {
-  content: 'section_title? contributor*',
+  content: 'section_title? (placeholder_element |contributor)*',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
