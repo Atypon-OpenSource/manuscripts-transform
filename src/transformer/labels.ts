@@ -89,10 +89,14 @@ export const buildTargets = (
   const targets: Map<string, Target> = new Map()
   const figures: string[] = []
   fragment.forEach((node) => {
-    if (node.type === node.type.schema.nodes.graphical_abstract_section) {
-      node.forEach((item) => {
-        if (item.type === node.type.schema.nodes.figure_element) {
-          figures.push(item.attrs.id)
+    if (node.attrs.category === 'MPSectionCategory:abstracts') {
+      node.forEach((child) => {
+        if (child.type === node.type.schema.nodes.graphical_abstract_section) {
+          child.forEach((item) => {
+            if (item.type === node.type.schema.nodes.figure_element) {
+              figures.push(item.attrs.id)
+            }
+          })
         }
       })
     }
