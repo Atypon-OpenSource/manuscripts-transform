@@ -56,6 +56,7 @@ export const affiliation: NodeSpec = {
         text: undefined,
       },
     },
+    dataTracked: { default: null },
   },
   group: 'block element',
   parseDOM: [

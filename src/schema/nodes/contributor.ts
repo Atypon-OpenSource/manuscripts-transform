@@ -48,12 +48,13 @@ export const contributor: NodeSpec = {
     isCorresponding: { default: undefined },
     ORCIDIdentifier: { default: undefined },
     priority: { default: undefined },
+    dataTracked: { default: null },
   },
   group: 'block element',
   toDOM: (node) => {
     const contributorNode = node as ContributorNode
     return [
-      'span',
+      'div',
       {
         class: 'contributor',
         id: contributorNode.attrs.id,
