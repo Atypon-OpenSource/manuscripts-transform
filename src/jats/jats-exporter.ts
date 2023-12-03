@@ -1855,7 +1855,7 @@ export class JATSExporter {
           authorNotesEl.appendChild(correspondingEl)
         })
         if (authorNotesEl.childNodes.length > 0) {
-          articleMeta.appendChild(authorNotesEl)
+          articleMeta.insertBefore(authorNotesEl, contribGroup.nextSibling)
         }
       }
     }
@@ -2297,7 +2297,24 @@ export class JATSExporter {
             if (authorNoteEl) {
               authorNoteEl.append(...authorNotes.childNodes)
             } else {
-              articleMeta.appendChild(authorNotes)
+              const appendableSelectors = [
+                'contrib-group',
+                'title-group',
+                'article-id',
+              ]
+              const appendable = [
+                ...(articleMeta as HTMLElement).querySelectorAll(
+                  appendableSelectors.join(', ')
+                ),
+              ]
+              for (let i = 0; i < appendableSelectors.length; i++) {
+                const sel = appendableSelectors[i]
+                const match = appendable.find((el) => el.matches(sel))
+                if (match) {
+                  articleMeta.insertBefore(authorNotes, match.nextSibling)
+                  break
+                }
+              }
             }
           }
         }
