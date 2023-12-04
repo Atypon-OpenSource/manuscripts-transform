@@ -807,7 +807,7 @@ export const modelFromNode = (
   priority: PrioritizedValue
 ): {
   model: Model
-  commentAnnotationsMap: Map<string, Build<CommentAnnotation>>
+  comments: Build<CommentAnnotation>[]
 } => {
   const commentAnnotationsMap = new Map<string, Build<CommentAnnotation>>()
   // TODO: in handlePaste, filter out non-standard IDs
@@ -837,8 +837,8 @@ export const modelFromNode = (
     // This method doubles the execution time with large documents, such as sts-example.xml (from 1s to 2s)
     extractHighlightMarkers(model, commentAnnotationsMap)
   }
-
-  return { model, commentAnnotationsMap }
+  const comments = [...commentAnnotationsMap.values()]
+  return { model, comments }
 }
 
 interface PrioritizedValue {
@@ -868,12 +868,19 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       if (placeholders.includes(child.type.name)) {
         return
       }
-      const { model } = modelFromNode(child, parent, path, priority)
+      const { model, comments } = modelFromNode(child, parent, path, priority)
       if (models.has(model._id)) {
         throw Error(
           `Encountered duplicate ids in models map while encoding: ${model._id}`
         )
       }
+      comments.forEach((comment) => {
+        const proseMirrorComment = models.get(comment._id)
+        if (proseMirrorComment) {
+          ;(proseMirrorComment as CommentAnnotation).selector = comment.selector
+          models.set(comment._id, proseMirrorComment)
+        }
+      })
       models.set(model._id, model)
       child.forEach(addModel(path.concat(child.attrs.id), child))
     }
