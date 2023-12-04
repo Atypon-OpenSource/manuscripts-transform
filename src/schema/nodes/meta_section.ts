@@ -14,25 +14,23 @@
  * limitations under the License.
  */
 
-import { Model } from '@manuscripts/json-schema'
+import { NodeSpec } from 'prosemirror-model'
 
-import projectDump from '../../../__tests__/data/project-dump.json'
-import { Decoder } from '../../decode'
+import { ManuscriptNode } from '../types'
 
-export const createTestModelMap = (): Map<string, Model> => {
-  const modelMap: Map<string, Model> = new Map()
-
-  for (const component of projectDump.data as Model[]) {
-    modelMap.set(component._id, component)
-  }
-
-  return modelMap
+interface Attrs {
+  id: string
 }
 
-export const createTestDoc = () => {
-  const modelMap = createTestModelMap()
+export interface MetaSectionNode extends ManuscriptNode {
+  attrs: Attrs
+}
 
-  const decoder = new Decoder(modelMap)
-
-  return decoder.createArticleNode()
+export const metaSection: NodeSpec = {
+  content: 'comment_list',
+  attrs: {
+    id: { default: 'META_SECTION' },
+  },
+  group: 'block sections',
+  toDOM: () => ['section', 0],
 }

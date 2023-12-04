@@ -15,9 +15,11 @@
  */
 
 import {
+  Affiliation,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
+  Contributor,
   Element,
   Equation,
   EquationElement,
@@ -39,6 +41,7 @@ import {
   Section,
   Table,
   TableElement,
+  TableElementFooter,
   TOCElement,
 } from '@manuscripts/json-schema'
 import debug from 'debug'
@@ -46,13 +49,16 @@ import { DOMParser, ParseOptions } from 'prosemirror-model'
 
 import { MissingElement } from '../errors'
 import {
+  AffiliationNode,
   BibliographyElementNode,
   BibliographyItemNode,
   BlockquoteElementNode,
   BulletListNode,
   CaptionNode,
   CaptionTitleNode,
+  CommentListNode,
   CommentNode,
+  ContributorNode,
   EquationElementNode,
   EquationNode,
   FigCaptionNode,
@@ -65,6 +71,7 @@ import {
   ListingElementNode,
   ListingNode,
   ManuscriptNode,
+  MetaSectionNode,
   MissingFigureNode,
   OrderedListNode,
   ParagraphNode,
@@ -74,11 +81,13 @@ import {
   schema,
   SectionNode,
   SectionTitleNode,
+  TableElementFooterNode,
   TableElementNode,
   TableNode,
   TOCElementNode,
 } from '../schema'
-import { CommentListNode } from '../schema/nodes/comment_list'
+import { AffiliationsSectionNode } from '../schema/nodes/affiliations_section'
+import { ContributorsSectionNode } from '../schema/nodes/contributors_section'
 import { KeywordsGroupNode } from '../schema/nodes/keywords_group'
 import { insertHighlightMarkers } from './highlight-markers'
 import { generateNodeID } from './id'
@@ -136,6 +145,10 @@ const getSections = (modelMap: Map<string, Model>) =>
   getModelsByType<Section>(modelMap, ObjectTypes.Section).sort(
     sortSectionsByPriority
   )
+const getAffiliations = (modelMap: Map<string, Model>) =>
+  getModelsByType<Affiliation>(modelMap, ObjectTypes.Affiliation)
+const getContributors = (modelMap: Map<string, Model>) =>
+  getModelsByType<Affiliation>(modelMap, ObjectTypes.Contributor)
 
 export const isManuscriptNode = (
   model: ManuscriptNode | null
@@ -148,6 +161,12 @@ const isParagraphElement = hasObjectType<ParagraphElement>(
 const isFootnote = hasObjectType<Footnote>(ObjectTypes.Footnote)
 
 const isKeyword = hasObjectType<Keyword>(ObjectTypes.Keyword)
+const isKeywordsSection = (model: Section) =>
+  model.category === 'MPSectionCategory:keywords'
+const isAffiliationsSection = (model: Section) =>
+  model.category === 'MPSectionCategory:affiliations'
+const isContributorsSection = (model: Section) =>
+  model.category === 'MPSectionCategory:contributors'
 
 const hasParentSection = (id: string) => (section: Section) =>
   section.path &&
@@ -180,12 +199,6 @@ export class Decoder {
         }
       })
 
-      if (!references.length) {
-        references.push(
-          schema.nodes.placeholder.createAndFill() as PlaceholderNode
-        )
-      }
-
       return schema.nodes.bibliography_element.createChecked(
         {
           id: model._id,
@@ -198,6 +211,8 @@ export class Decoder {
     [ObjectTypes.BibliographyItem]: (data) => {
       const model = data as BibliographyItem
 
+      const commentNodes = this.createCommentsNode(model)
+      commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
       return schema.nodes.bibliography_item.create({
         id: model._id,
         type: model.type,
@@ -211,6 +226,7 @@ export class Decoder {
         page: model.page,
         title: model.title,
         literal: model.literal,
+        comments: commentNodes.map((c) => c.attrs.id),
       }) as BibliographyItemNode
     },
     [ExtraObjectTypes.PlaceholderElement]: (data) => {
@@ -346,14 +362,16 @@ export class Decoder {
       ) as EquationElementNode
     },
     [ObjectTypes.FootnotesElement]: (data) => {
-      const model = data as FootnotesElement
+      const foonotesElementModel = data as FootnotesElement
 
-      const collateByKind = model.collateByKind || 'footnote'
-
+      const collateByKind = foonotesElementModel.collateByKind || 'footnote'
       const footnotesOfKind = []
-
       for (const model of this.modelMap.values()) {
-        if (isFootnote(model) && model.kind === collateByKind) {
+        if (
+          isFootnote(model) &&
+          model.kind === collateByKind &&
+          model.containingObject === foonotesElementModel._id
+        ) {
           const commentNodes = this.createCommentsNode(model)
           commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
           const footnote = this.parseContents(
@@ -379,27 +397,30 @@ export class Decoder {
 
       return schema.nodes.footnotes_element.create(
         {
-          id: model._id,
-          kind: model.collateByKind,
+          id: foonotesElementModel._id,
+          kind: foonotesElementModel.collateByKind,
           // placeholder: model.placeholderInnerHTML,
-          paragraphStyle: model.paragraphStyle,
+          paragraphStyle: foonotesElementModel.paragraphStyle,
         },
         footnotesOfKind
       ) as FootnotesElementNode
-
-      // TODO: collect and add footnotes?
     },
     [ObjectTypes.Footnote]: (data) => {
-      const model = data as Footnote
-      const commentNodes = this.createCommentsNode(model)
+      const footnoteModel = data as Footnote
+      const commentNodes = this.createCommentsNode(footnoteModel)
       commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
-      return schema.nodes.footnote.create({
-        id: model._id,
-        kind: model.kind,
-        comments: commentNodes.map((c) => c.attrs.id),
-        // placeholder: model.placeholderText
-        // paragraphStyle: model.paragraphStyle,
-      }) as FootnoteNode
+      return this.parseContents(
+        footnoteModel.contents || '<div></div>',
+        undefined,
+        this.getComments(footnoteModel),
+        {
+          topNode: schema.nodes.footnote.create({
+            id: footnoteModel._id,
+            kind: footnoteModel.kind,
+            comments: commentNodes.map((c) => c.attrs.id),
+          }),
+        }
+      ) as FootnoteNode
     },
     [ObjectTypes.KeywordsElement]: (data) => {
       const model = data as KeywordsElement
@@ -440,6 +461,7 @@ export class Decoder {
             {
               topNode: schema.nodes.ordered_list.create({
                 id: model._id,
+                listStyleType: model.listStyleType,
                 paragraphStyle: model.paragraphStyle,
                 comments: commentNodes.map((c) => c.attrs.id),
               }),
@@ -570,12 +592,21 @@ export class Decoder {
           throw new Error('Unknown block type')
       }
     },
+    [ObjectTypes.TableElementFooter]: (data) => {
+      const model = data as TableElementFooter
+      const content = model.containedObjectIDs.map((id) =>
+        this.decode(this.modelMap.get(id) as Model)
+      ) as ManuscriptNode[]
+      return schema.nodes.table_element_footer.create(
+        {
+          id: model._id,
+        },
+        content
+      )
+    },
 
     [ObjectTypes.Section]: (data) => {
       const model = data as Section
-
-      const isKeywordsSection = model.category === 'MPSectionCategory:keywords'
-
       const elements: Element[] = []
 
       if (model.elementIDs) {
@@ -584,7 +615,7 @@ export class Decoder {
 
           if (element) {
             // ignore deprecated editable paragraph elements in keywords sections
-            if (isKeywordsSection && isParagraphElement(element)) {
+            if (isKeywordsSection(model) && isParagraphElement(element)) {
               continue
             }
 
@@ -640,15 +671,18 @@ export class Decoder {
       )
       const commentNodes = this.createCommentsNode(model)
       commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
-
-      const content: ManuscriptNode[] = (
-        sectionLabelNode
-          ? [sectionLabelNode, sectionTitleNode]
-          : [sectionTitleNode]
-      )
-        .concat(elementNodes)
-        .concat(nestedSections)
-
+      let content: ManuscriptNode[]
+      if (isAffiliationsSection(model) || isContributorsSection(model)) {
+        content = elementNodes.concat(nestedSections)
+      } else {
+        content = (
+          sectionLabelNode
+            ? [sectionLabelNode, sectionTitleNode]
+            : [sectionTitleNode]
+        )
+          .concat(elementNodes)
+          .concat(nestedSections)
+      }
       const sectionNode = sectionNodeType.createAndFill(
         {
           id: model._id,
@@ -687,48 +721,23 @@ export class Decoder {
     },
     [ObjectTypes.TableElement]: (data) => {
       const model = data as TableElement
-
-      const tableModel = this.getModel<Table>(model.containedObjectID)
-
-      let table: TableNode | PlaceholderNode
-      if (tableModel) {
-        table = this.decode(tableModel) as TableNode
-      } else if (this.allowMissingElements) {
-        table = schema.nodes.placeholder.create({
-          id: model.containedObjectID,
-          label: 'A table',
-        }) as PlaceholderNode
-      } else {
-        throw new MissingElement(model.containedObjectID)
-      }
-
+      const table = this.createTable(model)
+      const tableElementFooter = this.createTableElementFooter(model)
       const figcaption: FigCaptionNode = this.getFigcaption(model)
       const commentNodes = this.createCommentsNode(model)
       commentNodes.forEach((c) => this.comments.set(c.attrs.id, c))
 
-      const content: ManuscriptNode[] = [table, figcaption]
+      const content: ManuscriptNode[] = tableElementFooter
+        ? [table, figcaption, tableElementFooter]
+        : [table, figcaption]
 
       if (model.listingID) {
-        const listingModel = this.getModel<Listing>(model.listingID)
-        let listing: ListingNode | PlaceholderNode
-
-        if (listingModel) {
-          listing = this.decode(listingModel) as ListingNode
-        } else if (this.allowMissingElements) {
-          listing = schema.nodes.placeholder.create({
-            id: model.listingID,
-            label: 'A listing',
-          }) as PlaceholderNode
-        } else {
-          throw new MissingElement(model.listingID)
-        }
-
+        const listing = this.createListing(model)
         content.push(listing)
       } else {
         const listing = schema.nodes.listing.create()
         content.push(listing)
       }
-
       return schema.nodes.table_element.createChecked(
         {
           id: model._id,
@@ -770,6 +779,117 @@ export class Decoder {
         originalText: model.originalText,
       }) as CommentNode
     },
+    [ObjectTypes.Affiliation]: (data) => {
+      const model = data as Affiliation
+
+      return schema.nodes.affiliation.create({
+        id: model._id,
+        institution: model.institution,
+        addressLine1: model.addressLine1,
+        addressLine2: model.addressLine2,
+        addressLine3: model.addressLine3,
+        postCode: model.postCode,
+        country: model.country,
+        email: model.email,
+        department: model.department,
+        priority: model.priority,
+      }) as AffiliationNode
+    },
+    [ObjectTypes.Contributor]: (data) => {
+      const model = data as Contributor
+
+      return schema.nodes.contributor.create({
+        id: model._id,
+        role: model.role,
+        affiliations: model.affiliations,
+        bibliographicName: model.bibliographicName,
+        userID: model.userID,
+        invitationID: model.invitationID,
+        isCorresponding: model.isCorresponding,
+        ORCIDIdentifier: model.ORCIDIdentifier,
+        footnote: model.footnote,
+        corresp: model.corresp,
+        priority: model.priority,
+      }) as ContributorNode
+    },
+  }
+
+  private createMetaSectionNode() {
+    const commentListNode = this.createCommentListNode()
+    return schema.nodes.meta_section.createAndFill({}, [
+      commentListNode,
+    ]) as MetaSectionNode
+  }
+
+  private createCommentListNode() {
+    return schema.nodes.comment_list.createAndFill({}, [
+      ...this.comments.values(),
+    ]) as CommentListNode
+  }
+
+  private handleMissingRootSectionNodes(rootSectionNodes: SectionNode[]) {
+    if (
+      !rootSectionNodes.find(
+        (node) => node.type.name === 'affiliations_section'
+      )
+    ) {
+      this.createAffiliationSectionNode(rootSectionNodes)
+    }
+    if (
+      !rootSectionNodes.find(
+        (node) => node.type.name === 'contributors_section'
+      )
+    ) {
+      this.createContributorSectionNode(rootSectionNodes)
+    }
+  }
+  private createAffiliationSectionNode(rootSectionNodes: ManuscriptNode[]) {
+    const affiliationNodes = getAffiliations(this.modelMap)
+      .map((affiliation) => this.decode(affiliation) as AffiliationNode)
+      .filter(Boolean) as AffiliationNode[]
+    if (affiliationNodes.length) {
+      const node = schema.nodes.affiliations_section.createAndFill(
+        {
+          id: generateNodeID(schema.nodes.section),
+        },
+        affiliationNodes
+      ) as AffiliationsSectionNode
+      rootSectionNodes.unshift(node)
+    }
+  }
+
+  private createContributorSectionNode(rootSectionNodes: ManuscriptNode[]) {
+    const contributorNodes = getContributors(this.modelMap)
+      .map((contributor) => this.decode(contributor) as ContributorNode)
+      .filter(Boolean) as ContributorNode[]
+    if (contributorNodes.length) {
+      const node = schema.nodes.contributors_section.createAndFill(
+        {
+          id: generateNodeID(schema.nodes.section),
+        },
+        contributorNodes
+      ) as ContributorsSectionNode
+      rootSectionNodes.unshift(node)
+    }
+  }
+
+  private createRootSectionNodes() {
+    let rootSections = getSections(this.modelMap).filter(
+      (section) => !section.path || section.path.length <= 1
+    )
+    rootSections = this.addGeneratedLabels(rootSections)
+    const rootSectionNodes = rootSections
+      .map(this.decode)
+      .filter(isManuscriptNode) as SectionNode[]
+    this.handleMissingRootSectionNodes(rootSectionNodes)
+    if (!rootSectionNodes.length) {
+      rootSectionNodes.push(
+        schema.nodes.section.createAndFill({
+          id: generateNodeID(schema.nodes.section),
+        }) as SectionNode
+      )
+    }
+    return rootSectionNodes
   }
 
   private createCommentsNode(model: Model) {
@@ -788,19 +908,7 @@ export class Decoder {
 
   private extractListing(model: FigureElement) {
     if (model.listingID) {
-      const listingModel = this.getModel<Listing>(model.listingID)
-      let listing: ListingNode | PlaceholderNode
-      if (listingModel) {
-        listing = this.decode(listingModel) as ListingNode
-      } else if (this.allowMissingElements) {
-        listing = schema.nodes.placeholder.create({
-          id: model.listingID,
-          label: 'A listing',
-        }) as PlaceholderNode
-      } else {
-        throw new MissingElement(model.listingID)
-      }
-      return listing
+      return this.createListing(model)
     }
   }
 
@@ -822,29 +930,9 @@ export class Decoder {
     this.modelMap.get(id) as T | undefined
 
   public createArticleNode = (manuscriptID?: string): ManuscriptNode => {
-    let rootSections = getSections(this.modelMap).filter(
-      (section) => !section.path || section.path.length <= 1
-    )
-
-    rootSections = this.addGeneratedLabels(rootSections)
-
-    const rootSectionNodes = rootSections
-      .map(this.decode)
-      .filter(isManuscriptNode) as SectionNode[]
-
-    if (!rootSectionNodes.length) {
-      rootSectionNodes.push(
-        schema.nodes.section.createAndFill({
-          id: generateNodeID(schema.nodes.section),
-        }) as SectionNode
-      )
-    }
-
-    const contents: ManuscriptNode[] = rootSectionNodes
-    const comments = schema.nodes.comment_list.createAndFill({}, [
-      ...this.comments.values(),
-    ]) as CommentListNode
-    contents.push(comments)
+    const rootSectionNodes = this.createRootSectionNodes()
+    const metaSectionNode = this.createMetaSectionNode()
+    const contents: ManuscriptNode[] = [...rootSectionNodes, metaSectionNode]
 
     return schema.nodes.manuscript.create(
       {
@@ -995,6 +1083,53 @@ export class Decoder {
       : captionNode
 
     return schema.nodes.figcaption.create({}, [captionTitle, caption])
+  }
+
+  private createTable(model: TableElement) {
+    const tableId = model.containedObjectID
+    const tableModel = this.getModel<Table>(tableId)
+
+    let table: TableNode | PlaceholderNode
+    if (tableModel) {
+      table = this.decode(tableModel) as TableNode
+    } else if (this.allowMissingElements) {
+      table = schema.nodes.placeholder.create({
+        id: tableId,
+        label: 'A table',
+      }) as PlaceholderNode
+    } else {
+      throw new MissingElement(tableId)
+    }
+    return table
+  }
+
+  private createTableElementFooter(model: TableElement) {
+    const tableElementFooterID = model.tableElementFooterID
+    if (!tableElementFooterID) {
+      return undefined
+    }
+    const tableElementFooterModel =
+      this.getModel<TableElementFooter>(tableElementFooterID)
+
+    return tableElementFooterModel
+      ? (this.decode(tableElementFooterModel) as TableElementFooterNode)
+      : undefined
+  }
+  private createListing(model: any) {
+    const listingModel = this.getModel<Listing>(model.listingID)
+    let listing: ListingNode | PlaceholderNode
+
+    if (listingModel) {
+      listing = this.decode(listingModel) as ListingNode
+    } else if (this.allowMissingElements) {
+      listing = schema.nodes.placeholder.create({
+        id: model.listingID,
+        label: 'A listing',
+      }) as PlaceholderNode
+    } else {
+      throw new MissingElement(model.listingID)
+    }
+    return listing
   }
 
   private getKeywordGroups() {

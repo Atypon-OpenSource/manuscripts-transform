@@ -15,9 +15,11 @@
  */
 
 import {
+  Affiliation,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
+  Contributor,
   Equation,
   EquationElement,
   Figure,
@@ -39,9 +41,10 @@ import {
   Section,
   Table,
   TableElement,
+  TableElementFooter,
   TOCElement,
 } from '@manuscripts/json-schema'
-import { DOMSerializer } from 'prosemirror-model'
+import { DOMSerializer, Node } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { iterateChildren, modelsEqual } from '../lib/utils'
@@ -349,17 +352,15 @@ const containedBibliographyItemIDs = (node: ManuscriptNode): string[] => {
   const bibliographyItemNodeType = node.type.schema.nodes.bibliography_item
   return containedObjectIDs(node, [bibliographyItemNodeType])
 }
-
 const containedObjectIDs = (
   node: ManuscriptNode,
-  nodeTypes: ManuscriptNodeType[]
+  nodeTypes?: ManuscriptNodeType[]
 ): string[] => {
   const ids: string[] = []
 
   for (let i = 0; i < node.childCount; i++) {
     const childNode = node.child(i)
-
-    if (nodeTypes.includes(childNode.type)) {
+    if (!nodeTypes || nodeTypes.includes(childNode.type)) {
       ids.push(childNode.attrs.id)
     }
   }
@@ -454,8 +455,10 @@ const encoders: NodeEncoderMap = {
       literal,
     } = node.attrs
 
-    const author = fromJson(node.attrs.author)
-    const issued = fromJson(node.attrs.issued)
+    const getObjectAtrr = (obj: string | object) =>
+      typeof obj === 'string' ? fromJson(obj) : obj
+    const author = getObjectAtrr(node.attrs.author)
+    const issued = getObjectAtrr(node.attrs.issued)
 
     const ref = {
       type,
@@ -603,6 +606,9 @@ const encoders: NodeEncoderMap = {
     elementType: 'div',
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
+  table_element_footer: (node): Partial<TableElementFooter> => ({
+    containedObjectIDs: containedObjectIDs(node),
+  }),
   footnotes_section: (node, parent, path, priority): Partial<Section> => ({
     category: buildSectionCategory(node),
     priority: priority.value++,
@@ -655,12 +661,29 @@ const encoders: NodeEncoderMap = {
       .map((childNode) => childNode.attrs.id)
       .filter((id) => id),
   }),
+  affiliations_section: (node, parent, path, priority): Partial<Section> => ({
+    category: buildSectionCategory(node),
+    priority: priority.value++,
+    path: path.concat([node.attrs.id]),
+    elementIDs: childElements(node)
+      .map((childNode) => childNode.attrs.id)
+      .filter((id) => id),
+  }),
+  contributors_section: (node, parent, path, priority): Partial<Section> => ({
+    category: buildSectionCategory(node),
+    priority: priority.value++,
+    path: path.concat([node.attrs.id]),
+    elementIDs: childElements(node)
+      .map((childNode) => childNode.attrs.id)
+      .filter((id) => id),
+  }),
   missing_figure: (node): Partial<MissingFigure> => ({
     position: node.attrs.position || undefined,
   }),
   ordered_list: (node): Partial<ListElement> => ({
     elementType: 'ol',
     contents: listContents(node),
+    listStyleType: node.attrs.listStyleType,
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
   paragraph: (node): Partial<ParagraphElement> => ({
@@ -698,6 +721,8 @@ const encoders: NodeEncoderMap = {
   }),
   table_element: (node): Partial<TableElement> => ({
     containedObjectID: attributeOfNodeType(node, 'table', 'id'),
+    tableElementFooterID:
+      attributeOfNodeType(node, 'table_element_footer', 'id') || undefined,
     caption: inlineContentOfChildNodeType(
       node,
       node.type.schema.nodes.figcaption,
@@ -736,6 +761,29 @@ const encoders: NodeEncoderMap = {
     elementIDs: childElements(node)
       .map((childNode) => childNode.attrs.id)
       .filter((id) => id),
+  }),
+
+  affiliation: (node): Partial<Affiliation> => ({
+    institution: node.attrs.institution,
+    addressLine1: node.attrs.addressLine1,
+    addressLine2: node.attrs.addressLine2,
+    addressLine3: node.attrs.addressLine3,
+    postCode: node.attrs.postCode,
+    country: node.attrs.country,
+    email: node.attrs.email,
+    priority: node.attrs.priority,
+  }),
+  contributor: (node): Partial<Contributor> => ({
+    role: node.attrs.role,
+    affiliations: node.attrs.affiliations,
+    bibliographicName: node.attrs.bibliographicName,
+    userID: node.attrs.userID,
+    invitationID: node.attrs.invitationID,
+    isCorresponding: node.attrs.isCorresponding,
+    ORCIDIdentifier: node.attrs.ORCIDIdentifier,
+    footnote: node.attrs.footnote,
+    corresp: node.attrs.corresp,
+    priority: node.attrs.priority,
   }),
 }
 
@@ -819,7 +867,7 @@ export const encode = (
       if (isHighlightMarkerNode(child)) {
         return
       }
-      if (child.type === schema.nodes.comment_list) {
+      if (child.type === schema.nodes.meta_section) {
         return
       }
       if (placeholders.includes(child.type.name)) {
@@ -842,13 +890,26 @@ export const encode = (
       child.forEach(addModel(path.concat(child.attrs.id), child))
     }
   node.forEach((cNode) => {
-    if (cNode.type === schema.nodes.comment_list) {
-      cNode.forEach((child) => {
-        const { model } = modelFromNode(child, cNode, [], priority)
-        models.set(model._id, model)
-      })
+    if (cNode.type === schema.nodes.meta_section) {
+      processMetaSectionNode(cNode, models, priority)
     }
   })
   node.forEach(addModel([], node))
   return models
+}
+
+const processMetaSectionNode = (
+  node: Node,
+  models: Map<string, Model>,
+  priority: PrioritizedValue
+) => {
+  node.descendants((child) => {
+    if (
+      (!child.content || child.content.size === 0) &&
+      nodeTypesMap.get(child.type)
+    ) {
+      const { model } = modelFromNode(child, node, [], priority)
+      models.set(model._id, model)
+    }
+  })
 }

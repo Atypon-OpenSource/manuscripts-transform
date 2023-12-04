@@ -9,6 +9,90 @@ Object {
     "content": Array [
       Object {
         "attrs": Object {
+          "dataTracked": null,
+          "id": "MPSection:197E522D-784E-4964-8E44-6DC54FACA405",
+        },
+        "content": Array [
+          Object {
+            "attrs": Object {
+              "ORCIDIdentifier": undefined,
+              "affiliations": Array [
+                "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
+              ],
+              "bibliographicName": Object {
+                "_id": "MPBibliographicName:9678650F-C40B-4EBB-8620-15E335899379",
+                "family": "Ydenberg",
+                "given": "Casey",
+                "objectType": "MPBibliographicName",
+                "suffix": "",
+              },
+              "corresp": undefined,
+              "footnote": undefined,
+              "id": "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
+              "invitationID": undefined,
+              "isCorresponding": true,
+              "priority": 0,
+              "role": "author",
+              "userID": "User_ydenberg@gmail.com",
+            },
+            "type": "contributor",
+          },
+          Object {
+            "attrs": Object {
+              "ORCIDIdentifier": undefined,
+              "affiliations": Array [
+                "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
+              ],
+              "bibliographicName": Object {
+                "_id": "MPBibliographicName:9678650F-C40B-4EBB-8620-15E335899379",
+                "family": "Ydenberg",
+                "given": "Casey",
+                "objectType": "MPBibliographicName",
+                "suffix": "",
+              },
+              "corresp": undefined,
+              "footnote": undefined,
+              "id": "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
+              "invitationID": undefined,
+              "isCorresponding": true,
+              "priority": 0,
+              "role": "author",
+              "userID": "User_ydenberg@gmail.com",
+            },
+            "type": "contributor",
+          },
+        ],
+        "type": "contributors_section",
+      },
+      Object {
+        "attrs": Object {
+          "dataTracked": null,
+          "id": "MPSection:EF670A7C-5495-44F8-AF6F-8BD229D11257",
+        },
+        "content": Array [
+          Object {
+            "attrs": Object {
+              "addressLine1": "20A Charles River Rd",
+              "addressLine2": "",
+              "addressLine3": "",
+              "country": "United States",
+              "department": "Department of Cunning",
+              "email": Object {
+                "href": undefined,
+                "text": undefined,
+              },
+              "id": "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
+              "institution": "University of Cunning",
+              "postCode": "02453",
+              "priority": 0,
+            },
+            "type": "affiliation",
+          },
+        ],
+        "type": "affiliations_section",
+      },
+      Object {
+        "attrs": Object {
           "category": "",
           "comments": Array [],
           "dataTracked": null,
@@ -343,6 +427,7 @@ Object {
                 "attrs": Object {
                   "dataTracked": null,
                   "id": "MPListElement:EFDBD9B7-19D2-44A4-8686-C31572CCB72C",
+                  "listStyleType": null,
                   "paragraphStyle": "",
                 },
                 "content": Array [
@@ -713,14 +798,59 @@ Object {
       },
       Object {
         "attrs": Object {
-          "id": "COMMENT_LIST",
+          "id": "META_SECTION",
         },
-        "type": "comment_list",
+        "content": Array [
+          Object {
+            "attrs": Object {
+              "id": "COMMENT_LIST",
+            },
+            "type": "comment_list",
+          },
+        ],
+        "type": "meta_section",
       },
     ],
     "type": "manuscript",
   },
   "modelMap": Map {
+    "MPSection:197E522D-784E-4964-8E44-6DC54FACA405" => Object {
+      "_id": "MPSection:197E522D-784E-4964-8E44-6DC54FACA405",
+      "category": "MPSectionCategory:contributors",
+      "containerID": "MPProject:ADC69637-C321-4158-8E24-F92068D4727D",
+      "createdAt": 1558720193,
+      "elementIDs": Array [
+        "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
+        "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
+      ],
+      "manuscriptID": "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8",
+      "objectType": "MPSection",
+      "path": Array [
+        "MPSection:197E522D-784E-4964-8E44-6DC54FACA405",
+      ],
+      "priority": 1,
+      "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
+      "title": "",
+      "updatedAt": 1558720213,
+    },
+    "MPSection:EF670A7C-5495-44F8-AF6F-8BD229D11257" => Object {
+      "_id": "MPSection:EF670A7C-5495-44F8-AF6F-8BD229D11257",
+      "category": "MPSectionCategory:affiliations",
+      "containerID": "MPProject:ADC69637-C321-4158-8E24-F92068D4727D",
+      "createdAt": 1558720193,
+      "elementIDs": Array [
+        "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
+      ],
+      "manuscriptID": "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8",
+      "objectType": "MPSection",
+      "path": Array [
+        "MPSection:EF670A7C-5495-44F8-AF6F-8BD229D11257",
+      ],
+      "priority": 2,
+      "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
+      "title": "",
+      "updatedAt": 1558720213,
+    },
     "MPProject:ADC69637-C321-4158-8E24-F92068D4727D" => Object {
       "_id": "MPProject:ADC69637-C321-4158-8E24-F92068D4727D",
       "_rev": "4-0c576bc91ee60ed440aa7ffb4048598d",
@@ -960,7 +1090,7 @@ Object {
       "path": Array [
         "MPSection:C6FD9C5E-C00E-4823-9507-E246E249B66A",
       ],
-      "priority": 1,
+      "priority": 3,
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
       "title": "A section heading",
       "updatedAt": 1558720338,
@@ -983,7 +1113,7 @@ Object {
         "MPSection:C6FD9C5E-C00E-4823-9507-E246E249B66A",
         "MPSection:EBCC30A6-9123-4CC3-B282-402954ACFD03",
       ],
-      "priority": 2,
+      "priority": 4,
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
       "title": "A table",
       "updatedAt": 1558720341,
@@ -1022,6 +1152,90 @@ Object {
       "id": "MPManuscript:B3BB2CD8-F944-47C3-9F01-1996DBD417EE",
     },
     "content": Array [
+      Object {
+        "attrs": Object {
+          "dataTracked": null,
+          "id": "MPSection:197E522D-784E-4964-8E44-6DC54FACA405",
+        },
+        "content": Array [
+          Object {
+            "attrs": Object {
+              "ORCIDIdentifier": undefined,
+              "affiliations": Array [
+                "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
+              ],
+              "bibliographicName": Object {
+                "_id": "MPBibliographicName:9678650F-C40B-4EBB-8620-15E335899379",
+                "family": "Ydenberg",
+                "given": "Casey",
+                "objectType": "MPBibliographicName",
+                "suffix": "",
+              },
+              "corresp": undefined,
+              "footnote": undefined,
+              "id": "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
+              "invitationID": undefined,
+              "isCorresponding": true,
+              "priority": 0,
+              "role": "author",
+              "userID": "User_ydenberg@gmail.com",
+            },
+            "type": "contributor",
+          },
+          Object {
+            "attrs": Object {
+              "ORCIDIdentifier": undefined,
+              "affiliations": Array [
+                "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
+              ],
+              "bibliographicName": Object {
+                "_id": "MPBibliographicName:9678650F-C40B-4EBB-8620-15E335899379",
+                "family": "Ydenberg",
+                "given": "Casey",
+                "objectType": "MPBibliographicName",
+                "suffix": "",
+              },
+              "corresp": undefined,
+              "footnote": undefined,
+              "id": "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
+              "invitationID": undefined,
+              "isCorresponding": true,
+              "priority": 0,
+              "role": "author",
+              "userID": "User_ydenberg@gmail.com",
+            },
+            "type": "contributor",
+          },
+        ],
+        "type": "contributors_section",
+      },
+      Object {
+        "attrs": Object {
+          "dataTracked": null,
+          "id": "MPSection:EF670A7C-5495-44F8-AF6F-8BD229D11257",
+        },
+        "content": Array [
+          Object {
+            "attrs": Object {
+              "addressLine1": "20A Charles River Rd",
+              "addressLine2": "",
+              "addressLine3": "",
+              "country": "United States",
+              "department": "Department of Cunning",
+              "email": Object {
+                "href": undefined,
+                "text": undefined,
+              },
+              "id": "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
+              "institution": "University of Cunning",
+              "postCode": "02453",
+              "priority": 0,
+            },
+            "type": "affiliation",
+          },
+        ],
+        "type": "affiliations_section",
+      },
       Object {
         "attrs": Object {
           "category": "",
@@ -1550,6 +1764,7 @@ Object {
                 "attrs": Object {
                   "dataTracked": null,
                   "id": "MPListElement:EFDBD9B7-19D2-44A4-8686-C31572CCB72C",
+                  "listStyleType": null,
                   "paragraphStyle": "",
                 },
                 "content": Array [
@@ -1920,14 +2135,59 @@ Object {
       },
       Object {
         "attrs": Object {
-          "id": "COMMENT_LIST",
+          "id": "META_SECTION",
         },
-        "type": "comment_list",
+        "content": Array [
+          Object {
+            "attrs": Object {
+              "id": "COMMENT_LIST",
+            },
+            "type": "comment_list",
+          },
+        ],
+        "type": "meta_section",
       },
     ],
     "type": "manuscript",
   },
   "modelMap": Map {
+    "MPSection:197E522D-784E-4964-8E44-6DC54FACA405" => Object {
+      "_id": "MPSection:197E522D-784E-4964-8E44-6DC54FACA405",
+      "category": "MPSectionCategory:contributors",
+      "containerID": "MPProject:ADC69637-C321-4158-8E24-F92068D4727D",
+      "createdAt": 1558720193,
+      "elementIDs": Array [
+        "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
+        "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
+      ],
+      "manuscriptID": "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8",
+      "objectType": "MPSection",
+      "path": Array [
+        "MPSection:197E522D-784E-4964-8E44-6DC54FACA405",
+      ],
+      "priority": 1,
+      "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
+      "title": "",
+      "updatedAt": 1558720213,
+    },
+    "MPSection:EF670A7C-5495-44F8-AF6F-8BD229D11257" => Object {
+      "_id": "MPSection:EF670A7C-5495-44F8-AF6F-8BD229D11257",
+      "category": "MPSectionCategory:affiliations",
+      "containerID": "MPProject:ADC69637-C321-4158-8E24-F92068D4727D",
+      "createdAt": 1558720193,
+      "elementIDs": Array [
+        "MPAffiliation:A3318227-B467-4C97-AF84-9271D55D6FBD",
+      ],
+      "manuscriptID": "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8",
+      "objectType": "MPSection",
+      "path": Array [
+        "MPSection:EF670A7C-5495-44F8-AF6F-8BD229D11257",
+      ],
+      "priority": 2,
+      "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
+      "title": "",
+      "updatedAt": 1558720213,
+    },
     "MPProject:ADC69637-C321-4158-8E24-F92068D4727D" => Object {
       "_id": "MPProject:ADC69637-C321-4158-8E24-F92068D4727D",
       "_rev": "4-0c576bc91ee60ed440aa7ffb4048598d",
@@ -2196,7 +2456,7 @@ Object {
       "path": Array [
         "MPSection:369BC11C-4281-4BED-9AA3-5ABE066BF575",
       ],
-      "priority": 1,
+      "priority": 3,
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
       "title": "Section",
       "updatedAt": 1558720154,
@@ -2215,7 +2475,7 @@ Object {
         "MPSection:BC4F7CFD-EEF2-4733-8AAE-AEC8F76DE4DD",
         "MPSection:7021DB67-252D-40D0-810F-6C2C285F8FCC",
       ],
-      "priority": 5,
+      "priority": 7,
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
       "title": "Subsubsubsubsection",
       "updatedAt": 1558720213,
@@ -2231,7 +2491,7 @@ Object {
         "MPSection:369BC11C-4281-4BED-9AA3-5ABE066BF575",
         "MPSection:786116A4-364C-428B-9B05-FE447B1AEEFB",
       ],
-      "priority": 2,
+      "priority": 4,
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
       "title": "Subsection",
       "updatedAt": 1558720168,
@@ -2251,7 +2511,7 @@ Object {
         "MPSection:7021DB67-252D-40D0-810F-6C2C285F8FCC",
         "MPSection:B5508891-F803-4DD5-AD1D-92A3B4ECFFE6",
       ],
-      "priority": 6,
+      "priority": 8,
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
       "title": "Subsubsubsubsubsection",
       "updatedAt": 1558720229,
@@ -2269,7 +2529,7 @@ Object {
         "MPSection:DC18322C-BC8B-4737-BFC1-052D205657F3",
         "MPSection:BC4F7CFD-EEF2-4733-8AAE-AEC8F76DE4DD",
       ],
-      "priority": 4,
+      "priority": 6,
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
       "title": "Subsubsubsection",
       "updatedAt": 1558720204,
@@ -2286,7 +2546,7 @@ Object {
       "path": Array [
         "MPSection:C6FD9C5E-C00E-4823-9507-E246E249B66A",
       ],
-      "priority": 1,
+      "priority": 3,
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
       "title": "A section heading",
       "updatedAt": 1558720338,
@@ -2309,7 +2569,7 @@ Object {
         "MPSection:B5508891-F803-4DD5-AD1D-92A3B4ECFFE6",
         "MPSection:D88308C0-7EC8-46BE-8DCC-661964D706F8",
       ],
-      "priority": 7,
+      "priority": 9,
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
       "title": "Subsubsubsubsubsubsection",
       "updatedAt": 1558720231,
@@ -2326,7 +2586,7 @@ Object {
         "MPSection:786116A4-364C-428B-9B05-FE447B1AEEFB",
         "MPSection:DC18322C-BC8B-4737-BFC1-052D205657F3",
       ],
-      "priority": 3,
+      "priority": 5,
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
       "title": "subsubsection",
       "updatedAt": 1558720183,
@@ -2349,7 +2609,7 @@ Object {
         "MPSection:C6FD9C5E-C00E-4823-9507-E246E249B66A",
         "MPSection:EBCC30A6-9123-4CC3-B282-402954ACFD03",
       ],
-      "priority": 2,
+      "priority": 4,
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
       "title": "A table",
       "updatedAt": 1558720341,

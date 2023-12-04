@@ -27,6 +27,8 @@ const isAuxiliaryObjectReference = hasObjectType<AuxiliaryObjectReference>(
   ObjectTypes.AuxiliaryObjectReference
 )
 
+const excludedObjectTypes = [ObjectTypes.Contributor, ObjectTypes.Affiliation]
+
 export function flatten<T>(arrays: T[][]) {
   return ([] as T[]).concat(...arrays)
 }
@@ -72,6 +74,9 @@ const addMissingID = (
   const objectType = nodeTypesMap.get(node.type)
   if (!objectType) {
     warnings.push(`Unknown object type for node type ${node.type.name}`)
+    return
+  }
+  if (excludedObjectTypes.includes(objectType)) {
     return
   }
   const previousID: string | null | undefined = node.attrs.id

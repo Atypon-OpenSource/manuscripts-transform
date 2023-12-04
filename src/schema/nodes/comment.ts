@@ -38,7 +38,7 @@ export const comment: NodeSpec = {
     id: { default: '' },
     contents: { default: '' },
     target: { default: '' },
-    selector: { default: {} },
+    selector: { default: undefined },
     resolved: { default: false },
     contributions: { default: [] },
     originalText: { default: '' },

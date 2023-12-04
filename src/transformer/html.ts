@@ -488,7 +488,8 @@ export class HTMLTransformer {
       }
       // TODO:: handle multiple reference
 
-      element.textContent = crossReferenceNode.attrs.label
+      element.textContent =
+        crossReferenceNode.attrs.customLabel || crossReferenceNode.attrs.label
 
       return element
     }
@@ -534,7 +535,7 @@ export class HTMLTransformer {
       return ['span', attrs]
     }
 
-    nodes.comment_list = () => ''
+    nodes.meta_section = () => ''
 
     const serializer = new DOMSerializer(nodes, marks)
 

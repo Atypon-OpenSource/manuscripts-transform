@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2023 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,43 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  paragraphStyle: string
 }
 
-export interface BibliographyElementNode extends ManuscriptNode {
+export interface AffiliationsSectionNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const bibliographyElement: NodeSpec = {
-  content: 'bibliography_item*',
+export const affiliationsSection: NodeSpec = {
+  content: 'section_title? affiliation*',
   attrs: {
     id: { default: '' },
-    contents: { default: '' },
-    paragraphStyle: { default: '' },
     dataTracked: { default: null },
   },
+  group: 'block sections',
   selectable: false,
-  group: 'block element',
-  parseDOM: [
-    {
-      tag: 'div.csl-bib-body',
-      getAttrs: () => {
-        return {
-          contents: '',
-        }
-      },
-    },
-  ],
-  toDOM: () => {
-    const dom = document.createElement('div')
-    dom.className = 'csl-bib-body'
-    return dom
-  },
+  toDOM: () => ['section', 0],
 }
+export const isAffiliationsSectionNode = (
+  node: ManuscriptNode
+): node is AffiliationsSectionNode =>
+  node.type === node.type.schema.nodes.affiliations_section

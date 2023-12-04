@@ -103,6 +103,12 @@ export type Nodes =
   | 'text'
   | 'toc_element'
   | 'toc_section'
+  | 'affiliation'
+  | 'meta_section'
+  | 'contributor'
+  | 'table_element_footer'
+  | 'affiliations_section'
+  | 'contributors_section'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

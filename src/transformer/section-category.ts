@@ -14,13 +14,9 @@
  * limitations under the License.
  */
 // @ts-ignore
-import sectionCategories from '@manuscripts/data/dist/shared/section-categories.json'
-import {
-  Element,
-  ObjectTypes,
-  SectionCategory as SectionCategoryInterface,
-} from '@manuscripts/json-schema'
+import { Element, ObjectTypes } from '@manuscripts/json-schema'
 
+import { coreSectionCategories } from '../lib/core-section-categories'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../schema'
 
 const sectionNodeTypes: ManuscriptNodeType[] = [
@@ -31,21 +27,16 @@ const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.toc_section,
 ]
 
-const sectionCategoriesMap = new Map<string, SectionCategoryInterface>(
-  (sectionCategories as Array<SectionCategoryInterface>).map((section) => [
-    section._id,
-    section,
-  ])
-)
-
-export const getSectionTitles = (
+export const getCoreSectionTitles = (
   sectionCategory: SectionCategory
 ): string[] => {
-  const category = sectionCategoriesMap.get(sectionCategory)
+  const category = coreSectionCategories.find(
+    (section) => section._id === sectionCategory
+  )
   if (category) {
     return category.titles.length ? category.titles : [' ']
   }
-  throw new Error(`${sectionCategory} not found in section categories`)
+  throw new Error(`${sectionCategory} not found in core sections`)
 }
 
 export const isAnySectionNode = (node: ManuscriptNode): boolean =>
@@ -82,6 +73,8 @@ export type SectionCategory =
   | 'MPSectionCategory:body'
   | 'MPSectionCategory:abstracts'
   | 'MPSectionCategory:backmatter'
+  | 'MPSectionCategory:affiliations'
+  | 'MPSectionCategory:contributors'
 
 export type SecType =
   | 'abstract'
@@ -116,6 +109,8 @@ export type SecType =
   | 'abstracts'
   | 'body'
   | 'backmatter'
+  | 'affiliations'
+  | 'contributors'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -132,6 +127,11 @@ export const chooseSectionNodeType = (
 
     case 'MPSectionCategory:keywords':
       return schema.nodes.keywords_section
+    case 'MPSectionCategory:affiliations':
+      return schema.nodes.affiliations_section
+
+    case 'MPSectionCategory:contributors':
+      return schema.nodes.contributors_section
 
     case 'MPSectionCategory:toc':
       return schema.nodes.toc_section
@@ -194,6 +194,10 @@ export const buildSectionCategory = (
 
     case schema.nodes.graphical_abstract_section:
       return 'MPSectionCategory:abstract-graphical'
+    case schema.nodes.affiliations_section:
+      return 'MPSectionCategory:affiliations'
+    case schema.nodes.contributors_section:
+      return 'MPSectionCategory:contributors'
 
     default:
       return node.attrs.category || undefined
@@ -310,6 +314,10 @@ export const chooseSectionCategoryByType = (
       return 'MPSectionCategory:backmatter'
     case 'abstracts':
       return 'MPSectionCategory:abstracts'
+    case 'affiliations':
+      return 'MPSectionCategory:affiliations'
+    case 'contributors':
+      return 'MPSectionCategory:contributors'
     default:
       return undefined
   }

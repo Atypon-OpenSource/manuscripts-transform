@@ -29,6 +29,8 @@ import {
   tracked_insert,
   underline,
 } from './marks'
+import { affiliation } from './nodes/affiliation'
+import { affiliationsSection } from './nodes/affiliations_section'
 import { attribution } from './nodes/attribution'
 import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographyItem } from './nodes/bibliography_item'
@@ -39,6 +41,8 @@ import { captionTitle } from './nodes/caption_title'
 import { citation } from './nodes/citation'
 import { comment } from './nodes/comment'
 import { commentList } from './nodes/comment_list'
+import { contributor } from './nodes/contributor'
+import { contributorsSection } from './nodes/contributors_section'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
 import { equation } from './nodes/equation'
@@ -63,6 +67,7 @@ import { bulletList, listItem, orderedList } from './nodes/list'
 import { listing } from './nodes/listing'
 import { listingElement } from './nodes/listing_element'
 import { manuscript } from './nodes/manuscript'
+import { metaSection } from './nodes/meta_section'
 import { missingFigure } from './nodes/missing_figure'
 import { paragraph } from './nodes/paragraph'
 import { placeholder } from './nodes/placeholder'
@@ -74,6 +79,7 @@ import { sectionTitle } from './nodes/section_title'
 import { table, tableBody } from './nodes/table'
 import { tableCol, tableColGroup } from './nodes/table_col'
 import { tableElement } from './nodes/table_element'
+import { tableElementFooter } from './nodes/table_element_footer'
 import { tableCell, tableRow } from './nodes/table_row'
 import { text } from './nodes/text'
 import { tocElement } from './nodes/toc_element'
@@ -129,6 +135,12 @@ export * from './nodes/table_row'
 export * from './nodes/text'
 export * from './nodes/toc_element'
 export * from './nodes/toc_section'
+export * from './nodes/affiliation'
+export * from './nodes/meta_section'
+export * from './nodes/contributor'
+export * from './nodes/table_element_footer'
+export * from './nodes/affiliations_section'
+export * from './nodes/contributors_section'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -200,5 +212,11 @@ export const schema = new Schema<Nodes, Marks>({
     text,
     toc_element: tocElement,
     toc_section: tocSection,
+    affiliation,
+    meta_section: metaSection,
+    contributor: contributor,
+    table_element_footer: tableElementFooter,
+    affiliations_section: affiliationsSection,
+    contributors_section: contributorsSection,
   },
 })
