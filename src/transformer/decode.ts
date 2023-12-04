@@ -905,7 +905,10 @@ export class Decoder {
         {
           id: generateNodeID(schema.nodes.section),
         },
-        keywordElementNodes
+        [
+          schema.nodes.section_title.create({}, schema.text('Keywords')),
+          ...keywordElementNodes,
+        ]
       ) as KeywordsSectionNode
       rootSectionNodes.unshift(node)
     }
