@@ -44,6 +44,8 @@ import {
   TableElementFooter,
   Titles,
   TOCElement,
+  Title
+  
 } from '@manuscripts/json-schema'
 import debug from 'debug'
 import { DOMParser, ParseOptions } from 'prosemirror-model'
@@ -87,6 +89,7 @@ import {
   TableNode,
   TitleNode,
   TOCElementNode,
+  TitleNode,
 } from '../schema'
 import { AffiliationsSectionNode } from '../schema/nodes/affiliations_section'
 import { ContributorsSectionNode } from '../schema/nodes/contributors_section'
@@ -824,6 +827,15 @@ export class Decoder {
         priority: model.priority,
       }) as ContributorNode
     },
+    [ObjectTypes.Title]: (data)=> {
+      const model = data as Title
+      return this.parseContents(model.contents || '<div></div>',
+      undefined,
+      this.getComments(model),
+      {
+        topNode: schema.nodes.title.create()
+      }) as TitleNode
+    }
   }
 
   private createMetaSectionNode() {

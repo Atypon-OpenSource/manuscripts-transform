@@ -898,6 +898,7 @@ export class JATSExporter {
       bibliography_item: () => '',
       comment_list: () => '',
       keywords_group: () => '',
+      title: () => '',
       bibliography_section: (node) => [
         'ref-list',
         { id: normalizeID(node.attrs.id) },
