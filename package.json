@@ -30,7 +30,7 @@
     "version": "yarn build"
   },
   "dependencies": {
-    "@manuscripts/json-schema": "^2.2.0",
+    "@manuscripts/json-schema": "2.2.0-LEAN-2852-14",
     "debug": "^4.3.4",
     "jszip": "^3.10.1",
     "mathjax-full": "^3.2.2",

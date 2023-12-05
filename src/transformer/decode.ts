@@ -824,26 +824,6 @@ export class Decoder {
         priority: model.priority,
       }) as ContributorNode
     },
-    [ObjectTypes.Titles]: (data) => {
-      const model = data as Titles
-
-      return schema.nodes.titles.create({
-        id: model._id,
-        title: model.title,
-        subtitle: model.subtitle,
-        runningTitle: model.runningTitle,
-      }) as TitlesNode
-    },
-  }
-  private createTitlesNode() {
-    const titlesModel = getModelsByType<Titles>(this.modelMap, ObjectTypes.Titles)[0]
-
-    if (titlesModel) {
-      const titlesNode = this.decode(titlesModel) as TitlesNode
-      return titlesNode
-    } else {
-      return null
-    }
   }
 
   private createMetaSectionNode() {

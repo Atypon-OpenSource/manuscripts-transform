@@ -30,7 +30,7 @@ import {
   underline,
 } from './marks'
 import { affiliation } from './nodes/affiliation'
-import { affiliationList } from './nodes/affiliation_list'
+import { affiliationsSection } from './nodes/affiliations_section'
 import { attribution } from './nodes/attribution'
 import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographyItem } from './nodes/bibliography_item'

@@ -9,6 +9,19 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
+        "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+      },
+      "content": Array [
+        Object {
+          "text": "main title",
+          "type": "text",
+        },
+      ],
+      "type": "title",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9",
       },
       "content": Array [
@@ -2019,6 +2032,19 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
+        "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+      },
+      "content": Array [
+        Object {
+          "text": "main title",
+          "type": "text",
+        },
+      ],
+      "type": "title",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
         "id": "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9",
       },
       "content": Array [
@@ -3767,6 +3793,19 @@ Object {
     "id": "MPManuscript:8EB79C14-9F61-483A-902F-A0B8EF5973C9",
   },
   "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+      },
+      "content": Array [
+        Object {
+          "text": "main title",
+          "type": "text",
+        },
+      ],
+      "type": "title",
+    },
     Object {
       "attrs": Object {
         "dataTracked": null,
@@ -5780,12 +5819,15 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:E0892F21-4391-4793-82D2-35EE8F0722E9",
-        "runningTitle": "runningTitle",
-        "subtitle": "subtitle",
-        "title": "",
+        "id": "MPTitles:1",
       },
-      "type": "titles",
+      "content": Array [
+        Object {
+          "text": "main title",
+          "type": "text",
+        },
+      ],
+      "type": "title",
     },
     Object {
       "attrs": Object {
@@ -5905,12 +5947,15 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:8A1AEECE-D073-4B8E-9CEA-37FE05252428",
-        "runningTitle": "runningTitle",
-        "subtitle": "subtitle",
-        "title": "",
+        "id": "MPTitles:1",
       },
-      "type": "titles",
+      "content": Array [
+        Object {
+          "text": "main title",
+          "type": "text",
+        },
+      ],
+      "type": "title",
     },
     Object {
       "attrs": Object {
@@ -6150,12 +6195,15 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:152EAEF9-57F0-4FBE-B1E5-D96132B621DD",
-        "runningTitle": "runningTitle",
-        "subtitle": "subtitle",
-        "title": "",
+        "id": "MPTitles:1",
       },
-      "type": "titles",
+      "content": Array [
+        Object {
+          "text": "main title",
+          "type": "text",
+        },
+      ],
+      "type": "title",
     },
     Object {
       "attrs": Object {
@@ -6243,12 +6291,15 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:7F8DB663-1AF5-45EA-BB5A-B190667341DB",
-        "runningTitle": "runningTitle",
-        "subtitle": "subtitle",
-        "title": "",
+        "id": "MPTitles:1",
       },
-      "type": "titles",
+      "content": Array [
+        Object {
+          "text": "main title",
+          "type": "text",
+        },
+      ],
+      "type": "title",
     },
     Object {
       "attrs": Object {
@@ -6309,12 +6360,9 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:EDC5A7CA-82FE-4C5B-9125-2B72DE18DA42",
-        "runningTitle": "runningTitle",
-        "subtitle": "subtitle",
-        "title": "",
+        "id": "someId",
       },
-      "type": "titles",
+      "type": "title",
     },
     Object {
       "attrs": Object {
