@@ -11608,27 +11608,6 @@ Array [
     "title": "",
   },
   Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:bibliography",
-    "elementIDs": Array [
-      "MPBibliographyElement:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-      "MPSection:test",
-    ],
-    "priority": 14,
-    "title": "References",
-  },
-  Object {
-    "_id": "MPBibliographyElement:test",
-    "containedObjectIDs": Array [],
-    "contents": "",
-    "elementType": "div",
-    "objectType": "MPBibliographyElement",
-  },
-  Object {
     "_id": "MPElementsOrder:test",
     "elementType": "MPFigureElement",
     "elements": Array [
