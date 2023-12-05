@@ -140,6 +140,7 @@ export * from './nodes/affiliation'
 export * from './nodes/meta_section'
 export * from './nodes/contributor'
 export * from './nodes/table_element_footer'
+export * from './nodes/title'
 export * from './nodes/affiliations_section'
 export * from './nodes/contributors_section'
 export * from './nodes/title'
@@ -218,6 +219,7 @@ export const schema = new Schema<Nodes, Marks>({
     meta_section: metaSection,
     contributor: contributor,
     table_element_footer: tableElementFooter,
+    title: title,
     affiliations_section: affiliationsSection,
     contributors_section: contributorsSection,
     title,

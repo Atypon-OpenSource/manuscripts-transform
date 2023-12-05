@@ -19,7 +19,10 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
-  tabindex: string
+  id: string
+  title: string
+  subtitle: string
+  runningTitle: string
 }
 
 export interface TitleNode extends ManuscriptNode {
@@ -28,42 +31,13 @@ export interface TitleNode extends ManuscriptNode {
 
 export const title: NodeSpec = {
   content: 'text*',
-  marks: '',
+  marks: 'italic smallcaps subscript superscript tracked_insert tracked_delete',
 
   attrs: {
-    tabindex: { default: '2' },
+    id: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block',
-  defining: true,
-
-  parseDOM: [
-    {
-      tag: 'div',
-      getAttrs: (node) => {
-        const dom = node as HTMLElement
-
-        return {
-          tabindex: dom.getAttribute('tabindex') || '',
-        }
-      },
-    },
-  ],
-
-  toDOM: (node) => {
-    const titleNode = node as TitleNode
-
-    const attrs: { [key: string]: string } = {}
-
-    attrs.class = 'plain title-editor'
-
-    if (titleNode.attrs.tabindex) {
-      attrs.tabindex = titleNode.attrs.tabindex
-    }
-
-    attrs.contenteditable = 'true'
-    attrs.translate = 'false'
-
-    return ['div', attrs, 0]
-  },
+  group: 'block element',
+  parseDOM: [{ tag: 'div' }],
+  toDOM: () => ['div', 0],
 }

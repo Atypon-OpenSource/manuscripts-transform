@@ -42,6 +42,7 @@ import {
   Table,
   TableElement,
   TableElementFooter,
+  Titles,
   TOCElement,
 } from '@manuscripts/json-schema'
 import debug from 'debug'
@@ -84,11 +85,13 @@ import {
   TableElementFooterNode,
   TableElementNode,
   TableNode,
+  TitleNode,
   TOCElementNode,
 } from '../schema'
 import { AffiliationsSectionNode } from '../schema/nodes/affiliations_section'
 import { ContributorsSectionNode } from '../schema/nodes/contributors_section'
 import { KeywordsGroupNode } from '../schema/nodes/keywords_group'
+import { buildTitles } from './builders'
 import { insertHighlightMarkers } from './highlight-markers'
 import { generateNodeID } from './id'
 import { PlaceholderElement } from './models'
@@ -182,6 +185,15 @@ export class Decoder {
   >()
 
   private creators: NodeCreatorMap = {
+    [ObjectTypes.Titles]: (data) => {
+      const model = data as Titles
+
+      return this.parseContents(model.title, 'div', undefined, {
+        topNode: schema.nodes.title.create({
+          id: model._id,
+        }),
+      }) as TitleNode
+    },
     [ObjectTypes.BibliographyElement]: (data) => {
       const model = data as BibliographyElement
 
@@ -872,6 +884,12 @@ export class Decoder {
       rootSectionNodes.unshift(node)
     }
   }
+  private createTitleNode() {
+    const titles =
+      getModelsByType<Titles>(this.modelMap, ObjectTypes.Titles)[0] ||
+      (buildTitles() as Titles)
+    return this.decode(titles) as TitleNode
+  }
 
   private createRootSectionNodes() {
     let rootSections = getSections(this.modelMap).filter(
@@ -930,9 +948,14 @@ export class Decoder {
     this.modelMap.get(id) as T | undefined
 
   public createArticleNode = (manuscriptID?: string): ManuscriptNode => {
+    const titlesNode = this.createTitleNode()
     const rootSectionNodes = this.createRootSectionNodes()
     const metaSectionNode = this.createMetaSectionNode()
-    const contents: ManuscriptNode[] = [...rootSectionNodes, metaSectionNode]
+    const contents: ManuscriptNode[] = [
+      titlesNode,
+      ...rootSectionNodes,
+      metaSectionNode,
+    ]
 
     return schema.nodes.manuscript.create(
       {

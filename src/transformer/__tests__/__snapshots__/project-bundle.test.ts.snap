@@ -10,6 +10,19 @@ Object {
       Object {
         "attrs": Object {
           "dataTracked": null,
+          "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+        },
+        "content": Array [
+          Object {
+            "text": "main title",
+            "type": "text",
+          },
+        ],
+        "type": "title",
+      },
+      Object {
+        "attrs": Object {
+          "dataTracked": null,
           "id": "MPSection:197E522D-784E-4964-8E44-6DC54FACA405",
         },
         "content": Array [
@@ -1052,7 +1065,6 @@ Object {
       "createdAt": 1558720123,
       "objectType": "MPManuscript",
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
-      "title": "Uh-oh, here's another manuscript",
       "updatedAt": 1558720136,
     },
     "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8" => Object {
@@ -1063,7 +1075,6 @@ Object {
       "objectType": "MPManuscript",
       "priority": 1,
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
-      "title": "Manuscript Title",
       "updatedAt": 1558719612,
     },
     "MPParagraphElement:0EAC7ED3-41FB-468F-A267-60664A2F59B7" => Object {
@@ -1141,6 +1152,17 @@ Object {
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
       "updatedAt": 1558719757,
     },
+    "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1" => Object {
+      "_id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+      "containerID": "MPProject:ADC69637-C321-4158-8E24-F92068D4727D",
+      "createdAt": 1538472121.690101,
+      "manuscriptID": "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8",
+      "objectType": "MPTitles",
+      "runningTitle": "running title",
+      "subtitle": "subtitle",
+      "title": "main title",
+      "updatedAt": 1538472121.690101,
+    },
   },
 }
 `;
@@ -1152,6 +1174,19 @@ Object {
       "id": "MPManuscript:B3BB2CD8-F944-47C3-9F01-1996DBD417EE",
     },
     "content": Array [
+      Object {
+        "attrs": Object {
+          "dataTracked": null,
+          "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+        },
+        "content": Array [
+          Object {
+            "text": "main title",
+            "type": "text",
+          },
+        ],
+        "type": "title",
+      },
       Object {
         "attrs": Object {
           "dataTracked": null,
@@ -2408,7 +2443,6 @@ Object {
       "createdAt": 1558720123,
       "objectType": "MPManuscript",
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
-      "title": "Uh-oh, here's another manuscript",
       "updatedAt": 1558720136,
     },
     "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8" => Object {
@@ -2419,7 +2453,6 @@ Object {
       "objectType": "MPManuscript",
       "priority": 1,
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
-      "title": "Manuscript Title",
       "updatedAt": 1558719612,
     },
     "MPParagraphElement:0EAC7ED3-41FB-468F-A267-60664A2F59B7" => Object {
@@ -2636,6 +2669,17 @@ Object {
       "objectType": "MPTableElement",
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
       "updatedAt": 1558719757,
+    },
+    "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1" => Object {
+      "_id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+      "containerID": "MPProject:ADC69637-C321-4158-8E24-F92068D4727D",
+      "createdAt": 1538472121.690101,
+      "manuscriptID": "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8",
+      "objectType": "MPTitles",
+      "runningTitle": "running title",
+      "subtitle": "subtitle",
+      "title": "main title",
+      "updatedAt": 1538472121.690101,
     },
   },
 }
