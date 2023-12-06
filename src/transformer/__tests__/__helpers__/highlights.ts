@@ -28,6 +28,7 @@ import {
   ParagraphElement,
   Project,
   Section,
+  Titles,
 } from '@manuscripts/json-schema'
 
 export const createTestModelMapWithHighlights = () => {
@@ -63,6 +64,19 @@ export const createTestModelMapWithHighlights = () => {
   }
 
   modelMap.set(paragraphHighlight._id, paragraphHighlight)
+
+  const titles: Titles = {
+    objectType: ObjectTypes.Titles,
+    _id: 'MPTitles:1',
+    title: 'main title',
+    subtitle: 'subtitle',
+    runningTitle: 'runningTitle',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+  }
+  modelMap.set(titles._id, titles)
 
   const paragraphWithHighlight: ParagraphElement = {
     objectType: ObjectTypes.ParagraphElement,
@@ -227,6 +241,19 @@ export const createTestModelMapWithKeywords = () => {
     updatedAt: 0,
     containerID: project._id,
   }
+
+  const titles: Titles = {
+    objectType: ObjectTypes.Titles,
+    _id: 'MPTitles:1',
+    title: 'main title',
+    subtitle: 'subtitle',
+    runningTitle: 'runningTitle',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+  }
+  modelMap.set(titles._id, titles)
 
   const keyword: Keyword = {
     objectType: ObjectTypes.Keyword,
@@ -415,6 +442,19 @@ export const createTestModelMapWithDeprecatedKeywords = () => {
   }
 
   modelMap.set(manuscript._id, manuscript)
+
+  const titles: Titles = {
+    objectType: ObjectTypes.Titles,
+    _id: 'MPTitles:1',
+    title: 'main title',
+    subtitle: 'subtitle',
+    runningTitle: 'runningTitle',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+  }
+  modelMap.set(titles._id, titles)
 
   const paragraphElement: ParagraphElement = {
     objectType: ObjectTypes.ParagraphElement,
