@@ -898,7 +898,7 @@ export class JATSExporter {
       bibliography_element: () => '',
       bibliography_item: () => '',
       comment_list: () => '',
-      keywords_group: () => '',
+      keyword_group: () => '',
       body: () => ['body', 0],
       abstracts: () => ['abstract', 0],
       backmatter: () => ['backmatter', 0],

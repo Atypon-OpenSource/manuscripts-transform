@@ -69,21 +69,6 @@ Array [
     "title": "Human Psychopharmacology: Clinical and Experimental",
   },
   Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:contributors",
-    "elementIDs": Array [
-      "MPContributor:test",
-      "MPContributor:test",
-      "MPContributor:test",
-      "MPContributor:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 1,
-  },
-  Object {
     "ORCIDIdentifier": "https://orcid.org/0000-0001-6162-1335",
     "_id": "MPContributor:test",
     "affiliations": Array [
@@ -152,20 +137,6 @@ Array [
     "role": "author",
   },
   Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:affiliations",
-    "elementIDs": Array [
-      "MPAffiliation:test",
-      "MPAffiliation:test",
-      "MPAffiliation:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 2,
-  },
-  Object {
     "_id": "MPAffiliation:test",
     "addressLine1": "Suzhou, Jiangsu",
     "addressLine2": "",
@@ -200,19 +171,6 @@ Array [
     "objectType": "MPAffiliation",
     "postCode": "",
     "priority": 2,
-  },
-  Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:keywords",
-    "elementIDs": Array [
-      "MPKeywordsElement:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 3,
-    "title": "Keywords",
   },
   Object {
     "_id": "MPKeywordsElement:test",
@@ -257,17 +215,6 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:abstracts",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 4,
-    "title": "",
-  },
-  Object {
-    "_id": "MPSection:test",
     "category": "MPSectionCategory:abstract",
     "elementIDs": Array [
       "MPParagraphElement:test",
@@ -279,9 +226,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 5,
+    "priority": 1,
     "title": "Abstract",
   },
   Object {
@@ -321,17 +267,6 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:body",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 6,
-    "title": "",
-  },
-  Object {
-    "_id": "MPSection:test",
     "category": "MPSectionCategory:introduction",
     "elementIDs": Array [
       "MPParagraphElement:test",
@@ -342,9 +277,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 7,
+    "priority": 2,
     "title": "Introduction",
   },
   Object {
@@ -382,9 +316,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 8,
+    "priority": 3,
     "title": "Methods",
   },
   Object {
@@ -397,9 +330,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 9,
+    "priority": 4,
     "title": "Subjects",
   },
   Object {
@@ -427,9 +359,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 5,
     "title": "Clinical and neuropsychological assessment",
   },
   Object {
@@ -462,9 +393,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 6,
     "title": "Genotyping",
   },
   Object {
@@ -485,9 +415,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 7,
     "title": "Statistical analysis",
   },
   Object {
@@ -523,9 +452,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 8,
     "title": "Results",
   },
   Object {
@@ -569,9 +497,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 9,
     "title": "Discussion",
   },
   Object {
@@ -618,9 +545,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 15,
+    "priority": 10,
     "title": "Conclusions",
   },
   Object {
@@ -632,17 +558,6 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:backmatter",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 16,
-    "title": "",
-  },
-  Object {
-    "_id": "MPSection:test",
     "category": "MPSectionCategory:competing-interests",
     "elementIDs": Array [
       "MPParagraphElement:test",
@@ -650,9 +565,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 17,
+    "priority": 11,
     "title": "Conflict of Interest",
   },
   Object {
@@ -671,9 +585,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 18,
+    "priority": 12,
     "title": "Sources of Funding",
   },
   Object {
@@ -692,9 +605,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 19,
+    "priority": 13,
     "title": "Acknowledgments",
   },
   Object {
@@ -713,9 +625,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 20,
+    "priority": 14,
     "title": "References",
   },
   Object {
@@ -937,18 +848,6 @@ Array [
     "objectType": "MPJournal",
   },
   Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:contributors",
-    "elementIDs": Array [
-      "MPContributor:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 1,
-  },
-  Object {
     "_id": "MPContributor:test",
     "affiliations": Array [],
     "bibliographicName": Object {
@@ -963,37 +862,14 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:abstracts",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 2,
-    "title": "",
-  },
-  Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:body",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 3,
-    "title": "",
-  },
-  Object {
-    "_id": "MPSection:test",
     "elementIDs": Array [
       "MPParagraphElement:test",
     ],
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 4,
+    "priority": 1,
     "title": "Paragraphs",
   },
   Object {
@@ -1014,9 +890,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 5,
+    "priority": 2,
     "title": "Lists",
   },
   Object {
@@ -1053,9 +928,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 6,
+    "priority": 3,
     "title": "Figures",
   },
   Object {
@@ -1089,9 +963,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 7,
+    "priority": 4,
     "title": "Tables",
   },
   Object {
@@ -1122,9 +995,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 8,
+    "priority": 5,
     "title": "Equations",
   },
   Object {
@@ -1163,9 +1035,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 9,
+    "priority": 6,
     "title": "Listings",
   },
   Object {
@@ -1190,9 +1061,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 7,
     "title": "Inline",
   },
   Object {
@@ -1217,9 +1087,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 8,
     "title": "Quotes",
   },
   Object {
@@ -1247,9 +1116,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 9,
     "title": "Citations",
   },
   Object {
@@ -1275,17 +1143,6 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:backmatter",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 13,
-    "title": "",
-  },
-  Object {
-    "_id": "MPSection:test",
     "category": "MPSectionCategory:competing-interests",
     "elementIDs": Array [
       "MPParagraphElement:test",
@@ -1293,9 +1150,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 10,
     "title": "CONFLICT OF INTEREST",
   },
   Object {
@@ -1314,9 +1170,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 15,
+    "priority": 11,
     "title": "FUNDING INFORMATION",
   },
   Object {
@@ -1335,9 +1190,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 16,
+    "priority": 12,
     "title": "Bibliography",
   },
   Object {
@@ -1568,24 +1422,6 @@ Array [
     "title": "Hematological Oncology",
   },
   Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:contributors",
-    "elementIDs": Array [
-      "MPContributor:test",
-      "MPContributor:test",
-      "MPContributor:test",
-      "MPContributor:test",
-      "MPContributor:test",
-      "MPContributor:test",
-      "MPContributor:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 1,
-  },
-  Object {
     "_id": "MPContributor:test",
     "affiliations": Array [
       "MPAffiliation:test",
@@ -1694,19 +1530,6 @@ Array [
     "role": "author",
   },
   Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:affiliations",
-    "elementIDs": Array [
-      "MPAffiliation:test",
-      "MPAffiliation:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 2,
-  },
-  Object {
     "_id": "MPAffiliation:test",
     "addressLine1": "",
     "addressLine2": "",
@@ -1729,19 +1552,6 @@ Array [
     "objectType": "MPAffiliation",
     "postCode": "",
     "priority": 1,
-  },
-  Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:keywords",
-    "elementIDs": Array [
-      "MPKeywordsElement:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 3,
-    "title": "Keywords",
   },
   Object {
     "_id": "MPKeywordsElement:test",
@@ -1792,17 +1602,6 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:abstracts",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 4,
-    "title": "",
-  },
-  Object {
-    "_id": "MPSection:test",
     "category": "MPSectionCategory:abstract",
     "elementIDs": Array [
       "MPParagraphElement:test",
@@ -1810,9 +1609,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 5,
+    "priority": 1,
     "title": "Abstract",
   },
   Object {
@@ -1821,17 +1619,6 @@ Array [
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
-  },
-  Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:body",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 6,
-    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -1846,9 +1633,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 7,
+    "priority": 2,
     "title": "INTRODUCTION",
   },
   Object {
@@ -1893,9 +1679,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 8,
+    "priority": 3,
     "title": "MATERIALS AND METHODS",
   },
   Object {
@@ -1907,9 +1692,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 9,
+    "priority": 4,
     "title": "Patients",
   },
   Object {
@@ -1928,9 +1712,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 5,
     "title": "Treatment and monitoring",
   },
   Object {
@@ -1949,9 +1732,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 6,
     "title": "Response assessment",
   },
   Object {
@@ -1970,9 +1752,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 7,
     "title": "Survivals",
   },
   Object {
@@ -1989,9 +1770,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 8,
     "title": "RESULTS",
   },
   Object {
@@ -2006,9 +1786,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 9,
     "title": "Patients",
   },
   Object {
@@ -2135,9 +1914,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 15,
+    "priority": 10,
     "title": "Pembrolizumab cohort",
   },
   Object {
@@ -2157,9 +1935,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 16,
+    "priority": 11,
     "title": "Response to pembrolizumab",
   },
   Object {
@@ -2258,9 +2035,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 17,
+    "priority": 12,
     "title": "Outcome of mCR patients",
   },
   Object {
@@ -2302,9 +2078,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 18,
+    "priority": 13,
     "title": "Outcome of PR patients",
   },
   Object {
@@ -2323,9 +2098,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 19,
+    "priority": 14,
     "title": "Re-treatment of relapses with pembrolizumab",
   },
   Object {
@@ -2344,9 +2118,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 20,
+    "priority": 15,
     "title": "Adverse events of pembrolizumab treatment",
   },
   Object {
@@ -2365,9 +2138,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 21,
+    "priority": 16,
     "title": "Nivolumab cohort",
   },
   Object {
@@ -2386,9 +2158,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 22,
+    "priority": 17,
     "title": "Response to nivolumab",
   },
   Object {
@@ -2407,9 +2178,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 23,
+    "priority": 18,
     "title": "Outcome of CR patients",
   },
   Object {
@@ -2428,9 +2198,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 24,
+    "priority": 19,
     "title": "Outcome of PR/IR patients",
   },
   Object {
@@ -2449,9 +2218,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 25,
+    "priority": 20,
     "title": "Re-treatment with nivolumab",
   },
   Object {
@@ -2470,9 +2238,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 26,
+    "priority": 21,
     "title": "Adverse events of nivolumab treatment",
   },
   Object {
@@ -2491,9 +2258,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 27,
+    "priority": 22,
     "title": "Molecular responses",
   },
   Object {
@@ -2513,9 +2279,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 28,
+    "priority": 23,
     "title": "Survivals",
   },
   Object {
@@ -2565,9 +2330,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 29,
+    "priority": 24,
     "title": "DISCUSSION",
   },
   Object {
@@ -2635,17 +2399,6 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:backmatter",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 30,
-    "title": "",
-  },
-  Object {
-    "_id": "MPSection:test",
     "category": "MPSectionCategory:con",
     "elementIDs": Array [
       "MPParagraphElement:test",
@@ -2659,9 +2412,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 31,
+    "priority": 25,
     "title": "AUTHOR CONTRIBUTIONS",
   },
   Object {
@@ -2722,9 +2474,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 32,
+    "priority": 26,
     "title": "Acknowledgment and conflicts of interests",
   },
   Object {
@@ -2743,9 +2494,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 33,
+    "priority": 27,
     "title": "Footnotes",
   },
   Object {
@@ -2777,9 +2527,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 34,
+    "priority": 28,
     "title": "REFERENCES",
   },
   Object {
@@ -4713,38 +4462,6 @@ Array [
 ]
 `;
 
-exports[`JATS importer parses JATS front to Manuscripts models 1`] = `
-Array [
-  Object {
-    "_id": "MPTitles:test",
-    "objectType": "MPTitles",
-    "title": "A complete manuscript",
-  },
-  Object {
-    "_id": "MPManuscript:test",
-    "equationCount": 0,
-    "figureCount": 0,
-    "genericCounts": Array [
-      Object {
-        "count": 0,
-        "countType": "box",
-      },
-    ],
-    "objectType": "MPManuscript",
-    "referencesCount": 2,
-    "tableCount": 0,
-    "wordCount": 2910,
-  },
-  Object {
-    "ISSNs": Array [],
-    "_id": "MPJournal:test",
-    "abbreviatedTitles": Array [],
-    "journalIdentifiers": Array [],
-    "objectType": "MPJournal",
-  },
-]
-`;
-
 exports[`JATS importer parses full JATS body to a ProseMirror doc 1`] = `
 Object {
   "content": Array [
@@ -4782,7 +4499,6 @@ Object {
                 Object {
                   "attrs": Object {
                     "comments": null,
-                    "contents": "",
                     "dataTracked": null,
                   },
                   "content": Array [
@@ -4796,7 +4512,6 @@ Object {
                 Object {
                   "attrs": Object {
                     "comments": null,
-                    "contents": "",
                     "dataTracked": null,
                   },
                   "content": Array [
@@ -4810,7 +4525,6 @@ Object {
                 Object {
                   "attrs": Object {
                     "comments": null,
-                    "contents": "",
                     "dataTracked": null,
                   },
                   "content": Array [
@@ -4824,7 +4538,6 @@ Object {
                 Object {
                   "attrs": Object {
                     "comments": null,
-                    "contents": "",
                     "dataTracked": null,
                   },
                   "content": Array [
@@ -4836,30 +4549,16 @@ Object {
                   "type": "keyword",
                 },
               ],
-              "type": "keywords_group",
+              "type": "keyword_group",
             },
           ],
           "type": "keywords_element",
         },
       ],
-      "type": "keywords_section",
+      "type": "keywords",
     },
     Object {
-      "attrs": Object {
-        "category": "MPSectionCategory:abstracts",
-        "comments": null,
-        "dataTracked": null,
-        "generatedLabel": undefined,
-        "pageBreakStyle": undefined,
-        "titleSuppressed": false,
-      },
       "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "type": "section_title",
-        },
         Object {
           "attrs": Object {
             "category": "MPSectionCategory:abstract-teaser",
@@ -5006,24 +4705,10 @@ Object {
           "type": "section",
         },
       ],
-      "type": "section",
+      "type": "abstracts",
     },
     Object {
-      "attrs": Object {
-        "category": "MPSectionCategory:body",
-        "comments": null,
-        "dataTracked": null,
-        "generatedLabel": undefined,
-        "pageBreakStyle": undefined,
-        "titleSuppressed": false,
-      },
       "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "type": "section_title",
-        },
         Object {
           "attrs": Object {
             "category": "MPSectionCategory:introduction",
@@ -6283,24 +5968,10 @@ Object {
           "type": "section",
         },
       ],
-      "type": "section",
+      "type": "body",
     },
     Object {
-      "attrs": Object {
-        "category": "MPSectionCategory:backmatter",
-        "comments": null,
-        "dataTracked": null,
-        "generatedLabel": undefined,
-        "pageBreakStyle": undefined,
-        "titleSuppressed": false,
-      },
       "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "type": "section_title",
-        },
         Object {
           "attrs": Object {
             "category": "MPSectionCategory:con",
@@ -6790,7 +6461,7 @@ Object {
           "type": "section",
         },
       ],
-      "type": "section",
+      "type": "backmatter",
     },
     Object {
       "content": Array [
@@ -6849,19 +6520,6 @@ Array [
     "title": "NLM-Export",
   },
   Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:contributors",
-    "elementIDs": Array [
-      "MPContributor:test",
-      "MPContributor:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 1,
-  },
-  Object {
     "_id": "MPContributor:test",
     "affiliations": Array [
       "MPAffiliation:test",
@@ -6892,19 +6550,6 @@ Array [
     "role": "author",
   },
   Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:affiliations",
-    "elementIDs": Array [
-      "MPAffiliation:test",
-      "MPAffiliation:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 2,
-  },
-  Object {
     "_id": "MPAffiliation:test",
     "addressLine1": "",
     "addressLine2": "",
@@ -6927,19 +6572,6 @@ Array [
     "objectType": "MPAffiliation",
     "postCode": "",
     "priority": 1,
-  },
-  Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:keywords",
-    "elementIDs": Array [
-      "MPKeywordsElement:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 3,
-    "title": "Keywords",
   },
   Object {
     "_id": "MPKeywordsElement:test",
@@ -6978,17 +6610,6 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:abstracts",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 4,
-    "title": "",
-  },
-  Object {
-    "_id": "MPSection:test",
     "category": "MPSectionCategory:abstract",
     "elementIDs": Array [
       "MPParagraphElement:test",
@@ -6996,9 +6617,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 5,
+    "priority": 1,
     "title": "Abstract",
   },
   Object {
@@ -7007,17 +6627,6 @@ Array [
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
-  },
-  Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:body",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 6,
-    "title": "",
   },
   Object {
     "_id": "MPSection:test",
@@ -7039,9 +6648,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 7,
+    "priority": 2,
     "title": "Introduction",
   },
   Object {
@@ -7149,9 +6757,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 8,
+    "priority": 3,
     "title": "Measures of Liquidity and Data Description",
   },
   Object {
@@ -7172,9 +6779,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 9,
+    "priority": 4,
     "title": "Measuring Liquidity",
   },
   Object {
@@ -7458,9 +7064,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 5,
     "title": "Data Description",
   },
   Object {
@@ -7577,9 +7182,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 6,
     "title": "Empirical Methodology",
   },
   Object {
@@ -7733,9 +7337,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 7,
     "title": "Empirical Results",
   },
   Object {
@@ -7756,9 +7359,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 13,
+    "priority": 8,
     "title": "Election Uncertainty and Market Liquidity",
   },
   Object {
@@ -8178,9 +7780,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 9,
     "title": "Election Uncertainty and Market Liquidity—Stock Characteristics",
   },
   Object {
@@ -8388,9 +7989,8 @@ Array [
     "path": Array [
       "MPSection:test",
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 15,
+    "priority": 10,
     "title": "Election Uncertainty and Market Liquidity—Politically Sensitive Industries",
   },
   Object {
@@ -8501,9 +8101,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 16,
+    "priority": 11,
     "title": "Robustness",
   },
   Object {
@@ -8614,9 +8213,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 17,
+    "priority": 12,
     "title": "Conclusion",
   },
   Object {
@@ -8635,17 +8233,6 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:backmatter",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 18,
-    "title": "",
-  },
-  Object {
-    "_id": "MPSection:test",
     "category": "MPSectionCategory:endnotes",
     "elementIDs": Array [
       "MPFootnotesElement:test",
@@ -8653,9 +8240,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 19,
+    "priority": 13,
     "title": "Footnotes",
   },
   Object {
@@ -8940,9 +8526,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 20,
+    "priority": 14,
     "title": "Table A1",
   },
   Object {
@@ -8997,9 +8582,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 21,
+    "priority": 15,
     "title": "References",
   },
   Object {
@@ -11288,18 +10872,6 @@ Array [
     "objectType": "MPJournal",
   },
   Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:contributors",
-    "elementIDs": Array [
-      "MPContributor:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 1,
-  },
-  Object {
     "_id": "MPContributor:test",
     "affiliations": Array [],
     "bibliographicName": Object {
@@ -11314,37 +10886,14 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:abstracts",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 2,
-    "title": "",
-  },
-  Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:body",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 3,
-    "title": "",
-  },
-  Object {
-    "_id": "MPSection:test",
     "elementIDs": Array [
       "MPParagraphElement:test",
     ],
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 4,
+    "priority": 1,
     "title": "Paragraphs",
   },
   Object {
@@ -11365,9 +10914,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 5,
+    "priority": 2,
     "title": "Lists",
   },
   Object {
@@ -11404,9 +10952,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 6,
+    "priority": 3,
     "title": "Figures",
   },
   Object {
@@ -11440,9 +10987,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 7,
+    "priority": 4,
     "title": "Tables",
   },
   Object {
@@ -11473,9 +11019,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 8,
+    "priority": 5,
     "title": "Equations",
   },
   Object {
@@ -11514,9 +11059,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 9,
+    "priority": 6,
     "title": "Listings",
   },
   Object {
@@ -11541,9 +11085,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 10,
+    "priority": 7,
     "title": "Inline",
   },
   Object {
@@ -11568,9 +11111,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 11,
+    "priority": 8,
     "title": "Quotes",
   },
   Object {
@@ -11598,9 +11140,8 @@ Array [
     "objectType": "MPSection",
     "path": Array [
       "MPSection:test",
-      "MPSection:test",
     ],
-    "priority": 12,
+    "priority": 9,
     "title": "Citations",
   },
   Object {
@@ -11623,17 +11164,6 @@ Array [
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
-  },
-  Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:backmatter",
-    "elementIDs": Array [],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 13,
-    "title": "",
   },
   Object {
     "_id": "MPElementsOrder:test",
@@ -11707,40 +11237,10 @@ exports[`JATS importer parses minimal JATS body to a ProseMirror doc 1`] = `
 Object {
   "content": Array [
     Object {
-      "attrs": Object {
-        "category": "MPSectionCategory:abstracts",
-        "comments": null,
-        "dataTracked": null,
-        "generatedLabel": undefined,
-        "pageBreakStyle": undefined,
-        "titleSuppressed": false,
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "type": "section_title",
-        },
-      ],
-      "type": "section",
+      "type": "abstracts",
     },
     Object {
-      "attrs": Object {
-        "category": "MPSectionCategory:body",
-        "comments": null,
-        "dataTracked": null,
-        "generatedLabel": undefined,
-        "pageBreakStyle": undefined,
-        "titleSuppressed": false,
-      },
       "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "type": "section_title",
-        },
         Object {
           "attrs": Object {
             "category": "",
@@ -12922,24 +12422,10 @@ Object {
           "type": "section",
         },
       ],
-      "type": "section",
+      "type": "body",
     },
     Object {
-      "attrs": Object {
-        "category": "MPSectionCategory:backmatter",
-        "comments": null,
-        "dataTracked": null,
-        "generatedLabel": undefined,
-        "pageBreakStyle": undefined,
-        "titleSuppressed": false,
-      },
       "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "type": "section_title",
-        },
         Object {
           "attrs": Object {
             "category": "MPSectionCategory:competing-interests",
@@ -13021,7 +12507,7 @@ Object {
           "type": "section",
         },
       ],
-      "type": "section",
+      "type": "backmatter",
     },
     Object {
       "content": Array [

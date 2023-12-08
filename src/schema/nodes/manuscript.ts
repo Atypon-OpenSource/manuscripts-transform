@@ -26,7 +26,7 @@ export interface ActualManuscriptNode extends ManuscriptNode {
 
 export const manuscript: NodeSpec = {
   content:
-    'title contributors affiliations keywords abstracts body backmatter meta_section',
+    'title? contributors? affiliations? keywords? abstracts body backmatter meta_section',
   attrs: {
     id: { default: '' },
   },

@@ -731,19 +731,6 @@ const nodes: NodeRule[] = [
   {
     tag: 'sec[sec-type="keywords"]',
     node: 'keywords', // NOTE: higher priority than 'section'
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      return {
-        id: element.getAttribute('id'),
-        category: chooseSectionCategory(element),
-      }
-    },
-  },
-  {
-    tag: 'kwd-group-list',
-    context: 'keywords/',
-    node: 'keywords_element',
   },
   {
     tag: 'sec[sec-type="abstracts"]',
@@ -770,9 +757,14 @@ const nodes: NodeRule[] = [
     },
   },
   {
+    tag: 'kwd-group-list',
+    context: 'keywords/',
+    node: 'keywords_element',
+  },
+  {
     tag: 'kwd-group',
     context: 'keywords_element/',
-    node: 'keywords_group',
+    node: 'keyword_group',
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
@@ -782,7 +774,7 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'kwd',
-    context: 'keywords_group//',
+    context: 'keyword_group//',
     node: 'keyword',
   },
   {

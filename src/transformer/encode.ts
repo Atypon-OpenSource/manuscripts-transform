@@ -655,9 +655,8 @@ const encoders: NodeEncoderMap = {
     elementType: 'div',
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
-  keywords_group: (node): Partial<KeywordGroup> => ({
+  keyword_group: (node): Partial<KeywordGroup> => ({
     type: node.attrs.type,
-    // title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
   }),
   missing_figure: (node): Partial<MissingFigure> => ({
     position: node.attrs.position || undefined,

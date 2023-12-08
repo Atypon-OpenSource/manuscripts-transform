@@ -9,19 +9,6 @@ Map {
     "subtitle": undefined,
     "title": "main title",
   },
-  "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9" => Object {
-    "_id": "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9",
-    "category": "MPSectionCategory:contributors",
-    "elementIDs": Array [
-      "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
-      "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9",
-    ],
-    "priority": 1,
-  },
   "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6" => Object {
     "ORCIDIdentifier": "",
     "_id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
@@ -62,18 +49,6 @@ Map {
     "role": "author",
     "userID": "",
   },
-  "MPSection:71C77CD7-71B9-4A09-AAB5-6B24DD06D618" => Object {
-    "_id": "MPSection:71C77CD7-71B9-4A09-AAB5-6B24DD06D618",
-    "category": "MPSectionCategory:affiliations",
-    "elementIDs": Array [
-      "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:71C77CD7-71B9-4A09-AAB5-6B24DD06D618",
-    ],
-    "priority": 2,
-  },
   "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08" => Object {
     "_id": "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
     "addressLine1": "",
@@ -99,7 +74,7 @@ Map {
     "path": Array [
       "MPSection:DFCBE345-A12D-451E-8320-723F25D2F472",
     ],
-    "priority": 3,
+    "priority": 1,
     "title": "Table of Contents",
   },
   "MPTOCElement:657C54DB-78B5-4206-E322-170F68263A01" => Object {
@@ -207,7 +182,7 @@ Map {
     "path": Array [
       "MPSection:77786D47-6060-4FBC-BC13-5FA754968D6A",
     ],
-    "priority": 4,
+    "priority": 2,
     "title": "First section",
     "titleSuppressed": undefined,
   },
@@ -274,7 +249,7 @@ Map {
     "path": Array [
       "MPSection:F8EE617B-484B-4CF2-F1CA-014F5307D5CF",
     ],
-    "priority": 5,
+    "priority": 3,
     "title": "Section Two",
     "titleSuppressed": true,
   },
@@ -567,7 +542,7 @@ const x = 'y'",
     "path": Array [
       "MPSection:E07B0D52-9642-4D58-E577-26F8804E3DEE",
     ],
-    "priority": 6,
+    "priority": 4,
     "title": "Bibliography",
   },
   "MPBibliographyElement:5987B3BA-D894-4700-90D6-114E20B9F3B1" => Object {
@@ -698,19 +673,6 @@ Map {
     "runningTitle": undefined,
     "subtitle": undefined,
     "title": "main title",
-  },
-  "MPSection:1" => Object {
-    "_id": "MPSection:1",
-    "category": "MPSectionCategory:keywords",
-    "elementIDs": Array [
-      "MPKeywordsElement:1",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:1",
-    ],
-    "priority": 1,
-    "title": "Keywords",
   },
   "MPKeywordsElement:1" => Object {
     "_id": "MPKeywordsElement:1",

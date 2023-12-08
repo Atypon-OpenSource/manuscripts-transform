@@ -1,5 +1,5 @@
 /*!
- * © 2023 Atypon Systems LLC
+ * © 2019 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
@@ -21,43 +22,41 @@ interface Attrs {
   id: string
 }
 
-export interface AffiliationsSectionNode extends ManuscriptNode {
+export interface KeywordGroupNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const affiliationsSection: NodeSpec = {
-  content: 'section_title? affiliation*',
+export const keywordGroup: NodeSpec = {
+  content: 'keyword*',
   attrs: {
-    id: { default: 'META_SECTION_AFFILLIATIONS' },
+    id: { default: '' },
+    type: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block sections',
+  group: 'block',
   selectable: false,
   parseDOM: [
     {
-      tag: 'section.affiliations',
-      getAttrs: (section) => {
-        const dom = section as HTMLElement
-
-        return {
-          contents: dom.innerHTML,
-        }
-      },
+      tag: 'div.keywords',
     },
   ],
   toDOM: (node) => {
-    const affiliationsSectionNode = node as AffiliationsSectionNode
+    const keywordGroupNode = node as KeywordGroupNode
+
     return [
-      'section',
+      'div',
       {
-        class: 'affiliations',
-        id: affiliationsSectionNode.attrs.id,
+        id: keywordGroupNode.attrs.id,
+        class: 'keywords',
+        spellcheck: 'false',
+        contenteditable: false,
       },
-      0
+      0,
     ]
   },
 }
-export const isAffiliationsSectionNode = (
+
+export const isKeywordGroupNode = (
   node: ManuscriptNode
-): node is AffiliationsSectionNode =>
-  node.type === node.type.schema.nodes.affiliations
+): node is KeywordGroupNode =>
+  node.type === node.type.schema.nodes.keywords_group

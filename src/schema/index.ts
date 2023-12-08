@@ -30,7 +30,7 @@ import {
   underline,
 } from './marks'
 import { affiliation } from './nodes/affiliation'
-import { affiliationsSection } from './nodes/affiliations_section'
+import { affiliations } from './nodes/affiliations'
 import { attribution } from './nodes/attribution'
 import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographyItem } from './nodes/bibliography_item'
@@ -42,7 +42,7 @@ import { citation } from './nodes/citation'
 import { comment } from './nodes/comment'
 import { commentList } from './nodes/comment_list'
 import { contributor } from './nodes/contributor'
-import { contributorList } from './nodes/contributor_list'
+import { contributors } from './nodes/contributors'
 import { coreSection } from './nodes/core_section'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
@@ -60,9 +60,8 @@ import { highlightMarker } from './nodes/highlight_marker'
 import { inlineEquation } from './nodes/inline_equation'
 import { inlineFootnote } from './nodes/inline_footnote'
 import { keyword } from './nodes/keyword'
-import { keywordsElement } from './nodes/keywords_element'
-import { keywordsGroup } from './nodes/keywords_group'
-import { keywordsSection } from './nodes/keywords_section'
+import { keywordGroup } from './nodes/keyword_group'
+import { keywords } from './nodes/keywords'
 import { link } from './nodes/link'
 import { bulletList, listItem, orderedList } from './nodes/list'
 import { listing } from './nodes/listing'
@@ -87,6 +86,7 @@ import { title } from './nodes/title'
 import { tocElement } from './nodes/toc_element'
 import { tocSection } from './nodes/toc_section'
 import { Marks, Nodes } from './types'
+import {keywordsElement} from "./nodes/keywords_element";
 
 export * from './groups'
 export * from './types'
@@ -117,7 +117,7 @@ export * from './nodes/inline_equation'
 export * from './nodes/inline_footnote'
 export * from './nodes/keyword'
 export * from './nodes/keywords_element'
-export * from './nodes/keywords_section'
+export * from './nodes/keywords'
 export * from './nodes/link'
 export * from './nodes/list'
 export * from './nodes/listing'
@@ -142,8 +142,8 @@ export * from './nodes/meta_section'
 export * from './nodes/contributor'
 export * from './nodes/table_element_footer'
 export * from './nodes/title'
-export * from './nodes/affiliations_section'
-export * from './nodes/contributors_section'
+export * from './nodes/affiliations'
+export * from './nodes/contributors'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -191,8 +191,8 @@ export const schema = new Schema<Nodes, Marks>({
     inline_footnote: inlineFootnote,
     keyword,
     keywords_element: keywordsElement,
-    keywords: keywordsSection,
-    keywords_group: keywordsGroup,
+    keywords: keywords,
+    keyword_group: keywordGroup,
     link,
     list_item: listItem,
     listing,
@@ -223,7 +223,7 @@ export const schema = new Schema<Nodes, Marks>({
     contributor: contributor,
     table_element_footer: tableElementFooter,
     title: title,
-    affiliations: affiliationsSection,
-    contributors: contributorsSection,
+    affiliations: affiliations,
+    contributors: contributors,
   },
 })

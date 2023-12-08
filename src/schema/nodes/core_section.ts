@@ -16,22 +16,12 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
-  id: string
-}
-
-export interface CoreSection extends ManuscriptNode {
-  attrs: Attrs
-}
-
 export const coreSection: NodeSpec = {
-  content: '(section | sections)*',
+  content: 'sections*',
   atom: true,
   attrs: {
     id: { default: '' },
   },
-  group: 'block sections',
+  group: 'block',
   toDOM: () => ['section', 0],
 }

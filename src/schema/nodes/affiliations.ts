@@ -19,45 +19,45 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  contents: string
 }
 
-export interface ContributorsSectionNode extends ManuscriptNode {
+export interface AffiliationsNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const contributorsSection: NodeSpec = {
-  content: 'section_title? contributor*',
+export const affiliations: NodeSpec = {
+  content: 'section_title? affiliation*',
   attrs: {
-    id: { default: 'META_SECTION_CONTRIBUTORS' },
+    id: { default: 'META_SECTION_AFFILLIATIONS' },
     dataTracked: { default: null },
-    contents: { default: '' },
   },
-  group: 'block sections',
+  group: 'block',
   selectable: false,
   parseDOM: [
     {
-      tag: 'section.contributors',
-      getAttrs: () => {
+      tag: 'section.affiliations',
+      getAttrs: (section) => {
+        const dom = section as HTMLElement
+
         return {
-          contents: '',
+          contents: dom.innerHTML,
         }
       },
     },
   ],
   toDOM: (node) => {
-    const contributorsSectionNode = node as ContributorsSectionNode
+    const affiliationsSectionNode = node as AffiliationsSectionNode
     return [
       'section',
       {
-        class: 'contributors',
-        id: contributorsSectionNode.attrs.id,
+        class: 'affiliations',
+        id: affiliationsSectionNode.attrs.id,
       },
-      0,
+      0
     ]
   },
 }
-export const isContributorsSectionNode = (
+export const isAffiliationsNode = (
   node: ManuscriptNode
-): node is ContributorsSectionNode =>
-  node.type === node.type.schema.nodes.contributors
+): node is AffiliationsNode =>
+  node.type === node.type.schema.nodes.affiliations

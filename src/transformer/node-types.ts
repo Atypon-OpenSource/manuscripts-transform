@@ -53,7 +53,7 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.keyword, ObjectTypes.Keyword],
   [schema.nodes.keywords_element, ObjectTypes.KeywordsElement],
   [schema.nodes.keywords, ObjectTypes.Section],
-  [schema.nodes.keywords_group, ObjectTypes.KeywordGroup],
+  [schema.nodes.keyword_group, ObjectTypes.KeywordGroup],
   [schema.nodes.listing, ObjectTypes.Listing],
   [schema.nodes.listing_element, ObjectTypes.ListingElement],
   [schema.nodes.manuscript, ObjectTypes.Manuscript],
