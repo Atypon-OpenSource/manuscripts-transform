@@ -18,39 +18,26 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export interface ActualManuscriptNode extends ManuscriptNode {
-  attrs: {
-    id: string
-  }
+interface Attrs {
+  id: string
+  title: string
+  subtitle: string
+  runningTitle: string
 }
 
-export const manuscript: NodeSpec = {
-  content: 'title* (section | sections)+ meta_section', // sections is a group of elements that have group: sections
+export interface TitleNode extends ManuscriptNode {
+  attrs: Attrs
+}
+
+export const title: NodeSpec = {
+  content: 'text*',
+  marks: 'italic smallcaps subscript superscript tracked_insert tracked_delete',
+
   attrs: {
     id: { default: '' },
+    dataTracked: { default: null },
   },
-  group: 'block',
-  parseDOM: [
-    {
-      tag: 'article',
-      getAttrs: (p) => {
-        const dom = p as HTMLElement
-
-        return {
-          id: dom.getAttribute('id'),
-        }
-      },
-    },
-  ],
-  toDOM: (node) => {
-    const manuscriptNode = node as ActualManuscriptNode
-
-    return [
-      'article',
-      {
-        id: manuscriptNode.attrs.id,
-      },
-      0,
-    ]
-  },
+  group: 'block element',
+  parseDOM: [{ tag: 'div' }],
+  toDOM: () => ['div', 0],
 }
