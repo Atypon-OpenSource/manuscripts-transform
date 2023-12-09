@@ -1,5 +1,5 @@
 /*!
- * © 2023 Atypon Systems LLC
+ * © 2019 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,31 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
-  id: string
   contents: string
+  id: string
+  paragraphStyle?: string
 }
 
-export interface ContributorsSectionNode extends ManuscriptNode {
+export interface ContributorsElementNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const contributorsSection: NodeSpec = {
-  content: 'section_title? contributor*',
+export const contributorsElement: NodeSpec = {
+  content: 'contributor*',
   attrs: {
-    id: { default: 'META_SECTION_CONTRIBUTORS' },
-    dataTracked: { default: null },
+    id: { default: '' },
     contents: { default: '' },
+    dataTracked: { default: null },
   },
-  group: 'block sections',
+  group: 'block element',
   selectable: false,
   parseDOM: [
     {
-      tag: 'section.contributors',
+      tag: 'div.manuscript-contributors',
       getAttrs: () => {
         return {
           contents: '',
@@ -46,18 +48,15 @@ export const contributorsSection: NodeSpec = {
     },
   ],
   toDOM: (node) => {
-    const contributorsSectionNode = node as ContributorsSectionNode
+    const contributorsElementNode = node as ContributorsElementNode
+
     return [
-      'section',
+      'div',
       {
-        class: 'contributors',
-        id: contributorsSectionNode.attrs.id,
+        class: 'manuscript-contributors',
+        id: contributorsElementNode.attrs.id,
       },
       0,
     ]
   },
 }
-export const isContributorsSectionNode = (
-  node: ManuscriptNode
-): node is ContributorsSectionNode =>
-  node.type === node.type.schema.nodes.contributors_section

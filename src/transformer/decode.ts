@@ -782,35 +782,41 @@ export class Decoder {
     [ObjectTypes.Affiliation]: (data) => {
       const model = data as Affiliation
 
-      return schema.nodes.affiliation.create({
-        id: model._id,
-        institution: model.institution,
-        addressLine1: model.addressLine1,
-        addressLine2: model.addressLine2,
-        addressLine3: model.addressLine3,
-        postCode: model.postCode,
-        country: model.country,
-        email: model.email,
-        department: model.department,
-        priority: model.priority,
-      }) as AffiliationNode
+      return schema.nodes.affiliation.create(
+        {
+          id: model._id,
+          institution: model.institution,
+          addressLine1: model.addressLine1,
+          addressLine2: model.addressLine2,
+          addressLine3: model.addressLine3,
+          postCode: model.postCode,
+          country: model.country,
+          email: model.email,
+          department: model.department,
+          priority: model.priority,
+        },
+        schema.text('_') // placeholder to ensure correct track-changes functioning
+      ) as AffiliationNode
     },
     [ObjectTypes.Contributor]: (data) => {
       const model = data as Contributor
 
-      return schema.nodes.contributor.create({
-        id: model._id,
-        role: model.role,
-        affiliations: model.affiliations,
-        bibliographicName: model.bibliographicName,
-        userID: model.userID,
-        invitationID: model.invitationID,
-        isCorresponding: model.isCorresponding,
-        ORCIDIdentifier: model.ORCIDIdentifier,
-        footnote: model.footnote,
-        corresp: model.corresp,
-        priority: model.priority,
-      }) as ContributorNode
+      return schema.nodes.contributor.create(
+        {
+          id: model._id,
+          role: model.role,
+          affiliations: model.affiliations,
+          bibliographicName: model.bibliographicName,
+          userID: model.userID,
+          invitationID: model.invitationID,
+          isCorresponding: model.isCorresponding,
+          ORCIDIdentifier: model.ORCIDIdentifier,
+          footnote: model.footnote,
+          corresp: model.corresp,
+          priority: model.priority,
+        },
+        schema.text('_') // placeholder to ensure correct track-changes functioning
+      ) as ContributorNode
     },
   }
 

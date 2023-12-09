@@ -49,6 +49,7 @@ export const contributor: NodeSpec = {
     ORCIDIdentifier: { default: undefined },
     priority: { default: undefined },
     dataTracked: { default: null },
+    contents: { default: '' },
   },
   group: 'block element',
   toDOM: (node) => {
