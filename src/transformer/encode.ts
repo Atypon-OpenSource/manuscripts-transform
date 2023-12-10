@@ -41,6 +41,7 @@ import {
   Table,
   TableElement,
   TableElementFooter,
+  Titles,
   TOCElement,
 } from '@manuscripts/json-schema'
 import { DOMSerializer, Node } from 'prosemirror-model'
@@ -434,6 +435,12 @@ type NodeEncoder = (
 type NodeEncoderMap = { [key in Nodes]?: NodeEncoder }
 
 const encoders: NodeEncoderMap = {
+  title: (node): Partial<Titles> => ({
+    title: inlineContents(node),
+    subtitle: node.attrs.subtitle,
+    runningTitle: node.attrs.runningTitle,
+    _id: node.attrs._id,
+  }),
   bibliography_element: (node): Partial<BibliographyElement> => ({
     elementType: 'div',
     contents: '',
