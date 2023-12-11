@@ -19,6 +19,7 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
+  contents: string
 }
 
 export interface ContributorsSectionNode extends ManuscriptNode {
@@ -28,12 +29,33 @@ export interface ContributorsSectionNode extends ManuscriptNode {
 export const contributorsSection: NodeSpec = {
   content: 'section_title? contributor*',
   attrs: {
-    id: { default: '' },
+    id: { default: 'META_SECTION_CONTRIBUTORS' },
     dataTracked: { default: null },
+    contents: { default: '' },
   },
   group: 'block sections',
   selectable: false,
-  toDOM: () => ['section', 0],
+  parseDOM: [
+    {
+      tag: 'section.contributors',
+      getAttrs: () => {
+        return {
+          contents: '',
+        }
+      },
+    },
+  ],
+  toDOM: (node) => {
+    const contributorsSectionNode = node as ContributorsSectionNode
+    return [
+      'section',
+      {
+        class: 'contributors',
+        id: contributorsSectionNode.attrs.id,
+      },
+      0,
+    ]
+  },
 }
 export const isContributorsSectionNode = (
   node: ManuscriptNode

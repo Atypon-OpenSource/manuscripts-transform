@@ -56,9 +56,31 @@ export const affiliation: NodeSpec = {
         text: undefined,
       },
     },
+    dataTracked: { default: null },
   },
   group: 'block element',
-  toDOM: () => ['span'],
+  parseDOM: [
+    {
+      tag: 'div.affiliation',
+      getAttrs: (node) => {
+        const dom = node as HTMLSpanElement
+
+        return {
+          id: dom.getAttribute('id'),
+        }
+      },
+    },
+  ],
+  toDOM: (node) => {
+    const affiliationNode = node as AffiliationNode
+    return [
+      'div',
+      {
+        class: 'affiliation',
+        id: affiliationNode.attrs.id,
+      },
+    ]
+  },
 }
 
 export const isAffiliationNode = (
