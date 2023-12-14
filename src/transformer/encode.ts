@@ -42,6 +42,7 @@ import {
   Table,
   TableElement,
   TableElementFooter,
+  Titles,
   TOCElement,
 } from '@manuscripts/json-schema'
 import { DOMSerializer, Node } from 'prosemirror-model'
@@ -436,6 +437,12 @@ type NodeEncoder = (
 type NodeEncoderMap = { [key in Nodes]?: NodeEncoder }
 
 const encoders: NodeEncoderMap = {
+  title: (node): Partial<Titles> => ({
+    title: inlineContents(node),
+    subtitle: node.attrs.subtitle,
+    runningTitle: node.attrs.runningTitle,
+    _id: node.attrs._id,
+  }),
   bibliography_element: (node): Partial<BibliographyElement> => ({
     elementType: 'div',
     contents: '',
@@ -809,7 +816,7 @@ export const modelFromNode = (
   priority: PrioritizedValue
 ): {
   model: Model
-  commentAnnotationsMap: Map<string, Build<CommentAnnotation>>
+  comments: Build<CommentAnnotation>[]
 } => {
   const commentAnnotationsMap = new Map<string, Build<CommentAnnotation>>()
   // TODO: in handlePaste, filter out non-standard IDs
@@ -839,8 +846,8 @@ export const modelFromNode = (
     // This method doubles the execution time with large documents, such as sts-example.xml (from 1s to 2s)
     extractHighlightMarkers(model, commentAnnotationsMap)
   }
-
-  return { model, commentAnnotationsMap }
+  const comments = [...commentAnnotationsMap.values()]
+  return { model, comments }
 }
 
 interface PrioritizedValue {
@@ -873,7 +880,7 @@ export const encode = (
       if (placeholders.includes(child.type.name)) {
         return
       }
-      const { model } = modelFromNode(child, parent, path, priority)
+      const { model, comments } = modelFromNode(child, parent, path, priority)
 
       const existingModel = models.get(model._id)
       if (existingModel) {
@@ -886,6 +893,13 @@ export const encode = (
           )
         }
       }
+      comments.forEach((comment) => {
+        const proseMirrorComment = models.get(comment._id)
+        if (proseMirrorComment) {
+          ;(proseMirrorComment as CommentAnnotation).selector = comment.selector
+          models.set(comment._id, proseMirrorComment)
+        }
+      })
       models.set(model._id, model)
       child.forEach(addModel(path.concat(child.attrs.id), child))
     }

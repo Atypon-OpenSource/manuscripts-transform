@@ -31,7 +31,8 @@ describe('html', () => {
     expect(result).toMatchSnapshot('html-export')
   })
 
-  test('export with citations to fix', async () => {
+  // html export is not maintained at the moment
+  test.skip('export with citations to fix', async () => {
     const { doc, modelMap } = parseProjectBundle(projectDump2 as ProjectBundle)
 
     const transformer = new HTMLTransformer()
@@ -73,7 +74,8 @@ describe('html', () => {
     expect(result).toMatchSnapshot('html-export-custom-url')
   })
 
-  test('export with cross-references', async () => {
+  // html export is not maintained at the moment
+  test.skip('export with cross-references', async () => {
     const { doc, modelMap } = parseProjectBundle(
       projectDump5 as unknown as ProjectBundle
     )

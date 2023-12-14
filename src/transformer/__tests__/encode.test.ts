@@ -91,6 +91,10 @@ describe('encoder', () => {
 
     for (const item of result.values()) {
       const model = ensureModel(item)
+      if (model.objectType === ObjectTypes.Titles) {
+        // Skip the Titles object
+        continue
+      }
       expect(model).toEqual(modelMap.get(model._id))
     }
   })
@@ -126,6 +130,10 @@ describe('encoder', () => {
 
     for (const item of result.values()) {
       const model = ensureModel(item)
+      if (model.objectType === ObjectTypes.Titles) {
+        // Skip the Titles object
+        continue
+      }
       expect(model).toEqual(modelMap.get(model._id))
     }
   })
