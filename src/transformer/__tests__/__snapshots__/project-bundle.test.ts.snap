@@ -22,6 +22,7 @@ Object {
       },
       Object {
         "attrs": Object {
+          "contents": "",
           "dataTracked": null,
           "id": "MPSection:197E522D-784E-4964-8E44-6DC54FACA405",
         },
@@ -39,7 +40,9 @@ Object {
                 "objectType": "MPBibliographicName",
                 "suffix": "",
               },
+              "contents": "",
               "corresp": undefined,
+              "dataTracked": null,
               "footnote": undefined,
               "id": "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
               "invitationID": undefined,
@@ -48,6 +51,12 @@ Object {
               "role": "author",
               "userID": "User_ydenberg@gmail.com",
             },
+            "content": Array [
+              Object {
+                "text": "_",
+                "type": "text",
+              },
+            ],
             "type": "contributor",
           },
           Object {
@@ -63,7 +72,9 @@ Object {
                 "objectType": "MPBibliographicName",
                 "suffix": "",
               },
+              "contents": "",
               "corresp": undefined,
+              "dataTracked": null,
               "footnote": undefined,
               "id": "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
               "invitationID": undefined,
@@ -72,6 +83,12 @@ Object {
               "role": "author",
               "userID": "User_ydenberg@gmail.com",
             },
+            "content": Array [
+              Object {
+                "text": "_",
+                "type": "text",
+              },
+            ],
             "type": "contributor",
           },
         ],
@@ -89,6 +106,7 @@ Object {
               "addressLine2": "",
               "addressLine3": "",
               "country": "United States",
+              "dataTracked": null,
               "department": "Department of Cunning",
               "email": Object {
                 "href": undefined,
@@ -99,6 +117,12 @@ Object {
               "postCode": "02453",
               "priority": 0,
             },
+            "content": Array [
+              Object {
+                "text": "_",
+                "type": "text",
+              },
+            ],
             "type": "affiliation",
           },
         ],
@@ -1187,6 +1211,7 @@ Object {
       },
       Object {
         "attrs": Object {
+          "contents": "",
           "dataTracked": null,
           "id": "MPSection:197E522D-784E-4964-8E44-6DC54FACA405",
         },
@@ -1204,7 +1229,9 @@ Object {
                 "objectType": "MPBibliographicName",
                 "suffix": "",
               },
+              "contents": "",
               "corresp": undefined,
+              "dataTracked": null,
               "footnote": undefined,
               "id": "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
               "invitationID": undefined,
@@ -1213,6 +1240,12 @@ Object {
               "role": "author",
               "userID": "User_ydenberg@gmail.com",
             },
+            "content": Array [
+              Object {
+                "text": "_",
+                "type": "text",
+              },
+            ],
             "type": "contributor",
           },
           Object {
@@ -1228,7 +1261,9 @@ Object {
                 "objectType": "MPBibliographicName",
                 "suffix": "",
               },
+              "contents": "",
               "corresp": undefined,
+              "dataTracked": null,
               "footnote": undefined,
               "id": "MPContributor:369E6D70-949C-430E-B087-9C1E561BEC13",
               "invitationID": undefined,
@@ -1237,6 +1272,12 @@ Object {
               "role": "author",
               "userID": "User_ydenberg@gmail.com",
             },
+            "content": Array [
+              Object {
+                "text": "_",
+                "type": "text",
+              },
+            ],
             "type": "contributor",
           },
         ],
@@ -1254,6 +1295,7 @@ Object {
               "addressLine2": "",
               "addressLine3": "",
               "country": "United States",
+              "dataTracked": null,
               "department": "Department of Cunning",
               "email": Object {
                 "href": undefined,
@@ -1264,6 +1306,12 @@ Object {
               "postCode": "02453",
               "priority": 0,
             },
+            "content": Array [
+              Object {
+                "text": "_",
+                "type": "text",
+              },
+            ],
             "type": "affiliation",
           },
         ],

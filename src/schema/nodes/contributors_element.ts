@@ -1,5 +1,5 @@
 /*!
- * © 2023 Atypon Systems LLC
+ * © 2019 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,51 +13,50 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
+  contents: string
   id: string
+  paragraphStyle?: string
 }
 
-export interface AffiliationsSectionNode extends ManuscriptNode {
+export interface ContributorsElementNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const affiliationsSection: NodeSpec = {
-  content: 'section_title? affiliation*',
+export const contributorsElement: NodeSpec = {
+  content: 'contributor*',
   attrs: {
-    id: { default: 'META_SECTION_AFFILLIATIONS' },
+    id: { default: '' },
+    contents: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block sections',
+  group: 'block element',
   selectable: false,
   parseDOM: [
     {
-      tag: 'section.affiliations',
-      getAttrs: (section) => {
-        const dom = section as HTMLElement
-
+      tag: 'div.manuscript-contributors',
+      getAttrs: () => {
         return {
-          contents: dom.innerHTML,
+          contents: '',
         }
       },
     },
   ],
   toDOM: (node) => {
-    const affiliationsSectionNode = node as AffiliationsSectionNode
+    const contributorsElementNode = node as ContributorsElementNode
+
     return [
-      'section',
+      'div',
       {
-        class: 'affiliations',
-        id: affiliationsSectionNode.attrs.id,
+        class: 'manuscript-contributors',
+        id: contributorsElementNode.attrs.id,
       },
-      0
+      0,
     ]
   },
 }
-export const isAffiliationsSectionNode = (
-  node: ManuscriptNode
-): node is AffiliationsSectionNode =>
-  node.type === node.type.schema.nodes.affiliations_section

@@ -21,6 +21,7 @@ Object {
     },
     Object {
       "attrs": Object {
+        "contents": "",
         "dataTracked": null,
         "id": "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9",
       },
@@ -37,7 +38,9 @@ Object {
               "given": "Example",
               "objectType": "MPBibliographicName",
             },
+            "contents": "",
             "corresp": undefined,
+            "dataTracked": null,
             "footnote": undefined,
             "id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
             "invitationID": "",
@@ -46,6 +49,12 @@ Object {
             "role": "author",
             "userID": "",
           },
+          "content": Array [
+            Object {
+              "text": "_",
+              "type": "text",
+            },
+          ],
           "type": "contributor",
         },
         Object {
@@ -58,7 +67,9 @@ Object {
               "given": "Corresponding",
               "objectType": "MPBibliographicName",
             },
+            "contents": "",
             "corresp": undefined,
+            "dataTracked": null,
             "footnote": undefined,
             "id": "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
             "invitationID": "",
@@ -67,6 +78,12 @@ Object {
             "role": "author",
             "userID": "",
           },
+          "content": Array [
+            Object {
+              "text": "_",
+              "type": "text",
+            },
+          ],
           "type": "contributor",
         },
       ],
@@ -84,6 +101,7 @@ Object {
             "addressLine2": "",
             "addressLine3": "",
             "country": "United Kingdom",
+            "dataTracked": null,
             "department": "Dept of Examples",
             "email": Object {
               "href": "mailto:",
@@ -94,6 +112,12 @@ Object {
             "postCode": "",
             "priority": 1,
           },
+          "content": Array [
+            Object {
+              "text": "_",
+              "type": "text",
+            },
+          ],
           "type": "affiliation",
         },
       ],
@@ -2044,6 +2068,7 @@ Object {
     },
     Object {
       "attrs": Object {
+        "contents": "",
         "dataTracked": null,
         "id": "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9",
       },
@@ -2060,7 +2085,9 @@ Object {
               "given": "Example",
               "objectType": "MPBibliographicName",
             },
+            "contents": "",
             "corresp": undefined,
+            "dataTracked": null,
             "footnote": undefined,
             "id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
             "invitationID": "",
@@ -2069,6 +2096,12 @@ Object {
             "role": "author",
             "userID": "",
           },
+          "content": Array [
+            Object {
+              "text": "_",
+              "type": "text",
+            },
+          ],
           "type": "contributor",
         },
         Object {
@@ -2081,7 +2114,9 @@ Object {
               "given": "Corresponding",
               "objectType": "MPBibliographicName",
             },
+            "contents": "",
             "corresp": undefined,
+            "dataTracked": null,
             "footnote": undefined,
             "id": "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
             "invitationID": "",
@@ -2090,6 +2125,12 @@ Object {
             "role": "author",
             "userID": "",
           },
+          "content": Array [
+            Object {
+              "text": "_",
+              "type": "text",
+            },
+          ],
           "type": "contributor",
         },
       ],
@@ -2107,6 +2148,7 @@ Object {
             "addressLine2": "",
             "addressLine3": "",
             "country": "United Kingdom",
+            "dataTracked": null,
             "department": "Dept of Examples",
             "email": Object {
               "href": "mailto:",
@@ -2117,6 +2159,12 @@ Object {
             "postCode": "",
             "priority": 1,
           },
+          "content": Array [
+            Object {
+              "text": "_",
+              "type": "text",
+            },
+          ],
           "type": "affiliation",
         },
       ],
@@ -3808,6 +3856,7 @@ Object {
     },
     Object {
       "attrs": Object {
+        "contents": "",
         "dataTracked": null,
         "id": "MPSection:0933C0C8-829F-4755-9C78-E174B419D2C9",
       },
@@ -3824,7 +3873,9 @@ Object {
               "given": "Example",
               "objectType": "MPBibliographicName",
             },
+            "contents": "",
             "corresp": undefined,
+            "dataTracked": null,
             "footnote": undefined,
             "id": "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6",
             "invitationID": "",
@@ -3833,6 +3884,12 @@ Object {
             "role": "author",
             "userID": "",
           },
+          "content": Array [
+            Object {
+              "text": "_",
+              "type": "text",
+            },
+          ],
           "type": "contributor",
         },
         Object {
@@ -3845,7 +3902,9 @@ Object {
               "given": "Corresponding",
               "objectType": "MPBibliographicName",
             },
+            "contents": "",
             "corresp": undefined,
+            "dataTracked": null,
             "footnote": undefined,
             "id": "MPContributor:8AD5903E-0C9C-4F46-87AE-124142CE12C2",
             "invitationID": "",
@@ -3854,6 +3913,12 @@ Object {
             "role": "author",
             "userID": "",
           },
+          "content": Array [
+            Object {
+              "text": "_",
+              "type": "text",
+            },
+          ],
           "type": "contributor",
         },
       ],
@@ -3871,6 +3936,7 @@ Object {
             "addressLine2": "",
             "addressLine3": "",
             "country": "United Kingdom",
+            "dataTracked": null,
             "department": "Dept of Examples",
             "email": Object {
               "href": "mailto:",
@@ -3881,6 +3947,12 @@ Object {
             "postCode": "",
             "priority": 1,
           },
+          "content": Array [
+            Object {
+              "text": "_",
+              "type": "text",
+            },
+          ],
           "type": "affiliation",
         },
       ],
