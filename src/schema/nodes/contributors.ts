@@ -15,6 +15,7 @@
  */
 import { NodeSpec } from 'prosemirror-model'
 
+import { schema } from '../index'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
@@ -46,12 +47,12 @@ export const contributors: NodeSpec = {
     },
   ],
   toDOM: (node) => {
-    const contributorsSectionNode = node as ContributorsSectionNode
+    const contributors = node as ContributorsNode
     return [
       'section',
       {
         class: 'contributors',
-        id: contributorsSectionNode.attrs.id,
+        id: contributors.attrs.id,
       },
       0,
     ]
@@ -59,5 +60,4 @@ export const contributors: NodeSpec = {
 }
 export const isContributorsNode = (
   node: ManuscriptNode
-): node is ContributorsNode =>
-  node.type === node.type.schema.nodes.contributors
+): node is ContributorsNode => node.type === schema.nodes.contributors

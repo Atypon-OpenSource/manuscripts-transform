@@ -15,6 +15,7 @@
  */
 import { NodeSpec } from 'prosemirror-model'
 
+import { schema } from '../index'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
@@ -46,18 +47,17 @@ export const affiliations: NodeSpec = {
     },
   ],
   toDOM: (node) => {
-    const affiliationsSectionNode = node as AffiliationsSectionNode
+    const affiliations = node as AffiliationsNode
     return [
       'section',
       {
         class: 'affiliations',
-        id: affiliationsSectionNode.attrs.id,
+        id: affiliations.attrs.id,
       },
-      0
+      0,
     ]
   },
 }
 export const isAffiliationsNode = (
   node: ManuscriptNode
-): node is AffiliationsNode =>
-  node.type === node.type.schema.nodes.affiliations
+): node is AffiliationsNode => node.type === schema.nodes.affiliations

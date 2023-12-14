@@ -6062,6 +6062,7 @@ Object {
     },
     Object {
       "attrs": Object {
+        "contents": "",
         "dataTracked": null,
         "id": "MPSection:contributors",
       },
@@ -6255,6 +6256,7 @@ Object {
     },
     Object {
       "attrs": Object {
+        "contents": "",
         "dataTracked": null,
         "id": "MPSection:contributors",
       },
@@ -6568,6 +6570,7 @@ Object {
     },
     Object {
       "attrs": Object {
+        "contents": "",
         "dataTracked": null,
         "id": "MPSection:contributors",
       },
@@ -6695,6 +6698,7 @@ Object {
     },
     Object {
       "attrs": Object {
+        "contents": "",
         "dataTracked": null,
         "id": "MPSection:contributors",
       },
@@ -6790,6 +6794,7 @@ Object {
     },
     Object {
       "attrs": Object {
+        "contents": "",
         "dataTracked": null,
         "id": "MPSection:contributors",
       },

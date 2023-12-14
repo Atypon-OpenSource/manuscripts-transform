@@ -18,7 +18,6 @@ import {
   CommentAnnotation,
   Figure,
   FigureElement,
-  Highlight,
   Keyword,
   KeywordGroup,
   KeywordsElement,
@@ -53,17 +52,6 @@ export const createTestModelMapWithHighlights = () => {
   }
 
   modelMap.set(manuscript._id, manuscript)
-
-  const paragraphHighlight: Highlight = {
-    objectType: ObjectTypes.Highlight,
-    _id: 'MPHighlight:1',
-    createdAt: 0,
-    updatedAt: 0,
-    manuscriptID: manuscript._id,
-    containerID: project._id,
-  }
-
-  modelMap.set(paragraphHighlight._id, paragraphHighlight)
 
   const titles: Titles = {
     objectType: ObjectTypes.Titles,
@@ -109,17 +97,6 @@ export const createTestModelMapWithHighlights = () => {
 
   modelMap.set(paragraphComment._id, paragraphComment)
 
-  const figureHighlight: Highlight = {
-    objectType: ObjectTypes.Highlight,
-    _id: 'MPHighlight:4',
-    createdAt: 0,
-    updatedAt: 0,
-    manuscriptID: manuscript._id,
-    containerID: project._id,
-  }
-
-  modelMap.set(figureHighlight._id, figureHighlight)
-
   const figureWithHighlight: Figure = {
     objectType: ObjectTypes.Figure,
     _id: 'MPFigure:1',
@@ -130,17 +107,6 @@ export const createTestModelMapWithHighlights = () => {
   }
 
   modelMap.set(figureWithHighlight._id, figureWithHighlight)
-
-  const figureElementHighlight: Highlight = {
-    objectType: ObjectTypes.Highlight,
-    _id: 'MPHighlight:3',
-    createdAt: 0,
-    updatedAt: 0,
-    manuscriptID: manuscript._id,
-    containerID: project._id,
-  }
-
-  modelMap.set(figureElementHighlight._id, figureElementHighlight)
 
   const figureElementWithHighlight: FigureElement = {
     objectType: ObjectTypes.FigureElement,
@@ -173,17 +139,6 @@ export const createTestModelMapWithHighlights = () => {
   }
 
   modelMap.set(figureComment._id, figureComment)
-
-  const sectionHighlight: Highlight = {
-    objectType: ObjectTypes.Highlight,
-    _id: 'MPHighlight:2',
-    createdAt: 0,
-    updatedAt: 0,
-    manuscriptID: manuscript._id,
-    containerID: project._id,
-  }
-
-  modelMap.set(sectionHighlight._id, sectionHighlight)
 
   const sectionWithHighlights: Section = {
     objectType: ObjectTypes.Section,
