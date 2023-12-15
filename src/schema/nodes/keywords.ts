@@ -55,6 +55,5 @@ export const keywords: NodeSpec = {
   },
 }
 
-export const isKeywordsNode = (
-  node: ManuscriptNode
-): node is KeywordsNode => node.type === node.type.schema.nodes.keywords
+export const isKeywordsNode = (node: ManuscriptNode): node is KeywordsNode =>
+  node.type === node.type.schema.nodes.keywords

@@ -164,7 +164,7 @@ describe('JATS transformer', () => {
     expect(parsedOutput.errors).toHaveLength(0)
   })
 
-  test.skip('round-trips JATS XML 2', async () => {
+  test('round-trips JATS XML 2', async () => {
     const input = await readFixture('jats-roundtrip.xml')
     const doc = new DOMParser().parseFromString(input, 'application/xml')
 

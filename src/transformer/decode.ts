@@ -442,7 +442,9 @@ export class Decoder {
     [ObjectTypes.KeywordsElement]: (data) => {
       const model = data as KeywordsElement
 
-      const keywordGroups = getKeywordGroups(this.modelMap).map(k => this.decode(k) as KeywordGroupNode)
+      const keywordGroups = getKeywordGroups(this.modelMap).map(
+        (k) => this.decode(k) as KeywordGroupNode
+      )
 
       return schema.nodes.keywords_element.create(
         {
@@ -454,7 +456,9 @@ export class Decoder {
     },
     [ObjectTypes.KeywordGroup]: (data) => {
       const keywordGroup = data as KeywordGroup
-      const keywords = getKeywords(this.modelMap).filter(k => k.containedGroup === keywordGroup._id).map(k => this.decode(k) as KeywordNode)
+      const keywords = getKeywords(this.modelMap)
+        .filter((k) => k.containedGroup === keywordGroup._id)
+        .map((k) => this.decode(k) as KeywordNode)
 
       const comments = this.createCommentsNode(keywordGroup)
       comments.forEach((c) => this.comments.set(c.attrs.id, c))
@@ -877,13 +881,10 @@ export class Decoder {
       .map((e) => this.decode(e) as KeywordsElementNode)
       .filter(Boolean)
 
-    return schema.nodes.keywords.createAndFill(
-      {},
-      [
-        schema.nodes.section_title.create({}, schema.text('Keywords')),
-        ...elements,
-      ]
-    ) as KeywordsNode
+    return schema.nodes.keywords.createAndFill({}, [
+      schema.nodes.section_title.create({}, schema.text('Keywords')),
+      ...elements,
+    ]) as KeywordsNode
   }
 
   private createMetaSectionNode() {
