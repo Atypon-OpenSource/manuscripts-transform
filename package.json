@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@manuscripts/json-schema": "2.2.1",
+    "citeproc": "^2.4.63",
     "debug": "^4.3.4",
     "jszip": "^3.10.1",
     "mathjax-full": "^3.2.2",
