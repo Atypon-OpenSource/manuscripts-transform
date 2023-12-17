@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 
-// TODO: remove element.getAttribute('id') and rewrite cross-references?
-
-// https://jats.nlm.nih.gov/articleauthoring/tag-library/1.2/
-
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
@@ -401,88 +397,6 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'ref',
-    node: 'bibliography_item',
-    context: 'bibliography_element/',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      const ref = {
-        id: element.getAttribute('id'),
-        type: element.getAttribute('type'),
-      } as any
-
-      const author = element.getAttribute('author')
-      if (author) {
-        ref.author = author
-      }
-
-      const issued = element.getAttribute('issued')
-      if (issued) {
-        ref.issued = issued
-      }
-
-      const containerTitle = element.getAttribute('container-title')
-      if (containerTitle) {
-        ref.containerTitle = containerTitle
-      }
-
-      const doi = element.getAttribute('doi')
-      if (doi) {
-        ref.doi = doi
-      }
-
-      const volume = element.getAttribute('volume')
-      if (volume) {
-        ref.volume = volume
-      }
-
-      const issue = element.getAttribute('issue')
-      if (issue) {
-        ref.issue = issue
-      }
-
-      const supplement = element.getAttribute('supplement')
-      if (supplement) {
-        ref.supplement = supplement
-      }
-
-      const page = element.getAttribute('page')
-      if (page) {
-        ref.page = page
-      }
-
-      const title = element.getAttribute('title')
-      if (title) {
-        ref.title = title
-      }
-
-      const literal = element.getAttribute('literal')
-      if (literal) {
-        ref.literal = literal
-      }
-
-      return ref
-    },
-  },
-  {
-    tag: 'ref-list',
-    node: 'bibliography_element',
-    context: 'bibliography_section/',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      const titleNode = element.querySelector('title')
-      if (titleNode) {
-        element.removeChild(titleNode)
-      }
-      return {
-        id: element.getAttribute('id'),
-        contents: '',
-      }
-    },
-  },
-  {
     tag: 'fn-group',
     node: 'footnotes_element',
     context: 'footnotes_section/|table_element_footer/',
@@ -550,11 +464,6 @@ const nodes: NodeRule[] = [
     tag: 'list-item',
     node: 'list_item',
   },
-  // {
-  //   tag: 'math',
-  //   namespace: 'http://www.w3.org/1998/Math/MathML',
-  //   node: 'equation',
-  // },
   {
     tag: 'p',
     node: 'paragraph',
@@ -581,151 +490,6 @@ const nodes: NodeRule[] = [
         id: element.getAttribute('id'),
         // category: chooseSectionCategory(element), // 'MPSectionCategory:endnotes',
       }
-    },
-  },
-  {
-    tag: 'sec[sec-type="bibliography"]',
-    node: 'bibliography_section', // NOTE: higher priority than 'section'
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      return {
-        id: element.getAttribute('id'),
-      }
-    },
-  },
-  {
-    tag: 'sec[sec-type="affiliations"]',
-    node: 'affiliations', // NOTE: higher priority than 'section'
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-      return {
-        id: element.getAttribute('id'),
-        category: 'MPSectionCategory:affiliations',
-      }
-    },
-  },
-  {
-    tag: 'aff',
-    node: 'affiliation',
-    context: 'affiliations/',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-      const aff = {
-        id: element.getAttribute('id'),
-      } as any
-      const institution = element.getAttribute('institution')
-      if (institution) {
-        aff.institution = institution
-      }
-      const email = element.getAttribute('email')
-      if (email) {
-        aff.bibliographicName = JSON.parse(email)
-      }
-      const department = element.getAttribute('department')
-      if (department) {
-        aff.department = department
-      }
-      const addressLine1 = element.getAttribute('addressLine1')
-      if (addressLine1) {
-        aff.addressLine1 = addressLine1
-      }
-
-      const addressLine2 = element.getAttribute('addressLine2')
-      if (addressLine2) {
-        aff.addressLine2 = addressLine2
-      }
-
-      const addressLine3 = element.getAttribute('addressLine3')
-      if (addressLine3) {
-        aff.addressLine3 = addressLine3
-      }
-
-      const postCode = element.getAttribute('postCode')
-      if (postCode) {
-        aff.postCode = postCode
-      }
-      const country = element.getAttribute('country')
-      if (country) {
-        aff.country = country
-      }
-      const priority = element.getAttribute('priority')
-      if (priority) {
-        aff.priority = parseInt(priority)
-      }
-      return aff
-    },
-  },
-  {
-    tag: 'sec[sec-type="contributors"]',
-    node: 'contributors', // NOTE: higher priority than 'section'
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-      return {
-        id: element.getAttribute('id'),
-        category: 'MPSectionCategory:contributors',
-      }
-    },
-  },
-  {
-    tag: 'contrib',
-    node: 'contributor',
-    context: 'contributors/',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      const contrib = {
-        id: element.getAttribute('id'),
-      } as any
-
-      const role = element.getAttribute('role')
-      if (role) {
-        contrib.role = role
-      }
-
-      const affiliations = element.getAttribute('affiliations')
-      if (affiliations) {
-        contrib.affiliations = JSON.parse(affiliations)
-      }
-
-      const footnote = element.getAttribute('footnote')
-      if (footnote) {
-        contrib.footnote = JSON.parse(footnote)
-      }
-
-      const corresp = element.getAttribute('corresp')
-      if (corresp) {
-        contrib.corresp = JSON.parse(corresp)
-      }
-      const bibliographicName = element.getAttribute('bibliographicName')
-      if (bibliographicName) {
-        contrib.bibliographicName = JSON.parse(bibliographicName)
-      }
-      const userID = element.getAttribute('userID')
-      if (userID) {
-        contrib.userID = userID
-      }
-      const priority = element.getAttribute('priority')
-      if (priority) {
-        contrib.priority = parseInt(priority)
-      }
-      const invitationID = element.getAttribute('invitationID')
-      if (invitationID) {
-        contrib.invitationID = invitationID
-      }
-      const objectType = element.getAttribute('objectType')
-      if (objectType) {
-        contrib.objectType = objectType
-      }
-      const isCorresponding = element.getAttribute('isCorresponding')
-      if (isCorresponding) {
-        contrib.isCorresponding = JSON.parse(isCorresponding)
-      }
-      const ORCIDIdentifier = element.getAttribute('ORCIDIdentifier')
-      if (ORCIDIdentifier) {
-        contrib.ORCIDIdentifier = ORCIDIdentifier
-      }
-      return contrib
     },
   },
   {
@@ -898,16 +662,9 @@ const nodes: NodeRule[] = [
     node: 'citation',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const embeddedCitationAttr = element.getAttribute(
-        'data-reference-embedded-citation'
-      )
-
       return {
-        rid: element.getAttribute('rid'),
+        rids: element.getAttribute('rid')?.split(/\s+/) || [],
         contents: element.textContent?.trim(), // TODO: innerHTML?
-        embeddedCitationItems: embeddedCitationAttr
-          ? JSON.parse(embeddedCitationAttr)
-          : null,
       }
     },
   },
@@ -918,7 +675,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        rid: element.getAttribute('rid'),
+        rids: element.getAttribute('rid')?.split(/\s+/) || [],
         contents: element.textContent?.trim(),
       }
     },
@@ -930,7 +687,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        rid: element.getAttribute('rid'),
+        rids: element.getAttribute('rid')?.split(/\s+/) || [],
         label: element.textContent?.trim(),
       }
     },

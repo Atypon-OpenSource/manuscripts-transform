@@ -16,11 +16,8 @@
 
 import {
   Affiliation,
-  AuxiliaryObjectReference,
-  Citation,
   Contributor,
   Figure,
-  FigureElement,
   InlineStyle,
   Model,
   ObjectTypes,
@@ -435,15 +432,10 @@ export class HTMLTransformer {
       const element = this.document.createElement('span')
       element.setAttribute('class', 'citation')
 
-      const citation = getModel<Citation>(citationNode.attrs.rid)
+      const rids = citationNode.attrs.rids
 
-      if (citation) {
-        element.setAttribute(
-          'data-reference-ids',
-          citation.embeddedCitationItems
-            .map((item) => item.bibliographyItem)
-            .join(' ')
-        )
+      if (rids.length) {
+        element.setAttribute('data-reference-ids', rids.join(' '))
       }
 
       if (citationNode.attrs.contents) {
@@ -459,34 +451,7 @@ export class HTMLTransformer {
       const element = this.document.createElement('a')
       element.classList.add('cross-reference')
 
-      const auxiliaryObjectReference = getModel<AuxiliaryObjectReference>(
-        crossReferenceNode.attrs.rid
-      )
-
-      if (
-        auxiliaryObjectReference &&
-        auxiliaryObjectReference.referencedObject
-      ) {
-        if (
-          auxiliaryObjectReference.referencedObject.startsWith(
-            'MPFigureElement'
-          )
-        ) {
-          const model = getModel<FigureElement>(
-            auxiliaryObjectReference.referencedObject
-          )
-          if (model && model.containedObjectIDs.length > 0) {
-            element.setAttribute('href', `#${model.containedObjectIDs[0]}`)
-          }
-        } else {
-          element.setAttribute(
-            'href',
-            `#${auxiliaryObjectReference.referencedObject}`
-          )
-        }
-
-        element.setAttribute('data-reference-ids', crossReferenceNode.attrs.rid)
-      }
+      element.setAttribute('data-reference-ids', crossReferenceNode.attrs.rids.join(' '))
       // TODO:: handle multiple reference
 
       element.textContent =

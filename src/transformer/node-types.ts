@@ -38,7 +38,6 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.blockquote_element, ObjectTypes.QuoteElement],
   [schema.nodes.bullet_list, ObjectTypes.ListElement],
   [schema.nodes.citation, ObjectTypes.Citation],
-  [schema.nodes.cross_reference, ObjectTypes.AuxiliaryObjectReference],
   [schema.nodes.equation, ObjectTypes.Equation],
   [schema.nodes.equation_element, ObjectTypes.EquationElement],
   [schema.nodes.figure, ObjectTypes.Figure],

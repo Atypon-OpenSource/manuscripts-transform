@@ -15,46 +15,32 @@
  */
 
 import {
-  Affiliation,
-  Attribution,
-  AuxiliaryObjectReference,
-  BibliographicDate,
-  BibliographicName,
-  BibliographyItem,
-  Citation,
-  CitationItem,
-  Color,
-  CommentAnnotation,
-  Contribution,
-  Contributor,
-  ContributorRole,
-  Corresponding,
-  ElementsOrder,
-  EmbeddedModel,
-  Figure,
-  Footnote,
-  FootnotesOrder,
-  Highlight,
-  HighlightMarker,
-  InlineMathFragment,
-  InlineStyle,
-  Journal,
-  Keyword,
-  KeywordGroup,
-  LibraryCollection,
-  Manuscript,
-  ManuscriptKeyword,
-  ManuscriptNote,
-  ObjectTypes,
-  ParagraphElement,
-  Project,
-  RequirementsValidation,
-  RequirementsValidationData,
-  Section,
-  StatusLabel,
-  Supplement,
-  Titles,
-  UserProfileAffiliation,
+    Affiliation,
+    Attribution,
+    BibliographicDate,
+    BibliographicName,
+    BibliographyElement,
+    BibliographyItem, Color,
+    CommentAnnotation,
+    Contribution,
+    Contributor, ContributorRole,
+    Corresponding,
+    ElementsOrder,
+    EmbeddedModel,
+    Figure,
+    Footnote,
+    FootnotesOrder,
+    InlineMathFragment,
+    Journal,
+    Keyword,
+    KeywordGroup,
+    Manuscript, ManuscriptNote,
+    ObjectTypes,
+    ParagraphElement,
+    Project,
+    Section,
+    Supplement,
+    Titles,
 } from '@manuscripts/json-schema'
 import serializeToXML from 'w3c-xmlserializer'
 
@@ -63,9 +49,6 @@ import { FootnotesOrderIndexList } from './footnotes-order'
 import { generateID } from './id'
 import { CommentSelector, ManuscriptModel, ModelAttachment } from './models'
 import { timestamp } from './timestamp'
-
-export const DEFAULT_BUNDLE = 'MPBundle:www-zotero-org-styles-nature'
-export const DEFAULT_PAGE_LAYOUT = 'MPPageLayout:defaultA4'
 
 export type Build<T> = Pick<T, Exclude<keyof T, keyof ManuscriptModel>> & {
   _id: string
@@ -144,41 +127,14 @@ export const buildBibliographicDate = (
   objectType: ObjectTypes.BibliographicDate,
 })
 
-export const buildAuxiliaryObjectReference = (
-  containingObject: string,
-  rids: string[]
-): Build<AuxiliaryObjectReference> => {
-  const auxiliaryObjectReference = {
-    _id: generateID(ObjectTypes.AuxiliaryObjectReference),
-    objectType: ObjectTypes.AuxiliaryObjectReference,
-    containingObject: containingObject || undefined,
-  }
-
-  if (rids.length < 2) {
-    Object.assign(auxiliaryObjectReference, { referencedObject: rids[0] })
-  } else {
-    Object.assign(auxiliaryObjectReference, { referencedObjects: rids })
-  }
-
-  return auxiliaryObjectReference
-}
-
-export const buildEmbeddedCitationItem = (
-  bibliographyItem: string
-): CitationItem => ({
-  _id: generateID(ObjectTypes.CitationItem),
-  objectType: ObjectTypes.CitationItem,
-  bibliographyItem,
-})
-
-export const buildCitation = (
-  containingObject: string,
-  embeddedCitationItems: string[]
-): Build<Citation> => ({
-  _id: generateID(ObjectTypes.Citation),
-  objectType: ObjectTypes.Citation,
-  containingObject: containingObject || undefined,
-  embeddedCitationItems: embeddedCitationItems.map(buildEmbeddedCitationItem),
+export const buildBibliographyElement = (
+  bibliographyItems: BibliographyItem[]
+): Build<BibliographyElement> => ({
+  _id: generateID(ObjectTypes.BibliographyElement),
+  objectType: ObjectTypes.BibliographyElement,
+  contents: '',
+  elementType: 'div',
+  containedObjectIDs: bibliographyItems.map((b) => b._id),
 })
 
 // TODO: remove this and treat Keyword as abstract
@@ -198,26 +154,6 @@ export const buildKeywordGroup = (attributes: {
   ...(attributes.type && { type: attributes.type }),
   ...(attributes.title && { title: attributes.title }),
   ...(attributes.label && { label: attributes.label }),
-})
-
-export const buildManuscriptKeyword = (
-  name: string
-): Build<ManuscriptKeyword> => ({
-  _id: generateID(ObjectTypes.ManuscriptKeyword),
-  objectType: ObjectTypes.ManuscriptKeyword,
-  name,
-})
-
-export const buildLibraryCollection = (
-  owner: string,
-  name: string
-): Build<LibraryCollection> => ({
-  _id: generateID(ObjectTypes.LibraryCollection),
-  objectType: ObjectTypes.LibraryCollection,
-  owners: [owner],
-  writers: [],
-  viewers: [],
-  name,
 })
 
 export const buildFigure = (blob: Blob): Build<Figure & ModelAttachment> => ({
@@ -252,16 +188,6 @@ export const buildSupplementaryMaterial = (
   href,
 })
 
-export const buildUserProfileAffiliation = (
-  institution: string,
-  priority = 0
-): Build<UserProfileAffiliation> => ({
-  _id: generateID(ObjectTypes.UserProfileAffiliation),
-  objectType: ObjectTypes.UserProfileAffiliation,
-  institution,
-  priority,
-})
-
 export const buildComment = (
   target: string,
   contents = '',
@@ -288,14 +214,6 @@ export const buildNote = (
   target,
   source,
   contents,
-})
-
-export const buildValidation = (
-  results: RequirementsValidationData[]
-): Build<RequirementsValidation> => ({
-  _id: generateID(ObjectTypes.RequirementsValidation),
-  objectType: ObjectTypes.RequirementsValidation,
-  results,
 })
 
 export const buildInlineMathFragment = (
@@ -379,25 +297,6 @@ export const buildColor = (value: string, priority: number): Build<Color> => ({
   value,
 })
 
-export const buildHighlight = (): Build<Highlight> => ({
-  _id: generateID(ObjectTypes.Highlight),
-  objectType: ObjectTypes.Highlight,
-})
-
-export const buildHighlightMarker = (
-  highlightID: string,
-  start: boolean,
-  offset: number,
-  field: 'caption' | 'contents' | 'title'
-): Build<HighlightMarker> => ({
-  highlightID,
-  objectType: ObjectTypes.HighlightMarker,
-  _id: generateID(ObjectTypes.HighlightMarker),
-  start,
-  offset,
-  field,
-})
-
 export const buildContribution = (profileID: string): Contribution => ({
   _id: generateID(ObjectTypes.Contribution),
   objectType: ObjectTypes.Contribution,
@@ -411,16 +310,6 @@ export const buildContributorRole = (name: string): Build<ContributorRole> => ({
   name,
 })
 
-export const buildInlineStyle = (
-  priority: number,
-  title?: string
-): Build<InlineStyle> => ({
-  _id: generateID(ObjectTypes.InlineStyle),
-  objectType: ObjectTypes.InlineStyle,
-  priority,
-  title,
-})
-
 export const buildAttribution = (): Build<Attribution> => ({
   _id: generateID(ObjectTypes.Attribution),
   objectType: ObjectTypes.Attribution,
@@ -429,12 +318,6 @@ export const buildAttribution = (): Build<Attribution> => ({
 export const buildJournal = (): Build<Journal> => ({
   _id: generateID(ObjectTypes.Journal),
   objectType: ObjectTypes.Journal,
-})
-
-export const buildStatusLabel = (name: string): Build<StatusLabel> => ({
-  _id: generateID(ObjectTypes.StatusLabel),
-  objectType: ObjectTypes.StatusLabel,
-  name,
 })
 
 export type AuxiliaryObjects =

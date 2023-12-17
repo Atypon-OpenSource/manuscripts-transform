@@ -14,18 +14,17 @@
  * limitations under the License.
  */
 
-import { BibliographicName } from '@manuscripts/json-schema'
+import { BibliographicName, BibliographyItem } from '@manuscripts/json-schema'
 
 import { getTrimmedTextContent } from '../../lib/utils'
 import {
-  buildAuxiliaryObjectReference,
   buildBibliographicDate,
   buildBibliographicName,
   buildBibliographyItem,
-  buildCitation,
 } from '../../transformer/builders'
-import { parseProcessingInstruction } from './jats-comments'
-import { flatten, htmlFromJatsNode } from './jats-parser-utils'
+import { isJATSComment, JATSComment, parseJATSComment } from './jats-comments'
+import { htmlFromJatsNode } from './jats-parser-utils'
+import { References } from './jats-references'
 
 const chooseBibliographyItemType = (publicationType: string | null) => {
   switch (publicationType) {
@@ -40,16 +39,16 @@ const chooseBibliographyItemType = (publicationType: string | null) => {
 
 export const jatsReferenceParser = {
   parseReferences(
-    referenceNodes: Element[],
+    elements: Element[],
     createElement: (tagName: string) => HTMLElement
-  ) {
-    const referenceIDs = new Map<string, string>()
-    const referenceQueries = new Map<string, string[]>()
-    const references = referenceNodes.map((referenceNode) => {
-      const publicationType = referenceNode.getAttribute('publication-type')
+  ): References {
+    const references = new References()
+
+    elements.forEach((element) => {
+      const publicationType = element.getAttribute('publication-type')
 
       const authorNodes = [
-        ...referenceNode.querySelectorAll(
+        ...element.querySelectorAll(
           'person-group[person-group-type="author"] > *'
         ),
       ]
@@ -58,7 +57,7 @@ export const jatsReferenceParser = {
         type: chooseBibliographyItemType(publicationType),
       })
 
-      const titleNode = referenceNode.querySelector('article-title')
+      const titleNode = element.querySelector('article-title')
 
       if (titleNode) {
         bibliographyItem.title = htmlFromJatsNode(
@@ -67,24 +66,18 @@ export const jatsReferenceParser = {
         )?.trim()
       }
 
-      const queriesText: string[] = []
-      const mixedCitation = referenceNode.querySelector('mixed-citation')
+      const comments: JATSComment[] = []
+      const mixedCitation = element.querySelector('mixed-citation')
       mixedCitation?.childNodes.forEach((item) => {
         // This isn't the best place but since we are already iterating the nodes it is better for performance
-        if (
-          item.nodeType === item.PROCESSING_INSTRUCTION_NODE &&
-          item.nodeName === 'AuthorQuery'
-        ) {
-          const instruction = parseProcessingInstruction(item)
-          if (instruction) {
-            const { queryText } = instruction
-            queriesText.push(queryText)
+        if (isJATSComment(item)) {
+          const comment = parseJATSComment(item)
+          if (comment) {
+            comments.push(comment)
           }
         }
       })
-      if (queriesText.length) {
-        referenceQueries.set(bibliographyItem._id, queriesText)
-      }
+
       if (authorNodes.length <= 0) {
         mixedCitation?.childNodes.forEach((item) => {
           if (
@@ -97,39 +90,39 @@ export const jatsReferenceParser = {
         })
       }
 
-      const source = getTrimmedTextContent(referenceNode, 'source')
+      const source = getTrimmedTextContent(element, 'source')
 
       if (source) {
         bibliographyItem['container-title'] = source
       }
 
-      const volume = getTrimmedTextContent(referenceNode, 'volume')
+      const volume = getTrimmedTextContent(element, 'volume')
 
       if (volume) {
         bibliographyItem.volume = volume
       }
 
-      const issue = getTrimmedTextContent(referenceNode, 'issue')
+      const issue = getTrimmedTextContent(element, 'issue')
 
       if (issue) {
         bibliographyItem.issue = issue
       }
 
-      const supplement = getTrimmedTextContent(referenceNode, 'supplement')
+      const supplement = getTrimmedTextContent(element, 'supplement')
 
       if (supplement) {
         bibliographyItem.supplement = supplement
       }
 
-      const fpage = getTrimmedTextContent(referenceNode, 'fpage')
+      const fpage = getTrimmedTextContent(element, 'fpage')
 
-      const lpage = getTrimmedTextContent(referenceNode, 'lpage')
+      const lpage = getTrimmedTextContent(element, 'lpage')
 
       if (fpage) {
         bibliographyItem.page = lpage ? `${fpage}-${lpage}` : fpage
       }
 
-      const year = getTrimmedTextContent(referenceNode, 'year')
+      const year = getTrimmedTextContent(element, 'year')
 
       if (year) {
         bibliographyItem.issued = buildBibliographicDate({
@@ -137,10 +130,7 @@ export const jatsReferenceParser = {
         })
       }
 
-      const doi = getTrimmedTextContent(
-        referenceNode,
-        'pub-id[pub-id-type="doi"]'
-      )
+      const doi = getTrimmedTextContent(element, 'pub-id[pub-id-type="doi"]')
 
       if (doi) {
         bibliographyItem.DOI = doi
@@ -184,96 +174,11 @@ export const jatsReferenceParser = {
         bibliographyItem.author = authors
       }
 
-      const id = referenceNode.getAttribute('id')
-
-      if (id) {
-        referenceIDs.set(id, bibliographyItem._id)
-      }
       // TODO: handle `etal`?
-      return bibliographyItem
+
+      const id = element.getAttribute('id')
+      references.add(bibliographyItem as BibliographyItem, id, comments)
     })
-    return {
-      references,
-      referenceIDs,
-      referenceQueries,
-    }
-  },
-  /**
-   * Parses cross-references (xref) from the body.
-   * Be aware that it most likely mutates the original document (transforms the ids to Manuscript IDs)
-   * @param crossReferenceNodes
-   * @param referenceIDs
-   * @returns
-   */
-  parseCrossReferences(
-    crossReferenceNodes: Element[],
-    referenceIDs: Map<string, string>
-  ) {
-    return flatten(
-      crossReferenceNodes.map((crossReferenceNode) => {
-        const rid = crossReferenceNode.getAttribute('rid')
-        if (!rid) {
-          return []
-        }
-        const modelNodes = []
-        const refType = crossReferenceNode.getAttribute('ref-type')
-        switch (refType) {
-          case 'bibr':
-            {
-              const rids = rid
-                .split(/\s+/)
-                .filter((id) => referenceIDs.has(id))
-                .map((id) => referenceIDs.get(id)) as string[]
-
-              if (rids.length) {
-                const citation = buildCitation('', rids) // TODO: closest id
-
-                modelNodes.push(citation)
-
-                crossReferenceNode.setAttribute('rid', citation._id)
-                crossReferenceNode.setAttribute(
-                  'data-reference-embedded-citation',
-                  JSON.stringify(
-                    citation.embeddedCitationItems.map(
-                      ({ _id: id, bibliographyItem }) => ({
-                        id,
-                        bibliographyItem,
-                      })
-                    )
-                  )
-                )
-              } else {
-                crossReferenceNode.removeAttribute('rid')
-              }
-            }
-            break
-
-          case 'fn':
-            // 1. Create a footnotes section if isnt created yet
-            // 2. Create a footnote and populate with the content
-            // const footnote = buildFootnote('footnote')
-            // addModel(footnote)
-            //doc.querySelectorAll(`fn[id=${rid}]`)
-            break
-          default:
-            {
-              const rids = rid.trim().split(/\s+/)
-              const auxiliaryObjectReference = buildAuxiliaryObjectReference(
-                '', // TODO: closest id
-                rids // TODO: new figure id
-              )
-
-              modelNodes.push(auxiliaryObjectReference)
-
-              crossReferenceNode.setAttribute(
-                'rid',
-                auxiliaryObjectReference._id
-              )
-            }
-            break
-        }
-        return modelNodes
-      })
-    )
+    return references
   },
 }

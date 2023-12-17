@@ -114,7 +114,7 @@ const mediaPathGenerator: MediaPathGenerator = async (element, parentID) => {
 // eslint-disable-next-line jest/no-disabled-tests
 describe('JATS transformer', () => {
   // eslint-disable-next-line jest/no-disabled-tests
-  test.skip('round-trips JATS XML', async () => {
+  test('round-trips JATS XML', async () => {
     const input = await readFixture('jats-import.xml')
     const doc = new DOMParser().parseFromString(input, 'application/xml')
 
@@ -122,7 +122,7 @@ describe('JATS transformer', () => {
     const version =
       doc.querySelector('article')?.getAttribute('dtd-version') || '1.2'
 
-    const models = await parseJATSArticle(doc)
+    const models = parseJATSArticle(doc)
 
     const modelMap = new Map<string, Model>()
 
@@ -171,7 +171,7 @@ describe('JATS transformer', () => {
     const version =
       doc.querySelector('article')?.getAttribute('dtd-version') || '1.2'
 
-    const models = await parseJATSArticle(doc)
+    const models = parseJATSArticle(doc)
 
     const modelMap = new Map<string, Model>()
 
@@ -274,7 +274,7 @@ describe('JATS transformer roundtrip validation', () => {
     const input = await readFixture('jats-xref-in-footnotes.xml')
     const doc = new DOMParser().parseFromString(input, 'application/xml')
 
-    const models = await parseJATSArticle(doc)
+    const models = parseJATSArticle(doc)
 
     const modelMap = new Map<string, Model>()
 

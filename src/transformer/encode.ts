@@ -20,6 +20,7 @@ import {
   BibliographyItem,
   CommentAnnotation,
   Contributor,
+  ElementsOrder,
   Equation,
   EquationElement,
   Figure,
@@ -45,7 +46,7 @@ import {
   Titles,
   TOCElement,
 } from '@manuscripts/json-schema'
-import { DOMSerializer, Node } from 'prosemirror-model'
+import { DOMSerializer, Node, NodeType } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { iterateChildren, modelsEqual } from '../lib/utils'
@@ -59,7 +60,13 @@ import {
   schema,
   TableElementNode,
 } from '../schema'
-import { Build, buildAttribution } from './builders'
+import {
+  AuxiliaryObjects,
+  auxiliaryObjectTypes,
+  Build,
+  buildAttribution,
+  buildElementsOrder,
+} from './builders'
 import {
   extractHighlightMarkers,
   isHighlightableModel,
@@ -869,6 +876,9 @@ export const encode = (
       if (placeholders.includes(child.type.name)) {
         return
       }
+      if (parent.type === schema.nodes.paragraph) {
+        return
+      }
       const { model, comments } = modelFromNode(child, parent, path, priority)
 
       const existingModel = models.get(model._id)
@@ -892,12 +902,20 @@ export const encode = (
       models.set(model._id, model)
       child.forEach(addModel(path.concat(child.attrs.id), child))
     }
-  node.forEach((cNode) => {
-    if (cNode.type === schema.nodes.meta_section) {
-      processMetaSectionNode(cNode, models, priority)
+  node.forEach((child) => {
+    if (child.type === schema.nodes.meta_section) {
+      processMetaSectionNode(child, models, priority)
     }
   })
   node.forEach(addModel([], node))
+  if (node.type === schema.nodes.manuscript) {
+    auxiliaryObjectTypes.forEach((t) => {
+      const order = generateElementOrder(node, t)
+      if (order) {
+        models.set(order._id, order as Model)
+      }
+    })
+  }
   return models
 }
 
@@ -915,4 +933,27 @@ const processMetaSectionNode = (
       models.set(model._id, model)
     }
   })
+}
+
+const generateElementOrder = (
+  node: ManuscriptNode,
+  nodeType: NodeType
+): ElementsOrder | undefined => {
+  const ids: string[] = []
+  node.descendants((n) => {
+    if (n.type === nodeType) {
+      ids.push(n.attrs.id)
+    }
+    return true
+  })
+  if (!ids.length) {
+    return undefined
+  }
+  const type = nodeTypesMap.get(nodeType)
+  if (!type) {
+    return undefined
+  }
+  const order = buildElementsOrder(type as AuxiliaryObjects)
+  order.elements = ids
+  return order as ElementsOrder
 }

@@ -16,7 +16,6 @@
 // @ts-ignore
 import { Element, ObjectTypes } from '@manuscripts/json-schema'
 
-import { coreSectionCategories } from '../lib/core-section-categories'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../schema'
 
 const sectionNodeTypes: ManuscriptNodeType[] = [
@@ -26,18 +25,6 @@ const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.section,
   schema.nodes.toc_section,
 ]
-
-export const getCoreSectionTitles = (
-  sectionCategory: SectionCategory
-): string[] => {
-  const category = coreSectionCategories.find(
-    (section) => section._id === sectionCategory
-  )
-  if (category) {
-    return category.titles.length ? category.titles : [' ']
-  }
-  throw new Error(`${sectionCategory} not found in core sections`)
-}
 
 export const isAnySectionNode = (node: ManuscriptNode): boolean =>
   sectionNodeTypes.includes(node.type)

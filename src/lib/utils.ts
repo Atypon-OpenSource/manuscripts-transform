@@ -102,7 +102,7 @@ export const findParentNodeClosestToPos = (
 }
 
 export const getTrimmedTextContent = (
-  node: Element | Document,
+  node: Element | Document | null,
   querySelector: string
 ) => {
   if (!node) {

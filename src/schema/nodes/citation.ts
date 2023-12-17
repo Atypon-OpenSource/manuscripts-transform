@@ -19,9 +19,10 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
-  rid: string
+  id: string
+  rids: string[]
   contents: string
-  embeddedCitationItems: { id: string; bibliographyItem: string }[]
+  selectedText: string
 }
 
 export interface CitationNode extends ManuscriptNode {
@@ -34,11 +35,11 @@ export const citation: NodeSpec = {
   draggable: true,
   atom: true,
   attrs: {
-    rid: { default: '' },
+    id: { default: '' },
+    rids: { default: [] },
     contents: { default: '' },
     selectedText: { default: '' },
     dataTracked: { default: null },
-    embeddedCitationItems: { default: [] },
   },
   parseDOM: [
     {
@@ -46,38 +47,23 @@ export const citation: NodeSpec = {
       getAttrs: (p) => {
         const dom = p as HTMLSpanElement
 
-        const attr: { [key: string]: string | null } = {
-          rid: dom.getAttribute('data-reference-id'),
+        return {
+          id: dom.getAttribute('data-id'),
+          rids: dom.getAttribute('data-reference-id')?.split(/\s+/) || [],
           contents: dom.innerHTML,
         }
-
-        const embeddedCitationAttr = dom.getAttribute(
-          'data-reference-embedded-citation'
-        )
-
-        if (embeddedCitationAttr) {
-          attr['embeddedCitationItems'] = JSON.parse(embeddedCitationAttr)
-        }
-
-        return attr
       },
     },
   ],
   toDOM: (node) => {
-    const citationNode = node as CitationNode
+    const citation = node as CitationNode
 
     const dom = document.createElement('span')
     dom.className = 'citation'
-    dom.setAttribute('data-reference-id', citationNode.attrs.rid)
+    dom.setAttribute('data-id', citation.attrs.id)
+    dom.setAttribute('data-reference-id', citation.attrs.rids.join(' '))
 
-    if (citationNode.attrs.embeddedCitationItems) {
-      dom.setAttribute(
-        'data-reference-embedded-citation',
-        JSON.stringify(citationNode.attrs.embeddedCitationItems)
-      )
-    }
-
-    dom.innerHTML = citationNode.attrs.contents
+    dom.innerHTML = node.attrs.contents
 
     return dom
   },

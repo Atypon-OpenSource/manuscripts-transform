@@ -20,7 +20,7 @@ import { Build, buildComment } from './builders'
 
 export type HighlightableField = 'title' | 'caption' | 'contents'
 
-const highlightableFields: HighlightableField[] = [
+export const highlightableFields: HighlightableField[] = [
   'caption',
   'contents',
   'title',

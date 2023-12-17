@@ -16,7 +16,6 @@
 
 import {
   Affiliation,
-  AuxiliaryObjectReference,
   BibliographyItem,
   Contributor,
   ContributorRole,
@@ -39,7 +38,7 @@ import { nodeFromHTML, textFromHTML } from '../lib/html'
 import { normalizeStyleName } from '../lib/styled-content'
 import { iterateChildren } from '../lib/utils'
 import {
-  CitationNode,
+  CitationNode, CrossReferenceNode,
   ManuscriptFragment,
   ManuscriptMark,
   ManuscriptNode,
@@ -175,7 +174,7 @@ const chooseRefType = (objectType: string): string | undefined => {
       return 'fig'
 
     case ObjectTypes.Footnote:
-      return 'fn' // TODO: table-fn
+      return 'fn'
 
     case ObjectTypes.Table:
     case ObjectTypes.TableElement:
@@ -917,40 +916,17 @@ export class JATSExporter {
         return ['title', 0]
       },
       citation: (node) => {
-        if (!node.attrs.rid) {
-          warn(`${node.attrs.id} has no rid`)
-          return node.attrs.label
-        }
-
-        const rids = (
-          node.attrs
-            .embeddedCitationItems as CitationNode['attrs']['embeddedCitationItems']
-        ).filter((item) => {
-          if (!this.modelMap.has(item.bibliographyItem)) {
-            warn(
-              `Missing ${item.bibliographyItem} referenced by ${node.attrs.rid}`
-            )
-            return false
-          }
-
-          return true
-        })
-
+        const citation = node as CitationNode
+        const rids = citation.attrs.rids
         if (!rids.length) {
-          warn(`${node.attrs.rid} has no confirmed rids`)
           return ''
         }
 
         const xref = this.document.createElement('xref')
         xref.setAttribute('ref-type', 'bibr')
+        xref.setAttribute('rid', normalizeID(rids.join(' ')))
 
-        // NOTE: https://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-xref
-        xref.setAttribute(
-          'rid',
-          rids.map((item) => normalizeID(item.bibliographyItem)).join(' ')
-        )
-
-        if (node.attrs.contents) {
+        if (citation.attrs.contents) {
           // TODO: convert markup to JATS?
           // xref.innerHTML = node.attrs.contents
           const text = textFromHTML(node.attrs.contents)
@@ -963,55 +939,31 @@ export class JATSExporter {
         return xref
       },
       cross_reference: (node) => {
-        if (!node.attrs.rid) {
-          warn(`${node.attrs.id} has no rid`)
-          return node.attrs.label
+        const cross = node as CrossReferenceNode
+        const rids = cross.attrs.rids
+        if (!rids.length) {
+          return cross.attrs.label
         }
 
-        const auxiliaryObjectReference = getModel<AuxiliaryObjectReference>(
-          node.attrs.rid
-        )
+        const text = cross.attrs.customLabel || cross.attrs.label
 
-        if (!auxiliaryObjectReference) {
-          warn(`Missing model ${node.attrs.rid}`)
-          return node.attrs.label
+        const model = getModel(rids[0])
+        if (!model) {
+          warn('')
+          return text
         }
 
         const xref = this.document.createElement('xref')
-        const referencedObject = getModel<Model>(
-          auxiliaryObjectReference.referencedObject ||
-            (auxiliaryObjectReference?.referencedObjects &&
-              auxiliaryObjectReference.referencedObjects[0])
-        )
 
-        if (referencedObject) {
-          const refType = chooseRefType(referencedObject.objectType)
-
-          if (refType) {
-            xref.setAttribute('ref-type', refType)
-          } else {
-            warn(`Unset ref-type for objectType ${referencedObject.objectType}`)
-          }
+        const type = chooseRefType(model.objectType)
+        if (type) {
+          xref.setAttribute('ref-type', type)
+        } else {
+          warn(`Unset ref-type for objectType ${model.objectType}`)
         }
 
-        const getReferencedObjectId = (referencedObject: string) => {
-          return normalizeID(referencedObject)
-        }
-
-        if (auxiliaryObjectReference.referencedObjects) {
-          const rid = auxiliaryObjectReference.referencedObjects
-            ?.map((referencedObject) => getReferencedObjectId(referencedObject))
-            .join(' ')
-          xref.setAttribute('rid', rid)
-        }
-        if (auxiliaryObjectReference.referencedObject) {
-          const rid = getReferencedObjectId(
-            auxiliaryObjectReference.referencedObject
-          )
-          xref.setAttribute('rid', rid)
-        }
-
-        xref.textContent = node.attrs.customLabel || node.attrs.label
+        xref.setAttribute('rid', normalizeID(rids.join(' ')))
+        xref.textContent = text
 
         return xref
       },
@@ -1139,7 +1091,7 @@ export class JATSExporter {
       inline_footnote: (node) => {
         const xref = this.document.createElement('xref')
         xref.setAttribute('ref-type', 'fn')
-        xref.setAttribute('rid', normalizeID(node.attrs.rid))
+        xref.setAttribute('rid', normalizeID(node.attrs.rids.join(' ')))
         xref.textContent = node.attrs.contents
 
         return xref
