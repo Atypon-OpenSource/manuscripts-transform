@@ -77,7 +77,6 @@
       "manuscriptType": 1,
       "objectType": "MPManuscript",
       "sessionID": "fb8b3d44-9515-4747-c7d8-a30fb1bc188b",
-      "title": "Example Manuscript",
       "updatedAt": 1538472121.690101
     },
     {
@@ -2498,6 +2497,17 @@
       "titleCharacterCount": 17,
       "titleWordCount": 3,
       "updatedAt": 1538473917.25715
+    },
+    {
+      "_id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+      "createdAt": 1538472121.690101,
+      "updatedAt": 1538472121.690101,
+      "objectType": "MPTitles",
+      "title": "main title",
+      "subtitle": "subtitle",
+      "runningTitle": "running title",
+      "manuscriptID": "MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0",
+      "containerID": "MPProject:1"
     }
   ]
 }

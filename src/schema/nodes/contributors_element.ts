@@ -19,43 +19,44 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
+  contents: string
   id: string
+  paragraphStyle?: string
 }
 
-export interface GraphicalAbstractSectionNode extends ManuscriptNode {
+export interface ContributorsElementNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const graphicalAbstractSection: NodeSpec = {
-  content: 'section_title (figure_element | placeholder)', // does it need perhaps a special view that limits the figure content? Ask Nick?
+export const contributorsElement: NodeSpec = {
+  content: 'contributor*',
   attrs: {
     id: { default: '' },
-    category: { default: '' },
+    contents: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block sections',
+  group: 'block element',
   selectable: false,
   parseDOM: [
     {
-      tag: 'section.graphical-abstract',
+      tag: 'div.manuscript-contributors',
+      getAttrs: () => {
+        return {
+          contents: '',
+        }
+      },
     },
   ],
   toDOM: (node) => {
-    const graphicalAbstractSectionNode = node as GraphicalAbstractSectionNode
+    const contributorsElementNode = node as ContributorsElementNode
 
     return [
-      'section',
+      'div',
       {
-        id: graphicalAbstractSectionNode.attrs.id,
-        class: 'graphical-abstract',
-        spellcheck: 'false',
+        class: 'manuscript-contributors',
+        id: contributorsElementNode.attrs.id,
       },
       0,
     ]
   },
 }
-
-export const isGraphicalAbstractSectionNode = (
-  node: ManuscriptNode
-): node is GraphicalAbstractSectionNode =>
-  node.type === node.type.schema.nodes.graphical_abstract_section

@@ -439,7 +439,6 @@
     },
     {
       "objectType": "MPManuscript",
-      "title": "Genetic analysis of the actin disassembly system in <i>S. cerevisiae</i>",
       "bundle": "MPBundle:717BD952-8CBB-49E4-9089-E096BDC1D2C2",
       "priority": 1,
       "containerID": "MPProject:F6BC14D2-BD56-4237-A24D-30928BFB6381",
@@ -482,6 +481,16 @@
       "containerID": "MPProject:F6BC14D2-BD56-4237-A24D-30928BFB6381",
       "manuscriptID": "MPManuscript:561C1FB2-3A94-4460-AB75-426F80BC7071",
       "_id": "MPSection:7909E1C9-1614-4315-9A39-F121DB9C4074"
+    }, {
+      "_id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+      "createdAt": 1538472121.690101,
+      "updatedAt": 1538472121.690101,
+      "containerID": "MPProject:F6BC14D2-BD56-4237-A24D-30928BFB6381",
+      "manuscriptID": "MPManuscript:561C1FB2-3A94-4460-AB75-426F80BC7071",
+      "objectType": "MPTitles",
+      "title": "main title",
+      "subtitle": "subtitle",
+      "runningTitle": "running title"   
     }
   ]
 }

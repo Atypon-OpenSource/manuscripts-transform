@@ -17,7 +17,7 @@
 import { NodeType } from 'prosemirror-model'
 
 import { iterateChildren } from '../lib/utils'
-import { isHighlightMarkerNode } from '../schema'
+import { isHighlightMarkerNode, schema } from '../schema'
 import { ManuscriptNode, ManuscriptNodeType } from '../schema/types'
 import { nodeNames } from './node-names'
 
@@ -34,7 +34,7 @@ const textSnippet = (node: ManuscriptNode, max = 100) => {
     }
   })
 
-  return text.substr(0, max)
+  return text.substring(0, max)
 }
 
 const snippetOfNodeType = (
@@ -51,9 +51,12 @@ const snippetOfNodeType = (
 }
 
 export const nodeTitle = (node: ManuscriptNode) => {
-  const nodes = node.type.schema.nodes
+  const nodes = schema.nodes
 
   switch (node.type) {
+    case nodes.manuscript:
+      return snippetOfNodeType(node, nodes.title)
+
     case nodes.section:
     case nodes.bibliography_section:
     case nodes.footnotes_section:
@@ -85,10 +88,10 @@ export const nodeTitle = (node: ManuscriptNode) => {
 }
 
 export const nodeTitlePlaceholder = (nodeType: NodeType) => {
-  const nodes = nodeType.schema.nodes
+  const nodes = schema.nodes
 
   switch (nodeType) {
-    case nodes.title:
+    case nodes.manuscript:
       return 'Untitled Manuscript'
 
     case nodes.section:

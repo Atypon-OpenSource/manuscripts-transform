@@ -66,6 +66,7 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.affiliation, ObjectTypes.Affiliation],
   [schema.nodes.contributor, ObjectTypes.Contributor],
   [schema.nodes.table_element_footer, ObjectTypes.TableElementFooter],
+  [schema.nodes.title, ObjectTypes.Titles],
   [schema.nodes.contributors_section, ObjectTypes.Section],
   [schema.nodes.affiliations_section, ObjectTypes.Section],
 ])
