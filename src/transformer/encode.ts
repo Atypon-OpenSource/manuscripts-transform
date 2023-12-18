@@ -35,6 +35,7 @@ import {
   ListingElement,
   MissingFigure,
   Model,
+  ObjectTypes,
   ParagraphElement,
   QuoteElement,
   Section,
@@ -47,7 +48,7 @@ import {
 import { DOMSerializer, Node } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
-import { iterateChildren } from '../lib/utils'
+import { iterateChildren, modelsEqual } from '../lib/utils'
 import {
   hasGroup,
   isHighlightMarkerNode,
@@ -63,6 +64,7 @@ import {
   extractHighlightMarkers,
   isHighlightableModel,
 } from './highlight-markers'
+import { generateID } from './id'
 import { PlaceholderElement } from './models'
 import { nodeTypesMap } from './node-types'
 import { buildSectionCategory } from './section-category'
@@ -852,7 +854,10 @@ interface PrioritizedValue {
   value: number
 }
 
-export const encode = (node: ManuscriptNode): Map<string, Model> => {
+export const encode = (
+  node: ManuscriptNode,
+  preserveWithRepeatedID = false
+): Map<string, Model> => {
   const models: Map<string, Model> = new Map()
 
   const priority: PrioritizedValue = {
@@ -876,10 +881,17 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
         return
       }
       const { model, comments } = modelFromNode(child, parent, path, priority)
-      if (models.has(model._id)) {
-        throw Error(
-          `Encountered duplicate ids in models map while encoding: ${model._id}`
-        )
+
+      const existingModel = models.get(model._id)
+      if (existingModel) {
+        if (preserveWithRepeatedID && !modelsEqual(model, existingModel)) {
+          model._id = generateID(model.objectType as ObjectTypes)
+          // needed to support track changes plugin, specifically tracking of splitting content
+        } else {
+          throw Error(
+            `Encountered duplicate ids in models map while encoding: ${model._id}`
+          )
+        }
       }
       comments.forEach((comment) => {
         const proseMirrorComment = models.get(comment._id)
