@@ -16,7 +16,9 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
+import { schema } from '../index'
 import { ManuscriptNode } from '../types'
+
 
 export interface ActualManuscriptNode extends ManuscriptNode {
   attrs: {
@@ -24,9 +26,12 @@ export interface ActualManuscriptNode extends ManuscriptNode {
   }
 }
 
+// The direct children of this node do not have a json-schema representation
+// They exist for the purpose of styling in the UI
+
 export const manuscript: NodeSpec = {
   content:
-    'title? contributors? affiliations? keywords? abstracts body backmatter meta_section',
+    'title? contributors? affiliations? keywords? abstracts body backmatter comments',
   attrs: {
     id: { default: '' },
   },
@@ -55,3 +60,7 @@ export const manuscript: NodeSpec = {
     ]
   },
 }
+
+export const isManuscriptNode = (
+  node: ManuscriptNode
+): node is ManuscriptNode => node.type === schema.nodes.manuscript

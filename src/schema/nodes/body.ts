@@ -16,20 +16,15 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+// This node has no representation in json-schema
+// It exists for the purpose of styling in the UI
 
-interface Attrs {
-  id: string
-}
-
-export interface CommentListNode extends ManuscriptNode {
-  attrs: Attrs
-}
-
-export const commentList: NodeSpec = {
-  content: 'comment*',
+export const body: NodeSpec = {
+  content: 'sections*',
+  atom: true,
   attrs: {
-    id: { default: 'COMMENT_LIST' },
+    id: { default: '' },
   },
-  toDOM: () => ['section', 0],
+  group: 'block',
+  toDOM: () => ['div', { class: 'body' }, 0],
 }

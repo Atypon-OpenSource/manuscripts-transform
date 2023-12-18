@@ -13,51 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { NodeSpec } from 'prosemirror-model'
 
-import { schema } from '../index'
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
-  id: string
-}
-
-export interface AffiliationsNode extends ManuscriptNode {
-  attrs: Attrs
-}
+// This node has no representation in json-schema
+// It exists for the purpose of styling in the UI
 
 export const affiliations: NodeSpec = {
-  content: 'section_title? affiliation*',
+  content: 'affiliation*',
   attrs: {
-    id: { default: 'META_SECTION_AFFILLIATIONS' },
-    dataTracked: { default: null },
+    id: { default: '' },
   },
   group: 'block',
   selectable: false,
-  parseDOM: [
-    {
-      tag: 'section.affiliations',
-      getAttrs: (section) => {
-        const dom = section as HTMLElement
-
-        return {
-          contents: dom.innerHTML,
-        }
-      },
-    },
-  ],
-  toDOM: (node) => {
-    const affiliations = node as AffiliationsNode
-    return [
-      'section',
-      {
-        class: 'affiliations',
-        id: affiliations.attrs.id,
-      },
-      0,
-    ]
-  },
+  toDOM: () => ['div', { class: 'abstracts' }, 0],
 }
-export const isAffiliationsNode = (
-  node: ManuscriptNode
-): node is AffiliationsNode => node.type === schema.nodes.affiliations

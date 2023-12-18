@@ -46,13 +46,14 @@ import {
   Titles,
   TOCElement,
 } from '@manuscripts/json-schema'
-import { DOMSerializer, Node, NodeType } from 'prosemirror-model'
+import { DOMSerializer } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { iterateChildren, modelsEqual } from '../lib/utils'
 import {
   hasGroup,
   isHighlightMarkerNode,
+  isManuscriptNode,
   isSectionNode,
   ManuscriptNode,
   ManuscriptNodeType,
@@ -835,16 +836,16 @@ interface PrioritizedValue {
   value: number
 }
 
-function isCoreSection(child: Node) {
-  return (
-    child.type === schema.nodes.abstracts ||
-    child.type === schema.nodes.body ||
-    child.type === schema.nodes.backmatter ||
-    child.type === schema.nodes.affiliations ||
-    child.type === schema.nodes.contributors ||
-    child.type === schema.nodes.keywords
-  )
-}
+const containerTypes = [
+  schema.nodes.affiliations,
+  schema.nodes.contributors,
+  schema.nodes.affiliations,
+  schema.nodes.keywords,
+  schema.nodes.abstracts,
+  schema.nodes.body,
+  schema.nodes.backmatter,
+  schema.nodes.comments,
+]
 
 export const encode = (
   node: ManuscriptNode,
@@ -858,19 +859,16 @@ export const encode = (
 
   const placeholders = ['placeholder', 'placeholder_element']
   // TODO: parents array, to get closest parent with an id for containingObject
-  const addModel =
+  const processNode =
     (path: string[], parent: ManuscriptNode) => (child: ManuscriptNode) => {
-      if (isCoreSection(child)) {
-        child.forEach(addModel([], child))
+      if (containerTypes.includes(child.type)) {
+        child.forEach(processNode([], child))
         return
       }
       if (!child.attrs.id) {
         return
       }
       if (isHighlightMarkerNode(child)) {
-        return
-      }
-      if (child.type === schema.nodes.meta_section) {
         return
       }
       if (placeholders.includes(child.type.name)) {
@@ -900,15 +898,10 @@ export const encode = (
         }
       })
       models.set(model._id, model)
-      child.forEach(addModel(path.concat(child.attrs.id), child))
+      child.forEach(processNode(path.concat(child.attrs.id), child))
     }
-  node.forEach((child) => {
-    if (child.type === schema.nodes.meta_section) {
-      processMetaSectionNode(child, models, priority)
-    }
-  })
-  node.forEach(addModel([], node))
-  if (node.type === schema.nodes.manuscript) {
+  node.forEach(processNode([], node))
+  if (isManuscriptNode(node)) {
     auxiliaryObjectTypes.forEach((t) => {
       const order = generateElementOrder(node, t)
       if (order) {
@@ -919,25 +912,9 @@ export const encode = (
   return models
 }
 
-const processMetaSectionNode = (
-  node: Node,
-  models: Map<string, Model>,
-  priority: PrioritizedValue
-) => {
-  node.descendants((child) => {
-    if (
-      (!child.content || child.content.size === 0) &&
-      nodeTypesMap.get(child.type)
-    ) {
-      const { model } = modelFromNode(child, node, [], priority)
-      models.set(model._id, model)
-    }
-  })
-}
-
 const generateElementOrder = (
   node: ManuscriptNode,
-  nodeType: NodeType
+  nodeType: ManuscriptNodeType
 ): ElementsOrder | undefined => {
   const ids: string[] = []
   node.descendants((n) => {

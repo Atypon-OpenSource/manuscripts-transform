@@ -40,10 +40,9 @@ import { caption } from './nodes/caption'
 import { captionTitle } from './nodes/caption_title'
 import { citation } from './nodes/citation'
 import { comment } from './nodes/comment'
-import { commentList } from './nodes/comment_list'
+import { comments } from './nodes/comments'
 import { contributor } from './nodes/contributor'
 import { contributors } from './nodes/contributors'
-import { coreSection } from './nodes/core_section'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
 import { equation } from './nodes/equation'
@@ -68,7 +67,6 @@ import { bulletList, listItem, orderedList } from './nodes/list'
 import { listing } from './nodes/listing'
 import { listingElement } from './nodes/listing_element'
 import { manuscript } from './nodes/manuscript'
-import { metaSection } from './nodes/meta_section'
 import { missingFigure } from './nodes/missing_figure'
 import { paragraph } from './nodes/paragraph'
 import { placeholder } from './nodes/placeholder'
@@ -87,11 +85,14 @@ import { title } from './nodes/title'
 import { tocElement } from './nodes/toc_element'
 import { tocSection } from './nodes/toc_section'
 import { Marks, Nodes } from './types'
+import {abstracts} from "./nodes/abstracts";
+import {body} from "./nodes/body";
+import {backmatter} from "./nodes/backmatter";
 
 export * from './groups'
 export * from './types'
 export * from './nodes/comment'
-export * from './nodes/comment_list'
+export * from './nodes/comments'
 export * from './nodes/attribution'
 export * from './nodes/bibliography_item'
 export * from './nodes/bibliography_element'
@@ -138,7 +139,6 @@ export * from './nodes/text'
 export * from './nodes/toc_element'
 export * from './nodes/toc_section'
 export * from './nodes/affiliation'
-export * from './nodes/meta_section'
 export * from './nodes/contributor'
 export * from './nodes/table_element_footer'
 export * from './nodes/title'
@@ -161,7 +161,7 @@ export const schema = new Schema<Nodes, Marks>({
   },
   nodes: {
     comment,
-    comment_list: commentList,
+    comments,
     attribution,
     bibliography_item: bibliographyItem,
     bibliography_element: bibliographyElement,
@@ -171,9 +171,9 @@ export const schema = new Schema<Nodes, Marks>({
     caption,
     caption_title: captionTitle,
     citation,
-    abstracts: coreSection,
-    body: coreSection,
-    backmatter: coreSection,
+    abstracts,
+    body,
+    backmatter,
     cross_reference: crossReference,
     doc,
     equation,
@@ -219,11 +219,10 @@ export const schema = new Schema<Nodes, Marks>({
     toc_element: tocElement,
     toc_section: tocSection,
     affiliation,
-    meta_section: metaSection,
     contributor: contributor,
     table_element_footer: tableElementFooter,
-    title: title,
-    affiliations: affiliations,
-    contributors: contributors,
+    title,
+    affiliations,
+    contributors,
   },
 })
