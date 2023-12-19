@@ -233,7 +233,7 @@ export class JATSExporter {
   private generateCitations(
     fragment: ManuscriptFragment,
     citationStyle: string,
-    locale: string
+    locale?: string
   ) {
     const map = new Map<string, string>()
     const citationNodes = buildCitationNodes(fragment, this.modelMap)
@@ -282,7 +282,7 @@ export class JATSExporter {
       this.generatedCitationsMap = this.generateCitations(
         fragment,
         citationStyle,
-        locale ?? 'en-US'
+        locale
       )
     }
     this.createSerializer()
