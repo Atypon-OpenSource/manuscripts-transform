@@ -14,10 +14,24 @@
  * limitations under the License.
  */
 declare module 'citeproc' {
+  type Locale = Record<string, unknown>
+
+  interface Citation {
+    citationItems: Array<{ id: string; prefix?: string; suffix?: string }>
+    properties?: {
+      mode?: string
+      noteIndex?: number
+      infix?: string
+    }
+  }
+
   interface SystemOptions {
     retrieveLocale: (id: string) => string | Document | Locale
     retrieveItem: (id: string) => CSL.Data
   }
+
+  type Bibliography = string[]
+
   export class Engine {
     constructor(
       sys: SystemOptions,
@@ -25,14 +39,10 @@ declare module 'citeproc' {
       lang?: string,
       forceLang?: boolean
     )
-    public previewCitationCluster(
-      citation,
-      citationsPre,
-      citationPost,
-      format
-    ): string
+    public rebuildProcessorState(
+      citations: Citation[],
+      mode?: 'text' | 'html' | 'rtf',
+      uncitedItemIDs?: string[]
+    ): Array<[string, number, string]>
   }
-
-  type Locale = Record<string, unknown>
-
 }

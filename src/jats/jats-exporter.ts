@@ -31,15 +31,15 @@ import {
   ObjectTypes,
   Supplement,
 } from '@manuscripts/json-schema'
-import CiteProc from 'citeproc'
 import debug from 'debug'
-import {
-  DOMOutputSpec,
-  DOMParser,
-  DOMSerializer,
-} from 'prosemirror-model'
+import { DOMOutputSpec, DOMParser, DOMSerializer } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
+import {
+  buildBibliographyItems,
+  buildCitationNodes,
+  buildCitations,
+} from '../lib/citationBuilder'
 import { CitationProvider } from '../lib/citationProvider'
 import { nodeFromHTML, textFromHTML } from '../lib/html'
 import { normalizeStyleName } from '../lib/styled-content'
@@ -214,8 +214,8 @@ export interface JATSExporterOptions {
 
 export class JATSExporter {
   protected document: Document
-  protected citeProcEngine: CiteProc.Engine
   protected modelMap: Map<string, Model>
+  protected generatedCitationsMap: Map<string, string>
   protected bibliographyItemsMap: Map<string, BibliographyItem>
   protected models: Model[]
   protected serializer: DOMSerializer
@@ -230,22 +230,32 @@ export class JATSExporter {
     })
     return map
   }
-  private generateCitationContent(node: CitationNode) {
-    const citationItems = node.attrs.embeddedCitationItems?.map(
-      ({ bibliographyItem }: { bibliographyItem: string }) => ({
-        id: bibliographyItem,
-      })
+  private generateCitations(
+    fragment: ManuscriptFragment,
+    citationStyle: string,
+    locale: string
+  ) {
+    const map = new Map<string, string>()
+    const citationNodes = buildCitationNodes(fragment, this.modelMap)
+    const bibItems = buildBibliographyItems(citationNodes, (id: string) =>
+      this.bibliographyItemsMap.get(id)
     )
-    return this.citeProcEngine.previewCitationCluster(
-      {
-        citationID: node.attrs.rid,
-        citationItems: citationItems,
-      },
-      [],
-      [],
-      'text'
+    const citations = buildCitations(citationNodes, (id: string) =>
+      this.bibliographyItemsMap.get(id)
     )
+    CitationProvider.rebuildProcessorState(
+      citations,
+      bibItems,
+      citationStyle,
+      locale,
+      'text',
+      []
+    ).forEach(([id, noteIndex, output]) => {
+      map.set(id, output)
+    })
+    return map
   }
+
   public serializeToJATS = async (
     fragment: ManuscriptFragment,
     modelMap: Map<string, Model>,
@@ -266,13 +276,14 @@ export class JATSExporter {
     } = options
 
     this.modelMap = modelMap
+    this.bibliographyItemsMap = this.getBibliographyItemsMap()
     this.models = Array.from(this.modelMap.values())
     if (citationStyle) {
-      this.citeProcEngine = CitationProvider.getEngine({
-        bibliographyItemsMap: this.getBibliographyItemsMap(),
-        citationStyle: citationStyle,
-        locale: locale,
-      })
+      this.generatedCitationsMap = this.generateCitations(
+        fragment,
+        citationStyle,
+        locale ?? 'en-US'
+      )
     }
     this.createSerializer()
 
@@ -988,8 +999,13 @@ export class JATSExporter {
           'rid',
           rids.map((item) => normalizeID(item.bibliographyItem)).join(' ')
         )
-        if (this.citeProcEngine) {
-          xref.textContent = this.generateCitationContent(node as CitationNode)
+
+        const generatedCitationContent = this.generatedCitationsMap.get(
+          node.attrs.rid
+        )
+
+        if (generatedCitationContent) {
+          xref.textContent = generatedCitationContent
         } else if (node.attrs.contents) {
           // TODO: convert markup to JATS?
           // xref.innerHTML = node.attrs.contents
@@ -1020,8 +1036,8 @@ export class JATSExporter {
         const xref = this.document.createElement('xref')
         const referencedObject = getModel<Model>(
           auxiliaryObjectReference.referencedObject ||
-          (auxiliaryObjectReference?.referencedObjects &&
-            auxiliaryObjectReference.referencedObjects[0])
+            (auxiliaryObjectReference?.referencedObjects &&
+              auxiliaryObjectReference.referencedObjects[0])
         )
 
         if (referencedObject) {
