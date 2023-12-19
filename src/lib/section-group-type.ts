@@ -14,22 +14,24 @@
  * limitations under the License.
  */
 
+export type SectionGroupTypeID = 'abstracts' | 'body' | 'backmatter'
+
 export type SectionGroupType = {
-  _id: string
+  _id: SectionGroupTypeID
   title: string
 }
 
-export const abstractsType = {
+export const abstractsType: SectionGroupType = {
   _id: 'abstracts',
   title: 'Abstracts',
 }
 
-export const bodyType = {
+export const bodyType: SectionGroupType = {
   _id: 'body',
   title: 'Body',
 }
 
-export const backmatterType = {
+export const backmatterType: SectionGroupType = {
   _id: 'backmatter',
   title: 'Backmatter',
 }

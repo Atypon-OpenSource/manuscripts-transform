@@ -46,7 +46,7 @@ export const crossReference: NodeSpec = {
         const dom = p as HTMLSpanElement
 
         return {
-          rid: dom.getAttribute('data-reference-id')?.split(/\s+/) || [],
+          rids: dom.getAttribute('data-reference-id')?.split(/\s+/) || [],
           label: dom.textContent,
         }
       },

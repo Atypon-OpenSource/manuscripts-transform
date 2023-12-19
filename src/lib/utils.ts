@@ -71,19 +71,6 @@ export const isInBibliographySection = ($pos: ResolvedPos): boolean => {
   return false
 }
 
-const isAbstractsSectionNode = (node: ManuscriptNode) =>
-  node.attrs.category === 'MPSectionCategory:abstracts'
-
-export const isInAbstractsSection = ($pos: ResolvedPos): boolean => {
-  for (let i = $pos.depth; i > 0; i--) {
-    const node = $pos.node(i)
-    if (isAbstractsSectionNode(node)) {
-      return true
-    }
-  }
-  return false
-}
-
 export const findParentNodeClosestToPos = (
   $pos: ResolvedPos,
   predicate: (node: ProsemirrorNode) => boolean
@@ -111,18 +98,6 @@ export const getTrimmedTextContent = (
   return node.querySelector(querySelector)?.textContent?.trim()
 }
 
-export const groupBy = <T, K extends keyof any>(
-  list: T[],
-  getKey: (item: T) => K
-) =>
-  list.reduce((previous, currentItem) => {
-    const group = getKey(currentItem)
-    if (!previous[group]) {
-      previous[group] = []
-    }
-    previous[group].push(currentItem)
-    return previous
-  }, {} as Record<K, T[]>)
 
 export function modelsEqual(model: Model, model2: Model) {
   for (const v in model) {

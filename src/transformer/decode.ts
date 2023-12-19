@@ -46,10 +46,15 @@ import {
   TOCElement,
 } from '@manuscripts/json-schema'
 import debug from 'debug'
-import { DOMParser, NodeType, ParseOptions } from 'prosemirror-model'
+import { DOMParser, ParseOptions } from 'prosemirror-model'
 
 import { MissingElement } from '../errors'
-import { groupBy } from '../lib/utils'
+import {
+  abstractsType,
+  backmatterType,
+  bodyType,
+  SectionGroupType,
+} from '../lib/section-group-type'
 import {
   AffiliationNode,
   BibliographyElementNode,
@@ -91,7 +96,6 @@ import {
 import { KeywordGroupNode } from '../schema/nodes/keyword_group'
 import { buildTitles } from './builders'
 import { insertHighlightMarkers } from './highlight-markers'
-import { generateNodeID } from './id'
 import { PlaceholderElement } from './models'
 import {
   ExtraObjectTypes,
@@ -100,10 +104,10 @@ import {
   isManuscript,
 } from './object-types'
 import {
-  chooseCoreSectionBySection,
   chooseSectionLableName,
   chooseSectionNodeType,
   chooseSecType,
+  getSectionGroupType,
   guessSectionCategory,
   SectionCategory,
 } from './section-category'
@@ -165,7 +169,6 @@ const getKeywords = (modelMap: Map<string, Model>) =>
 
 const getTitles = (modelMap: Map<string, Model>) =>
   getModelsByType<Titles>(modelMap, ObjectTypes.Titles)[0]
-
 
 const isFootnote = hasObjectType<Footnote>(ObjectTypes.Footnote)
 
@@ -664,7 +667,9 @@ export class Decoder {
         }
       }
 
-      const elementNodes: ManuscriptNode[] = elements.map(e => this.decode(e) as ManuscriptNode)
+      const elementNodes: ManuscriptNode[] = elements.map(
+        (e) => this.decode(e) as ManuscriptNode
+      )
 
       const sectionTitle = 'section_title'
       const sectionTitleNode: SectionTitleNode = model.title
@@ -884,69 +889,43 @@ export class Decoder {
     ]) as ManuscriptNode
   }
 
-  private createRootSectionNodes() {
-    let rootSections = getSections(this.modelMap)
-      .filter((section) => !section.path || section.path.length <= 1)
-      .filter(
-        (section) =>
-          section.category !== 'MPSectionCategory:contributors' &&
-          section.category !== 'MPSectionCategory:affiliations' &&
-          section.category !== 'MPSectionCategory:keywords'
-      )
+  private createContentSections() {
+    let sections = getSections(this.modelMap)
 
-    rootSections = this.addGeneratedLabels(rootSections)
-    const sectionGroups = groupBy(rootSections, (sec) => {
-      return chooseCoreSectionBySection(sec.category ?? '')
-    })
-    this.ensureCoreSectionsExist(sectionGroups)
-    const absSectionNode = sectionGroups['MPSectionCategory:abstracts'].map(
-      (e) => this.decode(e) as ManuscriptNode
-    )
-    const bodySectionNodes = sectionGroups['MPSectionCategory:body'].map(
-      (e) => this.decode(e) as ManuscriptNode
-    )
-    const backmatterSectionNodes = sectionGroups['MPSectionCategory:backmatter'].map(e => this.decode(e) as ManuscriptNode)
+    sections = this.addGeneratedLabels(sections)
 
-    const abstractCoreSectionNodes = this.createAndFill(
-      schema.nodes.abstracts,
-      absSectionNode
-    )
+    const groups = {
+      abstracts: [] as SectionNode[],
+      body: [] as SectionNode[],
+      backmatter: [] as SectionNode[],
+    }
 
-    const bodyCoreSectionNodes = this.createAndFill(
-      schema.nodes.body,
-      bodySectionNodes
-    )
+    for (const section of sections) {
+      const category = section.category
+      const group: SectionGroupType = category
+        ? getSectionGroupType(category)
+        : bodyType
+      groups[group._id].push(this.decode(section) as SectionNode)
+    }
 
-    const backmatterCoreSectionNodes = this.createAndFill(
-      schema.nodes.backmatter,
-      backmatterSectionNodes
-    )
+    const abstracts = schema.nodes.abstracts.createAndFill(
+      {},
+      groups[abstractsType._id]
+    ) as ManuscriptNode
+    const body = schema.nodes.body.createAndFill(
+      {},
+      groups[bodyType._id]
+    ) as ManuscriptNode
+    const backmatter = schema.nodes.backmatter.createAndFill(
+      {},
+      groups[backmatterType._id]
+    ) as ManuscriptNode
 
     return {
-      abstracts: abstractCoreSectionNodes,
-      body: bodyCoreSectionNodes,
-      backmatter: backmatterCoreSectionNodes,
+      abstracts,
+      body,
+      backmatter,
     }
-  }
-  private ensureCoreSectionsExist(coreSections: Record<string, Section[]>) {
-    if (!coreSections['MPSectionCategory:abstracts']) {
-      coreSections['MPSectionCategory:abstracts'] = []
-    }
-    if (!coreSections['MPSectionCategory:body']) {
-      coreSections['MPSectionCategory:body'] = []
-    }
-    if (!coreSections['MPSectionCategory:backmatter']) {
-      coreSections['MPSectionCategory:backmatter'] = []
-    }
-  }
-
-  private createAndFill(nodeType: NodeType, content: ManuscriptNode[]) {
-    return nodeType.createAndFill(
-      {
-        id: generateNodeID(nodeType),
-      },
-      content
-    ) as SectionNode
   }
 
   private createCommentNodes(model: Model) {
@@ -991,7 +970,7 @@ export class Decoder {
     const contributors = this.createContributorsNode()
     const affiliations = this.createAffiliationsNode()
     const keywords = this.createKeywordsNode()
-    const { abstracts, body, backmatter } = this.createRootSectionNodes()
+    const { abstracts, body, backmatter } = this.createContentSections()
     const comments = this.createCommentsNode()
     const contents: ManuscriptNode[] = [
       title,

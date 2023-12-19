@@ -16,6 +16,12 @@
 // @ts-ignore
 import { Element, ObjectTypes } from '@manuscripts/json-schema'
 
+import {
+  abstractsType,
+  backmatterType,
+  bodyType,
+  SectionGroupType,
+} from '../lib/section-group-type'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../schema'
 
 const sectionNodeTypes: ManuscriptNodeType[] = [
@@ -57,11 +63,6 @@ export type SectionCategory =
   | 'MPSectionCategory:supplementary-material'
   | 'MPSectionCategory:supported-by'
   | 'MPSectionCategory:ethics-statement'
-  | 'MPSectionCategory:body'
-  | 'MPSectionCategory:abstracts'
-  | 'MPSectionCategory:backmatter'
-  | 'MPSectionCategory:affiliations'
-  | 'MPSectionCategory:contributors'
 
 export type SecType =
   | 'abstract'
@@ -93,11 +94,6 @@ export type SecType =
   | 'supplementary-material'
   | 'supported-by'
   | 'ethics-statement'
-  | 'abstracts'
-  | 'body'
-  | 'backmatter'
-  | 'affiliations'
-  | 'contributors'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -114,11 +110,6 @@ export const chooseSectionNodeType = (
 
     case 'MPSectionCategory:keywords':
       return schema.nodes.keywords
-    case 'MPSectionCategory:affiliations':
-      return schema.nodes.affiliations
-
-    case 'MPSectionCategory:contributors':
-      return schema.nodes.contributors
 
     case 'MPSectionCategory:toc':
       return schema.nodes.toc_section
@@ -181,10 +172,6 @@ export const buildSectionCategory = (
 
     case schema.nodes.graphical_abstract_section:
       return 'MPSectionCategory:abstract-graphical'
-    case schema.nodes.affiliations:
-      return 'MPSectionCategory:affiliations'
-    case schema.nodes.contributors:
-      return 'MPSectionCategory:contributors'
 
     default:
       return node.attrs.category || undefined
@@ -220,31 +207,30 @@ export const chooseSecType = (sectionCategory: SectionCategory): SecType => {
   }
 }
 
-export const chooseCoreSectionBySection = (section: string): string => {
-  switch (section) {
+export const getSectionGroupType = (category: string): SectionGroupType => {
+  switch (category) {
     case 'MPSectionCategory:abstract':
-    case 'MPSectionCategory:abstract-teaser':
     case 'MPSectionCategory:abstract-graphical':
-      return 'MPSectionCategory:abstracts'
-    case 'MPSectionCategory:acknowledgement':
-    case 'MPSectionCategory:availability':
-    case 'MPSectionCategory:conclusions':
-    case 'MPSectionCategory:bibliography':
-    case 'MPSectionCategory:discussion':
-    case 'MPSectionCategory:endnotes':
-    case 'MPSectionCategory:appendices':
+      return abstractsType
     case 'MPSectionCategory:competing-interests':
     case 'MPSectionCategory:con':
-    case 'MPSectionCategory:deceased':
     case 'MPSectionCategory:ethics-statement':
     case 'MPSectionCategory:financial-disclosure':
     case 'MPSectionCategory:supplementary-material':
     case 'MPSectionCategory:supported-by':
-    case 'MPSectionCategory:abbreviations':
-    case 'MPSectionCategory:results':
-      return 'MPSectionCategory:backmatter'
+    case 'MPSectionCategory:availability':
+    case 'MPSectionCategory:acknowledgement':
+    case 'MPSectionCategory:endnotes':
+    case 'MPSectionCategory:bibliography':
+    case 'MPSectionCategory:appendices':
+    case 'MPSectionCategory:deceased':
+    case 'MPSectionCategory:equal':
+    case 'MPSectionCategory:present-address':
+    case 'MPSectionCategory:presented-at':
+    case 'MPSectionCategory:previously-at':
+      return backmatterType
   }
-  return 'MPSectionCategory:body'
+  return bodyType
 }
 
 export const chooseSectionCategoryByType = (
@@ -322,16 +308,6 @@ export const chooseSectionCategoryByType = (
       return 'MPSectionCategory:supported-by'
     case 'ethics-statement':
       return 'MPSectionCategory:ethics-statement'
-    case 'body':
-      return 'MPSectionCategory:body'
-    case 'backmatter':
-      return 'MPSectionCategory:backmatter'
-    case 'abstracts':
-      return 'MPSectionCategory:abstracts'
-    case 'affiliations':
-      return 'MPSectionCategory:affiliations'
-    case 'contributors':
-      return 'MPSectionCategory:contributors'
     default:
       return undefined
   }
