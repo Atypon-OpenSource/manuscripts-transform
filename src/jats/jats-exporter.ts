@@ -1064,7 +1064,7 @@ export class JATSExporter {
 
         return ['sec', attrs, 0]
       },
-      hard_break: () => ['break'],
+      hard_break: () => '',
       highlight_marker: () => '',
       inline_equation: (node) => {
         const formula = this.document.createElement('inline-formula')

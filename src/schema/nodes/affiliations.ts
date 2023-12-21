@@ -26,5 +26,5 @@ export const affiliations: NodeSpec = {
   },
   group: 'block',
   selectable: false,
-  toDOM: () => ['div', { class: 'abstracts' }, 0],
+  toDOM: () => ['div', { class: 'affiliations' }, 0],
 }

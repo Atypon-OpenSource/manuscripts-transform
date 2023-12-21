@@ -53,7 +53,6 @@ import {
   abstractsType,
   backmatterType,
   bodyType,
-  SectionGroupType,
 } from '../lib/section-group-type'
 import {
   AffiliationNode,
@@ -901,10 +900,11 @@ export class Decoder {
     }
 
     for (const section of sections) {
+      if (section.path.length > 1) {
+        continue
+      }
       const category = section.category
-      const group: SectionGroupType = category
-        ? getSectionGroupType(category)
-        : bodyType
+      const group = category ? getSectionGroupType(category) : bodyType
       groups[group._id].push(this.decode(section) as SectionNode)
     }
 
