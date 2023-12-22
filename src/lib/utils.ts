@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { Model } from '@manuscripts/json-schema'
 import { Node as ProsemirrorNode, ResolvedPos } from 'prosemirror-model'
 
 import { ManuscriptEditorState, ManuscriptNode } from '../schema'
@@ -71,19 +70,6 @@ export const isInBibliographySection = ($pos: ResolvedPos): boolean => {
   return false
 }
 
-const isAbstractsSectionNode = (node: ManuscriptNode) =>
-  node.attrs.category === 'MPSectionCategory:abstracts'
-
-export const isInAbstractsSection = ($pos: ResolvedPos): boolean => {
-  for (let i = $pos.depth; i > 0; i--) {
-    const node = $pos.node(i)
-    if (isAbstractsSectionNode(node)) {
-      return true
-    }
-  }
-  return false
-}
-
 export const findParentNodeClosestToPos = (
   $pos: ResolvedPos,
   predicate: (node: ProsemirrorNode) => boolean
@@ -102,25 +88,11 @@ export const findParentNodeClosestToPos = (
 }
 
 export const getTrimmedTextContent = (
-  node: Element | Document,
+  node: Element | Document | null,
   querySelector: string
 ) => {
   if (!node) {
     return null
   }
   return node.querySelector(querySelector)?.textContent?.trim()
-}
-
-export function modelsEqual(model: Model, model2: Model) {
-  for (const v in model) {
-    for (const v2 in model2) {
-      // models do not contain complex object in them so stringifying them to compare deeper is reasonable
-      const prepV = typeof v == 'object' ? JSON.stringify(v) : v
-      const prepV2 = typeof v2 == 'object' ? JSON.stringify(v2) : v2
-      if (prepV !== prepV2) {
-        return false
-      }
-    }
-  }
-  return true
 }

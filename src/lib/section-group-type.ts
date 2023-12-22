@@ -13,29 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export const coreSectionCategories = [
-  {
-    _id: 'MPSectionCategory:abstracts',
-    name: 'Abstracts',
-    desc: 'Abstracts section for grouping',
-    objectType: 'MPSectionCategory',
-    titles: [],
-    priority: 120,
-  },
-  {
-    _id: 'MPSectionCategory:backmatter',
-    name: 'Backmatter',
-    desc: 'Backmatter section for grouping',
-    objectType: 'MPSectionCategory',
-    titles: [],
-    priority: 180,
-  },
-  {
-    _id: 'MPSectionCategory:body',
-    name: 'Body',
-    desc: 'Body section for grouping',
-    objectType: 'MPSectionCategory',
-    titles: [],
-    priority: 200,
-  },
-]
+
+export type SectionGroupTypeID = 'abstracts' | 'body' | 'backmatter'
+
+export type SectionGroupType = {
+  _id: SectionGroupTypeID
+  title: string
+}
+
+export const abstractsType: SectionGroupType = {
+  _id: 'abstracts',
+  title: 'Abstracts',
+}
+
+export const bodyType: SectionGroupType = {
+  _id: 'body',
+  title: 'Body',
+}
+
+export const backmatterType: SectionGroupType = {
+  _id: 'backmatter',
+  title: 'Backmatter',
+}

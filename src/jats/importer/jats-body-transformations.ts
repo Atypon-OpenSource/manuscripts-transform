@@ -15,17 +15,12 @@
  */
 
 import {
-  Affiliation,
-  BibliographyItem,
-  Contributor,
-} from '@manuscripts/json-schema'
-
-import {
-  Build,
-  chooseSectionCategoryByType,
-  chooseSecType,
-  getCoreSectionTitles,
-} from '../../transformer'
+  abstractsType,
+  backmatterType,
+  bodyType,
+  SectionGroupType,
+} from '../../lib/section-group-type'
+import { chooseSectionCategoryByType, chooseSecType } from '../../transformer'
 
 const removeNodeFromParent = (node: Element) =>
   node.parentNode && node.parentNode.removeChild(node)
@@ -33,23 +28,17 @@ const removeNodeFromParent = (node: Element) =>
 const capitalizeFirstLetter = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1)
 
-const createSectionContainer = (
-  type: string,
+const createSectionGroup = (
+  type: SectionGroupType,
   createElement: (tagName: string) => HTMLElement
 ) => {
-  const sectionContainer = createElement('sec')
-  const sectionCategory = chooseSectionCategoryByType(type)
-  sectionContainer.setAttribute(
-    'sec-type',
-    sectionCategory ? chooseSecType(sectionCategory) : ''
-  )
+  const sec = createElement('sec')
+  sec.setAttribute('sec-type', type._id)
 
   const title = createElement('title')
-  title.textContent = sectionCategory
-    ? getCoreSectionTitles(sectionCategory)[0]
-    : ' '
-  sectionContainer.appendChild(title)
-  return sectionContainer
+  title.textContent = type.title
+  sec.appendChild(title)
+  return sec
 }
 
 export const jatsBodyTransformations = {
@@ -58,19 +47,13 @@ export const jatsBodyTransformations = {
     createElement: (tagName: string) => HTMLElement
   ) {
     // Create and add a section if there is no section the content can be appended into
-    let section = createElement('sec') as Element
+    let section: Element
 
-    const title = section.querySelector('title')
-    if (!title) {
-      const title = createElement('title')
-      title.textContent = ''
-      section.appendChild(title)
-    }
-
-    const { firstElementChild } = body
-    if (firstElementChild && firstElementChild.tagName === 'sec') {
-      section = firstElementChild
+    const element = body.firstElementChild
+    if (element && element.tagName === 'sec') {
+      section = element
     } else {
+      section = createElement('sec') as Element
       body.insertBefore(section, body.firstChild)
     }
 
@@ -86,7 +69,7 @@ export const jatsBodyTransformations = {
       }
     })
   },
-  createAbstract(
+  createAbstractSection(
     abstractNode: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
@@ -109,7 +92,7 @@ export const jatsBodyTransformations = {
     }
     return section
   },
-  createAcknowledgments(
+  createAcknowledgmentsSection(
     ackNode: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
@@ -131,46 +114,7 @@ export const jatsBodyTransformations = {
     }
     return section
   },
-  createBibliography(
-    doc: Document,
-    references: BibliographyItem[],
-    createElement: (tagName: string) => HTMLElement
-  ) {
-    const bibSec = doc.createElement('sec')
-    bibSec.setAttribute('sec-type', 'bibliography')
-
-    const titleNode = doc.querySelector('back > ref-list > title')
-    if (titleNode) {
-      bibSec.appendChild(titleNode)
-    } else {
-      const title = createElement('title')
-      title.textContent = 'References'
-      bibSec.appendChild(title)
-    }
-
-    const refList = doc.createElement('ref-list')
-    for (const ref of references) {
-      const item = doc.createElement('ref')
-      item.setAttribute('id', ref._id)
-      item.setAttribute('type', ref.type)
-      item.setAttribute('author', JSON.stringify(ref.author))
-      item.setAttribute('issued', JSON.stringify(ref.issued))
-      ref['container-title'] &&
-        item.setAttribute('container-title', ref['container-title'])
-      ref.DOI && item.setAttribute('doi', ref.DOI)
-      ref.volume && item.setAttribute('volume', ref.volume.toString())
-      ref.issue && item.setAttribute('issue', ref.issue.toString())
-      ref.supplement && item.setAttribute('supplement', ref.supplement)
-      ref.page && item.setAttribute('page', ref.page.toString())
-      ref.title && item.setAttribute('title', ref.title)
-      ref.literal && item.setAttribute('literal', ref.literal)
-      refList.appendChild(item)
-    }
-
-    bibSec.appendChild(refList)
-    return bibSec
-  },
-  createFootnotes(
+  createFootnotesSection(
     footnoteGroups: Element[],
     createElement: (tagName: string) => HTMLElement
   ) {
@@ -205,7 +149,7 @@ export const jatsBodyTransformations = {
     return section
   },
   createFloatsGroupSection(
-    floatsGroup: Element,
+    group: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
     const section = createElement('sec')
@@ -215,124 +159,105 @@ export const jatsBodyTransformations = {
     title.textContent = 'Floating Group'
     section.appendChild(title)
 
-    section.append(...floatsGroup.children)
+    section.append(...group.children)
     return section
   },
-  moveAbstractsIntoContainer(
+  moveAbstracts(
     doc: Document,
-    abstractsContainer: Element,
+    group: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
-    const abstractNodes = doc.querySelectorAll(
-      'front > article-meta > abstract'
-    )
-    abstractNodes.forEach((abstractNode) => {
-      const abstract = this.createAbstract(abstractNode, createElement)
-      removeNodeFromParent(abstractNode)
-      abstractsContainer.appendChild(abstract)
+    const abstracts = doc.querySelectorAll('front > article-meta > abstract')
+    abstracts.forEach((abstract) => {
+      const sec = this.createAbstractSection(abstract, createElement)
+      removeNodeFromParent(abstract)
+      group.appendChild(sec)
     })
   },
-  wrapBodySections(doc: Document, bodyContainer: Element) {
+  wrapBodySections(doc: Document, group: Element) {
     const bodySections = doc.querySelectorAll(
       'body > sec:not([sec-type="backmatter"]), body > sec:not([sec-type])'
     )
     bodySections.forEach((section) => {
       removeNodeFromParent(section)
-      bodyContainer.appendChild(section)
+      group.appendChild(section)
     })
   },
-  moveBackSectionsIntoContainer(doc: Document, backmatterContainer: Element) {
+  moveBackSections(doc: Document, group: Element) {
     for (const section of doc.querySelectorAll('back > sec')) {
       removeNodeFromParent(section)
-      backmatterContainer.appendChild(section)
+      group.appendChild(section)
     }
   },
-  moveAcknowledgmentsIntoContainer(
+  moveAcknowledgments(
     doc: Document,
-    backmatterContainer: Element,
+    group: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
-    const ackNode = doc.querySelector('back > ack')
-    if (ackNode) {
-      const acknowledgements = this.createAcknowledgments(
-        ackNode,
-        createElement
-      )
-      removeNodeFromParent(ackNode)
-      backmatterContainer.appendChild(acknowledgements)
+    const ack = doc.querySelector('back > ack')
+    if (ack) {
+      const sec = this.createAcknowledgmentsSection(ack, createElement)
+      removeNodeFromParent(ack)
+      group.appendChild(sec)
     }
   },
-  moveAppendicesIntoContainer(
+  moveAppendices(
     doc: Document,
-    backmatterContainer: Element,
+    group: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
-    const appGroup = doc.querySelectorAll('back > app-group > app')
-    for (const app of appGroup) {
-      const appendix = this.createAppendixSection(app, createElement)
+    const apps = doc.querySelectorAll('back > app-group > app')
+    for (const app of apps) {
+      const sec = this.createAppendixSection(app, createElement)
       removeNodeFromParent(app)
-      backmatterContainer.appendChild(appendix)
+      group.appendChild(sec)
     }
   },
-  moveBibliographyIntoContainer(
-    doc: Document,
-    backmatterContainer: Element,
-    references: BibliographyItem[] | null,
-    createElement: (tagName: string) => HTMLElement
-  ) {
-    if (references && references.length) {
-      backmatterContainer.appendChild(
-        this.createBibliography(doc, references, createElement)
-      )
-    }
-  },
-  moveSectionsToBody(
+  createBody(
     doc: Document,
     body: Element,
-    references: BibliographyItem[] | null,
     createElement: (tagName: string) => HTMLElement
   ) {
-    const bodyContainer = createSectionContainer('body', createElement)
-    const abstractsContainer = createSectionContainer(
-      'abstracts',
-      createElement
-    )
-    const backmatterContainer = createSectionContainer(
-      'backmatter',
-      createElement
-    )
-    this.mapFootnotesToSections(doc, backmatterContainer, createElement)
-    this.wrapBodySections(doc, bodyContainer)
-    this.moveAbstractsIntoContainer(doc, abstractsContainer, createElement)
-    this.moveBackSectionsIntoContainer(doc, backmatterContainer)
-    this.moveAcknowledgmentsIntoContainer(
-      doc,
-      backmatterContainer,
-      createElement
-    )
-    this.moveAppendicesIntoContainer(doc, backmatterContainer, createElement)
-    this.moveBibliographyIntoContainer(
-      doc,
-      backmatterContainer,
-      references,
-      createElement
-    )
-    body.insertBefore(abstractsContainer, body.firstChild)
-    body.insertBefore(bodyContainer, abstractsContainer.nextSibling)
-    body.append(backmatterContainer)
+    const group = createSectionGroup(bodyType, createElement)
+    this.wrapBodySections(doc, group)
+    this.moveFloatsGroupToBody(doc, group, createElement)
+    body.append(group)
   },
-  mapFootnotesToSections(
+  createAbstracts(
     doc: Document,
-    backmatterContainer: Element,
+    body: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
-    const footnoteGroups = [...doc.querySelectorAll('fn[fn-type]')]
-    for (const footnote of footnoteGroups) {
-      const type = footnote.getAttribute('fn-type') || '' //Cannot be null since it is queried above
+    const group = createSectionGroup(abstractsType, createElement)
+    this.moveAbstracts(doc, group, createElement)
+    body.insertBefore(group, body.lastElementChild)
+  },
+  createBackmatter(
+    doc: Document,
+    body: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const group = createSectionGroup(backmatterType, createElement)
+    this.moveBackSections(doc, group)
+    this.moveAppendices(doc, group, createElement)
+    this.moveSpecialFootnotes(doc, group, createElement)
+    this.moveFootnotes(doc, group, createElement)
+    this.moveAcknowledgments(doc, group, createElement)
+    body.append(group)
+  },
+  // process footnotes with special meaning to
+  moveSpecialFootnotes(
+    doc: Document,
+    group: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const fns = [...doc.querySelectorAll('fn[fn-type]')]
+    for (const fn of fns) {
+      const type = fn.getAttribute('fn-type') || '' //Cannot be null since it is queried above
       const category = chooseSectionCategoryByType(type)
       if (category) {
         const section = createElement('sec')
-        const title = footnote.querySelector('p[content-type="fn-title"]')
+        const title = fn.querySelector('p[content-type="fn-title"]')
         if (title) {
           const sectionTitleElement = createElement('title')
           const titleTextContent = title.textContent?.trim()
@@ -342,14 +267,19 @@ export const jatsBodyTransformations = {
           removeNodeFromParent(title)
           section.append(sectionTitleElement)
         }
-        section.append(...footnote.children)
-        removeNodeFromParent(footnote)
+        section.append(...fn.children)
+        removeNodeFromParent(fn)
 
         section.setAttribute('sec-type', chooseSecType(category))
-        backmatterContainer.append(section)
+        group.append(section)
       }
     }
-
+  },
+  moveFootnotes(
+    doc: Document,
+    group: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
     const footnotes = [...doc.querySelectorAll('fn:not(table-wrap-foot fn)')]
     const footnotesSection = doc.querySelector('sec[sec-type="endnotes"]')
     const footnotesSectionGroup = footnotesSection?.querySelector('fn-group')
@@ -362,8 +292,11 @@ export const jatsBodyTransformations = {
     }
 
     if (!footnotesSection && containingGroup.innerHTML) {
-      const section = this.createFootnotes([containingGroup], createElement)
-      backmatterContainer.append(section)
+      const section = this.createFootnotesSection(
+        [containingGroup],
+        createElement
+      )
+      group.append(section)
     }
 
     // move footnotes without fn-type from back to body section
@@ -380,11 +313,11 @@ export const jatsBodyTransformations = {
 
     if (regularFootnoteGroups.length > 0) {
       regularFootnoteGroups.map((g) => removeNodeFromParent(g))
-      const footnotes = this.createFootnotes(
+      const footnotes = this.createFootnotesSection(
         regularFootnoteGroups,
         createElement
       )
-      backmatterContainer.appendChild(footnotes)
+      group.appendChild(footnotes)
     }
   },
   // move captions to the end of their containers
@@ -397,90 +330,49 @@ export const jatsBodyTransformations = {
       }
     }
   },
-  moveTableFooterToEnd(body: Element) {
-    const tableFooters = body.querySelectorAll('table-wrap-foot')
-
-    for (const tableFooter of tableFooters) {
-      if (tableFooter.parentNode) {
-        tableFooter.parentNode.appendChild(tableFooter)
+  fixTables(body: Element, createElement: (tagName: string) => HTMLElement) {
+    const tables = body.querySelectorAll('table-wrap > table')
+    tables.forEach((table) => {
+      // Move cols into a colgroup if they are not already
+      // This more closely maps how they exist in HTML and, subsequently, in ManuscriptJSON
+      const colgroup = table.querySelector('colgroup')
+      const cols = table.querySelectorAll('col')
+      if (!colgroup && table.firstChild && cols.length > 0) {
+        const colgroup = createElement('colgroup')
+        for (const col of cols) {
+          colgroup.appendChild(col)
+        }
+        table.insertBefore(colgroup, table.firstChild)
       }
-    }
-  },
-  moveAffiliationsToBody(
-    doc: Document,
-    affiliations: Build<Affiliation>[] | undefined,
-    body: Element,
-    createElement: (tagName: string) => HTMLElement
-  ) {
-    if (affiliations?.length) {
-      const section = createElement('sec')
-      section.setAttribute('sec-type', 'affiliations')
-      affiliations.forEach((affiliation) => {
-        const item = doc.createElement('aff')
-        item.setAttribute('id', affiliation._id)
-        affiliation.institution &&
-          item.setAttribute('institution', affiliation.institution)
-        affiliation.email &&
-          item.setAttribute('email', JSON.stringify(affiliation.email))
-        affiliation.department &&
-          item.setAttribute('department', affiliation.department)
-        affiliation.addressLine1 &&
-          item.setAttribute('addressLine1', affiliation.addressLine1)
-        affiliation.addressLine2 &&
-          item.setAttribute('addressLine2', affiliation.addressLine2)
-        affiliation.addressLine3 &&
-          item.setAttribute('addressLine3', affiliation.addressLine3)
-        affiliation.postCode &&
-          item.setAttribute('postCode', affiliation.postCode)
-        affiliation.country && item.setAttribute('country', affiliation.country)
-        ;(affiliation.priority === 0 || affiliation.priority) &&
-          item.setAttribute('priority', affiliation.priority.toString())
 
-        section.appendChild(item)
-      })
-      body.prepend(section)
-    }
-  },
-  moveAuthorsToBody(
-    doc: Document,
-    authors: Build<Contributor>[] | undefined,
-    body: Element,
-    createElement: (tagName: string) => HTMLElement
-  ) {
-    if (authors?.length) {
-      const section = createElement('sec')
-      section.setAttribute('sec-type', 'contributors')
-      authors.forEach((author) => {
-        const item = doc.createElement('contrib')
-        item.setAttribute('id', author._id)
-        author.role && item.setAttribute('role', author.role)
-        author.affiliations &&
-          item.setAttribute('affiliations', JSON.stringify(author.affiliations))
-        author.footnote &&
-          item.setAttribute('footnote', JSON.stringify(author.footnote))
-        author.corresp &&
-          item.setAttribute('corresp', JSON.stringify(author.corresp))
-        author.bibliographicName &&
-          item.setAttribute(
-            'bibliographicName',
-            JSON.stringify(author.bibliographicName)
-          )
-        author.userID && item.setAttribute('userID', author.userID)
-        author.invitationID &&
-          item.setAttribute('invitationID', author.invitationID)
-        author.isCorresponding &&
-          item.setAttribute(
-            'isCorresponding',
-            JSON.stringify(author.isCorresponding)
-          )
-        author.ORCIDIdentifier &&
-          item.setAttribute('ORCIDIdentifier', author.ORCIDIdentifier)
-        ;(author.priority === 0 || author.priority) &&
-          item.setAttribute('priority', author.priority.toString())
+      // Ensures that tables have a header and footer row
+      const tbody = table.querySelector('tbody')
+      if (tbody) {
+        // if there are no table header rows, add an extra row to the start of the table body
+        const headerRow = table.querySelector('thead > tr')
 
-        section.appendChild(item)
-      })
-      body.prepend(section)
+        if (!headerRow) {
+          const tr = createElement('tr')
+          tbody.insertBefore(tr, tbody.firstElementChild)
+        }
+
+        // if there are no table footer rows, add an extra row to the end of the table body
+        const footerRow = table.querySelector('tfoot > tr')
+
+        if (!footerRow) {
+          const tr = createElement('tr')
+          tbody.appendChild(tr)
+        }
+      }
+    })
+  },
+  moveTableFooterToEnd(body: Element) {
+    const footers = body.querySelectorAll('table-wrap-foot')
+
+    for (const footer of footers) {
+      if (footer.parentNode) {
+        footer.parentNode.appendChild(footer)
+      }
     }
   },
   moveFloatsGroupToBody(
@@ -488,49 +380,14 @@ export const jatsBodyTransformations = {
     body: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
-    const floatsGroup = doc.querySelector('floats-group')
-    if (floatsGroup) {
-      const floatsGroupSection = this.createFloatsGroupSection(
-        floatsGroup,
-        createElement
-      )
-      removeNodeFromParent(floatsGroup)
-      body.appendChild(floatsGroupSection)
+    const group = doc.querySelector('floats-group')
+    if (group) {
+      const sec = this.createFloatsGroupSection(group, createElement)
+      removeNodeFromParent(group)
+      body.appendChild(sec)
     }
   },
-  moveBlockNodesFromParagraph(
-    doc: Document,
-    body: Element,
-    createElement: (tagName: string) => HTMLElement
-  ) {
-    // TODO:: add other block node to the array
-    const blockNodes = ['disp-formula']
-    const paragraphs = [...body.querySelectorAll('sec > p')].filter((node) =>
-      blockNodes.find((node_name) =>
-        node.querySelector(`:scope > ${node_name}`)
-      )
-    )
-
-    paragraphs.map((paragraph) => {
-      let newParagraph = createElement('p')
-      const parent = doc.createDocumentFragment()
-
-      while (paragraph?.firstChild) {
-        if (blockNodes.includes(paragraph?.firstChild.nodeName)) {
-          if (newParagraph.innerHTML.trim().length > 0) {
-            parent.append(newParagraph)
-            newParagraph = createElement('p')
-          }
-          parent.append(paragraph?.firstChild)
-        } else {
-          newParagraph.append(paragraph?.firstChild)
-        }
-      }
-
-      paragraph?.replaceWith(parent)
-    })
-  },
-  moveKeywordsToBody(
+  createKeywords(
     document: Document,
     body: Element,
     createElement: (tagName: string) => HTMLElement
@@ -542,10 +399,10 @@ export const jatsBodyTransformations = {
       const title = createElement('title')
       title.textContent = 'Keywords'
       section.append(title)
-      const kwdGroupsEl = createElement('kwd-group-list')
+      const keywordsElement = createElement('kwd-group-list')
       // Using the first kwd-group since for the moment we only support single kwd-group
-      kwdGroupsEl.append(keywordGroups[0])
-      section.append(kwdGroupsEl)
+      keywordsElement.append(keywordGroups[0])
+      section.append(keywordsElement)
       body.prepend(section)
     }
   },

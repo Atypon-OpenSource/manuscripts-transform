@@ -20,7 +20,6 @@ import { GROUP_BLOCK, GROUP_ELEMENT, GROUP_SECTION, hasGroup } from '../groups'
 const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.section,
   schema.nodes.bibliography_section,
-  schema.nodes.keywords_section,
   schema.nodes.toc_section,
 ]
 

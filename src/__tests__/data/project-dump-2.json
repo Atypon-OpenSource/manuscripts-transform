@@ -348,80 +348,6 @@
       "_id": "MPBibliographyItem:DD769750-2BAA-4930-AB69-BB259CE321B3"
     },
     {
-      "bundled": true,
-      "csl": {
-        "ISSNs": [
-          "00280836"
-        ],
-        "_id": "MPCitationStyle:www-zotero-org-styles-nature",
-        "author-email": "mberkowi@gmu.edu",
-        "author-name": "Michael Berkowitz",
-        "cslIdentifier": "http://www.zotero.org/styles/nature",
-        "defaultLocale": "en-GB",
-        "documentation-URL": "http://www.nature.com/nature/authors/gta/index.html#a5.4",
-        "eISSNs": [
-          "14764687"
-        ],
-        "fields": [
-          "MPResearchField:science",
-          "MPResearchField:generic-base"
-        ],
-        "license": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "objectType": "MPBundle",
-        "self-URL": "http://www.zotero.org/styles/nature",
-        "title": "Nature",
-        "updatedAt": 1410325903,
-        "version": "1.0"
-      },
-      "objectType": "MPBundle",
-      "prototype": "MPBundle:www-zotero-org-styles-nature",
-      "containerID": "MPProject:F6BC14D2-BD56-4237-A24D-30928BFB6381",
-      "_id": "MPBundle:717BD952-8CBB-49E4-9089-E096BDC1D2C2"
-    },
-    {
-      "objectType": "MPCitation",
-      "containingObject": "MPParagraphElement:10E6338C-0BE3-43F2-AB2F-D93E754259E8",
-      "embeddedCitationItems": [
-        {
-          "_id": "MPCitationItem:18B3D979-4968-402C-80D1-1A3FC1A03B65",
-          "objectType": "MPCitationItem",
-          "bibliographyItem": "MPBibliographyItem:7A40557C-5D34-425B-A1A0-2AF963810467"
-        },
-        {
-          "_id": "MPCitationItem:4CF5E2A6-9ECC-47F7-B50C-0F06CD2AA31E",
-          "objectType": "MPCitationItem",
-          "bibliographyItem": "MPBibliographyItem:152D957F-E002-42F3-AB87-71E4980BDD9F"
-        }
-      ],
-      "containerID": "MPProject:F6BC14D2-BD56-4237-A24D-30928BFB6381",
-      "manuscriptID": "MPManuscript:561C1FB2-3A94-4460-AB75-426F80BC7071",
-      "_id": "MPCitation:31E42852-8377-4550-8C25-9E602EE657B0"
-    },
-    {
-      "objectType": "MPCitation",
-      "containingObject": "MPParagraphElement:10E6338C-0BE3-43F2-AB2F-D93E754259E8",
-      "embeddedCitationItems": [
-        {
-          "_id": "MPCitationItem:30A8EA49-9238-4624-A0AE-EEE3BC5A7C96",
-          "objectType": "MPCitationItem",
-          "bibliographyItem": "MPBibliographyItem:DD769750-2BAA-4930-AB69-BB259CE321B3"
-        },
-        {
-          "_id": "MPCitationItem:A48BFD03-0DAF-4A82-9155-90F9C400D9E0",
-          "objectType": "MPCitationItem",
-          "bibliographyItem": "MPBibliographyItem:1185136E-B352-46CB-A4A1-F6DDE1457A2D"
-        },
-        {
-          "_id": "MPCitationItem:21AC812A-F3AF-410A-B192-742F8CD65A51",
-          "objectType": "MPCitationItem",
-          "bibliographyItem": "MPBibliographyItem:89329BB0-F1C5-453F-A00D-424A31788513"
-        }
-      ],
-      "containerID": "MPProject:F6BC14D2-BD56-4237-A24D-30928BFB6381",
-      "manuscriptID": "MPManuscript:561C1FB2-3A94-4460-AB75-426F80BC7071",
-      "_id": "MPCitation:D30D9817-5C61-49BC-8393-F45AE2995F87"
-    },
-    {
       "objectType": "MPContributor",
       "priority": 0,
       "role": "author",
@@ -446,7 +372,7 @@
     },
     {
       "elementType": "p",
-      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:10E6338C-0BE3-43F2-AB2F-D93E754259E8\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Aip1 genetically interacts with Cofilin in yeast cells <span class=\"citation\" data-reference-id=\"MPCitation:31E42852-8377-4550-8C25-9E602EE657B0\" data-reference-embedded-citation='[{&quot;id&quot;:&quot;MPCitationItem:18B3D979-4968-402C-80D1-1A3FC1A03B65&quot;,&quot;bibliographyItem&quot;:&quot;MPBibliographyItem:7A40557C-5D34-425B-A1A0-2AF963810467&quot;},{&quot;id&quot;:&quot;MPCitationItem:4CF5E2A6-9ECC-47F7-B50C-0F06CD2AA31E&quot;,&quot;bibliographyItem&quot;:&quot;MPBibliographyItem:152D957F-E002-42F3-AB87-71E4980BDD9F&quot;}]'><sup>1,2</sup></span> and results in F-actin accumulation in S2 cells, suggesting it acts as a disassembly factor in vivo. Api1 consists of two b-propeller domains, each containing an F-actin site <span class=\"citation\" data-reference-id=\"MPCitation:D30D9817-5C61-49BC-8393-F45AE2995F87\" data-reference-embedded-citation='[{&quot;id&quot;:&quot;MPCitationItem:30A8EA49-9238-4624-A0AE-EEE3BC5A7C96&quot;,&quot;bibliographyItem&quot;:&quot;MPBibliographyItem:DD769750-2BAA-4930-AB69-BB259CE321B3&quot;},{&quot;id&quot;:&quot;MPCitationItem:A48BFD03-0DAF-4A82-9155-90F9C400D9E0&quot;,&quot;bibliographyItem&quot;:&quot;MPBibliographyItem:1185136E-B352-46CB-A4A1-F6DDE1457A2D&quot;},{&quot;id&quot;:&quot;MPCitationItem:21AC812A-F3AF-410A-B192-742F8CD65A51&quot;,&quot;bibliographyItem&quot;:&quot;MPBibliographyItem:89329BB0-F1C5-453F-A00D-424A31788513&quot;}]'><sup>3–5</sup></span></p>",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:10E6338C-0BE3-43F2-AB2F-D93E754259E8\" class=\"MPElement\" data-object-type=\"MPParagraphElement\">Aip1 genetically interacts with Cofilin in yeast cells <span class=\"citation\" data-id=\"MPCitation:31E42852-8377-4550-8C25-9E602EE657B0\" data-reference-id=\"MPBibliographyItem:7A40557C-5D34-425B-A1A0-2AF963810467 MPBibliographyItem:152D957F-E002-42F3-AB87-71E4980BDD9F\"><sup>1,2</sup></span> and results in F-actin accumulation in S2 cells, suggesting it acts as a disassembly factor in vivo. Api1 consists of two b-propeller domains, each containing an F-actin site <span class=\"citation\" data-id=\"MPCitation:D30D9817-5C61-49BC-8393-F45AE2995F87\" data-reference-id=\"MPBibliographyItem:DD769750-2BAA-4930-AB69-BB259CE321B3 MPBibliographyItem:1185136E-B352-46CB-A4A1-F6DDE1457A2D MPBibliographyItem:89329BB0-F1C5-453F-A00D-424A31788513\"><sup>3–5</sup></span></p>",
       "placeholderInnerHTML": "",
       "objectType": "MPParagraphElement",
       "containerID": "MPProject:F6BC14D2-BD56-4237-A24D-30928BFB6381",
@@ -490,7 +416,7 @@
       "objectType": "MPTitles",
       "title": "main title",
       "subtitle": "subtitle",
-      "runningTitle": "running title"   
+      "runningTitle": "running title"
     }
   ]
 }

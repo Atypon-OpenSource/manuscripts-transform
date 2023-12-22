@@ -30,78 +30,95 @@ export type JournalIdentifier = {
   journalIDType?: string
 }
 export const parseJournalIdentifiers = (
-  journalMeta: Element
-): Array<JournalIdentifier> => {
-  const output: Array<JournalIdentifier> = []
+  element: Element | null
+): JournalIdentifier[] => {
+  if (!element) {
+    return []
+  }
+  const output: JournalIdentifier[] = []
 
-  const elements = journalMeta.querySelectorAll('journal-id')
+  const ids = element.querySelectorAll('journal-id')
 
-  for (const element of elements) {
-    const journalIDType = element.getAttribute('journal-id-type')
-    const journalID = element.textContent?.trim() ?? element.textContent
+  for (const id of ids) {
+    const type = id.getAttribute('journal-id-type')
+    const value = id.textContent?.trim()
 
-    if (journalID !== null && journalIDType != null) {
-      output.push({ journalIDType, journalID })
-    } else if (journalID !== null) {
-      output.push({ journalID })
+    if (!value) {
+      continue
     }
+
+    output.push({
+      journalID: value,
+      journalIDType: type ?? undefined,
+    })
   }
 
   return output
 }
 
 export const parseJournalAbbreviatedTitles = (
-  journalMeta: Element
-): Array<AbbreviatedTitle> => {
-  const output: Array<AbbreviatedTitle> = []
+  element: Element | null
+): AbbreviatedTitle[] => {
+  if (!element) {
+    return []
+  }
+  const output: AbbreviatedTitle[] = []
 
-  const elements = journalMeta.querySelectorAll(
+  const titles = element.querySelectorAll(
     'journal-title-group > abbrev-journal-title'
   )
 
-  for (const element of elements) {
-    const abbrevType = element.getAttribute('abbrev-type')
-    const abbreviatedTitle = element.textContent?.trim() ?? element.textContent
-    if (abbreviatedTitle !== null && abbrevType !== null) {
-      output.push({ abbreviatedTitle, abbrevType })
-    } else if (abbreviatedTitle !== null) {
-      output.push({ abbreviatedTitle })
+  for (const title of titles) {
+    const type = title.getAttribute('abbrev-type')
+    const value = title.textContent?.trim()
+
+    if (!value) {
+      continue
     }
+
+    output.push({
+      abbreviatedTitle: value,
+      abbrevType: type ?? undefined,
+    })
   }
 
   return output
 }
 
-export const parseJournalISSNs = (journalMeta: Element): Array<ISSN> => {
-  const output: Array<ISSN> = []
+export const parseJournalISSNs = (element: Element | null): ISSN[] => {
+  if (!element) {
+    return []
+  }
+  const output: ISSN[] = []
 
-  const elements = journalMeta.querySelectorAll('issn')
+  const issns = element.querySelectorAll('issn')
 
-  for (const element of elements) {
-    const publicationType = element.getAttribute('pub-type')
-    const ISSN = element.textContent?.trim() ?? element.textContent
-    if (publicationType !== null && ISSN !== null) {
-      output.push({ publicationType, ISSN })
-    } else if (ISSN !== null) {
-      output.push({ ISSN })
+  for (const issn of issns) {
+    const type = issn.getAttribute('pub-type')
+    const value = issn.textContent?.trim()
+
+    if (!value) {
+      continue
     }
+
+    output.push({
+      ISSN: value,
+      publicationType: type ?? undefined,
+    })
   }
 
   return output
 }
 
-export const parseJournalMeta = (journalMeta: Element) => {
+export const parseJournalMeta = (element: Element | null) => {
   return {
-    abbreviatedTitles: parseJournalAbbreviatedTitles(journalMeta),
-    journalIdentifiers: parseJournalIdentifiers(journalMeta),
-    ISSNs: parseJournalISSNs(journalMeta),
+    abbreviatedTitles: parseJournalAbbreviatedTitles(element),
+    journalIdentifiers: parseJournalIdentifiers(element),
+    ISSNs: parseJournalISSNs(element),
     publisherName:
-      getTrimmedTextContent(journalMeta, 'publisher > publisher-name') ??
-      undefined,
+      getTrimmedTextContent(element, 'publisher > publisher-name') ?? undefined,
     title:
-      getTrimmedTextContent(
-        journalMeta,
-        'journal-title-group > journal-title'
-      ) ?? undefined,
+      getTrimmedTextContent(element, 'journal-title-group > journal-title') ??
+      undefined,
   }
 }

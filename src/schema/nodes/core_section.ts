@@ -16,20 +16,12 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
-  id: string
-}
-
-export interface CommentListNode extends ManuscriptNode {
-  attrs: Attrs
-}
-
-export const commentList: NodeSpec = {
-  content: 'comment*',
+export const coreSection: NodeSpec = {
+  content: 'sections*',
+  atom: true,
   attrs: {
-    id: { default: 'COMMENT_LIST' },
+    id: { default: '' },
   },
+  group: 'block',
   toDOM: () => ['section', 0],
 }
