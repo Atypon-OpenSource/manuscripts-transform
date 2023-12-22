@@ -446,17 +446,11 @@ export class HTMLTransformer {
     }
 
     nodes.cross_reference = (node) => {
-      const crossReferenceNode = node as CrossReferenceNode
-
+      const xref = node as CrossReferenceNode
       const element = this.document.createElement('a')
       element.classList.add('cross-reference')
-
-      element.setAttribute('data-reference-ids', crossReferenceNode.attrs.rids.join(' '))
-      // TODO:: handle multiple reference
-
-      element.textContent =
-        crossReferenceNode.attrs.customLabel || crossReferenceNode.attrs.label
-
+      element.setAttribute('data-reference-ids', xref.attrs.rids.join(' '))
+      element.textContent = xref.attrs.customLabel || xref.attrs.label
       return element
     }
 

@@ -21,9 +21,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "contents": "",
-        "dataTracked": null,
-        "id": "MPSection:con-sec",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -91,8 +89,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
-        "id": "MPSection:aff-sec",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -126,7 +123,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPSection:kwd",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -156,13 +153,13 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:abstracts",
+        "id": "",
       },
       "type": "abstracts",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:body",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -1868,7 +1865,9 @@ const x = 'y'",
                     "customLabel": "",
                     "dataTracked": null,
                     "label": "Figure 1",
-                    "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
+                    "rids": Array [
+                      "MPFigureElement:A5D68C57-B5BB-4D10-E0C3-ECED717A2AA7",
+                    ],
                   },
                   "type": "cross_reference",
                 },
@@ -1893,7 +1892,9 @@ const x = 'y'",
                     "customLabel": "",
                     "dataTracked": null,
                     "label": "Table 1",
-                    "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
+                    "rids": Array [
+                      "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
+                    ],
                   },
                   "type": "cross_reference",
                 },
@@ -1918,7 +1919,9 @@ const x = 'y'",
                     "customLabel": "",
                     "dataTracked": null,
                     "label": "Equation 1",
-                    "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
+                    "rids": Array [
+                      "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
+                    ],
                   },
                   "type": "cross_reference",
                 },
@@ -1938,13 +1941,10 @@ const x = 'y'",
                   "attrs": Object {
                     "contents": "A hyperlink",
                     "dataTracked": null,
-                    "embeddedCitationItems": Array [
-                      Object {
-                        "bibliographyItem": "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5",
-                        "id": "MPCitationItem:2B3C3557-01FB-4142-A20F-62804E85B596",
-                      },
+                    "id": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
+                    "rids": Array [
+                      "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5",
                     ],
-                    "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
                     "selectedText": "",
                   },
                   "type": "citation",
@@ -1969,7 +1969,9 @@ const x = 'y'",
                   "attrs": Object {
                     "contents": "1",
                     "dataTracked": null,
-                    "rid": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+                    "rids": Array [
+                      "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+                    ],
                   },
                   "type": "inline_footnote",
                 },
@@ -2024,7 +2026,7 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:backmatter",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -2083,17 +2085,9 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
-        "id": "META_SECTION",
+        "id": "",
       },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "id": "COMMENT_LIST",
-          },
-          "type": "comment_list",
-        },
-      ],
-      "type": "meta_section",
+      "type": "comments",
     },
   ],
   "type": "manuscript",
@@ -2121,9 +2115,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "contents": "",
-        "dataTracked": null,
-        "id": "MPSection:conSec",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -2191,8 +2183,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
-        "id": "MPSection:affSec",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -2226,7 +2217,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPSection:kwd",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -2256,13 +2247,13 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:abstracts",
+        "id": "",
       },
       "type": "abstracts",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:body",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -3709,7 +3700,9 @@ const x = 'y'",
                     "customLabel": "",
                     "dataTracked": null,
                     "label": "Figure 1",
-                    "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
+                    "rids": Array [
+                      "MPFigureElement:A5D68C57-B5BB-4D10-E0C3-ECED717A2AA7",
+                    ],
                   },
                   "type": "cross_reference",
                 },
@@ -3734,7 +3727,9 @@ const x = 'y'",
                     "customLabel": "",
                     "dataTracked": null,
                     "label": "Table 1",
-                    "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
+                    "rids": Array [
+                      "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
+                    ],
                   },
                   "type": "cross_reference",
                 },
@@ -3759,7 +3754,9 @@ const x = 'y'",
                     "customLabel": "",
                     "dataTracked": null,
                     "label": "Equation 1",
-                    "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
+                    "rids": Array [
+                      "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
+                    ],
                   },
                   "type": "cross_reference",
                 },
@@ -3779,13 +3776,10 @@ const x = 'y'",
                   "attrs": Object {
                     "contents": "A hyperlink",
                     "dataTracked": null,
-                    "embeddedCitationItems": Array [
-                      Object {
-                        "bibliographyItem": "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5",
-                        "id": "MPCitationItem:2B3C3557-01FB-4142-A20F-62804E85B596",
-                      },
+                    "id": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
+                    "rids": Array [
+                      "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5",
                     ],
-                    "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
                     "selectedText": "",
                   },
                   "type": "citation",
@@ -3810,7 +3804,9 @@ const x = 'y'",
                   "attrs": Object {
                     "contents": "1",
                     "dataTracked": null,
-                    "rid": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+                    "rids": Array [
+                      "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+                    ],
                   },
                   "type": "inline_footnote",
                 },
@@ -3865,7 +3861,7 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:backmatter",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -3924,17 +3920,9 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
-        "id": "META_SECTION",
+        "id": "",
       },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "id": "COMMENT_LIST",
-          },
-          "type": "comment_list",
-        },
-      ],
-      "type": "meta_section",
+      "type": "comments",
     },
   ],
   "type": "manuscript",
@@ -3962,9 +3950,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "contents": "",
-        "dataTracked": null,
-        "id": "MPSection:conSec",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -4032,8 +4018,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
-        "id": "MPSection:affSec",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -4067,7 +4052,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPSection:kwd",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -4097,13 +4082,13 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:abstracts",
+        "id": "",
       },
       "type": "abstracts",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:body",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -5809,7 +5794,9 @@ const x = 'y'",
                     "customLabel": "",
                     "dataTracked": null,
                     "label": "Figure 1",
-                    "rid": "MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903",
+                    "rids": Array [
+                      "MPFigureElement:A5D68C57-B5BB-4D10-E0C3-ECED717A2AA7",
+                    ],
                   },
                   "type": "cross_reference",
                 },
@@ -5834,7 +5821,9 @@ const x = 'y'",
                     "customLabel": "",
                     "dataTracked": null,
                     "label": "Table 1",
-                    "rid": "MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6",
+                    "rids": Array [
+                      "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
+                    ],
                   },
                   "type": "cross_reference",
                 },
@@ -5859,7 +5848,9 @@ const x = 'y'",
                     "customLabel": "",
                     "dataTracked": null,
                     "label": "Equation 1",
-                    "rid": "MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5",
+                    "rids": Array [
+                      "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
+                    ],
                   },
                   "type": "cross_reference",
                 },
@@ -5879,13 +5870,10 @@ const x = 'y'",
                   "attrs": Object {
                     "contents": "A hyperlink",
                     "dataTracked": null,
-                    "embeddedCitationItems": Array [
-                      Object {
-                        "bibliographyItem": "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5",
-                        "id": "MPCitationItem:2B3C3557-01FB-4142-A20F-62804E85B596",
-                      },
+                    "id": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
+                    "rids": Array [
+                      "MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5",
                     ],
-                    "rid": "MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2",
                     "selectedText": "",
                   },
                   "type": "citation",
@@ -5910,7 +5898,9 @@ const x = 'y'",
                   "attrs": Object {
                     "contents": "1",
                     "dataTracked": null,
-                    "rid": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+                    "rids": Array [
+                      "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+                    ],
                   },
                   "type": "inline_footnote",
                 },
@@ -5965,7 +5955,7 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:backmatter",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -6024,17 +6014,9 @@ const x = 'y'",
     },
     Object {
       "attrs": Object {
-        "id": "META_SECTION",
+        "id": "",
       },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "id": "COMMENT_LIST",
-          },
-          "type": "comment_list",
-        },
-      ],
-      "type": "meta_section",
+      "type": "comments",
     },
   ],
   "type": "manuscript",
@@ -6062,23 +6044,20 @@ Object {
     },
     Object {
       "attrs": Object {
-        "contents": "",
-        "dataTracked": null,
-        "id": "MPSection:contributors",
+        "id": "",
       },
       "type": "contributors",
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
-        "id": "MPSection:affiliations",
+        "id": "",
       },
       "type": "affiliations",
     },
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPSection:kwd",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -6108,13 +6087,13 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:abstracts",
+        "id": "",
       },
       "type": "abstracts",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:body",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -6157,8 +6136,10 @@ Object {
                   "attrs": Object {
                     "contents": "1",
                     "dataTracked": null,
-                    "embeddedCitationItems": Array [],
-                    "rid": "MPCitation:1",
+                    "id": null,
+                    "rids": Array [
+                      "MPBibliographyItem:1",
+                    ],
                     "selectedText": "",
                   },
                   "type": "citation",
@@ -6212,23 +6193,15 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:backmatter",
+        "id": "",
       },
       "type": "backmatter",
     },
     Object {
       "attrs": Object {
-        "id": "META_SECTION",
+        "id": "",
       },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "id": "COMMENT_LIST",
-          },
-          "type": "comment_list",
-        },
-      ],
-      "type": "meta_section",
+      "type": "comments",
     },
   ],
   "type": "manuscript",
@@ -6256,15 +6229,12 @@ Object {
     },
     Object {
       "attrs": Object {
-        "contents": "",
-        "dataTracked": null,
         "id": "MPSection:contributors",
       },
       "type": "contributors",
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
         "id": "MPSection:affiliations",
       },
       "type": "affiliations",
@@ -6488,61 +6458,53 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "META_SECTION",
+        "id": "",
       },
       "content": Array [
         Object {
           "attrs": Object {
-            "id": "someId",
+            "contents": "Test Comment",
+            "contributions": Array [],
+            "id": "MPCommentAnnotation:test",
+            "originalText": "",
+            "resolved": false,
+            "selector": Object {
+              "from": 166,
+              "to": 175,
+            },
+            "target": "MPParagraphElement:1",
           },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "contents": "Test Comment",
-                "contributions": Array [],
-                "id": "MPCommentAnnotation:test",
-                "originalText": "",
-                "resolved": false,
-                "selector": Object {
-                  "from": 166,
-                  "to": 175,
-                },
-                "target": "MPParagraphElement:1",
-              },
-              "type": "comment",
+          "type": "comment",
+        },
+        Object {
+          "attrs": Object {
+            "contents": "",
+            "contributions": Array [],
+            "id": "MPCommentAnnotation:test1",
+            "originalText": "",
+            "resolved": false,
+            "selector": undefined,
+            "target": "MPFigureElement:1",
+          },
+          "type": "comment",
+        },
+        Object {
+          "attrs": Object {
+            "contents": "",
+            "contributions": Array [],
+            "id": "MPCommentAnnotation:test2",
+            "originalText": "",
+            "resolved": false,
+            "selector": Object {
+              "from": 23,
+              "to": 32,
             },
-            Object {
-              "attrs": Object {
-                "contents": "",
-                "contributions": Array [],
-                "id": "MPCommentAnnotation:test1",
-                "originalText": "",
-                "resolved": false,
-                "selector": undefined,
-                "target": "MPFigureElement:1",
-              },
-              "type": "comment",
-            },
-            Object {
-              "attrs": Object {
-                "contents": "",
-                "contributions": Array [],
-                "id": "MPCommentAnnotation:test2",
-                "originalText": "",
-                "resolved": false,
-                "selector": Object {
-                  "from": 23,
-                  "to": 32,
-                },
-                "target": "MPSection:1",
-              },
-              "type": "comment",
-            },
-          ],
-          "type": "comment_list",
+            "target": "MPSection:1",
+          },
+          "type": "comment",
         },
       ],
-      "type": "meta_section",
+      "type": "comments",
     },
   ],
   "type": "manuscript",
@@ -6570,23 +6532,20 @@ Object {
     },
     Object {
       "attrs": Object {
-        "contents": "",
-        "dataTracked": null,
-        "id": "MPSection:contributors",
+        "id": "",
       },
       "type": "contributors",
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
-        "id": "MPSection:affiliations",
+        "id": "",
       },
       "type": "affiliations",
     },
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPSection:1",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -6642,137 +6601,27 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:abstracts",
+        "id": "",
       },
       "type": "abstracts",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:body",
+        "id": "",
       },
       "type": "body",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:backmatter",
+        "id": "",
       },
       "type": "backmatter",
     },
     Object {
       "attrs": Object {
-        "id": "META_SECTION",
+        "id": "",
       },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "id": "COMMENT_LIST",
-          },
-          "type": "comment_list",
-        },
-      ],
-      "type": "meta_section",
-    },
-  ],
-  "type": "manuscript",
-}
-`;
-
-exports[`decoder decode keywords section with paragraph element 1`] = `
-Object {
-  "attrs": Object {
-    "id": "MPManuscript:1",
-  },
-  "content": Array [
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "MPTitles:1",
-      },
-      "content": Array [
-        Object {
-          "text": "main title",
-          "type": "text",
-        },
-      ],
-      "type": "title",
-    },
-    Object {
-      "attrs": Object {
-        "contents": "",
-        "dataTracked": null,
-        "id": "MPSection:contributors",
-      },
-      "type": "contributors",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "MPSection:affiliations",
-      },
-      "type": "affiliations",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "MPSection:kwd",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Keywords",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "contents": "",
-            "dataTracked": null,
-            "id": "",
-            "paragraphStyle": "",
-            "type": "",
-          },
-          "type": "keywords_element",
-        },
-      ],
-      "type": "keywords",
-    },
-    Object {
-      "attrs": Object {
-        "id": "MPSection:abstracts",
-      },
-      "type": "abstracts",
-    },
-    Object {
-      "attrs": Object {
-        "id": "MPSection:body",
-      },
-      "type": "body",
-    },
-    Object {
-      "attrs": Object {
-        "id": "MPSection:backmatter",
-      },
-      "type": "backmatter",
-    },
-    Object {
-      "attrs": Object {
-        "id": "META_SECTION",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "id": "COMMENT_LIST",
-          },
-          "type": "comment_list",
-        },
-      ],
-      "type": "meta_section",
+      "type": "comments",
     },
   ],
   "type": "manuscript",
@@ -6790,27 +6639,30 @@ Object {
         "dataTracked": null,
         "id": "someId",
       },
+      "content": Array [
+        Object {
+          "text": "main title",
+          "type": "text",
+        },
+      ],
       "type": "title",
     },
     Object {
       "attrs": Object {
-        "contents": "",
-        "dataTracked": null,
-        "id": "MPSection:contributors",
+        "id": "",
       },
       "type": "contributors",
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
-        "id": "MPSection:affiliations",
+        "id": "",
       },
       "type": "affiliations",
     },
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "someId",
+        "id": "",
       },
       "content": Array [
         Object {
@@ -6866,49 +6718,41 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:abstracts",
+        "id": "",
       },
       "type": "abstracts",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:body",
+        "id": "",
       },
       "type": "body",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:backmatter",
+        "id": "",
       },
       "type": "backmatter",
     },
     Object {
       "attrs": Object {
-        "id": "META_SECTION",
+        "id": "",
       },
       "content": Array [
         Object {
           "attrs": Object {
-            "id": "someId",
+            "contents": "KeywordQuery",
+            "contributions": Array [],
+            "id": "MPCommentAnnotation:3AAEE869-7DC9-4392-B8C6-9C5FCA522120",
+            "originalText": "",
+            "resolved": false,
+            "selector": undefined,
+            "target": "MPKeywordGroup:1",
           },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "contents": "KeywordQuery",
-                "contributions": Array [],
-                "id": "MPCommentAnnotation:3AAEE869-7DC9-4392-B8C6-9C5FCA522120",
-                "originalText": "",
-                "resolved": false,
-                "selector": undefined,
-                "target": "MPKeywordGroup:1",
-              },
-              "type": "comment",
-            },
-          ],
-          "type": "comment_list",
+          "type": "comment",
         },
       ],
-      "type": "meta_section",
+      "type": "comments",
     },
   ],
   "type": "manuscript",

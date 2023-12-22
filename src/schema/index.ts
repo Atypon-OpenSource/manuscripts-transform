@@ -29,13 +29,16 @@ import {
   tracked_insert,
   underline,
 } from './marks'
+import { abstracts } from './nodes/abstracts'
 import { affiliation } from './nodes/affiliation'
 import { affiliations } from './nodes/affiliations'
 import { attribution } from './nodes/attribution'
+import { backmatter } from './nodes/backmatter'
 import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographyItem } from './nodes/bibliography_item'
 import { bibliographySection } from './nodes/bibliography_section'
 import { blockquoteElement } from './nodes/blockquote_element'
+import { body } from './nodes/body'
 import { caption } from './nodes/caption'
 import { captionTitle } from './nodes/caption_title'
 import { citation } from './nodes/citation'
@@ -85,9 +88,6 @@ import { title } from './nodes/title'
 import { tocElement } from './nodes/toc_element'
 import { tocSection } from './nodes/toc_section'
 import { Marks, Nodes } from './types'
-import {abstracts} from "./nodes/abstracts";
-import {body} from "./nodes/body";
-import {backmatter} from "./nodes/backmatter";
 
 export * from './groups'
 export * from './types'

@@ -36,7 +36,6 @@ import {
   ListingElement,
   MissingFigure,
   Model,
-  ObjectTypes,
   ParagraphElement,
   QuoteElement,
   Section,
@@ -49,7 +48,7 @@ import {
 import { DOMSerializer } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
-import { iterateChildren, modelsEqual } from '../lib/utils'
+import { iterateChildren } from '../lib/utils'
 import {
   hasGroup,
   isHighlightMarkerNode,
@@ -64,15 +63,10 @@ import {
 import {
   AuxiliaryObjects,
   auxiliaryObjectTypes,
-  Build,
   buildAttribution,
   buildElementsOrder,
 } from './builders'
-import {
-  extractHighlightMarkers,
-  isHighlightableModel,
-} from './highlight-markers'
-import { generateID } from './id'
+import { CommentMarker, extractCommentMarkers } from './highlight-markers'
 import { PlaceholderElement } from './models'
 import { nodeTypesMap } from './node-types'
 import { buildSectionCategory } from './section-category'
@@ -477,7 +471,7 @@ const encoders: NodeEncoderMap = {
 
     const ref = {
       type,
-    } as any
+    } as Partial<BibliographyItem>
 
     if (author) {
       ref.author = author
@@ -798,9 +792,8 @@ export const modelFromNode = (
   priority: PrioritizedValue
 ): {
   model: Model
-  comments: Build<CommentAnnotation>[]
+  markers: CommentMarker[]
 } => {
-  const commentAnnotationsMap = new Map<string, Build<CommentAnnotation>>()
   // TODO: in handlePaste, filter out non-standard IDs
 
   const objectType = nodeTypesMap.get(node.type)
@@ -822,14 +815,9 @@ export const modelFromNode = (
   }
 
   const model = data as Model
+  const markers = extractCommentMarkers(model)
 
-  if (isHighlightableModel(model)) {
-    // TODO 30.4.2021
-    // This method doubles the execution time with large documents, such as sts-example.xml (from 1s to 2s)
-    extractHighlightMarkers(model, commentAnnotationsMap)
-  }
-  const comments = [...commentAnnotationsMap.values()]
-  return { model, comments }
+  return { model, markers }
 }
 
 interface PrioritizedValue {
@@ -844,21 +832,20 @@ const containerTypes = [
   schema.nodes.abstracts,
   schema.nodes.body,
   schema.nodes.backmatter,
-  schema.nodes.comments,
 ]
 
-export const encode = (
-  node: ManuscriptNode,
-  preserveWithRepeatedID = false
-): Map<string, Model> => {
+const placeholderTypes = [
+  schema.nodes.placeholder,
+  schema.nodes.placeholder_element,
+]
+
+export const encode = (node: ManuscriptNode): Map<string, Model> => {
   const models: Map<string, Model> = new Map()
 
   const priority: PrioritizedValue = {
     value: 1,
   }
 
-  const placeholders = ['placeholder', 'placeholder_element']
-  // TODO: parents array, to get closest parent with an id for containingObject
   const processNode =
     (path: string[], parent: ManuscriptNode) => (child: ManuscriptNode) => {
       if (containerTypes.includes(child.type)) {
@@ -871,35 +858,38 @@ export const encode = (
       if (isHighlightMarkerNode(child)) {
         return
       }
-      if (placeholders.includes(child.type.name)) {
+      if (placeholderTypes.includes(child.type)) {
         return
       }
-      if (parent.type === schema.nodes.paragraph) {
+      if (
+        parent.type === schema.nodes.paragraph &&
+        child.type !== schema.nodes.inline_equation
+      ) {
         return
       }
-      const { model, comments } = modelFromNode(child, parent, path, priority)
 
-      const existingModel = models.get(model._id)
-      if (existingModel) {
-        if (preserveWithRepeatedID && !modelsEqual(model, existingModel)) {
-          model._id = generateID(model.objectType as ObjectTypes)
-          // needed to support track changes plugin, specifically tracking of splitting content
-        } else {
-          throw Error(
-            `Encountered duplicate ids in models map while encoding: ${model._id}`
-          )
-        }
-      }
-      comments.forEach((comment) => {
-        const proseMirrorComment = models.get(comment._id)
-        if (proseMirrorComment) {
-          ;(proseMirrorComment as CommentAnnotation).selector = comment.selector
-          models.set(comment._id, proseMirrorComment)
+      const { model, markers } = modelFromNode(child, parent, path, priority)
+
+      markers.forEach((marker) => {
+        const comment = models.get(marker._id) as CommentAnnotation
+        if (comment) {
+          comment.selector = {
+            from: marker.from,
+            to: marker.to,
+          }
         }
       })
+      if (models.has(model._id)) {
+        throw Error(`Duplicate ids in encode: ${model._id}`)
+      }
       models.set(model._id, model)
       child.forEach(processNode(path.concat(child.attrs.id), child))
     }
+  // Comments must be processed before the actual content
+  const comments = node.lastChild as ManuscriptNode
+  if (comments && comments.type === schema.nodes.comments) {
+    comments.forEach(processNode([], comments))
+  }
   node.forEach(processNode([], node))
   if (isManuscriptNode(node)) {
     auxiliaryObjectTypes.forEach((t) => {

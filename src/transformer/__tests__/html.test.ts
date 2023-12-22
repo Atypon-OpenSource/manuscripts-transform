@@ -33,7 +33,7 @@ describe.skip('html', () => {
   })
 
   // html export is not maintained at the moment
-  test.skip('export with citations to fix', async () => {
+  test('export with citations to fix', async () => {
     const { doc, modelMap } = parseProjectBundle(projectDump2 as ProjectBundle)
 
     const transformer = new HTMLTransformer()
@@ -76,7 +76,7 @@ describe.skip('html', () => {
   })
 
   // html export is not maintained at the moment
-  test.skip('export with cross-references', async () => {
+  test('export with cross-references', async () => {
     const { doc, modelMap } = parseProjectBundle(
       projectDump5 as unknown as ProjectBundle
     )

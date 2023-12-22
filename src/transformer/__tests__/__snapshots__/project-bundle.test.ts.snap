@@ -22,9 +22,7 @@ Object {
       },
       Object {
         "attrs": Object {
-          "contents": "",
-          "dataTracked": null,
-          "id": "MPSection:contSec",
+          "id": "",
         },
         "content": Array [
           Object {
@@ -64,8 +62,7 @@ Object {
       },
       Object {
         "attrs": Object {
-          "dataTracked": null,
-          "id": "MPSection:affSec",
+          "id": "",
         },
         "content": Array [
           Object {
@@ -129,13 +126,13 @@ Object {
       },
       Object {
         "attrs": Object {
-          "id": "MPSection:abstracts",
+          "id": "",
         },
         "type": "abstracts",
       },
       Object {
         "attrs": Object {
-          "id": "MPSection:body",
+          "id": "",
         },
         "content": Array [
           Object {
@@ -848,23 +845,15 @@ Object {
       },
       Object {
         "attrs": Object {
-          "id": "MPSection:backmatter",
+          "id": "",
         },
         "type": "backmatter",
       },
       Object {
         "attrs": Object {
-          "id": "META_SECTION",
+          "id": "",
         },
-        "content": Array [
-          Object {
-            "attrs": Object {
-              "id": "COMMENT_LIST",
-            },
-            "type": "comment_list",
-          },
-        ],
-        "type": "meta_section",
+        "type": "comments",
       },
     ],
     "type": "manuscript",
@@ -1230,9 +1219,7 @@ Object {
       },
       Object {
         "attrs": Object {
-          "contents": "",
-          "dataTracked": null,
-          "id": "MPSection:contributors",
+          "id": "",
         },
         "content": Array [
           Object {
@@ -1301,8 +1288,7 @@ Object {
       },
       Object {
         "attrs": Object {
-          "dataTracked": null,
-          "id": "MPSection:affiliations",
+          "id": "",
         },
         "content": Array [
           Object {
@@ -1366,13 +1352,13 @@ Object {
       },
       Object {
         "attrs": Object {
-          "id": "MPSection:abstracts",
+          "id": "",
         },
         "type": "abstracts",
       },
       Object {
         "attrs": Object {
-          "id": "MPSection:body",
+          "id": "",
         },
         "content": Array [
           Object {
@@ -2277,23 +2263,15 @@ Object {
       },
       Object {
         "attrs": Object {
-          "id": "MPSection:backmatter",
+          "id": "",
         },
         "type": "backmatter",
       },
       Object {
         "attrs": Object {
-          "id": "META_SECTION",
+          "id": "",
         },
-        "content": Array [
-          Object {
-            "attrs": Object {
-              "id": "COMMENT_LIST",
-            },
-            "type": "comment_list",
-          },
-        ],
-        "type": "meta_section",
+        "type": "comments",
       },
     ],
     "type": "manuscript",

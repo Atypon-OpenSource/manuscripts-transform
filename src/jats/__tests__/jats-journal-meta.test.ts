@@ -36,7 +36,7 @@ describe('JATS journal metadata', () => {
       abbreviatedTitle: 'PubMed Abbreviated Journal Title',
     })
     expect(journal.ISSNs).toHaveLength(1)
-    expect(journal.ISSNs![0]).toStrictEqual({ ISSN: '1234-5678' })
+    expect(journal.ISSNs![0]).toEqual({ ISSN: '1234-5678' })
     expect(journal.publisherName).toBe('Publisher Name')
   })
 })

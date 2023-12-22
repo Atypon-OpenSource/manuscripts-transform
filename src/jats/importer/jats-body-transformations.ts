@@ -330,10 +330,7 @@ export const jatsBodyTransformations = {
       }
     }
   },
-  fixTables(
-    body: Element,
-    createElement: (tagName: string) => HTMLElement
-  ) {
+  fixTables(body: Element, createElement: (tagName: string) => HTMLElement) {
     const tables = body.querySelectorAll('table-wrap > table')
     tables.forEach((table) => {
       // Move cols into a colgroup if they are not already

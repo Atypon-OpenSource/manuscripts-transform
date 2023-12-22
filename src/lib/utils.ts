@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { Model } from '@manuscripts/json-schema'
 import { Node as ProsemirrorNode, ResolvedPos } from 'prosemirror-model'
 
 import { ManuscriptEditorState, ManuscriptNode } from '../schema'
@@ -96,19 +95,4 @@ export const getTrimmedTextContent = (
     return null
   }
   return node.querySelector(querySelector)?.textContent?.trim()
-}
-
-
-export function modelsEqual(model: Model, model2: Model) {
-  for (const v in model) {
-    for (const v2 in model2) {
-      // models do not contain complex object in them so stringifying them to compare deeper is reasonable
-      const prepV = typeof v == 'object' ? JSON.stringify(v) : v
-      const prepV2 = typeof v2 == 'object' ? JSON.stringify(v2) : v2
-      if (prepV !== prepV2) {
-        return false
-      }
-    }
-  }
-  return true
 }

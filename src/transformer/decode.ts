@@ -176,6 +176,12 @@ const hasParentSection = (id: string) => (section: Section) =>
   section.path.length > 1 &&
   section.path[section.path.length - 2] === id
 
+const deprecatedCategories = [
+  'MPSectionCategory:contributors',
+  'MPSectionCategory:affiliations',
+  'MPSectionCategory:keywords',
+]
+
 export class Decoder {
   private readonly modelMap: Map<string, Model>
   private readonly allowMissingElements: boolean
@@ -756,7 +762,7 @@ export class Decoder {
         : [table, figcaption]
 
       if (model.listingID) {
-        const listing = this.createListing(model)
+        const listing = this.createListing(model.listingID)
         content.push(listing)
       } else {
         const listing = schema.nodes.listing.create()
@@ -904,6 +910,9 @@ export class Decoder {
         continue
       }
       const category = section.category
+      if (category && deprecatedCategories.includes(category)) {
+        continue
+      }
       const group = category ? getSectionGroupType(category) : bodyType
       groups[group._id].push(this.decode(section) as SectionNode)
     }
@@ -944,7 +953,7 @@ export class Decoder {
 
   private extractListing(model: FigureElement) {
     if (model.listingID) {
-      return this.createListing(model)
+      return this.createListing(model.listingID)
     }
   }
 
@@ -1136,20 +1145,18 @@ export class Decoder {
       ? (this.decode(tableElementFooterModel) as TableElementFooterNode)
       : undefined
   }
-  private createListing(model: any) {
-    const listingModel = this.getModel<Listing>(model.listingID)
-    let listing: ListingNode | PlaceholderNode
+  private createListing(id: string) {
+    const listing = this.getModel<Listing>(id)
 
-    if (listingModel) {
-      listing = this.decode(listingModel) as ListingNode
+    if (listing) {
+      return this.decode(listing) as ListingNode
     } else if (this.allowMissingElements) {
-      listing = schema.nodes.placeholder.create({
-        id: model.listingID,
+      return schema.nodes.placeholder.create({
+        id,
         label: 'A listing',
       }) as PlaceholderNode
     } else {
-      throw new MissingElement(model.listingID)
+      throw new MissingElement(id)
     }
-    return listing
   }
 }

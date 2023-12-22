@@ -24,10 +24,7 @@ import { findManuscript } from '../../transformer'
 import { Decoder } from '../../transformer/decode'
 import { IDGenerator, MediaPathGenerator } from '../../types'
 import { parseJATSArticle } from '../importer'
-import { Version } from '../jats-versions'
 import { readFixture } from './files'
-
-jest.setTimeout(10000)
 
 const parseXMLWithDTD = (data: string) =>
   parseXml(data, {
@@ -36,8 +33,11 @@ const parseXMLWithDTD = (data: string) =>
     nonet: true,
   })
 
-const createIdGenerator = (articleID: string): IDGenerator => {
+const idGenerator = (doc: Document): IDGenerator => {
   const counter = createCounter()
+
+  const xpath = 'article-id[pub-id-type="publisher-id"]'
+  const id = getTrimmedTextContent(doc, xpath)
 
   return async (element: Element) => {
     switch (element.nodeName) {
@@ -50,7 +50,7 @@ const createIdGenerator = (articleID: string): IDGenerator => {
       case 'ref': {
         const index = String(counter.increment(element.nodeName))
 
-        return `${articleID}-bib-${index.padStart(4, '0')}`
+        return `${id}-bib-${index.padStart(4, '0')}`
       }
 
       case 'sec': {
@@ -60,25 +60,25 @@ const createIdGenerator = (articleID: string): IDGenerator => {
 
         const index = String(counter.increment(element.nodeName))
 
-        return `${articleID}-sec${index}`
+        return `${id}-sec${index}`
       }
 
       case 'fig': {
         const index = String(counter.increment(element.nodeName))
 
-        return `${articleID}-fig-${index.padStart(4, '0')}`
+        return `${id}-fig-${index.padStart(4, '0')}`
       }
 
       case 'table-wrap': {
         const index = String(counter.increment(element.nodeName))
 
-        return `${articleID}-tbl-${index.padStart(4, '0')}`
+        return `${id}-tbl-${index.padStart(4, '0')}`
       }
 
       default: {
         const index = String(counter.increment(element.nodeName))
 
-        return `${articleID}-${element.nodeName}${index}`
+        return `${id}-${element.nodeName}${index}`
       }
     }
   }
@@ -111,189 +111,49 @@ const mediaPathGenerator: MediaPathGenerator = async (element, parentID) => {
   return parentID // TODO: default extension?
 }
 
-// eslint-disable-next-line jest/no-disabled-tests
-describe('JATS transformer', () => {
-  // eslint-disable-next-line jest/no-disabled-tests
-  test('round-trips JATS XML', async () => {
-    const input = await readFixture('jats-import.xml')
-    const doc = new DOMParser().parseFromString(input, 'application/xml')
+const roundtrip = async (filename: string) => {
+  const input = await readFixture(filename)
+  const doc = new DOMParser().parseFromString(input, 'application/xml')
 
-    // TODO: use doctype of input
-    const version =
-      doc.querySelector('article')?.getAttribute('dtd-version') || '1.2'
+  const models = parseJATSArticle(doc)
 
-    const models = parseJATSArticle(doc)
+  const modelMap = new Map<string, Model>()
 
-    const modelMap = new Map<string, Model>()
+  for (const model of models) {
+    modelMap.set(model._id, model)
+  }
 
-    for (const model of models) {
-      modelMap.set(model._id, model)
+  const manuscript = findManuscript(modelMap)
+
+  const decoder = new Decoder(modelMap)
+  const article = decoder.createArticleNode(manuscript._id)
+
+  const exporter = new JATSExporter()
+  return await exporter.serializeToJATS(
+    article.content,
+    modelMap,
+    manuscript._id,
+    {
+      version: '1.2',
+      idGenerator: idGenerator(doc),
+      mediaPathGenerator,
     }
+  )
+}
 
-    const decoder = new Decoder(modelMap)
-    const article = decoder.createArticleNode()
+describe('JATS roundtrip', () => {
+  test('jats-import.xml roundtrip', async () => {
+    const jats = await roundtrip('jats-import.xml')
+    expect(jats).toMatchSnapshot()
 
-    const articleID = getTrimmedTextContent(
-      doc,
-      'article-id[pub-id-type="publisher-id"]'
-    )
-
-    const idGenerator = createIdGenerator(articleID as string)
-
-    const exporter = new JATSExporter()
-    const manuscript = findManuscript(modelMap)
-    const output = await exporter.serializeToJATS(
-      article.content,
-      modelMap,
-      manuscript._id,
-      {
-        version: version as Version,
-        idGenerator,
-        mediaPathGenerator,
-      }
-    )
-
-    const parsedInput = parseXMLWithDTD(input)
-    const parsedOutput = parseXMLWithDTD(output)
-
-    const formattedInput = parsedInput.toString(true)
-    const formattedOutput = parsedOutput.toString(true)
-
-    expect(formattedOutput).toBe(formattedInput)
-
-    expect(parsedOutput.errors).toHaveLength(0)
+    const doc = parseXMLWithDTD(jats)
+    expect(doc.errors).toHaveLength(0)
   })
+  test('jats-roundtrip.xml roundtrip', async () => {
+    const jats = await roundtrip('jats-roundtrip.xml')
+    expect(jats).toMatchSnapshot()
 
-  test('round-trips JATS XML 2', async () => {
-    const input = await readFixture('jats-roundtrip.xml')
-    const doc = new DOMParser().parseFromString(input, 'application/xml')
-
-    const version =
-      doc.querySelector('article')?.getAttribute('dtd-version') || '1.2'
-
-    const models = parseJATSArticle(doc)
-
-    const modelMap = new Map<string, Model>()
-
-    for (const model of models) {
-      modelMap.set(model._id, model)
-    }
-
-    const decoder = new Decoder(modelMap)
-    const article = decoder.createArticleNode()
-
-    const articleID = getTrimmedTextContent(
-      doc,
-      'article-id[pub-id-type="publisher-id"]'
-    )
-
-    const idGenerator = createIdGenerator(articleID as string)
-
-    const exporter = new JATSExporter()
-    const manuscript = findManuscript(modelMap)
-    const output = await exporter.serializeToJATS(
-      article.content,
-      modelMap,
-      manuscript._id,
-      {
-        version: version as Version,
-        idGenerator,
-        mediaPathGenerator,
-      }
-    )
-
-    const parsedInput = parseXMLWithDTD(input)
-    const parsedOutput = parseXMLWithDTD(output)
-
-    const formattedInput = parsedInput
-      .toString(true)
-      .replace(/\sid="(.*?)"/g, '')
-      .replace(/\sxlink:href="(.*?)"/g, '')
-      .replace(/\s{2,}/g, '')
-
-    const formattedOutput = parsedOutput
-      .toString(true)
-      .replace(/\sid="(.*?)"/g, '')
-      .replace(/\sxlink:href="(.*?)"/g, '')
-      .replace(/\s{2,}/g, '')
-      .replace('<app-group/>', '')
-      .replace('<title>Footnotes</title>', '')
-      .replace(/element-citation/g, 'mixed-citation')
-
-    expect(formattedOutput).toBe(formattedInput)
-
-    expect(parsedOutput.errors).toHaveLength(0)
-  })
-})
-
-describe('JATS transformer roundtrip validation', () => {
-  test('Round trips DTD validation', async () => {
-    const input = await readFixture('jats-import.xml')
-    const doc = new DOMParser().parseFromString(input, 'application/xml')
-
-    // TODO: use doctype of input
-    const version =
-      doc.querySelector('article')?.getAttribute('dtd-version') || '1.2'
-
-    const models = await parseJATSArticle(doc)
-
-    const modelMap = new Map<string, Model>()
-
-    for (const model of models) {
-      modelMap.set(model._id, model)
-    }
-
-    const decoder = new Decoder(modelMap)
-    const article = decoder.createArticleNode()
-
-    const articleID = getTrimmedTextContent(
-      doc,
-      'article-id[pub-id-type="publisher-id"]'
-    )
-
-    const idGenerator = createIdGenerator(articleID as string)
-
-    const exporter = new JATSExporter()
-    const manuscript = findManuscript(modelMap)
-    const output = await exporter.serializeToJATS(
-      article.content,
-      modelMap,
-      manuscript._id,
-      {
-        version: version as Version,
-        idGenerator,
-        mediaPathGenerator,
-      }
-    )
-
-    const parsedOutput = parseXMLWithDTD(output)
-    expect(parsedOutput.errors).toHaveLength(0)
-  })
-
-  test('Bibliography Refs in Footnotes with default id generator', async () => {
-    const input = await readFixture('jats-xref-in-footnotes.xml')
-    const doc = new DOMParser().parseFromString(input, 'application/xml')
-
-    const models = parseJATSArticle(doc)
-
-    const modelMap = new Map<string, Model>()
-
-    for (const model of models) {
-      modelMap.set(model._id, model)
-    }
-
-    const decoder = new Decoder(modelMap)
-    const article = decoder.createArticleNode()
-    const exporter = new JATSExporter()
-    const manuscript = findManuscript(modelMap)
-    const output = await exporter.serializeToJATS(
-      article.content,
-      modelMap,
-      manuscript._id
-    )
-
-    const parsedOutput = parseXMLWithDTD(output)
-
-    expect(parsedOutput.errors).toHaveLength(0)
+    const doc = parseXMLWithDTD(jats)
+    expect(doc.errors).toHaveLength(0)
   })
 })

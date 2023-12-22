@@ -38,7 +38,8 @@ import { nodeFromHTML, textFromHTML } from '../lib/html'
 import { normalizeStyleName } from '../lib/styled-content'
 import { iterateChildren } from '../lib/utils'
 import {
-  CitationNode, CrossReferenceNode,
+  CitationNode,
+  CrossReferenceNode,
   ManuscriptFragment,
   ManuscriptMark,
   ManuscriptNode,

@@ -19,7 +19,6 @@ import { NodeSpec } from 'prosemirror-model'
 import { schema } from '../index'
 import { ManuscriptNode } from '../types'
 
-
 export interface ActualManuscriptNode extends ManuscriptNode {
   attrs: {
     id: string

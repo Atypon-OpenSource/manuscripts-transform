@@ -20,19 +20,6 @@ import { parseProjectBundle, ProjectBundle } from '../project-bundle'
 
 test('project bundle with no manuscript parameter', () => {
   const result = parseProjectBundle(project3)
-  replaceIdByType(result.doc, schema.nodes.abstracts, 'MPSection:abstracts')
-  replaceIdByType(result.doc, schema.nodes.body, 'MPSection:body')
-  replaceIdByType(result.doc, schema.nodes.backmatter, 'MPSection:backmatter')
-  replaceIdByType(
-    result.doc,
-    schema.nodes.affiliations,
-    'MPSection:affiliations'
-  )
-  replaceIdByType(
-    result.doc,
-    schema.nodes.contributors,
-    'MPSection:contributors'
-  )
   replaceIdByType(result.doc, schema.nodes.contributor, 'MPSection:contributor')
   replaceIdByType(result.doc, schema.nodes.affiliation, 'MPSection:aff')
   replaceIdByType(result.doc, schema.nodes.keywords, 'MPSection:kwd')
@@ -44,14 +31,9 @@ test('project bundle for a specific manuscript', () => {
     project3 as ProjectBundle,
     'MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8'
   )
-  replaceIdByType(result.doc, schema.nodes.abstracts, 'MPSection:abstracts')
-  replaceIdByType(result.doc, schema.nodes.contributors, 'MPSection:contSec')
-  replaceIdByType(result.doc, schema.nodes.affiliations, 'MPSection:affSec')
   replaceIdByType(result.doc, schema.nodes.keywords, 'MPSection:kwd')
   replaceIdByType(result.doc, schema.nodes.contributor, 'MPSection:cont')
   replaceIdByType(result.doc, schema.nodes.affiliation, 'MPSection:aff')
-  replaceIdByType(result.doc, schema.nodes.body, 'MPSection:body')
-  replaceIdByType(result.doc, schema.nodes.backmatter, 'MPSection:backmatter')
   expect(result).toMatchSnapshot('multimanuscript-project-bundle')
 })
 
