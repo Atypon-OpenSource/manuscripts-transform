@@ -1,7 +1,7 @@
 {
   "name": "@manuscripts/transform",
   "description": "ProseMirror transformer for Manuscripts applications",
-  "version": "1.5.8-LEAN-3030-2",
+  "version": "2.0.0",
   "repository": "github:Atypon-OpenSource/manuscripts-transform",
   "license": "Apache-2.0",
   "main": "dist/cjs",
@@ -76,10 +76,5 @@
     "prosemirror-view": "^1.29.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.0.5"
-  },
-  "peerDependencies": {
-    "prosemirror-model": "^1.18.3",
-    "prosemirror-state": "^1.4.2",
-    "prosemirror-view": "^1.29.1"
   }
 }
