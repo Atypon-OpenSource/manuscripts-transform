@@ -24,6 +24,7 @@ interface Attrs {
   affiliations: Affiliation[]
   bibliographicName: BibliographicName
   userID: string
+  email: string
   invitationID: string
   isCorresponding: boolean
   ORCIDIdentifier: string
@@ -39,6 +40,7 @@ export const contributor: NodeSpec = {
   attrs: {
     id: { default: '' },
     role: { default: '' },
+    email: { default: '' },
     affiliations: { default: [] },
     footnote: { default: undefined },
     corresp: { default: undefined },
