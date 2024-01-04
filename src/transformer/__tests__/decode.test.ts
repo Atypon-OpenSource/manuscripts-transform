@@ -22,7 +22,6 @@ import { Decoder, getModelData, sortSectionsByPriority } from '../decode'
 import { createTestModelMapWithCitations } from './__helpers__/citations'
 import { createTestDoc, createTestModelMap } from './__helpers__/doc'
 import {
-  createTestModelMapWithDeprecatedKeywords,
   createTestModelMapWithHighlights,
   createTestModelMapWithKeywords,
   createTestModelMapWithKeywordsAndAuthorQuery,
@@ -68,7 +67,8 @@ const createDoc = (
 describe('decoder', () => {
   test('create test doc', async () => {
     const doc = createTestDoc()
-
+    replaceIdByType(doc, schema.nodes.affiliation, 'MPSection:aff')
+    replaceIdByType(doc, schema.nodes.contributor, 'MPSection:cont')
     expect(doc).toMatchSnapshot()
   })
 
@@ -80,6 +80,8 @@ describe('decoder', () => {
     expect(
       countDescendantsOfType(beforeDoc, schema.nodes.placeholder_element)
     ).toBe(0)
+    replaceIdByType(beforeDoc, schema.nodes.affiliation, 'MPSection:aff')
+    replaceIdByType(beforeDoc, schema.nodes.contributor, 'MPSection:cont')
     expect(beforeDoc).toMatchSnapshot('decoded-without-placeholders')
 
     modelMap.delete('MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8')
@@ -92,6 +94,8 @@ describe('decoder', () => {
     expect(
       countDescendantsOfType(afterDoc, schema.nodes.placeholder_element)
     ).toBe(2)
+    replaceIdByType(afterDoc, schema.nodes.affiliation, 'MPSection:aff')
+    replaceIdByType(afterDoc, schema.nodes.contributor, 'MPSection:cont')
     expect(afterDoc).toMatchSnapshot('decoded-with-placeholders')
   })
 
@@ -153,6 +157,12 @@ describe('decoder', () => {
 
     const result = decoder.createArticleNode()
     replaceIdByType(result, schema.nodes.comment_list, 'someId')
+    replaceIdByType(result, schema.nodes.abstracts, 'MPSection:abstracts')
+    replaceIdByType(result, schema.nodes.keywords, 'MPSection:kwd')
+    replaceIdByType(result, schema.nodes.body, 'MPSection:body')
+    replaceIdByType(result, schema.nodes.backmatter, 'MPSection:backmatter')
+    replaceIdByType(result, schema.nodes.contributors, 'MPSection:contributors')
+    replaceIdByType(result, schema.nodes.affiliations, 'MPSection:affiliations')
     expect(result).toMatchSnapshot()
   })
 
@@ -162,10 +172,9 @@ describe('decoder', () => {
     const decoder = new Decoder(modelMap)
 
     const result = decoder.createArticleNode()
-    replaceIdByType(result, schema.nodes.comment_list, 'someId')
     replaceIdByType(result, schema.nodes.section, 'someId')
-    replaceIdByType(result, schema.nodes.keywords_section, 'someId')
     replaceIdByType(result, schema.nodes.keywords_element, 'someId')
+    replaceIdByType(result, schema.nodes.title, 'someId')
     expect(result).toMatchSnapshot()
   })
 
@@ -191,19 +200,7 @@ describe('decoder', () => {
       schema.nodes.keywords_element,
       'MPKeywordsElement:1'
     )
-    replaceIdByType(result, schema.nodes.keywords_section, 'MPSection:1')
     replaceIdByType(result, schema.nodes.section, 'MPSection:1')
-
-    expect(result).toMatchSnapshot()
-  })
-
-  test('decode keywords section with paragraph element', () => {
-    const modelMap = createTestModelMapWithDeprecatedKeywords()
-
-    const decoder = new Decoder(modelMap)
-
-    const result = decoder.createArticleNode()
-
     expect(result).toMatchSnapshot()
   })
 })

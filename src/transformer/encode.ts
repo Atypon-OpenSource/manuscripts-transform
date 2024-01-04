@@ -20,6 +20,7 @@ import {
   BibliographyItem,
   CommentAnnotation,
   Contributor,
+  ElementsOrder,
   Equation,
   EquationElement,
   Figure,
@@ -41,15 +42,17 @@ import {
   Table,
   TableElement,
   TableElementFooter,
+  Titles,
   TOCElement,
 } from '@manuscripts/json-schema'
-import { DOMSerializer, Node } from 'prosemirror-model'
+import { DOMSerializer } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { iterateChildren } from '../lib/utils'
 import {
   hasGroup,
   isHighlightMarkerNode,
+  isManuscriptNode,
   isSectionNode,
   ManuscriptNode,
   ManuscriptNodeType,
@@ -57,11 +60,13 @@ import {
   schema,
   TableElementNode,
 } from '../schema'
-import { Build, buildAttribution } from './builders'
 import {
-  extractHighlightMarkers,
-  isHighlightableModel,
-} from './highlight-markers'
+  AuxiliaryObjects,
+  auxiliaryObjectTypes,
+  buildAttribution,
+  buildElementsOrder,
+} from './builders'
+import { CommentMarker, extractCommentMarkers } from './highlight-markers'
 import { PlaceholderElement } from './models'
 import { nodeTypesMap } from './node-types'
 import { buildSectionCategory } from './section-category'
@@ -425,6 +430,12 @@ type NodeEncoder = (
 type NodeEncoderMap = { [key in Nodes]?: NodeEncoder }
 
 const encoders: NodeEncoderMap = {
+  title: (node): Partial<Titles> => ({
+    title: inlineContents(node),
+    subtitle: node.attrs.subtitle,
+    runningTitle: node.attrs.runningTitle,
+    _id: node.attrs._id,
+  }),
   bibliography_element: (node): Partial<BibliographyElement> => ({
     elementType: 'div',
     contents: '',
@@ -451,7 +462,7 @@ const encoders: NodeEncoderMap = {
 
     const ref = {
       type,
-    } as any
+    } as Partial<BibliographyItem>
 
     if (author) {
       ref.author = author
@@ -618,34 +629,8 @@ const encoders: NodeEncoderMap = {
     elementType: 'div',
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
-  keywords_group: (node): Partial<KeywordGroup> => ({
+  keyword_group: (node): Partial<KeywordGroup> => ({
     type: node.attrs.type,
-    // title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
-  }),
-  keywords_section: (node, parent, path, priority): Partial<Section> => ({
-    category: buildSectionCategory(node),
-    priority: priority.value++,
-    title: inlineContentsOfNodeType(node, node.type.schema.nodes.section_title),
-    path: path.concat([node.attrs.id]),
-    elementIDs: childElements(node)
-      .map((childNode) => childNode.attrs.id)
-      .filter((id) => id),
-  }),
-  affiliations_section: (node, parent, path, priority): Partial<Section> => ({
-    category: buildSectionCategory(node),
-    priority: priority.value++,
-    path: path.concat([node.attrs.id]),
-    elementIDs: childElements(node)
-      .map((childNode) => childNode.attrs.id)
-      .filter((id) => id),
-  }),
-  contributors_section: (node, parent, path, priority): Partial<Section> => ({
-    category: buildSectionCategory(node),
-    priority: priority.value++,
-    path: path.concat([node.attrs.id]),
-    elementIDs: childElements(node)
-      .map((childNode) => childNode.attrs.id)
-      .filter((id) => id),
   }),
   missing_figure: (node): Partial<MissingFigure> => ({
     position: node.attrs.position || undefined,
@@ -779,9 +764,8 @@ export const modelFromNode = (
   priority: PrioritizedValue
 ): {
   model: Model
-  commentAnnotationsMap: Map<string, Build<CommentAnnotation>>
+  markers: CommentMarker[]
 } => {
-  const commentAnnotationsMap = new Map<string, Build<CommentAnnotation>>()
   // TODO: in handlePaste, filter out non-standard IDs
 
   const objectType = nodeTypesMap.get(node.type)
@@ -803,19 +787,29 @@ export const modelFromNode = (
   }
 
   const model = data as Model
+  const markers = extractCommentMarkers(model)
 
-  if (isHighlightableModel(model)) {
-    // TODO 30.4.2021
-    // This method doubles the execution time with large documents, such as sts-example.xml (from 1s to 2s)
-    extractHighlightMarkers(model, commentAnnotationsMap)
-  }
-
-  return { model, commentAnnotationsMap }
+  return { model, markers }
 }
 
 interface PrioritizedValue {
   value: number
 }
+
+const containerTypes = [
+  schema.nodes.affiliations,
+  schema.nodes.contributors,
+  schema.nodes.affiliations,
+  schema.nodes.keywords,
+  schema.nodes.abstracts,
+  schema.nodes.body,
+  schema.nodes.backmatter,
+]
+
+const placeholderTypes = [
+  schema.nodes.placeholder,
+  schema.nodes.placeholder_element,
+]
 
 export const encode = (node: ManuscriptNode): Map<string, Model> => {
   const models: Map<string, Model> = new Map()
@@ -824,52 +818,81 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
     value: 1,
   }
 
-  const placeholders = ['placeholder', 'placeholder_element']
-  // TODO: parents array, to get closest parent with an id for containingObject
-  const addModel =
+  const processNode =
     (path: string[], parent: ManuscriptNode) => (child: ManuscriptNode) => {
+      if (containerTypes.includes(child.type)) {
+        child.forEach(processNode([], child))
+        return
+      }
       if (!child.attrs.id) {
         return
       }
       if (isHighlightMarkerNode(child)) {
         return
       }
-      if (child.type === schema.nodes.meta_section) {
+      if (placeholderTypes.includes(child.type)) {
         return
       }
-      if (placeholders.includes(child.type.name)) {
+      if (
+        parent.type === schema.nodes.paragraph &&
+        child.type !== schema.nodes.inline_equation
+      ) {
         return
       }
-      const { model } = modelFromNode(child, parent, path, priority)
+
+      const { model, markers } = modelFromNode(child, parent, path, priority)
+
+      markers.forEach((marker) => {
+        const comment = models.get(marker._id) as CommentAnnotation
+        if (comment) {
+          comment.selector = {
+            from: marker.from,
+            to: marker.to,
+          }
+        }
+      })
       if (models.has(model._id)) {
-        throw Error(
-          `Encountered duplicate ids in models map while encoding: ${model._id}`
-        )
+        throw Error(`Duplicate ids in encode: ${model._id}`)
       }
       models.set(model._id, model)
-      child.forEach(addModel(path.concat(child.attrs.id), child))
+      child.forEach(processNode(path.concat(child.attrs.id), child))
     }
-  node.forEach((cNode) => {
-    if (cNode.type === schema.nodes.meta_section) {
-      processMetaSectionNode(cNode, models, priority)
-    }
-  })
-  node.forEach(addModel([], node))
+  // Comments must be processed before the actual content
+  const comments = node.lastChild as ManuscriptNode
+  if (comments && comments.type === schema.nodes.comments) {
+    comments.forEach(processNode([], comments))
+  }
+  node.forEach(processNode([], node))
+  if (isManuscriptNode(node)) {
+    auxiliaryObjectTypes.forEach((t) => {
+      const order = generateElementOrder(node, t)
+      if (order) {
+        models.set(order._id, order as Model)
+      }
+    })
+  }
   return models
 }
 
-const processMetaSectionNode = (
-  node: Node,
-  models: Map<string, Model>,
-  priority: PrioritizedValue
-) => {
-  node.descendants((child) => {
-    if (
-      (!child.content || child.content.size === 0) &&
-      nodeTypesMap.get(child.type)
-    ) {
-      const { model } = modelFromNode(child, node, [], priority)
-      models.set(model._id, model)
+const generateElementOrder = (
+  node: ManuscriptNode,
+  nodeType: ManuscriptNodeType
+): ElementsOrder | undefined => {
+  const ids: string[] = []
+  node.descendants((n) => {
+    if (n.type === nodeType) {
+      ids.push(n.attrs.id)
     }
+    return true
   })
+  if (!ids.length) {
+    return undefined
+  }
+  const type = nodeTypesMap.get(nodeType)
+  if (!type) {
+    return undefined
+  }
+  const order = buildElementsOrder(type as AuxiliaryObjects)
+  order.elements = ids
+  return order as ElementsOrder
 }

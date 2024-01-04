@@ -16,28 +16,21 @@
 // @ts-ignore
 import { Element, ObjectTypes } from '@manuscripts/json-schema'
 
-import { coreSectionCategories } from '../lib/core-section-categories'
+import {
+  abstractsType,
+  backmatterType,
+  bodyType,
+  SectionGroupType,
+} from '../lib/section-group-type'
 import { ManuscriptNode, ManuscriptNodeType, schema } from '../schema'
 
 const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.bibliography_section,
   schema.nodes.footnotes_section,
-  schema.nodes.keywords_section,
+  schema.nodes.keywords,
   schema.nodes.section,
   schema.nodes.toc_section,
 ]
-
-export const getCoreSectionTitles = (
-  sectionCategory: SectionCategory
-): string[] => {
-  const category = coreSectionCategories.find(
-    (section) => section._id === sectionCategory
-  )
-  if (category) {
-    return category.titles.length ? category.titles : [' ']
-  }
-  throw new Error(`${sectionCategory} not found in core sections`)
-}
 
 export const isAnySectionNode = (node: ManuscriptNode): boolean =>
   sectionNodeTypes.includes(node.type)
@@ -70,11 +63,6 @@ export type SectionCategory =
   | 'MPSectionCategory:supplementary-material'
   | 'MPSectionCategory:supported-by'
   | 'MPSectionCategory:ethics-statement'
-  | 'MPSectionCategory:body'
-  | 'MPSectionCategory:abstracts'
-  | 'MPSectionCategory:backmatter'
-  | 'MPSectionCategory:affiliations'
-  | 'MPSectionCategory:contributors'
 
 export type SecType =
   | 'abstract'
@@ -106,11 +94,6 @@ export type SecType =
   | 'supplementary-material'
   | 'supported-by'
   | 'ethics-statement'
-  | 'abstracts'
-  | 'body'
-  | 'backmatter'
-  | 'affiliations'
-  | 'contributors'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -126,12 +109,7 @@ export const chooseSectionNodeType = (
       return schema.nodes.footnotes_section
 
     case 'MPSectionCategory:keywords':
-      return schema.nodes.keywords_section
-    case 'MPSectionCategory:affiliations':
-      return schema.nodes.affiliations_section
-
-    case 'MPSectionCategory:contributors':
-      return schema.nodes.contributors_section
+      return schema.nodes.keywords
 
     case 'MPSectionCategory:toc':
       return schema.nodes.toc_section
@@ -186,7 +164,7 @@ export const buildSectionCategory = (
     case schema.nodes.footnotes_section:
       return 'MPSectionCategory:endnotes'
 
-    case schema.nodes.keywords_section:
+    case schema.nodes.keywords:
       return 'MPSectionCategory:keywords'
 
     case schema.nodes.toc_section:
@@ -194,10 +172,6 @@ export const buildSectionCategory = (
 
     case schema.nodes.graphical_abstract_section:
       return 'MPSectionCategory:abstract-graphical'
-    case schema.nodes.affiliations_section:
-      return 'MPSectionCategory:affiliations'
-    case schema.nodes.contributors_section:
-      return 'MPSectionCategory:contributors'
 
     default:
       return node.attrs.category || undefined
@@ -231,6 +205,32 @@ export const chooseSecType = (sectionCategory: SectionCategory): SecType => {
     default:
       return suffix as SecType
   }
+}
+
+export const getSectionGroupType = (category: string): SectionGroupType => {
+  switch (category) {
+    case 'MPSectionCategory:abstract':
+    case 'MPSectionCategory:abstract-graphical':
+      return abstractsType
+    case 'MPSectionCategory:competing-interests':
+    case 'MPSectionCategory:con':
+    case 'MPSectionCategory:ethics-statement':
+    case 'MPSectionCategory:financial-disclosure':
+    case 'MPSectionCategory:supplementary-material':
+    case 'MPSectionCategory:supported-by':
+    case 'MPSectionCategory:availability':
+    case 'MPSectionCategory:acknowledgement':
+    case 'MPSectionCategory:endnotes':
+    case 'MPSectionCategory:bibliography':
+    case 'MPSectionCategory:appendices':
+    case 'MPSectionCategory:deceased':
+    case 'MPSectionCategory:equal':
+    case 'MPSectionCategory:present-address':
+    case 'MPSectionCategory:presented-at':
+    case 'MPSectionCategory:previously-at':
+      return backmatterType
+  }
+  return bodyType
 }
 
 export const chooseSectionCategoryByType = (
@@ -308,16 +308,6 @@ export const chooseSectionCategoryByType = (
       return 'MPSectionCategory:supported-by'
     case 'ethics-statement':
       return 'MPSectionCategory:ethics-statement'
-    case 'body':
-      return 'MPSectionCategory:body'
-    case 'backmatter':
-      return 'MPSectionCategory:backmatter'
-    case 'abstracts':
-      return 'MPSectionCategory:abstracts'
-    case 'affiliations':
-      return 'MPSectionCategory:affiliations'
-    case 'contributors':
-      return 'MPSectionCategory:contributors'
     default:
       return undefined
   }

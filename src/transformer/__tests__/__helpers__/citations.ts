@@ -16,13 +16,13 @@
 
 import {
   BibliographyItem,
-  Citation,
   Manuscript,
   Model,
   ObjectTypes,
   ParagraphElement,
   Project,
   Section,
+  Titles,
 } from '@manuscripts/json-schema'
 
 export const createTestModelMapWithCitations = () => {
@@ -48,6 +48,19 @@ export const createTestModelMapWithCitations = () => {
 
   modelMap.set(manuscript._id, manuscript)
 
+  const titles: Titles = {
+    objectType: ObjectTypes.Titles,
+    _id: 'MPTitles:1',
+    title: 'main title',
+    subtitle: 'subtitle',
+    runningTitle: 'runningTitle',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+  }
+  modelMap.set(titles._id, titles)
+
   const bibliographyItem: BibliographyItem = {
     objectType: ObjectTypes.BibliographyItem,
     _id: 'MPBibliographyItem:1',
@@ -58,25 +71,6 @@ export const createTestModelMapWithCitations = () => {
     manuscriptID: manuscript._id,
   }
 
-  const paragraphCitation: Citation = {
-    objectType: ObjectTypes.Citation,
-    _id: 'MPCitation:1',
-    containingObject: 'MPParagraphElement:1',
-    embeddedCitationItems: [
-      {
-        objectType: ObjectTypes.CitationItem,
-        _id: 'MPCitationItem:1',
-        bibliographyItem: bibliographyItem._id,
-      },
-    ],
-    createdAt: 0,
-    updatedAt: 0,
-    manuscriptID: manuscript._id,
-    containerID: project._id,
-  }
-
-  modelMap.set(paragraphCitation._id, paragraphCitation)
-
   const paragraphWithCitation: ParagraphElement = {
     objectType: ObjectTypes.ParagraphElement,
     _id: 'MPParagraphElement:1',
@@ -86,7 +80,7 @@ export const createTestModelMapWithCitations = () => {
     containerID: project._id,
     elementType: 'p',
     paragraphStyle: 'MPParagraphStyle:1',
-    contents: `<p xmlns="http://www.w3.org/1999/xhtml" id="MPParagraphElement:1" class="MPElement MPParagraphStyle_1" data-object-type="MPParagraphElement">This sentence contains a citation<span class="citation" data-reference-id="${paragraphCitation._id}">1</span>.</p>`,
+    contents: `<p xmlns="http://www.w3.org/1999/xhtml" id="MPParagraphElement:1" class="MPElement MPParagraphStyle_1" data-object-type="MPParagraphElement">This sentence contains a citation<span class="citation" data-reference-id="${bibliographyItem._id}">1</span>.</p>`,
   }
 
   modelMap.set(paragraphWithCitation._id, paragraphWithCitation)

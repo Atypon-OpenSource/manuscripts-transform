@@ -19,6 +19,7 @@ import {
   Manuscript,
   Model,
   ObjectTypes,
+  Titles,
 } from '@manuscripts/json-schema'
 
 import { Decoder } from './decode'
@@ -109,4 +110,28 @@ export const findManuscriptById = (
   throw new Error(
     `There is no manuscript found for the following _id (${manuscriptID})`
   )
+}
+
+const isTitle = hasObjectType<Titles>(ObjectTypes.Titles)
+
+export const findTitles = (modelMap: Map<string, Model>): Titles => {
+  for (const model of modelMap.values()) {
+    if (isTitle(model)) {
+      return model
+    }
+  }
+  // If no title is found, return a default title
+  const defaultTitle: Titles = {
+    _id: 'MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1',
+    createdAt: 1538472121.690101,
+    updatedAt: 1538472121.690101,
+    objectType: 'MPTitles',
+    title: 'main title',
+    subtitle: 'subtitle',
+    runningTitle: 'running title',
+    manuscriptID: 'MPManuscript:E3830344-E77B-42BA-BD77-3E95489712A0',
+    containerID: 'MPProject:1',
+  }
+
+  return defaultTitle
 }

@@ -1,5 +1,5 @@
 /*!
- * © 2023 Atypon Systems LLC
+ * © 2019 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
@@ -21,21 +22,38 @@ interface Attrs {
   id: string
 }
 
-export interface ContributorsSectionNode extends ManuscriptNode {
+export interface KeywordsNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const contributorsSection: NodeSpec = {
-  content: 'section_title? contributor*',
+export const keywords: NodeSpec = {
+  content: 'section_title (keywords_element | placeholder_element)',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block sections',
+  group: 'block',
   selectable: false,
-  toDOM: () => ['section', 0],
+  parseDOM: [
+    {
+      tag: 'div.keywords',
+    },
+  ],
+  toDOM: (node) => {
+    const keywords = node as KeywordsNode
+
+    return [
+      'div',
+      {
+        id: keywords.attrs.id,
+        class: 'keywords',
+        spellcheck: 'false',
+        contenteditable: false,
+      },
+      0,
+    ]
+  },
 }
-export const isContributorsSectionNode = (
-  node: ManuscriptNode
-): node is ContributorsSectionNode =>
-  node.type === node.type.schema.nodes.contributors_section
+
+export const isKeywordsNode = (node: ManuscriptNode): node is KeywordsNode =>
+  node.type === node.type.schema.nodes.keywords

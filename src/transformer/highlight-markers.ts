@@ -16,11 +16,9 @@
 
 import { CommentAnnotation, Model } from '@manuscripts/json-schema'
 
-import { Build, buildComment } from './builders'
-
 export type HighlightableField = 'title' | 'caption' | 'contents'
 
-const highlightableFields: HighlightableField[] = [
+export const highlightableFields: HighlightableField[] = [
   'caption',
   'contents',
   'title',
@@ -44,78 +42,84 @@ export interface HighlightableModel extends Model {
   caption?: string
 }
 
-export const extractHighlightMarkers = (
-  model: HighlightableModel,
-  commentAnnotationsMap: Map<string, Build<CommentAnnotation>>
-) => {
-  for (const field of highlightableFields) {
-    let html = model[field]
+export type CommentMarker = {
+  _id: string
+  from: number
+  to: number
+}
 
-    if (html === undefined) {
+export const extractCommentMarkers = (model: Model) => {
+  if (!isHighlightableModel(model)) {
+    return []
+  }
+  const comments = new Map<string, CommentMarker>()
+  for (const field of highlightableFields) {
+    let html = model[field] as string
+
+    if (!html || !html.includes('highlight-marker')) {
       continue
     }
 
     const template = document.createElement('template')
     template.innerHTML = `<div>${html}</div>` // ensure a wrapper
 
-    const element = template.content.firstChild
+    const element = template.content.firstChild as Element
 
-    if (!(element instanceof Element)) {
+    if (!element) {
       continue
     }
 
     const markers = element.querySelectorAll('span.highlight-marker')
 
-    if (markers.length) {
-      // splice the markers out in order
-      for (const marker of markers) {
-        const markerHTML = marker.outerHTML
+    if (!markers.length) {
+      continue
+    }
 
-        const offset: number = html.indexOf(markerHTML) // TODO: ensure this is reliable
+    // splice the markers out in order
+    for (const marker of markers) {
+      const markerHTML = marker.outerHTML
 
-        if (offset === -1) {
-          continue
-        }
+      const offset = html.indexOf(markerHTML) // TODO: ensure this is reliable
 
-        const _id = marker.getAttribute('id')
-        const target = marker.getAttribute('data-target-id')
-
-        if (_id && target) {
-          const position = marker.getAttribute('data-position')
-
-          const commentAnnotation = { ...buildComment(target, ''), _id: _id }
-
-          if (position === 'start') {
-            commentAnnotationsMap.set(commentAnnotation._id, {
-              ...commentAnnotation,
-              selector: {
-                from: offset,
-                to: -1,
-              },
-            })
-          } else if (position === 'end') {
-            const comment = commentAnnotationsMap.get(commentAnnotation._id)
-            if (comment && comment.selector) {
-              commentAnnotationsMap.set(comment._id, {
-                ...comment,
-                selector: { ...comment.selector, to: offset },
-              })
-            }
-          } else if (position === 'point') {
-            commentAnnotationsMap.set(commentAnnotation._id, {
-              ...commentAnnotation,
-              selector: { from: offset, to: offset },
-            })
-          }
-        }
-
-        // splice out the marker
-        html = html.substr(0, offset) + html.substr(offset + markerHTML.length)
+      if (offset === -1) {
+        continue
       }
 
-      model[field] = html
+      const id = marker.getAttribute('id')
+      const target = marker.getAttribute('data-target-id')
+
+      if (id && target) {
+        const position = marker.getAttribute('data-position')
+        if (position === 'start') {
+          const comment = {
+            _id: id,
+            from: offset,
+            to: -1,
+          }
+          comments.set(id, comment)
+        } else if (position === 'end') {
+          const comment = comments.get(id)
+          if (comment) {
+            comment.to = offset
+          }
+        } else if (position === 'point') {
+          const comment = {
+            _id: id,
+            from: offset,
+            to: offset,
+          }
+          comments.set(id, comment)
+        }
+      }
+
+      // splice out the marker
+      html =
+        html.substring(0, offset) + html.substring(offset + markerHTML.length)
     }
+
+    model[field] = html
   }
+  return Array.from(comments.values())
 }
 
 export const insertHighlightMarkers = (
