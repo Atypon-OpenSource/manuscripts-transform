@@ -22,15 +22,14 @@ interface Attrs {
   id: string
 }
 
-export interface KeywordsGroupNode extends ManuscriptNode {
+export interface KeywordsNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const keywordsGroup: NodeSpec = {
-  content: 'keyword*',
+export const keywords: NodeSpec = {
+  content: 'section_title (keywords_element | placeholder_element)',
   attrs: {
     id: { default: '' },
-    type: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block',
@@ -41,12 +40,12 @@ export const keywordsGroup: NodeSpec = {
     },
   ],
   toDOM: (node) => {
-    const keywordsGroupNode = node as KeywordsGroupNode
+    const keywords = node as KeywordsNode
 
     return [
       'div',
       {
-        id: keywordsGroupNode.attrs.id,
+        id: keywords.attrs.id,
         class: 'keywords',
         spellcheck: 'false',
         contenteditable: false,
@@ -56,7 +55,5 @@ export const keywordsGroup: NodeSpec = {
   },
 }
 
-export const isKeywordsGroupNode = (
-  node: ManuscriptNode
-): node is KeywordsGroupNode =>
-  node.type === node.type.schema.nodes.keywords_group
+export const isKeywordsNode = (node: ManuscriptNode): node is KeywordsNode =>
+  node.type === node.type.schema.nodes.keywords

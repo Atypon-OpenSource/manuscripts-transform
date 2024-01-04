@@ -14,44 +14,49 @@
  * limitations under the License.
  */
 
-import {
-  BibliographyItem,
-  CommentAnnotation,
-  Keyword,
-  Model,
-} from '@manuscripts/json-schema'
+import { CommentAnnotation, Keyword, Model } from '@manuscripts/json-schema'
 import { v4 as uuidv4 } from 'uuid'
 
 import {
-  Build,
   buildComment,
   buildContribution,
-  HighlightableField,
+  highlightableFields,
   HighlightableModel,
-  isCommentAnnotation,
   isHighlightableModel,
   isKeyword,
 } from '../../transformer'
+import { References } from './jats-references'
 
-type ProcessingInstruction = { id: string; queryText: string }
+export type JATSComment = {
+  id: string
+  text: string
+}
 
-const DEFAULT_ANNOTATION_COLOR = 'rgb(250, 224, 150)'
+export type JATSCommentMark = {
+  token: string
+  comment: JATSComment
+}
+
 const DEFAULT_PROFILE_ID =
   'MPUserProfile:0000000000000000000000000000000000000001'
 
-export const parseProcessingInstruction = (
-  node: Node
-): ProcessingInstruction | undefined => {
-  const value = `<AuthorQuery ${node.textContent?.trim()} />`
-  const processingInstruction = new DOMParser().parseFromString(
-    value,
-    'application/xml'
-  ).firstElementChild
-  if (processingInstruction) {
-    const queryText = processingInstruction.getAttribute('queryText')
-    const id = processingInstruction.getAttribute('id')
-    if (queryText && id) {
-      return { queryText, id }
+export const isJATSComment = (node: Node) => {
+  return (
+    node.nodeType === node.PROCESSING_INSTRUCTION_NODE &&
+    node.nodeName === 'AuthorQuery'
+  )
+}
+
+export const parseJATSComment = (node: Node): JATSComment | undefined => {
+  const text = node.textContent
+  if (text) {
+    const id = /id="(.+)"/.exec(text)
+    const queryText = /queryText="(.+)"/.exec(text)
+    if (id && queryText) {
+      return {
+        id: id[1],
+        text: queryText[1],
+      }
     }
   }
 }
@@ -59,191 +64,160 @@ export const parseProcessingInstruction = (
 /**
  * Replaces processing instructions with tokens
  */
-export const markProcessingInstructions = (
-  doc: Document
-): Map<string, string> => {
-  const authorQueriesMap = new Map<string, string>()
+export const markComments = (doc: Document): JATSCommentMark[] => {
+  const marks: JATSCommentMark[] = []
   const root = doc.getRootNode()
-  const queue: Array<Node> = [root]
+  const queue: Node[] = [root]
   while (queue.length !== 0) {
     const node = queue.shift()
     if (node) {
-      const { nodeType, nodeName } = node
-      if (
-        nodeType === node.PROCESSING_INSTRUCTION_NODE &&
-        nodeName === 'AuthorQuery'
-      ) {
-        // Node inserted to parent no need to shift
-        insertToken(doc, node, authorQueriesMap)
+      if (isJATSComment(node)) {
+        const comment = parseJATSComment(node)
+        if (comment) {
+          const token = addMark(doc, node)
+          if (token) {
+            const mark = {
+              token,
+              comment,
+            }
+            marks.push(mark)
+          }
+        }
       }
       node.childNodes.forEach((child) => {
         queue.push(child)
       })
     }
   }
-  return authorQueriesMap
+  return marks
 }
 
-const insertToken = (
-  doc: Document,
-  processingInstructionNode: Node,
-  authorQueriesMap: Map<string, string>
-) => {
-  const instruction = parseProcessingInstruction(processingInstructionNode)
-  const { parentElement } = processingInstructionNode
-  if (parentElement && instruction) {
-    const { queryText } = instruction
+const addMark = (doc: Document, node: Node) => {
+  const parent = node.parentElement
+  if (parent) {
     const token = uuidv4()
     const tokenNode = doc.createTextNode(token)
-    authorQueriesMap.set(token, queryText)
-    return parentElement.insertBefore(tokenNode, processingInstructionNode)
+    parent.insertBefore(tokenNode, node)
+    return token
   }
-}
-
-const extractCommentsFromKeywords = (
-  tokens: string[],
-  model: Keyword,
-  authorQueriesMap: Map<string, string>
-): Build<CommentAnnotation>[] => {
-  const commentAnnotations: Build<CommentAnnotation>[] = []
-  const name = model.name
-  const filteredTokens = filterAndSortTokens(tokens, name)
-  let content = name
-  for (const token of filteredTokens) {
-    content = name.replace(token, '')
-    const query = authorQueriesMap.get(token)
-    const commentAnnotation = buildComment(
-      model.containedGroup ?? uuidv4(),
-      `${query}`,
-      undefined,
-      [buildContribution(DEFAULT_PROFILE_ID)],
-      DEFAULT_ANNOTATION_COLOR
-    )
-    model['name'] = content
-    commentAnnotations.push(commentAnnotation)
-  }
-  return commentAnnotations
 }
 
 export const createComments = (
-  authorQueriesMap: Map<string, string>,
-  manuscriptModels: Array<Model>
-): Build<CommentAnnotation>[] => {
-  const tokens = [...authorQueriesMap.keys()]
-  const commentAnnotations: Build<CommentAnnotation>[] = []
-  for (const model of manuscriptModels) {
+  models: Model[],
+  marks: JATSCommentMark[]
+): CommentAnnotation[] => {
+  const comments = []
+  for (const model of models) {
     if (isHighlightableModel(model)) {
-      const comments = addCommentsFromMarkedProcessingInstructions(
-        tokens,
-        model,
-        authorQueriesMap
-      )
-      commentAnnotations.push(...comments)
+      comments.push(...processModel(model, marks))
     } else if (isKeyword(model)) {
-      const comments = extractCommentsFromKeywords(
-        tokens,
-        model as Keyword,
-        authorQueriesMap
-      )
-      commentAnnotations.push(...comments)
+      comments.push(...processKeyword(model, marks))
     }
   }
-
-  return commentAnnotations
+  return comments
 }
 
-function filterAndSortTokens(tokens: string[], content: string) {
-  return tokens
-    .filter((token) => content.indexOf(token) >= 0)
-    .sort((a, b) => content.indexOf(a) - content.indexOf(b))
+const getFieldMarks = (content: string, marks: JATSCommentMark[]) => {
+  return marks
+    .filter((m) => content.indexOf(m.token) >= 0)
+    .sort((a, b) => content.indexOf(a.token) - content.indexOf(b.token))
+}
+
+const processModel = (model: HighlightableModel, marks: JATSCommentMark[]) => {
+  const comments = []
+  for (const field of highlightableFields) {
+    const content = model[field]
+    if (!content) {
+      continue
+    }
+    const results = processContent(
+      model,
+      content,
+      getFieldMarks(content, marks)
+    )
+    model[field] = results.content
+    comments.push(...results.comments)
+  }
+  return comments
+}
+
+const processKeyword = (
+  model: Keyword,
+  marks: JATSCommentMark[]
+): CommentAnnotation[] => {
+  const comments = []
+  const name = model.name
+  let content = name
+  for (const mark of getFieldMarks(name, marks)) {
+    content = name.replace(mark.token, '')
+    const target = model.containedGroup
+    if (!target) {
+      continue
+    }
+    const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
+
+    const comment = buildComment(
+      target,
+      mark.comment.text,
+      undefined,
+      contributions
+    ) as CommentAnnotation
+    model.name = content
+    comments.push(comment)
+  }
+  return comments
 }
 
 /**
  * Creates CommentAnnotations from marked processing instructions in model
  */
-const addCommentsFromMarkedProcessingInstructions = (
-  tokens: string[],
+const processContent = (
   model: HighlightableModel,
-  authorQueriesMap: Map<string, string>
-): Build<CommentAnnotation>[] => {
-  const commentAnnotations: Build<CommentAnnotation>[] = []
-  // Search for tokens on every HighlightableField
-  for (const field of ['contents', 'caption', 'title']) {
-    const highlightableField = field as HighlightableField
-    const content = model[highlightableField]
-    if (!content) {
-      continue
+  content: string,
+  marks: JATSCommentMark[]
+) => {
+  const comments = []
+
+  let result = content
+  for (const mark of marks) {
+    const token = mark.token
+    const index = result.indexOf(token)
+
+    // Remove the token
+    result = result.replace(token, '')
+
+    const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
+    const selector = {
+      from: index,
+      to: index,
     }
-    // Tokens need to be removed in the order they appear in the text to keep valid indices of selectors
-    const sortedTokens = tokens
-      .filter((token) => content.indexOf(token) >= 0)
-      .sort((a, b) => content.indexOf(a) - content.indexOf(b))
-
-    let contentWithoutTokens = content
-    for (const token of sortedTokens) {
-      const query = authorQueriesMap.get(token)
-      if (query) {
-        // Remove extra spaces -if exist- from the start of each line of the text content. I decided to do this after I noticed that the bibliography element content contains extra spaces at the start of each line (reference). Not sure why!
-        const trimmedTextContent = contentWithoutTokens
-          ? contentWithoutTokens.replace(/^\s+/gm, '')
-          : undefined
-
-        const startTokenIndex = trimmedTextContent
-          ? trimmedTextContent.indexOf(token)
-          : undefined
-
-        // Remove the token
-        contentWithoutTokens = contentWithoutTokens.replace(token, '')
-        // Add the comment
-        const comment = `${query}`
-        const target =
-          model._id && !isCommentAnnotation(model) ? model._id : uuidv4()
-        const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
-        const selector = startTokenIndex
-          ? { from: startTokenIndex, to: startTokenIndex }
-          : undefined
-        const commentAnnotation = buildComment(
-          target,
-          comment,
-          selector,
-          contributions,
-          DEFAULT_ANNOTATION_COLOR
-        )
-        commentAnnotations.push(commentAnnotation)
-      }
-    }
-    // Re-assign content after removing the tokens
-    model[highlightableField] = contentWithoutTokens
+    const comment = buildComment(
+      model._id,
+      mark.comment.text,
+      selector,
+      contributions
+    ) as CommentAnnotation
+    comments.push(comment)
   }
-
-  return commentAnnotations
+  return {
+    content: result,
+    comments,
+  }
 }
 
-export const createReferenceComments = (
-  referenceQueriesMap: Map<string, string[]>,
-  references: Array<BibliographyItem>
-): Build<CommentAnnotation>[] => {
-  const comments: Build<CommentAnnotation>[] = []
-  for (const reference of references) {
-    const id = reference._id
-    if (referenceQueriesMap.has(id)) {
-      for (const comment of referenceQueriesMap.get(id) || []) {
-        const target =
-          reference._id && !isCommentAnnotation(reference)
-            ? reference._id
-            : uuidv4()
-        const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
-        // we don't need a selector property here
-        // we can easily find the position of the reference in the FE
-        const commentAnnotation = buildComment(
-          target,
-          comment,
-          undefined,
-          contributions,
-          DEFAULT_ANNOTATION_COLOR
-        )
-        comments.push(commentAnnotation)
-      }
+export const createReferenceComments = (references: References) => {
+  const comments: CommentAnnotation[] = []
+  for (const item of references.getBibliographyItems()) {
+    const id = item._id
+    for (const comment of references.getComments(id)) {
+      const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
+      const c = buildComment(
+        id,
+        comment.text,
+        undefined,
+        contributions
+      ) as CommentAnnotation
+      comments.push(c)
     }
   }
   return comments

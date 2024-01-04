@@ -1,5 +1,5 @@
 /*!
- * © 2020 Atypon Systems LLC
+ * © 2023 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,17 @@
  * limitations under the License.
  */
 
-export {
-  parseJATSFront,
-  parseJATSBody,
-  parseJATSArticle,
-} from './parse-jats-article'
+import { NodeSpec } from 'prosemirror-model'
+
+// This node has no representation in json-schema
+// It exists for the purpose of styling in the UI
+
+export const contributors: NodeSpec = {
+  content: 'contributor*',
+  attrs: {
+    id: { default: '' },
+  },
+  group: 'block',
+  selectable: false,
+  toDOM: () => ['div', { class: 'contributors' }, 0],
+}

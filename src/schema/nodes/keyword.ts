@@ -21,7 +21,6 @@ import { CommentNode } from './comment'
 
 interface Attrs {
   id: string
-  contents: string
   comments?: CommentNode[]
 }
 
@@ -34,7 +33,6 @@ export const keyword: NodeSpec = {
   content: 'inline*',
   attrs: {
     id: { default: '' },
-    contents: { default: '' },
     dataTracked: { default: null },
     comments: { default: null },
   },

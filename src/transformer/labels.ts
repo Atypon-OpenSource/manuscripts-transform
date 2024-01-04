@@ -50,6 +50,8 @@ const labelProperties: Map<ManuscriptNodeType, keyof Partial<Manuscript>> =
     [schema.nodes.listing_element, 'listingElementLabel'],
   ])
 
+const excludedTypes = [schema.nodes.graphical_abstract_section]
+
 const chooseLabel = (
   nodeType: ManuscriptNodeType,
   manuscript: Manuscript
@@ -87,25 +89,10 @@ export const buildTargets = (
   }
 
   const targets: Map<string, Target> = new Map()
-  const figures: string[] = []
-  fragment.forEach((node) => {
-    if (node.attrs.category === 'MPSectionCategory:abstracts') {
-      node.forEach((child) => {
-        if (child.type === node.type.schema.nodes.graphical_abstract_section) {
-          child.forEach((item) => {
-            if (item.type === node.type.schema.nodes.figure_element) {
-              figures.push(item.attrs.id)
-            }
-          })
-        }
-      })
-    }
-  })
 
-  fragment.descendants((node) => {
+  fragment.descendants((node, pos, parent) => {
     if (node.type.name in counters) {
-      const isInGraphicalAbstract = figures.indexOf(node.attrs.id) > -1
-      if (isInGraphicalAbstract) {
+      if (parent && excludedTypes.includes(parent.type)) {
         return
       }
       const label = buildLabel(node.type)
@@ -116,18 +103,6 @@ export const buildTargets = (
         label,
         caption: node.textContent?.trim(), // TODO: HTML?
       })
-
-      // TODO: allow an individual figure to be referenced
-      // if (node.attrs.containedObjectIDs) {
-      //   node.attrs.containedObjectIDs.forEach((containedObjectID: string) => {
-      //     targets.set(containedObjectID, {
-      //       type: '',
-      //       id: containedObjectID,
-      //       label,
-      //       caption: '',
-      //     })
-      //   })
-      // }
     }
   })
   return targets
