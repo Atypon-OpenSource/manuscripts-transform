@@ -76,7 +76,6 @@ interface Links {
     [key: string]: string
   }
 }
-type CitationNodes = [CitationNode, number][]
 
 type NodeSpecs = { [key in Nodes]: (node: ManuscriptNode) => DOMOutputSpec }
 
@@ -209,10 +208,10 @@ export interface JATSExporterOptions {
   idGenerator?: IDGenerator
   mediaPathGenerator?: MediaPathGenerator
 }
-export const buildCitations = (citations: CitationNodes) =>
+export const buildCitations = (citations: CitationNode[]) =>
   citations.map((citation) => ({
-    citationID: citation[0].attrs.id,
-    citationItems: citation[0].attrs.rids.map((rid) => ({
+    citationID: citation.attrs.id,
+    citationItems: citation.attrs.rids.map((rid) => ({
       id: rid,
     })),
     properties: {
@@ -226,34 +225,32 @@ export class JATSExporter {
   protected serializer: DOMSerializer
   protected labelTargets?: Map<string, Target>
   protected citationTexts: Map<string, string>
+  protected citationProvider: CitationProvider
 
   protected generateCitations(fragment: ManuscriptFragment) {
-    const nodes: CitationNodes = []
-    fragment.descendants((node, pos) => {
+    const nodes: CitationNode[] = []
+    fragment.descendants((node) => {
       if (isCitationNode(node)) {
-        nodes.push([node, pos])
+        nodes.push(node)
       }
     })
-    const citations = buildCitations(nodes)
-    return citations
+    return buildCitations(nodes)
   }
   protected generateCitationTexts(
     fragment: ManuscriptFragment,
     csl: CSLOptions
   ) {
     this.citationTexts = new Map<string, string>()
-    const citationProvider = new CitationProvider({
+    this.citationProvider = new CitationProvider({
       getLibraryItem: (id: string) =>
         this.modelMap.get(id) as BibliographyItem | undefined,
       locale: csl.locale,
       citationStyle: csl.style,
     })
     const citations = this.generateCitations(fragment)
-    citationProvider
-      .rebuildState(citations)
-      .forEach(([id, noteIndex, output]) => {
-        this.citationTexts.set(id, output)
-      })
+    this.citationProvider.rebuildState(citations).forEach(([id, , output]) => {
+      this.citationTexts.set(id, output)
+    })
   }
   public serializeToJATS = async (
     fragment: ManuscriptFragment,
@@ -274,11 +271,8 @@ export class JATSExporter {
 
     this.modelMap = modelMap
     this.models = Array.from(this.modelMap.values())
-    if (csl?.style && csl.locale) {
-      this.generateCitationTexts(fragment, csl)
-    }
+    this.generateCitationTexts(fragment, csl)
     this.createSerializer()
-
     const versionIds = selectVersionIds(version)
 
     this.document = document.implementation.createDocument(
@@ -762,18 +756,14 @@ export class JATSExporter {
 
     // move ref-list from body to back
     back.appendChild(refList)
-
-    const bibliographyItems = this.models.filter(
-      hasObjectType<BibliographyItem>(ObjectTypes.BibliographyItem)
-    )
-
-    for (const bibliographyItem of bibliographyItems) {
+    const [meta] = this.citationProvider.makeBibliography()
+    for (const id of meta.entry_ids) {
+      const bibliographyItem = this.modelMap.get(id[0]) as BibliographyItem
       const ref = this.document.createElement('ref')
-      ref.setAttribute('id', normalizeID(bibliographyItem._id))
+      ref.setAttribute('id', normalizeID(id[0]))
+
       // TODO: add option for mixed-citation; format citations using template
-
       // TODO: add citation elements depending on publication type
-
       const updateCitationPubType = (
         citationEl: HTMLElement,
         pubType: string
@@ -971,17 +961,11 @@ export class JATSExporter {
         const xref = this.document.createElement('xref')
         xref.setAttribute('ref-type', 'bibr')
         xref.setAttribute('rid', normalizeID(rids.join(' ')))
-        xref.textContent = this.citationTexts.get(node.attrs.id) ?? ''
-        if (node.attrs.contents) {
-          // TODO: convert markup to JATS?
-          // xref.innerHTML = node.attrs.contents
-          const text = textFromHTML(node.attrs.contents)
-
-          if (text !== null && text.length) {
-            xref.textContent = text
-          }
+        const citationTextContent = this.citationTexts.get(node.attrs.id)
+        if (!citationTextContent) {
+          throw new Error(`No citation text found for ${node.attrs.id}`)
         }
-
+        xref.textContent = textFromHTML(citationTextContent)
         return xref
       },
       cross_reference: (node) => {
