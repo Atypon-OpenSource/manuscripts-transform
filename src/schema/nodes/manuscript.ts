@@ -16,7 +16,6 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { schema } from '../index'
 import { ManuscriptNode } from '../types'
 
 export interface ActualManuscriptNode extends ManuscriptNode {
@@ -62,4 +61,4 @@ export const manuscript: NodeSpec = {
 
 export const isManuscriptNode = (
   node: ManuscriptNode
-): node is ManuscriptNode => node.type === schema.nodes.manuscript
+): node is ManuscriptNode => node.type === node.type.schema.nodes.manuscript
