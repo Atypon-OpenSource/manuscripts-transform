@@ -1,7 +1,7 @@
 {
   "name": "@manuscripts/transform",
   "description": "ProseMirror transformer for Manuscripts applications",
-  "version": "1.5.8-LEAN-3034-V1",
+  "version": "1.5.8-LEAN-3034-V2",
   "repository": "github:Atypon-OpenSource/manuscripts-transform",
   "license": "Apache-2.0",
   "main": "dist/cjs",
@@ -29,11 +29,10 @@
     "version": "yarn build"
   },
   "dependencies": {
-    "@manuscripts/json-schema": "2.2.1",
-    "citeproc": "^2.4.63",
+    "@manuscripts/json-schema": "2.2.1-LEAN-3034",
+    "@manuscripts/library": "^1.3.0",
     "debug": "^4.3.4",
     "jszip": "^3.10.1",
-    "lodash": "^4.17.21",
     "mathjax-full": "^3.2.2",
     "mime": "^3.0.0",
     "prosemirror-model": "^1.18.3",
@@ -56,7 +55,6 @@
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
     "babel-jest": "^29.3.1",
-    "csl-json": "^0.1.0",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-header": "^3.1.1",
