@@ -1267,7 +1267,7 @@
     deepmerge "^4.3.1"
     uuid "^9.0.0"
 
-"@manuscripts/library@^1.3.0-LEAN-3034":
+"@manuscripts/library@1.3.0-LEAN-3034":
   version "1.3.0-LEAN-3034"
   resolved "https://registry.yarnpkg.com/@manuscripts/library/-/library-1.3.0-LEAN-3034.tgz#487679d9991e6181f10bd2d07f12995346c4bc44"
   integrity sha512-/410xC33WJgW/eNA43/kPVA+dL1eG2GO3q3pMOUxuOZ4p9ukFgL+Vu5bCy2LhNhUe8xa/8YKUh4baITTAb24Lg==
