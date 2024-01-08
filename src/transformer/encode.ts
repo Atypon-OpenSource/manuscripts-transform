@@ -553,7 +553,7 @@ const encoders: NodeEncoderMap = {
         : false,
   }),
   equation: (node): Partial<Equation> => ({
-    content: node.attrs.content,
+    contents: node.attrs.contents,
     format: node.attrs.format,
   }),
   equation_element: (node): Partial<EquationElement> => ({

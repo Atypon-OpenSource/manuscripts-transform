@@ -970,14 +970,14 @@ export class JATSExporter {
       },
       doc: () => '',
       equation: (node) => {
-        const math = this.nodeFromJATS(node.attrs.content)
+        const math = this.nodeFromJATS(node.attrs.contents)
         const mathEl = math as Element
         mathEl.setAttribute('id', normalizeID(node.attrs.id))
         return mathEl
       },
       inline_equation: (node) => {
         const eqElement = this.document.createElement('inline-formula')
-        const math = this.nodeFromJATS(node.attrs.content)
+        const math = this.nodeFromJATS(node.attrs.contents)
         eqElement.append(math as Element)
         return eqElement
       },

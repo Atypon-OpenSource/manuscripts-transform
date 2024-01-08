@@ -22,7 +22,7 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   id: string
   format: string
-  content: string
+  contents: string
 }
 
 export interface EquationNode extends ManuscriptNode {
@@ -32,7 +32,7 @@ export interface EquationNode extends ManuscriptNode {
 export const equation: NodeSpec = {
   attrs: {
     id: { default: '' },
-    content: { default: '' },
+    contents: { default: '' },
     format: { default: '' },
     dataTracked: { default: null },
     // placeholder: { default: 'Click to edit equation' },
@@ -46,14 +46,14 @@ export const equation: NodeSpec = {
         return {
           id: htmlEl.getAttribute('id'),
           format: htmlEl.getAttribute('data-equation-format'),
-          content: htmlEl.innerHTML,
+          contents: htmlEl.innerHTML,
         }
       },
     },
   ],
   toDOM: (node: ManuscriptNode) => {
     const equationNode = node as EquationNode
-    const { id, content, format } = equationNode.attrs
+    const { id, contents, format } = equationNode.attrs
 
     const attrs: { [key: string]: string } = {}
     const dom = document.createElement('div')
@@ -62,7 +62,7 @@ export const equation: NodeSpec = {
     if (format) {
       attrs['data-equation-format'] = format
     }
-    dom.innerHTML = content
+    dom.innerHTML = contents
 
     return dom
   },

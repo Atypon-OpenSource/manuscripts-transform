@@ -434,7 +434,7 @@ Map {
   },
   "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403" => Object {
     "_id": "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
-    "content": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math>",
+    "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math>",
     "format": "mml:math",
     "objectType": "MPEquation",
   },

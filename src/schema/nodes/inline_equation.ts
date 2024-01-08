@@ -20,7 +20,7 @@ import { ManuscriptNode } from '../types'
 import { CommentNode } from './comment'
 
 interface Attrs {
-  content: string
+  contents: string
   format: string
   comments?: CommentNode[]
 }
@@ -33,7 +33,7 @@ export const inlineEquation: NodeSpec = {
   attrs: {
     dataTracked: { default: null },
     comments: { default: null },
-    content: { default: '' },
+    contents: { default: '' },
     format: { default: '' },
   },
   selectable: false,
@@ -48,14 +48,14 @@ export const inlineEquation: NodeSpec = {
         const dom = p as HTMLElement
         return {
           format: dom.getAttribute('data-equation-format'),
-          content: dom.innerHTML,
+          contents: dom.innerHTML,
         }
       },
     },
   ],
   toDOM: (node) => {
     const inlineEquationNode = node as InlineEquationNode
-    const { content, format } = inlineEquationNode.attrs
+    const { contents, format } = inlineEquationNode.attrs
 
     const attrs: { [key: string]: string } = {}
     const dom = document.createElement('span')
@@ -63,7 +63,7 @@ export const inlineEquation: NodeSpec = {
     if (format) {
       attrs['data-equation-format'] = format
     }
-    dom.innerHTML = content
+    dom.innerHTML = contents
     return dom
   },
 }

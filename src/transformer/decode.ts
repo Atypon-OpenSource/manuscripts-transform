@@ -344,7 +344,7 @@ export class Decoder {
 
       return schema.nodes.equation.createChecked({
         id: model._id,
-        content: model.content,
+        contents: model.contents,
         format: model.format,
       }) as EquationNode
     },

@@ -975,7 +975,7 @@ Array [
   },
   Object {
     "_id": "MPEquation:test",
-    "content": "<tex-math>E=mc^2</tex-math>",
+    "contents": "<tex-math>E=mc^2</tex-math>",
     "format": "tex-math",
     "objectType": "MPEquation",
   },
@@ -4095,7 +4095,7 @@ Array [
   },
   Object {
     "_id": "eq1",
-    "content": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m1\\">
+    "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m1\\">
           <mml:mrow>
             <mml:mi>P</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>t</mml:mi><mml:mo> </mml:mo><mml:mi>Q</mml:mi><mml:mi>u</mml:mi><mml:mi>o</mml:mi><mml:mi>t</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi><mml:mo> </mml:mo><mml:mi>S</mml:mi><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>a</mml:mi><mml:msub>
             <mml:mi>d</mml:mi>
@@ -4153,7 +4153,7 @@ Array [
   },
   Object {
     "_id": "eq2",
-    "content": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m3\\">
+    "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m3\\">
           <mml:mrow>
             <mml:mi>P</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>t</mml:mi><mml:mo> </mml:mo><mml:mi>E</mml:mi><mml:mi>f</mml:mi><mml:mi>f</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>v</mml:mi><mml:mi>e</mml:mi><mml:mo> </mml:mo><mml:mi>S</mml:mi><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>a</mml:mi><mml:msub>
             <mml:mi>d</mml:mi>
@@ -4257,7 +4257,7 @@ Array [
   },
   Object {
     "_id": "eq3",
-    "content": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m12\\">
+    "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m12\\">
           <mml:mrow>
             <mml:mi>P</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>t</mml:mi><mml:mo> </mml:mo><mml:mi>P</mml:mi><mml:mi>r</mml:mi><mml:mi>i</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi><mml:mo> </mml:mo><mml:mi>I</mml:mi><mml:mi>m</mml:mi><mml:mi>p</mml:mi><mml:mi>a</mml:mi><mml:mi>c</mml:mi><mml:msub>
             <mml:mi>t</mml:mi>
@@ -4532,7 +4532,7 @@ Array [
   },
   Object {
     "_id": "eq4",
-    "content": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m21\\">
+    "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m21\\">
         <mml:mrow>
           <mml:mi>L</mml:mi><mml:mi>i</mml:mi><mml:msub>
           <mml:mi>q</mml:mi>
@@ -4586,7 +4586,7 @@ Array [
   },
   Object {
     "_id": "eq5",
-    "content": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m22\\">
+    "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m22\\">
         <mml:mrow>
           <mml:mi>L</mml:mi><mml:mi>i</mml:mi><mml:msub>
           <mml:mi>q</mml:mi>
@@ -7466,7 +7466,7 @@ Array [
   },
   Object {
     "_id": "MPEquation:test",
-    "content": "<tex-math>E=mc^2</tex-math>",
+    "contents": "<tex-math>E=mc^2</tex-math>",
     "format": "tex-math",
     "objectType": "MPEquation",
   },

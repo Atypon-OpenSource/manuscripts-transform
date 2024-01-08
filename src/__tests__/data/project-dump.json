@@ -474,7 +474,7 @@
       "placeholderInnerHTML": null
     },
     {
-      "content": "<mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math>",
+      "contents": "<mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math>",
       "_id": "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
       "_rev": "4-3e9077e26f2a313d84a2f18245a459a5",
       "collection": "equations",
@@ -485,7 +485,7 @@
       "updatedAt": 1538472510.576513
     },
     {
-      "content": "<mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math>",
+      "contents": "<mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math>",
       "_id": "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC404",
       "_rev": "4-3e9077e26f2a313d84a2f18245a459a5",
       "collection": "equations",

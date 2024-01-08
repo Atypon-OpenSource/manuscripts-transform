@@ -42,7 +42,7 @@ const chooseContentType = (graphicNode?: Element): string | undefined => {
 const getEquationContent = (p: string | HTMLElement) => {
   const element = p as HTMLElement
   const container = element.querySelector('alternatives') ?? element
-  let content: string | null = ''
+  let contents: string | null = ''
   let format: string | null = ''
   for (const child of container.childNodes) {
     // remove namespace prefix
@@ -52,12 +52,12 @@ const getEquationContent = (p: string | HTMLElement) => {
     switch (nodeName) {
       case 'tex-math':
       case 'mml:math':
-        content = (child as Element).outerHTML
+        contents = (child as Element).outerHTML
         format = nodeName
         break
     }
   }
-  return { format, content }
+  return { format, contents }
 }
 
 export type MarkRule = ParseRule & { mark: Marks | null }
