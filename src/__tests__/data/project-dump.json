@@ -191,11 +191,9 @@
       "caption": "",
       "collection": "elements",
       "containedObjectID": "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
-      "contents": "",
+      "label": "Equation 1",
       "createdAt": 1538472504,
-      "elementType": "p",
-      "objectType": "MPEquationElement",
-      "suppressCaption": true
+      "objectType": "MPEquationElement"
     },
     {
       "_id": "MPFigureElement:A5D68C57-B5BB-4D10-E0C3-ECED717A2AA7",
@@ -317,7 +315,7 @@
       "_id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
       "_rev": "16-9cc791a1557e1de40e6472bcab70f0d1",
       "collection": "elements",
-      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9\" class=\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\" data-object-type=\"MPParagraphElement\">An inline equation: <span class=\"MPInlineMathFragment\" id=\"MPInlineMathFragment:A8A76DC2-EA6A-44BF-E8E7-B4A9EAEDF090\"><mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math></span></p>",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9\" class=\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\" data-object-type=\"MPParagraphElement\">An inline equation: <span class=\"MPInlineMathFragment\" data-equation-format=\"mml:math\" id=\"inline-formula-1\"><mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math></span></p>",
       "createdAt": 1538472516,
       "elementType": "p",
       "objectType": "MPParagraphElement",
@@ -483,6 +481,7 @@
       "createdAt": 1538472504,
       "objectType": "MPEquation",
       "title": "Equation",
+      "format": "mml:math",
       "updatedAt": 1538472510.576513
     },
     {
@@ -609,16 +608,6 @@
       "createdAt": 1538473915,
       "kind": "endnote",
       "objectType": "MPFootnote"
-    },
-    {
-      "content": "<mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math>",
-      "_id": "MPInlineMathFragment:A8A76DC2-EA6A-44BF-E8E7-B4A9EAEDF090",
-      "_rev": "3-a84b5374afabc00abefe6eaaf6c2994a",
-      "collection": "inline-math-fragments",
-      "containingObject": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
-      "createdAt": 1538472585,
-      "objectType": "MPInlineMathFragment",
-      "updatedAt": 1538472590.478792
     },
     {
       "ORCIDIdentifier": "",

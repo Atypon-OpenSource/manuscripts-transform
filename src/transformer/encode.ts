@@ -27,7 +27,6 @@ import {
   FigureElement,
   Footnote,
   FootnotesElement,
-  InlineMathFragment,
   Keyword,
   KeywordGroup,
   KeywordsElement,
@@ -555,19 +554,11 @@ const encoders: NodeEncoderMap = {
   }),
   equation: (node): Partial<Equation> => ({
     content: node.attrs.content,
+    format: node.attrs.format,
   }),
   equation_element: (node): Partial<EquationElement> => ({
     containedObjectID: attributeOfNodeType(node, 'equation', 'id'),
-    title: node.attrs.title,
-    elementType: 'p',
-    suppressTitle:
-      node.attrs.suppressTitle === undefined ||
-      node.attrs.suppressTitle === true
-        ? undefined
-        : false,
-  }),
-  inline_equation: (node): Partial<InlineMathFragment> => ({
-    content: node.attrs.content,
+    label: node.attrs.label,
   }),
   figure: (node): Partial<Figure> => ({
     contentType: node.attrs.contentType || undefined,
@@ -833,10 +824,7 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       if (placeholderTypes.includes(child.type)) {
         return
       }
-      if (
-        parent.type === schema.nodes.paragraph &&
-        child.type !== schema.nodes.inline_equation
-      ) {
+      if (parent.type === schema.nodes.paragraph) {
         return
       }
 

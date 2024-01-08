@@ -345,6 +345,7 @@ export class Decoder {
       return schema.nodes.equation.createChecked({
         id: model._id,
         content: model.content,
+        format: model.format,
       }) as EquationNode
     },
     [ObjectTypes.EquationElement]: (data) => {
@@ -367,21 +368,10 @@ export class Decoder {
       return schema.nodes.equation_element.createChecked(
         {
           id: model._id,
-          title: model.title,
-          suppressTitle: Boolean(
-            model.suppressTitle === undefined ? true : model.suppressTitle
-          ),
+          label: model.label,
         },
         [equation]
       ) as EquationElementNode
-    },
-    [ObjectTypes.InlineMathFragment]: (data) => {
-      const model = data as InlineMathFragment
-
-      return schema.nodes.inline_equation.createChecked({
-        id: model._id,
-        content: model.content,
-      }) as InlineEquationNode
     },
     [ObjectTypes.FootnotesElement]: (data) => {
       const foonotesElementModel = data as FootnotesElement

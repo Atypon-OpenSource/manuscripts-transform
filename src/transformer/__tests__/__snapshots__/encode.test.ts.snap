@@ -429,14 +429,13 @@ Map {
   "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1" => Object {
     "_id": "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1",
     "containedObjectID": "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
-    "elementType": "p",
+    "label": "Equation 1",
     "objectType": "MPEquationElement",
-    "suppressTitle": undefined,
-    "title": undefined,
   },
   "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403" => Object {
     "_id": "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
     "content": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math>",
+    "format": "mml:math",
     "objectType": "MPEquation",
   },
   "MPListingElement:160785A9-4BC0-4C55-C4DE-AF5F4D858DCE" => Object {
@@ -460,16 +459,11 @@ const x = 'y'",
   },
   "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9" => Object {
     "_id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\">An inline equation: <span class=\\"MPInlineMathFragment\\" id=\\"MPInlineMathFragment:A8A76DC2-EA6A-44BF-E8E7-B4A9EAEDF090\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math></span></p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\">An inline equation: <span class=\\"MPInlineMathFragment\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math></span></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
     "placeholderInnerHTML": "",
-  },
-  "MPInlineMathFragment:A8A76DC2-EA6A-44BF-E8E7-B4A9EAEDF090" => Object {
-    "_id": "MPInlineMathFragment:A8A76DC2-EA6A-44BF-E8E7-B4A9EAEDF090",
-    "content": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math>",
-    "objectType": "MPInlineMathFragment",
   },
   "MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27" => Object {
     "_id": "MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27",

@@ -17,11 +17,11 @@
 import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
-import { convertTeXToMathML } from '../../mathjax/tex-to-mathml'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
+  format: string
   content: string
 }
 
@@ -29,35 +29,11 @@ export interface EquationNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const getEquationContent = (p: string | HTMLElement) => {
-  const element = p as HTMLElement
-  const container = element.querySelector('alternatives') ?? element
-  let content: string | null = ''
-  for (const child of container.childNodes) {
-    // remove namespace prefix
-    // TODO: real namespaces
-    const nodeName = child.nodeName.replace(/^[a-z]:/, '')
-
-    switch (nodeName) {
-      case 'tex-math':
-        content = convertTeXToMathML((child as Element).outerHTML, true)
-        break
-      case 'mml:math':
-        ;(child as Element).removeAttribute('id')
-        content = (child as Element).outerHTML
-        break
-    }
-  }
-  return {
-    id: element.getAttribute('id'),
-    content: content,
-  }
-}
-
 export const equation: NodeSpec = {
   attrs: {
     id: { default: '' },
     content: { default: '' },
+    format: { default: '' },
     dataTracked: { default: null },
     // placeholder: { default: 'Click to edit equation' },
   },
@@ -65,15 +41,28 @@ export const equation: NodeSpec = {
   parseDOM: [
     {
       tag: `div.${ObjectTypes.Equation}`,
-      getAttrs: (p) => getEquationContent(p),
+      getAttrs: (p) => {
+        const htmlEl = p as HTMLElement
+        return {
+          id: htmlEl.getAttribute('id'),
+          format: htmlEl.getAttribute('data-equation-format'),
+          content: htmlEl.innerHTML,
+        }
+      },
     },
-    // TODO: convert MathML from pasted math elements?
   ],
   toDOM: (node: ManuscriptNode) => {
     const equationNode = node as EquationNode
+    const { id, content, format } = equationNode.attrs
+
+    const attrs: { [key: string]: string } = {}
     const dom = document.createElement('div')
-    dom.setAttribute('id', equationNode.attrs.id)
-    dom.innerHTML = equationNode.attrs.content
+    dom.classList.add(ObjectTypes.Equation)
+    attrs.id = id
+    if (format) {
+      attrs['data-equation-format'] = format
+    }
+    dom.innerHTML = content
 
     return dom
   },

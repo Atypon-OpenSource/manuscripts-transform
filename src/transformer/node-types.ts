@@ -48,7 +48,6 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.footnotes_section, ObjectTypes.Section],
   [schema.nodes.graphical_abstract_section, ObjectTypes.Section],
   [schema.nodes.highlight_marker, ObjectTypes.HighlightMarker],
-  [schema.nodes.inline_equation, ObjectTypes.InlineMathFragment],
   [schema.nodes.keyword, ObjectTypes.Keyword],
   [schema.nodes.keywords_element, ObjectTypes.KeywordsElement],
   [schema.nodes.keywords, ObjectTypes.Section],

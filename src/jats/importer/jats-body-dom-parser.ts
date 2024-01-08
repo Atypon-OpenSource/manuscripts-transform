@@ -17,7 +17,7 @@
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
-import { getEquationContent, Marks, Nodes, schema } from '../../schema'
+import { Marks, Nodes, schema } from '../../schema'
 import { chooseSectionCategory } from '../../transformer'
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
@@ -37,6 +37,27 @@ const chooseContentType = (graphicNode?: Element): string | undefined => {
       return mime.getType(href) || undefined
     }
   }
+}
+
+const getEquationContent = (p: string | HTMLElement) => {
+  const element = p as HTMLElement
+  const container = element.querySelector('alternatives') ?? element
+  let content: string | null = ''
+  let format: string | null = ''
+  for (const child of container.childNodes) {
+    // remove namespace prefix
+    // TODO: real namespaces
+    const nodeName = child.nodeName.replace(/^[a-z]:/, '')
+
+    switch (nodeName) {
+      case 'tex-math':
+      case 'mml:math':
+        content = (child as Element).outerHTML
+        format = nodeName
+        break
+    }
+  }
+  return { format, content }
 }
 
 export type MarkRule = ParseRule & { mark: Marks | null }
@@ -160,10 +181,7 @@ const nodes: NodeRule[] = [
     node: 'inline_equation',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      return {
-        id: element.getAttribute('id'),
-        content: getEquationContent(element).content,
-      }
+      return getEquationContent(element)
     },
   },
   {
@@ -173,13 +191,15 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
       return {
         id: element.getAttribute('id'),
+        label: element.querySelector('label')?.textContent ?? '',
       }
     },
     getContent: (node, schema) => {
       const element = node as HTMLElement
       const attrs = getEquationContent(element)
+      const id = element.getAttribute('id')
       return Fragment.from([
-        schema.nodes.equation.createChecked(attrs),
+        schema.nodes.equation.createChecked({ id, ...attrs }),
       ]) as Fragment
     },
   },

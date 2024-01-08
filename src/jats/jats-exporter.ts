@@ -971,7 +971,9 @@ export class JATSExporter {
       doc: () => '',
       equation: (node) => {
         const math = this.nodeFromJATS(node.attrs.content)
-        return math as Element
+        const mathEl = math as Element
+        mathEl.setAttribute('id', normalizeID(node.attrs.id))
+        return mathEl
       },
       inline_equation: (node) => {
         const eqElement = this.document.createElement('inline-formula')

@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
@@ -22,10 +21,8 @@ import { CommentNode } from './comment'
 
 interface Attrs {
   id: string
-  suppressCaption: boolean
-  suppressTitle?: boolean
-  title: string
   content: string
+  format: string
   comments?: CommentNode[]
 }
 
@@ -36,12 +33,10 @@ export interface InlineEquationNode extends ManuscriptNode {
 export const inlineEquation: NodeSpec = {
   attrs: {
     id: { default: '' },
-    suppressCaption: { default: true },
-    suppressTitle: { default: undefined },
     dataTracked: { default: null },
     comments: { default: null },
     content: { default: '' },
-    title: { default: 'Equation' },
+    format: { default: '' },
   },
   selectable: false,
   atom: true,
@@ -50,12 +45,12 @@ export const inlineEquation: NodeSpec = {
   group: 'inline',
   parseDOM: [
     {
-      tag: `span.${ObjectTypes.InlineMathFragment}`,
+      tag: `span.MPInlineMathFragment`,
       getAttrs: (p) => {
         const dom = p as HTMLElement
-
         return {
           id: dom.getAttribute('id'),
+          format: dom.getAttribute('data-equation-format'),
           content: dom.innerHTML,
         }
       },
@@ -63,10 +58,16 @@ export const inlineEquation: NodeSpec = {
   ],
   toDOM: (node) => {
     const inlineEquationNode = node as InlineEquationNode
+    const { id, content, format } = inlineEquationNode.attrs
+
+    const attrs: { [key: string]: string } = {}
     const dom = document.createElement('span')
-    dom.classList.add(ObjectTypes.InlineMathFragment)
-    dom.setAttribute('id', inlineEquationNode.attrs.id)
-    dom.innerHTML = inlineEquationNode.attrs.content
+    dom.classList.add('MPInlineMathFragment')
+    attrs.id = id
+    if (format) {
+      attrs['data-equation-format'] = format
+    }
+    dom.innerHTML = content
     return dom
   },
 }

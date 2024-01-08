@@ -21,8 +21,7 @@ import { CommentNode } from './comment'
 
 interface Attrs {
   id: string
-  suppressCaption: boolean
-  suppressTitle?: boolean
+  label: string
   comments?: CommentNode[]
 }
 
@@ -34,8 +33,7 @@ export const equationElement: NodeSpec = {
   content: '(equation | placeholder)',
   attrs: {
     id: { default: '' },
-    suppressCaption: { default: true },
-    suppressTitle: { default: undefined },
+    label: { default: '' },
     dataTracked: { default: null },
     comments: { default: null },
   },
@@ -43,7 +41,7 @@ export const equationElement: NodeSpec = {
   group: 'block element',
   parseDOM: [
     {
-      tag: 'disp-formula',
+      tag: 'dev.equation',
       getAttrs: (p) => {
         const dom = p as HTMLElement
 
@@ -57,7 +55,7 @@ export const equationElement: NodeSpec = {
     const equationElementNode = node as EquationElementNode
 
     return [
-      'disp-formula',
+      'dev',
       {
         class: 'equation', // TODO: suppress-caption?
         id: equationElementNode.attrs.id,
