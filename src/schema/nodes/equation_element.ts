@@ -41,7 +41,7 @@ export const equationElement: NodeSpec = {
   group: 'block element',
   parseDOM: [
     {
-      tag: 'dev.equation',
+      tag: 'div.equation',
       getAttrs: (p) => {
         const dom = p as HTMLElement
 
@@ -55,7 +55,7 @@ export const equationElement: NodeSpec = {
     const equationElementNode = node as EquationElementNode
 
     return [
-      'dev',
+      'div',
       {
         class: 'equation', // TODO: suppress-caption?
         id: equationElementNode.attrs.id,

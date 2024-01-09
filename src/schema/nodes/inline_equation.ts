@@ -57,11 +57,10 @@ export const inlineEquation: NodeSpec = {
     const inlineEquationNode = node as InlineEquationNode
     const { contents, format } = inlineEquationNode.attrs
 
-    const attrs: { [key: string]: string } = {}
     const dom = document.createElement('span')
     dom.classList.add('MPInlineMathFragment')
     if (format) {
-      attrs['data-equation-format'] = format
+      dom.setAttribute('data-equation-format', format)
     }
     dom.innerHTML = contents
     return dom

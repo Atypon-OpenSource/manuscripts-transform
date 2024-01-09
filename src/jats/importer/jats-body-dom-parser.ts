@@ -53,7 +53,7 @@ const getEquationContent = (p: string | HTMLElement) => {
       case 'tex-math':
       case 'mml:math':
         contents = (child as Element).outerHTML
-        format = nodeName
+        format = nodeName === 'tex-math' ? 'tex' : 'mathml'
         break
     }
   }

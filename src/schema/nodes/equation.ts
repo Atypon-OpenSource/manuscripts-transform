@@ -55,12 +55,11 @@ export const equation: NodeSpec = {
     const equationNode = node as EquationNode
     const { id, contents, format } = equationNode.attrs
 
-    const attrs: { [key: string]: string } = {}
     const dom = document.createElement('div')
     dom.classList.add(ObjectTypes.Equation)
-    attrs.id = id
+    dom.setAttribute('id', id)
     if (format) {
-      attrs['data-equation-format'] = format
+      dom.setAttribute('data-equation-format', format)
     }
     dom.innerHTML = contents
 

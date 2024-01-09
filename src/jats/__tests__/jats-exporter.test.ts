@@ -15,7 +15,6 @@
  */
 
 import {
-  Equation,
   Keyword,
   Manuscript,
   ObjectTypes,
@@ -38,7 +37,6 @@ import {
 import { journalMeta } from '../../transformer/__tests__/__helpers__/journal-meta'
 import { JATSExporter } from '../jats-exporter'
 import { Version } from '../jats-versions'
-import { readFixture } from './files'
 
 const input = projectDump as ProjectBundle
 const inputWithCitations = projectDumpWithCitations as ProjectBundle
@@ -795,15 +793,6 @@ describe('JATS exporter', () => {
 
   test('DTD validation for MathML representation', async () => {
     const projectBundle = cloneProjectBundle(input)
-    const mathMLFragment = await readFixture('math-fragment.xml')
-
-    projectBundle.data.find((el) => {
-      if (el._id === 'MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403') {
-        const equation = el as Equation
-        equation.content = mathMLFragment
-        // @ts-ignore
-      }
-    })
     const { doc, modelMap } = parseProjectBundle(projectBundle)
 
     const transformer = new JATSExporter()
