@@ -32,7 +32,6 @@
     "@manuscripts/json-schema": "2.2.1-LEAN-3092-v1",
     "debug": "^4.3.4",
     "jszip": "^3.10.1",
-    "mathjax-full": "^3.2.2",
     "mime": "^3.0.0",
     "prosemirror-model": "^1.18.3",
     "uuid": "^9.0.0",

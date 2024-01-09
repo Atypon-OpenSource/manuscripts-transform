@@ -16,7 +16,6 @@
 export * from './lib/section-group-type'
 export * from './lib/table-cell-styles'
 export * from './lib/utils'
-export * from './mathjax'
 export * from './schema'
 export * from './transformer'
 export * from './jats'
