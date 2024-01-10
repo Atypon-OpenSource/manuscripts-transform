@@ -21,7 +21,7 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   id: string
   role: string
-  affiliations: Affiliation[]
+  affiliations: string[]
   bibliographicName: BibliographicName
   userID: string
   email: string
@@ -48,6 +48,7 @@ export const contributor: NodeSpec = {
     userID: { default: undefined },
     invitationID: { default: undefined },
     isCorresponding: { default: undefined },
+    isJointContributor: { default: undefined },
     ORCIDIdentifier: { default: undefined },
     priority: { default: undefined },
     dataTracked: { default: null },

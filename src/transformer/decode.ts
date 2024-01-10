@@ -836,6 +836,7 @@ export class Decoder {
           id: model._id,
           role: model.role,
           affiliations: model.affiliations,
+          email: model.email,
           bibliographicName: model.bibliographicName,
           userID: model.userID,
           invitationID: model.invitationID,
@@ -873,7 +874,9 @@ export class Decoder {
 
     return schema.nodes.contributors.createAndFill(
       {},
-      contributors
+      contributors.sort(
+        (a, b) => Number(a.attrs.priority) - Number(b.attrs.priority)
+      )
     ) as ManuscriptNode
   }
 
