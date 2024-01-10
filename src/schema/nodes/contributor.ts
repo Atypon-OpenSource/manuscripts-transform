@@ -29,6 +29,7 @@ interface Attrs {
   isCorresponding: boolean
   ORCIDIdentifier: string
   priority: number
+  isJointContributor: boolean
 }
 
 export interface ContributorNode extends ManuscriptNode {
