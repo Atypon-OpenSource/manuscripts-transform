@@ -31,6 +31,8 @@ interface Attrs {
   addressLine3: string
   postCode: string
   country: string
+  county: string
+  city: string
   email: Email
   priority: number
 }
@@ -49,6 +51,8 @@ export const affiliation: NodeSpec = {
     addressLine3: { default: '' },
     postCode: { default: '' },
     country: { default: '' },
+    county: { default: '' },
+    city: { default: '' },
     priority: { default: undefined },
     email: {
       default: {
