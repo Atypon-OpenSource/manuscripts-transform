@@ -72,7 +72,9 @@ Object {
               "addressLine1": "20A Charles River Rd",
               "addressLine2": "",
               "addressLine3": "",
+              "city": "",
               "country": "United States",
+              "county": "",
               "dataTracked": null,
               "department": "Department of Cunning",
               "email": Object {
@@ -1302,7 +1304,9 @@ Object {
               "addressLine1": "20A Charles River Rd",
               "addressLine2": "",
               "addressLine3": "",
+              "city": "",
               "country": "United States",
+              "county": "",
               "dataTracked": null,
               "department": "Department of Cunning",
               "email": Object {

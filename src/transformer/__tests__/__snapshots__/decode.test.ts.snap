@@ -101,7 +101,9 @@ Object {
             "addressLine1": "",
             "addressLine2": "",
             "addressLine3": "",
+            "city": "",
             "country": "United Kingdom",
+            "county": "",
             "dataTracked": null,
             "department": "Dept of Examples",
             "email": Object {
@@ -2199,7 +2201,9 @@ Object {
             "addressLine1": "",
             "addressLine2": "",
             "addressLine3": "",
+            "city": "",
             "country": "United Kingdom",
+            "county": "",
             "dataTracked": null,
             "department": "Dept of Examples",
             "email": Object {
@@ -4038,7 +4042,9 @@ Object {
             "addressLine1": "",
             "addressLine2": "",
             "addressLine3": "",
+            "city": "",
             "country": "United Kingdom",
+            "county": "",
             "dataTracked": null,
             "department": "Dept of Examples",
             "email": Object {
