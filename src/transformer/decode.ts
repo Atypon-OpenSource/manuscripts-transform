@@ -874,9 +874,7 @@ export class Decoder {
 
     return schema.nodes.contributors.createAndFill(
       {},
-      contributors.sort(
-        (a, b) => Number(a.attrs.priority) - Number(b.attrs.priority)
-      )
+      contributors
     ) as ManuscriptNode
   }
 
