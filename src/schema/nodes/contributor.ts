@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Affiliation, BibliographicName } from '@manuscripts/json-schema'
+import { BibliographicName } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
