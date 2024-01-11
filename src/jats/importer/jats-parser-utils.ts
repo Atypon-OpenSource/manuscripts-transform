@@ -14,36 +14,18 @@
  * limitations under the License.
  */
 
-import {
-  AuxiliaryObjectReference,
-  Model,
-  ObjectTypes,
-} from '@manuscripts/json-schema'
-
 import { ManuscriptNode } from '../../schema'
-import { generateID, hasObjectType, nodeTypesMap } from '../../transformer'
+import { generateID, nodeTypesMap } from '../../transformer'
 
-const isAuxiliaryObjectReference = hasObjectType<AuxiliaryObjectReference>(
-  ObjectTypes.AuxiliaryObjectReference
-)
-
-export function flatten<T>(arrays: T[][]) {
-  return ([] as T[]).concat(...arrays)
-}
-
-export const fixBodyPMNode = (
-  output: ManuscriptNode,
-  models: Model[],
-  referenceIdsMap: Map<string, string> = new Map<string, string>()
+export const updateDocumentIDs = (
+  node: ManuscriptNode,
+  replacements: Map<string, string>
 ) => {
-  const replacements = referenceIdsMap
   const warnings: string[] = []
-  recurseDoc(output, (n) => addMissingID(n, replacements, warnings))
-  recurseDoc(output, (n) => addMissingRID(n, replacements, warnings))
-  return {
-    warnings: [...warnings, ...fixReferences(models, replacements)],
-    replacements,
-  }
+  recurseDoc(node, (n) => updateNodeID(n, replacements, warnings))
+  recurseDoc(node, (n) => updateNodeRID(n, replacements, warnings))
+  recurseDoc(node, (n) => updateNodeRIDS(n, replacements, warnings))
+  return warnings
 }
 
 /**
@@ -53,15 +35,13 @@ export const fixBodyPMNode = (
  */
 function recurseDoc(node: ManuscriptNode, fn: (n: ManuscriptNode) => void) {
   fn(node)
-  if (node.content) {
-    node.content.forEach((n) => recurseDoc(n, fn))
-  }
+  node.descendants((n) => fn(n))
 }
 
 /**
  * Provide IDs to nodes that have IDs but no value (null or '') by mutating them
  */
-const addMissingID = (
+const updateNodeID = (
   node: ManuscriptNode,
   replacements: Map<string, string>,
   warnings: string[]
@@ -74,7 +54,7 @@ const addMissingID = (
     warnings.push(`Unknown object type for node type ${node.type.name}`)
     return
   }
-  const previousID: string | null | undefined = node.attrs.id
+  const previousID = node.attrs.id
   const nextID = generateID(objectType)
   if (previousID) {
     if (
@@ -87,19 +67,22 @@ const addMissingID = (
     replacements.set(previousID, nextID)
   }
   // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-  node.attrs = { ...node.attrs, id: nextID }
+  node.attrs = {
+    ...node.attrs,
+    id: nextID,
+  }
 }
 
 /**
  * Replaces cross-reference rids of nodes by mutating their attributes
  */
-const addMissingRID = (
+const updateNodeRID = (
   node: ManuscriptNode,
   replacements: Map<string, string>,
   // eslint-disable-next-line
   warnings: string[]
 ) => {
-  const previousRID: string | null | undefined = node.attrs.rid
+  const previousRID = node.attrs.rid
   if (!('rid' in node.attrs) || !previousRID) {
     return
   }
@@ -108,44 +91,28 @@ const addMissingRID = (
     // warnings.push(`Missing replacement for node.attrs.rid ${previousRID}`)
   } else {
     // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-    node.attrs = { ...node.attrs, rid: replacements.get(previousRID) }
+    node.attrs = {
+      ...node.attrs,
+      rid: replacements.get(previousRID),
+    }
   }
 }
 
-/**
- * Fix references to elements from models
- */
-const fixReferences = (models: Model[], replacements: Map<string, string>) => {
-  const warnings: string[] = []
-
-  const getReferenceId = (referencedObject: string) => {
-    const newReferencedId = replacements.get(referencedObject)
-    if (newReferencedId) {
-      return newReferencedId
-    } else {
-      warnings.push(
-        `Missing replacement for model.referencedObject ${referencedObject}`
-      )
-    }
+const updateNodeRIDS = (
+  node: ManuscriptNode,
+  replacements: Map<string, string>,
+  // eslint-disable-next-line
+    warnings: string[]
+) => {
+  const previousRIDs: string[] = node.attrs.rids
+  if (!('rids' in node.attrs) || !previousRIDs.length) {
+    return
   }
-
-  models.forEach((model) => {
-    if (isAuxiliaryObjectReference(model)) {
-      if (model.referencedObject) {
-        model.referencedObject = getReferenceId(model.referencedObject)
-      } else {
-        const referencedObjects: string[] = []
-        model.referencedObjects?.map((reference) => {
-          const referenceId = getReferenceId(reference)
-          if (referenceId) {
-            referencedObjects.push(referenceId)
-          }
-        })
-        model.referencedObjects = referencedObjects
-      }
-    }
-  })
-  return warnings
+  // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
+  node.attrs = {
+    ...node.attrs,
+    rids: previousRIDs.map((r) => replacements.get(r) || r),
+  }
 }
 
 // JATS to HTML conversion
@@ -203,6 +170,6 @@ export const htmlFromJatsNode = (
   const temp = createElement('template') as HTMLTemplateElement
   // Interesting fact: template has special semantics that are not same as regular element's
   // In this case unlike normal div, template's HTML has to be accessed via content
-  renameJatsNodesToHTML(element, temp.content, createElement)
+  renameJatsNodesToHTML(element, temp, createElement)
   return temp.innerHTML
 }

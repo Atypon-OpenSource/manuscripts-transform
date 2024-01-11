@@ -14,13 +14,7 @@
  * limitations under the License.
  */
 
-export {
-  parseJATSFront,
-  parseJATSReferences,
-  parseJATSBody,
-  parseJATSArticle,
-  getElementsOrder,
-} from './importer'
+export { parseJATSFront, parseJATSBody, parseJATSArticle } from './importer'
 
 export * from './jats-exporter'
 export * from './jats-versions'

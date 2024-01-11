@@ -32,6 +32,7 @@ interface Attrs {
   postCode: string
   country: string
   email: Email
+  priority: number
 }
 
 export interface AffiliationNode extends ManuscriptNode {
@@ -48,12 +49,37 @@ export const affiliation: NodeSpec = {
     addressLine3: { default: '' },
     postCode: { default: '' },
     country: { default: '' },
+    priority: { default: undefined },
     email: {
       default: {
         href: undefined,
         text: undefined,
       },
     },
+    dataTracked: { default: null },
+  },
+  group: 'block element',
+  parseDOM: [
+    {
+      tag: 'div.affiliation',
+      getAttrs: (node) => {
+        const dom = node as HTMLSpanElement
+
+        return {
+          id: dom.getAttribute('id'),
+        }
+      },
+    },
+  ],
+  toDOM: (node) => {
+    const affiliationNode = node as AffiliationNode
+    return [
+      'div',
+      {
+        class: 'affiliation',
+        id: affiliationNode.attrs.id,
+      },
+    ]
   },
 }
 

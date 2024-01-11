@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2023 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,22 +14,24 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+export type SectionGroupTypeID = 'abstracts' | 'body' | 'backmatter'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
-  id: string
+export type SectionGroupType = {
+  _id: SectionGroupTypeID
+  title: string
 }
 
-export interface CommentListNode extends ManuscriptNode {
-  attrs: Attrs
+export const abstractsType: SectionGroupType = {
+  _id: 'abstracts',
+  title: 'Abstracts',
 }
 
-export const commentList: NodeSpec = {
-  content: 'comment*',
-  attrs: {
-    id: { default: 'COMMENT_LIST' },
-  },
-  toDOM: () => ['section', 0],
+export const bodyType: SectionGroupType = {
+  _id: 'body',
+  title: 'Body',
+}
+
+export const backmatterType: SectionGroupType = {
+  _id: 'backmatter',
+  title: 'Backmatter',
 }

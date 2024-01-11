@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 
-// TODO: remove element.getAttribute('id') and rewrite cross-references?
-
-// https://jats.nlm.nih.gov/articleauthoring/tag-library/1.2/
-
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
@@ -401,88 +397,6 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'ref',
-    node: 'bibliography_item',
-    context: 'bibliography_element/',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      const ref = {
-        id: element.getAttribute('id'),
-        type: element.getAttribute('type'),
-      } as any
-
-      const author = element.getAttribute('author')
-      if (author) {
-        ref.author = author
-      }
-
-      const issued = element.getAttribute('issued')
-      if (issued) {
-        ref.issued = issued
-      }
-
-      const containerTitle = element.getAttribute('container-title')
-      if (containerTitle) {
-        ref.containerTitle = containerTitle
-      }
-
-      const doi = element.getAttribute('doi')
-      if (doi) {
-        ref.doi = doi
-      }
-
-      const volume = element.getAttribute('volume')
-      if (volume) {
-        ref.volume = volume
-      }
-
-      const issue = element.getAttribute('issue')
-      if (issue) {
-        ref.issue = issue
-      }
-
-      const supplement = element.getAttribute('supplement')
-      if (supplement) {
-        ref.supplement = supplement
-      }
-
-      const page = element.getAttribute('page')
-      if (page) {
-        ref.page = page
-      }
-
-      const title = element.getAttribute('title')
-      if (title) {
-        ref.title = title
-      }
-
-      const literal = element.getAttribute('literal')
-      if (literal) {
-        ref.literal = literal
-      }
-
-      return ref
-    },
-  },
-  {
-    tag: 'ref-list',
-    node: 'bibliography_element',
-    context: 'bibliography_section/',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      const titleNode = element.querySelector('title')
-      if (titleNode) {
-        element.removeChild(titleNode)
-      }
-      return {
-        id: element.getAttribute('id'),
-        contents: '',
-      }
-    },
-  },
-  {
     tag: 'fn-group',
     node: 'footnotes_element',
     context: 'footnotes_section/|table_element_footer/',
@@ -550,11 +464,6 @@ const nodes: NodeRule[] = [
     tag: 'list-item',
     node: 'list_item',
   },
-  // {
-  //   tag: 'math',
-  //   namespace: 'http://www.w3.org/1998/Math/MathML',
-  //   node: 'equation',
-  // },
   {
     tag: 'p',
     node: 'paragraph',
@@ -584,32 +493,20 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'sec[sec-type="bibliography"]',
-    node: 'bibliography_section', // NOTE: higher priority than 'section'
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      return {
-        id: element.getAttribute('id'),
-      }
-    },
-  },
-  {
     tag: 'sec[sec-type="keywords"]',
-    node: 'keywords_section', // NOTE: higher priority than 'section'
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      return {
-        id: element.getAttribute('id'),
-        category: chooseSectionCategory(element),
-      }
-    },
+    node: 'keywords', // NOTE: higher priority than 'section'
   },
   {
-    tag: 'kwd-group-list',
-    context: 'keywords_section/',
-    node: 'keywords_element',
+    tag: 'sec[sec-type="abstracts"]',
+    node: 'abstracts',
+  },
+  {
+    tag: 'sec[sec-type="body"]',
+    node: 'body',
+  },
+  {
+    tag: 'sec[sec-type="backmatter"]',
+    node: 'backmatter',
   },
   {
     tag: 'sec',
@@ -624,9 +521,14 @@ const nodes: NodeRule[] = [
     },
   },
   {
+    tag: 'kwd-group-list',
+    context: 'keywords/',
+    node: 'keywords_element',
+  },
+  {
     tag: 'kwd-group',
     context: 'keywords_element/',
-    node: 'keywords_group',
+    node: 'keyword_group',
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
@@ -636,7 +538,7 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'kwd',
-    context: 'keywords_group//',
+    context: 'keyword_group//',
     node: 'keyword',
   },
   {
@@ -694,8 +596,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'title',
     node: 'section_title',
-    context:
-      'section/|footnotes_section/|bibliography_section/|keywords_section/',
+    context: 'section/|footnotes_section/|bibliography_section/|keywords/',
   },
   {
     tag: 'title',
@@ -761,16 +662,9 @@ const nodes: NodeRule[] = [
     node: 'citation',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const embeddedCitationAttr = element.getAttribute(
-        'data-reference-embedded-citation'
-      )
-
       return {
-        rid: element.getAttribute('rid'),
+        rids: element.getAttribute('rid')?.split(/\s+/) || [],
         contents: element.textContent?.trim(), // TODO: innerHTML?
-        embeddedCitationItems: embeddedCitationAttr
-          ? JSON.parse(embeddedCitationAttr)
-          : null,
       }
     },
   },
@@ -781,7 +675,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        rid: element.getAttribute('rid'),
+        rids: element.getAttribute('rid')?.split(/\s+/) || [],
         contents: element.textContent?.trim(),
       }
     },
@@ -793,7 +687,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
 
       return {
-        rid: element.getAttribute('rid'),
+        rids: element.getAttribute('rid')?.split(/\s+/) || [],
         label: element.textContent?.trim(),
       }
     },

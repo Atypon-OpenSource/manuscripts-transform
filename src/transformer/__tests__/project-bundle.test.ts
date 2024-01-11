@@ -15,10 +15,14 @@
  */
 
 import project3 from '../../__tests__/data/project-dump-3.json'
+import { ManuscriptNode, ManuscriptNodeType, schema } from '../../schema'
 import { parseProjectBundle, ProjectBundle } from '../project-bundle'
 
 test('project bundle with no manuscript parameter', () => {
   const result = parseProjectBundle(project3)
+  replaceIdByType(result.doc, schema.nodes.contributor, 'MPSection:contributor')
+  replaceIdByType(result.doc, schema.nodes.affiliation, 'MPSection:aff')
+  replaceIdByType(result.doc, schema.nodes.keywords, 'MPSection:kwd')
   expect(result).toMatchSnapshot('project-bundle')
 })
 
@@ -27,5 +31,21 @@ test('project bundle for a specific manuscript', () => {
     project3 as ProjectBundle,
     'MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8'
   )
+  replaceIdByType(result.doc, schema.nodes.keywords, 'MPSection:kwd')
+  replaceIdByType(result.doc, schema.nodes.contributor, 'MPSection:cont')
+  replaceIdByType(result.doc, schema.nodes.affiliation, 'MPSection:aff')
   expect(result).toMatchSnapshot('multimanuscript-project-bundle')
 })
+
+const replaceIdByType = (
+  node: ManuscriptNode,
+  type: ManuscriptNodeType,
+  id: string
+) => {
+  node.descendants((childNode) => {
+    if (childNode.type === type) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ;(childNode as any).attrs.id = id
+    }
+  })
+}

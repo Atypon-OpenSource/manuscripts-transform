@@ -1,5 +1,5 @@
 /*!
- * © 2023 Atypon Systems LLC
+ * © 2019 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,22 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+// This node has no representation in json-schema
+// It exists for the purpose of styling in the UI
 
-interface Attrs {
-  id: string
-}
-
-export interface ContributorListNode extends ManuscriptNode {
-  attrs: Attrs
-}
-
-export const contributorList: NodeSpec = {
-  content: 'contributor*',
+export const abstracts: NodeSpec = {
+  content: 'sections*',
+  atom: true,
   attrs: {
-    id: { default: 'CONTRIBUTOR_LIST' },
+    id: { default: '' },
   },
-  toDOM: () => ['section', 0],
+  group: 'block',
+  toDOM: () => ['div', { class: 'abstracts' }, 0],
 }

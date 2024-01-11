@@ -16,11 +16,8 @@
 
 import {
   Affiliation,
-  AuxiliaryObjectReference,
-  Citation,
   Contributor,
   Figure,
-  FigureElement,
   InlineStyle,
   Model,
   ObjectTypes,
@@ -48,7 +45,7 @@ import { generateAttachmentFilename } from './filename'
 import { buildTargets, Target } from './labels'
 import { isNodeType } from './node-types'
 import { hasObjectType } from './object-types'
-import { findJournal, findManuscript } from './project-bundle'
+import { findJournal, findManuscript, findTitles } from './project-bundle'
 import { chooseSecType, SectionCategory } from './section-category'
 
 const chooseNodeName = (element: Element) => {
@@ -233,6 +230,7 @@ export class HTMLTransformer {
     // associated with others should have been stripped out via parseProjectBundle
     const manuscript = findManuscript(this.modelMap)
     const journal = findJournal(this.modelMap)
+    const titles = findTitles(this.modelMap)
 
     if (!manuscript) {
       throw new Error('Manuscript not found in project modelMap')
@@ -266,14 +264,14 @@ export class HTMLTransformer {
     const articleMeta = this.document.createElement('div')
     front.appendChild(articleMeta)
 
-    const articleTitle = this.document.createElement('h1')
-    if (manuscript.title) {
-      articleTitle.innerHTML = manuscript.title
+    const title = this.document.createElement('h1')
+    if (titles.title) {
+      title.innerHTML = titles.title
     }
     if (journal?.title) {
-      articleTitle.setAttribute('data-journal', journal.title)
+      title.setAttribute('data-journal', journal.title)
     }
-    articleMeta.appendChild(articleTitle)
+    articleMeta.appendChild(title)
 
     if (manuscript.DOI) {
       const articleID = this.document.createElement('article-id')
@@ -434,15 +432,10 @@ export class HTMLTransformer {
       const element = this.document.createElement('span')
       element.setAttribute('class', 'citation')
 
-      const citation = getModel<Citation>(citationNode.attrs.rid)
+      const rids = citationNode.attrs.rids
 
-      if (citation) {
-        element.setAttribute(
-          'data-reference-ids',
-          citation.embeddedCitationItems
-            .map((item) => item.bibliographyItem)
-            .join(' ')
-        )
+      if (rids.length) {
+        element.setAttribute('data-reference-ids', rids.join(' '))
       }
 
       if (citationNode.attrs.contents) {
@@ -453,44 +446,11 @@ export class HTMLTransformer {
     }
 
     nodes.cross_reference = (node) => {
-      const crossReferenceNode = node as CrossReferenceNode
-
+      const xref = node as CrossReferenceNode
       const element = this.document.createElement('a')
       element.classList.add('cross-reference')
-
-      const auxiliaryObjectReference = getModel<AuxiliaryObjectReference>(
-        crossReferenceNode.attrs.rid
-      )
-
-      if (
-        auxiliaryObjectReference &&
-        auxiliaryObjectReference.referencedObject
-      ) {
-        if (
-          auxiliaryObjectReference.referencedObject.startsWith(
-            'MPFigureElement'
-          )
-        ) {
-          const model = getModel<FigureElement>(
-            auxiliaryObjectReference.referencedObject
-          )
-          if (model && model.containedObjectIDs.length > 0) {
-            element.setAttribute('href', `#${model.containedObjectIDs[0]}`)
-          }
-        } else {
-          element.setAttribute(
-            'href',
-            `#${auxiliaryObjectReference.referencedObject}`
-          )
-        }
-
-        element.setAttribute('data-reference-ids', crossReferenceNode.attrs.rid)
-      }
-      // TODO:: handle multiple reference
-
-      element.textContent =
-        crossReferenceNode.attrs.customLabel || crossReferenceNode.attrs.label
-
+      element.setAttribute('data-reference-ids', xref.attrs.rids.join(' '))
+      element.textContent = xref.attrs.customLabel || xref.attrs.label
       return element
     }
 
@@ -535,7 +495,7 @@ export class HTMLTransformer {
       return ['span', attrs]
     }
 
-    nodes.meta_section = () => ''
+    nodes.comments = () => ''
 
     const serializer = new DOMSerializer(nodes, marks)
 

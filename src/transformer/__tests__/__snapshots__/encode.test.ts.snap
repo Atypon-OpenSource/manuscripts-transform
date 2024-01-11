@@ -2,19 +2,12 @@
 
 exports[`encoder encode a test doc 1`] = `
 Map {
-  "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08" => Object {
-    "_id": "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
-    "addressLine1": "",
-    "addressLine2": "",
-    "addressLine3": "",
-    "country": "United Kingdom",
-    "email": Object {
-      "href": "mailto:",
-      "text": "mail",
-    },
-    "institution": "University of Examples",
-    "objectType": "MPAffiliation",
-    "postCode": "",
+  "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1" => Object {
+    "_id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+    "objectType": "MPTitles",
+    "runningTitle": undefined,
+    "subtitle": undefined,
+    "title": "main title",
   },
   "MPContributor:585DB23A-8778-4AFF-986F-CFF7B733CDE6" => Object {
     "ORCIDIdentifier": "",
@@ -28,9 +21,12 @@ Map {
       "given": "Example",
       "objectType": "MPBibliographicName",
     },
+    "corresp": undefined,
+    "footnote": undefined,
     "invitationID": "",
     "isCorresponding": undefined,
     "objectType": "MPContributor",
+    "priority": undefined,
     "role": "author",
     "userID": "",
   },
@@ -44,11 +40,29 @@ Map {
       "given": "Corresponding",
       "objectType": "MPBibliographicName",
     },
+    "corresp": undefined,
+    "footnote": undefined,
     "invitationID": "",
     "isCorresponding": 1,
     "objectType": "MPContributor",
+    "priority": undefined,
     "role": "author",
     "userID": "",
+  },
+  "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08" => Object {
+    "_id": "MPAffiliation:DED56C09-42E2-4AB4-BA15-9260389E2B08",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "country": "United Kingdom",
+    "email": Object {
+      "href": "mailto:",
+      "text": "mail",
+    },
+    "institution": "University of Examples",
+    "objectType": "MPAffiliation",
+    "postCode": "",
+    "priority": 1,
   },
   "MPSection:DFCBE345-A12D-451E-8320-723F25D2F472" => Object {
     "_id": "MPSection:DFCBE345-A12D-451E-8320-723F25D2F472",
@@ -466,7 +480,7 @@ const x = 'y'",
   },
   "MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27" => Object {
     "_id": "MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\">A cross-reference to a figure: <span class=\\"cross-reference\\" data-reference-id=\\"MPAuxiliaryObjectReference:82E2F9F9-797F-4397-9084-D98B72C12903\\"><span class=\\"kind elementIndex\\"><b>Figure 1</b></span></span></p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\">A cross-reference to a figure: <span class=\\"cross-reference\\" data-reference-id=\\"MPFigureElement:A5D68C57-B5BB-4D10-E0C3-ECED717A2AA7\\"><span class=\\"kind elementIndex\\"><b>Figure 1</b></span></span></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -474,7 +488,7 @@ const x = 'y'",
   },
   "MPParagraphElement:41B99DAB-F86C-477F-D36C-2B8590B5DAD0" => Object {
     "_id": "MPParagraphElement:41B99DAB-F86C-477F-D36C-2B8590B5DAD0",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:41B99DAB-F86C-477F-D36C-2B8590B5DAD0\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\">A cross-reference to a table: <span class=\\"cross-reference\\" data-reference-id=\\"MPAuxiliaryObjectReference:88AF1DCA-B232-4791-8EAA-F38E0025A3C6\\"><span class=\\"kind elementIndex\\"><b>Table 1</b></span></span></p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:41B99DAB-F86C-477F-D36C-2B8590B5DAD0\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\">A cross-reference to a table: <span class=\\"cross-reference\\" data-reference-id=\\"MPTable:509A944E-994C-4867-AE55-593628C5DBD5\\"><span class=\\"kind elementIndex\\"><b>Table 1</b></span></span></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -482,7 +496,7 @@ const x = 'y'",
   },
   "MPParagraphElement:C8A173A4-DF32-4242-E800-28A1AE5B48B8" => Object {
     "_id": "MPParagraphElement:C8A173A4-DF32-4242-E800-28A1AE5B48B8",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:C8A173A4-DF32-4242-E800-28A1AE5B48B8\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\">A cross-reference to an equation: <span class=\\"cross-reference\\" data-reference-id=\\"MPAuxiliaryObjectReference:461D1AFF-1871-4594-8E07-963D3476B7F5\\"><span class=\\"kind elementIndex\\"><b>Equation 1</b></span></span></p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:C8A173A4-DF32-4242-E800-28A1AE5B48B8\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\">A cross-reference to an equation: <span class=\\"cross-reference\\" data-reference-id=\\"MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403\\"><span class=\\"kind elementIndex\\"><b>Equation 1</b></span></span></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -490,7 +504,7 @@ const x = 'y'",
   },
   "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB" => Object {
     "_id": "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-reference-id=\\"MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2\\" data-reference-embedded-citation=\\"[{&quot;id&quot;:&quot;MPCitationItem:2B3C3557-01FB-4142-A20F-62804E85B596&quot;,&quot;bibliographyItem&quot;:&quot;MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5&quot;}]\\">A hyperlink</span></p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\"><span class=\\"citation\\" data-id=\\"MPCitation:C1BA9478-E940-4273-CB5C-0DDCD62CFBF2\\" data-reference-id=\\"MPBibliographyItem:8C394C86-F7B0-48CE-D5BC-E7A10FCE7FA5\\">A hyperlink</span></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -547,6 +561,42 @@ const x = 'y'",
     "title": "A hyperlink",
     "type": undefined,
   },
+  "MPElementsOrder:1" => Object {
+    "_id": "MPElementsOrder:1",
+    "elementType": "MPFigureElement",
+    "elements": Array [
+      "MPFigureElement:A5D68C57-B5BB-4D10-E0C3-ECED717A2AA7",
+      "MPFigureElement:B32BDEC8-E816-4946-C0BB-0404AF2F0C29",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  "MPElementsOrder:2" => Object {
+    "_id": "MPElementsOrder:2",
+    "elementType": "MPTableElement",
+    "elements": Array [
+      "MPTableElement:82BD8BAF-D136-4536-AD9C-92C30B9D7315",
+      "MPTableElement:E0D445B4-18C4-43D3-97B3-1076A7BB5CF4",
+      "MPTableElement:1DF69096-DBA3-47B0-B8C2-E06491E4C655",
+      "MPTableElement:89CF51B2-A20C-4AB9-CBD9-F47DAF167DAA",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  "MPElementsOrder:3" => Object {
+    "_id": "MPElementsOrder:3",
+    "elementType": "MPEquationElement",
+    "elements": Array [
+      "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1",
+    ],
+    "objectType": "MPElementsOrder",
+  },
+  "MPElementsOrder:4" => Object {
+    "_id": "MPElementsOrder:4",
+    "elementType": "MPListingElement",
+    "elements": Array [
+      "MPListingElement:160785A9-4BC0-4C55-C4DE-AF5F4D858DCE",
+    ],
+    "objectType": "MPElementsOrder",
+  },
 }
 `;
 
@@ -587,6 +637,13 @@ Map {
       "to": 32,
     },
     "target": "MPSection:1",
+  },
+  "MPTitles:1" => Object {
+    "_id": "MPTitles:1",
+    "objectType": "MPTitles",
+    "runningTitle": undefined,
+    "subtitle": undefined,
+    "title": "main title",
   },
   "MPSection:1" => Object {
     "_id": "MPSection:1",
@@ -641,23 +698,25 @@ Map {
     "position": undefined,
     "src": undefined,
   },
+  "MPElementsOrder:1" => Object {
+    "_id": "MPElementsOrder:1",
+    "elementType": "MPFigureElement",
+    "elements": Array [
+      "MPFigureElement:1",
+    ],
+    "objectType": "MPElementsOrder",
+  },
 }
 `;
 
 exports[`encoder encode keywords element 1`] = `
 Map {
-  "MPSection:1" => Object {
-    "_id": "MPSection:1",
-    "category": "MPSectionCategory:keywords",
-    "elementIDs": Array [
-      "MPKeywordsElement:1",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:1",
-    ],
-    "priority": 1,
-    "title": "Keywords",
+  "MPTitles:1" => Object {
+    "_id": "MPTitles:1",
+    "objectType": "MPTitles",
+    "runningTitle": undefined,
+    "subtitle": undefined,
+    "title": "main title",
   },
   "MPKeywordsElement:1" => Object {
     "_id": "MPKeywordsElement:1",

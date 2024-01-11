@@ -22,40 +22,41 @@ interface Attrs {
   id: string
 }
 
-export interface GraphicalAbstractSectionNode extends ManuscriptNode {
+export interface KeywordGroupNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const graphicalAbstractSection: NodeSpec = {
-  content: 'section_title (figure_element | placeholder)', // does it need perhaps a special view that limits the figure content? Ask Nick?
+export const keywordGroup: NodeSpec = {
+  content: 'keyword*',
   attrs: {
     id: { default: '' },
-    category: { default: '' },
+    type: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block sections',
+  group: 'block',
   selectable: false,
   parseDOM: [
     {
-      tag: 'section.graphical-abstract',
+      tag: 'div.keywords',
     },
   ],
   toDOM: (node) => {
-    const graphicalAbstractSectionNode = node as GraphicalAbstractSectionNode
+    const keywordGroupNode = node as KeywordGroupNode
 
     return [
-      'section',
+      'div',
       {
-        id: graphicalAbstractSectionNode.attrs.id,
-        class: 'graphical-abstract',
+        id: keywordGroupNode.attrs.id,
+        class: 'keywords',
         spellcheck: 'false',
+        contenteditable: false,
       },
       0,
     ]
   },
 }
 
-export const isGraphicalAbstractSectionNode = (
+export const isKeywordGroupNode = (
   node: ManuscriptNode
-): node is GraphicalAbstractSectionNode =>
-  node.type === node.type.schema.nodes.graphical_abstract_section
+): node is KeywordGroupNode =>
+  node.type === node.type.schema.nodes.keywords_group

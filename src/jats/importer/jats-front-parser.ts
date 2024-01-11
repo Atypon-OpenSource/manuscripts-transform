@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { Journal } from '@manuscripts/json-schema'
 import debug from 'debug'
 
 import { getTrimmedTextContent } from '../../lib/utils'
@@ -24,15 +23,44 @@ import {
   buildContributor,
   buildCorresp,
   buildFootnote,
+  buildJournal,
   buildSupplementaryMaterial,
-} from '../../transformer/builders'
+  buildTitles,
+} from '../../transformer'
 import { parseJournalMeta } from './jats-journal-meta-parser'
+import { htmlFromJatsNode } from './jats-parser-utils'
 
 const warn = debug('manuscripts-transform')
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
+const defaultTitle = 'Untitled Manuscript'
 
 export const jatsFrontParser = {
-  parseCounts(counts: Element | null | undefined) {
+  parseTitles(
+    element: Element | null,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    if (!element) {
+      return buildTitles(defaultTitle)
+    }
+    const title = element.querySelector('article-title')
+    const subtitle = element.querySelector('subtitle')
+    const runningTitle = element.querySelector(
+      'alt-title[alt-title-type="right-running"]'
+    )
+
+    const titles = buildTitles(
+      htmlFromJatsNode(title, createElement) ?? defaultTitle
+    )
+    if (subtitle) {
+      titles.subtitle = htmlFromJatsNode(subtitle, createElement)
+    }
+    if (runningTitle) {
+      titles.runningTitle = htmlFromJatsNode(runningTitle, createElement)
+    }
+
+    return titles
+  },
+  parseCounts(counts: Element | null) {
     if (counts) {
       const parseCount = (count: string | null | undefined) => {
         if (count && /^-?\d+$/.test(count)) {
@@ -47,7 +75,7 @@ export const jatsFrontParser = {
       for (const element of countElements.values()) {
         const countType = element.getAttribute('count-type')
         const count = parseCount(element.getAttribute('count'))
-        if (countType && typeof count === 'number') {
+        if (countType) {
           const genericCount = { count, countType }
           genericCounts.push(genericCount)
         }
@@ -73,17 +101,12 @@ export const jatsFrontParser = {
       }
     }
   },
-  parseJournal(journalMeta: Element | null): Partial<Journal> {
-    if (!journalMeta) {
-      return {
-        journalIdentifiers: [],
-        abbreviatedTitles: [],
-        ISSNs: [],
-        publisherName: undefined,
-        title: undefined,
-      }
+  parseJournal(element: Element | null) {
+    const meta = parseJournalMeta(element)
+    return {
+      ...meta,
+      ...buildJournal(),
     }
-    return parseJournalMeta(journalMeta)
   },
   parseDates(historyNode: Element | null) {
     if (!historyNode) {
@@ -144,74 +167,63 @@ export const jatsFrontParser = {
     }
     return history
   },
-  parseSupplements(supplementNodes: Element[] | null) {
-    if (!supplementNodes || supplementNodes.length === 0) {
+  parseSupplements(elements: Element[] | null) {
+    if (!elements?.length) {
       return []
     }
     const supplements = []
-    for (const supplementNode of supplementNodes) {
-      const supplTitle =
-        getTrimmedTextContent(supplementNode, 'caption > title') ?? ''
-      const href = supplementNode.getAttributeNS(XLINK_NAMESPACE, 'href') ?? ''
-      const supplementaryMaterial = buildSupplementaryMaterial(supplTitle, href)
-      const mimeType = supplementNode.getAttribute('mimetype') ?? ''
-      const mimeSubtype = supplementNode.getAttribute('mime-subtype') ?? ''
+    for (const element of elements) {
+      const title = getTrimmedTextContent(element, 'caption > title') ?? ''
+      const href = element.getAttributeNS(XLINK_NAMESPACE, 'href') ?? ''
+      const supplement = buildSupplementaryMaterial(title, href)
+      const mimeType = element.getAttribute('mimetype') ?? ''
+      const mimeSubtype = element.getAttribute('mime-subtype') ?? ''
       if (mimeType && mimeSubtype) {
-        supplementaryMaterial.MIME = [mimeType, mimeSubtype].join('/')
+        supplement.MIME = [mimeType, mimeSubtype].join('/')
       }
-      supplements.push(supplementaryMaterial)
+      supplements.push(supplement)
     }
     return supplements
   },
-  parseAffiliationNodes(affiliationNodes: Element[]) {
+  parseAffiliations(elements: Element[]) {
     const affiliationIDs = new Map<string, string>()
-    const affiliations = affiliationNodes.map((affiliationNode, priority) => {
+    const affiliations = elements.map((element, priority) => {
       const affiliation = buildAffiliation('', priority)
 
-      for (const node of affiliationNode.querySelectorAll('institution')) {
+      for (const node of element.querySelectorAll('institution')) {
         const content = node.textContent?.trim()
-
         if (!content) {
           continue
         }
 
-        const contentType = node.getAttribute('content-type')
-
-        switch (contentType) {
-          case null:
-            affiliation.institution = content
-            break
-
-          case 'dept':
-            affiliation.department = content
-            break
+        const type = node.getAttribute('content-type')
+        if (type === 'dept') {
+          affiliation.department = content
+        } else {
+          affiliation.institution = content
         }
       }
 
       affiliation.addressLine1 =
-        getTrimmedTextContent(affiliationNode, 'addr-line:nth-of-type(1)') ||
-        undefined
+        getTrimmedTextContent(element, 'addr-line:nth-of-type(1)') || undefined
       affiliation.addressLine2 =
-        getTrimmedTextContent(affiliationNode, 'addr-line:nth-of-type(2)') ||
-        undefined
+        getTrimmedTextContent(element, 'addr-line:nth-of-type(2)') || undefined
       affiliation.addressLine3 =
-        getTrimmedTextContent(affiliationNode, 'addr-line:nth-of-type(3)') ||
-        undefined
-      const emailNode = affiliationNode.querySelector('email')
-      if (emailNode) {
+        getTrimmedTextContent(element, 'addr-line:nth-of-type(3)') || undefined
+      affiliation.postCode =
+        getTrimmedTextContent(element, 'postal-code') || undefined
+      affiliation.country =
+        getTrimmedTextContent(element, 'country') || undefined
+
+      const email = element.querySelector('email')
+      if (email) {
         affiliation.email = {
-          href: emailNode.getAttributeNS(XLINK_NAMESPACE, 'href') || undefined,
-          text: emailNode.textContent?.trim() || undefined,
+          href: email.getAttributeNS(XLINK_NAMESPACE, 'href') || undefined,
+          text: email.textContent?.trim() || undefined,
         }
       }
-      affiliation.postCode =
-        getTrimmedTextContent(affiliationNode, 'postal-code') || undefined
-      // affiliation.city =
-      //   affiliationNode.querySelector('city')?.textContent || undefined
-      affiliation.country =
-        getTrimmedTextContent(affiliationNode, 'country') || undefined
 
-      const id = affiliationNode.getAttribute('id')
+      const id = element.getAttribute('id')
 
       if (id) {
         affiliationIDs.set(id, affiliation._id)
@@ -224,11 +236,11 @@ export const jatsFrontParser = {
       affiliationIDs,
     }
   },
-  parseFootnoteNodes(footnoteNodes: Element[]) {
+  parseAuthorNotes(elements: Element[]) {
     const footnoteIDs = new Map<string, string>()
-    const footnotes = footnoteNodes.map((footnoteNode) => {
-      const fn = buildFootnote('', footnoteNode.innerHTML)
-      const id = footnoteNode.getAttribute('id')
+    const footnotes = elements.map((element) => {
+      const fn = buildFootnote('', element.innerHTML)
+      const id = element.getAttribute('id')
       if (id) {
         footnoteIDs.set(id, fn._id)
       }
@@ -239,17 +251,17 @@ export const jatsFrontParser = {
       footnoteIDs,
     }
   },
-  parseCorrespNodes(correspNodes: Element[]) {
+  parseCorresp(elements: Element[]) {
     const correspondingIDs = new Map<string, string>()
-    const correspondingList = correspNodes.map((correspNode) => {
-      const label = correspNode.querySelector('label')
+    const correspondingList = elements.map((element) => {
+      const label = element.querySelector('label')
       // Remove the label before extracting the textContent (prevent duplicate text)
       if (label) {
         label.remove()
       }
-      const corresponding = buildCorresp(correspNode.textContent?.trim() ?? '')
+      const corresponding = buildCorresp(element.textContent?.trim() ?? '')
       corresponding.label = label?.textContent?.trim() || undefined
-      const id = correspNode.getAttribute('id')
+      const id = element.getAttribute('id')
       if (id) {
         correspondingIDs.set(id, corresponding._id)
       }
@@ -260,79 +272,73 @@ export const jatsFrontParser = {
       correspondingIDs,
     }
   },
-  parseAuthorNodes(
-    authorNodes: Element[],
+  parseContributors(
+    elements: Element[],
     affiliationIDs: Map<string, string>,
     footnoteIDs: Map<string, string>,
     correspondingIDs: Map<string, string>
   ) {
-    return authorNodes.map((authorNode, priority) => {
+    return elements.map((element, priority) => {
       const name = buildBibliographicName({})
 
-      const given = getTrimmedTextContent(authorNode, 'name > given-names')
-
+      const given = getTrimmedTextContent(element, 'name > given-names')
       if (given) {
         name.given = given
       }
 
-      const surname = getTrimmedTextContent(authorNode, 'name > surname')
-
+      const surname = getTrimmedTextContent(element, 'name > surname')
       if (surname) {
         name.family = surname
       }
 
       const contributor = buildContributor(name, 'author', priority)
 
-      const corresponding = authorNode.getAttribute('corresp') === 'yes'
-
+      const corresponding = element.getAttribute('corresp') === 'yes'
       if (corresponding) {
         contributor.isCorresponding = corresponding
       }
 
       const orcid = getTrimmedTextContent(
-        authorNode,
+        element,
         'contrib-id[contrib-id-type="orcid"]'
       )
-
       if (orcid) {
         contributor.ORCIDIdentifier = orcid
       }
 
-      const xrefNodes = authorNode.querySelectorAll('xref')
+      const xrefs = element.querySelectorAll('xref')
 
-      for (const xrefNode of xrefNodes) {
-        if (xrefNode) {
-          const rid = xrefNode.getAttribute('rid')
-          const rtype = xrefNode.getAttribute('ref-type')
+      for (const xref of xrefs) {
+        if (xref) {
+          const rid = xref.getAttribute('rid')
+          const type = xref.getAttribute('ref-type')
           if (rid) {
             //check the xref note type, if fn(footnote) then map the note content and id in array
-            if (rtype === 'fn') {
+            if (type === 'fn') {
               contributor.footnote = []
-              const footnoteId = footnoteIDs.get(rid)
-              if (footnoteId) {
+              const footnoteID = footnoteIDs.get(rid)
+              if (footnoteID) {
                 const authorFootNoteRef = {
-                  noteID: footnoteId,
-                  noteLabel: xrefNode.textContent?.trim() || '',
+                  noteID: footnoteID,
+                  noteLabel: xref.textContent?.trim() || '',
                 }
                 contributor.footnote.push(authorFootNoteRef)
               }
-            } else if (rtype === 'corresp') {
+            } else if (type === 'corresp') {
               contributor.corresp = []
-              const correspId = correspondingIDs.get(rid)
-              if (correspId) {
+              const correspID = correspondingIDs.get(rid)
+              if (correspID) {
                 const authorCorrespRef = {
-                  correspID: correspId,
-                  correspLabel: xrefNode.textContent?.trim() || '',
+                  correspID: correspID,
+                  correspLabel: xref.textContent?.trim() || '',
                 }
                 contributor.corresp.push(authorCorrespRef)
               }
-            }
-            //check the xref note type, if aff then map the aff ids in array
-            else if (rtype === 'aff') {
+            } else if (type === 'aff') {
               const rids = rid
                 .split(/\s+/)
-                .filter((id) => affiliationIDs.has(id))
-                .map((id) => affiliationIDs.get(id)) as string[]
+                .map((id) => affiliationIDs.get(id))
+                .filter(Boolean) as string[]
               if (rids.length) {
                 contributor.affiliations = rids
               }

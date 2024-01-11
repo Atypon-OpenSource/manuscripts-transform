@@ -20,42 +20,24 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
+  title: string
+  subtitle: string
+  runningTitle: string
 }
 
-export interface KeywordsSectionNode extends ManuscriptNode {
+export interface TitleNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const keywordsSection: NodeSpec = {
-  content: 'section_title (keywords_element | placeholder_element)',
+export const title: NodeSpec = {
+  content: 'text*',
+  marks: 'italic smallcaps subscript superscript tracked_insert tracked_delete',
+
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block sections',
-  selectable: false,
-  parseDOM: [
-    {
-      tag: 'div.keywords',
-    },
-  ],
-  toDOM: (node) => {
-    const keywordsSectionNode = node as KeywordsSectionNode
-
-    return [
-      'div',
-      {
-        id: keywordsSectionNode.attrs.id,
-        class: 'keywords',
-        spellcheck: 'false',
-        contenteditable: false,
-      },
-      0,
-    ]
-  },
+  group: 'block element',
+  parseDOM: [{ tag: 'div' }],
+  toDOM: () => ['div', 0],
 }
-
-export const isKeywordsSectionNode = (
-  node: ManuscriptNode
-): node is KeywordsSectionNode =>
-  node.type === node.type.schema.nodes.keywords_section

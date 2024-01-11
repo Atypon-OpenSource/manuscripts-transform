@@ -70,19 +70,6 @@ export const isInBibliographySection = ($pos: ResolvedPos): boolean => {
   return false
 }
 
-const isAbstractsSectionNode = (node: ManuscriptNode) =>
-  node.attrs.category === 'MPSectionCategory:abstracts'
-
-export const isInAbstractsSection = ($pos: ResolvedPos): boolean => {
-  for (let i = $pos.depth; i > 0; i--) {
-    const node = $pos.node(i)
-    if (isAbstractsSectionNode(node)) {
-      return true
-    }
-  }
-  return false
-}
-
 export const findParentNodeClosestToPos = (
   $pos: ResolvedPos,
   predicate: (node: ProsemirrorNode) => boolean
@@ -101,7 +88,7 @@ export const findParentNodeClosestToPos = (
 }
 
 export const getTrimmedTextContent = (
-  node: Element | Document,
+  node: Element | Document | null,
   querySelector: string
 ) => {
   if (!node) {

@@ -14,103 +14,51 @@
  * limitations under the License.
  */
 
-import { parseJATSArticle, parseJATSBody, parseJATSFront } from '../importer'
+import { parseJATSArticle } from '../importer'
 import { readAndParseFixture } from './files'
 import { normalizeIDs, normalizeTimestamps } from './ids'
 
-jest.setTimeout(200000)
 describe('JATS importer', () => {
-  test('parses minimal JATS body to a ProseMirror doc', async () => {
-    const article = await readAndParseFixture('jats-example.xml')
-
-    const body = article.querySelector('body') as Element
-    const doc = parseJATSBody(article, body, null, [], undefined, undefined)
-
-    doc.descendants((node) => {
-      // TODO: validate ids before deleting them
-      // @ts-ignore
-      delete node.attrs.id
-      // @ts-ignore
-      delete node.attrs.rid
-    })
-    // @ts-ignore
-    delete doc.attrs.id
-
-    expect(doc).toMatchSnapshot()
-  })
-
-  test('parses full JATS body to a ProseMirror doc', async () => {
-    const article = await readAndParseFixture('jats-example-full.xml')
-
-    const body = article.querySelector('body') as Element
-    const doc = parseJATSBody(article, body, null, [], undefined, undefined)
-
-    doc.descendants((node) => {
-      // TODO: validate ids before deleting them
-      // @ts-ignore
-      delete node.attrs.id
-      // @ts-ignore
-      delete node.attrs.rid
-    })
-    // @ts-ignore
-    delete doc.attrs.id
-
-    expect(doc).toMatchSnapshot()
-  })
-
   test('parses full JATS example to Manuscripts models', async () => {
-    const models = await parseJATSArticle(
-      await readAndParseFixture('jats-example-doc.xml')
-    )
+    const jats = await readAndParseFixture('jats-example-doc.xml')
+    const models = parseJATSArticle(jats)
     expect(normalizeIDs(normalizeTimestamps(models))).toMatchSnapshot()
   })
 
   test('parses JATS AuthorQueries example to Manuscripts models', async () => {
-    const models = await parseJATSArticle(
-      await readAndParseFixture('jats-document.xml')
-    )
+    const jats = await readAndParseFixture('jats-document.xml')
+    const models = parseJATSArticle(jats)
     expect(normalizeIDs(normalizeTimestamps(models))).toMatchSnapshot()
   })
 
   test('parses JATS front only example to Manuscripts models', async () => {
-    const models = await parseJATSArticle(
-      await readAndParseFixture('jats-example-front-only.xml')
-    )
+    const jats = await readAndParseFixture('jats-example-front-only.xml')
+    const models = parseJATSArticle(jats)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 
   test('parses full JATS no back example to Manuscripts models', async () => {
-    const models = await parseJATSArticle(
-      await readAndParseFixture('jats-example-no-back.xml')
-    )
+    const jats = await readAndParseFixture('jats-example-no-back.xml')
+    const models = parseJATSArticle(jats)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 
   test('parses full JATS no body example to Manuscripts models', async () => {
-    const models = await parseJATSArticle(
-      await readAndParseFixture('jats-example-no-body.xml')
-    )
-    expect(normalizeIDs(models)).toMatchSnapshot()
-  })
-
-  test('parses JATS front to Manuscripts models', async () => {
-    const article = await readAndParseFixture('jats-example.xml')
-    const front = article.querySelector('front') as Element
-    const { models } = await parseJATSFront(front)
-
+    const jats = await readAndParseFixture('jats-example-no-body.xml')
+    const models = parseJATSArticle(jats)
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 
   test('parses JATS article to Manuscripts models', async () => {
-    const article = await readAndParseFixture('jats-example.xml')
-    const models = await parseJATSArticle(article)
+    const jats = await readAndParseFixture('jats-example.xml')
+    const models = parseJATSArticle(jats)
 
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
 
   test('parses JATS article with tables and table footnotes', async () => {
-    const article = await readAndParseFixture('jats-tables-example.xml')
-    const models = await parseJATSArticle(article)
+    const jats = await readAndParseFixture('jats-tables-example.xml')
+    const models = parseJATSArticle(jats)
 
     expect(normalizeIDs(models)).toMatchSnapshot()
   })

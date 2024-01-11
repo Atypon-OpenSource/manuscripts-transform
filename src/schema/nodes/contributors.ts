@@ -13,29 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export const coreSectionCategories = [
-  {
-    _id: 'MPSectionCategory:abstracts',
-    name: 'Abstracts',
-    desc: 'Abstracts section for grouping',
-    objectType: 'MPSectionCategory',
-    titles: [],
-    priority: 120,
+
+import { NodeSpec } from 'prosemirror-model'
+
+// This node has no representation in json-schema
+// It exists for the purpose of styling in the UI
+
+export const contributors: NodeSpec = {
+  content: 'contributor*',
+  attrs: {
+    id: { default: '' },
   },
-  {
-    _id: 'MPSectionCategory:backmatter',
-    name: 'Backmatter',
-    desc: 'Backmatter section for grouping',
-    objectType: 'MPSectionCategory',
-    titles: [],
-    priority: 170,
-  },
-  {
-    _id: 'MPSectionCategory:body',
-    name: 'Body',
-    desc: 'Body section for grouping',
-    objectType: 'MPSectionCategory',
-    titles: [],
-    priority: 190,
-  },
-]
+  group: 'block',
+  selectable: false,
+  toDOM: () => ['div', { class: 'contributors' }, 0],
+}

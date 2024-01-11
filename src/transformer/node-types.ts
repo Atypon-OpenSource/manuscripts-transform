@@ -28,6 +28,9 @@ import {
 } from '../schema'
 
 export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
+  [schema.nodes.abstracts, ObjectTypes.Section],
+  [schema.nodes.body, ObjectTypes.Section],
+  [schema.nodes.backmatter, ObjectTypes.Section],
   [schema.nodes.comment, ObjectTypes.CommentAnnotation],
   [schema.nodes.bibliography_item, ObjectTypes.BibliographyItem],
   [schema.nodes.bibliography_element, ObjectTypes.BibliographyElement],
@@ -35,7 +38,6 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.blockquote_element, ObjectTypes.QuoteElement],
   [schema.nodes.bullet_list, ObjectTypes.ListElement],
   [schema.nodes.citation, ObjectTypes.Citation],
-  [schema.nodes.cross_reference, ObjectTypes.AuxiliaryObjectReference],
   [schema.nodes.equation, ObjectTypes.Equation],
   [schema.nodes.equation_element, ObjectTypes.EquationElement],
   [schema.nodes.figure, ObjectTypes.Figure],
@@ -49,8 +51,8 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.inline_equation, ObjectTypes.InlineMathFragment],
   [schema.nodes.keyword, ObjectTypes.Keyword],
   [schema.nodes.keywords_element, ObjectTypes.KeywordsElement],
-  [schema.nodes.keywords_section, ObjectTypes.Section],
-  [schema.nodes.keywords_group, ObjectTypes.KeywordGroup],
+  [schema.nodes.keywords, ObjectTypes.Section],
+  [schema.nodes.keyword_group, ObjectTypes.KeywordGroup],
   [schema.nodes.listing, ObjectTypes.Listing],
   [schema.nodes.listing_element, ObjectTypes.ListingElement],
   [schema.nodes.manuscript, ObjectTypes.Manuscript],
@@ -62,10 +64,12 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.table_element, ObjectTypes.TableElement],
   [schema.nodes.toc_element, ObjectTypes.TOCElement],
   [schema.nodes.toc_section, ObjectTypes.Section],
-  [schema.nodes.meta_section, ObjectTypes.MetaSection],
   [schema.nodes.affiliation, ObjectTypes.Affiliation],
   [schema.nodes.contributor, ObjectTypes.Contributor],
   [schema.nodes.table_element_footer, ObjectTypes.TableElementFooter],
+  [schema.nodes.contributors, ObjectTypes.Section],
+  [schema.nodes.affiliations, ObjectTypes.Section],
+  [schema.nodes.title, ObjectTypes.Titles],
 ])
 
 export const isExecutableNodeType = (type: ManuscriptNodeType) =>
