@@ -18,47 +18,39 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export interface ActualManuscriptNode extends ManuscriptNode {
-  attrs: {
-    id: string
-  }
+interface Attrs {
+  id: string
 }
 
-// The direct children of this node do not have a json-schema representation
-// They exist for the purpose of styling in the UI
+export interface SupplementaryMaterialsNode extends ManuscriptNode {
+  attrs: Attrs
+}
 
-export const manuscript: NodeSpec = {
-  content:
-    'title? contributors? affiliations? keywords? supplementary_materials? abstracts body backmatter comments',
+export const supplementaryMaterials: NodeSpec = {
+  content: 'section_title supplementary_material*',
   attrs: {
     id: { default: '' },
+    dataTracked: { default: null },
   },
   group: 'block',
+  selectable: false,
   parseDOM: [
     {
-      tag: 'article',
-      getAttrs: (p) => {
-        const dom = p as HTMLElement
-
-        return {
-          id: dom.getAttribute('id'),
-        }
-      },
+      tag: 'div.supplementaryMaterials',
     },
   ],
   toDOM: (node) => {
-    const manuscriptNode = node as ActualManuscriptNode
+    const supplementaryMaterials = node as SupplementaryMaterialsNode
 
     return [
-      'article',
+      'div',
       {
-        id: manuscriptNode.attrs.id,
+        id: supplementaryMaterials.attrs.id,
+        class: 'supplementaryMaterials',
+        spellcheck: 'false',
+        contenteditable: false,
       },
       0,
     ]
   },
 }
-
-export const isManuscriptNode = (
-  node: ManuscriptNode
-): node is ManuscriptNode => node.type === node.type.schema.nodes.manuscript

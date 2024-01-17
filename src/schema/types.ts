@@ -112,6 +112,8 @@ export type Nodes =
   | 'title'
   | 'affiliations'
   | 'contributors'
+  | 'supplementary_materials'
+  | 'supplementary_material'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

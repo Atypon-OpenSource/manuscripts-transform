@@ -126,6 +126,27 @@ Object {
       },
       Object {
         "attrs": Object {
+          "dataTracked": null,
+          "id": "",
+        },
+        "content": Array [
+          Object {
+            "attrs": Object {
+              "dataTracked": null,
+            },
+            "content": Array [
+              Object {
+                "text": "SupplementaryMaterials",
+                "type": "text",
+              },
+            ],
+            "type": "section_title",
+          },
+        ],
+        "type": "supplementary_materials",
+      },
+      Object {
+        "attrs": Object {
           "id": "",
         },
         "type": "abstracts",
@@ -1349,6 +1370,27 @@ Object {
           },
         ],
         "type": "keywords",
+      },
+      Object {
+        "attrs": Object {
+          "dataTracked": null,
+          "id": "",
+        },
+        "content": Array [
+          Object {
+            "attrs": Object {
+              "dataTracked": null,
+            },
+            "content": Array [
+              Object {
+                "text": "SupplementaryMaterials",
+                "type": "text",
+              },
+            ],
+            "type": "section_title",
+          },
+        ],
+        "type": "supplementary_materials",
       },
       Object {
         "attrs": Object {

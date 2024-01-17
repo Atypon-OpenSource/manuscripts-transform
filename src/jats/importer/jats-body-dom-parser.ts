@@ -497,6 +497,25 @@ const nodes: NodeRule[] = [
     node: 'keywords', // NOTE: higher priority than 'section'
   },
   {
+    tag: 'sec[sec-type="supplementary-material"]',
+    node: 'supplementary_materials', // NOTE: higher priority than 'section'
+  },
+  {
+    tag: 'supplementary-material',
+    node: 'supplementary_material', // NOTE: higher priority than 'section'
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      return {
+        id: element.getAttribute('id'),
+        href: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
+        mimeType: element.getAttribute('mimetype'),
+        mimeSubType: element.getAttribute('mime-subtype'),
+        title: element.querySelector('title')?.textContent,
+      }
+    },
+  },
+  {
     tag: 'sec[sec-type="abstracts"]',
     node: 'abstracts',
   },
@@ -596,7 +615,8 @@ const nodes: NodeRule[] = [
   {
     tag: 'title',
     node: 'section_title',
-    context: 'section/|footnotes_section/|bibliography_section/|keywords/',
+    context:
+      'section/|footnotes_section/|bibliography_section/|keywords/|supplementary_materials/',
   },
   {
     tag: 'title',
