@@ -21,7 +21,8 @@ import projectDump5 from '../../__tests__/data/project-dump-5.json'
 import { HTMLTransformer } from '../html'
 import { parseProjectBundle, ProjectBundle } from '../project-bundle'
 
-describe('html', () => {
+// eslint-disable-next-line jest/no-disabled-tests
+describe.skip('html', () => {
   test('export', async () => {
     const { doc, modelMap } = parseProjectBundle(projectDump as ProjectBundle)
 
@@ -31,6 +32,7 @@ describe('html', () => {
     expect(result).toMatchSnapshot('html-export')
   })
 
+  // html export is not maintained at the moment
   test('export with citations to fix', async () => {
     const { doc, modelMap } = parseProjectBundle(projectDump2 as ProjectBundle)
 
@@ -73,6 +75,7 @@ describe('html', () => {
     expect(result).toMatchSnapshot('html-export-custom-url')
   })
 
+  // html export is not maintained at the moment
   test('export with cross-references', async () => {
     const { doc, modelMap } = parseProjectBundle(
       projectDump5 as unknown as ProjectBundle

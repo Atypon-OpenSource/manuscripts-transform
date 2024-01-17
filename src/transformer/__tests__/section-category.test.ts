@@ -41,7 +41,7 @@ describe('section category helpers', () => {
   test('any section node', () => {
     expect(isAnySectionNode(schema.nodes.section.create())).toBe(true)
 
-    expect(isAnySectionNode(schema.nodes.keywords_section.create())).toBe(true)
+    expect(isAnySectionNode(schema.nodes.keywords.create())).toBe(true)
 
     expect(isAnySectionNode(schema.nodes.keywords_element.create())).toBe(false)
   })
@@ -57,7 +57,7 @@ describe('section category helpers', () => {
       )
     ).toBe('MPSectionCategory:section')
 
-    expect(buildSectionCategory(schema.nodes.keywords_section.create())).toBe(
+    expect(buildSectionCategory(schema.nodes.keywords.create())).toBe(
       'MPSectionCategory:keywords'
     )
   })

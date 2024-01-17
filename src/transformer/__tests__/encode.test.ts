@@ -14,27 +14,49 @@
  * limitations under the License.
  */
 
-import {
-  CommentAnnotation,
-  Keyword,
-  ObjectTypes,
-} from '@manuscripts/json-schema'
+import { ElementsOrder, ObjectTypes } from '@manuscripts/json-schema'
 
 import { Decoder } from '../decode'
 import { encode } from '../encode'
 import { ManuscriptModel } from '../models'
 import { createTestDoc } from './__helpers__/doc'
 import {
+  createTestModelMapWithElements,
   createTestModelMapWithHighlights,
   createTestModelMapWithKeywords,
   createTestModelMapWithKeywordsAndAuthorQuery,
 } from './__helpers__/highlights'
+
+const normalize = (model: ManuscriptModel) => {
+  for (const key of Object.keys(model)) {
+    const value = model[key as keyof ManuscriptModel]
+    if (value === undefined) {
+      delete model[key as keyof ManuscriptModel]
+    }
+  }
+
+  model.containerID = 'MPProject:1'
+  model.manuscriptID = 'MPManuscript:1'
+  model.createdAt = 0
+  model.updatedAt = 0
+
+  return model as ManuscriptModel
+}
 
 describe('encoder', () => {
   test('encode a test doc', async () => {
     const doc = createTestDoc()
 
     const result = encode(doc)
+
+    let idx = 1
+    for (const item of Array.from(result.values())) {
+      if (item.objectType === ObjectTypes.ElementsOrder) {
+        result.delete(item._id)
+        item._id = `MPElementsOrder:${idx++}`
+        result.set(item._id, item)
+      }
+    }
 
     expect(result).toMatchSnapshot()
   })
@@ -48,49 +70,22 @@ describe('encoder', () => {
 
     const result = encode(doc)
 
-    expect(result).toMatchSnapshot()
-
-    const ensureModel = (model: Partial<ManuscriptModel>): ManuscriptModel => {
-      model.containerID = 'MPProject:1'
-      model.manuscriptID = 'MPManuscript:1'
-      model.createdAt = 0
-      model.updatedAt = 0
-
-      const isEmptyObj = (object: unknown) => {
-        if (Array.isArray(object) && object.length === 0) {
-          return false
-        }
-        if (typeof object !== 'object') {
-          return false
-        }
-        for (const _ in object) {
-          return false
-        }
-        return true
+    let idx = 1
+    for (const item of Array.from(result.values())) {
+      if (item.objectType === ObjectTypes.ElementsOrder) {
+        result.delete(item._id)
+        item._id = `MPElementsOrder:${idx++}`
+        result.set(item._id, item)
       }
-
-      for (const key of Object.keys(model)) {
-        const value = model[key as keyof ManuscriptModel]
-        if (
-          value === undefined ||
-          value === '' ||
-          value === null ||
-          isEmptyObj(value)
-        ) {
-          delete model[key as keyof ManuscriptModel]
-        }
-      }
-      if (
-        model.objectType === ObjectTypes.CommentAnnotation &&
-        !(model as Partial<CommentAnnotation>).contents
-      ) {
-        ;(model as CommentAnnotation).contents = ''
-      }
-      return model as ManuscriptModel
     }
 
+    expect(result).toMatchSnapshot()
+
     for (const item of result.values()) {
-      const model = ensureModel(item)
+      if (item.objectType === ObjectTypes.ElementsOrder) {
+        continue
+      }
+      const model = normalize(item as ManuscriptModel)
       expect(model).toEqual(modelMap.get(model._id))
     }
   })
@@ -106,73 +101,43 @@ describe('encoder', () => {
 
     expect(result).toMatchSnapshot()
 
-    const ensureModel = (model: Partial<ManuscriptModel>): ManuscriptModel => {
-      model.containerID = 'MPProject:1'
-      if (model.objectType !== 'MPKeyword') {
-        model.manuscriptID = 'MPManuscript:1'
-      }
-      model.createdAt = 0
-      model.updatedAt = 0
-
-      for (const key of Object.keys(model)) {
-        const value = model[key as keyof ManuscriptModel]
-        if (value === undefined || value === '') {
-          delete model[key as keyof ManuscriptModel]
-        }
-      }
-
-      return model as ManuscriptModel
-    }
-
     for (const item of result.values()) {
-      const model = ensureModel(item)
+      const model = normalize(item as ManuscriptModel)
       expect(model).toEqual(modelMap.get(model._id))
     }
   })
-})
 
-test('encode keywords & authorQuery', async () => {
-  const modelMap = createTestModelMapWithKeywordsAndAuthorQuery()
+  test('encode keywords & authorQuery', async () => {
+    const modelMap = createTestModelMapWithKeywordsAndAuthorQuery()
 
-  const decoder = new Decoder(modelMap)
+    const decoder = new Decoder(modelMap)
 
-  const doc = decoder.createArticleNode()
+    const doc = decoder.createArticleNode()
 
-  const result = encode(doc)
+    const result = encode(doc)
 
-  const ensureModel = (model: Partial<ManuscriptModel>): ManuscriptModel => {
-    model.containerID = 'MPProject:1'
-    if (model.objectType !== 'MPKeyword') {
-      model.manuscriptID = 'MPManuscript:1'
-    } else {
-      ;(model as Partial<Keyword>).containedGroup = 'MPKeywordGroup:1'
+    for (const item of result.values()) {
+      const model = normalize(item as ManuscriptModel)
+      expect(model).toEqual(modelMap.get(model._id))
     }
+  })
 
-    if (model.objectType === ObjectTypes.CommentAnnotation) {
-      const comment = model as Partial<CommentAnnotation>
-      comment.selector = undefined
-    }
+  test('encode generates ElementsOrder', () => {
+    const { modelMap, elements } = createTestModelMapWithElements()
 
-    model.createdAt = 0
-    model.updatedAt = 0
+    const decoder = new Decoder(modelMap)
 
-    for (const key of Object.keys(model)) {
-      const value = model[key as keyof ManuscriptModel]
-      if (value === undefined || value === '' || value === null) {
-        delete model[key as keyof ManuscriptModel]
+    const doc = decoder.createArticleNode()
+
+    const result = encode(doc)
+
+    for (const model of result.values()) {
+      if (model.objectType !== ObjectTypes.ElementsOrder) {
+        continue
       }
+      const order = model as ElementsOrder
+      const type = order.elementType
+      expect(order.elements).toEqual(elements[type])
     }
-
-    return model as ManuscriptModel
-  }
-
-  for (const item of modelMap.values()) {
-    const model = result.get(item._id)
-    if (!model) {
-      continue
-    }
-    // @ts-ignore
-    const ensured = ensureModel(model)
-    expect(item).toEqual(ensured)
-  }
+  })
 })

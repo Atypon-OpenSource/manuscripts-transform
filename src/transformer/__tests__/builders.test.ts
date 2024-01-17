@@ -22,19 +22,15 @@ import {
 
 import {
   buildAffiliation,
-  buildAuxiliaryObjectReference,
   buildBibliographicDate,
   buildBibliographicName,
   buildBibliographyItem,
-  buildCitation,
   buildContributor,
   buildFigure,
   buildKeyword,
-  buildLibraryCollection,
   buildManuscript,
   buildParagraph,
   buildProject,
-  buildStatusLabel,
 } from '../builders'
 
 describe('commands', () => {
@@ -49,17 +45,14 @@ describe('commands', () => {
   })
 
   test('build manuscript', () => {
-    const manuscriptA = buildManuscript('Teh title')
+    const manuscriptA = buildManuscript()
     expect(manuscriptA._id).toMatch(/MPManuscript:\S+/)
     expect(manuscriptA.objectType).toBe(ObjectTypes.Manuscript)
-    expect(manuscriptA.title).toBe('Teh title')
 
     const manuscriptB = buildManuscript()
     expect(manuscriptB._id).toMatch(/MPManuscript:\S+/)
     expect(manuscriptB.objectType).toBe(ObjectTypes.Manuscript)
-    expect(manuscriptB.title).toBe('')
   })
-
   test('build contributor', () => {
     const name: BibliographicName = {
       _id: 'contributor-a',
@@ -116,39 +109,11 @@ describe('commands', () => {
     expect(date['date-parts']).toEqual(cslDate['date-parts'])
   })
 
-  test('build auxiliary object reference', () => {
-    const auxRef = buildAuxiliaryObjectReference('x', ['y'])
-    expect(auxRef._id).toMatch(/MPAuxiliaryObjectReference:\S+/)
-    expect(auxRef.objectType).toMatch(ObjectTypes.AuxiliaryObjectReference)
-    expect(auxRef.containingObject).toMatch('x')
-    expect(auxRef.referencedObject).toMatch('y')
-  })
-
-  test('build citation', () => {
-    const citation = buildCitation('x', ['y'])
-    expect(citation._id).toMatch(/MPCitation:\S+/)
-    expect(citation.containingObject).toBe('x')
-    expect(citation.embeddedCitationItems.length).toBe(1)
-    expect(citation.embeddedCitationItems[0].objectType).toBe(
-      ObjectTypes.CitationItem
-    )
-  })
-
   test('build keyword', () => {
     const keyword = buildKeyword('foo')
     expect(keyword.name).toBe('foo')
     expect(keyword._id).toMatch(/MPKeyword:\S+/)
     expect(keyword.objectType).toMatch(ObjectTypes.Keyword)
-  })
-
-  test('build library collection', () => {
-    const libraryCollection = buildLibraryCollection('Mr Derp', 'foo')
-    expect(libraryCollection.owners).toEqual(['Mr Derp'])
-    expect(libraryCollection.writers).toEqual([])
-    expect(libraryCollection.viewers).toEqual([])
-    expect(libraryCollection.name).toMatch('foo')
-    expect(libraryCollection._id).toMatch(/MPLibraryCollection:\S+/)
-    expect(libraryCollection.objectType).toMatch(ObjectTypes.LibraryCollection)
   })
 
   test('build figure', () => {
@@ -182,12 +147,5 @@ describe('commands', () => {
     expect(paragraph.contents).toBe(
       `<p xmlns="http://www.w3.org/1999/xhtml" id="${paragraph._id}" class="MPElement" data-placeholder-text="${placeholder}"></p>`
     )
-  })
-
-  test('build status label', () => {
-    const statusLabel = buildStatusLabel('test')
-    expect(statusLabel._id).toMatch(/MPStatusLabel:\S+/)
-    expect(statusLabel.objectType).toBe(ObjectTypes.StatusLabel)
-    expect(statusLabel.name).toBe('test')
   })
 })

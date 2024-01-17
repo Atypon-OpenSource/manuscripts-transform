@@ -24,8 +24,12 @@ export interface ActualManuscriptNode extends ManuscriptNode {
   }
 }
 
+// The direct children of this node do not have a json-schema representation
+// They exist for the purpose of styling in the UI
+
 export const manuscript: NodeSpec = {
-  content: '(section | sections)+ meta_section', // sections is a group of elements that have group: sections
+  content:
+    'title? contributors? affiliations? keywords? abstracts body backmatter comments',
   attrs: {
     id: { default: '' },
   },
@@ -54,3 +58,7 @@ export const manuscript: NodeSpec = {
     ]
   },
 }
+
+export const isManuscriptNode = (
+  node: ManuscriptNode
+): node is ManuscriptNode => node.type === node.type.schema.nodes.manuscript

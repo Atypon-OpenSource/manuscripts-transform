@@ -25,7 +25,7 @@ import {
   Table,
 } from '@manuscripts/json-schema'
 
-import { ManuscriptModel, UserProfileWithAvatar } from './models'
+import { ManuscriptModel } from './models'
 
 export enum ExtraObjectTypes {
   PlaceholderElement = 'MPPlaceholderElement',
@@ -70,11 +70,7 @@ export const hasObjectType =
 export const isFigure = hasObjectType<Figure>(ObjectTypes.Figure)
 export const isManuscript = hasObjectType<Manuscript>(ObjectTypes.Manuscript)
 export const isTable = hasObjectType<Table>(ObjectTypes.Table)
-export const isUserProfile = hasObjectType<UserProfileWithAvatar>(
-  ObjectTypes.UserProfile
-)
 export const isCommentAnnotation = hasObjectType<CommentAnnotation>(
   ObjectTypes.CommentAnnotation
 )
-
 export const isKeyword = hasObjectType<Keyword>(ObjectTypes.Keyword)

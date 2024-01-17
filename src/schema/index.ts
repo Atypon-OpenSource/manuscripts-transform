@@ -29,20 +29,23 @@ import {
   tracked_insert,
   underline,
 } from './marks'
+import { abstracts } from './nodes/abstracts'
 import { affiliation } from './nodes/affiliation'
-import { affiliationsSection } from './nodes/affiliations_section'
+import { affiliations } from './nodes/affiliations'
 import { attribution } from './nodes/attribution'
+import { backmatter } from './nodes/backmatter'
 import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographyItem } from './nodes/bibliography_item'
 import { bibliographySection } from './nodes/bibliography_section'
 import { blockquoteElement } from './nodes/blockquote_element'
+import { body } from './nodes/body'
 import { caption } from './nodes/caption'
 import { captionTitle } from './nodes/caption_title'
 import { citation } from './nodes/citation'
 import { comment } from './nodes/comment'
-import { commentList } from './nodes/comment_list'
+import { comments } from './nodes/comments'
 import { contributor } from './nodes/contributor'
-import { contributorsSection } from './nodes/contributors_section'
+import { contributors } from './nodes/contributors'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
 import { equation } from './nodes/equation'
@@ -59,15 +62,14 @@ import { highlightMarker } from './nodes/highlight_marker'
 import { inlineEquation } from './nodes/inline_equation'
 import { inlineFootnote } from './nodes/inline_footnote'
 import { keyword } from './nodes/keyword'
+import { keywordGroup } from './nodes/keyword_group'
+import { keywords } from './nodes/keywords'
 import { keywordsElement } from './nodes/keywords_element'
-import { keywordsGroup } from './nodes/keywords_group'
-import { keywordsSection } from './nodes/keywords_section'
 import { link } from './nodes/link'
 import { bulletList, listItem, orderedList } from './nodes/list'
 import { listing } from './nodes/listing'
 import { listingElement } from './nodes/listing_element'
 import { manuscript } from './nodes/manuscript'
-import { metaSection } from './nodes/meta_section'
 import { missingFigure } from './nodes/missing_figure'
 import { paragraph } from './nodes/paragraph'
 import { placeholder } from './nodes/placeholder'
@@ -82,6 +84,7 @@ import { tableElement } from './nodes/table_element'
 import { tableElementFooter } from './nodes/table_element_footer'
 import { tableCell, tableRow } from './nodes/table_row'
 import { text } from './nodes/text'
+import { title } from './nodes/title'
 import { tocElement } from './nodes/toc_element'
 import { tocSection } from './nodes/toc_section'
 import { Marks, Nodes } from './types'
@@ -89,7 +92,7 @@ import { Marks, Nodes } from './types'
 export * from './groups'
 export * from './types'
 export * from './nodes/comment'
-export * from './nodes/comment_list'
+export * from './nodes/comments'
 export * from './nodes/attribution'
 export * from './nodes/bibliography_item'
 export * from './nodes/bibliography_element'
@@ -115,7 +118,7 @@ export * from './nodes/inline_equation'
 export * from './nodes/inline_footnote'
 export * from './nodes/keyword'
 export * from './nodes/keywords_element'
-export * from './nodes/keywords_section'
+export * from './nodes/keywords'
 export * from './nodes/link'
 export * from './nodes/list'
 export * from './nodes/listing'
@@ -136,11 +139,11 @@ export * from './nodes/text'
 export * from './nodes/toc_element'
 export * from './nodes/toc_section'
 export * from './nodes/affiliation'
-export * from './nodes/meta_section'
 export * from './nodes/contributor'
 export * from './nodes/table_element_footer'
-export * from './nodes/affiliations_section'
-export * from './nodes/contributors_section'
+export * from './nodes/title'
+export * from './nodes/affiliations'
+export * from './nodes/contributors'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -158,7 +161,7 @@ export const schema = new Schema<Nodes, Marks>({
   },
   nodes: {
     comment,
-    comment_list: commentList,
+    comments,
     attribution,
     bibliography_item: bibliographyItem,
     bibliography_element: bibliographyElement,
@@ -168,6 +171,9 @@ export const schema = new Schema<Nodes, Marks>({
     caption,
     caption_title: captionTitle,
     citation,
+    abstracts,
+    body,
+    backmatter,
     cross_reference: crossReference,
     doc,
     equation,
@@ -185,8 +191,8 @@ export const schema = new Schema<Nodes, Marks>({
     inline_footnote: inlineFootnote,
     keyword,
     keywords_element: keywordsElement,
-    keywords_section: keywordsSection,
-    keywords_group: keywordsGroup,
+    keywords: keywords,
+    keyword_group: keywordGroup,
     link,
     list_item: listItem,
     listing,
@@ -213,10 +219,10 @@ export const schema = new Schema<Nodes, Marks>({
     toc_element: tocElement,
     toc_section: tocSection,
     affiliation,
-    meta_section: metaSection,
     contributor: contributor,
     table_element_footer: tableElementFooter,
-    affiliations_section: affiliationsSection,
-    contributors_section: contributorsSection,
+    title,
+    affiliations,
+    contributors,
   },
 })
