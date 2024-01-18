@@ -24,6 +24,7 @@ import { findManuscript } from '../../transformer'
 import { Decoder } from '../../transformer/decode'
 import { IDGenerator, MediaPathGenerator } from '../../types'
 import { parseJATSArticle } from '../importer'
+import { DEFAULT_CSL_OPTIONS } from './citations'
 import { readFixture } from './files'
 
 const parseXMLWithDTD = (data: string) =>
@@ -137,6 +138,7 @@ const roundtrip = async (filename: string) => {
       version: '1.2',
       idGenerator: idGenerator(doc),
       mediaPathGenerator,
+      csl: DEFAULT_CSL_OPTIONS,
     }
   )
 }
