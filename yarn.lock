@@ -1258,21 +1258,21 @@
     eslint-config-prettier "^8.5.0"
     prettier "^2.8.1"
 
-"@manuscripts/json-schema@2.2.1-LEAN-3034":
-  version "2.2.1-LEAN-3034"
-  resolved "https://registry.yarnpkg.com/@manuscripts/json-schema/-/json-schema-2.2.1-LEAN-3034.tgz#68fc456ed3674f525920c95fb833b2a3d531c1c1"
-  integrity sha512-q78CUUbwMVx7u519zU19ZxNgFOBT6S1tS9PjrLFbtBsnzFElHMvsF2eSmf1zwIXarMEji2NP7ZVR7ia4AAs34w==
+"@manuscripts/json-schema@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@manuscripts/json-schema/-/json-schema-2.2.2.tgz#cad24ce72a58e84d7023f3d1ec65a7f0fbc21bd4"
+  integrity sha512-Vs2U+duO/8f5wk7GmWtHgEnbselFiue1hgJKZRGbw6tF6dLR75Ui2YmRcA5asnQPfin47ekuen9M9GV2JfNkDw==
   dependencies:
     ajv "^8.12.0"
     deepmerge "^4.3.1"
     uuid "^9.0.0"
 
-"@manuscripts/library@1.3.0-LEAN-3034":
-  version "1.3.0-LEAN-3034"
-  resolved "https://registry.yarnpkg.com/@manuscripts/library/-/library-1.3.0-LEAN-3034.tgz#487679d9991e6181f10bd2d07f12995346c4bc44"
-  integrity sha512-/410xC33WJgW/eNA43/kPVA+dL1eG2GO3q3pMOUxuOZ4p9ukFgL+Vu5bCy2LhNhUe8xa/8YKUh4baITTAb24Lg==
+"@manuscripts/library@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@manuscripts/library/-/library-1.3.1.tgz#a9fd7600088732b0d9d35a776af0a8bdb1b38546"
+  integrity sha512-l1rNg1El7+7Rrsd+QAr1woh0tZgiiglfyjh36nnbOvZP/GSWo75X+hQdkkq1cJ8A0xsTM/Z1f6uuGXuQ7omtjQ==
   dependencies:
-    "@manuscripts/json-schema" "2.2.1-LEAN-3034"
+    "@manuscripts/json-schema" "^2.2.2"
     astrocite-bibtex "^0.16.4"
     astrocite-ris "^0.16.4"
     citeproc "^2.4.62"
