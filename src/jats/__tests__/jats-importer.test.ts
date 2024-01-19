@@ -67,6 +67,6 @@ describe('JATS importer', () => {
     const jats = await readAndParseFixture('jats-import-no-refs.xml')
     const models = parseJATSArticle(jats)
 
-    expect(normalizeIDs(models)).toMatchSnapshot()
+    expect(normalizeIDs(normalizeTimestamps(models))).toMatchSnapshot()
   })
 })
