@@ -62,4 +62,11 @@ describe('JATS importer', () => {
 
     expect(normalizeIDs(models)).toMatchSnapshot()
   })
+
+  test("parses JATS article without references and doesn't create empty references section", async () => {
+    const jats = await readAndParseFixture('jats-import-no-refs.xml')
+    const models = parseJATSArticle(jats)
+
+    expect(normalizeIDs(normalizeTimestamps(models))).toMatchSnapshot()
+  })
 })
