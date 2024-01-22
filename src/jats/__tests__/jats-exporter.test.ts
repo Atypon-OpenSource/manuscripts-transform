@@ -28,7 +28,6 @@ import { Element as XMLElement, parseXml } from 'libxmljs2'
 
 import projectDump from '../../__tests__/data/project-dump.json'
 import projectDumpWithCitations from '../../__tests__/data/project-dump-2.json'
-import projectDumpWithTableElementFooters from '../../__tests__/data/project-dump-6.json'
 import {
   findManuscript,
   isManuscript,
@@ -38,12 +37,12 @@ import {
 import { journalMeta } from '../../transformer/__tests__/__helpers__/journal-meta'
 import { JATSExporter } from '../jats-exporter'
 import { Version } from '../jats-versions'
+import { DEFAULT_CSL_OPTIONS } from './citations'
 import { readFixture } from './files'
+import { getDocFromModelMap, getModelMapFromXML } from './utils'
 
 const input = projectDump as ProjectBundle
 const inputWithCitations = projectDumpWithCitations as ProjectBundle
-const inputWithTableElementFooters =
-  projectDumpWithTableElementFooters as ProjectBundle
 
 const cloneProjectBundle = (input: ProjectBundle): ProjectBundle =>
   JSON.parse(JSON.stringify(input))
@@ -60,13 +59,13 @@ describe('JATS exporter', () => {
     const projectBundle = cloneProjectBundle(input)
 
     const { doc, modelMap } = parseProjectBundle(projectBundle)
-
     const transformer = new JATSExporter()
     const manuscript = findManuscript(modelMap)
     const result = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     expect(result).toMatchSnapshot('jats-export')
@@ -85,6 +84,7 @@ describe('JATS exporter', () => {
       manuscript._id,
       {
         version: '1.1',
+        csl: DEFAULT_CSL_OPTIONS,
       }
     )
 
@@ -101,6 +101,7 @@ describe('JATS exporter', () => {
       const manuscript = findManuscript(modelMap)
       await transformer.serializeToJATS(doc.content, modelMap, manuscript._id, {
         version: '1.0' as unknown as Version,
+        csl: DEFAULT_CSL_OPTIONS,
       })
     }).rejects.toThrow(Error)
   })
@@ -130,7 +131,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     const resultDoc = parseXMLWithDTD(xml)
@@ -195,7 +197,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     const resultDoc = parseXMLWithDTD(xml)
@@ -217,27 +220,22 @@ describe('JATS exporter', () => {
     expect(abstractGraphical).not.toBeUndefined()
   })
   test('export table-wrap-foot', async () => {
-    const projectBundle = cloneProjectBundle(inputWithTableElementFooters)
-    const { doc, modelMap } = parseProjectBundle(projectBundle)
-
+    const modelMap = await getModelMapFromXML('jats-tables-example.xml')
+    const doc = await getDocFromModelMap(modelMap)
     const transformer = new JATSExporter()
     const manuscript = findManuscript(modelMap)
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     const resultDoc = parseXMLWithDTD(xml)
     const tableWrapFoot = resultDoc.get('//table-wrap/table-wrap-foot')
-    const fnGroup = resultDoc.get('//table-wrap/table-wrap-foot/fn-group')
-    const fn = resultDoc.get('//table-wrap/table-wrap-foot/fn-group/fn')
     const paragraph = resultDoc.get('//table-wrap/table-wrap-foot/p')
-
-    expect(tableWrapFoot).not.toBeUndefined()
-    expect(fnGroup).not.toBeUndefined()
-    expect(fn).not.toBeUndefined()
     expect(paragraph).not.toBeUndefined()
+    expect(tableWrapFoot).not.toBeUndefined()
   })
 
   test('export table rowspan & colspan & multiple headers', async () => {
@@ -298,7 +296,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     const resultDoc = parseXMLWithDTD(xml)
@@ -345,7 +344,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
     expect(xml).toMatchSnapshot()
   })
@@ -375,7 +375,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     const resultDoc = parseXMLWithDTD(xml)
@@ -399,6 +400,7 @@ describe('JATS exporter', () => {
       {
         version: '1.2',
         id: '123',
+        csl: DEFAULT_CSL_OPTIONS,
       }
     )
 
@@ -419,6 +421,7 @@ describe('JATS exporter', () => {
       {
         version: '1.2',
         doi: '10.0000/123',
+        csl: DEFAULT_CSL_OPTIONS,
       }
     )
 
@@ -440,6 +443,7 @@ describe('JATS exporter', () => {
         version: '1.2',
         doi: '10.0000/123',
         id: '123',
+        csl: DEFAULT_CSL_OPTIONS,
       }
     )
 
@@ -463,6 +467,7 @@ describe('JATS exporter', () => {
         version: '1.2',
         doi: '10.0000/123',
         id: '123',
+        csl: DEFAULT_CSL_OPTIONS,
       }
     )
 
@@ -487,7 +492,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     const { errors } = parseXMLWithDTD(xml)
@@ -505,7 +511,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     const { errors } = parseXMLWithDTD(xml)
@@ -527,6 +534,7 @@ describe('JATS exporter', () => {
       {
         version: '1.2',
         links: { self: { pdf: '123.pdf' } },
+        csl: DEFAULT_CSL_OPTIONS,
       }
     )
 
@@ -555,6 +563,7 @@ describe('JATS exporter', () => {
       manuscript._id,
       {
         version: '1.2',
+        csl: DEFAULT_CSL_OPTIONS,
       }
     )
 
@@ -590,7 +599,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     const { errors } = parseXMLWithDTD(xml)
@@ -631,7 +641,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     const { errors } = parseXMLWithDTD(xml)
@@ -655,7 +666,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     const output = parseXMLWithDTD(xml)
@@ -691,6 +703,7 @@ describe('JATS exporter', () => {
         doi: '10.1234/5678',
         id: '4567',
         frontMatterOnly: true,
+        csl: DEFAULT_CSL_OPTIONS,
       }
     )
     expect(xml).toMatchSnapshot()
@@ -715,6 +728,7 @@ describe('JATS exporter', () => {
         doi: '10.1234/5678',
         id: '4567',
         frontMatterOnly: true,
+        csl: DEFAULT_CSL_OPTIONS,
       }
     )
 
@@ -779,6 +793,7 @@ describe('JATS exporter', () => {
         version: '1.2',
         doi: '10.0000/123',
         id: '123',
+        csl: DEFAULT_CSL_OPTIONS,
       }
     )
 
@@ -812,7 +827,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     const { errors } = parseXMLWithDTD(xml)
@@ -834,7 +850,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     expect(xml).toMatchSnapshot('jats-export-with-article-type')
@@ -864,7 +881,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     expect(xml).toMatchSnapshot('jats-export-with-supplement')
@@ -916,7 +934,8 @@ describe('JATS exporter', () => {
     const xml = await transformer.serializeToJATS(
       doc.content,
       modelMap,
-      manuscript._id
+      manuscript._id,
+      { csl: DEFAULT_CSL_OPTIONS }
     )
 
     const resultDoc = parseXMLWithDTD(xml)

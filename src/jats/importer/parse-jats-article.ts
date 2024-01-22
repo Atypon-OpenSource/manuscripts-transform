@@ -205,7 +205,7 @@ export const parseJATSArticle = (doc: Document): Model[] => {
     manuscript.articleType = type || 'other'
   }
 
-  if (references) {
+  if (references && references.items.size) {
     models.push(...createBibliographyModels(references))
   }
 
