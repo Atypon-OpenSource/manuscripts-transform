@@ -758,7 +758,7 @@ export class Decoder {
       comments.forEach((c) => this.comments.set(c.attrs.id, c))
 
       const content: ManuscriptNode[] = tableElementFooter
-        ? [table, figcaption, tableElementFooter]
+        ? [table, tableElementFooter, figcaption]
         : [table, figcaption]
 
       if (model.listingID) {
