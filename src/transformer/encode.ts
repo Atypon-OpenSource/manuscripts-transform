@@ -769,7 +769,7 @@ const encoders: NodeEncoderMap = {
     corresp: node.attrs.corresp,
     priority: node.attrs.priority,
   }),
-  supplementary_material: (node): Partial<Supplement> => ({
+  supplement: (node): Partial<Supplement> => ({
     href: node.attrs.href,
     title: node.attrs.title,
     MIME:
@@ -838,7 +838,7 @@ const containerTypes = [
   schema.nodes.contributors,
   schema.nodes.affiliations,
   schema.nodes.keywords,
-  schema.nodes.supplementary_materials,
+  schema.nodes.supplements,
   schema.nodes.abstracts,
   schema.nodes.body,
   schema.nodes.backmatter,

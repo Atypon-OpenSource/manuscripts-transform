@@ -26,11 +26,11 @@ interface Attrs {
   title: string
 }
 
-export interface SupplementaryMaterialNode extends ManuscriptNode {
+export interface SupplementNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const supplementaryMaterial: NodeSpec = {
+export const supplement: NodeSpec = {
   attrs: {
     id: { default: '' },
     href: { default: '' },
@@ -42,7 +42,7 @@ export const supplementaryMaterial: NodeSpec = {
   group: 'block',
   parseDOM: [
     {
-      tag: 'div.supplementary-material',
+      tag: 'div.supplement',
       getAttrs: (dom) => {
         const el = dom as HTMLElement
         const id = el.getAttribute('id')
@@ -61,13 +61,13 @@ export const supplementaryMaterial: NodeSpec = {
     },
   ],
   toDOM: (node) => {
-    const supplementaryMaterials = node as SupplementaryMaterialNode
+    const supplement = node as SupplementNode
 
     return [
       'div',
       {
-        id: supplementaryMaterials.attrs.id,
-        class: 'SupplementaryMaterial',
+        id: supplement.attrs.id,
+        class: 'Supplement',
         href: node.attrs.href,
         mimeType: node.attrs.mimeType,
         mimeSubType: node.attrs.mimeSubType,

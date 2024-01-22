@@ -498,11 +498,11 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'sec[sec-type="supplementary-material"]',
-    node: 'supplementary_materials', // NOTE: higher priority than 'section'
+    node: 'supplements', // NOTE: higher priority than 'section'
   },
   {
     tag: 'supplementary-material',
-    node: 'supplementary_material', // NOTE: higher priority than 'section'
+    node: 'supplement', // NOTE: higher priority than 'section'
     getAttrs: (node) => {
       const element = node as HTMLElement
 
@@ -616,7 +616,7 @@ const nodes: NodeRule[] = [
     tag: 'title',
     node: 'section_title',
     context:
-      'section/|footnotes_section/|bibliography_section/|keywords/|supplementary_materials/',
+      'section/|footnotes_section/|bibliography_section/|keywords/|supplements/',
   },
   {
     tag: 'title',

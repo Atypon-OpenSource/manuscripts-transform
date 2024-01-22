@@ -87,8 +87,8 @@ import {
   schema,
   SectionNode,
   SectionTitleNode,
-  SupplementaryMaterialNode,
-  SupplementaryMaterialsNode,
+  SupplementNode,
+  SupplementsNode,
   TableElementFooterNode,
   TableElementNode,
   TableNode,
@@ -163,7 +163,7 @@ const getContributors = (modelMap: Map<string, Model>) =>
 const getKeywordElements = (modelMap: Map<string, Model>) =>
   getModelsByType<KeywordsElement>(modelMap, ObjectTypes.KeywordsElement)
 
-const getSupplementaryMaterials = (modelMap: Map<string, Model>) =>
+const getSupplements = (modelMap: Map<string, Model>) =>
   getModelsByType<KeywordsElement>(modelMap, ObjectTypes.Supplement)
 
 const getKeywordGroups = (modelMap: Map<string, Model>) =>
@@ -857,13 +857,13 @@ export class Decoder {
     [ObjectTypes.Supplement]: (data) => {
       const model = data as Supplement
 
-      return schema.nodes.supplementary_material.create({
+      return schema.nodes.supplement.create({
         id: model._id,
         href: model.href,
         mimeType: model.MIME?.split('/')[0],
         mimeSubType: model.MIME?.split('/')[1],
         title: model.title,
-      }) as SupplementaryMaterialNode
+      }) as SupplementNode
     },
   }
 
@@ -905,18 +905,18 @@ export class Decoder {
     ]) as KeywordsNode
   }
 
-  private createSupplementaryMaterialsNode() {
-    const elements = getSupplementaryMaterials(this.modelMap)
-      .map((e) => this.decode(e) as SupplementaryMaterialNode)
+  private createSupplementsNode() {
+    const elements = getSupplements(this.modelMap)
+      .map((e) => this.decode(e) as SupplementNode)
       .filter(Boolean)
 
-    return schema.nodes.supplementary_materials.createAndFill({}, [
+    return schema.nodes.supplements.createAndFill({}, [
       schema.nodes.section_title.create(
         {},
         schema.text('SupplementaryMaterials')
       ),
       ...elements,
-    ]) as SupplementaryMaterialsNode
+    ]) as SupplementsNode
   }
 
   private createCommentsNode() {
@@ -1010,7 +1010,7 @@ export class Decoder {
     const contributors = this.createContributorsNode()
     const affiliations = this.createAffiliationsNode()
     const keywords = this.createKeywordsNode()
-    const suppl = this.createSupplementaryMaterialsNode()
+    const suppl = this.createSupplementsNode()
     const { abstracts, body, backmatter } = this.createContentSections()
     const comments = this.createCommentsNode()
     const contents: ManuscriptNode[] = [

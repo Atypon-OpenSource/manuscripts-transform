@@ -22,12 +22,12 @@ interface Attrs {
   id: string
 }
 
-export interface SupplementaryMaterialsNode extends ManuscriptNode {
+export interface SupplementsNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const supplementaryMaterials: NodeSpec = {
-  content: 'section_title supplementary_material*',
+export const supplements: NodeSpec = {
+  content: 'section_title supplement*',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
@@ -36,17 +36,17 @@ export const supplementaryMaterials: NodeSpec = {
   selectable: false,
   parseDOM: [
     {
-      tag: 'div.supplementaryMaterials',
+      tag: 'div.supplements',
     },
   ],
   toDOM: (node) => {
-    const supplementaryMaterials = node as SupplementaryMaterialsNode
+    const supplements = node as SupplementsNode
 
     return [
       'div',
       {
-        id: supplementaryMaterials.attrs.id,
-        class: 'supplementaryMaterials',
+        id: supplements.attrs.id,
+        class: 'supplements',
         spellcheck: 'false',
         contenteditable: false,
       },

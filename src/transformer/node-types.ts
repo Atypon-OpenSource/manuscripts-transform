@@ -70,7 +70,7 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.contributors, ObjectTypes.Section],
   [schema.nodes.affiliations, ObjectTypes.Section],
   [schema.nodes.title, ObjectTypes.Titles],
-  [schema.nodes.supplementary_material, ObjectTypes.Supplement],
+  [schema.nodes.supplement, ObjectTypes.Supplement],
 ])
 
 export const isExecutableNodeType = (type: ManuscriptNodeType) =>
