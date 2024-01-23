@@ -1,0 +1,1078 @@
+<?xml version="1.0" encoding="utf-8"?>
+<article article-type="other" dtd-version="1.1" xml:lang="en"
+         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="publisher-id">APA6</journal-id>
+      <journal-id journal-id-type="nlm-ta">Brain Behav</journal-id>
+      <journal-title-group>
+        <journal-title>Brain and Behavior</journal-title>
+        <abbrev-journal-title abbrev-type="pubmed">Brain Behav.</abbrev-journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">2162-3279</issn>
+      <publisher>
+        <publisher-name>John Wiley and Sons</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="publisher-id">BRB3-2019-12-0787</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Original Research</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Blood pressure after follow up in a stroke prevention
+          clinic</article-title>
+        <alt-title alt-title-type="right-running">Blood pressure after stroke</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" corresp="yes">
+          <contrib-id contrib-id-type="orcid" authenticated="true"
+          >https://orcid.org/0000-0003-2217-5904</contrib-id>
+          <name>
+            <surname>Hornnes</surname>
+            <given-names>Agnete Hviid</given-names>
+          </name>
+          <degrees>RN</degrees>
+          <degrees>MPH</degrees>
+          <degrees>PhD</degrees>
+          <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1"/>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Poulsen</surname>
+            <given-names>Mai Bang</given-names>
+          </name>
+          <degrees>MD</degrees>
+          <degrees>PhD</degrees>
+          <xref ref-type="fn" rid="BRB3-2019-12-0787-afn-0001">*</xref>
+          <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1"/>
+        </contrib>
+        <aff id="BRB3-2019-12-0787-aff1">
+          <institution content-type="dept">Department of
+          Neurology</institution>,
+          <institution>Herlev og Gentofte
+          Hospital</institution>,
+          <addr-line>Borgmester Ib Juuls Vej 1</addr-line>,
+          <addr-line>
+            <postal-code>2730</postal-code>
+            <city>Herlev</city>
+          </addr-line>,
+          <country>Denmark</country>
+        </aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="BRB3-2019-12-0787-cor1">Corresponding author: Agnete Hviid
+          Hornnes&#x2028;
+          <email xlink:href="agnete.hviid.hornnes@regionh.dk"
+          >agnete.hviid.hornnes@regionh.dk</email>&#x2028;FAX: 0045 3868
+          4031
+        </corresp>
+        <fn id="BRB3-2019-12-0787-afn-0001">
+          <label>*</label>
+          <p>Mai Bang Poulsen, MD, PhD&#x2028;Department of
+            Neurology&#x2028;Nordsj&#x00E6;llands Hospital&#x2028;Dyrehavevej
+            29&#x2028;3400 Hiller&#x00F8;d&#x2028;Denmark</p>
+        </fn>
+        <fn id="BRB3-2019-12-0787-afn-0002">
+          <p>ClinicalTrials.gov NCT03782857.</p>
+        </fn>
+        <fn fn-type="con">
+          <p content-type="fn-title">Contributor Information</p>
+          <p>Agnete Hviid Hornnes, Email: agnete.hviid.hornnes@regionh.dk
+            <ext-link
+            ext-link-type="uri" xlink:href="https://orcid.org/0000-0003-2217-5904"
+          >https//orcid.org/0000-0003-2217-5904</ext-link>&#x2028;Mai Bang
+            Poulsen, Email: mai.bang.poulsen.02@regionh.dk
+          </p>
+          <p>Both authors have made substantial contributions to conception and design and
+            acquisitions and
+            analyses
+            <?AuthorQuery id="Q3" queryText="Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;"?>
+            and interpretation of data and have; and been involved in writing the
+            manuscript and given final approval of the version to be published. Both
+            authors have participated sufficiently in the work to take public
+            responsibility for the content; and agree to be accountable for all aspects
+            of the work in ensuring that questions related to the accuracy or integrity
+            of any part of the work are appropriately investigated and resolved.
+          </p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <year/>
+      </pub-date>
+      <volume/>
+      <supplementary-material id="S1" xlink:href="attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312" mimetype="application" mime-subtype="vnd.openxmlformats-officedocument.wordprocessingml.document">
+        <caption>
+          <title>final manuscript-hum-huili-dbh-suicide-20200707_figures (9)
+          </title>
+        </caption>
+      </supplementary-material>
+      <history>
+        <date date-type="received">
+          <day>09</day>
+          <month>12</month>
+          <year>2019</year>
+        </date>
+        <date date-type="rev-recd">
+          <day/>
+          <month/>
+          <year/>
+        </date>
+        <date date-type="accepted">
+          <day>27</day>
+          <month>04</month>
+          <year>2020</year>
+        </date>
+      </history>
+      <permissions> </permissions>
+      <abstract>
+        <sec>
+          <title>Objectives</title>
+          <p>In Denmark 25% of hospital admissions with stroke are recurrent strokes. With
+            thrombolytic treatment more patients survive with only minor disability.
+            This promising development should be followed up by intensive secondary
+            prevention. Hypertension is the most important target. We aimed at testing
+            the hypotheses that early follow up in a preventive clinic would result in
+            1) A higher proportion of patients with blood pressure at target, 2) Time to
+            stroke recurrence, myocardial infarction and death would be longer in the
+            intervention group compared to controls.</p>
+        </sec>
+        <sec>
+          <title>Materials and Methods</title>
+          <p>Eligible patients admitted to the stroke unit of Herlev Hospital were
+            randomized shortly before discharge to intervention or control group. Of 78
+            included participants data from 73 was available for follow up nine months
+            after inclusion. Patients in the intervention group were seen in the clinic
+            within one week. In case of hypertension treatment was initiated or supplied
+            with a new drug. We used individual targets for blood pressure according to
+            diagnosis of stroke and patients&#x2019; comorbidity. Patients in the
+            intervention group had a median of five visits to the preventive clinic.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>In the intervention group blood pressure was treated to target in 25 patients
+            (69%) versus 14 (38%) in the control group
+            (
+            <italic>p</italic>&#x2009;=&#x2009;0.007). Median time to first event was
+            44 months (4&#x2013;49) in the intervention group and 19 months
+            (4&#x2013;37) in controls (
+            <italic>p</italic>&#x2009;=&#x2009;0.316).
+          </p>
+        </sec>
+        <sec>
+          <title>Conclusions</title>
+          <p>Treatment of hypertension to individual targets after stroke is feasible. It
+            may postpone recurrent stroke and death in stroke survivors.</p>
+        </sec>
+      </abstract>
+      <kwd-group kwd-group-type="author">
+        <title>KEYWORDS &#x2028;</title>
+        <kwd>secondary prevention</kwd>
+        <kwd>stroke recurrence</kwd>
+        <kwd>blood pressure</kwd>
+        <kwd>blood pressure target</kwd>
+        <kwd>randomized controlled trial</kwd>
+      </kwd-group>
+      <counts>
+        <count count-type="box" count="0"/>
+        <fig-count count="3"/>
+        <table-count count="2"/>
+        <equation-count count="0"/>
+        <ref-count count="25"/>
+        <word-count count="4484"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="BRB3-2019-12-0787-sec1" sec-type="intro">
+      <label>1</label>
+      <title>INTRODUCTION</title>
+      <p>Over the last two decades continuous development of thrombolytic treatment of acute
+        ischemic stroke (IS) has improved safety and functional outcome in treated patients
+        <xref ref-type="bibr"
+              rid="BRB3-2019-12-0787-bib-0001 BRB3-2019-12-0787-bib-0002"
+        >
+          <sup>1;2</sup>
+        </xref> thus increasing the possibility of survival with no or
+        only minor disability. With this fact and the ongoing aging of populations in mind
+        <xref ref-type="bibr" rid="BRB3-2019-12-0787-bib-0003">
+          <sup>3</sup>
+        </xref> the
+        secondary prevention after stroke seems more important than ever. In 1998 the
+        Copenhagen Stroke Study reported a recurrence rate of 23%.
+        <xref ref-type="bibr"
+                                                                         rid="BRB3-2019-12-0787-bib-0004">
+          <sup>4</sup>
+        </xref> According to the Danish
+        Stroke Registry our national recurrence rate was 25% in 2011.
+        <xref ref-type="bibr"
+                                                                           rid="BRB3-2019-12-0787-bib-0005">
+          <sup>5</sup>
+        </xref>
+      </p>
+      <p>Hypertension is an important risk factor for stroke recurrence.
+        <xref ref-type="bibr"
+                                                                               rid="BRB3-2019-12-0787-bib-0004 BRB3-2019-12-0787-bib-0006 BRB3-2019-12-0787-bib-0007 BRB3-2019-12-0787-bib-0008"
+      >
+          <sup>4;6&#x2013;8</sup>
+        </xref> Lowering blood pressure (BP) after stroke or
+        transitory ischemic attack (TIA) by 10/5 mm Hg has been associated with reduced risk
+        of stroke recurrence by 24% and myocardial infarction (MI) by 21%.
+        <xref
+          ref-type="bibr" rid="BRB3-2019-12-0787-bib-0009">
+          <sup>9</sup>
+        </xref>
+      </p>
+      <p>Observational studies have demonstrated the difficulties in lowering BP after stroke
+        with rates of BP treated to target ranging from 28% to 73%
+        <xref ref-type="bibr"
+                                                                         rid="BRB3-2019-12-0787-bib-0010 BRB3-2019-12-0787-bib-0011 BRB3-2019-12-0787-bib-0012 BRB3-2019-12-0787-bib-0013"
+        >
+          <sup>10&#x2013;13</sup>
+        </xref> and interventions aimed at control of BP
+        after stroke have not yet found a successful model.
+        <xref ref-type="bibr"
+                                                                  rid="BRB3-2019-12-0787-bib-0014 BRB3-2019-12-0787-bib-0015 BRB3-2019-12-0787-bib-0016 BRB3-2019-12-0787-bib-0017 BRB3-2019-12-0787-bib-0018 BRB3-2019-12-0787-bib-0019"
+        >
+          <sup>14&#x2013;19</sup>
+        </xref> Fahey and coworkers have reviewed the
+        literature aimed at improving control of BP in hypertensive subjects. One large
+        study using an organized system of regular visits to a clinic was efficient in
+        producing a large decrease in BP and reduction of all-cause mortality compared to
+        referral to usual primary care. This was achieved by using a stepwise escalation of
+        treatment until target was reached.
+        <xref ref-type="bibr"
+                                                  rid="BRB3-2019-12-0787-bib-0020">
+          <sup>20</sup>
+        </xref> Other methods had variable
+        or no effect, only nurse or pharmacist led care seemed promising.
+      </p>
+      <sec>
+        <title>Aims and hypotheses</title>
+        <p>The aim of the present study was to test the hypotheses that follow up after
+          stroke in a specialized nurse led physician supervised clinic with stepwise
+          escalation of BP- and lipid lowering treatment would result in</p>
+        <sec>
+          <title>Primary endpoint</title>
+          <sec>
+            <title>A greater proportion of participants with BP at target</title>
+            <p>Secondary endpoints:
+              <list id="L1" list-type="simple">
+                <list-item>
+                  <p>A greater reduction of BP</p>
+                </list-item>
+                <list-item>
+                  <p>A greater proportion of participants with LDL-cholesterol
+                  treated to target</p>
+                </list-item>
+                <list-item>
+                  <p>A greater reduction of LDL-cholesterol</p>
+                </list-item>
+                <list-item>
+                  <p>Longer time to recurrence of stroke, MI and death</p>
+                </list-item>
+                <list-item>
+                  <p>in the intervention group compared to controls</p>
+                </list-item>
+              </list>
+            </p>
+          </sec>
+        </sec>
+      </sec>
+    </sec>
+    <sec id="BRB3-2019-12-0787-sec2" sec-type="methods">
+      <label>2</label>
+      <title>MATERIELS AND METHODS</title>
+      <p>Before the initiation of the study the authors attended a three-day course in
+        treatment of hypertension arranged by the Danish Society of Hypertension. The
+        recommendations of our national guidelines regarding BP targets were in line with
+        those given by the American Stroke Association in force at the time of initiation of
+        the study: &#x201C;An absolute target BP level and reduction are uncertain and
+        should be individualized.&#x201D;
+        <xref ref-type="bibr"
+                                                rid="BRB3-2019-12-0787-bib-0021">
+          <sup>21</sup>
+        </xref> Following the advice given
+        by the Danish Society of Hypertension we used the following targets: A BP
+        &lt;&#x2009;140/90 mm Hg was considered at target in non-diabetic patients. In
+        patients aged 80 years or more a BP of 150/90 mm Hg was acceptable if further
+        treatment was not tolerated. In case of severe carotid stenosis or a history of
+        ischemic heart disease BP should not be lower than 130/80 mm Hg. In patients with
+        diabetes or hemorrhagic stroke we aimed at a BP&#x2009;&lt;&#x2009;130/80 mm Hg.
+        Untreated patients without hypertension were categorized as normotensive, untreated
+        hypertensive patients as having unknown hypertension, treated patients without
+        hypertension as treated to target, and treated patients with hypertension as having
+        untreated hypertension.
+      </p>
+      <p>LDL-cholesterol should be &lt;&#x2009;2.5 mmol/l in patients with IS or TIA in
+        non-diabetic patients and in case of diabetes &lt;&#x2009;2.0 mmol/l.</p>
+      <p>A sample size calculation showed that 24 patients in each group were needed to show a
+        difference of 10 mm Hg in the development of systolic BP (80% power).</p>
+      <sec id="BRB3-2019-12-0787-sec2.1">
+        <label>2.1</label>
+        <title>Study sample and setting</title>
+        <p>From June 2012 to February 2013 all patients diagnosed with a stroke or TIA at
+          the stroke unit of Herlev Gentofte Hospital, University of Copenhagen were
+          considered for inclusion in the study. Patients should be without cognitive
+          deficits that would prevent their active participation and they should be
+          discharged to their own home. The last author used computer-generated block
+          randomization procedures with stratification by hypertension (1:1). The
+          allocation sequence was concealed, and we aimed at equal numbers in the two
+          groups. Shortly before discharge the first author approached eligible patients
+          for oral and written information about the study. Where written informed consent
+          to participation was achieved BP was measured before a concealed envelope
+          administered by a secretary was opened revealing the allocation to either
+          intervention or control group.</p>
+        <p>The research protocol was approved by the ethics committee of the Capital Region
+          of Denmark (H-3-2011&#x2013;152) and by the Danish Data Protection Agency
+          (2012&#x2013;41-0429). The study was conducted according to all common ethical
+          standards including the rules given by the Declaration of Helsinki. Patients
+          randomized to the control group had the usual treatment: one visit in the
+          outpatient clinic of the stroke unit three months after discharge. Patients
+          randomized to the intervention group had an appointment with the first author
+          within one week after discharge. The first author undertook all visits in the
+          preventive clinic.</p>
+      </sec>
+      <sec id="BRB3-2019-12-0787-sec2.2">
+        <label>2.2</label>
+        <title>Procedures and intervention</title>
+        <p>BP was measured at every visit after at least five minutes rest in a sitting
+          position in an arm chair. BP was measured simultaneously in both arms followed
+          by two measurements with 10-min intervals using the arm with the highest
+          systolic BP. In case of hypertension the first author would suggest initiation
+          or intensification of antihypertensive treatment. The last author would accept
+          or suggest an alternative and do the prescription. Patients would come to the
+          clinic for control of BP and relevant blood tests every 3&#x2013;4 weeks until
+          BP was at target. After five weeks on lipid lowering drugs treatment was
+          intensified if needed. Patients who did not tolerate lipid lowering medication
+          were referred to a dietitian. In motivated patients home BP measurements were
+          performed using patients&#x2019; own monitor or by lending patients a BP monitor
+          between visits.</p>
+        <p>Patients in the intervention group had a mean of five visits to the clinic with
+          addition of new drugs rather than adding more of the same drug in case of
+          hypertension. Although we used minimum doses to prevent adverse effects, many
+          patients had unacceptable side effects necessitating change to another class of
+          antihypertensive drug.</p>
+        <p>Patients were informed about the importance of life-long adherence with all
+          preventive medication. Those with elevated BP or receiving antihypertensive
+          treatment were advised in salt reduction, smokers were advised to stop smoking
+          and all patients were informed about the benefits of 30 min of moderate physical
+          activity daily. Likewise, information about the risk of an intake of alcohol
+          above seven drinks per week in women and 14 drinks in men was part of the
+          program as well as the benefits of weight reduction in overweight patients with
+          hypertension or diabetes.</p>
+      </sec>
+      <sec id="BRB3-2019-12-0787-sec2.3">
+        <label>2.3</label>
+        <title>Follow up</title>
+        <p>Participants in both groups were invited to the usual follow up visit three
+          months after discharge at the outpatient clinic of the stroke unit as well as a
+          follow up visit in the study a median of 9 (IQR 8&#x2013;11) months after
+          inclusion.</p>
+        <p>In accordance with the protocol the final follow up visits were performed by
+          nurses in the outpatient clinic with measurement of BP and blood-cholesterols.
+          Patients were asked not to reveal their group allocation but blinding of the
+          nurses was not possible. Patients were interviewed about adherence to all
+          preventive medications as well as their present life style. For practical
+          purposes a minority of visits were performed by the first author. To do
+          intention to treat
+          analyses
+          <?AuthorQuery id="Q1" queryText="Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;"?>
+          we used last observation carried forward regarding the endpoints of the study
+          where patients had died or did not respond to the invitation to a follow up
+          visit. Thus, we used the last recorded values in five patients in the
+          intervention group and in seven controls.
+        </p>
+        <p>After a median of 65 months (IQR: 61&#x2013;66) from inclusion data on vascular
+          events and death were attained from the hospital based medical records covering
+          all hospitals of the region.</p>
+      </sec>
+      <sec id="BRB3-2019-12-0787-sec2.4">
+        <label>2.4</label>
+        <title>Statistics</title>
+        <p>Data were entered into Excel and imported into SAS. Statistical
+          analyses
+          <?AuthorQuery id="Q2" queryText="Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;"?>
+          were performed by the first author according to a pre-established statistical
+          analysis plan. We used Chi square test (for the primary outcome) or
+          Fisher&#x2019;s exact test as appropriate for comparison of proportions, and for
+          change from baseline we used McNemar&#x2019;s test. For continuous variables we
+          used t-test or Mann-Whitney&#x2019;s test*. Change from baseline was analyzed by
+          the paired t-test or Wilcoxon signed rank sum test* (*where data were not
+          normally distributed). We used SAS 9.4 for Windows and
+          <italic>p</italic>&#x2009;&lt;&#x2009;0.05 was considered significant.
+        </p>
+      </sec>
+    </sec>
+    <sec id="BRB3-2019-12-0787-sec3" sec-type="results">
+      <label>3</label>
+      <title>RESULTS</title>
+      <p>We included 78 patients in the study. Due to revision of stroke diagnoses in four
+        participants and as one participant never turned up for the intervention, data on 73
+        participants were available for follow up (
+        <xref ref-type="fig"
+                                                         rid="BRB3-2019-12-0787-fig-0001">Figure 1</xref>). The median stay in hospital
+        was 4 days (IQR: 3&#x2013;6). As seen from
+        <xref ref-type="table"
+                                                         rid="BRB3-2019-12-0787-tbl-0001">Table 1</xref> most participants had no or
+        slight disability.
+      </p>
+      <fig id="BRB3-2019-12-0787-fig-0001" position="float" fig-type="figure">
+        <label>FIGURE 1</label>
+        <caption>
+          <p>Flow chart of participants</p>
+        </caption>
+        <graphic xlink:href="BRB3-2019-12-0787-fig-0001.PNG"/>
+      </fig>
+      <table-wrap id="BRB3-2019-12-0787-tbl-0001" position="float">
+        <label>TABLE 1</label>
+        <caption>
+          <title>Baseline characteristics of 73 patients</title>
+        </caption>
+        <table frame="hsides" rules="groups">
+          <col width="52.14%"/>
+          <col width="11.92%"/>
+          <col width="14.9%"/>
+          <col width="13.1%"/>
+          <col width="7.94%"/>
+          <thead>
+            <tr>
+              <th valign="top" align="left" scope="col"
+                  style="border-top: solid 0.50pt; border-bottom: solid 0.50pt"
+              >Characteristics</th>
+              <th valign="top" align="left" scope="col"
+                  style="border-top: solid 0.50pt; border-bottom: solid 0.50pt"
+              >All
+                <break/>(
+                <italic>n</italic>&#x2009;=&#x2009;73)
+              </th>
+              <th valign="top" align="left" scope="col"
+                  style="border-top: solid 0.50pt; border-bottom: solid 0.50pt"
+              >Intervention (
+                <italic>n</italic>&#x2009;=&#x2009;36)
+              </th>
+              <th valign="top" align="left" scope="col"
+                  style="border-top: solid 0.50pt; border-bottom: solid 0.50pt"
+              >Control (
+                <italic>n</italic>&#x2009;=&#x2009;37)
+              </th>
+              <th valign="top" align="left" scope="col"
+                  style="border-top: solid 0.50pt; border-bottom: solid 0.50pt">P</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td valign="middle" align="left" style="border-top: solid 0.50pt"
+                  scope="row">Sex, female</td>
+              <td valign="middle" align="left" style="border-top: solid 0.50pt">29
+                (40)</td>
+              <td valign="middle" align="left" style="border-top: solid 0.50pt">15
+                (42)</td>
+              <td valign="middle" align="left" style="border-top: solid 0.50pt">14
+                (38)</td>
+              <td valign="middle" align="left" style="border-top: solid 0.50pt"
+              >0.74</td>
+            </tr>
+            <tr>
+              <td valign="middle" align="left" scope="row">Age (years),
+                mean&#x2009;&#x00B1;&#x2009;SD</td>
+              <td valign="middle" align="left">66&#x2009;&#x00B1;&#x2009;12</td>
+              <td valign="middle" align="left">63&#x2009;&#x00B1;&#x2009;13</td>
+              <td valign="middle" align="left">68&#x2009;&#x00B1;&#x2009;11</td>
+              <td valign="middle" align="left">0.08</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Length of
+                education
+                <break/>&lt;&#x2009;10 years
+                <break/>10 &#x2013; 12
+                years
+                <break/>&gt;&#x2009;12 years
+              </td>
+              <td valign="top" align="left">12 (17)
+                <break/>22 (30)
+                <break/>38 (53)
+              </td>
+              <td valign="top" align="left">6 (17)
+                <break/>10 (29)
+                <break/>19 (54)
+              </td>
+              <td valign="top" align="left">6 (16)
+                <break/>12 (33)
+                <break/>19 (51)
+              </td>
+              <td valign="top" align="left">0.95</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Diagnosis of
+                stroke
+                <break/>Ischemic Stroke
+                <break/>TIA
+                <break/>Hemorrhagic
+                stroke
+              </td>
+              <td valign="top" align="left">63 (87)
+                <break/>9 (12)
+                <break/>1 (1)
+              </td>
+              <td valign="top" align="left">33 (92)
+                <break/>3 (8)
+              </td>
+              <td valign="top" align="left">30 (81)
+                <break/>6 (16)
+                <break/>1 (3)
+              </td>
+              <td valign="top" align="left">0.60
+                <sup>a</sup>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Recurrent stroke</td>
+              <td valign="top" align="left">11 (15)</td>
+              <td valign="top" align="left">5 (14)</td>
+              <td valign="top" align="left">6 (16)</td>
+              <td valign="top" align="left">1.00
+                <sup>a</sup>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Modified Rankin Scale score
+                &gt;&#x2009;2</td>
+              <td valign="top" align="left">5 (6)</td>
+              <td valign="top" align="left">1 (3)</td>
+              <td valign="top" align="left">4 (11)</td>
+              <td valign="top" align="left">0.36
+                <sup>a</sup>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Antihypertensive medication
+                before stroke</td>
+              <td valign="top" align="left">39 (53)</td>
+              <td valign="top" align="left">15 (42)</td>
+              <td valign="top" align="left">24 (65)</td>
+              <td valign="top" align="left">0.047</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Antihypertensive medication at
+                discharge</td>
+              <td valign="top" align="left">46 (63)</td>
+              <td valign="top" align="left">20 (56)</td>
+              <td valign="top" align="left">26 (70)</td>
+              <td valign="top" align="left">0.19</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Cholesterol lowering
+                medication before stroke</td>
+              <td valign="top" align="left">25 (34)</td>
+              <td valign="top" align="left">11 (31)</td>
+              <td valign="top" align="left">14 (38)</td>
+              <td valign="top" align="left">0.51</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Cholesterol lowering
+                medication at discharge</td>
+              <td valign="top" align="left">65 (89)</td>
+              <td valign="top" align="left">35 (97)</td>
+              <td valign="top" align="left">30 (81)</td>
+              <td valign="top" align="left">0.03</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Diabetes at baseline</td>
+              <td valign="top" align="left">14 (19)</td>
+              <td valign="top" align="left">5 (14)</td>
+              <td valign="top" align="left">9 (24)</td>
+              <td valign="top" align="left">0.37
+                <sup>a</sup>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Diabetes at discharge</td>
+              <td valign="top" align="left">16 (22)</td>
+              <td valign="top" align="left">6 (17)</td>
+              <td valign="top" align="left">10 (27)</td>
+              <td valign="top" align="left">0.29</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Atrial fibrillation at
+                baseline</td>
+              <td valign="top" align="left">7 (10)</td>
+              <td valign="top" align="left">3 (8)</td>
+              <td valign="top" align="left">4 (11)</td>
+              <td valign="top" align="left">1.00
+                <sup>a</sup>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Atrial fibrillation at
+                discharge</td>
+              <td valign="top" align="left">12 (16)</td>
+              <td valign="top" align="left">6 (16)</td>
+              <td valign="top" align="left">6 (17)</td>
+              <td valign="top" align="left">1.00</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Unhealthy
+                dieting
+                <sup>b</sup>
+              </td>
+              <td valign="top" align="left">59 (82)</td>
+              <td valign="top" align="left">25 (71)</td>
+              <td valign="top" align="left">34 (92)</td>
+              <td valign="top" align="left">0.03</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Current smoking</td>
+              <td valign="top" align="left">19 (26)</td>
+              <td valign="top" align="left">11 (31)</td>
+              <td valign="top" align="left">8 (22)</td>
+              <td valign="top" align="left">0.62</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Alcohol above
+                limits
+                <sup>c</sup>
+              </td>
+              <td valign="top" align="left">23 (32)</td>
+              <td valign="top" align="left">12 (34)</td>
+              <td valign="top" align="left">11 (30)</td>
+              <td valign="top" align="left">0.68</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row">Sedentary
+                lifestyle
+                <sup>d</sup>
+              </td>
+              <td valign="top" align="left">17 (24)</td>
+              <td valign="top" align="left">9 (26)</td>
+              <td valign="top" align="left">8 (22)</td>
+              <td valign="top" align="left">0.68</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" scope="row"
+              >BMI&#x2009;&#x2265;&#x2009;25</td>
+              <td valign="top" align="left">46 (63)</td>
+              <td valign="top" align="left">24 (67)</td>
+              <td valign="top" align="left">22 (59)</td>
+              <td valign="top" align="left">0.52</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" style="border-bottom: solid 0.50pt"
+                  scope="row">Self-rated health: fair, poor, or very poor</td>
+              <td valign="top" align="left" style="border-bottom: solid 0.50pt">34
+                (47)</td>
+              <td valign="top" align="left" style="border-bottom: solid 0.50pt">15
+                (43)</td>
+              <td valign="top" align="left" style="border-bottom: solid 0.50pt">19
+                (51)</td>
+              <td valign="top" align="left" style="border-bottom: solid 0.50pt"
+              >0.47</td>
+            </tr>
+          </tbody>
+        </table>
+        <table-wrap-foot>
+          <p>Values are expressed as frequencies (%) or as
+            mean&#x2009;&#x00B1;&#x2009;standard deviations</p>
+          <fn id="BRB3-2019-12-0787-tfn1">
+            <label>
+              <sup>a</sup>
+            </label>
+            <p>Fisher&#x2019;s exact test.
+              <sup>b</sup> Less than 600 g of fruit and
+              vegetables per day, fish for dinner less than twice per week.
+              <sup>c</sup> More than 7 drinks per week in women/more than 14
+              drinks per week in men.
+              <sup>d</sup> Less than 30 min of moderate
+              physical activity per day.
+            </p>
+          </fn>
+        </table-wrap-foot>
+      </table-wrap>
+      <p>Less than 20% of patients had a baseline BP treated to target (
+        <xref ref-type="fig"
+                                                                              rid="BRB3-2019-12-0787-fig-0002">Figure 2</xref>). Twenty-eight patients (78%)
+        in the intervention group and 29 patients (78%) in the control group had a 3-month
+        visit in the outpatient clinic. Here 15 patients (42%) in the intervention group had
+        their BP and blood cholesterol measured and so had 23 patients (62%) in the control
+        group. At follow up patients in both groups reported a median of two visits
+        including BP measurement at the general practitioner&#x00B4;s office since discharge
+        from hospital.
+      </p>
+      <fig id="BRB3-2019-12-0787-fig-0002" position="float" fig-type="figure">
+        <label>FIGURE 2</label>
+        <caption>
+          <p>Blood pressure and treatment of hypertension at baseline in 73 patients
+            (%)</p>
+        </caption>
+        <graphic xlink:href="BRB3-2019-12-0787-fig-0002.PNG"/>
+      </fig>
+      <sec id="BRB3-2019-12-0787-sec3.1">
+        <label>3.1</label>
+        <title>Primary endpoint</title>
+        <p>Follow up visits showed that 25 patients (69%) in the intervention group had a BP
+          at target versus 14 (38%) of controls
+          (
+          <italic>p</italic>&#x2009;=&#x2009;0.007). In four patients (10%) in the
+          intervention group antihypertensive medication remained unchanged since
+          discharge versus 23 (62%) of controls
+          (
+          <italic>p</italic>&#x2009;&lt;&#x2009;0.0001) illustrated by the differences in
+          BP treated to target as well as untreated hypertension in
+          <xref ref-type="fig"
+                                                                          rid="BRB3-2019-12-0787-fig-0003">Figure 3</xref>.
+        </p>
+        <fig id="BRB3-2019-12-0787-fig-0003" position="float" fig-type="figure">
+          <label>FIGURE 3</label>
+          <caption>
+            <p>Blood pressure and treatment of hypertension at follow up in 73 patients
+              (%)</p>
+          </caption>
+          <graphic xlink:href="BRB3-2019-12-0787-fig-0003.PNG"/>
+        </fig>
+      </sec>
+      <sec id="BRB3-2019-12-0787-sec3.2">
+        <label>3.2</label>
+        <title>Secondary endpoints</title>
+        <p>Median reduction in systolic BP was 11 mm Hg (-5-19) with 14 mm Hg (IQR:
+          5&#x2013;21) in the intervention group and 3 mm Hg (IQR -11-17) in the control
+          group (
+          <italic>p</italic>&#x2009;=&#x2009;0.045). Median reduction in diastolic
+          BP was 2 mm Hg (-2-11) with 7 mm Hg (IQR -1-13) in the intervention group and 1
+          mm Hg (IQR -6-8) in the control group
+          (
+          <italic>p</italic>&#x2009;=&#x2009;0.04).
+        </p>
+        <p>There was no difference between the groups regarding LDL-cholesterol treated to
+          target with 32 patients (89%) at target in the intervention group versus 29
+          patients (78%) in the control group (
+          <italic>p</italic>&#x2009;=&#x2009;0.21).
+          We found significant reductions in LDL-cholesterol in both groups, but no
+          difference between the groups: 1.6 (IQR: 0.4&#x2013;2.2) mmol/l in the
+          intervention group versus 0.8 (IQR: 0.4&#x2013;1.8) mmol/l among controls
+          (
+          <italic>p</italic>&#x2009;=&#x2009;0.18).
+        </p>
+        <p>In 11 patients (31%) in the intervention group cholesterol lowering medication
+          remained unchanged since discharge versus 29 (78%) of controls
+          (
+          <italic>p</italic>&#x2009;&lt;&#x2009;0.0001).
+        </p>
+        <p>The combined endpoint of both BP and LDL-cholesterol at target was achieved in 22
+          (61%) of patients in the intervention group and in 10 patients (27%) in the
+          control group (
+          <italic>p</italic>&#x2009;=&#x2009;0.003). At the end of the
+          study 24 patients (68%) in the intervention group measured their BP at home
+          versus 14 (38%) of controls (
+          <italic>p</italic>&#x2009;=&#x2009;0.03).
+        </p>
+        <p>The only significant change in lifestyle was a reduction in current smokers by
+          four in the control group (
+          <xref ref-type="table"
+                                           rid="BRB3-2019-12-0787-tbl-0002">Table 2</xref>).
+        </p>
+        <table-wrap id="BRB3-2019-12-0787-tbl-0002" position="float">
+          <label>TABLE 2</label>
+          <caption>
+            <title>Nine months follow up of 73 patients</title>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <col width="52.91%"/>
+            <col width="11.06%"/>
+            <col width="14.16%"/>
+            <col width="11.5%"/>
+            <col width="10.37%"/>
+            <thead>
+              <tr>
+                <th valign="top" align="left" scope="col"
+                    style="border-top: solid 0.50pt; border-bottom: solid 0.50pt"
+                >Characteristics</th>
+                <th valign="top" align="left" scope="col"
+                    style="border-top: solid 0.50pt; border-bottom: solid 0.50pt"
+                >All
+                  <break/>(
+                  <italic>n</italic>&#x2009;=&#x2009;73)
+                </th>
+                <th valign="top" align="left" scope="col"
+                    style="border-top: solid 0.50pt; border-bottom: solid 0.50pt"
+                >Intervention
+                  <break/>(
+                  <italic>n</italic>&#x2009;=&#x2009;36)
+                </th>
+                <th valign="top" align="left" scope="col"
+                    style="border-top: solid 0.50pt; border-bottom: solid 0.50pt"
+                >Control
+                  <break/>(
+                  <italic>n</italic>&#x2009;=&#x2009;37)
+                </th>
+                <th valign="top" align="left" scope="col"
+                    style="border-top: solid 0.50pt; border-bottom: solid 0.50pt"
+                >P</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td valign="top" align="left" style="border-top: solid 0.50pt"
+                    scope="row">Systolic BP, mm Hg, mean &#x00B1;&#x2009;SD</td>
+                <td valign="top" align="left" style="border-top: solid 0.50pt">134
+                  &#x00B1;&#x2009;21</td>
+                <td valign="top" align="left" style="border-top: solid 0.50pt">130
+                  &#x00B1;&#x2009;17</td>
+                <td valign="top" align="left" style="border-top: solid 0.50pt">137
+                  &#x00B1;&#x2009;24</td>
+                <td valign="top" align="left" style="border-top: solid 0.50pt"
+                >0.12</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Diastolic BP, mm Hg, mean
+                  &#x00B1;&#x2009;SD</td>
+                <td valign="top" align="left">78 &#x00B1;&#x2009;11</td>
+                <td valign="top" align="left">78 &#x00B1;&#x2009;10</td>
+                <td valign="top" align="left">78 &#x00B1;&#x2009;12.8)</td>
+                <td valign="top" align="left">0.94</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Antihypertensive
+                  medication</td>
+                <td valign="top" align="left">55 (75)</td>
+                <td valign="top" align="left">29 (81)</td>
+                <td valign="top" align="left">26 (70)</td>
+                <td valign="top" align="left">0.31</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">100% compliance with AHM
+                  (
+                  <italic>n</italic>&#x2009;=&#x2009;45)
+                </td>
+                <td valign="top" align="left">38 (84)</td>
+                <td valign="top" align="left">23 (89)</td>
+                <td valign="top" align="left">15 (79)</td>
+                <td valign="top" align="left">0.38</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">LDL-cholesterol, mmol/l
+                  (
+                  <italic>n</italic>&#x2009;=&#x2009;72), mean
+                  &#x00B1;&#x2009;SD
+                </td>
+                <td valign="top" align="left">1.9 &#x00B1;&#x2009;0.8</td>
+                <td valign="top" align="left">1.9 &#x00B1;&#x2009;0.7</td>
+                <td valign="top" align="left">2.0 &#x00B1;&#x2009;0.8</td>
+                <td valign="top" align="left">0.66</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Cholesterol lowering
+                  medication</td>
+                <td valign="top" align="left">64 (88)</td>
+                <td valign="top" align="left">32 (89)</td>
+                <td valign="top" align="left">32 (86)</td>
+                <td valign="top" align="left">0.76</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">100% compliance with CLM
+                  (
+                  <italic>n</italic>&#x2009;=&#x2009;52)
+                </td>
+                <td valign="top" align="left">46 (89)</td>
+                <td valign="top" align="left">24 (86)</td>
+                <td valign="top" align="left">22 (92)</td>
+                <td valign="top" align="left">0.50</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Unhealthy
+                  dieting
+                  <sup>b</sup>
+                </td>
+                <td valign="top" align="left">59 (81)</td>
+                <td valign="top" align="left">26 (72)</td>
+                <td valign="top" align="left">33 (89)</td>
+                <td valign="top" align="left">0.76</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Current smoker</td>
+                <td valign="top" align="left">15 (21)</td>
+                <td valign="top" align="left">11 (31)</td>
+                <td valign="top" align="left">4 (11)</td>
+                <td valign="top" align="left">0.046
+                  <sup>a</sup>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row"
+                >Alcohol&#x2009;&gt;&#x2009;limits
+                  <sup>c</sup>
+                </td>
+                <td valign="top" align="left">20 (27)</td>
+                <td valign="top" align="left">11 (31)</td>
+                <td valign="top" align="left">9 (24)</td>
+                <td valign="top" align="left">0.55</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" scope="row">Sedentary
+                  lifestyle
+                  <sup>d</sup>
+                </td>
+                <td valign="top" align="left">16 (22)</td>
+                <td valign="top" align="left">7 (20)</td>
+                <td valign="top" align="left">9 (24)</td>
+                <td valign="top" align="left">0.66</td>
+              </tr>
+              <tr>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt"
+                    scope="row">BMI&#x2009;&#x2265;&#x2009;25</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt">43
+                  (59)</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt">21
+                  (58)</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt">22
+                  (60)</td>
+                <td valign="top" align="left" style="border-bottom: solid 0.50pt"
+                >0.92</td>
+              </tr>
+            </tbody>
+          </table>
+          <table-wrap-foot>
+            <p>Values are expressed as frequencies (%) or as
+              mean&#x2009;&#x00B1;&#x2009;standard deviations.&#x2028;Abbreviations:
+              AHM, antihypertensive medication; CLM, cholesterol lowering
+              medication.</p>
+            <fn id="BRB3-2019-12-0787-tfn2">
+              <label>
+                <sup>a</sup>
+              </label>
+              <p>Fisher&#x2019;s exact test.
+                <sup>b</sup> Less than 600 g of fruit and
+                vegetables per day, fish for dinner less than twice per week.
+                <sup>c</sup> More than 7 drinks per week in women/more than 14
+                drinks per week in men.
+                <sup>d</sup> Less than 30 min of moderate
+                physical activity per day.
+              </p>
+            </fn>
+            <p/>
+          </table-wrap-foot>
+        </table-wrap>
+        <p>Regarding vascular complications and death, we found 32 events in 22 patients
+          after a median of 65 months. Median time to first event was 26 months (IQR:
+          4&#x2013;49) with a median of 44 months (IQR: 11&#x2013;49) in the intervention
+          group and 19 months (IQR: 4&#x2013;37) in the control group
+          (
+          <italic>p</italic>&#x2009;=&#x2009;0.32). All in all, we found 11 events in
+          nine patients in the intervention group: two recurrent strokes, three cases of
+          TIA, and six patients died versus 21 events in 13 patients in the control group:
+          seven recurrent strokes, five cases of TIA, one MI, and seven patients died
+          (
+          <italic>p</italic>&#x2009;=&#x2009;0.49).
+        </p>
+      </sec>
+    </sec>
+    <sec id="BRB3-2019-12-0787-sec4" sec-type="discussion">
+      <label>4</label>
+      <title>DISCUSSION</title>
+      <p>In this randomized clinical trial, a larger proportion of patients in the
+        intervention group compared to controls had BP within the above-mentioned limits and
+        the study fulfilled the aim of the primary endpoint.</p>
+      <p>A systematic review of interventions aimed at modifiable risk factor control for
+        secondary prevention of stroke revealed improvement in achieving BP target.
+        <xref
+          ref-type="bibr" rid="BRB3-2019-12-0787-bib-0022">
+          <sup>22</sup>
+        </xref> However,
+        as opposed to our study the review showed no significant change in systolic og
+        diastolic BP.
+      </p>
+      <p>In a study of integrated care with five prearranged visits to patients&#x2019;
+        general practitioner versus usual care systolic BP at target set to 140 mm Hg was
+        found in 75% versus 58% at 12-month follow up.
+        <xref ref-type="bibr"
+                                                             rid="BRB3-2019-12-0787-bib-0019">
+          <sup>19</sup>
+        </xref> We set individual targets
+        for BP according to patients&#x2019; type of stroke, comorbidities and age. This is
+        well in line with recommendations given by European Society of Hypertension,
+        <xref
+          ref-type="bibr" rid="BRB3-2019-12-0787-bib-0023">
+          <sup>23</sup>
+        </xref> but as
+        stated by Boan et al., not quite in accordance with international stroke guidelines.
+        <xref ref-type="bibr" rid="BRB3-2019-12-0787-bib-0024">
+          <sup>24</sup>
+        </xref>
+      </p>
+      <p>In a study where patients with minor stroke were randomized to six clinic visits by a
+        pharmacist (intervention) or by a nurse (active control) aiming at treating both BP
+        and LDL-cholesterol to target, 43% of patients in the pharmacist-led clinic met
+        those two targets and so did 31% in the nurse-led clinic.
+        <xref ref-type="bibr"
+                                                                        rid="BRB3-2019-12-0787-bib-0025">
+          <sup>25</sup>
+        </xref> In our study this combined
+        endpoint was met in 22 (61%) of patients in the intervention group. Regarding BP in
+        control 80% of patients in the pharmacist led clinic had systolic BP in control
+        after six months versus 90% in the nurse led clinic. This is a far greater
+        proportion than the 69% in our study. However, almost two thirds of patients had a
+        baseline BP within the limits. The opposite was the case in our study with two
+        thirds presenting with elevated BP. Both studies show that a dedicated follow up
+        with stepwise escalation of preventive medication may be the way to reach the
+        targets of the two important risk factors for recurrent stroke. In both studies
+        five-six visits were needed, which is far beyond our usual treatment. However,
+        despite visits to the outpatient clinic as well as to the general practitioner the
+        proportion of patients with unchanged medication since discharge in the control
+        group illustrate the necessity of frequent visits to a dedicated preventive
+        facility. Considering the preventive effect of BP lowering, and - though
+        insignificant - the difference in time to first event as well as the smaller
+        proportion of events in the intervention group as found in our study, it may be well
+        worth the time and resources for patients, their relatives and society.
+      </p>
+      <sec id="BRB3-2019-12-0787-sec4.1">
+        <label>4.1</label>
+        <title>Strengths and limitations</title>
+        <p>Our study has some limitations. Most participants had a minor stroke and patients
+          had to be independent and without severe cognitive deficits, which is not
+          representative of a general stroke population. With only 73 participants caution
+          is called for in the drawing of conclusions from the results. Nonetheless, we
+          decided to reorganize the outpatient clinic of our stroke unit as of October
+          2014 implementing strategies of the present study.</p>
+        <p>The strength of the study is the individual target for BP taking into account the
+          diagnosis of stroke as well as important comorbidity as recommended by Boan et
+          al.
+          <xref ref-type="bibr" rid="BRB3-2019-12-0787-bib-0024">
+            <sup>24</sup>
+          </xref>
+          Five-year follow up on vascular complications and death is another important
+          advantage.
+        </p>
+      </sec>
+    </sec>
+    <sec id="BRB3-2019-12-0787-sec5" sec-type="conclusions">
+      <label>5</label>
+      <title>CONCLUSIONS</title>
+      <p>In conclusion, the feasibility study has demonstrated that timely follow up of stroke
+        patients in a dedicated preventive outpatient clinic may result in BP and
+        cholesterol treated to target in most patients. To some extent it may postpone time
+        to stroke recurrence, MI and death.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <title>ACKNOWLEDGMENTS</title>
+      <p>None.
+        <xref ref-type="bibr" rid="BRB3-2019-12-0787-bib-0021">
+          <sup>21</sup>
+        </xref>
+      </p>
+    </ack>
+    <fn-group>
+      <fn fn-type="conflict">
+        <p content-type="fn-title">CONFLICT OF INTEREST</p>
+        <p>None.</p>
+      </fn>
+    </fn-group>
+    <sec sec-type="data-availability">
+      <title>DATA AVAILABILITY</title>
+      <p>The data that support the findings of this study are not available due to national
+        privacy or ethical restrictions.</p>
+    </sec>
+  </back>
+</article>

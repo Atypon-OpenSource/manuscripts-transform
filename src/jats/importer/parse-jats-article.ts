@@ -122,7 +122,6 @@ export const parseJATSBody = (
   jatsBodyTransformations.ensureSection(body, createElement)
   jatsBodyTransformations.moveCaptionsToEnd(body)
   jatsBodyTransformations.fixTables(body, createElement)
-  jatsBodyTransformations.moveTableFooterToEnd(body)
 
   jatsBodyTransformations.createBody(doc, body, createElement)
   jatsBodyTransformations.createAbstracts(doc, body, createElement)
@@ -209,7 +208,7 @@ export const parseJATSArticle = (doc: Document): Model[] => {
     manuscript.articleType = type || 'other'
   }
 
-  if (references) {
+  if (references && references.items.size) {
     models.push(...createBibliographyModels(references))
   }
 
