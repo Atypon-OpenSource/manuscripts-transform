@@ -751,6 +751,7 @@ const encoders: NodeEncoderMap = {
     addressLine1: node.attrs.addressLine1,
     addressLine2: node.attrs.addressLine2,
     addressLine3: node.attrs.addressLine3,
+    department: node.attrs.department,
     postCode: node.attrs.postCode,
     country: node.attrs.country,
     county: node.attrs.county,
