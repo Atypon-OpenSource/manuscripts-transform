@@ -59,6 +59,7 @@ Map {
     "city": "",
     "country": "United Kingdom",
     "county": "",
+    "department": "Dept of Examples",
     "email": Object {
       "href": "mailto:",
       "text": "mail",
