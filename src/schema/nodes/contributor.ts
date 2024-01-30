@@ -55,7 +55,7 @@ export const contributor: NodeSpec = {
     dataTracked: { default: null },
     contents: { default: '' },
   },
-  group: 'block element',
+  group: 'block',
   toDOM: (node) => {
     const contributorNode = node as ContributorNode
     return [

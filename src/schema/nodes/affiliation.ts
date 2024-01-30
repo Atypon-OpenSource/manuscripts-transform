@@ -42,6 +42,7 @@ export interface AffiliationNode extends ManuscriptNode {
 }
 
 export const affiliation: NodeSpec = {
+  content: 'inline*',
   attrs: {
     id: { default: '' },
     institution: { default: '' },
@@ -62,7 +63,7 @@ export const affiliation: NodeSpec = {
     },
     dataTracked: { default: null },
   },
-  group: 'block element',
+  group: 'block',
   parseDOM: [
     {
       tag: 'div.affiliation',
