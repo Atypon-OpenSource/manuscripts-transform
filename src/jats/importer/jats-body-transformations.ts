@@ -366,15 +366,6 @@ export const jatsBodyTransformations = {
       }
     })
   },
-  moveTableFooterToEnd(body: Element) {
-    const footers = body.querySelectorAll('table-wrap-foot')
-
-    for (const footer of footers) {
-      if (footer.parentNode) {
-        footer.parentNode.appendChild(footer)
-      }
-    }
-  },
   moveFloatsGroupToBody(
     doc: Document,
     body: Element,
