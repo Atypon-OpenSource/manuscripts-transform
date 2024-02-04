@@ -39,6 +39,7 @@ import {
   ParagraphElement,
   QuoteElement,
   Section,
+  Supplement,
   Table,
   TableElement,
   TableElementFooter,
@@ -768,6 +769,14 @@ const encoders: NodeEncoderMap = {
     corresp: node.attrs.corresp,
     priority: node.attrs.priority,
   }),
+  supplement: (node): Partial<Supplement> => ({
+    href: node.attrs.href,
+    title: node.attrs.title,
+    MIME:
+      node.attrs.mimeType && node.attrs.mimeSubType
+        ? [node.attrs.mimeType, node.attrs.mimeSubType].join('/')
+        : '',
+  }),
 }
 
 const modelData = (
@@ -829,6 +838,7 @@ const containerTypes = [
   schema.nodes.contributors,
   schema.nodes.affiliations,
   schema.nodes.keywords,
+  schema.nodes.supplements,
   schema.nodes.abstracts,
   schema.nodes.body,
   schema.nodes.backmatter,
