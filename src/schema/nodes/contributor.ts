@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Affiliation, BibliographicName } from '@manuscripts/json-schema'
+import { BibliographicName } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
@@ -21,13 +21,15 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   id: string
   role: string
-  affiliations: Affiliation[]
+  affiliations: string[]
   bibliographicName: BibliographicName
   userID: string
+  email: string
   invitationID: string
   isCorresponding: boolean
   ORCIDIdentifier: string
   priority: number
+  isJointContributor: boolean
 }
 
 export interface ContributorNode extends ManuscriptNode {
@@ -39,6 +41,7 @@ export const contributor: NodeSpec = {
   attrs: {
     id: { default: '' },
     role: { default: '' },
+    email: { default: '' },
     affiliations: { default: [] },
     footnote: { default: undefined },
     corresp: { default: undefined },
@@ -46,12 +49,13 @@ export const contributor: NodeSpec = {
     userID: { default: undefined },
     invitationID: { default: undefined },
     isCorresponding: { default: undefined },
+    isJointContributor: { default: undefined },
     ORCIDIdentifier: { default: undefined },
     priority: { default: undefined },
     dataTracked: { default: null },
     contents: { default: '' },
   },
-  group: 'block element',
+  group: 'block',
   toDOM: (node) => {
     const contributorNode = node as ContributorNode
     return [
