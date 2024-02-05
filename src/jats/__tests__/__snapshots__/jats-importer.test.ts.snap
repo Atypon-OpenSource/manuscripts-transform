@@ -3883,13 +3883,6 @@ Array [
     "objectType": "MPCorresponding",
   },
   Object {
-    "MIME": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    "_id": "MPSupplement:test",
-    "href": "attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312",
-    "objectType": "MPSupplement",
-    "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
-  },
-  Object {
     "_id": "MPKeywordsElement:test",
     "contents": "<div></div>",
     "elementType": "div",
@@ -3929,6 +3922,14 @@ Array [
     "containedGroup": "MPKeywordGroup:test",
     "name": "randomized controlled trial",
     "objectType": "MPKeyword",
+  },
+  Object {
+    "MIME": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "_id": "MPSupplement:test",
+    "href": "attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312",
+    "objectType": "MPSupplement",
+    "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)
+          ",
   },
   Object {
     "_id": "MPSection:test",
