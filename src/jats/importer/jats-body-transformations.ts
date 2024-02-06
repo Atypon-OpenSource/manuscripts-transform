@@ -366,15 +366,6 @@ export const jatsBodyTransformations = {
       }
     })
   },
-  moveTableFooterToEnd(body: Element) {
-    const footers = body.querySelectorAll('table-wrap-foot')
-
-    for (const footer of footers) {
-      if (footer.parentNode) {
-        footer.parentNode.appendChild(footer)
-      }
-    }
-  },
   moveFloatsGroupToBody(
     doc: Document,
     body: Element,
@@ -403,6 +394,25 @@ export const jatsBodyTransformations = {
       // Using the first kwd-group since for the moment we only support single kwd-group
       keywordsElement.append(keywordGroups[0])
       section.append(keywordsElement)
+      body.prepend(section)
+    }
+  },
+  createSuppleMaterials(
+    document: Document,
+    body: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const suppleMaterials = [
+      ...document.querySelectorAll('article-meta > supplementary-material'),
+    ]
+    if (suppleMaterials.length > 0) {
+      const section = createElement('sec')
+      section.setAttribute('sec-type', 'supplementary-material')
+      const title = createElement('title')
+      title.textContent = 'supplementary-material'
+      section.append(title)
+      // Using the first kwd-group since for the moment we only support single kwd-group
+      section.append(...suppleMaterials)
       body.prepend(section)
     }
   },

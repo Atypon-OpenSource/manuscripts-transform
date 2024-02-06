@@ -82,10 +82,6 @@ export const parseJATSFront = (doc: Document, front: Element) => {
     correspondingIDs
   )
 
-  const supplements = jatsFrontParser.parseSupplements([
-    ...front.querySelectorAll('article-meta > supplementary-material'),
-  ])
-
   const history = jatsFrontParser.parseDates(
     front.querySelector('article-meta > history')
   )
@@ -108,7 +104,6 @@ export const parseJATSFront = (doc: Document, front: Element) => {
     ...authors,
     ...affiliations,
     ...correspondingList,
-    ...supplements,
   ])
 }
 
@@ -122,11 +117,11 @@ export const parseJATSBody = (
   jatsBodyTransformations.ensureSection(body, createElement)
   jatsBodyTransformations.moveCaptionsToEnd(body)
   jatsBodyTransformations.fixTables(body, createElement)
-  jatsBodyTransformations.moveTableFooterToEnd(body)
 
   jatsBodyTransformations.createBody(doc, body, createElement)
   jatsBodyTransformations.createAbstracts(doc, body, createElement)
   jatsBodyTransformations.createBackmatter(doc, body, createElement)
+  jatsBodyTransformations.createSuppleMaterials(doc, body, createElement)
   jatsBodyTransformations.createKeywords(doc, body, createElement)
 
   const node = jatsBodyDOMParser.parse(body).firstChild
@@ -209,7 +204,7 @@ export const parseJATSArticle = (doc: Document): Model[] => {
     manuscript.articleType = type || 'other'
   }
 
-  if (references) {
+  if (references && references.items.size) {
     models.push(...createBibliographyModels(references))
   }
 

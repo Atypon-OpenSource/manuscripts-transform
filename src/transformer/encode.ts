@@ -39,6 +39,7 @@ import {
   ParagraphElement,
   QuoteElement,
   Section,
+  Supplement,
   Table,
   TableElement,
   TableElementFooter,
@@ -751,8 +752,11 @@ const encoders: NodeEncoderMap = {
     addressLine1: node.attrs.addressLine1,
     addressLine2: node.attrs.addressLine2,
     addressLine3: node.attrs.addressLine3,
+    department: node.attrs.department,
     postCode: node.attrs.postCode,
     country: node.attrs.country,
+    county: node.attrs.county,
+    city: node.attrs.city,
     email: node.attrs.email,
     priority: node.attrs.priority,
   }),
@@ -763,10 +767,19 @@ const encoders: NodeEncoderMap = {
     userID: node.attrs.userID,
     invitationID: node.attrs.invitationID,
     isCorresponding: node.attrs.isCorresponding,
+    isJointContributor: node.attrs.isJointContributor,
     ORCIDIdentifier: node.attrs.ORCIDIdentifier,
     footnote: node.attrs.footnote,
     corresp: node.attrs.corresp,
     priority: node.attrs.priority,
+  }),
+  supplement: (node): Partial<Supplement> => ({
+    href: node.attrs.href,
+    title: node.attrs.title,
+    MIME:
+      node.attrs.mimeType && node.attrs.mimeSubType
+        ? [node.attrs.mimeType, node.attrs.mimeSubType].join('/')
+        : '',
   }),
 }
 
@@ -829,6 +842,7 @@ const containerTypes = [
   schema.nodes.contributors,
   schema.nodes.affiliations,
   schema.nodes.keywords,
+  schema.nodes.supplements,
   schema.nodes.abstracts,
   schema.nodes.body,
   schema.nodes.backmatter,
