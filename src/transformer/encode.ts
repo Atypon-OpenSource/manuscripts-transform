@@ -175,21 +175,6 @@ const buildTableSection = (
   return section
 }
 
-function buildTableColGroup(cols: HTMLTableColElement[]) {
-  if (cols.length === 0) {
-    return undefined
-  }
-  const colgroup = document.createElement('colgroup')
-  for (const inputCol of cols) {
-    const col = document.createElement('col')
-    for (const attribute of inputCol.attributes) {
-      col.setAttribute(attribute.name, attribute.value)
-    }
-    colgroup.appendChild(inputCol)
-  }
-  return colgroup
-}
-
 const tableContents = (
   node: ManuscriptNode,
   parent: TableElementNode
@@ -197,11 +182,6 @@ const tableContents = (
   const input = serializer.serializeNode(node) as HTMLTableElement
 
   const output = document.createElement('table')
-
-  const colgroup = buildTableColGroup(Array.from(input.querySelectorAll('col')))
-  if (colgroup) {
-    output.appendChild(colgroup)
-  }
 
   output.setAttribute('id', parent.attrs.id)
 
@@ -855,7 +835,6 @@ const placeholderTypes = [
 
 export const encode = (node: ManuscriptNode): Map<string, Model> => {
   const models: Map<string, Model> = new Map()
-  console.log('encoding...')
   const priority: PrioritizedValue = {
     value: 1,
   }

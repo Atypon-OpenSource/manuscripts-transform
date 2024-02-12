@@ -80,7 +80,7 @@ import { sectionLabel } from './nodes/section_label'
 import { sectionTitle } from './nodes/section_title'
 import { supplement } from './nodes/supplement'
 import { supplements } from './nodes/supplements'
-import { table, tableBody } from './nodes/table'
+import { table } from './nodes/table'
 import { tableCol, tableColGroup } from './nodes/table_col'
 import { tableElement } from './nodes/table_element'
 import { tableElementFooter } from './nodes/table_element_footer'
@@ -213,7 +213,6 @@ export const schema = new Schema<Nodes, Marks>({
     section_title: sectionTitle,
     section_title_plain: sectionTitle, // used for non-editable titles
     table,
-    table_body: tableBody,
     table_cell: tableCell,
     table_element: tableElement,
     table_row: tableRow,

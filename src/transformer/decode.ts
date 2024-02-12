@@ -756,7 +756,6 @@ export class Decoder {
       ) as TableNode
     },
     [ObjectTypes.TableElement]: (data) => {
-      console.log('tableElement')
       const model = data as TableElement
       const table = this.createTable(model)
       const tableElementFooter = this.createTableElementFooter(model)

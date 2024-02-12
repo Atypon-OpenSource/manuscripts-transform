@@ -68,17 +68,3 @@ export const table: TableNodeSpec = {
     ]
   },
 }
-
-export const tableBody: TableNodeSpec = {
-  content: 'table_row+',
-  group: 'block',
-  tableRole: 'table',
-  parseDOM: [
-    {
-      tag: 'tbody',
-    },
-  ],
-  toDOM() {
-    return ['tbody', 0]
-  },
-}
