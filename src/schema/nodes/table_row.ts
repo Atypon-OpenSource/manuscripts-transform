@@ -171,7 +171,8 @@ export const tableCell: TableNodeSpec = {
     return [tag, attrs, 0]
   },
 }
-export const tableHeader: TableNodeSpec = tableCell && {
+export const tableHeader: TableNodeSpec = {
+  ...tableCell,
   tableRole: 'header_cell',
   parseDOM: [{ tag: 'th', getAttrs: getCellAttrs }],
 }
