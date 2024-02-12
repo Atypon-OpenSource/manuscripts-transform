@@ -27,9 +27,8 @@ export interface TableNode extends ManuscriptNode {
     comments?: CommentNode[]
   }
 }
-
 export const table: TableNodeSpec = {
-  content: 'table_colgroup? table_body',
+  content: 'table_row+',
   tableRole: 'table',
   isolating: true,
   group: 'block',
