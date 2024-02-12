@@ -39,10 +39,12 @@ Object {
             "contents": "",
             "corresp": undefined,
             "dataTracked": null,
+            "email": "user@example.com",
             "footnote": undefined,
             "id": "MPSection:cont",
             "invitationID": "",
             "isCorresponding": undefined,
+            "isJointContributor": true,
             "priority": undefined,
             "role": "author",
             "userID": "",
@@ -68,10 +70,12 @@ Object {
             "contents": "",
             "corresp": undefined,
             "dataTracked": null,
+            "email": "author@example.com",
             "footnote": undefined,
             "id": "MPSection:cont",
             "invitationID": "",
             "isCorresponding": 1,
+            "isJointContributor": undefined,
             "priority": undefined,
             "role": "author",
             "userID": "",
@@ -97,7 +101,9 @@ Object {
             "addressLine1": "",
             "addressLine2": "",
             "addressLine3": "",
+            "city": "",
             "country": "United Kingdom",
+            "county": "",
             "dataTracked": null,
             "department": "Dept of Examples",
             "email": Object {
@@ -150,6 +156,27 @@ Object {
         },
       ],
       "type": "keywords",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "SupplementaryMaterials",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+      ],
+      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -2108,10 +2135,12 @@ Object {
             "contents": "",
             "corresp": undefined,
             "dataTracked": null,
+            "email": "user@example.com",
             "footnote": undefined,
             "id": "MPSection:cont",
             "invitationID": "",
             "isCorresponding": undefined,
+            "isJointContributor": true,
             "priority": undefined,
             "role": "author",
             "userID": "",
@@ -2137,10 +2166,12 @@ Object {
             "contents": "",
             "corresp": undefined,
             "dataTracked": null,
+            "email": "author@example.com",
             "footnote": undefined,
             "id": "MPSection:cont",
             "invitationID": "",
             "isCorresponding": 1,
+            "isJointContributor": undefined,
             "priority": undefined,
             "role": "author",
             "userID": "",
@@ -2166,7 +2197,9 @@ Object {
             "addressLine1": "",
             "addressLine2": "",
             "addressLine3": "",
+            "city": "",
             "country": "United Kingdom",
+            "county": "",
             "dataTracked": null,
             "department": "Dept of Examples",
             "email": Object {
@@ -2219,6 +2252,27 @@ Object {
         },
       ],
       "type": "keywords",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "SupplementaryMaterials",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+      ],
+      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -3918,10 +3972,12 @@ Object {
             "contents": "",
             "corresp": undefined,
             "dataTracked": null,
+            "email": "user@example.com",
             "footnote": undefined,
             "id": "MPSection:cont",
             "invitationID": "",
             "isCorresponding": undefined,
+            "isJointContributor": true,
             "priority": undefined,
             "role": "author",
             "userID": "",
@@ -3947,10 +4003,12 @@ Object {
             "contents": "",
             "corresp": undefined,
             "dataTracked": null,
+            "email": "author@example.com",
             "footnote": undefined,
             "id": "MPSection:cont",
             "invitationID": "",
             "isCorresponding": 1,
+            "isJointContributor": undefined,
             "priority": undefined,
             "role": "author",
             "userID": "",
@@ -3976,7 +4034,9 @@ Object {
             "addressLine1": "",
             "addressLine2": "",
             "addressLine3": "",
+            "city": "",
             "country": "United Kingdom",
+            "county": "",
             "dataTracked": null,
             "department": "Dept of Examples",
             "email": Object {
@@ -4029,6 +4089,27 @@ Object {
         },
       ],
       "type": "keywords",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "SupplementaryMaterials",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+      ],
+      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -6012,6 +6093,27 @@ Object {
     },
     Object {
       "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "SupplementaryMaterials",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+      ],
+      "type": "supplements",
+    },
+    Object {
+      "attrs": Object {
         "id": "",
       },
       "type": "abstracts",
@@ -6194,6 +6296,27 @@ Object {
         },
       ],
       "type": "keywords",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "SupplementaryMaterials",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+      ],
+      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -6526,6 +6649,27 @@ Object {
     },
     Object {
       "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "SupplementaryMaterials",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+      ],
+      "type": "supplements",
+    },
+    Object {
+      "attrs": Object {
         "id": "",
       },
       "type": "abstracts",
@@ -6640,6 +6784,27 @@ Object {
         },
       ],
       "type": "keywords",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "SupplementaryMaterials",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+      ],
+      "type": "supplements",
     },
     Object {
       "attrs": Object {

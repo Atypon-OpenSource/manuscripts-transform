@@ -39,6 +39,7 @@ import {
   ParagraphElement,
   QuoteElement,
   Section,
+  Supplement,
   Table,
   TableElement,
   TableElementFooter,
@@ -86,6 +87,8 @@ import {
   schema,
   SectionNode,
   SectionTitleNode,
+  SupplementNode,
+  SupplementsNode,
   TableElementFooterNode,
   TableElementNode,
   TableNode,
@@ -159,6 +162,9 @@ const getContributors = (modelMap: Map<string, Model>) =>
 
 const getKeywordElements = (modelMap: Map<string, Model>) =>
   getModelsByType<KeywordsElement>(modelMap, ObjectTypes.KeywordsElement)
+
+const getSupplements = (modelMap: Map<string, Model>) =>
+  getModelsByType<KeywordsElement>(modelMap, ObjectTypes.Supplement)
 
 const getKeywordGroups = (modelMap: Map<string, Model>) =>
   getModelsByType<KeywordGroup>(modelMap, ObjectTypes.KeywordGroup)
@@ -815,6 +821,8 @@ export class Decoder {
           addressLine3: model.addressLine3,
           postCode: model.postCode,
           country: model.country,
+          county: model.county,
+          city: model.city,
           email: model.email,
           department: model.department,
           priority: model.priority,
@@ -830,6 +838,8 @@ export class Decoder {
           id: model._id,
           role: model.role,
           affiliations: model.affiliations,
+          email: model.email,
+          isJointContributor: model.isJointContributor,
           bibliographicName: model.bibliographicName,
           userID: model.userID,
           invitationID: model.invitationID,
@@ -841,6 +851,17 @@ export class Decoder {
         },
         schema.text('_') // placeholder to ensure correct track-changes functioning
       ) as ContributorNode
+    },
+    [ObjectTypes.Supplement]: (data) => {
+      const model = data as Supplement
+
+      return schema.nodes.supplement.create({
+        id: model._id,
+        href: model.href,
+        mimeType: model.MIME?.split('/')[0],
+        mimeSubType: model.MIME?.split('/')[1],
+        title: model.title,
+      }) as SupplementNode
     },
   }
 
@@ -880,6 +901,20 @@ export class Decoder {
       schema.nodes.section_title.create({}, schema.text('Keywords')),
       ...elements,
     ]) as KeywordsNode
+  }
+
+  private createSupplementsNode() {
+    const elements = getSupplements(this.modelMap)
+      .map((e) => this.decode(e) as SupplementNode)
+      .filter(Boolean)
+
+    return schema.nodes.supplements.createAndFill({}, [
+      schema.nodes.section_title.create(
+        {},
+        schema.text('SupplementaryMaterials')
+      ),
+      ...elements,
+    ]) as SupplementsNode
   }
 
   private createCommentsNode() {
@@ -973,6 +1008,7 @@ export class Decoder {
     const contributors = this.createContributorsNode()
     const affiliations = this.createAffiliationsNode()
     const keywords = this.createKeywordsNode()
+    const suppl = this.createSupplementsNode()
     const { abstracts, body, backmatter } = this.createContentSections()
     const comments = this.createCommentsNode()
     const contents: ManuscriptNode[] = [
@@ -980,6 +1016,7 @@ export class Decoder {
       contributors,
       affiliations,
       keywords,
+      suppl,
       abstracts,
       body,
       backmatter,

@@ -41,10 +41,12 @@ Object {
               "contents": "",
               "corresp": undefined,
               "dataTracked": null,
+              "email": "smeg@caydenberg.io",
               "footnote": undefined,
               "id": "MPSection:cont",
               "invitationID": undefined,
               "isCorresponding": true,
+              "isJointContributor": false,
               "priority": 0,
               "role": "author",
               "userID": "User_ydenberg@gmail.com",
@@ -70,7 +72,9 @@ Object {
               "addressLine1": "20A Charles River Rd",
               "addressLine2": "",
               "addressLine3": "",
+              "city": "Waltham",
               "country": "United States",
+              "county": "Massachusetts",
               "dataTracked": null,
               "department": "Department of Cunning",
               "email": Object {
@@ -123,6 +127,27 @@ Object {
           },
         ],
         "type": "keywords",
+      },
+      Object {
+        "attrs": Object {
+          "dataTracked": null,
+          "id": "",
+        },
+        "content": Array [
+          Object {
+            "attrs": Object {
+              "dataTracked": null,
+            },
+            "content": Array [
+              Object {
+                "text": "SupplementaryMaterials",
+                "type": "text",
+              },
+            ],
+            "type": "section_title",
+          },
+        ],
+        "type": "supplements",
       },
       Object {
         "attrs": Object {
@@ -1214,10 +1239,12 @@ Object {
               "contents": "",
               "corresp": undefined,
               "dataTracked": null,
+              "email": "smeg@caydenberg.io",
               "footnote": undefined,
               "id": "MPSection:contributor",
               "invitationID": undefined,
               "isCorresponding": true,
+              "isJointContributor": false,
               "priority": 0,
               "role": "author",
               "userID": "User_ydenberg@gmail.com",
@@ -1243,10 +1270,12 @@ Object {
               "contents": "",
               "corresp": undefined,
               "dataTracked": null,
+              "email": "",
               "footnote": undefined,
               "id": "MPSection:contributor",
               "invitationID": undefined,
               "isCorresponding": undefined,
+              "isJointContributor": undefined,
               "priority": 0,
               "role": "author",
               "userID": "User_ydenberg@gmail.com",
@@ -1272,7 +1301,9 @@ Object {
               "addressLine1": "20A Charles River Rd",
               "addressLine2": "",
               "addressLine3": "",
+              "city": "Waltham",
               "country": "United States",
+              "county": "Massachusetts",
               "dataTracked": null,
               "department": "Department of Cunning",
               "email": Object {
@@ -1325,6 +1356,27 @@ Object {
           },
         ],
         "type": "keywords",
+      },
+      Object {
+        "attrs": Object {
+          "dataTracked": null,
+          "id": "",
+        },
+        "content": Array [
+          Object {
+            "attrs": Object {
+              "dataTracked": null,
+            },
+            "content": Array [
+              Object {
+                "text": "SupplementaryMaterials",
+                "type": "text",
+              },
+            ],
+            "type": "section_title",
+          },
+        ],
+        "type": "supplements",
       },
       Object {
         "attrs": Object {

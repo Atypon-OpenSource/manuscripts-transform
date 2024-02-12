@@ -938,6 +938,8 @@ export class JATSExporter {
       body: () => ['body', 0],
       abstracts: () => ['abstract', 0],
       backmatter: () => ['backmatter', 0],
+      supplement: () => '',
+      supplements: () => '',
       bibliography_section: (node) => [
         'ref-list',
         { id: normalizeID(node.attrs.id) },

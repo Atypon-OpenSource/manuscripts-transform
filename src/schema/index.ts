@@ -78,6 +78,8 @@ import { pullquoteElement } from './nodes/pullquote_element'
 import { section } from './nodes/section'
 import { sectionLabel } from './nodes/section_label'
 import { sectionTitle } from './nodes/section_title'
+import { supplement } from './nodes/supplement'
+import { supplements } from './nodes/supplements'
 import { table, tableBody } from './nodes/table'
 import { tableCol, tableColGroup } from './nodes/table_col'
 import { tableElement } from './nodes/table_element'
@@ -143,6 +145,8 @@ export * from './nodes/table_element_footer'
 export * from './nodes/title'
 export * from './nodes/affiliations'
 export * from './nodes/contributors'
+export * from './nodes/supplement'
+export * from './nodes/supplements'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -223,5 +227,7 @@ export const schema = new Schema<Nodes, Marks>({
     title,
     affiliations,
     contributors,
+    supplements,
+    supplement,
   },
 })

@@ -31,6 +31,8 @@ interface Attrs {
   addressLine3: string
   postCode: string
   country: string
+  county: string
+  city: string
   email: Email
   priority: number
 }
@@ -40,6 +42,7 @@ export interface AffiliationNode extends ManuscriptNode {
 }
 
 export const affiliation: NodeSpec = {
+  content: 'inline*',
   attrs: {
     id: { default: '' },
     institution: { default: '' },
@@ -49,6 +52,8 @@ export const affiliation: NodeSpec = {
     addressLine3: { default: '' },
     postCode: { default: '' },
     country: { default: '' },
+    county: { default: '' },
+    city: { default: '' },
     priority: { default: undefined },
     email: {
       default: {
@@ -58,7 +63,7 @@ export const affiliation: NodeSpec = {
     },
     dataTracked: { default: null },
   },
-  group: 'block element',
+  group: 'block',
   parseDOM: [
     {
       tag: 'div.affiliation',

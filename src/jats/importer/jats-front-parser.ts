@@ -24,7 +24,6 @@ import {
   buildCorresp,
   buildFootnote,
   buildJournal,
-  buildSupplementaryMaterial,
   buildTitles,
 } from '../../transformer'
 import { parseJournalMeta } from './jats-journal-meta-parser'
@@ -166,24 +165,6 @@ export const jatsFrontParser = {
       }
     }
     return history
-  },
-  parseSupplements(elements: Element[] | null) {
-    if (!elements?.length) {
-      return []
-    }
-    const supplements = []
-    for (const element of elements) {
-      const title = getTrimmedTextContent(element, 'caption > title') ?? ''
-      const href = element.getAttributeNS(XLINK_NAMESPACE, 'href') ?? ''
-      const supplement = buildSupplementaryMaterial(title, href)
-      const mimeType = element.getAttribute('mimetype') ?? ''
-      const mimeSubtype = element.getAttribute('mime-subtype') ?? ''
-      if (mimeType && mimeSubtype) {
-        supplement.MIME = [mimeType, mimeSubtype].join('/')
-      }
-      supplements.push(supplement)
-    }
-    return supplements
   },
   parseAffiliations(elements: Element[]) {
     const affiliationIDs = new Map<string, string>()
