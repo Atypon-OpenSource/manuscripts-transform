@@ -1253,7 +1253,6 @@ export class JATSExporter {
         element.setAttribute('position', 'anchor')
         return element
       },
-      table_body: () => ['tbody', 0],
       table_cell: (node) => [
         node.attrs.celltype,
         {
