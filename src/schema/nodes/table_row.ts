@@ -60,7 +60,7 @@ export interface TableRowNode extends ManuscriptNode {
 }
 
 export const tableRow: TableNodeSpec = {
-  content: 'table_cell+',
+  content: '(table_cell | table_header)*',
   tableRole: 'row',
   attrs: {
     placeholder: { default: '' },
@@ -120,10 +120,74 @@ export const tableCell: TableNodeSpec = {
   },
   tableRole: 'cell',
   isolating: true,
-  parseDOM: [
-    { tag: 'td', getAttrs: getCellAttrs },
-    { tag: 'th', getAttrs: getCellAttrs },
-  ],
+  parseDOM: [{ tag: 'td', getAttrs: getCellAttrs }],
+  toDOM: (node) => {
+    const tableCellNode = node as TableCellNode
+
+    const attrs: { [attr: string]: string } = {}
+    const tag = tableCellNode.attrs.celltype
+
+    if (tableCellNode.attrs.colspan && tableCellNode.attrs.colspan !== 1) {
+      attrs.colspan = String(tableCellNode.attrs.colspan)
+    }
+
+    if (tableCellNode.attrs.rowspan && tableCellNode.attrs.rowspan !== 1) {
+      attrs.rowspan = String(tableCellNode.attrs.rowspan)
+    }
+
+    if (tableCellNode.attrs.colwidth) {
+      attrs['data-colwidth'] = tableCellNode.attrs.colwidth.join(',')
+    }
+
+    if (tableCellNode.attrs.placeholder) {
+      attrs['data-placeholder-text'] = tableCellNode.attrs.placeholder
+    }
+
+    if (!tableCellNode.textContent) {
+      attrs.class = 'placeholder'
+    }
+
+    const styleString = serializeTableCellStyles(tableCellNode.attrs.styles)
+    if (styleString) {
+      attrs.style = styleString
+    }
+
+    if (tableCellNode.attrs.valign) {
+      attrs.valign = tableCellNode.attrs.valign
+    }
+
+    if (tableCellNode.attrs.align) {
+      attrs.align = tableCellNode.attrs.align
+    }
+
+    if (tableCellNode.attrs.scope) {
+      attrs.scope = tableCellNode.attrs.scope
+    }
+
+    if (tableCellNode.attrs.style) {
+      attrs.style = tableCellNode.attrs.style
+    }
+
+    return [tag, attrs, 0]
+  },
+}
+export const tableHeader: TableNodeSpec = {
+  content: 'inline*',
+  attrs: {
+    celltype: { default: 'th' },
+    colspan: { default: 1 },
+    rowspan: { default: 1 },
+    colwidth: { default: null },
+    placeholder: { default: 'Data' }, // TODO: depends on cell type and position
+    styles: { default: {} },
+    valign: { default: null },
+    align: { default: null },
+    scope: { default: null },
+    style: { default: null },
+  },
+  tableRole: 'header_cell',
+  isolating: true,
+  parseDOM: [{ tag: 'th', getAttrs: getCellAttrs }],
   toDOM: (node) => {
     const tableCellNode = node as TableCellNode
 

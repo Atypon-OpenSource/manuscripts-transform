@@ -646,7 +646,7 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'th',
-    node: 'table_cell',
+    node: 'table_header',
     getAttrs: (node) => {
       const element = node as HTMLElement
       const colspan = element.getAttribute('colspan')

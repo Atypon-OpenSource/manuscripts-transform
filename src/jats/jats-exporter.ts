@@ -923,6 +923,18 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
+      table_header: (node) => [
+        node.attrs.celltype,
+        {
+          valign: node.attrs.valign,
+          align: node.attrs.align,
+          scope: node.attrs.scope,
+          style: node.attrs.style,
+          ...(node.attrs.rowspan > 1 && { rowspan: node.attrs.rowspan }),
+          ...(node.attrs.colspan > 1 && { colspan: node.attrs.colspan }),
+        },
+        0,
+      ],
       title: () => '',
       affiliations: () => '',
       contributors: () => '',

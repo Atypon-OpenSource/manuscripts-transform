@@ -84,7 +84,7 @@ import { table, tableBody } from './nodes/table'
 import { tableCol, tableColGroup } from './nodes/table_col'
 import { tableElement } from './nodes/table_element'
 import { tableElementFooter } from './nodes/table_element_footer'
-import { tableCell, tableRow } from './nodes/table_row'
+import { tableCell, tableHeader, tableRow } from './nodes/table_row'
 import { text } from './nodes/text'
 import { title } from './nodes/title'
 import { tocElement } from './nodes/toc_element'
@@ -230,5 +230,6 @@ export const schema = new Schema<Nodes, Marks>({
     contributors,
     supplements,
     supplement,
+    table_header: tableHeader,
   },
 })

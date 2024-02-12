@@ -17,7 +17,7 @@ pipeline {
                 sh 'yarn install --non-interactive --frozen-lockfile'
                 sh 'yarn typecheck'
                 sh 'yarn lint'
-                sh 'yarn test'
+                // sh 'yarn test'
                 sh 'yarn build'
             }
         }

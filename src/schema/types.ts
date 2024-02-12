@@ -114,6 +114,7 @@ export type Nodes =
   | 'contributors'
   | 'supplements'
   | 'supplement'
+  | 'table_header'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

@@ -855,7 +855,7 @@ const placeholderTypes = [
 
 export const encode = (node: ManuscriptNode): Map<string, Model> => {
   const models: Map<string, Model> = new Map()
-
+  console.log('encoding...')
   const priority: PrioritizedValue = {
     value: 1,
   }
