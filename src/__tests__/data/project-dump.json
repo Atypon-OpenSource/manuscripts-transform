@@ -193,6 +193,7 @@
       "containedObjectID": "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
       "label": "Equation 1",
       "createdAt": 1538472504,
+      "elementType": "div",
       "objectType": "MPEquationElement"
     },
     {

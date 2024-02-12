@@ -559,6 +559,7 @@ const encoders: NodeEncoderMap = {
   }),
   equation_element: (node): Partial<EquationElement> => ({
     containedObjectID: attributeOfNodeType(node, 'equation', 'id'),
+    elementType: 'div',
     label: node.attrs.label,
   }),
   figure: (node): Partial<Figure> => ({

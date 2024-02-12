@@ -970,6 +970,7 @@ Array [
   Object {
     "_id": "MPEquationElement:test",
     "containedObjectID": "MPEquation:test",
+    "elementType": "div",
     "label": "",
     "objectType": "MPEquationElement",
   },
@@ -5253,6 +5254,7 @@ Array [
   Object {
     "_id": "MPEquationElement:test",
     "containedObjectID": "eq1",
+    "elementType": "div",
     "label": "(1)",
     "objectType": "MPEquationElement",
   },
@@ -5311,6 +5313,7 @@ Array [
   Object {
     "_id": "MPEquationElement:test",
     "containedObjectID": "eq2",
+    "elementType": "div",
     "label": "(2)",
     "objectType": "MPEquationElement",
   },
@@ -5415,6 +5418,7 @@ Array [
   Object {
     "_id": "MPEquationElement:test",
     "containedObjectID": "eq3",
+    "elementType": "div",
     "label": "(3)",
     "objectType": "MPEquationElement",
   },
@@ -5690,6 +5694,7 @@ Array [
   Object {
     "_id": "MPEquationElement:test",
     "containedObjectID": "eq4",
+    "elementType": "div",
     "label": "(4)",
     "objectType": "MPEquationElement",
   },
@@ -5744,6 +5749,7 @@ Array [
   Object {
     "_id": "MPEquationElement:test",
     "containedObjectID": "eq5",
+    "elementType": "div",
     "label": "(5)",
     "objectType": "MPEquationElement",
   },
@@ -8624,6 +8630,7 @@ Array [
   Object {
     "_id": "MPEquationElement:test",
     "containedObjectID": "MPEquation:test",
+    "elementType": "div",
     "label": "",
     "objectType": "MPEquationElement",
   },

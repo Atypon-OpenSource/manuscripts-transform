@@ -434,6 +434,7 @@ Map {
   "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1" => Object {
     "_id": "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1",
     "containedObjectID": "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
+    "elementType": "div",
     "label": "Equation 1",
     "objectType": "MPEquationElement",
   },
