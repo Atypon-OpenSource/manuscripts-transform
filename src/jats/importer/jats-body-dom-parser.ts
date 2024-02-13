@@ -601,10 +601,6 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'tbody',
-    skip: true,
-  },
-  {
     tag: 'tfoot',
     skip: true,
   },

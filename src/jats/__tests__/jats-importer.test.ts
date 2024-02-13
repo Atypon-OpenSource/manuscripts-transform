@@ -26,7 +26,7 @@ describe('JATS importer', () => {
   })
 
   test('parses JATS AuthorQueries example to Manuscripts models', async () => {
-    const jats = await readAndParseFixture('jats-document.xml')
+    const jats = await readAndParseFixture('jats-import.xml')
     const models = parseJATSArticle(jats)
     expect(normalizeIDs(normalizeTimestamps(models))).toMatchSnapshot()
   })

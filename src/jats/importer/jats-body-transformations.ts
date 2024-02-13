@@ -333,24 +333,29 @@ export const jatsBodyTransformations = {
   fixTables(body: Element, createElement: (tagName: string) => HTMLElement) {
     const tables = body.querySelectorAll('table-wrap > table')
     tables.forEach((table) => {
-      // Ensures that tables have a header and footer row
+      const colgroup = table.querySelector('colgroup')
+      const cols = table.querySelectorAll('col')
+      if (!colgroup && table.firstChild && cols.length > 0) {
+        const colgroup = createElement('colgroup')
+        for (const col of cols) {
+          colgroup.appendChild(col)
+        }
+        table.parentNode?.insertBefore(colgroup, table)
+      }
+      const rows = table.querySelectorAll('tr')
+      for (const row of rows) {
+        table.appendChild(row)
+      }
+
+      // Remove the thead and tbody elements
+      const thead = table.querySelector('thead')
+      if (thead) {
+        table.removeChild(thead)
+      }
+
       const tbody = table.querySelector('tbody')
       if (tbody) {
-        // if there are no table header rows, add an extra row to the start of the table body
-        const headerRow = table.querySelector('thead > tr')
-
-        if (!headerRow) {
-          const tr = createElement('tr')
-          tbody.insertBefore(tr, tbody.firstElementChild)
-        }
-
-        // if there are no table footer rows, add an extra row to the end of the table body
-        const footerRow = table.querySelector('tfoot > tr')
-
-        if (!footerRow) {
-          const tr = createElement('tr')
-          tbody.appendChild(tr)
-        }
+        table.removeChild(tbody)
       }
     })
   },

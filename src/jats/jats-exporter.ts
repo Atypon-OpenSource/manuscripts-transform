@@ -924,7 +924,7 @@ export class JATSExporter {
 
     const nodes: NodeSpecs = {
       table_header: (node) => [
-        node.attrs.celltype,
+        'th',
         {
           valign: node.attrs.valign,
           align: node.attrs.align,
@@ -1254,7 +1254,7 @@ export class JATSExporter {
         return element
       },
       table_cell: (node) => [
-        node.attrs.celltype,
+        'td',
         {
           valign: node.attrs.valign,
           align: node.attrs.align,
@@ -1355,6 +1355,32 @@ export class JATSExporter {
         element.appendChild(this.serializeNode(childNode))
       }
     }
+
+    const appendTable = (element: HTMLElement, node: ManuscriptNode) => {
+      const tableNode = findChildNodeOfType(node, node.type.schema.nodes.table)
+      const colGroupNode = findChildNodeOfType(
+        node,
+        node.type.schema.nodes.table_colgroup
+      )
+      if (!tableNode) {
+        return
+      }
+      const table = this.serializeNode(tableNode)
+      const tbodyElement = document.createElement('tbody')
+
+      while (table.firstChild) {
+        const child = table.firstChild
+        table.removeChild(child)
+        tbodyElement.appendChild(child)
+      }
+      table.appendChild(tbodyElement)
+      if (colGroupNode) {
+        const colGroup = this.serializeNode(colGroupNode)
+        table.insertBefore(colGroup, table.firstChild)
+      }
+
+      element.appendChild(table)
+    }
     const createFigureElement = (
       node: ManuscriptNode,
       nodeName: string,
@@ -1386,6 +1412,7 @@ export class JATSExporter {
       const element = createElement(node, nodeName)
       appendLabels(element, node)
       appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
+      appendTable(element, node)
       appendChildNodeOfType(element, node, node.type.schema.nodes.table)
       appendChildNodeOfType(
         element,

@@ -42,7 +42,6 @@ export const findNodePositions = (
 ) => {
   const found: number[] = []
   state.doc.descendants((node, nodePos) => {
-    //@ts-ignore
     if (predicate(node)) {
       found.push(nodePos)
     }

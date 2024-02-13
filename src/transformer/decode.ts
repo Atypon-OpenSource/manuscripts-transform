@@ -749,6 +749,7 @@ export class Decoder {
     [ObjectTypes.TableElement]: (data) => {
       const model = data as TableElement
       const table = this.createTable(model)
+      const tableColGroup = this.createTableColGroup(model)
       const tableElementFooter = this.createTableElementFooter(model)
       const figcaption: FigCaptionNode = this.getFigcaption(model)
       const comments = this.createCommentNodes(model)
@@ -757,7 +758,9 @@ export class Decoder {
       const content: ManuscriptNode[] = tableElementFooter
         ? [table, tableElementFooter, figcaption]
         : [table, figcaption]
-
+      if (tableColGroup) {
+        content.unshift(tableColGroup)
+      }
       if (model.listingID) {
         const listing = this.createListing(model.listingID)
         content.push(listing)
@@ -1160,7 +1163,15 @@ export class Decoder {
     }
     return table
   }
-
+  private createTableColGroup(model: TableElement) {
+    const tableId = model.containedObjectID
+    const tableModel = this.getModel<Table>(tableId)
+    if (tableModel) {
+      return this.parseContents(tableModel.contents, undefined, [], {
+        topNode: schema.nodes.table_colgroup.create(),
+      })
+    }
+  }
   private createTableElementFooter(model: TableElement) {
     const tableElementFooterID = model.tableElementFooterID
     if (!tableElementFooterID) {

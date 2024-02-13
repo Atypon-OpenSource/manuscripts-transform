@@ -133,7 +133,8 @@ export const parseJATSBody = (
   const replacements = new Map<string, string>(references?.IDs)
   updateDocumentIDs(node, replacements)
 
-  return encode(node).values()
+  const models = encode(node)
+  return models.values()
 }
 
 const createBibliographyModels = (references: References) => {
