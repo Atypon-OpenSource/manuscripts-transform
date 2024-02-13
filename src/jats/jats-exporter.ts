@@ -1413,7 +1413,6 @@ export class JATSExporter {
       appendLabels(element, node)
       appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
       appendTable(element, node)
-      appendChildNodeOfType(element, node, node.type.schema.nodes.table)
       appendChildNodeOfType(
         element,
         node,

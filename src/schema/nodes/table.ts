@@ -14,32 +14,106 @@
  * limitations under the License.
  */
 
-// adapted from 'prosemirror-tables'
+import {
+  TableNodes,
+  tableNodes as createTableNodes,
+  TableNodesOptions,
+} from 'prosemirror-tables'
 
-import { TableNodes, tableNodes, TableNodesOptions } from 'prosemirror-tables'
+import {
+  getTableCellStyles,
+  serializeTableCellStyles,
+  TableCellStyleKey,
+} from '../../lib/table-cell-styles'
 
 const tableOptions: TableNodesOptions = {
   tableGroup: 'block',
   cellContent: 'inline*',
   cellAttributes: {
-    placeholder: { default: 'Data' },
-    styles: { default: {} },
-    valign: { default: null },
-    align: { default: null },
-    scope: { default: null },
-    style: { default: null },
+    placeholder: {
+      default: 'Data',
+      getFromDOM(dom) {
+        return dom.getAttribute('data-placeholder-text') || ''
+      },
+      setDOMAttr(value, attrs) {
+        if (value) {
+          attrs['data-placeholder-text'] = value
+        }
+      },
+    },
+    styles: {
+      default: {},
+      getFromDOM(dom) {
+        return getTableCellStyles(dom.style)
+      },
+      setDOMAttr(value, attrs) {
+        const styleString = serializeTableCellStyles(
+          value as {
+            [key in TableCellStyleKey]?: string | null
+          }
+        )
+        if (styleString) {
+          attrs['style'] = value
+        }
+      },
+    },
+    valign: {
+      default: null,
+      getFromDOM(dom) {
+        return dom.getAttribute('valign')
+      },
+      setDOMAttr(value, attrs) {
+        if (value) {
+          attrs['valign'] = value
+        }
+      },
+    },
+    align: {
+      default: null,
+      getFromDOM(dom) {
+        return dom.getAttribute('align')
+      },
+      setDOMAttr(value, attrs) {
+        if (value) {
+          attrs['align'] = value
+        }
+      },
+    },
+    scope: {
+      default: null,
+      getFromDOM(dom) {
+        return dom.getAttribute('scope')
+      },
+      setDOMAttr(value, attrs) {
+        if (value) {
+          attrs['scope'] = value
+        }
+      },
+    },
+    style: {
+      default: null,
+      getFromDOM(dom) {
+        return dom.getAttribute('style')
+      },
+      setDOMAttr(value, attrs) {
+        if (value) {
+          attrs['style'] = value
+        }
+      },
+    },
   },
 }
 
-export const tnodes: TableNodes = tableNodes(tableOptions)
+export const tableNodes: TableNodes = createTableNodes(tableOptions)
 
 export const table = {
-  ...tnodes.table,
+  ...tableNodes.table,
   attrs: {
-    ...tnodes.table.attrs,
+    ...tableNodes.table.attrs,
     id: { default: '' },
   },
 }
-export const tableRow = tnodes.table_row
-export const tableCell = tnodes.table_cell
-export const tableHeader = tnodes.table_header
+
+export const tableRow = tableNodes.table_row
+export const tableCell = tableNodes.table_cell
+export const tableHeader = tableNodes.table_header

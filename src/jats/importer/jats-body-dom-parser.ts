@@ -648,7 +648,6 @@ const nodes: NodeRule[] = [
       const colspan = element.getAttribute('colspan')
       const rowspan = element.getAttribute('rowspan')
       return {
-        celltype: 'th',
         ...(colspan && { colspan }),
         ...(rowspan && { rowspan }),
         valign: element.getAttribute('valign'),
