@@ -16,55 +16,30 @@
 
 // adapted from 'prosemirror-tables'
 
-import { ManuscriptNode, TableNodeSpec } from '../types'
-import { CommentNode } from './comment'
+import { TableNodes, tableNodes, TableNodesOptions } from 'prosemirror-tables'
 
-export interface TableNode extends ManuscriptNode {
-  attrs: {
-    id: string
-    headerRows: number
-    footerRows: number
-    comments?: CommentNode[]
-  }
+const tableOptions: TableNodesOptions = {
+  tableGroup: 'block',
+  cellContent: 'inline*',
+  cellAttributes: {
+    placeholder: { default: 'Data' },
+    styles: { default: {} },
+    valign: { default: null },
+    align: { default: null },
+    scope: { default: null },
+    style: { default: null },
+  },
 }
-export const table: TableNodeSpec = {
-  content: 'table_row+',
-  tableRole: 'table',
-  isolating: true,
-  group: 'block',
-  selectable: false,
+
+export const tnodes: TableNodes = tableNodes(tableOptions)
+
+export const table = {
+  ...tnodes.table,
   attrs: {
+    ...tnodes.table.attrs,
     id: { default: '' },
-    headerRows: { default: 1 },
-    footerRows: { default: 1 },
-    dataTracked: { default: null },
-    comments: { default: null },
-  },
-  parseDOM: [
-    {
-      tag: 'table',
-      getAttrs: (p) => {
-        const dom = p as HTMLTableElement
-
-        return {
-          id: dom.getAttribute('id'),
-          headerRows: dom.dataset && dom.dataset['header-rows'],
-          footerRows: dom.dataset && dom.dataset['footer-rows'],
-        }
-      },
-    },
-  ],
-  toDOM: (node) => {
-    const tableNode = node as TableNode
-
-    return [
-      'table',
-      {
-        id: tableNode.attrs.id,
-        'data-header-rows': String(node.attrs.headerRows),
-        'data-footer-rows': String(node.attrs.footerRows),
-      },
-      0,
-    ]
   },
 }
+export const tableRow = tnodes.table_row
+export const tableCell = tnodes.table_cell
+export const tableHeader = tnodes.table_header

@@ -333,18 +333,6 @@ export const jatsBodyTransformations = {
   fixTables(body: Element, createElement: (tagName: string) => HTMLElement) {
     const tables = body.querySelectorAll('table-wrap > table')
     tables.forEach((table) => {
-      // Move cols into a colgroup if they are not already
-      // This more closely maps how they exist in HTML and, subsequently, in ManuscriptJSON
-      const colgroup = table.querySelector('colgroup')
-      const cols = table.querySelectorAll('col')
-      if (!colgroup && table.firstChild && cols.length > 0) {
-        const colgroup = createElement('colgroup')
-        for (const col of cols) {
-          colgroup.appendChild(col)
-        }
-        table.insertBefore(colgroup, table.firstChild)
-      }
-
       // Ensures that tables have a header and footer row
       const tbody = table.querySelector('tbody')
       if (tbody) {

@@ -91,7 +91,6 @@ import {
   SupplementsNode,
   TableElementFooterNode,
   TableElementNode,
-  TableNode,
   TitleNode,
   TOCElementNode,
 } from '../schema'
@@ -740,20 +739,12 @@ export class Decoder {
     },
     [ObjectTypes.Table]: (data) => {
       const model = data as Table
-      const comments = this.createCommentNodes(model)
-      comments.forEach((c) => this.comments.set(c.attrs.id, c))
 
-      return this.parseContents(
-        model.contents,
-        undefined,
-        this.getComments(model),
-        {
-          topNode: schema.nodes.table.create({
-            id: model._id,
-            comments: comments.map((c) => c.attrs.id),
-          }),
-        }
-      ) as TableNode
+      return this.parseContents(model.contents, undefined, [], {
+        topNode: schema.nodes.table.create({
+          id: model._id,
+        }),
+      })
     },
     [ObjectTypes.TableElement]: (data) => {
       const model = data as TableElement
@@ -1156,9 +1147,9 @@ export class Decoder {
     const tableId = model.containedObjectID
     const tableModel = this.getModel<Table>(tableId)
 
-    let table: TableNode | PlaceholderNode
+    let table: ManuscriptNode | PlaceholderNode
     if (tableModel) {
-      table = this.decode(tableModel) as TableNode
+      table = this.decode(tableModel) as ManuscriptNode
     } else if (this.allowMissingElements) {
       table = schema.nodes.placeholder.create({
         id: tableId,
