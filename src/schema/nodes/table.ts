@@ -113,7 +113,6 @@ export const table = {
     id: { default: '' },
   },
 }
-
-export const tableRow = tableNodes.table_row
 export const tableCell = tableNodes.table_cell
+export const tableRow = tableNodes.table_row
 export const tableHeader = tableNodes.table_header
