@@ -1174,12 +1174,14 @@ export class Decoder {
   private createTableColGroup(model: TableElement) {
     const tableId = model.containedObjectID
     const tableModel = this.getModel<Table>(tableId)
-    if (tableModel) {
-      return this.parseContents(tableModel.contents, undefined, [], {
-        topNode: schema.nodes.table_colgroup.create(),
-      })
+    if (!tableModel || !tableModel.contents.includes('<colgroup>')) {
+      return undefined
     }
+    return this.parseContents(tableModel.contents, undefined, [], {
+      topNode: schema.nodes.table_colgroup.create(),
+    })
   }
+
   private createTableElementFooter(model: TableElement) {
     const tableElementFooterID = model.tableElementFooterID
     if (!tableElementFooterID) {

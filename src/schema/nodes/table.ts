@@ -57,6 +57,14 @@ const tableOptions: TableNodesOptions = {
         }
       },
     },
+    class: {
+      default: null,
+      setDOMAttr(value, attrs) {
+        if (value) {
+          attrs['class'] = value
+        }
+      },
+    },
     valign: {
       default: null,
       getFromDOM(dom) {
@@ -115,6 +123,26 @@ export const table = {
     comments: { default: null },
   },
 }
-export const tableCell = tableNodes.table_cell
+const tableCell = tableNodes.table_cell
+tableCell.toDOM = (node: any) => {
+  if (!node.textContent) {
+    node.attrs.class = 'placeholder'
+  }
+  if (tableNodes.table_cell.toDOM) {
+    return tableNodes.table_cell.toDOM(node)
+  }
+  return ['td']
+}
+const tableHeader = tableNodes.table_cell
+tableHeader.toDOM = (node: any) => {
+  if (!node.textContent) {
+    node.attrs.class = 'placeholder'
+  }
+  if (tableNodes.table_header.toDOM) {
+    return tableNodes.table_header.toDOM(node)
+  }
+  return ['th']
+}
 export const tableRow = tableNodes.table_row
-export const tableHeader = tableNodes.table_header
+
+export { tableHeader, tableCell }

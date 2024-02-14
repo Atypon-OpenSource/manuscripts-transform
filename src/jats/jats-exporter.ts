@@ -1366,7 +1366,7 @@ export class JATSExporter {
         return
       }
       const table = this.serializeNode(tableNode)
-      const tbodyElement = document.createElement('tbody')
+      const tbodyElement = this.document.createElement('tbody')
 
       while (table.firstChild) {
         const child = table.firstChild
