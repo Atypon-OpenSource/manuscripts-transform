@@ -669,6 +669,10 @@ const nodes: NodeRule[] = [
     },
   },
   {
+    tag: 'colgroup',
+    node: 'table_colgroup',
+  },
+  {
     tag: 'xref[ref-type="bibr"]',
     node: 'citation',
     getAttrs: (node) => {

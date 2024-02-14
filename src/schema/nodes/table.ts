@@ -111,6 +111,8 @@ export const table = {
   attrs: {
     ...tableNodes.table.attrs,
     id: { default: '' },
+    dataTracked: { default: null },
+    comments: { default: null },
   },
 }
 export const tableCell = tableNodes.table_cell

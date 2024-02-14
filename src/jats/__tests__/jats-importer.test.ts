@@ -20,7 +20,7 @@ import { normalizeIDs, normalizeTimestamps } from './ids'
 
 describe('JATS importer', () => {
   test('parses full JATS example to Manuscripts models', async () => {
-    const jats = await readAndParseFixture('jats-example-doc.xml')
+    const jats = await readAndParseFixture('jats-document.xml')
     const models = parseJATSArticle(jats)
     expect(normalizeIDs(normalizeTimestamps(models))).toMatchSnapshot()
   })
