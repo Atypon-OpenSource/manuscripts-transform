@@ -64,8 +64,8 @@ function setCellAttrs(node: Node, extraAttrs: Attrs): Attrs {
   if (node.attrs.colwidth) {
     attrs['data-colwidth'] = node.attrs.colwidth.join(',')
   }
-  if (node.textContent) {
-    attrs.class = 'palceholder'
+  if (!node.textContent) {
+    attrs.class = 'placeholder'
   }
   for (const prop in extraAttrs) {
     const setter = extraAttrs[prop].setDOMAttr
