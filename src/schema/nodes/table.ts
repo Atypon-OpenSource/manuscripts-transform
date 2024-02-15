@@ -93,9 +93,30 @@ export function createTableNodes(options: TableNodesOptions): TableNodes {
       tableRole: 'table',
       isolating: true,
       group: options.tableGroup,
-      parseDOM: [{ tag: 'table' }],
-      toDOM() {
-        return ['table', ['tbody', 0]]
+      parseDOM: [
+        {
+          tag: 'table',
+          getAttrs: (p) => {
+            const dom = p as HTMLTableElement
+
+            return {
+              id: dom.getAttribute('id'),
+              headerRows: dom.dataset && dom.dataset['header-rows'],
+              footerRows: dom.dataset && dom.dataset['footer-rows'],
+            }
+          },
+        },
+      ],
+      toDOM(node) {
+        return [
+          'table',
+          {
+            id: node.attrs.id,
+            'data-header-rows': String(node.attrs.headerRows),
+            'data-footer-rows': String(node.attrs.footerRows),
+          },
+          ['tbody', 0],
+        ]
       },
     },
     table_row: {
@@ -227,6 +248,8 @@ export const table = {
     id: { default: '' },
     dataTracked: { default: null },
     comments: { default: null },
+    headerRows: { default: 1 },
+    footerRows: { default: 1 },
   },
 }
 export const tableRow = tableNodes.table_row
