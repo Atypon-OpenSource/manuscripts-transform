@@ -14,153 +14,90 @@
  * limitations under the License.
  */
 
-import { AttributeSpec, Attrs, Node } from 'prosemirror-model'
-import { MutableAttrs, TableNodes, TableNodesOptions } from 'prosemirror-tables'
+import {
+  MutableAttrs,
+  TableNodes,
+  tableNodes as createTableNodes,
+  TableNodesOptions,
+} from 'prosemirror-tables'
 
 import {
   getTableCellStyles,
   serializeTableCellStyles,
   TableCellStyleKey,
 } from '../../lib/table-cell-styles'
+import { ManuscriptNode } from '../types'
 
-interface CellAttrs {
-  colspan: number
-  rowspan: number
-  colwidth: number[] | null
-}
-function getCellAttrs(dom: HTMLElement | string, extraAttrs: Attrs): Attrs {
-  if (typeof dom === 'string') {
-    return {}
-  }
+const fixTableCells = (tableCell: any, tag: string) => {
+  const modifiedTableCell = { ...tableCell }
 
-  const widthAttr = dom.getAttribute('data-colwidth')
-  const widths =
-    widthAttr && /^\d+(,\d+)*$/.test(widthAttr)
-      ? widthAttr.split(',').map((s) => Number(s))
-      : null
-  const colspan = Number(dom.getAttribute('colspan') || 1)
-  const result: MutableAttrs = {
-    colspan,
-    rowspan: Number(dom.getAttribute('rowspan') || 1),
-    colwidth: widths && widths.length == colspan ? widths : null,
-  } satisfies CellAttrs
-  for (const prop in extraAttrs) {
-    const getter = extraAttrs[prop].getFromDOM
-    const value = getter && getter(dom)
-    if (value != null) {
-      result[prop] = value
+  // Save the original toDOM function for later use
+  const originalToDOM = modifiedTableCell.toDOM
+
+  // Modify the toDOM function
+  modifiedTableCell.toDOM = function (node) {
+    // Call the original toDOM function to get the original array
+    const originalArray = originalToDOM.call(this, node)
+
+    // Find the index of the attrs object in the array
+    const attrsIndex = originalArray.findIndex(
+      (item) => typeof item === 'object' && !Array.isArray(item)
+    )
+
+    // Clone the original attrs object to avoid modifying it directly
+    const modifiedAttrs = { ...originalArray[attrsIndex] }
+
+    // Check if node.textContent is falsy
+    if (!node.textContent) {
+      // Add your condition to set a class attribute
+      modifiedAttrs.class = 'placeholder'
     }
+
+    // Replace the original attrs object with the modified one
+    originalArray[attrsIndex] = modifiedAttrs
+
+    // Return the modified array
+    return originalArray
   }
-  return result
+
+  return modifiedTableCell
 }
 
-function setCellAttrs(node: Node, extraAttrs: Attrs): Attrs {
-  const attrs: MutableAttrs = {}
-  if (node.attrs.colspan != 1) {
-    attrs.colspan = node.attrs.colspan
+const fixTable = (table: any) => {
+  table.attrs = {
+    ...table.attrs,
+    id: { default: '' },
+    dataTracked: { default: null },
+    comments: { default: null },
+    headerRows: { default: 1 },
+    footerRows: { default: 1 },
   }
-  if (node.attrs.rowspan != 1) {
-    attrs.rowspan = node.attrs.rowspan
+  table.parseDOM = [
+    {
+      tag: 'table',
+      getAttrs: (dom: HTMLTableElement) => {
+        return {
+          id: dom.getAttribute('id'),
+          headerRows: dom.dataset && dom.dataset['header-rows'],
+          footerRows: dom.dataset && dom.dataset['footer-rows'],
+        }
+      },
+    },
+  ]
+  table.toDom = (node: ManuscriptNode) => {
+    return [
+      'table',
+      {
+        id: node.attrs.id,
+        'data-header-rows': String(node.attrs.headerRows),
+        'data-footer-rows': String(node.attrs.footerRows),
+      },
+      ['tbody', 0],
+    ]
   }
-  if (node.attrs.colwidth) {
-    attrs['data-colwidth'] = node.attrs.colwidth.join(',')
-  }
-  if (!node.textContent) {
-    attrs.class = 'placeholder'
-  }
-  for (const prop in extraAttrs) {
-    const setter = extraAttrs[prop].setDOMAttr
-    if (setter) {
-      setter(node.attrs[prop], attrs)
-    }
-  }
-  return attrs
+  return table
 }
 
-function createTableNodes(options: TableNodesOptions): TableNodes {
-  const extraAttrs = options.cellAttributes || {}
-  const cellAttrs: Record<string, AttributeSpec> = {
-    colspan: { default: 1 },
-    rowspan: { default: 1 },
-    colwidth: { default: null },
-  }
-  for (const prop in extraAttrs) {
-    cellAttrs[prop] = { default: extraAttrs[prop].default }
-  }
-
-  return {
-    table: {
-      content: 'table_row+',
-      tableRole: 'table',
-      isolating: true,
-      attrs: {
-        id: { default: '' },
-        dataTracked: { default: null },
-        comments: { default: null },
-        headerRows: { default: 1 },
-        footerRows: { default: 1 },
-      },
-      group: options.tableGroup,
-      parseDOM: [
-        {
-          tag: 'table',
-          getAttrs: (p) => {
-            const dom = p as HTMLTableElement
-
-            return {
-              id: dom.getAttribute('id'),
-              headerRows: dom.dataset && dom.dataset['header-rows'],
-              footerRows: dom.dataset && dom.dataset['footer-rows'],
-            }
-          },
-        },
-      ],
-      toDOM(node) {
-        return [
-          'table',
-          {
-            id: node.attrs.id,
-            'data-header-rows': String(node.attrs.headerRows),
-            'data-footer-rows': String(node.attrs.footerRows),
-          },
-          ['tbody', 0],
-        ]
-      },
-    },
-    table_row: {
-      content: '(table_cell | table_header)*',
-      tableRole: 'row',
-      parseDOM: [{ tag: 'tr' }],
-      toDOM() {
-        return ['tr', 0]
-      },
-    },
-    table_cell: {
-      content: options.cellContent,
-      attrs: cellAttrs,
-      tableRole: 'cell',
-      isolating: true,
-      parseDOM: [
-        { tag: 'td', getAttrs: (dom) => getCellAttrs(dom, extraAttrs) },
-      ],
-      toDOM(node) {
-        return ['td', setCellAttrs(node, extraAttrs), 0]
-      },
-    },
-    table_header: {
-      content: options.cellContent,
-      attrs: cellAttrs,
-      tableRole: 'header_cell',
-      isolating: true,
-      parseDOM: [
-        { tag: 'th', getAttrs: (dom) => getCellAttrs(dom, extraAttrs) },
-      ],
-      toDOM(node) {
-        return ['th', setCellAttrs(node, extraAttrs), 0]
-      },
-    },
-  }
-}
 const tableOptions: TableNodesOptions = {
   tableGroup: 'block',
   cellContent: 'inline*',
@@ -241,7 +178,7 @@ const tableOptions: TableNodesOptions = {
 
 export const tableNodes: TableNodes = createTableNodes(tableOptions)
 
-export const table = tableNodes.table
+export const table = fixTable(tableNodes.table)
 export const tableRow = tableNodes.table_row
-export const tableCell = tableNodes.table_cell
-export const tableHeader = tableNodes.table_header
+export const tableCell = fixTableCells(tableNodes.table_cell, 'td')
+export const tableHeader = fixTableCells(tableNodes.table_header, 'th')
