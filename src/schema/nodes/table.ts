@@ -14,19 +14,20 @@
  * limitations under the License.
  */
 
-import { Attrs, Node } from 'prosemirror-model'
+import { AttributeSpec, Attrs, Node } from 'prosemirror-model'
 import { MutableAttrs, TableNodes, TableNodesOptions } from 'prosemirror-tables'
-interface CellAttrs {
-  colspan: number
-  rowspan: number
-  colwidth: number[] | null
-}
+
 import {
   getTableCellStyles,
   serializeTableCellStyles,
   TableCellStyleKey,
 } from '../../lib/table-cell-styles'
 
+interface CellAttrs {
+  colspan: number
+  rowspan: number
+  colwidth: number[] | null
+}
 function getCellAttrs(dom: HTMLElement | string, extraAttrs: Attrs): Attrs {
   if (typeof dom === 'string') {
     return {}
@@ -76,9 +77,9 @@ function setCellAttrs(node: Node, extraAttrs: Attrs): Attrs {
   return attrs
 }
 
-export function createTableNodes(options: TableNodesOptions): TableNodes {
+function createTableNodes(options: TableNodesOptions): TableNodes {
   const extraAttrs = options.cellAttributes || {}
-  const cellAttrs: Record<string, any> = {
+  const cellAttrs: Record<string, AttributeSpec> = {
     colspan: { default: 1 },
     rowspan: { default: 1 },
     colwidth: { default: null },
@@ -92,6 +93,13 @@ export function createTableNodes(options: TableNodesOptions): TableNodes {
       content: 'table_row+',
       tableRole: 'table',
       isolating: true,
+      attrs: {
+        id: { default: '' },
+        dataTracked: { default: null },
+        comments: { default: null },
+        headerRows: { default: 1 },
+        footerRows: { default: 1 },
+      },
       group: options.tableGroup,
       parseDOM: [
         {
@@ -184,14 +192,6 @@ const tableOptions: TableNodesOptions = {
         }
       },
     },
-    class: {
-      default: null,
-      setDOMAttr(value, attrs) {
-        if (value) {
-          attrs['class'] = value
-        }
-      },
-    },
     valign: {
       default: null,
       getFromDOM(dom) {
@@ -241,17 +241,7 @@ const tableOptions: TableNodesOptions = {
 
 export const tableNodes: TableNodes = createTableNodes(tableOptions)
 
-export const table = {
-  ...tableNodes.table,
-  attrs: {
-    ...tableNodes.table.attrs,
-    id: { default: '' },
-    dataTracked: { default: null },
-    comments: { default: null },
-    headerRows: { default: 1 },
-    footerRows: { default: 1 },
-  },
-}
+export const table = tableNodes.table
 export const tableRow = tableNodes.table_row
 export const tableCell = tableNodes.table_cell
 export const tableHeader = tableNodes.table_header
