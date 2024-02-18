@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
+import { Attrs, Node, NodeSpec } from 'prosemirror-model'
 import {
-  MutableAttrs,
   TableNodes,
   tableNodes as createTableNodes,
   TableNodesOptions,
@@ -26,45 +26,109 @@ import {
   serializeTableCellStyles,
   TableCellStyleKey,
 } from '../../lib/table-cell-styles'
-import { ManuscriptNode } from '../types'
 
-const fixTableCells = (tableCell: any, tag: string) => {
+// this is needed for the placeholder class
+const modifyTableCellSchema = (tableCell: NodeSpec) => {
   const modifiedTableCell = { ...tableCell }
-
-  // Save the original toDOM function for later use
-  const originalToDOM = modifiedTableCell.toDOM
-
-  // Modify the toDOM function
+  const originalToDOM = tableCell.toDOM
+  if (!originalToDOM) {
+    throw new Error(
+      `toDOM not found inside ${tableCell}, check for table schema changes in prosemirror-tables`
+    )
+  }
   modifiedTableCell.toDOM = function (node) {
-    // Call the original toDOM function to get the original array
     const originalArray = originalToDOM.call(this, node)
 
-    // Find the index of the attrs object in the array
+    if (!Array.isArray(originalArray)) {
+      throw new Error(
+        `${originalArray} is of type ${typeof originalArray}, check for table schema changes in prosemirror-tables`
+      )
+    }
+
     const attrsIndex = originalArray.findIndex(
       (item) => typeof item === 'object' && !Array.isArray(item)
     )
 
-    // Clone the original attrs object to avoid modifying it directly
     const modifiedAttrs = { ...originalArray[attrsIndex] }
 
-    // Check if node.textContent is falsy
     if (!node.textContent) {
-      // Add your condition to set a class attribute
       modifiedAttrs.class = 'placeholder'
     }
 
-    // Replace the original attrs object with the modified one
     originalArray[attrsIndex] = modifiedAttrs
 
-    // Return the modified array
     return originalArray
   }
 
   return modifiedTableCell
 }
 
-const fixTable = (table: any) => {
-  table.attrs = {
+const modifyTableToDOM = (modifiedTable: NodeSpec) => {
+  const originalToDOM = modifiedTable.toDOM
+  if (!originalToDOM) {
+    throw new Error(
+      `toDOM not found inside ${modifiedTable}, check for table schema changes in prosemirror-tables`
+    )
+  }
+  modifiedTable.toDOM = function (node: Node) {
+    const originalArray = originalToDOM.call(this, node)
+    if (!Array.isArray(originalArray)) {
+      throw new Error(
+        `${originalArray} is of type ${typeof originalArray}, check for table schema changes in prosemirror-tables`
+      )
+    }
+    const modifiedAttrs = {
+      id: node.attrs.id,
+      'data-header-rows': String(node.attrs.headerRows),
+      'data-footer-rows': String(node.attrs.footerRows),
+    }
+    // in prosemirror, the second index is the attrs
+    if (Array.isArray(originalArray[1])) {
+      originalArray.splice(1, 0, modifiedAttrs)
+    } else if (typeof originalArray[1] === 'object') {
+      originalArray[1] = { ...originalArray[1], ...modifiedAttrs }
+    } else {
+      throw new Error(
+        `toDOM[1] ${
+          originalArray[1]
+        } is of type ${typeof originalArray[1]}, check for table schema changes in prosemirror-tables`
+      )
+    }
+    return originalArray
+  }
+}
+const modifyTableParseDOM = (modifiedTable: NodeSpec) => {
+  if (!modifiedTable.parseDOM || !modifiedTable.parseDOM[0]) {
+    throw new Error(
+      `parseDOM not found inside ${modifiedTable}, check for table schema changes in prosemirror-tables`
+    )
+  }
+  const originalGetAttrs = modifiedTable.parseDOM[0].getAttrs
+  let originalAttrs: Attrs | null | boolean
+  modifiedTable.parseDOM[0].getAttrs = function (p) {
+    const dom = p as HTMLTableElement
+    if (originalGetAttrs) {
+      originalAttrs = originalGetAttrs.call(this, p)
+    }
+    if (originalAttrs && typeof originalAttrs === 'object') {
+      return {
+        ...originalAttrs,
+        id: dom.getAttribute('id'),
+        headerRows: dom.dataset && dom.dataset['header-rows'],
+        footerRows: dom.dataset && dom.dataset['footer-rows'],
+      }
+    } else {
+      return {
+        id: dom.getAttribute('id'),
+        headerRows: dom.dataset && dom.dataset['header-rows'],
+        footerRows: dom.dataset && dom.dataset['footer-rows'],
+      }
+    }
+  }
+}
+
+const modifyTableAttrs = (modifiedTable: NodeSpec) => {
+  modifiedTable.attrs = {
     ...table.attrs,
     id: { default: '' },
     dataTracked: { default: null },
@@ -72,32 +136,15 @@ const fixTable = (table: any) => {
     headerRows: { default: 1 },
     footerRows: { default: 1 },
   }
-  table.parseDOM = [
-    {
-      tag: 'table',
-      getAttrs: (dom: HTMLTableElement) => {
-        return {
-          id: dom.getAttribute('id'),
-          headerRows: dom.dataset && dom.dataset['header-rows'],
-          footerRows: dom.dataset && dom.dataset['footer-rows'],
-        }
-      },
-    },
-  ]
-  table.toDom = (node: ManuscriptNode) => {
-    return [
-      'table',
-      {
-        id: node.attrs.id,
-        'data-header-rows': String(node.attrs.headerRows),
-        'data-footer-rows': String(node.attrs.footerRows),
-      },
-      ['tbody', 0],
-    ]
-  }
-  return table
 }
 
+const modifyTableSchema = (table: NodeSpec) => {
+  const modifiedTable = { ...table }
+  modifyTableAttrs(modifiedTable)
+  modifyTableToDOM(modifiedTable)
+  modifyTableParseDOM(modifiedTable)
+  return modifiedTable
+}
 const tableOptions: TableNodesOptions = {
   tableGroup: 'block',
   cellContent: 'inline*',
@@ -178,7 +225,7 @@ const tableOptions: TableNodesOptions = {
 
 export const tableNodes: TableNodes = createTableNodes(tableOptions)
 
-export const table = fixTable(tableNodes.table)
+export const table = modifyTableSchema(tableNodes.table)
 export const tableRow = tableNodes.table_row
-export const tableCell = fixTableCells(tableNodes.table_cell, 'td')
-export const tableHeader = fixTableCells(tableNodes.table_header, 'th')
+export const tableCell = modifyTableCellSchema(tableNodes.table_cell)
+export const tableHeader = modifyTableCellSchema(tableNodes.table_header)
