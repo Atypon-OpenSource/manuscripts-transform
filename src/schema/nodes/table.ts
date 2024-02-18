@@ -127,7 +127,7 @@ const modifyTableParseDOM = (modifiedTable: NodeSpec) => {
   }
 }
 
-const modifyTableAttrs = (modifiedTable: NodeSpec) => {
+const modifyTableAttrs = (modifiedTable: NodeSpec, table: NodeSpec) => {
   modifiedTable.attrs = {
     ...table.attrs,
     id: { default: '' },
@@ -140,7 +140,7 @@ const modifyTableAttrs = (modifiedTable: NodeSpec) => {
 
 const modifyTableSchema = (table: NodeSpec) => {
   const modifiedTable = { ...table }
-  modifyTableAttrs(modifiedTable)
+  modifyTableAttrs(modifiedTable, table)
   modifyTableToDOM(modifiedTable)
   modifyTableParseDOM(modifiedTable)
   return modifiedTable
