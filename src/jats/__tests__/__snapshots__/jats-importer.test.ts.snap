@@ -962,7 +962,7 @@ Array [
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph contains an inline equation:<span class=\\"MPInlineMathFragment\\" data-equation-format=\\"tex\\"><tex-math>2+3=5</tex-math></span></p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph contains an inline equation:<span class=\\"MPInlineMathFragment\\" data-equation-format=\\"tex\\">2+3=5</span></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -976,7 +976,7 @@ Array [
   },
   Object {
     "_id": "MPEquation:test",
-    "contents": "<tex-math>E=mc^2</tex-math>",
+    "contents": "E=mc^2",
     "format": "tex",
     "objectType": "MPEquation",
   },
@@ -8622,7 +8622,7 @@ Array [
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph contains an inline equation:<span class=\\"MPInlineMathFragment\\" data-equation-format=\\"tex\\"><tex-math>2+3=5</tex-math></span></p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph contains an inline equation:<span class=\\"MPInlineMathFragment\\" data-equation-format=\\"tex\\">2+3=5</span></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8636,7 +8636,7 @@ Array [
   },
   Object {
     "_id": "MPEquation:test",
-    "contents": "<tex-math>E=mc^2</tex-math>",
+    "contents": "E=mc^2",
     "format": "tex",
     "objectType": "MPEquation",
   },

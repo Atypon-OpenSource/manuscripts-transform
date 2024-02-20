@@ -1002,15 +1002,12 @@ export class JATSExporter {
       },
       doc: () => '',
       equation: (node) => {
-        const math = this.nodeFromJATS(node.attrs.contents)
-        const mathEl = math as Element
-        mathEl.setAttribute('id', normalizeID(node.attrs.id))
-        return mathEl
+        return this.createEquation(node)
       },
       inline_equation: (node) => {
         const eqElement = this.document.createElement('inline-formula')
-        const math = this.nodeFromJATS(node.attrs.contents)
-        eqElement.append(math as Element)
+        const equation = this.createEquation(node, true)
+        eqElement.append(equation)
         return eqElement
       },
       equation_element: (node) => {
@@ -1418,6 +1415,21 @@ export class JATSExporter {
           }
         }
       }
+    }
+  }
+
+  private createEquation(node: ManuscriptNode, isInline = false) {
+    if (node.attrs.format === 'tex') {
+      const texMath = this.document.createElement('tex-math')
+      texMath.innerHTML = node.attrs.contents
+      return texMath
+    } else {
+      const math = this.nodeFromJATS(node.attrs.contents)
+      const mathml = math as Element
+      if (!isInline) {
+        mathml.setAttribute('id', normalizeID(node.attrs.id))
+      }
+      return mathml
     }
   }
 

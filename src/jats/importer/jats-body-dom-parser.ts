@@ -51,9 +51,12 @@ const getEquationContent = (p: string | HTMLElement) => {
 
     switch (nodeName) {
       case 'tex-math':
+        contents = (child as Element).innerHTML
+        format = 'tex'
+        break
       case 'mml:math':
         contents = (child as Element).outerHTML
-        format = nodeName === 'tex-math' ? 'tex' : 'mathml'
+        format = 'mathml'
         break
     }
   }

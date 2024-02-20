@@ -441,7 +441,7 @@ Map {
   "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403" => Object {
     "_id": "MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403",
     "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math>",
-    "format": "mml:math",
+    "format": "mathml",
     "objectType": "MPEquation",
   },
   "MPListingElement:160785A9-4BC0-4C55-C4DE-AF5F4D858DCE" => Object {
@@ -465,7 +465,7 @@ const x = 'y'",
   },
   "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9" => Object {
     "_id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\">An inline equation: <span class=\\"MPInlineMathFragment\\" data-equation-format=\\"mml:math\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math></span></p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\">An inline equation: <span class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math></span></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",

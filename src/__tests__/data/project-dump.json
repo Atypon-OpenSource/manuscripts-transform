@@ -316,7 +316,7 @@
       "_id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
       "_rev": "16-9cc791a1557e1de40e6472bcab70f0d1",
       "collection": "elements",
-      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9\" class=\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\" data-object-type=\"MPParagraphElement\">An inline equation: <span class=\"MPInlineMathFragment\" data-equation-format=\"mml:math\" id=\"inline-formula-1\"><mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math></span></p>",
+      "contents": "<p xmlns=\"http://www.w3.org/1999/xhtml\" id=\"MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9\" class=\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\" data-object-type=\"MPParagraphElement\">An inline equation: <span class=\"MPInlineMathFragment\" data-equation-format=\"mathml\" id=\"inline-formula-1\"><mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math></span></p>",
       "createdAt": 1538472516,
       "elementType": "p",
       "objectType": "MPParagraphElement",
@@ -482,7 +482,7 @@
       "createdAt": 1538472504,
       "objectType": "MPEquation",
       "title": "Equation",
-      "format": "mml:math",
+      "format": "mathml",
       "updatedAt": 1538472510.576513
     },
     {
@@ -491,6 +491,7 @@
       "_rev": "4-3e9077e26f2a313d84a2f18245a459a5",
       "collection": "equations",
       "createdAt": 1538472504,
+      "format": "mathml",
       "objectType": "MPEquation",
       "sessionID": "67B27E3B-1E1E-42E2-9B9D-2D2123AA95F6",
       "title": "Equation",
