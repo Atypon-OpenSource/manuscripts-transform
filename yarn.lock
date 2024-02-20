@@ -1267,6 +1267,15 @@
     deepmerge "^4.3.1"
     uuid "^9.0.0"
 
+"@manuscripts/json-schema@2.2.3-LEAN-3092-0":
+  version "2.2.3-LEAN-3092-0"
+  resolved "https://registry.yarnpkg.com/@manuscripts/json-schema/-/json-schema-2.2.3-LEAN-3092-0.tgz#552f77fa10a0cd6059feefad532a54e4360a298e"
+  integrity sha512-OVYRFnJXeT7WUytB7xO6TpfizDy2Z+Uc8QP59CFTIe7S3eXZNczd075a1ZVh8E6gjFHfePfZIE6kFoTT20o8QA==
+  dependencies:
+    ajv "^8.12.0"
+    deepmerge "^4.3.1"
+    uuid "^9.0.0"
+
 "@manuscripts/library@1.3.2-LEAN-3092-2":
   version "1.3.2-LEAN-3092-2"
   resolved "https://registry.yarnpkg.com/@manuscripts/library/-/library-1.3.2-LEAN-3092-2.tgz#706ed43c9d59a72ca1f3c7804419ea504563f823"
