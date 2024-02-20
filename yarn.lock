@@ -1258,30 +1258,21 @@
     eslint-config-prettier "^8.5.0"
     prettier "^2.8.1"
 
-"@manuscripts/json-schema@2.2.2-LEAN-3094-1":
-  version "2.2.2-LEAN-3094-1"
-  resolved "https://registry.yarnpkg.com/@manuscripts/json-schema/-/json-schema-2.2.2-LEAN-3094-1.tgz#f79d1a568a7aa8c9402ece8327bc13387ac705f1"
-  integrity sha512-k0k4BbGJRgKh9mJWrKrsyVF5aijFbtiS1DtZE9j6GkkHwcLwQeQKspCiGi8jWIPaaFG8crW0LGVhGeuwdsmLzA==
+"@manuscripts/json-schema@2.2.3-LEAN-3092-1":
+  version "2.2.3-LEAN-3092-1"
+  resolved "https://registry.yarnpkg.com/@manuscripts/json-schema/-/json-schema-2.2.3-LEAN-3092-1.tgz#9cfdb7fc3354fd1ffa5f8e58e3c7b7c061fc02ae"
+  integrity sha512-pEL756qUchrLJjxxjpFAamQ3egn4BRVFZRQVqIfliyn6sWpHxKtsQHBUPzB74qsVwGcZSWL+35AjGcU9j9ezVg==
   dependencies:
     ajv "^8.12.0"
     deepmerge "^4.3.1"
     uuid "^9.0.0"
 
-"@manuscripts/json-schema@2.2.3-LEAN-3092-0":
-  version "2.2.3-LEAN-3092-0"
-  resolved "https://registry.yarnpkg.com/@manuscripts/json-schema/-/json-schema-2.2.3-LEAN-3092-0.tgz#552f77fa10a0cd6059feefad532a54e4360a298e"
-  integrity sha512-OVYRFnJXeT7WUytB7xO6TpfizDy2Z+Uc8QP59CFTIe7S3eXZNczd075a1ZVh8E6gjFHfePfZIE6kFoTT20o8QA==
+"@manuscripts/library@1.3.2-LEAN-3092-3":
+  version "1.3.2-LEAN-3092-3"
+  resolved "https://registry.yarnpkg.com/@manuscripts/library/-/library-1.3.2-LEAN-3092-3.tgz#20f57c8f4132eab23b45212fc8442b2bcad0ccf3"
+  integrity sha512-tEAGT5AhIoDFonZwXJAUwOanL/vyCeaz11DrON4rBEnhpIuPYVZfmJmp3ktprdUflBcWpSzISe/61PrS0+3JNQ==
   dependencies:
-    ajv "^8.12.0"
-    deepmerge "^4.3.1"
-    uuid "^9.0.0"
-
-"@manuscripts/library@1.3.2-LEAN-3092-2":
-  version "1.3.2-LEAN-3092-2"
-  resolved "https://registry.yarnpkg.com/@manuscripts/library/-/library-1.3.2-LEAN-3092-2.tgz#706ed43c9d59a72ca1f3c7804419ea504563f823"
-  integrity sha512-JrlfLcyCZ3vZymzVt4t5AenCG0GQ0eNHwQzO21mI013LV0LNOfH8h92hhykN1y4G2PzteuyEP6Xs0PDvt2gjGw==
-  dependencies:
-    "@manuscripts/json-schema" "2.2.2-LEAN-3094-1"
+    "@manuscripts/json-schema" "2.2.3-LEAN-3092-1"
     astrocite-bibtex "^0.16.4"
     astrocite-ris "^0.16.4"
     citeproc "^2.4.62"
