@@ -465,7 +465,7 @@ const x = 'y'",
   },
   "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9" => Object {
     "_id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\">An inline equation: <span class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math></span></p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPParagraphElement\\">An inline equation: <span id=\\"inline-formula-1\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math></span></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",

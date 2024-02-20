@@ -41,6 +41,7 @@ const chooseContentType = (graphicNode?: Element): string | undefined => {
 
 const getEquationContent = (p: string | HTMLElement) => {
   const element = p as HTMLElement
+  const id = element.getAttribute('id')
   const container = element.querySelector('alternatives') ?? element
   let contents: string | null = ''
   let format: string | null = ''
@@ -60,7 +61,7 @@ const getEquationContent = (p: string | HTMLElement) => {
         break
     }
   }
-  return { format, contents }
+  return { id, format, contents }
 }
 
 export type MarkRule = ParseRule & { mark: Marks | null }
@@ -200,9 +201,8 @@ const nodes: NodeRule[] = [
     getContent: (node, schema) => {
       const element = node as HTMLElement
       const attrs = getEquationContent(element)
-      const id = element.getAttribute('id')
       return Fragment.from([
-        schema.nodes.equation.createChecked({ id, ...attrs }),
+        schema.nodes.equation.createChecked({ ...attrs }),
       ]) as Fragment
     },
   },

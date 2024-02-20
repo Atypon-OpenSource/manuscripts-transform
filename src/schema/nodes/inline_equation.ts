@@ -20,6 +20,7 @@ import { ManuscriptNode } from '../types'
 import { CommentNode } from './comment'
 
 interface Attrs {
+  id: string
   contents: string
   format: string
   comments?: CommentNode[]
@@ -33,6 +34,7 @@ export const inlineEquation: NodeSpec = {
   attrs: {
     dataTracked: { default: null },
     comments: { default: null },
+    id: { default: '' },
     contents: { default: '' },
     format: { default: '' },
   },
@@ -48,6 +50,7 @@ export const inlineEquation: NodeSpec = {
         const dom = p as HTMLElement
         return {
           format: dom.getAttribute('data-equation-format'),
+          id: dom.getAttribute('id'),
           contents: dom.innerHTML,
         }
       },
@@ -55,9 +58,10 @@ export const inlineEquation: NodeSpec = {
   ],
   toDOM: (node) => {
     const inlineEquationNode = node as InlineEquationNode
-    const { contents, format } = inlineEquationNode.attrs
+    const { id, contents, format } = inlineEquationNode.attrs
 
     const dom = document.createElement('span')
+    dom.setAttribute('id', id)
     dom.classList.add('MPInlineMathFragment')
     if (format) {
       dom.setAttribute('data-equation-format', format)
