@@ -21,6 +21,7 @@ import { ManuscriptNode } from '../types'
 export interface ActualManuscriptNode extends ManuscriptNode {
   attrs: {
     id: string
+    DOI: string
   }
 }
 
@@ -32,6 +33,7 @@ export const manuscript: NodeSpec = {
     'title? contributors? affiliations? keywords? supplements? abstracts body backmatter comments',
   attrs: {
     id: { default: '' },
+    DOI: { default: '' },
   },
   group: 'block',
   parseDOM: [
@@ -42,6 +44,7 @@ export const manuscript: NodeSpec = {
 
         return {
           id: dom.getAttribute('id'),
+          doi: dom.getAttribute('doi'),
         }
       },
     },
@@ -53,6 +56,7 @@ export const manuscript: NodeSpec = {
       'article',
       {
         id: manuscriptNode.attrs.id,
+        doi: manuscriptNode.attrs.DOI
       },
       0,
     ]

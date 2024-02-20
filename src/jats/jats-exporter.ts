@@ -524,10 +524,11 @@ export class JATSExporter {
       articleMeta.appendChild(articleID)
     }
 
-    if (doi) {
+    if (doi || manuscript.DOI) {
       const articleID = this.document.createElement('article-id')
       articleID.setAttribute('pub-id-type', 'doi')
-      articleID.textContent = doi
+      // @ts-ignore
+      articleID.textContent = doi ?? manuscript.DOI
       articleMeta.appendChild(articleID)
     }
 
