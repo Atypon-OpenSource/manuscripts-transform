@@ -4,7 +4,6 @@ exports[`project bundle for a specific manuscript: multimanuscript-project-bundl
 Object {
   "doc": Object {
     "attrs": Object {
-      "DOI": "",
       "id": "MPManuscript:B3BB2CD8-F944-47C3-9F01-1996DBD417EE",
     },
     "content": Array [
@@ -1227,7 +1226,6 @@ exports[`project bundle with no manuscript parameter: project-bundle 1`] = `
 Object {
   "doc": Object {
     "attrs": Object {
-      "DOI": "",
       "id": "MPManuscript:B3BB2CD8-F944-47C3-9F01-1996DBD417EE",
     },
     "content": Array [

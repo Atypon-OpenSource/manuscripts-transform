@@ -33,7 +33,6 @@ import {
   ListElement,
   Listing,
   ListingElement,
-  Manuscript,
   MissingFigure,
   Model,
   ObjectTypes,
@@ -1033,7 +1032,6 @@ export class Decoder {
     return schema.nodes.manuscript.create(
       {
         id: manuscriptID || this.getManuscriptID(),
-        DOI: this.getDOI(manuscriptID || this.getManuscriptID()),
       },
       contents
     )
@@ -1099,12 +1097,6 @@ export class Decoder {
       if (isManuscript(item)) {
         return item._id
       }
-    }
-  }
-  private getDOI = (manuscriptID: string | undefined) => {
-    if (manuscriptID) {
-      const manuscript = this.getModel<Manuscript>(manuscriptID)
-      return manuscript?.DOI
     }
   }
 
