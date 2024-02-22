@@ -38,7 +38,6 @@ export const inlineEquation: NodeSpec = {
     contents: { default: '' },
     format: { default: '' },
   },
-  selectable: false,
   atom: true,
   inline: true,
   draggable: true,
