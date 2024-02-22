@@ -962,7 +962,7 @@ Array [
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph contains an inline equation:<span id=\\"081a697f-ff91-4258-8e32-4eac2721a9db\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"tex\\">2+3=5</span></p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph contains an inline equation:<span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"tex\\">2+3=5</span></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -5291,7 +5291,7 @@ Array [
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">where <i>Ask<sub>t</sub></i> is the National Best Ask and <i>Bid<sub>t</sub></i> is the National Best Bid assigned to time <i>t</i> and <span id=\\"943dea0a-40c0-4666-8cfe-111494f3db52\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m2\\">
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">where <i>Ask<sub>t</sub></i> is the National Best Ask and <i>Bid<sub>t</sub></i> is the National Best Bid assigned to time <i>t</i> and <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m2\\">
           <mml:mrow>
             <mml:msub>
               <mml:mi>M</mml:mi>
@@ -5357,46 +5357,46 @@ Array [
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">where <i>D<sub>k</sub></i> is an indicator variable that equals +1 if the <i>k</i>th trade is a buy and −1 if the <i>k</i>th trade is a sell, <span id=\\"527945cf-78bc-4b81-83f7-2daf4e1ba584\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m4\\">
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">where <i>D<sub>k</sub></i> is an indicator variable that equals +1 if the <i>k</i>th trade is a buy and −1 if the <i>k</i>th trade is a sell, <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m4\\">
           <mml:mi>P</mml:mi>
-        </mml:math></span><i><sub>k</sub></i> is the price of the <i>k</i>th trade, and <span id=\\"a8acb56f-304e-4c50-91f9-4aeeeee436eb\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m5\\">
+        </mml:math></span><i><sub>k</sub></i> is the price of the <i>k</i>th trade, and <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m5\\">
           <mml:mi>M</mml:mi>
-        </mml:math></span><i><sub>k</sub></i> is the midpoint of the National Best Bid and Offer (NBBO) quotes assigned to the <i>k</i>th trade. We use the <span class=\\"citation\\" data-id=\\"MPCitation:test\\" data-reference-id=\\"MPBibliographyItem:test\\">Lee and Ready (1991)</span> algorithm to determine whether a given trade is a buy or sell. Under this convention, a trade is a buy when <span id=\\"ed8db5a8-5049-4d21-83ff-012976942d16\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m6\\">
+        </mml:math></span><i><sub>k</sub></i> is the midpoint of the National Best Bid and Offer (NBBO) quotes assigned to the <i>k</i>th trade. We use the <span class=\\"citation\\" data-id=\\"MPCitation:test\\" data-reference-id=\\"MPBibliographyItem:test\\">Lee and Ready (1991)</span> algorithm to determine whether a given trade is a buy or sell. Under this convention, a trade is a buy when <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m6\\">
           <mml:mrow>
             <mml:msub>
               <mml:mi>P</mml:mi>
               <mml:mi>k</mml:mi>
             </mml:msub>
           </mml:mrow>
-        </mml:math></span> &gt; <span id=\\"3b657b63-6333-4417-b134-27d2ead0b047\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m7\\">
+        </mml:math></span> &gt; <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m7\\">
           <mml:mrow>
             <mml:msub>
               <mml:mi>M</mml:mi>
               <mml:mi>k</mml:mi>
             </mml:msub>
           </mml:mrow>
-        </mml:math></span>, a sell when <span id=\\"c4ef5e45-85b9-4a45-bc9a-9815b70decc5\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m8\\">
+        </mml:math></span>, a sell when <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m8\\">
           <mml:mrow>
             <mml:msub>
               <mml:mi>P</mml:mi>
               <mml:mi>k</mml:mi>
             </mml:msub>
           </mml:mrow>
-        </mml:math></span> &lt; <span id=\\"05025c33-209d-4ffc-ab50-7a619fc39a0e\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m9\\">
+        </mml:math></span> &lt; <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m9\\">
           <mml:mrow>
             <mml:msub>
               <mml:mi>M</mml:mi>
               <mml:mi>k</mml:mi>
             </mml:msub>
           </mml:mrow>
-        </mml:math></span>, and the tick test is used when <span id=\\"0c18c21f-a2cf-4e1b-a563-1186b221af89\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m10\\">
+        </mml:math></span>, and the tick test is used when <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m10\\">
           <mml:mrow>
             <mml:msub>
               <mml:mi>P</mml:mi>
               <mml:mi>k</mml:mi>
             </mml:msub>
           </mml:mrow>
-        </mml:math></span> = <span id=\\"ef671e0f-9150-49d5-b1a5-46da4e4ce3f6\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m11\\">
+        </mml:math></span> = <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m11\\">
           <mml:mrow>
             <mml:msub>
               <mml:mi>M</mml:mi>
@@ -5463,14 +5463,14 @@ Array [
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">where <span id=\\"b65bfe4a-cf00-4826-802b-d2d2349dfe12\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m13\\">
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">where <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m13\\">
           <mml:mrow>
             <mml:msub>
               <mml:mi>M</mml:mi>
               <mml:mi>k</mml:mi>
             </mml:msub>
           </mml:mrow>
-        </mml:math></span> is the midpoint of the NBBO quotes assigned to the <i>k</i>th trade, <span id=\\"c0437d53-2842-4f52-8543-90e705e7238d\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m14\\">
+        </mml:math></span> is the midpoint of the NBBO quotes assigned to the <i>k</i>th trade, <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m14\\">
           <mml:mrow>
             <mml:msub>
               <mml:mi>M</mml:mi>
@@ -5478,7 +5478,7 @@ Array [
                 <mml:mi>k</mml:mi><mml:mo>+</mml:mo><mml:mn>5</mml:mn></mml:mrow>
             </mml:msub>
             <mml:mo> </mml:mo></mml:mrow>
-        </mml:math></span>is the midpoint five minutes after the <i>k</i>th trade, and <span id=\\"3656cf9b-5457-4e4f-aea3-0856f180d0ac\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m15\\">
+        </mml:math></span>is the midpoint five minutes after the <i>k</i>th trade, and <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m15\\">
           <mml:mrow>
             <mml:msub>
               <mml:mi>D</mml:mi>
@@ -5560,7 +5560,7 @@ Array [
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Note: This table reports average daily summary statistics for common stocks with a share price greater than $5 and nonzero trading volume in U.S. equities before the 2012 and 2016 U.S. presidential elections. The event window for the summary statistics is [−90,−10]. All variables are first averaged by stock and then averaged across stocks. <i>Quoted Spread</i> is defined as <span id=\\"65b2fbe1-9e8e-4912-9915-c3bfb183c40b\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m16\\">
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Note: This table reports average daily summary statistics for common stocks with a share price greater than $5 and nonzero trading volume in U.S. equities before the 2012 and 2016 U.S. presidential elections. The event window for the summary statistics is [−90,−10]. All variables are first averaged by stock and then averaged across stocks. <i>Quoted Spread</i> is defined as <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m16\\">
             <mml:mrow>
               <mml:mfenced close=\\"]\\" open=\\"[\\">
                 <mml:mrow>
@@ -5581,7 +5581,7 @@ Array [
                 </mml:msub>
                 </mml:mrow>
               </mml:mfenced><mml:mo>×</mml:mo><mml:mn>100</mml:mn></mml:mrow>
-          </mml:math></span>. <i>Effective Spread</i> is measured as <span id=\\"953cfa45-da70-41e5-aecf-5fa2344591cc\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m17\\">
+          </mml:math></span>. <i>Effective Spread</i> is measured as <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m17\\">
             <mml:mrow>
               <mml:mfenced close=\\"]\\" open=\\"[\\">
                 <mml:mrow>
@@ -5606,14 +5606,14 @@ Array [
                     </mml:mrow>
                   </mml:mfenced></mml:mrow>
               </mml:mfenced><mml:mo>×</mml:mo><mml:mn>100</mml:mn></mml:mrow>
-          </mml:math></span>, where <span id=\\"96b531a4-5890-44ac-ab1b-ffbc6b5905ce\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m18\\">
+          </mml:math></span>, where <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m18\\">
             <mml:mrow>
               <mml:msub>
                 <mml:mi>D</mml:mi>
                 <mml:mi>k</mml:mi>
               </mml:msub>
             </mml:mrow>
-          </mml:math></span> is an indicator variable that equals +1 if the <i>k</i>th trade is a buy and −1 if the <i>k</i>th trade is a sell (trade direction is defined as in <span class=\\"citation\\" data-id=\\"MPCitation:test\\" data-reference-id=\\"MPBibliographyItem:test\\">Lee and Ready, 1991</span>). <i>Price Impact</i> is defined as <span id=\\"8d5042b9-14b5-4bb0-9b83-b41f6a398d8d\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m19\\">
+          </mml:math></span> is an indicator variable that equals +1 if the <i>k</i>th trade is a buy and −1 if the <i>k</i>th trade is a sell (trade direction is defined as in <span class=\\"citation\\" data-id=\\"MPCitation:test\\" data-reference-id=\\"MPBibliographyItem:test\\">Lee and Ready, 1991</span>). <i>Price Impact</i> is defined as <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m19\\">
             <mml:mrow>
               <mml:mfenced close=\\"]\\" open=\\"[\\">
                 <mml:mrow>
@@ -5639,7 +5639,7 @@ Array [
                 </mml:msub>
                 </mml:mrow>
               </mml:mfenced><mml:mo>×</mml:mo><mml:mn>100</mml:mn></mml:mrow>
-          </mml:math></span>, where <span id=\\"2eab4bf6-4991-4ddf-9127-14fe8b398b22\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m20\\">
+          </mml:math></span>, where <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m20\\">
             <mml:mrow>
               <mml:mi>m</mml:mi><mml:mi>i</mml:mi><mml:mi>d</mml:mi><mml:mi>p</mml:mi><mml:mi>o</mml:mi><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:msub>
               <mml:mi>t</mml:mi>
@@ -5804,14 +5804,14 @@ Array [
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">where the dependent variable is one of seven liquidity measures: <i>Quoted Spread, Effective Spread, Price Impact, Amihud Illiquidity, Total Volatility, Systematic Volatility,</i> or <i>Idiosyncratic Volatility</i>. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. The interaction terms serve as difference-in-difference estimators between the pre- and post-election windows and the 2012 and 2016 elections. The <i>Trump</i> indicator variable equals 1 if the observation is during the 2016 election cycle and 0 otherwise, which controls for differences in liquidity between the two election periods. The event fixed effects, <span id=\\"78c5789a-b07f-4985-b393-04bea11b829a\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m23\\">
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">where the dependent variable is one of seven liquidity measures: <i>Quoted Spread, Effective Spread, Price Impact, Amihud Illiquidity, Total Volatility, Systematic Volatility,</i> or <i>Idiosyncratic Volatility</i>. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. The interaction terms serve as difference-in-difference estimators between the pre- and post-election windows and the 2012 and 2016 elections. The <i>Trump</i> indicator variable equals 1 if the observation is during the 2016 election cycle and 0 otherwise, which controls for differences in liquidity between the two election periods. The event fixed effects, <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m23\\">
         <mml:mrow>
           <mml:msub>
             <mml:mi>δ</mml:mi>
             <mml:mi>t</mml:mi>
           </mml:msub>
         </mml:mrow>
-      </mml:math></span>, control for variation in liquidity surrounding the election outcomes. The stock fixed effects, <span id=\\"d8a16406-7864-4477-b1b3-d4b33a74b979\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m24\\">
+      </mml:math></span>, control for variation in liquidity surrounding the election outcomes. The stock fixed effects, <span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m24\\">
         <mml:mrow>
           <mml:msub>
             <mml:mi>φ</mml:mi>
@@ -5866,7 +5866,7 @@ Array [
   },
   Object {
     "_id": "MPFigureElement:test",
-    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Transactions Costs.</b> This figure reports the results of estimating the following fixed-effects regression equations for common stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"7fbc27c8-035b-4ad3-a47d-68bf9f2c9d86\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m25\\">
+    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Transactions Costs.</b> This figure reports the results of estimating the following fixed-effects regression equations for common stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m25\\">
           <mml:mrow>
             <mml:mi>S</mml:mi><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>a</mml:mi><mml:msub>
             <mml:mi>d</mml:mi>
@@ -5894,10 +5894,10 @@ Array [
               <mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>t</mml:mi></mml:mrow>
           </mml:msub>
             <mml:mo>&nbsp;</mml:mo><mml:mo>,</mml:mo><mml:mo>&nbsp;</mml:mo></mml:mrow>
-        </mml:math></span></p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"26cd62de-9a17-4506-82dd-bfd2f8619fcf\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m26\\">
+        </mml:math></span></p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m26\\">
           <mml:mrow>
             <mml:mtext>and</mml:mtext></mml:mrow>
-        </mml:math></span></p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"ac6b7763-4a09-425f-86c7-d177333bda17\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m27\\">
+        </mml:math></span></p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m27\\">
           <mml:mrow>
             <mml:mi>S</mml:mi><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>a</mml:mi><mml:msub>
             <mml:mi>d</mml:mi>
@@ -5994,7 +5994,7 @@ Array [
   },
   Object {
     "_id": "MPFigureElement:test",
-    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Adverse Selection.</b> This figure reports the results of estimating the following fixed-effects regression equations for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"b4d5cc0d-2b01-4525-87dd-c1d28bf3da1a\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m28\\">
+    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Adverse Selection.</b> This figure reports the results of estimating the following fixed-effects regression equations for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m28\\">
           <mml:mrow>
             <mml:mi>A</mml:mi><mml:mi>d</mml:mi><mml:mi>v</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>s</mml:mi><mml:mi>e</mml:mi><mml:mo>&nbsp;</mml:mo><mml:mi>S</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>o</mml:mi><mml:msub>
             <mml:mi>n</mml:mi>
@@ -6022,10 +6022,10 @@ Array [
               <mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>t</mml:mi></mml:mrow>
           </mml:msub>
             <mml:mo>&nbsp;</mml:mo><mml:mo>,</mml:mo><mml:mo>&nbsp;</mml:mo><mml:mo>&nbsp;</mml:mo></mml:mrow>
-        </mml:math></span></p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"8735cad8-cb51-4931-aff6-8a20541bc453\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m29\\">
+        </mml:math></span></p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m29\\">
           <mml:mrow>
             <mml:mtext>and</mml:mtext></mml:mrow>
-        </mml:math></span></p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"20a332e5-449d-4273-8c18-59081dc2c93a\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m30\\">
+        </mml:math></span></p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m30\\">
           <mml:mrow>
             <mml:mi>A</mml:mi><mml:mi>d</mml:mi><mml:mi>v</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>s</mml:mi><mml:mi>e</mml:mi><mml:mo>&nbsp;</mml:mo><mml:mi>S</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>o</mml:mi><mml:msub>
             <mml:mi>n</mml:mi>
@@ -6122,7 +6122,7 @@ Array [
   },
   Object {
     "_id": "MPFigureElement:test",
-    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Volatility.</b> This figure reports the results of estimating the following fixed-effects regression equations for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"9c6b392d-222b-4a51-9c8c-eb7d1f59eb77\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m31\\">
+    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Volatility.</b> This figure reports the results of estimating the following fixed-effects regression equations for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m31\\">
           <mml:mrow>
             <mml:mi>V</mml:mi><mml:mi>o</mml:mi><mml:mi>l</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>l</mml:mi><mml:mi>i</mml:mi><mml:mi>t</mml:mi><mml:msub>
             <mml:mi>y</mml:mi>
@@ -6150,10 +6150,10 @@ Array [
               <mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>t</mml:mi></mml:mrow>
           </mml:msub>
             <mml:mo>&nbsp;</mml:mo><mml:mo>,</mml:mo><mml:mo>&nbsp;</mml:mo><mml:mo>&nbsp;</mml:mo></mml:mrow>
-        </mml:math></span></p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"d1620c42-d35c-4850-9b23-84c869ba955a\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m32\\">
+        </mml:math></span></p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m32\\">
           <mml:mrow>
             <mml:mtext>and</mml:mtext></mml:mrow>
-        </mml:math></span></p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"91dfde33-e417-4758-a4f7-8e07b9e802d9\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m33\\">
+        </mml:math></span></p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m33\\">
           <mml:mrow>
             <mml:mi>V</mml:mi><mml:mi>o</mml:mi><mml:mi>l</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>l</mml:mi><mml:mi>i</mml:mi><mml:mi>t</mml:mi><mml:msub>
             <mml:mi>y</mml:mi>
@@ -6294,7 +6294,7 @@ Array [
   },
   Object {
     "_id": "MPFigureElement:test",
-    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Liquidity—By Stock Trading Volume.</b> This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"8a8e2035-c413-4b79-8259-a56d26bd5db7\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m34\\">
+    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Liquidity—By Stock Trading Volume.</b> This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m34\\">
           <mml:mrow>
             <mml:mi>L</mml:mi><mml:mi>i</mml:mi><mml:msub>
             <mml:mi>q</mml:mi>
@@ -6384,7 +6384,7 @@ Array [
   },
   Object {
     "_id": "MPFigureElement:test",
-    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Liquidity—By Stock Market Capitalization.</b> This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"4e37760a-c08c-4a0f-ac1e-2672fbfc14be\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m35\\">
+    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Liquidity—By Stock Market Capitalization.</b> This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m35\\">
           <mml:mrow>
             <mml:mi>L</mml:mi><mml:mi>i</mml:mi><mml:msub>
             <mml:mi>q</mml:mi>
@@ -6503,7 +6503,7 @@ Array [
   },
   Object {
     "_id": "MPFigureElement:test",
-    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Liquidity—Politically Sensitive Industries.</b> The figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"9df39b16-3166-4a4a-b6d2-5fd32408ddf9\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m36\\">
+    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Liquidity—Politically Sensitive Industries.</b> The figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m36\\">
           <mml:mrow>
             <mml:mi>L</mml:mi><mml:mi>i</mml:mi><mml:msub>
             <mml:mi>q</mml:mi>
@@ -6615,7 +6615,7 @@ Array [
   },
   Object {
     "_id": "MPFigureElement:test",
-    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Liquidity—2004 U.S. Presidential Election as a Benchmark.</b> This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2004 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"212a3cce-08bc-4ee9-bd6d-3902c7482cde\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m37\\">
+    "caption": "<p class=\\"caption-description\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><b>Election Uncertainty and Liquidity—2004 U.S. Presidential Election as a Benchmark.</b> This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2004 and 2016 U.S. presidential elections:</p><p class=\\"caption-description placeholder\\" data-placeholder-text=\\"Caption...\\" contenteditable=\\"true\\"><span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"mathml\\"><mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m37\\">
         <mml:mrow>
           <mml:mi>L</mml:mi><mml:mi>i</mml:mi><mml:msub>
           <mml:mi>q</mml:mi>
@@ -8622,7 +8622,7 @@ Array [
   },
   Object {
     "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph contains an inline equation:<span id=\\"32f2cf1b-87e7-48de-a746-ac1809030b7c\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"tex\\">2+3=5</span></p>",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">This paragraph contains an inline equation:<span id=\\"InlineMathFragment:test\\" class=\\"MPInlineMathFragment\\" data-equation-format=\\"tex\\">2+3=5</span></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",

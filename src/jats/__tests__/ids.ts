@@ -17,7 +17,11 @@ import { Model } from '@manuscripts/json-schema'
 
 export const normalizeIDs = (models: Model[]) => {
   const json = JSON.stringify(models)
-  const normalizedJSON = json.replace(/(MP[A-Za-z]+):[A-Z0-9-]+/g, '$1:test')
+  let normalizedJSON = json.replace(/(MP[A-Za-z]+):[A-Z0-9-]+/g, '$1:test')
+  normalizedJSON = normalizedJSON.replace(
+    /(InlineMathFragment):[0-9a-zA-Z-]+/g,
+    '$1:test'
+  )
 
   return JSON.parse(normalizedJSON)
 }

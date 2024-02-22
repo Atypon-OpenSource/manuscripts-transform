@@ -52,7 +52,7 @@ const updateNodeID = (
     // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
     node.attrs = {
       ...node.attrs,
-      id: randomUUID(),
+      id: `InlineMathFragment:${randomUUID()}`,
     }
     return
   }
