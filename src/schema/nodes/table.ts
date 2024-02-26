@@ -117,3 +117,4 @@ export const table: NodeSpec = {
 export const tableRow = tableNodes.table_row
 export const tableCell = tableNodes.table_cell
 export const tableHeader = tableNodes.table_header
+console.log('zax--')
