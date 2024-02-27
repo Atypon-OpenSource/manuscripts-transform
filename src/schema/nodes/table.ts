@@ -125,5 +125,5 @@ export const tableCell = {
 }
 export const tableHeader = {
   ...tableNodes.table_header,
-  attrs: { ...tableNodes.table_row.attrs, dataTracked: { default: null } },
+  attrs: { ...tableNodes.table_header.attrs, dataTracked: { default: null } },
 }
