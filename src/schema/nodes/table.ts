@@ -88,6 +88,7 @@ const tableNodes: TableNodes = createTableNodes(tableOptions)
 export const table: NodeSpec = {
   attrs: {
     id: { default: '' },
+    dataTracked: { default: null },
   },
   content: 'table_row+',
   tableRole: 'table',
@@ -114,7 +115,15 @@ export const table: NodeSpec = {
     ]
   },
 }
-export const tableRow = tableNodes.table_row
-export const tableCell = tableNodes.table_cell
-export const tableHeader = tableNodes.table_header
-console.log('zax--')
+export const tableRow = {
+  ...tableNodes.table_row,
+  attrs: { ...tableNodes.table_row.attrs, dataTracked: { default: null } },
+}
+export const tableCell = {
+  ...tableNodes.table_cell,
+  attrs: { ...tableNodes.table_cell.attrs, dataTracked: { default: null } },
+}
+export const tableHeader = {
+  ...tableNodes.table_header,
+  attrs: { ...tableNodes.table_row.attrs, dataTracked: { default: null } },
+}
