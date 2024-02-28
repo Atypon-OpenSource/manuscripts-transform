@@ -344,26 +344,6 @@ export const jatsBodyTransformations = {
         }
         table.insertBefore(colgroup, table.firstChild)
       }
-
-      // Ensures that tables have a header and footer row
-      const tbody = table.querySelector('tbody')
-      if (tbody) {
-        // if there are no table header rows, add an extra row to the start of the table body
-        const headerRow = table.querySelector('thead > tr')
-
-        if (!headerRow) {
-          const tr = createElement('tr')
-          tbody.insertBefore(tr, tbody.firstElementChild)
-        }
-
-        // if there are no table footer rows, add an extra row to the end of the table body
-        const footerRow = table.querySelector('tfoot > tr')
-
-        if (!footerRow) {
-          const tr = createElement('tr')
-          tbody.appendChild(tr)
-        }
-      }
     })
   },
   moveFloatsGroupToBody(
