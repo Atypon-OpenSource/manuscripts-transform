@@ -595,8 +595,6 @@ const nodes: NodeRule[] = [
 
       return {
         id: element.getAttribute('id'),
-        suppressFooter: !element.querySelector('table > tfoot > tr'),
-        suppressHeader: !element.querySelector('table > thead > tr'),
       }
     },
   },

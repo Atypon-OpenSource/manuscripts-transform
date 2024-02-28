@@ -739,20 +739,11 @@ export class Decoder {
     },
     [ObjectTypes.Table]: (data) => {
       const model = data as Table
-      const comments = this.createCommentNodes(model)
-      comments.forEach((c) => this.comments.set(c.attrs.id, c))
-
-      return this.parseContents(
-        model.contents,
-        undefined,
-        this.getComments(model),
-        {
-          topNode: schema.nodes.table.create({
-            id: model._id,
-            comments: comments.map((c) => c.attrs.id),
-          }),
-        }
-      )
+      return this.parseContents(model.contents, undefined, [], {
+        topNode: schema.nodes.table.create({
+          id: model._id,
+        }),
+      })
     },
     [ObjectTypes.TableElement]: (data) => {
       const model = data as TableElement
