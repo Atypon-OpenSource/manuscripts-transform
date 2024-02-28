@@ -599,14 +599,6 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'tfoot',
-    skip: true,
-  },
-  {
-    tag: 'thead',
-    skip: true,
-  },
-  {
     tag: 'title',
     node: 'section_title',
     context:

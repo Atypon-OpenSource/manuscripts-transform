@@ -16,75 +16,78 @@
 
 import { NodeSpec } from 'prosemirror-model'
 import {
+  CellAttributes,
+  MutableAttrs,
   TableNodes,
   tableNodes as createTableNodes,
   TableNodesOptions,
 } from 'prosemirror-tables'
 
+type getFromDOM = (dom: HTMLElement) => unknown
+type setDOMAttr = (value: unknown, attrs: MutableAttrs) => void
+
+function createCellAttribute(
+  attributeName: string,
+  defaultValue: unknown = null,
+  customGetFromDOM?: getFromDOM,
+  customSetDOMAttr?: setDOMAttr
+): CellAttributes {
+  return {
+    default: defaultValue,
+    getFromDOM(dom) {
+      if (customGetFromDOM) {
+        return customGetFromDOM(dom)
+      }
+      return dom.getAttribute(attributeName)
+    },
+    setDOMAttr(value, attrs) {
+      if (customSetDOMAttr) {
+        customSetDOMAttr(value, attrs)
+      } else if (value) {
+        attrs[attributeName] = value
+      }
+    },
+  }
+}
+
 const tableOptions: TableNodesOptions = {
   cellContent: 'inline*',
   cellAttributes: {
-    placeholder: {
-      default: 'Data',
-      getFromDOM(dom) {
-        return dom.getAttribute('data-placeholder-text') || ''
-      },
-      setDOMAttr(value, attrs) {
-        if (value) {
-          attrs['data-placeholder-text'] = value
+    placeholder: createCellAttribute(
+      'data-placeholder-text',
+      'Data',
+      (dom) => dom.getAttribute('data-placeholder-text') || ''
+    ),
+    valign: createCellAttribute('valign'),
+    align: createCellAttribute('align'),
+    scope: createCellAttribute('scope'),
+    style: createCellAttribute('style'),
+    colspan: createCellAttribute(
+      'colspan',
+      1,
+      (dom) => Number(dom.getAttribute('colspan') || 1),
+      (value, attrs) => {
+        if (value && value !== 1) {
+          attrs['colspan'] = String(value)
         }
-      },
-    },
-    valign: {
-      default: null,
-      getFromDOM(dom) {
-        return dom.getAttribute('valign')
-      },
-      setDOMAttr(value, attrs) {
-        if (value) {
-          attrs['valign'] = value
+      }
+    ),
+    rowspan: createCellAttribute(
+      'rowspan',
+      1,
+      (dom) => Number(dom.getAttribute('rowspan') || 1),
+      (value, attrs) => {
+        if (value && value !== 1) {
+          attrs['rowspan'] = String(value)
         }
-      },
-    },
-    align: {
-      default: null,
-      getFromDOM(dom) {
-        return dom.getAttribute('align')
-      },
-      setDOMAttr(value, attrs) {
-        if (value) {
-          attrs['align'] = value
-        }
-      },
-    },
-    scope: {
-      default: null,
-      getFromDOM(dom) {
-        return dom.getAttribute('scope')
-      },
-      setDOMAttr(value, attrs) {
-        if (value) {
-          attrs['scope'] = value
-        }
-      },
-    },
-    style: {
-      default: null,
-      getFromDOM(dom) {
-        return dom.getAttribute('style')
-      },
-      setDOMAttr(value, attrs) {
-        if (value) {
-          attrs['style'] = value
-        }
-      },
-    },
+      }
+    ),
   },
 }
 
 const tableNodes: TableNodes = createTableNodes(tableOptions)
 
-// this is based on prsemirror-tables schema
+// this is based on prsemirror-tables schema with our added attributes
 export const table: NodeSpec = {
   attrs: {
     id: { default: '' },

@@ -239,25 +239,25 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "comments": Array [],
                           "dataTracked": null,
-                          "footerRows": 1,
-                          "headerRows": 1,
                           "id": "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
                         },
                         "content": Array [
                           Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
                             "content": Array [
                               Object {
                                 "attrs": Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
@@ -273,11 +273,11 @@ Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
@@ -292,17 +292,20 @@ Object {
                             "type": "table_row",
                           },
                           Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
                             "content": Array [
                               Object {
                                 "attrs": Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
@@ -318,11 +321,11 @@ Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
@@ -337,17 +340,20 @@ Object {
                             "type": "table_row",
                           },
                           Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
                             "content": Array [
                               Object {
                                 "attrs": Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
@@ -363,11 +369,11 @@ Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
@@ -382,17 +388,20 @@ Object {
                             "type": "table_row",
                           },
                           Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
                             "content": Array [
                               Object {
                                 "attrs": Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "type": "table_cell",
@@ -402,11 +411,11 @@ Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
@@ -1659,25 +1668,25 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "comments": Array [],
                           "dataTracked": null,
-                          "footerRows": 1,
-                          "headerRows": 1,
                           "id": "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
                         },
                         "content": Array [
                           Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
                             "content": Array [
                               Object {
                                 "attrs": Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
@@ -1693,11 +1702,11 @@ Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
@@ -1712,17 +1721,20 @@ Object {
                             "type": "table_row",
                           },
                           Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
                             "content": Array [
                               Object {
                                 "attrs": Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
@@ -1738,11 +1750,11 @@ Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
@@ -1757,17 +1769,20 @@ Object {
                             "type": "table_row",
                           },
                           Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
                             "content": Array [
                               Object {
                                 "attrs": Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
@@ -1783,11 +1798,11 @@ Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
@@ -1802,17 +1817,20 @@ Object {
                             "type": "table_row",
                           },
                           Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
                             "content": Array [
                               Object {
                                 "attrs": Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "type": "table_cell",
@@ -1822,11 +1840,11 @@ Object {
                                   "align": null,
                                   "colspan": 1,
                                   "colwidth": null,
+                                  "dataTracked": null,
                                   "placeholder": "Data",
                                   "rowspan": 1,
                                   "scope": null,
                                   "style": null,
-                                  "styles": Object {},
                                   "valign": null,
                                 },
                                 "content": Array [
