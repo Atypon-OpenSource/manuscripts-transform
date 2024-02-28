@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { randomUUID } from 'crypto'
+import { v4 as uuidv4 } from 'uuid'
 
 import { ManuscriptNode, schema } from '../../schema'
 import { generateID, nodeTypesMap } from '../../transformer'
@@ -52,7 +52,7 @@ const updateNodeID = (
     // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
     node.attrs = {
       ...node.attrs,
-      id: `InlineMathFragment:${randomUUID()}`,
+      id: `InlineMathFragment:${uuidv4()}`,
     }
     return
   }
