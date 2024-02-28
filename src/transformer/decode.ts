@@ -47,7 +47,7 @@ import {
   TOCElement,
 } from '@manuscripts/json-schema'
 import debug from 'debug'
-import { DOMParser, ParseOptions } from 'prosemirror-model'
+import { DOMParser, Fragment, ParseOptions, Slice } from 'prosemirror-model'
 
 import { MissingElement } from '../errors'
 import {
@@ -72,6 +72,7 @@ import {
   FigureNode,
   FootnoteNode,
   FootnotesElementNode,
+  InlineFootnoteNode,
   KeywordNode,
   KeywordsElementNode,
   KeywordsNode,
@@ -758,7 +759,7 @@ export class Decoder {
     [ObjectTypes.TableElement]: (data) => {
       const model = data as TableElement
       const table = this.createTable(model)
-      const tableElementFooter = this.createTableElementFooter(model)
+      const tableElementFooter = this.createTableElementFooter(model, table)
       const figcaption: FigCaptionNode = this.getFigcaption(model)
       const comments = this.createCommentNodes(model)
       comments.forEach((c) => this.comments.set(c.attrs.id, c))
@@ -1170,7 +1171,7 @@ export class Decoder {
     return table
   }
 
-  private createTableElementFooter(model: TableElement) {
+  private createTableElementFooter(model: TableElement, table: ManuscriptNode) {
     const tableElementFooterID = model.tableElementFooterID
     if (!tableElementFooterID) {
       return undefined
@@ -1179,7 +1180,10 @@ export class Decoder {
       this.getModel<TableElementFooter>(tableElementFooterID)
 
     return tableElementFooterModel
-      ? (this.decode(tableElementFooterModel) as TableElementFooterNode)
+      ? this.moveUncitedFootnoteAtEnd(
+          this.decode(tableElementFooterModel) as TableElementFooterNode,
+          table
+        )
       : undefined
   }
   private createListing(id: string) {
@@ -1195,5 +1199,43 @@ export class Decoder {
     } else {
       throw new MissingElement(id)
     }
+  }
+
+  private moveUncitedFootnoteAtEnd(
+    tableElementFooter: TableElementFooterNode,
+    table: ManuscriptNode
+  ) {
+    const tableInlineFootnoteIds = new Set()
+    table.descendants((node) => {
+      if (node.type === schema.nodes.inline_footnote) {
+        ;(node as InlineFootnoteNode).attrs.rids.map((rid) =>
+          tableInlineFootnoteIds.add(rid)
+        )
+      }
+    })
+
+    tableElementFooter.forEach((footnoteElement, offset) => {
+      if (footnoteElement.type !== schema.nodes.footnotes_element) {
+        return
+      }
+
+      const children: ManuscriptNode[] = []
+      footnoteElement.content.forEach((node) => children.push(node))
+      children.sort((child) =>
+        tableInlineFootnoteIds.has(child.attrs.id) ? -1 : 0
+      )
+
+      tableElementFooter = tableElementFooter.replace(
+        offset,
+        offset + footnoteElement.nodeSize,
+        new Slice(
+          Fragment.from(footnoteElement.copy(Fragment.from(children))),
+          tableElementFooter.resolve(offset).depth,
+          tableElementFooter.resolve(offset + footnoteElement.nodeSize).depth
+        )
+      ) as TableElementFooterNode
+    })
+
+    return tableElementFooter
   }
 }
