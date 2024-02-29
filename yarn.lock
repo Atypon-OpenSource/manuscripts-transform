@@ -5108,7 +5108,7 @@ prosemirror-model@^1.0.0, prosemirror-model@^1.16.0:
   dependencies:
     orderedmap "^2.0.0"
 
-prosemirror-model@^1.8.1:
+prosemirror-model@^1.18.3, prosemirror-model@^1.8.1:
   version "1.19.4"
   resolved "https://registry.yarnpkg.com/prosemirror-model/-/prosemirror-model-1.19.4.tgz#e45e84480c97dd3922095dbe579e1c98c86c0704"
   integrity sha512-RPmVXxUfOhyFdayHawjuZCxiROsm9L4FCUA6pWI+l7n2yCBsWy9VpdE1hpDHUS8Vad661YLY9AzqfjLhAKQ4iQ==

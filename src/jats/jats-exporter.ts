@@ -923,19 +923,7 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
-      table_header: (node) => [
-        'th',
-        {
-          valign: node.attrs.valign,
-          align: node.attrs.align,
-          scope: node.attrs.scope,
-          style: node.attrs.style,
-          ...(node.attrs.rowspan > 1 && { rowspan: node.attrs.rowspan }),
-          ...(node.attrs.colspan > 1 && { colspan: node.attrs.colspan }),
-        },
-        0,
-      ],
-      title: () => '',
+        title: () => '',
       affiliations: () => '',
       contributors: () => '',
       table_element_footer: () => ['table-wrap-foot', 0],
@@ -1255,6 +1243,18 @@ export class JATSExporter {
       },
       table_cell: (node) => [
         'td',
+        {
+          valign: node.attrs.valign,
+          align: node.attrs.align,
+          scope: node.attrs.scope,
+          style: node.attrs.style,
+          ...(node.attrs.rowspan > 1 && { rowspan: node.attrs.rowspan }),
+          ...(node.attrs.colspan > 1 && { colspan: node.attrs.colspan }),
+        },
+        0,
+      ],
+      table_header: (node) => [
+        'th',
         {
           valign: node.attrs.valign,
           align: node.attrs.align,
