@@ -923,7 +923,7 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
-        title: () => '',
+      title: () => '',
       affiliations: () => '',
       contributors: () => '',
       table_element_footer: () => ['table-wrap-foot', 0],
