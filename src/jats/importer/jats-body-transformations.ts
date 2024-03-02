@@ -346,7 +346,7 @@ export const jatsBodyTransformations = {
         for (const col of cols) {
           colgroup.appendChild(col)
         }
-        tableWrap.insertBefore(colgroup, tableWrap.firstChild)
+        tableWrap.insertBefore(colgroup, table.nextSibling)
       }
     })
   },

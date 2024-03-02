@@ -755,21 +755,20 @@ export class Decoder {
       comments.forEach((c) => this.comments.set(c.attrs.id, c))
 
       const content: ManuscriptNode[] = [table]
-
       if (tableColGroup) {
-        content.unshift(tableColGroup)
+        content.push(tableColGroup)
       }
       if (tableElementFooter) {
         content.push(tableElementFooter)
       }
+
       content.push(figcaption)
-      if (model.listingID) {
-        const listing = this.createListing(model.listingID)
-        content.push(listing)
-      } else {
-        const listing = schema.nodes.listing.create()
-        content.push(listing)
-      }
+
+      const listing = model.listingID
+        ? this.createListing(model.listingID)
+        : schema.nodes.listing.create()
+
+      content.push(listing)
       return schema.nodes.table_element.createChecked(
         {
           id: model._id,
