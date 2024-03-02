@@ -1148,25 +1148,25 @@ export class Decoder {
   }
 
   private createTable(model: TableElement) {
-    const tableId = model.containedObjectID
-    const tableModel = this.getModel<Table>(tableId)
+    const tableID = model.containedObjectID
+    const tableModel = this.getModel<Table>(tableID)
 
     let table: ManuscriptNode | PlaceholderNode
     if (tableModel) {
       table = this.decode(tableModel) as ManuscriptNode
     } else if (this.allowMissingElements) {
       table = schema.nodes.placeholder.create({
-        id: tableId,
+        id: tableID,
         label: 'A table',
       }) as PlaceholderNode
     } else {
-      throw new MissingElement(tableId)
+      throw new MissingElement(tableID)
     }
     return table
   }
   private createTableColGroup(model: TableElement) {
-    const tableId = model.containedObjectID
-    const tableModel = this.getModel<Table>(tableId)
+    const tableID = model.containedObjectID
+    const tableModel = this.getModel<Table>(tableID)
     if (!tableModel || !tableModel.contents.includes('<colgroup>')) {
       return undefined
     }
