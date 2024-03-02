@@ -955,9 +955,6 @@ const addFootnotesOrderModel = (
     footnoteList.push({ id: footnote.attrs.id, index })
   )
 
-  const footnotesOrder = buildFootnotesOrder(footnoteList)
-  models.set(footnotesOrder._id, {
-    ...footnotesOrder,
-    containedObjectID: child.attrs.id,
-  } as FootnotesOrder)
+  const footnotesOrder = buildFootnotesOrder(footnoteList, child.attrs.id)
+  models.set(footnotesOrder._id, footnotesOrder as FootnotesOrder)
 }

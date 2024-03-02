@@ -51,9 +51,12 @@ describe('encoder', () => {
 
     let idx = 1
     for (const item of Array.from(result.values())) {
-      if (item.objectType === ObjectTypes.ElementsOrder) {
+      if (
+        item.objectType === ObjectTypes.ElementsOrder ||
+        item.objectType === ObjectTypes.FootnotesOrder
+      ) {
         result.delete(item._id)
-        item._id = `MPElementsOrder:${idx++}`
+        item._id = `${ObjectTypes.FootnotesOrder}:${idx++}`
         result.set(item._id, item)
       }
     }
