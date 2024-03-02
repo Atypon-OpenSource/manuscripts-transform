@@ -523,6 +523,17 @@ const x = 'y'",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
     "placeholderInnerHTML": "",
   },
+  "MPFootnotesOrder:BC4FE5BD-07F1-41CE-87CD-AC56247B6DAC" => Object {
+    "_id": "MPFootnotesOrder:BC4FE5BD-07F1-41CE-87CD-AC56247B6DAC",
+    "containedObjectID": "MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E",
+    "footnotesList": Array [
+      Object {
+        "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+        "index": 0,
+      },
+    ],
+    "objectType": "MPFootnotesOrder",
+  },
   "MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E" => Object {
     "_id": "MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E",
     "contents": "<div></div>",

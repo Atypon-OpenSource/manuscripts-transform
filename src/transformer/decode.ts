@@ -27,6 +27,7 @@ import {
   FigureElement,
   Footnote,
   FootnotesElement,
+  FootnotesOrder,
   Keyword,
   KeywordGroup,
   KeywordsElement,
@@ -47,7 +48,7 @@ import {
   TOCElement,
 } from '@manuscripts/json-schema'
 import debug from 'debug'
-import { DOMParser, Fragment, ParseOptions, Slice } from 'prosemirror-model'
+import { DOMParser, ParseOptions } from 'prosemirror-model'
 
 import { MissingElement } from '../errors'
 import {
@@ -72,7 +73,6 @@ import {
   FigureNode,
   FootnoteNode,
   FootnotesElementNode,
-  InlineFootnoteNode,
   KeywordNode,
   KeywordsElementNode,
   KeywordsNode,
@@ -102,7 +102,6 @@ import { insertHighlightMarkers } from './highlight-markers'
 import { PlaceholderElement } from './models'
 import {
   ExtraObjectTypes,
-  hasObjectType,
   isCommentAnnotation,
   isManuscript,
 } from './object-types'
@@ -175,8 +174,6 @@ const getKeywords = (modelMap: Map<string, Model>) =>
 
 const getTitles = (modelMap: Map<string, Model>) =>
   getModelsByType<Titles>(modelMap, ObjectTypes.Titles)[0]
-
-const isFootnote = hasObjectType<Footnote>(ObjectTypes.Footnote)
 
 const hasParentSection = (id: string) => (section: Section) =>
   section.path &&
@@ -389,33 +386,39 @@ export class Decoder {
     [ObjectTypes.FootnotesElement]: (data) => {
       const foonotesElementModel = data as FootnotesElement
 
-      const collateByKind = foonotesElementModel.collateByKind || 'footnote'
-      const footnotesOfKind = []
-      for (const model of this.modelMap.values()) {
-        if (
-          isFootnote(model) &&
-          model.kind === collateByKind &&
-          model.containingObject === foonotesElementModel._id
-        ) {
-          const comments = this.createCommentNodes(model)
-          comments.forEach((c) => this.comments.set(c.attrs.id, c))
-          const footnote = this.parseContents(
-            model.contents || '<div></div>',
-            undefined,
-            this.getComments(model),
-            {
-              topNode: schema.nodes.footnote.create({
-                id: model._id,
-                kind: model.kind,
-                comments: comments.map((c) => c.attrs.id),
-                // placeholder: model.placeholderText
-                // paragraphStyle: model.paragraphStyle,
-              }),
-            }
-          ) as FootnoteNode
+      const footnotesOfKind: FootnoteNode[] = []
 
-          footnotesOfKind.push(footnote)
-        }
+      const footnoteOrder = getModelsByType<FootnotesOrder>(
+        this.modelMap,
+        ObjectTypes.FootnotesOrder
+      ).find((model) => model.containedObjectID === data._id)
+
+      if (footnoteOrder) {
+        footnoteOrder.footnotesList.map(({ id }) => {
+          const model = this.modelMap.get(id) as Footnote
+
+          const collateByKind = foonotesElementModel.collateByKind || 'footnote'
+          if (model.kind === collateByKind) {
+            const comments = this.createCommentNodes(model)
+            comments.forEach((c) => this.comments.set(c.attrs.id, c))
+            const footnote = this.parseContents(
+              model.contents || '<div></div>',
+              undefined,
+              this.getComments(model),
+              {
+                topNode: schema.nodes.footnote.create({
+                  id: model._id,
+                  kind: model.kind,
+                  comments: comments.map((c) => c.attrs.id),
+                  // placeholder: model.placeholderText
+                  // paragraphStyle: model.paragraphStyle,
+                }),
+              }
+            ) as FootnoteNode
+
+            footnotesOfKind.push(footnote)
+          }
+        })
       }
 
       // TODO: footnotesElement doesn't reference footnotes by id, so what happens if one is updated remotely?
@@ -759,7 +762,7 @@ export class Decoder {
     [ObjectTypes.TableElement]: (data) => {
       const model = data as TableElement
       const table = this.createTable(model)
-      const tableElementFooter = this.createTableElementFooter(model, table)
+      const tableElementFooter = this.createTableElementFooter(model)
       const figcaption: FigCaptionNode = this.getFigcaption(model)
       const comments = this.createCommentNodes(model)
       comments.forEach((c) => this.comments.set(c.attrs.id, c))
@@ -1171,7 +1174,7 @@ export class Decoder {
     return table
   }
 
-  private createTableElementFooter(model: TableElement, table: ManuscriptNode) {
+  private createTableElementFooter(model: TableElement) {
     const tableElementFooterID = model.tableElementFooterID
     if (!tableElementFooterID) {
       return undefined
@@ -1180,10 +1183,7 @@ export class Decoder {
       this.getModel<TableElementFooter>(tableElementFooterID)
 
     return tableElementFooterModel
-      ? this.moveUncitedFootnoteAtEnd(
-          this.decode(tableElementFooterModel) as TableElementFooterNode,
-          table
-        )
+      ? (this.decode(tableElementFooterModel) as TableElementFooterNode)
       : undefined
   }
   private createListing(id: string) {
@@ -1199,43 +1199,5 @@ export class Decoder {
     } else {
       throw new MissingElement(id)
     }
-  }
-
-  private moveUncitedFootnoteAtEnd(
-    tableElementFooter: TableElementFooterNode,
-    table: ManuscriptNode
-  ) {
-    const tableInlineFootnoteIds = new Set()
-    table.descendants((node) => {
-      if (node.type === schema.nodes.inline_footnote) {
-        ;(node as InlineFootnoteNode).attrs.rids.map((rid) =>
-          tableInlineFootnoteIds.add(rid)
-        )
-      }
-    })
-
-    tableElementFooter.forEach((footnoteElement, offset) => {
-      if (footnoteElement.type !== schema.nodes.footnotes_element) {
-        return
-      }
-
-      const children: ManuscriptNode[] = []
-      footnoteElement.content.forEach((node) => children.push(node))
-      children.sort((child) =>
-        tableInlineFootnoteIds.has(child.attrs.id) ? -1 : 0
-      )
-
-      tableElementFooter = tableElementFooter.replace(
-        offset,
-        offset + footnoteElement.nodeSize,
-        new Slice(
-          Fragment.from(footnoteElement.copy(Fragment.from(children))),
-          tableElementFooter.resolve(offset).depth,
-          tableElementFooter.resolve(offset + footnoteElement.nodeSize).depth
-        )
-      ) as TableElementFooterNode
-    })
-
-    return tableElementFooter
   }
 }
