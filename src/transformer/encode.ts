@@ -16,6 +16,7 @@
 
 import {
   Affiliation,
+  AuthorNotes,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
@@ -617,6 +618,9 @@ const encoders: NodeEncoderMap = {
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
   table_element_footer: (node): Partial<TableElementFooter> => ({
+    containedObjectIDs: containedObjectIDs(node),
+  }),
+  author_notes: (node): Partial<AuthorNotes> => ({
     containedObjectIDs: containedObjectIDs(node),
   }),
   footnotes_section: (node, parent, path, priority): Partial<Section> => ({

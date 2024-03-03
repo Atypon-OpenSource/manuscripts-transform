@@ -23,6 +23,7 @@ import {
 
 import { InvalidInput } from '../../errors'
 import {
+  buildAuthorNotes,
   buildBibliographyElement,
   buildSection,
   encode,
@@ -70,6 +71,15 @@ export const parseJATSFront = (doc: Document, front: Element) => {
     ...front.querySelectorAll('article-meta > author-notes > corresp'),
   ])
 
+  const authorNotesParagraphs = jatsFrontParser.parseAuthorNotesParagraphs([
+    ...front.querySelectorAll('article-meta > author-notes > p'),
+  ])
+  const authorNotes = buildAuthorNotes(
+    Array.from(footnoteIDs.values()).concat(
+      authorNotesParagraphs.map((p) => p._id)
+    )
+  )
+
   // contributors
   const authors = jatsFrontParser.parseContributors(
     [
@@ -100,6 +110,8 @@ export const parseJATSFront = (doc: Document, front: Element) => {
     manuscript,
     titles,
     journal,
+    ...authorNotesParagraphs,
+    authorNotes,
     ...footnotes,
     ...authors,
     ...affiliations,

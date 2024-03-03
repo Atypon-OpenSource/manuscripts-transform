@@ -16,6 +16,7 @@
 
 import {
   Affiliation,
+  AuthorNotes,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
@@ -95,6 +96,7 @@ import {
   TitleNode,
   TOCElementNode,
 } from '../schema'
+import { AuthorNotesNode } from '../schema/nodes/author_notes'
 import { KeywordGroupNode } from '../schema/nodes/keyword_group'
 import { buildTitles } from './builders'
 import { insertHighlightMarkers } from './highlight-markers'
@@ -157,6 +159,8 @@ const getSections = (modelMap: Map<string, Model>) =>
 const getAffiliations = (modelMap: Map<string, Model>) =>
   getModelsByType<Affiliation>(modelMap, ObjectTypes.Affiliation)
 
+const getAuthorNotes = (modelMap: Map<string, Model>) =>
+  getModelsByType<AuthorNotes>(modelMap, ObjectTypes.AuthorNotes)
 const getContributors = (modelMap: Map<string, Model>) =>
   getModelsByType<Affiliation>(modelMap, ObjectTypes.Contributor)
 
@@ -651,6 +655,18 @@ export class Decoder {
       )
     },
 
+    [ObjectTypes.AuthorNotes]: (data) => {
+      const model = data as AuthorNotes
+      const content = model.containedObjectIDs.map((id) =>
+        this.decode(this.modelMap.get(id) as Model)
+      ) as ManuscriptNode[]
+      return schema.nodes.author_notes.create(
+        {
+          id: model._id,
+        },
+        content
+      )
+    },
     [ObjectTypes.Section]: (data) => {
       const model = data as Section
       const elements: Element[] = []
@@ -891,10 +907,13 @@ export class Decoder {
     const contributors = getContributors(this.modelMap)
       .map((c) => this.decode(c) as ContributorNode)
       .filter(Boolean)
-
+    const authorNotes = getAuthorNotes(this.modelMap)
+      .map((authorNote) => this.decode(authorNote) as AuthorNotesNode)
+      .filter(Boolean)
+    const content: ManuscriptNode[] = [...contributors, ...authorNotes]
     return schema.nodes.contributors.createAndFill(
       {},
-      contributors
+      content
     ) as ManuscriptNode
   }
 

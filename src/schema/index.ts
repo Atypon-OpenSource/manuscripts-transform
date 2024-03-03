@@ -33,6 +33,7 @@ import { abstracts } from './nodes/abstracts'
 import { affiliation } from './nodes/affiliation'
 import { affiliations } from './nodes/affiliations'
 import { attribution } from './nodes/attribution'
+import { authorNotes } from './nodes/author_notes'
 import { backmatter } from './nodes/backmatter'
 import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographyItem } from './nodes/bibliography_item'
@@ -230,5 +231,6 @@ export const schema = new Schema<Nodes, Marks>({
     contributors,
     supplements,
     supplement,
+    author_notes: authorNotes,
   },
 })

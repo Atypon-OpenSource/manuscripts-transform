@@ -16,6 +16,7 @@
 
 import {
   Affiliation,
+  AuthorNotes,
   BibliographyItem,
   Contributor,
   ContributorRole,
@@ -28,6 +29,7 @@ import {
   Manuscript,
   Model,
   ObjectTypes,
+  ParagraphElement,
   Supplement,
 } from '@manuscripts/json-schema'
 import { CitationProvider } from '@manuscripts/library'
@@ -923,6 +925,7 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
+      author_notes: () => ['author-notes', 0],
       title: () => '',
       affiliations: () => '',
       contributors: () => '',
@@ -1749,57 +1752,36 @@ export class JATSExporter {
           }
         })
       }
-      const noteIDs: string[] = []
-      for (const contributor of [...authorContributors, ...otherContributors]) {
-        if (contributor.footnote) {
-          const ids = contributor.footnote.map((note) => {
-            return note.noteID
-          })
-          noteIDs.push(...ids)
-        }
-        if (contributor.corresp) {
-          const ids = contributor.corresp.map((corresp) => {
-            return corresp.correspID
-          })
-          noteIDs.push(...ids)
-        }
-      }
-      const footnotes: Footnote[] = []
-      footnotes.push(
-        ...this.models.filter(hasObjectType<Footnote>(ObjectTypes.Footnote))
-      )
-
-      const correspodings: Corresponding[] = []
-      correspodings.push(
-        ...this.models.filter(
-          hasObjectType<Corresponding>(ObjectTypes.Corresponding)
-        )
-      )
-
-      if (footnotes || correspodings) {
+      const authorNotes = this.models.find(
+        hasObjectType<AuthorNotes>(ObjectTypes.AuthorNotes)
+      ) as AuthorNotes
+      if (authorNotes) {
         const authorNotesEl = this.document.createElement('author-notes')
-        const usedFootnotes = footnotes.filter((footnote) => {
-          return noteIDs.includes(footnote._id)
-        })
-        const usedCorrespodings = correspodings.filter((corresp) => {
-          return noteIDs.includes(corresp._id)
-        })
-        usedFootnotes.forEach((footnote) => {
-          const authorFootNote = this.document.createElement('fn')
-          authorFootNote.setAttribute('id', normalizeID(footnote._id))
-          authorFootNote.innerHTML = footnote.contents
-          authorNotesEl.appendChild(authorFootNote)
-        })
-        usedCorrespodings.forEach((corresponding) => {
-          const correspondingEl = this.document.createElement('corresp')
-          correspondingEl.setAttribute('id', normalizeID(corresponding._id))
-          if (corresponding.label) {
-            const labelEl = this.document.createElement('label')
-            labelEl.textContent = corresponding.label
-            correspondingEl.appendChild(labelEl)
+        authorNotes.containedObjectIDs.forEach((id) => {
+          if (id.startsWith('MPParagraphElement')) {
+            const paragraph = this.modelMap.get(id) as ParagraphElement
+            const authorParagraph = this.document.createElement('p')
+            authorParagraph.setAttribute('id', normalizeID(paragraph._id))
+            authorParagraph.innerHTML = paragraph.contents
+            authorNotesEl.appendChild(authorParagraph)
+          } else if (id.startsWith('MPCorresponding')) {
+            const corresponding = this.modelMap.get(id) as Corresponding
+            const correspondingEl = this.document.createElement('corresp')
+            correspondingEl.setAttribute('id', normalizeID(corresponding._id))
+            if (corresponding.label) {
+              const labelEl = this.document.createElement('label')
+              labelEl.textContent = corresponding.label
+              correspondingEl.appendChild(labelEl)
+            }
+            correspondingEl.append(corresponding.contents)
+            authorNotesEl.appendChild(correspondingEl)
+          } else if (id.startsWith('MPFootnote')) {
+            const footnote = this.modelMap.get(id) as Footnote
+            const authorFootNote = this.document.createElement('fn')
+            authorFootNote.setAttribute('id', normalizeID(footnote._id))
+            authorFootNote.innerHTML = footnote.contents
+            authorNotesEl.appendChild(authorFootNote)
           }
-          correspondingEl.append(corresponding.contents)
-          authorNotesEl.appendChild(correspondingEl)
         })
         if (authorNotesEl.childNodes.length > 0) {
           articleMeta.insertBefore(authorNotesEl, contribGroup.nextSibling)

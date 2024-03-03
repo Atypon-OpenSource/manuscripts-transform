@@ -17,6 +17,7 @@
 import {
   Affiliation,
   Attribution,
+  AuthorNotes,
   BibliographicDate,
   BibliographicName,
   BibliographyElement,
@@ -239,6 +240,13 @@ export const buildFootnote = (
   containingObject: containingObject || undefined,
   contents,
   kind,
+})
+export const buildAuthorNotes = (
+  containedObjectIDs: string[]
+): Build<AuthorNotes> => ({
+  _id: generateID(ObjectTypes.AuthorNotes),
+  objectType: ObjectTypes.AuthorNotes,
+  containedObjectIDs: containedObjectIDs,
 })
 
 export const buildFootnotesOrder = (

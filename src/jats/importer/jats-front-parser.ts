@@ -14,16 +14,19 @@
  * limitations under the License.
  */
 
+import { ParagraphElement } from '@manuscripts/json-schema'
 import debug from 'debug'
 
 import { getTrimmedTextContent } from '../../lib/utils'
 import {
+  Build,
   buildAffiliation,
   buildBibliographicName,
   buildContributor,
   buildCorresp,
   buildFootnote,
   buildJournal,
+  buildParagraph,
   buildTitles,
 } from '../../transformer'
 import { parseJournalMeta } from './jats-journal-meta-parser'
@@ -231,6 +234,13 @@ export const jatsFrontParser = {
       footnotes,
       footnoteIDs,
     }
+  },
+  parseAuthorNotesParagraphs(elements: Element[]) {
+    const paragraphs: Build<ParagraphElement>[] = []
+    elements.forEach((p) => {
+      paragraphs.push(buildParagraph(p.innerHTML))
+    })
+    return paragraphs
   },
   parseCorresp(elements: Element[]) {
     const correspondingIDs = new Map<string, string>()
