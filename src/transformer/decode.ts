@@ -27,6 +27,7 @@ import {
   FigureElement,
   Footnote,
   FootnotesElement,
+  FootnotesOrder,
   Keyword,
   KeywordGroup,
   KeywordsElement,
@@ -101,7 +102,6 @@ import { insertHighlightMarkers } from './highlight-markers'
 import { PlaceholderElement } from './models'
 import {
   ExtraObjectTypes,
-  hasObjectType,
   isCommentAnnotation,
   isManuscript,
 } from './object-types'
@@ -174,8 +174,6 @@ const getKeywords = (modelMap: Map<string, Model>) =>
 
 const getTitles = (modelMap: Map<string, Model>) =>
   getModelsByType<Titles>(modelMap, ObjectTypes.Titles)[0]
-
-const isFootnote = hasObjectType<Footnote>(ObjectTypes.Footnote)
 
 const hasParentSection = (id: string) => (section: Section) =>
   section.path &&
@@ -388,33 +386,39 @@ export class Decoder {
     [ObjectTypes.FootnotesElement]: (data) => {
       const foonotesElementModel = data as FootnotesElement
 
-      const collateByKind = foonotesElementModel.collateByKind || 'footnote'
-      const footnotesOfKind = []
-      for (const model of this.modelMap.values()) {
-        if (
-          isFootnote(model) &&
-          model.kind === collateByKind &&
-          model.containingObject === foonotesElementModel._id
-        ) {
-          const comments = this.createCommentNodes(model)
-          comments.forEach((c) => this.comments.set(c.attrs.id, c))
-          const footnote = this.parseContents(
-            model.contents || '<div></div>',
-            undefined,
-            this.getComments(model),
-            {
-              topNode: schema.nodes.footnote.create({
-                id: model._id,
-                kind: model.kind,
-                comments: comments.map((c) => c.attrs.id),
-                // placeholder: model.placeholderText
-                // paragraphStyle: model.paragraphStyle,
-              }),
-            }
-          ) as FootnoteNode
+      const footnotesOfKind: FootnoteNode[] = []
 
-          footnotesOfKind.push(footnote)
-        }
+      const footnoteOrder = getModelsByType<FootnotesOrder>(
+        this.modelMap,
+        ObjectTypes.FootnotesOrder
+      ).find((model) => model.containedObjectID === data._id)
+
+      if (footnoteOrder) {
+        footnoteOrder.footnotesList.map(({ id }) => {
+          const model = this.modelMap.get(id) as Footnote
+
+          const collateByKind = foonotesElementModel.collateByKind || 'footnote'
+          if (model.kind === collateByKind) {
+            const comments = this.createCommentNodes(model)
+            comments.forEach((c) => this.comments.set(c.attrs.id, c))
+            const footnote = this.parseContents(
+              model.contents || '<div></div>',
+              undefined,
+              this.getComments(model),
+              {
+                topNode: schema.nodes.footnote.create({
+                  id: model._id,
+                  kind: model.kind,
+                  comments: comments.map((c) => c.attrs.id),
+                  // placeholder: model.placeholderText
+                  // paragraphStyle: model.paragraphStyle,
+                }),
+              }
+            ) as FootnoteNode
+
+            footnotesOfKind.push(footnote)
+          }
+        })
       }
 
       // TODO: footnotesElement doesn't reference footnotes by id, so what happens if one is updated remotely?
