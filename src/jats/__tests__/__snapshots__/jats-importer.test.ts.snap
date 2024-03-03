@@ -2404,39 +2404,6 @@ Array [
     "placeholderInnerHTML": "",
   },
   Object {
-    "_id": "MPSection:test",
-    "category": "MPSectionCategory:endnotes",
-    "elementIDs": Array [
-      "MPFootnotesElement:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 27,
-    "title": "Footnotes",
-  },
-  Object {
-    "_id": "MPFootnotesElement:test",
-    "contents": "<div></div>",
-    "elementType": "div",
-    "objectType": "MPFootnotesElement",
-  },
-  Object {
-    "_id": "MPFootnote:test",
-    "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">Manuscript information</p></div>",
-    "kind": "footnote",
-    "objectType": "MPFootnote",
-  },
-  Object {
-    "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Manuscript information</p>",
-    "elementType": "p",
-    "objectType": "MPParagraphElement",
-    "placeholderInnerHTML": "",
-  },
-  Object {
     "_id": "MPElementsOrder:test",
     "elementType": "MPFigureElement",
     "elements": Array [
@@ -4788,60 +4755,6 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:endnotes",
-    "elementIDs": Array [
-      "MPFootnotesElement:test",
-    ],
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 24,
-    "title": "Footnotes",
-  },
-  Object {
-    "_id": "MPFootnotesElement:test",
-    "contents": "<div></div>",
-    "elementType": "div",
-    "objectType": "MPFootnotesElement",
-  },
-  Object {
-    "_id": "MPFootnote:test",
-    "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">*</p><p id=\\"MPParagraphElement:test\\">Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark</p></div>",
-    "kind": "footnote",
-    "objectType": "MPFootnote",
-  },
-  Object {
-    "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">*</p>",
-    "elementType": "p",
-    "objectType": "MPParagraphElement",
-    "placeholderInnerHTML": "",
-  },
-  Object {
-    "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark</p>",
-    "elementType": "p",
-    "objectType": "MPParagraphElement",
-    "placeholderInnerHTML": "",
-  },
-  Object {
-    "_id": "MPFootnote:test",
-    "containingObject": "MPFootnotesElement:test",
-    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">ClinicalTrials.gov NCT03782857.</p></div>",
-    "kind": "footnote",
-    "objectType": "MPFootnote",
-  },
-  Object {
-    "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">ClinicalTrials.gov NCT03782857.</p>",
-    "elementType": "p",
-    "objectType": "MPParagraphElement",
-    "placeholderInnerHTML": "",
-  },
-  Object {
-    "_id": "MPSection:test",
     "category": "MPSectionCategory:acknowledgement",
     "elementIDs": Array [
       "MPParagraphElement:test",
@@ -4850,7 +4763,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 25,
+    "priority": 24,
     "title": "ACKNOWLEDGMENTS",
   },
   Object {
