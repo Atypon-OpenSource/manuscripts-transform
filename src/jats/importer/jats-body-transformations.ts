@@ -280,7 +280,11 @@ export const jatsBodyTransformations = {
     group: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
-    const footnotes = [...doc.querySelectorAll('fn:not(table-wrap-foot fn)')]
+    const footnotes = [
+      ...doc.querySelectorAll(
+        'fn:not(table-wrap-foot fn):not(author-notes fn)'
+      ),
+    ]
     const footnotesSection = doc.querySelector('sec[sec-type="endnotes"]')
     const footnotesSectionGroup = footnotesSection?.querySelector('fn-group')
     const containingGroup = footnotesSectionGroup || createElement('fn-group')
