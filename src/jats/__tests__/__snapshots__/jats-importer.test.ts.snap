@@ -59,6 +59,11 @@ Array [
     "title": "Human Psychopharmacology: Clinical and Experimental",
   },
   Object {
+    "_id": "MPAuthorNotes:test",
+    "containedObjectIDs": Array [],
+    "objectType": "MPAuthorNotes",
+  },
+  Object {
     "ORCIDIdentifier": "https://orcid.org/0000-0001-6162-1335",
     "_id": "MPContributor:test",
     "affiliations": Array [
@@ -809,6 +814,11 @@ Array [
     "objectType": "MPJournal",
   },
   Object {
+    "_id": "MPAuthorNotes:test",
+    "containedObjectIDs": Array [],
+    "objectType": "MPAuthorNotes",
+  },
+  Object {
     "_id": "MPContributor:test",
     "affiliations": Array [],
     "bibliographicName": Object {
@@ -1315,6 +1325,13 @@ Array [
     "objectType": "MPJournal",
     "publisherName": "John Wiley and Sons",
     "title": "Hematological Oncology",
+  },
+  Object {
+    "_id": "MPAuthorNotes:test",
+    "containedObjectIDs": Array [
+      "MPFootnote:test",
+    ],
+    "objectType": "MPAuthorNotes",
   },
   Object {
     "_id": "MPFootnote:test",
@@ -3804,6 +3821,14 @@ Array [
     "title": "Brain and Behavior",
   },
   Object {
+    "_id": "MPAuthorNotes:test",
+    "containedObjectIDs": Array [
+      "MPFootnote:test",
+      "MPFootnote:test",
+    ],
+    "objectType": "MPAuthorNotes",
+  },
+  Object {
     "_id": "MPFootnote:test",
     "contents": "
           <label>*</label>
@@ -4942,6 +4967,11 @@ Array [
     "objectType": "MPJournal",
   },
   Object {
+    "_id": "MPAuthorNotes:test",
+    "containedObjectIDs": Array [],
+    "objectType": "MPAuthorNotes",
+  },
+  Object {
     "_id": "MPContributor:test",
     "affiliations": Array [],
     "bibliographicName": Object {
@@ -4999,6 +5029,11 @@ Array [
     "objectType": "MPJournal",
     "publisherName": "Inera",
     "title": "NLM-Export",
+  },
+  Object {
+    "_id": "MPAuthorNotes:test",
+    "containedObjectIDs": Array [],
+    "objectType": "MPAuthorNotes",
   },
   Object {
     "_id": "MPContributor:test",
@@ -8444,6 +8479,11 @@ Array [
     "objectType": "MPJournal",
   },
   Object {
+    "_id": "MPAuthorNotes:test",
+    "containedObjectIDs": Array [],
+    "objectType": "MPAuthorNotes",
+  },
+  Object {
     "_id": "MPContributor:test",
     "affiliations": Array [],
     "bibliographicName": Object {
@@ -8801,6 +8841,11 @@ Array [
     "abbreviatedTitles": Array [],
     "journalIdentifiers": Array [],
     "objectType": "MPJournal",
+  },
+  Object {
+    "_id": "MPAuthorNotes:test",
+    "containedObjectIDs": Array [],
+    "objectType": "MPAuthorNotes",
   },
   Object {
     "_id": "MPContributor:test",

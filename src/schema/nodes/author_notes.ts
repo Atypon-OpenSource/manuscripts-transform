@@ -20,7 +20,6 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  kind: string
 }
 
 export interface AuthorNotesNode extends ManuscriptNode {
@@ -30,7 +29,7 @@ export interface AuthorNotesNode extends ManuscriptNode {
 export const authorNotes: NodeSpec = {
   attrs: {
     id: { default: '' },
-    kind: { default: 'author_notes' },
+    dataTracked: { default: null },
   },
   content: '(footnote | paragraph)+',
   group: 'block element',
