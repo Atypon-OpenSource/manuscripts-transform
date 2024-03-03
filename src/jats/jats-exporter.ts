@@ -1754,33 +1754,26 @@ export class JATSExporter {
       }
       const authorNotes = this.models.find(
         hasObjectType<AuthorNotes>(ObjectTypes.AuthorNotes)
-      ) as AuthorNotes
+      )
       if (authorNotes) {
         const authorNotesEl = this.document.createElement('author-notes')
         authorNotes.containedObjectIDs.forEach((id) => {
+          const model = this.modelMap.get(id)
+          if (!model) {
+            return
+          }
           if (id.startsWith('MPParagraphElement')) {
-            const paragraph = this.modelMap.get(id) as ParagraphElement
-            const authorParagraph = this.document.createElement('p')
-            authorParagraph.setAttribute('id', normalizeID(paragraph._id))
-            authorParagraph.innerHTML = paragraph.contents
-            authorNotesEl.appendChild(authorParagraph)
+            this.appendParagraphToElement(
+              model as ParagraphElement,
+              authorNotesEl
+            )
           } else if (id.startsWith('MPCorresponding')) {
-            const corresponding = this.modelMap.get(id) as Corresponding
-            const correspondingEl = this.document.createElement('corresp')
-            correspondingEl.setAttribute('id', normalizeID(corresponding._id))
-            if (corresponding.label) {
-              const labelEl = this.document.createElement('label')
-              labelEl.textContent = corresponding.label
-              correspondingEl.appendChild(labelEl)
-            }
-            correspondingEl.append(corresponding.contents)
-            authorNotesEl.appendChild(correspondingEl)
+            this.appendCorrespondingToElement(
+              model as Corresponding,
+              authorNotesEl
+            )
           } else if (id.startsWith('MPFootnote')) {
-            const footnote = this.modelMap.get(id) as Footnote
-            const authorFootNote = this.document.createElement('fn')
-            authorFootNote.setAttribute('id', normalizeID(footnote._id))
-            authorFootNote.innerHTML = footnote.contents
-            authorNotesEl.appendChild(authorFootNote)
+            this.appendFootnoteToElement(model as Footnote, authorNotesEl)
           }
         })
         if (authorNotesEl.childNodes.length > 0) {
@@ -1823,7 +1816,38 @@ export class JATSExporter {
     //   }
     // }
   }
-
+  private appendParagraphToElement = (
+    paragraph: ParagraphElement,
+    element: HTMLElement
+  ) => {
+    const paragraphEl = this.document.createElement('p')
+    paragraphEl.setAttribute('id', normalizeID(paragraph._id))
+    paragraphEl.innerHTML = paragraph.contents
+    element.appendChild(paragraphEl)
+  }
+  private appendCorrespondingToElement = (
+    corresponding: Corresponding,
+    element: HTMLElement
+  ) => {
+    const correspondingEl = this.document.createElement('corresp')
+    correspondingEl.setAttribute('id', normalizeID(corresponding._id))
+    if (corresponding.label) {
+      const labelEl = this.document.createElement('label')
+      labelEl.textContent = corresponding.label
+      correspondingEl.appendChild(labelEl)
+    }
+    correspondingEl.append(corresponding.contents)
+    element.appendChild(correspondingEl)
+  }
+  private appendFootnoteToElement = (
+    footnote: Footnote,
+    element: HTMLElement
+  ) => {
+    const footnoteEl = this.document.createElement('fn')
+    footnoteEl.setAttribute('id', normalizeID(footnote._id))
+    footnoteEl.innerHTML = footnote.contents
+    element.appendChild(footnoteEl)
+  }
   private buildKeywords(articleMeta: Node) {
     const keywords = [...this.modelMap.values()].filter(
       (model) => model.objectType === ObjectTypes.Keyword
