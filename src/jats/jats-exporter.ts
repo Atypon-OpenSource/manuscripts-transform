@@ -165,7 +165,7 @@ const createDefaultIdGenerator = (): IDGenerator => {
   return async (element: Element) => {
     const value = String(counter.increment(element.nodeName))
 
-    return `${element.nodeName}-${value}`
+    return `${element.localName}-${value}`
   }
 }
 
