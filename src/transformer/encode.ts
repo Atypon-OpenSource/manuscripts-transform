@@ -65,7 +65,9 @@ import {
   auxiliaryObjectTypes,
   buildAttribution,
   buildElementsOrder,
+  buildFootnotesOrder,
 } from './builders'
+import { FootnotesOrderIndexList } from './footnotes-order'
 import { CommentMarker, extractCommentMarkers } from './highlight-markers'
 import { PlaceholderElement } from './models'
 import { nodeTypesMap } from './node-types'
@@ -843,6 +845,10 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
         return
       }
 
+      if (child.type === schema.nodes.footnotes_element) {
+        addFootnotesOrderModel(child, models)
+      }
+
       const { model, markers } = modelFromNode(child, parent, path, priority)
 
       markers.forEach((marker) => {
@@ -898,4 +904,17 @@ const generateElementOrder = (
   const order = buildElementsOrder(type as AuxiliaryObjects)
   order.elements = ids
   return order as ElementsOrder
+}
+
+const addFootnotesOrderModel = (
+  child: ManuscriptNode,
+  models: Map<string, Model>
+) => {
+  const footnoteList: FootnotesOrderIndexList = []
+  child.forEach((footnote, _, index) =>
+    footnoteList.push({ id: footnote.attrs.id, index })
+  )
+
+  const footnotesOrder = buildFootnotesOrder(footnoteList, child.attrs.id)
+  models.set(footnotesOrder._id, footnotesOrder as FootnotesOrder)
 }

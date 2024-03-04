@@ -231,11 +231,13 @@ export const buildFootnote = (
 })
 
 export const buildFootnotesOrder = (
-  footnotesList: FootnotesOrderIndexList
+  footnotesList: FootnotesOrderIndexList,
+  containedObjectID: string
 ): Build<FootnotesOrder> => ({
   _id: generateID(ObjectTypes.FootnotesOrder),
   objectType: ObjectTypes.FootnotesOrder,
   footnotesList,
+  containedObjectID,
 })
 
 export const buildCorresp = (contents: string): Build<Corresponding> => ({

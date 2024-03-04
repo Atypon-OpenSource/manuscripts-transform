@@ -554,8 +554,19 @@ const x = 'y'",
     "title": "A hyperlink",
     "type": undefined,
   },
-  "MPElementsOrder:1" => Object {
-    "_id": "MPElementsOrder:1",
+  "MPFootnotesOrder:1" => Object {
+    "_id": "MPFootnotesOrder:1",
+    "containedObjectID": "MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E",
+    "footnotesList": Array [
+      Object {
+        "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+        "index": 0,
+      },
+    ],
+    "objectType": "MPFootnotesOrder",
+  },
+  "MPFootnotesOrder:2" => Object {
+    "_id": "MPFootnotesOrder:2",
     "elementType": "MPFigureElement",
     "elements": Array [
       "MPFigureElement:A5D68C57-B5BB-4D10-E0C3-ECED717A2AA7",
@@ -563,8 +574,8 @@ const x = 'y'",
     ],
     "objectType": "MPElementsOrder",
   },
-  "MPElementsOrder:2" => Object {
-    "_id": "MPElementsOrder:2",
+  "MPFootnotesOrder:3" => Object {
+    "_id": "MPFootnotesOrder:3",
     "elementType": "MPTableElement",
     "elements": Array [
       "MPTableElement:82BD8BAF-D136-4536-AD9C-92C30B9D7315",
@@ -574,16 +585,16 @@ const x = 'y'",
     ],
     "objectType": "MPElementsOrder",
   },
-  "MPElementsOrder:3" => Object {
-    "_id": "MPElementsOrder:3",
+  "MPFootnotesOrder:4" => Object {
+    "_id": "MPFootnotesOrder:4",
     "elementType": "MPEquationElement",
     "elements": Array [
       "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1",
     ],
     "objectType": "MPElementsOrder",
   },
-  "MPElementsOrder:4" => Object {
-    "_id": "MPElementsOrder:4",
+  "MPFootnotesOrder:5" => Object {
+    "_id": "MPFootnotesOrder:5",
     "elementType": "MPListingElement",
     "elements": Array [
       "MPListingElement:160785A9-4BC0-4C55-C4DE-AF5F4D858DCE",

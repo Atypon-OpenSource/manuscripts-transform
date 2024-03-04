@@ -123,6 +123,7 @@ export const parseJATSBody = (
   jatsBodyTransformations.createBackmatter(doc, body, createElement)
   jatsBodyTransformations.createSuppleMaterials(doc, body, createElement)
   jatsBodyTransformations.createKeywords(doc, body, createElement)
+  jatsBodyTransformations.orderTableFootnote(doc, body)
 
   const node = jatsBodyDOMParser.parse(body).firstChild
   if (!node) {
