@@ -27,6 +27,7 @@ import {
   FigureElement,
   Footnote,
   FootnotesElement,
+  FootnotesOrder,
   Keyword,
   KeywordGroup,
   KeywordsElement,
