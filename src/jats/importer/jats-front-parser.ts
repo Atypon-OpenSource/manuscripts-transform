@@ -226,6 +226,8 @@ export const jatsFrontParser = {
         footnoteIDs: new Map<string, string>(),
         authorNotes: [],
         authorNotesParagraphs: [],
+        correspondingIDs: new Map<string, string>(),
+        correspondingList: [],
       }
     }
     const { footnotes, footnoteIDs } = this.parseFootnotes([
@@ -234,6 +236,12 @@ export const jatsFrontParser = {
     const authorNotesParagraphs = this.parseParagraphs([
       ...element.querySelectorAll(':scope > p'),
     ])
+
+    //to be added later to author-notes
+    const { correspondingList, correspondingIDs } = this.parseCorresp([
+      ...element.querySelectorAll('corresp'),
+    ])
+
     const authorNotes = [
       buildAuthorNotes([
         ...footnoteIDs.values(),
@@ -241,7 +249,14 @@ export const jatsFrontParser = {
       ]),
     ]
 
-    return { footnotes, footnoteIDs, authorNotesParagraphs, authorNotes }
+    return {
+      footnotes,
+      footnoteIDs,
+      authorNotesParagraphs,
+      authorNotes,
+      correspondingIDs,
+      correspondingList,
+    }
   },
   parseParagraphs(elements: Element[]) {
     return elements.map((p) => buildParagraph(p.innerHTML))

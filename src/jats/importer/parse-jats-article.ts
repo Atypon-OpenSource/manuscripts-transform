@@ -59,15 +59,18 @@ export const parseJATSFront = (doc: Document, front: Element) => {
     ...front.querySelectorAll('article-meta > contrib-group > aff'),
   ])
 
-  // footnotes
-  const { footnotes, footnoteIDs, authorNotes, authorNotesParagraphs } =
-    jatsFrontParser.parseAuthorNotes(
-      front.querySelector('article-meta > author-notes')
-    )
+  // author-footnotes
+  const {
+    footnotes,
+    footnoteIDs,
+    authorNotes,
+    authorNotesParagraphs,
+    correspondingIDs,
+    correspondingList,
+  } = jatsFrontParser.parseAuthorNotes(
+    front.querySelector('article-meta > author-notes')
+  )
 
-  const { correspondingList, correspondingIDs } = jatsFrontParser.parseCorresp([
-    ...front.querySelectorAll('article-meta > author-notes > corresp'),
-  ])
   // contributors
   const authors = jatsFrontParser.parseContributors(
     [
