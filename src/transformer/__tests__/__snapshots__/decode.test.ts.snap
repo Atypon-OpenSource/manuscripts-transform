@@ -88,38 +88,6 @@ Object {
           ],
           "type": "contributor",
         },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "comments": null,
-                "dataTracked": null,
-                "id": "",
-                "kind": "footnote",
-                "paragraphStyle": "",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "comments": null,
-                    "dataTracked": null,
-                    "id": "",
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "type": "paragraph",
-                },
-              ],
-              "type": "footnote",
-            },
-          ],
-          "type": "author_notes",
-        },
       ],
       "type": "contributors",
     },
@@ -2241,38 +2209,6 @@ Object {
           ],
           "type": "contributor",
         },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "comments": null,
-                "dataTracked": null,
-                "id": "",
-                "kind": "footnote",
-                "paragraphStyle": "",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "comments": null,
-                    "dataTracked": null,
-                    "id": "",
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "type": "paragraph",
-                },
-              ],
-              "type": "footnote",
-            },
-          ],
-          "type": "author_notes",
-        },
       ],
       "type": "contributors",
     },
@@ -4134,38 +4070,6 @@ Object {
             },
           ],
           "type": "contributor",
-        },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "comments": null,
-                "dataTracked": null,
-                "id": "",
-                "kind": "footnote",
-                "paragraphStyle": "",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "comments": null,
-                    "dataTracked": null,
-                    "id": "",
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "type": "paragraph",
-                },
-              ],
-              "type": "footnote",
-            },
-          ],
-          "type": "author_notes",
         },
       ],
       "type": "contributors",
@@ -6223,40 +6127,6 @@ Object {
       "attrs": Object {
         "id": "",
       },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "comments": null,
-                "dataTracked": null,
-                "id": "",
-                "kind": "footnote",
-                "paragraphStyle": "",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "comments": null,
-                    "dataTracked": null,
-                    "id": "",
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "type": "paragraph",
-                },
-              ],
-              "type": "footnote",
-            },
-          ],
-          "type": "author_notes",
-        },
-      ],
       "type": "contributors",
     },
     Object {
@@ -6463,40 +6333,6 @@ Object {
       "attrs": Object {
         "id": "MPSection:contributors",
       },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "comments": null,
-                "dataTracked": null,
-                "id": "",
-                "kind": "footnote",
-                "paragraphStyle": "",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "comments": null,
-                    "dataTracked": null,
-                    "id": "",
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "type": "paragraph",
-                },
-              ],
-              "type": "footnote",
-            },
-          ],
-          "type": "author_notes",
-        },
-      ],
       "type": "contributors",
     },
     Object {
@@ -6821,40 +6657,6 @@ Object {
       "attrs": Object {
         "id": "",
       },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "comments": null,
-                "dataTracked": null,
-                "id": "",
-                "kind": "footnote",
-                "paragraphStyle": "",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "comments": null,
-                    "dataTracked": null,
-                    "id": "",
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "type": "paragraph",
-                },
-              ],
-              "type": "footnote",
-            },
-          ],
-          "type": "author_notes",
-        },
-      ],
       "type": "contributors",
     },
     Object {
@@ -6993,40 +6795,6 @@ Object {
       "attrs": Object {
         "id": "",
       },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "comments": null,
-                "dataTracked": null,
-                "id": "",
-                "kind": "footnote",
-                "paragraphStyle": "",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "comments": null,
-                    "dataTracked": null,
-                    "id": "",
-                    "paragraphStyle": "",
-                    "placeholder": "",
-                  },
-                  "type": "paragraph",
-                },
-              ],
-              "type": "footnote",
-            },
-          ],
-          "type": "author_notes",
-        },
-      ],
       "type": "contributors",
     },
     Object {

@@ -20,7 +20,7 @@ import { NodeSpec } from 'prosemirror-model'
 // It exists for the purpose of styling in the UI
 
 export const contributors: NodeSpec = {
-  content: 'contributor* author_notes',
+  content: 'contributor* author_notes?',
   attrs: {
     id: { default: '' },
   },
