@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-import { ParagraphElement } from '@manuscripts/json-schema'
 import debug from 'debug'
 
 import { getTrimmedTextContent } from '../../lib/utils'
 import {
-  Build,
   buildAffiliation,
+  buildAuthorNotes,
   buildBibliographicName,
   buildContributor,
   buildCorresp,
@@ -220,7 +219,34 @@ export const jatsFrontParser = {
       affiliationIDs,
     }
   },
-  parseAuthorNotes(elements: Element[]) {
+  parseAuthorNotes(element: Element | null) {
+    if (!element) {
+      return {
+        footnotes: [],
+        footnoteIDs: new Map<string, string>(),
+        authorNotes: [],
+        authorNotesParagraphs: [],
+      }
+    }
+    const { footnotes, footnoteIDs } = this.parseFootnotes([
+      ...element.querySelectorAll('fn:not([fn-type])'),
+    ])
+    const authorNotesParagraphs = this.parseParagraphs([
+      ...element.querySelectorAll(':scope > p'),
+    ])
+    const authorNotes = [
+      buildAuthorNotes([
+        ...footnoteIDs.values(),
+        ...authorNotesParagraphs.map((p) => p._id),
+      ]),
+    ]
+
+    return { footnotes, footnoteIDs, authorNotesParagraphs, authorNotes }
+  },
+  parseParagraphs(elements: Element[]) {
+    return Array.from(elements).map((p) => buildParagraph(p.innerHTML))
+  },
+  parseFootnotes(elements: Element[]) {
     const footnoteIDs = new Map<string, string>()
     const footnotes = elements.map((element) => {
       const fn = buildFootnote('', element.innerHTML)
@@ -234,13 +260,6 @@ export const jatsFrontParser = {
       footnotes,
       footnoteIDs,
     }
-  },
-  parseAuthorNotesParagraphs(elements: Element[]) {
-    const paragraphs: Build<ParagraphElement>[] = []
-    elements.forEach((p) => {
-      paragraphs.push(buildParagraph(p.innerHTML))
-    })
-    return paragraphs
   },
   parseCorresp(elements: Element[]) {
     const correspondingIDs = new Map<string, string>()

@@ -20,8 +20,8 @@ import {
   BibliographyItem,
   Contributor,
   ContributorRole,
-  Corresponding,
   Footnote,
+  getModelsByType,
   InlineStyle,
   Journal,
   Keyword,
@@ -1752,9 +1752,10 @@ export class JATSExporter {
           }
         })
       }
-      const authorNotes = this.models.find(
-        hasObjectType<AuthorNotes>(ObjectTypes.AuthorNotes)
-      )
+      const authorNotes = getModelsByType<AuthorNotes>(
+        this.modelMap,
+        ObjectTypes.AuthorNotes
+      )[0]
       if (authorNotes) {
         const authorNotesEl = this.document.createElement('author-notes')
         authorNotes.containedObjectIDs.forEach((id) => {
@@ -1765,11 +1766,6 @@ export class JATSExporter {
           if (id.startsWith('MPParagraphElement')) {
             this.appendParagraphToElement(
               model as ParagraphElement,
-              authorNotesEl
-            )
-          } else if (id.startsWith('MPCorresponding')) {
-            this.appendCorrespondingToElement(
-              model as Corresponding,
               authorNotesEl
             )
           } else if (id.startsWith('MPFootnote')) {
@@ -1824,20 +1820,6 @@ export class JATSExporter {
     paragraphEl.setAttribute('id', normalizeID(paragraph._id))
     paragraphEl.innerHTML = paragraph.contents
     element.appendChild(paragraphEl)
-  }
-  private appendCorrespondingToElement = (
-    corresponding: Corresponding,
-    element: HTMLElement
-  ) => {
-    const correspondingEl = this.document.createElement('corresp')
-    correspondingEl.setAttribute('id', normalizeID(corresponding._id))
-    if (corresponding.label) {
-      const labelEl = this.document.createElement('label')
-      labelEl.textContent = corresponding.label
-      correspondingEl.appendChild(labelEl)
-    }
-    correspondingEl.append(corresponding.contents)
-    element.appendChild(correspondingEl)
   }
   private appendFootnoteToElement = (
     footnote: Footnote,

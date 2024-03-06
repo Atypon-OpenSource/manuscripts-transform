@@ -814,11 +814,6 @@ Array [
     "objectType": "MPJournal",
   },
   Object {
-    "_id": "MPAuthorNotes:test",
-    "containedObjectIDs": Array [],
-    "objectType": "MPAuthorNotes",
-  },
-  Object {
     "_id": "MPContributor:test",
     "affiliations": Array [],
     "bibliographicName": Object {
@@ -4880,11 +4875,6 @@ Array [
     "objectType": "MPJournal",
   },
   Object {
-    "_id": "MPAuthorNotes:test",
-    "containedObjectIDs": Array [],
-    "objectType": "MPAuthorNotes",
-  },
-  Object {
     "_id": "MPContributor:test",
     "affiliations": Array [],
     "bibliographicName": Object {
@@ -4942,11 +4932,6 @@ Array [
     "objectType": "MPJournal",
     "publisherName": "Inera",
     "title": "NLM-Export",
-  },
-  Object {
-    "_id": "MPAuthorNotes:test",
-    "containedObjectIDs": Array [],
-    "objectType": "MPAuthorNotes",
   },
   Object {
     "_id": "MPContributor:test",
@@ -8392,11 +8377,6 @@ Array [
     "objectType": "MPJournal",
   },
   Object {
-    "_id": "MPAuthorNotes:test",
-    "containedObjectIDs": Array [],
-    "objectType": "MPAuthorNotes",
-  },
-  Object {
     "_id": "MPContributor:test",
     "affiliations": Array [],
     "bibliographicName": Object {
@@ -8754,11 +8734,6 @@ Array [
     "abbreviatedTitles": Array [],
     "journalIdentifiers": Array [],
     "objectType": "MPJournal",
-  },
-  Object {
-    "_id": "MPAuthorNotes:test",
-    "containedObjectIDs": Array [],
-    "objectType": "MPAuthorNotes",
   },
   Object {
     "_id": "MPContributor:test",
