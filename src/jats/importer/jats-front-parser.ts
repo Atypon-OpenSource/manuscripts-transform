@@ -244,7 +244,7 @@ export const jatsFrontParser = {
     return { footnotes, footnoteIDs, authorNotesParagraphs, authorNotes }
   },
   parseParagraphs(elements: Element[]) {
-    return Array.from(elements).map((p) => buildParagraph(p.innerHTML))
+    return elements.map((p) => buildParagraph(p.innerHTML))
   },
   parseFootnotes(elements: Element[]) {
     const footnoteIDs = new Map<string, string>()
