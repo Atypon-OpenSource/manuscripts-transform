@@ -61,6 +61,12 @@ export const jatsFrontParser = {
 
     return titles
   },
+  parseDOI(front: Element | null) {
+    const doi = front?.querySelector(
+      'article-meta > article-id[pub-id-type="doi"]'
+    )
+    return doi?.textContent ?? undefined
+  },
   parseCounts(counts: Element | null) {
     if (counts) {
       const parseCount = (count: string | null | undefined) => {

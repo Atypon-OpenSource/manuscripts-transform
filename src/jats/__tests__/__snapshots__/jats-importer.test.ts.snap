@@ -2399,6 +2399,50 @@ Array [
     "placeholderInnerHTML": "",
   },
   Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:endnotes",
+    "elementIDs": Array [
+      "MPFootnotesElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 27,
+    "title": "Footnotes",
+  },
+  Object {
+    "_id": "MPFootnotesOrder:test",
+    "containedObjectID": "MPFootnotesElement:test",
+    "footnotesList": Array [
+      Object {
+        "id": "MPFootnote:test",
+        "index": 0,
+      },
+    ],
+    "objectType": "MPFootnotesOrder",
+  },
+  Object {
+    "_id": "MPFootnotesElement:test",
+    "contents": "<div></div>",
+    "elementType": "div",
+    "objectType": "MPFootnotesElement",
+  },
+  Object {
+    "_id": "MPFootnote:test",
+    "containingObject": "MPFootnotesElement:test",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">Manuscript information</p></div>",
+    "kind": "footnote",
+    "objectType": "MPFootnote",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Manuscript information</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
     "_id": "MPElementsOrder:test",
     "elementType": "MPFigureElement",
     "elements": Array [
@@ -4344,6 +4388,17 @@ Array [
     "placeholderInnerHTML": "",
   },
   Object {
+    "_id": "MPFootnotesOrder:test",
+    "containedObjectID": "MPFootnotesElement:test",
+    "footnotesList": Array [
+      Object {
+        "id": "MPFootnote:test",
+        "index": 0,
+      },
+    ],
+    "objectType": "MPFootnotesOrder",
+  },
+  Object {
     "_id": "MPFootnotesElement:test",
     "contents": "<div></div>",
     "elementType": "div",
@@ -4537,6 +4592,17 @@ Array [
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPFootnotesOrder:test",
+    "containedObjectID": "MPFootnotesElement:test",
+    "footnotesList": Array [
+      Object {
+        "id": "MPFootnote:test",
+        "index": 0,
+      },
+    ],
+    "objectType": "MPFootnotesOrder",
   },
   Object {
     "_id": "MPFootnotesElement:test",
@@ -4744,6 +4810,75 @@ Array [
   Object {
     "_id": "MPParagraphElement:test",
     "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">None.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:endnotes",
+    "elementIDs": Array [
+      "MPFootnotesElement:test",
+    ],
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 24,
+    "title": "Footnotes",
+  },
+  Object {
+    "_id": "MPFootnotesOrder:test",
+    "containedObjectID": "MPFootnotesElement:test",
+    "footnotesList": Array [
+      Object {
+        "id": "MPFootnote:test",
+        "index": 0,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 1,
+      },
+    ],
+    "objectType": "MPFootnotesOrder",
+  },
+  Object {
+    "_id": "MPFootnotesElement:test",
+    "contents": "<div></div>",
+    "elementType": "div",
+    "objectType": "MPFootnotesElement",
+  },
+  Object {
+    "_id": "MPFootnote:test",
+    "containingObject": "MPFootnotesElement:test",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">*</p><p id=\\"MPParagraphElement:test\\">Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark</p></div>",
+    "kind": "footnote",
+    "objectType": "MPFootnote",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">*</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPFootnote:test",
+    "containingObject": "MPFootnotesElement:test",
+    "contents": "<div xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"footnote-text\\" id=\\"MPFootnote:test\\" data-kind=\\"footnote\\"><p id=\\"MPParagraphElement:test\\">ClinicalTrials.gov NCT03782857.</p></div>",
+    "kind": "footnote",
+    "objectType": "MPFootnote",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">ClinicalTrials.gov NCT03782857.</p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -6700,6 +6835,89 @@ Array [
     ],
     "priority": 14,
     "title": "Footnotes",
+  },
+  Object {
+    "_id": "MPFootnotesOrder:test",
+    "containedObjectID": "MPFootnotesElement:test",
+    "footnotesList": Array [
+      Object {
+        "id": "MPFootnote:test",
+        "index": 0,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 1,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 2,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 3,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 4,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 5,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 6,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 7,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 8,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 9,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 10,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 11,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 12,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 13,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 14,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 15,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 16,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 17,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 18,
+      },
+    ],
+    "objectType": "MPFootnotesOrder",
   },
   Object {
     "_id": "MPFootnotesElement:test",

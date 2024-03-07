@@ -16,8 +16,6 @@
 
 import { FootnotesOrder } from '@manuscripts/json-schema'
 
-import { buildFootnotesOrder } from './builders'
-
 export type FootnotesOrderIndexList = {
   id: string
   index: number
@@ -78,5 +76,3 @@ export const handleFootnotesOrder = (
 
   footnotesOrder.footnotesList = footnotesList
 }
-
-export const createEmptyFootnotesOrder = () => buildFootnotesOrder([])
