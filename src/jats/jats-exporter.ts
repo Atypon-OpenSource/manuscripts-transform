@@ -1755,7 +1755,7 @@ export class JATSExporter {
       const authorNotes = getModelsByType<AuthorNotes>(
         this.modelMap,
         ObjectTypes.AuthorNotes
-      )[0]
+      )?.[0]
       if (authorNotes) {
         const authorNotesEl = this.document.createElement('author-notes')
         authorNotes.containedObjectIDs.forEach((id) => {
