@@ -250,6 +250,7 @@ export const jatsFrontParser = {
 
     const authorNotes = [
       buildAuthorNotes([
+        ...correspondingIDs.values(),
         ...footnoteIDs.values(),
         ...authorNotesParagraphs.map((p) => p._id),
       ]),

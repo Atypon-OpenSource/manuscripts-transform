@@ -20,6 +20,7 @@ import {
   BibliographyItem,
   Contributor,
   ContributorRole,
+  Corresponding,
   Footnote,
   getModelsByType,
   InlineStyle,
@@ -1771,6 +1772,11 @@ export class JATSExporter {
             )
           } else if (id.startsWith('MPFootnote')) {
             this.appendFootnoteToElement(model as Footnote, authorNotesEl)
+          } else if (id.startsWith('MPCorrepsonding')) {
+            this.appendCorrespondingToElement(
+              model as Corresponding,
+              authorNotesEl
+            )
           }
         })
         if (authorNotesEl.childNodes.length > 0) {
@@ -1812,6 +1818,20 @@ export class JATSExporter {
     //     corresp.appendChild(email)
     //   }
     // }
+  }
+  private appendCorrespondingToElement = (
+    corresponding: Corresponding,
+    element: HTMLElement
+  ) => {
+    const correspondingEl = this.document.createElement('corresp')
+    correspondingEl.setAttribute('id', normalizeID(corresponding._id))
+    if (corresponding.label) {
+      const labelEl = this.document.createElement('label')
+      labelEl.textContent = corresponding.label
+      correspondingEl.appendChild(labelEl)
+    }
+    correspondingEl.append(corresponding.contents)
+    element.appendChild(correspondingEl)
   }
   private appendParagraphToElement = (
     paragraph: ParagraphElement,
