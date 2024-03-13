@@ -595,22 +595,8 @@ const nodes: NodeRule[] = [
 
       return {
         id: element.getAttribute('id'),
-        suppressFooter: !element.querySelector('table > tfoot > tr'),
-        suppressHeader: !element.querySelector('table > thead > tr'),
       }
     },
-  },
-  {
-    tag: 'tbody',
-    skip: true,
-  },
-  {
-    tag: 'tfoot',
-    skip: true,
-  },
-  {
-    tag: 'thead',
-    skip: true,
   },
   {
     tag: 'title',
@@ -646,13 +632,12 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'th',
-    node: 'table_cell',
+    node: 'table_header',
     getAttrs: (node) => {
       const element = node as HTMLElement
       const colspan = element.getAttribute('colspan')
       const rowspan = element.getAttribute('rowspan')
       return {
-        celltype: 'th',
         ...(colspan && { colspan }),
         ...(rowspan && { rowspan }),
         valign: element.getAttribute('valign'),
