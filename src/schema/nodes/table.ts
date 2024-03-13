@@ -14,72 +14,119 @@
  * limitations under the License.
  */
 
-// adapted from 'prosemirror-tables'
+import { NodeSpec } from 'prosemirror-model'
+import {
+  CellAttributes,
+  MutableAttrs,
+  TableNodes,
+  tableNodes as createTableNodes,
+  TableNodesOptions,
+} from 'prosemirror-tables'
 
-import { ManuscriptNode, TableNodeSpec } from '../types'
-import { CommentNode } from './comment'
+type getFromDOM = (dom: HTMLElement) => unknown
+type setDOMAttr = (value: unknown, attrs: MutableAttrs) => void
 
-export interface TableNode extends ManuscriptNode {
-  attrs: {
-    id: string
-    headerRows: number
-    footerRows: number
-    comments?: CommentNode[]
+function createCellAttribute(
+  attributeName: string,
+  defaultValue: unknown = null,
+  customGetFromDOM?: getFromDOM,
+  customSetDOMAttr?: setDOMAttr
+): CellAttributes {
+  return {
+    default: defaultValue,
+    getFromDOM(dom) {
+      if (customGetFromDOM) {
+        return customGetFromDOM(dom)
+      }
+      return dom.getAttribute(attributeName)
+    },
+    setDOMAttr(value, attrs) {
+      if (customSetDOMAttr) {
+        customSetDOMAttr(value, attrs)
+      } else if (value) {
+        attrs[attributeName] = value
+      }
+    },
   }
 }
 
-export const table: TableNodeSpec = {
-  content: 'table_colgroup? table_body',
+const tableOptions: TableNodesOptions = {
+  cellContent: 'inline*',
+  cellAttributes: {
+    placeholder: createCellAttribute(
+      'data-placeholder-text',
+      'Data',
+      (dom) => dom.getAttribute('data-placeholder-text') || ''
+    ),
+    valign: createCellAttribute('valign'),
+    align: createCellAttribute('align'),
+    scope: createCellAttribute('scope'),
+    style: createCellAttribute('style'),
+    colspan: createCellAttribute(
+      'colspan',
+      1,
+      (dom) => Number(dom.getAttribute('colspan') || 1),
+      (value, attrs) => {
+        if (value && value !== 1) {
+          attrs['colspan'] = String(value)
+        }
+      }
+    ),
+    rowspan: createCellAttribute(
+      'rowspan',
+      1,
+      (dom) => Number(dom.getAttribute('rowspan') || 1),
+      (value, attrs) => {
+        if (value && value !== 1) {
+          attrs['rowspan'] = String(value)
+        }
+      }
+    ),
+  },
+}
+
+const tableNodes: TableNodes = createTableNodes(tableOptions)
+
+// this is based on prsemirror-tables schema with our added attributes
+export const table: NodeSpec = {
+  attrs: {
+    id: { default: '' },
+    dataTracked: { default: null },
+  },
+  content: 'table_row+',
   tableRole: 'table',
   isolating: true,
   group: 'block',
-  selectable: false,
-  attrs: {
-    id: { default: '' },
-    headerRows: { default: 1 },
-    footerRows: { default: 1 },
-    dataTracked: { default: null },
-    comments: { default: null },
-  },
   parseDOM: [
     {
       tag: 'table',
       getAttrs: (p) => {
-        const dom = p as HTMLTableElement
-
+        const dom = p as HTMLElement
         return {
           id: dom.getAttribute('id'),
-          headerRows: dom.dataset && dom.dataset['header-rows'],
-          footerRows: dom.dataset && dom.dataset['footer-rows'],
         }
       },
     },
   ],
-  toDOM: (node) => {
-    const tableNode = node as TableNode
-
+  toDOM(node) {
     return [
       'table',
       {
-        id: tableNode.attrs.id,
-        'data-header-rows': String(node.attrs.headerRows),
-        'data-footer-rows': String(node.attrs.footerRows),
+        id: node.attrs.id,
       },
-      0,
+      ['tbody', 0],
     ]
   },
 }
-
-export const tableBody: TableNodeSpec = {
-  content: 'table_row+',
-  group: 'block',
-  tableRole: 'table',
-  parseDOM: [
-    {
-      tag: 'tbody',
-    },
-  ],
-  toDOM() {
-    return ['tbody', 0]
-  },
+export const tableRow: NodeSpec = {
+  ...tableNodes.table_row,
+  attrs: { ...tableNodes.table_row.attrs, dataTracked: { default: null } },
+}
+export const tableCell: NodeSpec = {
+  ...tableNodes.table_cell,
+  attrs: { ...tableNodes.table_cell.attrs, dataTracked: { default: null } },
+}
+export const tableHeader: NodeSpec = {
+  ...tableNodes.table_header,
+  attrs: { ...tableNodes.table_header.attrs, dataTracked: { default: null } },
 }

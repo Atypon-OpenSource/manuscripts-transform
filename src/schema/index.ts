@@ -81,11 +81,10 @@ import { sectionLabel } from './nodes/section_label'
 import { sectionTitle } from './nodes/section_title'
 import { supplement } from './nodes/supplement'
 import { supplements } from './nodes/supplements'
-import { table, tableBody } from './nodes/table'
+import { table, tableCell, tableHeader, tableRow } from './nodes/table'
 import { tableCol, tableColGroup } from './nodes/table_col'
 import { tableElement } from './nodes/table_element'
 import { tableElementFooter } from './nodes/table_element_footer'
-import { tableCell, tableRow } from './nodes/table_row'
 import { text } from './nodes/text'
 import { title } from './nodes/title'
 import { tocElement } from './nodes/toc_element'
@@ -137,7 +136,6 @@ export * from './nodes/section_title'
 export * from './nodes/table'
 export * from './nodes/table_col'
 export * from './nodes/table_element'
-export * from './nodes/table_row'
 export * from './nodes/text'
 export * from './nodes/toc_element'
 export * from './nodes/toc_section'
@@ -214,7 +212,6 @@ export const schema = new Schema<Nodes, Marks>({
     section_title: sectionTitle,
     section_title_plain: sectionTitle, // used for non-editable titles
     table,
-    table_body: tableBody,
     table_cell: tableCell,
     table_element: tableElement,
     table_row: tableRow,

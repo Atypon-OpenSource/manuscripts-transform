@@ -93,7 +93,6 @@ import {
   SupplementsNode,
   TableElementFooterNode,
   TableElementNode,
-  TableNode,
   TitleNode,
   TOCElementNode,
 } from '../schema'
@@ -763,40 +762,36 @@ export class Decoder {
     },
     [ObjectTypes.Table]: (data) => {
       const model = data as Table
-      const comments = this.createCommentNodes(model)
-      comments.forEach((c) => this.comments.set(c.attrs.id, c))
-
-      return this.parseContents(
-        model.contents,
-        undefined,
-        this.getComments(model),
-        {
-          topNode: schema.nodes.table.create({
-            id: model._id,
-            comments: comments.map((c) => c.attrs.id),
-          }),
-        }
-      ) as TableNode
+      return this.parseContents(model.contents, undefined, [], {
+        topNode: schema.nodes.table.create({
+          id: model._id,
+        }),
+      })
     },
     [ObjectTypes.TableElement]: (data) => {
       const model = data as TableElement
       const table = this.createTable(model)
+      const tableColGroup = this.createTableColGroup(model)
       const tableElementFooter = this.createTableElementFooter(model)
       const figcaption: FigCaptionNode = this.getFigcaption(model)
       const comments = this.createCommentNodes(model)
       comments.forEach((c) => this.comments.set(c.attrs.id, c))
 
-      const content: ManuscriptNode[] = tableElementFooter
-        ? [table, tableElementFooter, figcaption]
-        : [table, figcaption]
-
-      if (model.listingID) {
-        const listing = this.createListing(model.listingID)
-        content.push(listing)
-      } else {
-        const listing = schema.nodes.listing.create()
-        content.push(listing)
+      const content: ManuscriptNode[] = [table]
+      if (tableColGroup) {
+        content.push(tableColGroup)
       }
+      if (tableElementFooter) {
+        content.push(tableElementFooter)
+      }
+
+      content.push(figcaption)
+
+      const listing = model.listingID
+        ? this.createListing(model.listingID)
+        : schema.nodes.listing.create()
+
+      content.push(listing)
       return schema.nodes.table_element.createChecked(
         {
           id: model._id,
@@ -1179,21 +1174,31 @@ export class Decoder {
   }
 
   private createTable(model: TableElement) {
-    const tableId = model.containedObjectID
-    const tableModel = this.getModel<Table>(tableId)
+    const tableID = model.containedObjectID
+    const tableModel = this.getModel<Table>(tableID)
 
-    let table: TableNode | PlaceholderNode
+    let table: ManuscriptNode | PlaceholderNode
     if (tableModel) {
-      table = this.decode(tableModel) as TableNode
+      table = this.decode(tableModel) as ManuscriptNode
     } else if (this.allowMissingElements) {
       table = schema.nodes.placeholder.create({
-        id: tableId,
+        id: tableID,
         label: 'A table',
       }) as PlaceholderNode
     } else {
-      throw new MissingElement(tableId)
+      throw new MissingElement(tableID)
     }
     return table
+  }
+  private createTableColGroup(model: TableElement) {
+    const tableID = model.containedObjectID
+    const tableModel = this.getModel<Table>(tableID)
+    if (!tableModel || !tableModel.contents.includes('<colgroup>')) {
+      return undefined
+    }
+    return this.parseContents(tableModel.contents, undefined, [], {
+      topNode: schema.nodes.table_colgroup.create(),
+    })
   }
 
   private createTableElementFooter(model: TableElement) {

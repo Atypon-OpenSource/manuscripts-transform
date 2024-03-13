@@ -133,8 +133,6 @@ export const parseJATSBody = (
   if (!node) {
     throw new Error('No content was parsed from the JATS article body')
   }
-
-  //
   const replacements = new Map<string, string>(references?.IDs)
   updateDocumentIDs(node, replacements)
 

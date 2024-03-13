@@ -1246,9 +1246,20 @@ export class JATSExporter {
         element.setAttribute('position', 'anchor')
         return element
       },
-      table_body: () => ['tbody', 0],
       table_cell: (node) => [
-        node.attrs.celltype,
+        'td',
+        {
+          valign: node.attrs.valign,
+          align: node.attrs.align,
+          scope: node.attrs.scope,
+          style: node.attrs.style,
+          ...(node.attrs.rowspan > 1 && { rowspan: node.attrs.rowspan }),
+          ...(node.attrs.colspan > 1 && { colspan: node.attrs.colspan }),
+        },
+        0,
+      ],
+      table_header: (node) => [
+        'th',
         {
           valign: node.attrs.valign,
           align: node.attrs.align,
@@ -1349,6 +1360,32 @@ export class JATSExporter {
         element.appendChild(this.serializeNode(childNode))
       }
     }
+
+    const appendTable = (element: HTMLElement, node: ManuscriptNode) => {
+      const tableNode = findChildNodeOfType(node, node.type.schema.nodes.table)
+      const colGroupNode = findChildNodeOfType(
+        node,
+        node.type.schema.nodes.table_colgroup
+      )
+      if (!tableNode) {
+        return
+      }
+      const table = this.serializeNode(tableNode)
+      const tbodyElement = this.document.createElement('tbody')
+
+      while (table.firstChild) {
+        const child = table.firstChild
+        table.removeChild(child)
+        tbodyElement.appendChild(child)
+      }
+      table.appendChild(tbodyElement)
+      if (colGroupNode) {
+        const colGroup = this.serializeNode(colGroupNode)
+        table.insertBefore(colGroup, table.firstChild)
+      }
+
+      element.appendChild(table)
+    }
     const createFigureElement = (
       node: ManuscriptNode,
       nodeName: string,
@@ -1380,7 +1417,7 @@ export class JATSExporter {
       const element = createElement(node, nodeName)
       appendLabels(element, node)
       appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
-      appendChildNodeOfType(element, node, node.type.schema.nodes.table)
+      appendTable(element, node)
       appendChildNodeOfType(
         element,
         node,
