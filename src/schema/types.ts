@@ -102,6 +102,7 @@ export type Nodes =
   | 'table_row'
   | 'table_colgroup'
   | 'table_col'
+  | 'table_header'
   | 'text'
   | 'toc_element'
   | 'toc_section'

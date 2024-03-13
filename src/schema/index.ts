@@ -217,6 +217,7 @@ export const schema = new Schema<Nodes, Marks>({
     table_row: tableRow,
     table_col: tableCol,
     table_colgroup: tableColGroup,
+    table_header: tableHeader,
     text,
     toc_element: tocElement,
     toc_section: tocSection,
