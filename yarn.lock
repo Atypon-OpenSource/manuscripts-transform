@@ -1258,21 +1258,21 @@
     eslint-config-prettier "^8.5.0"
     prettier "^2.8.1"
 
-"@manuscripts/json-schema@^2.2.4-LEAN-3376-0":
-  version "2.2.4-LEAN-3376-0"
-  resolved "https://registry.yarnpkg.com/@manuscripts/json-schema/-/json-schema-2.2.4-LEAN-3376-0.tgz#397b92ecc792aedbe8650601ce1026acaa760dc9"
-  integrity sha512-Kn3i9FGv7o+zhu1dCCKYsvWyR/NbOexEyFjqqvCkwYIIW0foYoYRJCkGqQYh9Dr0Jz8AWI2HRJW290+lVD83ng==
+"@manuscripts/json-schema@2.2.4-LEAN-3376-1":
+  version "2.2.4-LEAN-3376-1"
+  resolved "https://registry.yarnpkg.com/@manuscripts/json-schema/-/json-schema-2.2.4-LEAN-3376-1.tgz#9c8a5fd08076f789c41d803623464ec9ed0bbde2"
+  integrity sha512-6uIP55DNqw98nGf7DmxBUjce4itdiGh4nPyIyvQ5dM4QUUTZmGvol/1WxUByVpl/mq5DBPi9ykB02j51dylVkw==
   dependencies:
     ajv "^8.12.0"
     deepmerge "^4.3.1"
     uuid "^9.0.0"
 
-"@manuscripts/library@^1.3.3-LEAN-3376-0":
-  version "1.3.3-LEAN-3376-0"
-  resolved "https://registry.yarnpkg.com/@manuscripts/library/-/library-1.3.3-LEAN-3376-0.tgz#9cf8031dca628ab327f500552f7ce620f946ef8d"
-  integrity sha512-xFF/Bx3iJifozN10/8RcsuOR+GD0kTsYy6pjaVIqa8G5yIWe1o5gxQZfATzA9UuP17nV0Uj7hMYwNNdqsQ22+Q==
+"@manuscripts/library@1.3.3-LEAN-3376-1":
+  version "1.3.3-LEAN-3376-1"
+  resolved "https://registry.yarnpkg.com/@manuscripts/library/-/library-1.3.3-LEAN-3376-1.tgz#24f5f0cad1e96ddd72e91f5a75e0e7cad2d61831"
+  integrity sha512-EBiKOhmzORXuFSyIdpwjKPM1XTgJLywXxK4OtU5OcQHkL38mt8dj8YvofI7ViOVu7ZZdiTQoTP5yLS3WWNb2ZA==
   dependencies:
-    "@manuscripts/json-schema" "^2.2.4-LEAN-3376-0"
+    "@manuscripts/json-schema" "2.2.4-LEAN-3376-1"
     astrocite-bibtex "^0.16.4"
     astrocite-ris "^0.16.4"
     citeproc "^2.4.62"
