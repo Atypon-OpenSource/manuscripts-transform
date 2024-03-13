@@ -54,6 +54,7 @@ export const parseJATSFront = (doc: Document, front: Element) => {
     createElement
   )
 
+  const DOI = jatsFrontParser.parseDOI(front)
   // affiliations
   const { affiliations, affiliationIDs } = jatsFrontParser.parseAffiliations([
     ...front.querySelectorAll('article-meta > contrib-group > aff'),
@@ -94,6 +95,7 @@ export const parseJATSFront = (doc: Document, front: Element) => {
     ...buildManuscript(),
     ...counts,
     ...history,
+    DOI,
   }
 
   return generateIDs([
@@ -123,6 +125,7 @@ export const parseJATSBody = (
   jatsBodyTransformations.createBackmatter(doc, body, createElement)
   jatsBodyTransformations.createSuppleMaterials(doc, body, createElement)
   jatsBodyTransformations.createKeywords(doc, body, createElement)
+  jatsBodyTransformations.orderTableFootnote(doc, body)
 
   const node = jatsBodyDOMParser.parse(body).firstChild
   if (!node) {

@@ -249,6 +249,20 @@
       "paragraphStyle": "MPParagraphStyle:76353811-8E1D-4D11-A1B5-C960C9EEEFCD"
     },
     {
+      "_id": "MPFootnotesOrder:D1C6E3B5-0880-46BD-FF83-C960C9EEEFCD",
+      "createdAt": 1538473899,
+      "objectType": "MPFootnotesOrder",
+      "footnotesList": [{
+        "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
+        "index": 0
+      },
+      {
+        "id":  "MPFootnote:D4C99F2D-4663-4510-869C-AFA02AB7B155",
+        "index": 0
+      }],
+      "containedObjectID": "MPFootnotesElement:4CD7CE08-0880-46BD-FF83-52E32AEFAC3E"
+    },
+    {
       "_id": "MPListElement:AF5341C4-5E24-40BF-B853-F966726431EB",
       "_rev": "7-3241c6f9cdfe0d58b13782a7a66986b0",
       "collection": "elements",

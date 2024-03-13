@@ -2397,6 +2397,17 @@ Array [
     "title": "Footnotes",
   },
   Object {
+    "_id": "MPFootnotesOrder:test",
+    "containedObjectID": "MPFootnotesElement:test",
+    "footnotesList": Array [
+      Object {
+        "id": "MPFootnote:test",
+        "index": 0,
+      },
+    ],
+    "objectType": "MPFootnotesOrder",
+  },
+  Object {
     "_id": "MPFootnotesElement:test",
     "contents": "<div></div>",
     "elementType": "div",
@@ -4353,6 +4364,17 @@ Array [
     "placeholderInnerHTML": "",
   },
   Object {
+    "_id": "MPFootnotesOrder:test",
+    "containedObjectID": "MPFootnotesElement:test",
+    "footnotesList": Array [
+      Object {
+        "id": "MPFootnote:test",
+        "index": 0,
+      },
+    ],
+    "objectType": "MPFootnotesOrder",
+  },
+  Object {
     "_id": "MPFootnotesElement:test",
     "contents": "<div></div>",
     "elementType": "div",
@@ -4545,6 +4567,17 @@ Array [
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPFootnotesOrder:test",
+    "containedObjectID": "MPFootnotesElement:test",
+    "footnotesList": Array [
+      Object {
+        "id": "MPFootnote:test",
+        "index": 0,
+      },
+    ],
+    "objectType": "MPFootnotesOrder",
   },
   Object {
     "_id": "MPFootnotesElement:test",
@@ -4768,6 +4801,21 @@ Array [
     ],
     "priority": 24,
     "title": "Footnotes",
+  },
+  Object {
+    "_id": "MPFootnotesOrder:test",
+    "containedObjectID": "MPFootnotesElement:test",
+    "footnotesList": Array [
+      Object {
+        "id": "MPFootnote:test",
+        "index": 0,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 1,
+      },
+    ],
+    "objectType": "MPFootnotesOrder",
   },
   Object {
     "_id": "MPFootnotesElement:test",
@@ -6761,6 +6809,89 @@ Array [
     ],
     "priority": 14,
     "title": "Footnotes",
+  },
+  Object {
+    "_id": "MPFootnotesOrder:test",
+    "containedObjectID": "MPFootnotesElement:test",
+    "footnotesList": Array [
+      Object {
+        "id": "MPFootnote:test",
+        "index": 0,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 1,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 2,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 3,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 4,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 5,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 6,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 7,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 8,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 9,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 10,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 11,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 12,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 13,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 14,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 15,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 16,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 17,
+      },
+      Object {
+        "id": "MPFootnote:test",
+        "index": 18,
+      },
+    ],
+    "objectType": "MPFootnotesOrder",
   },
   Object {
     "_id": "MPFootnotesElement:test",

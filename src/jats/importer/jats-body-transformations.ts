@@ -350,6 +350,25 @@ export const jatsBodyTransformations = {
       }
     })
   },
+  orderTableFootnote(doc: Document, body: Element) {
+    const tableInlineFootnotesIds = new Set(
+      Array.from(
+        body.querySelectorAll('tbody > tr > td > xref[ref-type="fn"]').values()
+      ).map((inlineFootnote) => inlineFootnote.getAttribute('rid'))
+    )
+
+    const fnGroups = doc.querySelectorAll('table-wrap-foot > fn-group')
+    fnGroups.forEach((fnGroup) => {
+      // sort the un-cited table footnote at the end of list
+      const orderedFootnotes = Array.from(fnGroup.querySelectorAll('fn')).sort(
+        (fn) =>
+          tableInlineFootnotesIds.has((fn as HTMLElement).getAttribute('id'))
+            ? -1
+            : 0
+      )
+      fnGroup.replaceChildren(...orderedFootnotes)
+    })
+  },
   moveFloatsGroupToBody(
     doc: Document,
     body: Element,
