@@ -49,7 +49,6 @@ export const manuscriptObjects = [
   ObjectTypes.CommentAnnotation,
   ObjectTypes.Contributor,
   ObjectTypes.Footnote,
-  ObjectTypes.InlineMathFragment,
   ObjectTypes.Section,
 ].concat(elementObjects) // TODO: remove elementObjects if they don't need `manuscriptID`
 

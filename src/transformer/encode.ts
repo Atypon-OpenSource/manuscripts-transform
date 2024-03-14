@@ -28,7 +28,6 @@ import {
   Footnote,
   FootnotesElement,
   FootnotesOrder,
-  InlineMathFragment,
   Keyword,
   KeywordGroup,
   KeywordsElement,
@@ -120,15 +119,6 @@ const listContents = (node: ManuscriptNode): string => {
   }
 
   return serializeToXML(output)
-}
-
-const svgDefs = (svg: string): string | undefined => {
-  const template = document.createElement('template')
-  template.innerHTML = svg.trim()
-
-  const defs = template.content.querySelector('defs')
-
-  return defs ? serializeToXML(defs) : undefined
 }
 
 const tableRowDisplayStyle = (tagName: string, parent: ManuscriptNode) => {
@@ -570,32 +560,13 @@ const encoders: NodeEncoderMap = {
         : false,
   }),
   equation: (node): Partial<Equation> => ({
-    MathMLStringRepresentation:
-      node.attrs.MathMLStringRepresentation || undefined,
-    TeXRepresentation: node.attrs.TeXRepresentation,
-    SVGStringRepresentation: node.attrs.SVGStringRepresentation,
-    // title: 'Equation',
+    contents: node.attrs.contents,
+    format: node.attrs.format,
   }),
   equation_element: (node): Partial<EquationElement> => ({
     containedObjectID: attributeOfNodeType(node, 'equation', 'id'),
-    caption: inlineContentOfChildNodeType(
-      node,
-      node.type.schema.nodes.figcaption,
-      node.type.schema.nodes.caption
-    ),
-    title: inlineContentOfChildNodeType(
-      node,
-      node.type.schema.nodes.figcaption,
-      node.type.schema.nodes.caption_title,
-      false
-    ),
-    elementType: 'p',
-    suppressCaption: Boolean(node.attrs.suppressCaption) || undefined,
-    suppressTitle:
-      node.attrs.suppressTitle === undefined ||
-      node.attrs.suppressTitle === true
-        ? undefined
-        : false,
+    elementType: 'div',
+    label: node.attrs.label,
   }),
   figure: (node): Partial<Figure> => ({
     contentType: node.attrs.contentType || undefined,
@@ -647,13 +618,6 @@ const encoders: NodeEncoderMap = {
     elementIDs: childElements(node)
       .map((childNode) => childNode.attrs.id)
       .filter((id) => id),
-  }),
-  inline_equation: (node, parent): Partial<InlineMathFragment> => ({
-    containingObject: parent.attrs.id,
-    // MathMLRepresentation: node.attrs.MathMLRepresentation || undefined,
-    TeXRepresentation: node.attrs.TeXRepresentation,
-    SVGRepresentation: node.attrs.SVGRepresentation,
-    SVGGlyphs: svgDefs(node.attrs.SVGRepresentation),
   }),
   keyword: (node, parent): Partial<Keyword> => ({
     containedGroup: parent.attrs.id,
@@ -880,10 +844,7 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       if (placeholderTypes.includes(child.type)) {
         return
       }
-      if (
-        parent.type === schema.nodes.paragraph &&
-        child.type !== schema.nodes.inline_equation
-      ) {
+      if (parent.type === schema.nodes.paragraph) {
         return
       }
 

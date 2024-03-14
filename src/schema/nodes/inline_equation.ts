@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
+import { CommentNode } from './comment'
 
 interface Attrs {
   id: string
-  MathMLRepresentation: string
-  SVGRepresentation: string
-  TeXRepresentation: string
+  contents: string
+  format: string
+  comments?: CommentNode[]
 }
 
 export interface InlineEquationNode extends ManuscriptNode {
@@ -31,13 +31,12 @@ export interface InlineEquationNode extends ManuscriptNode {
 }
 
 export const inlineEquation: NodeSpec = {
-  // TODO: rid?
   attrs: {
-    id: { default: '' },
-    MathMLRepresentation: { default: '' },
-    SVGRepresentation: { default: '' },
-    TeXRepresentation: { default: '' },
     dataTracked: { default: null },
+    comments: { default: null },
+    id: { default: '' },
+    contents: { default: '' },
+    format: { default: '' },
   },
   atom: true,
   inline: true,
@@ -45,39 +44,28 @@ export const inlineEquation: NodeSpec = {
   group: 'inline',
   parseDOM: [
     {
-      tag: `span.${ObjectTypes.InlineMathFragment}`,
+      tag: `span.MPInlineMathFragment`,
       getAttrs: (p) => {
-        const dom = p as HTMLSpanElement
-
+        const dom = p as HTMLElement
         return {
+          format: dom.getAttribute('data-equation-format'),
           id: dom.getAttribute('id'),
-          MathMLRepresentation:
-            dom.getAttribute('data-mathml-representation') || '',
-          SVGRepresentation: dom.innerHTML || '',
-          TeXRepresentation: dom.getAttribute('data-tex-representation') || '',
+          contents: dom.innerHTML,
         }
       },
     },
-    // TODO: convert MathML from pasted math elements?
   ],
   toDOM: (node) => {
     const inlineEquationNode = node as InlineEquationNode
+    const { id, contents, format } = inlineEquationNode.attrs
 
     const dom = document.createElement('span')
-    dom.classList.add(ObjectTypes.InlineMathFragment)
-    dom.setAttribute('id', inlineEquationNode.attrs.id)
-    dom.setAttribute(
-      'data-tex-representation',
-      inlineEquationNode.attrs.TeXRepresentation
-    )
-    if (inlineEquationNode.attrs.MathMLRepresentation) {
-      dom.setAttribute(
-        'data-mathml-representation',
-        inlineEquationNode.attrs.MathMLRepresentation
-      )
+    dom.setAttribute('id', id)
+    dom.classList.add('MPInlineMathFragment')
+    if (format) {
+      dom.setAttribute('data-equation-format', format)
     }
-    dom.innerHTML = inlineEquationNode.attrs.SVGRepresentation
-
+    dom.innerHTML = contents
     return dom
   },
 }
