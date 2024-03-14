@@ -1791,12 +1791,19 @@ export class JATSExporter {
           }
         })
       }
+      const authorNotesEl = this.document.createElement('author-notes')
+      const usedCorrespodings = this.getUsedCorrespondings([
+        ...authorContributors,
+        ...otherContributors,
+      ])
+      usedCorrespodings.forEach((corresp) => {
+        this.appendCorrespondingToElement(corresp, authorNotesEl)
+      })
       const authorNotes = getModelsByType<AuthorNotes>(
         this.modelMap,
         ObjectTypes.AuthorNotes
       )?.[0]
       if (authorNotes) {
-        const authorNotesEl = this.document.createElement('author-notes')
         authorNotes.containedObjectIDs.forEach((id) => {
           const model = this.modelMap.get(id)
           if (!model) {
@@ -1809,16 +1816,11 @@ export class JATSExporter {
             )
           } else if (id.startsWith('MPFootnote')) {
             this.appendFootnoteToElement(model as Footnote, authorNotesEl)
-          } else if (id.startsWith('MPCorresponding')) {
-            this.appendCorrespondingToElement(
-              model as Corresponding,
-              authorNotesEl
-            )
           }
         })
-        if (authorNotesEl.childNodes.length > 0) {
-          articleMeta.insertBefore(authorNotesEl, contribGroup.nextSibling)
-        }
+      }
+      if (authorNotesEl.childNodes.length > 0) {
+        articleMeta.insertBefore(authorNotesEl, contribGroup.nextSibling)
       }
     }
 
@@ -1869,6 +1871,21 @@ export class JATSExporter {
     }
     correspondingEl.append(corresponding.contents)
     element.appendChild(correspondingEl)
+  }
+
+  private getUsedCorrespondings = (contributors: Contributor[]) => {
+    const correspodings: Corresponding[] = getModelsByType(
+      this.modelMap,
+      ObjectTypes.Corresponding
+    )
+    const ids: string[] = []
+    contributors.forEach((contributor) => {
+      if (contributor.corresp) {
+        ids.push(...contributor.corresp.map((corresp) => corresp.correspID))
+      }
+    })
+
+    return correspodings.filter((corresp) => ids.includes(corresp._id))
   }
   private appendParagraphToElement = (
     paragraph: ParagraphElement,

@@ -660,12 +660,9 @@ export class Decoder {
 
     [ObjectTypes.AuthorNotes]: (data) => {
       const model = data as AuthorNotes
-      // todo -> add corresps to our PM schema
-      const content = model.containedObjectIDs
-        .filter((id) => !id.startsWith('MPCorresponding'))
-        .map((id) =>
-          this.decode(this.modelMap.get(id) as Model)
-        ) as ManuscriptNode[]
+      const content = model.containedObjectIDs.map((id) =>
+        this.decode(this.modelMap.get(id) as Model)
+      ) as ManuscriptNode[]
       return schema.nodes.author_notes.create(
         {
           id: model._id,
