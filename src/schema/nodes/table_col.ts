@@ -16,19 +16,19 @@
 
 // adapted from 'prosemirror-tables'
 
-import { ManuscriptNode, TableNodeSpec } from '../types'
+import { NodeSpec } from 'prosemirror-model'
 
-export type TableColGroupNode = ManuscriptNode
+import { ManuscriptNode } from '../types'
+
 export interface TableColNode extends ManuscriptNode {
   attrs: {
     width: string
   }
 }
 
-export const tableColGroup: TableNodeSpec = {
+export const tableColGroup: NodeSpec = {
   content: 'table_col+',
   group: 'block',
-  tableRole: 'colgroup',
   parseDOM: [
     {
       tag: 'colgroup',
@@ -39,12 +39,11 @@ export const tableColGroup: TableNodeSpec = {
   },
 }
 
-export const tableCol: TableNodeSpec = {
+export const tableCol: NodeSpec = {
   attrs: {
     width: { default: '' },
   },
   group: 'block',
-  tableRole: 'col',
   parseDOM: [
     {
       tag: 'col',
