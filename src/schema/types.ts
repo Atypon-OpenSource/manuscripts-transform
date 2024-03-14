@@ -97,7 +97,6 @@ export type Nodes =
   | 'section_title'
   | 'section_title_plain'
   | 'table'
-  | 'table_body'
   | 'table_cell'
   | 'table_element'
   | 'table_row'
@@ -114,6 +113,7 @@ export type Nodes =
   | 'contributors'
   | 'supplements'
   | 'supplement'
+  | 'table_header'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

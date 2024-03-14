@@ -188,10 +188,13 @@ const tableContents = (
   parent: TableElementNode
 ): string => {
   const input = serializer.serializeNode(node) as HTMLTableElement
+  const parentInput = serializer.serializeNode(parent) as HTMLElement
 
   const output = document.createElement('table')
 
-  const colgroup = buildTableColGroup(Array.from(input.querySelectorAll('col')))
+  const colgroup = buildTableColGroup(
+    Array.from(parentInput.querySelectorAll('col'))
+  )
   if (colgroup) {
     output.appendChild(colgroup)
   }
@@ -822,7 +825,6 @@ const placeholderTypes = [
 
 export const encode = (node: ManuscriptNode): Map<string, Model> => {
   const models: Map<string, Model> = new Map()
-
   const priority: PrioritizedValue = {
     value: 1,
   }

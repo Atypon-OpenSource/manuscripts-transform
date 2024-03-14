@@ -239,211 +239,195 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "comments": Array [],
                           "dataTracked": null,
-                          "footerRows": 1,
-                          "headerRows": 1,
                           "id": "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
                         },
                         "content": Array [
                           Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
                             "content": Array [
                               Object {
                                 "attrs": Object {
-                                  "placeholder": "",
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
                                 },
                                 "content": Array [
                                   Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "th",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Elf",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
-                                  },
-                                  Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "th",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Dwarf",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
+                                    "text": "Elf",
+                                    "type": "text",
                                   },
                                 ],
-                                "type": "table_row",
+                                "type": "table_header",
                               },
                               Object {
                                 "attrs": Object {
-                                  "placeholder": "",
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
                                 },
                                 "content": Array [
                                   Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "td",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Tall",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
-                                  },
-                                  Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "td",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Short",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
+                                    "text": "Dwarf",
+                                    "type": "text",
                                   },
                                 ],
-                                "type": "table_row",
-                              },
-                              Object {
-                                "attrs": Object {
-                                  "placeholder": "",
-                                },
-                                "content": Array [
-                                  Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "td",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Long-lived",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
-                                  },
-                                  Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "td",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Live underground",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
-                                  },
-                                ],
-                                "type": "table_row",
-                              },
-                              Object {
-                                "attrs": Object {
-                                  "placeholder": "",
-                                },
-                                "content": Array [
-                                  Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "td",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "type": "table_cell",
-                                  },
-                                  Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "td",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Where do they get food?",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
-                                  },
-                                ],
-                                "type": "table_row",
+                                "type": "table_header",
                               },
                             ],
-                            "type": "table_body",
+                            "type": "table_row",
+                          },
+                          Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
+                            "content": Array [
+                              Object {
+                                "attrs": Object {
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
+                                },
+                                "content": Array [
+                                  Object {
+                                    "text": "Tall",
+                                    "type": "text",
+                                  },
+                                ],
+                                "type": "table_cell",
+                              },
+                              Object {
+                                "attrs": Object {
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
+                                },
+                                "content": Array [
+                                  Object {
+                                    "text": "Short",
+                                    "type": "text",
+                                  },
+                                ],
+                                "type": "table_cell",
+                              },
+                            ],
+                            "type": "table_row",
+                          },
+                          Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
+                            "content": Array [
+                              Object {
+                                "attrs": Object {
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
+                                },
+                                "content": Array [
+                                  Object {
+                                    "text": "Long-lived",
+                                    "type": "text",
+                                  },
+                                ],
+                                "type": "table_cell",
+                              },
+                              Object {
+                                "attrs": Object {
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
+                                },
+                                "content": Array [
+                                  Object {
+                                    "text": "Live underground",
+                                    "type": "text",
+                                  },
+                                ],
+                                "type": "table_cell",
+                              },
+                            ],
+                            "type": "table_row",
+                          },
+                          Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
+                            "content": Array [
+                              Object {
+                                "attrs": Object {
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
+                                },
+                                "type": "table_cell",
+                              },
+                              Object {
+                                "attrs": Object {
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
+                                },
+                                "content": Array [
+                                  Object {
+                                    "text": "Where do they get food?",
+                                    "type": "text",
+                                  },
+                                ],
+                                "type": "table_cell",
+                              },
+                            ],
+                            "type": "table_row",
                           },
                         ],
                         "type": "table",
@@ -1660,211 +1644,195 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "comments": Array [],
                           "dataTracked": null,
-                          "footerRows": 1,
-                          "headerRows": 1,
                           "id": "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
                         },
                         "content": Array [
                           Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
                             "content": Array [
                               Object {
                                 "attrs": Object {
-                                  "placeholder": "",
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
                                 },
                                 "content": Array [
                                   Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "th",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Elf",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
-                                  },
-                                  Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "th",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Dwarf",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
+                                    "text": "Elf",
+                                    "type": "text",
                                   },
                                 ],
-                                "type": "table_row",
+                                "type": "table_header",
                               },
                               Object {
                                 "attrs": Object {
-                                  "placeholder": "",
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
                                 },
                                 "content": Array [
                                   Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "td",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Tall",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
-                                  },
-                                  Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "td",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Short",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
+                                    "text": "Dwarf",
+                                    "type": "text",
                                   },
                                 ],
-                                "type": "table_row",
-                              },
-                              Object {
-                                "attrs": Object {
-                                  "placeholder": "",
-                                },
-                                "content": Array [
-                                  Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "td",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Long-lived",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
-                                  },
-                                  Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "td",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Live underground",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
-                                  },
-                                ],
-                                "type": "table_row",
-                              },
-                              Object {
-                                "attrs": Object {
-                                  "placeholder": "",
-                                },
-                                "content": Array [
-                                  Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "td",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "type": "table_cell",
-                                  },
-                                  Object {
-                                    "attrs": Object {
-                                      "align": null,
-                                      "celltype": "td",
-                                      "colspan": 1,
-                                      "colwidth": null,
-                                      "placeholder": "Data",
-                                      "rowspan": 1,
-                                      "scope": null,
-                                      "style": null,
-                                      "styles": Object {},
-                                      "valign": null,
-                                    },
-                                    "content": Array [
-                                      Object {
-                                        "text": "Where do they get food?",
-                                        "type": "text",
-                                      },
-                                    ],
-                                    "type": "table_cell",
-                                  },
-                                ],
-                                "type": "table_row",
+                                "type": "table_header",
                               },
                             ],
-                            "type": "table_body",
+                            "type": "table_row",
+                          },
+                          Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
+                            "content": Array [
+                              Object {
+                                "attrs": Object {
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
+                                },
+                                "content": Array [
+                                  Object {
+                                    "text": "Tall",
+                                    "type": "text",
+                                  },
+                                ],
+                                "type": "table_cell",
+                              },
+                              Object {
+                                "attrs": Object {
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
+                                },
+                                "content": Array [
+                                  Object {
+                                    "text": "Short",
+                                    "type": "text",
+                                  },
+                                ],
+                                "type": "table_cell",
+                              },
+                            ],
+                            "type": "table_row",
+                          },
+                          Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
+                            "content": Array [
+                              Object {
+                                "attrs": Object {
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
+                                },
+                                "content": Array [
+                                  Object {
+                                    "text": "Long-lived",
+                                    "type": "text",
+                                  },
+                                ],
+                                "type": "table_cell",
+                              },
+                              Object {
+                                "attrs": Object {
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
+                                },
+                                "content": Array [
+                                  Object {
+                                    "text": "Live underground",
+                                    "type": "text",
+                                  },
+                                ],
+                                "type": "table_cell",
+                              },
+                            ],
+                            "type": "table_row",
+                          },
+                          Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                            },
+                            "content": Array [
+                              Object {
+                                "attrs": Object {
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
+                                },
+                                "type": "table_cell",
+                              },
+                              Object {
+                                "attrs": Object {
+                                  "align": null,
+                                  "colspan": 1,
+                                  "colwidth": null,
+                                  "dataTracked": null,
+                                  "placeholder": "Data",
+                                  "rowspan": 1,
+                                  "scope": null,
+                                  "style": null,
+                                  "valign": null,
+                                },
+                                "content": Array [
+                                  Object {
+                                    "text": "Where do they get food?",
+                                    "type": "text",
+                                  },
+                                ],
+                                "type": "table_cell",
+                              },
+                            ],
+                            "type": "table_row",
                           },
                         ],
                         "type": "table",
