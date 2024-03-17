@@ -1873,20 +1873,13 @@ export class JATSExporter {
     element.appendChild(correspondingEl)
   }
 
-  private getUsedCorrespondings = (contributors: Contributor[]) => {
-    const correspodings: Corresponding[] = getModelsByType(
-      this.modelMap,
-      ObjectTypes.Corresponding
-    )
-    const ids: string[] = []
-    contributors.forEach((contributor) => {
-      if (contributor.corresp) {
-        ids.push(...contributor.corresp.map((corresp) => corresp.correspID))
-      }
-    })
-
-    return correspodings.filter((corresp) => ids.includes(corresp._id))
+  private getUsedCorrespondings(contributors: Contributor[]): Corresponding[] {
+    return contributors
+      .flatMap((c) => c.corresp ?? [])
+      .map((corresp) => this.modelMap.get(corresp.correspID))
+      .filter((corresp): corresp is Corresponding => !!corresp)
   }
+
   private appendParagraphToElement = (
     paragraph: ParagraphElement,
     element: HTMLElement
