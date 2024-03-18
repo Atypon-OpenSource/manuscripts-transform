@@ -279,27 +279,19 @@ export const buildSection = (
   }
 }
 
-export const buildParagraph = (
-  placeholderInnerHTML: string
-): Build<ParagraphElement> => {
+export const buildParagraph = (innerHTML = ''): Build<ParagraphElement> => {
   const _id = generateID(ObjectTypes.ParagraphElement)
-
-  const element = document.createElementNS('http://www.w3.org/1999/xhtml', 'p')
+  const element = document.createElementNS(null, 'p')
   element.setAttribute('id', _id)
-  element.setAttribute('class', 'MPElement')
-
-  if (placeholderInnerHTML) {
-    element.setAttribute('data-placeholder-text', placeholderInnerHTML)
+  if (innerHTML) {
+    element.innerHTML = innerHTML
   }
-
   const contents = serializeToXML(element)
-
   return {
     _id,
     objectType: ObjectTypes.ParagraphElement,
     elementType: 'p',
     contents,
-    placeholderInnerHTML,
   }
 }
 

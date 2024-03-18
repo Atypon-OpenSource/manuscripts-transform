@@ -35,7 +35,11 @@ import {
 } from '@manuscripts/json-schema'
 import { CitationProvider } from '@manuscripts/library'
 import debug from 'debug'
-import { DOMOutputSpec, DOMParser, DOMSerializer } from 'prosemirror-model'
+import {
+  DOMOutputSpec,
+  DOMParser as ProseMirrorDOMParser,
+  DOMSerializer,
+} from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { nodeFromHTML, textFromHTML } from '../lib/html'
@@ -91,7 +95,7 @@ const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
 const normalizeID = (id: string) => id.replace(/:/g, '_')
 
-const parser = DOMParser.fromSchema(schema)
+const parser = ProseMirrorDOMParser.fromSchema(schema)
 
 const findChildNodeOfType = (
   node: ManuscriptNode,
@@ -1884,10 +1888,12 @@ export class JATSExporter {
     paragraph: ParagraphElement,
     element: HTMLElement
   ) => {
-    const paragraphEl = this.document.createElement('p')
-    paragraphEl.setAttribute('id', normalizeID(paragraph._id))
-    paragraphEl.innerHTML = paragraph.contents
-    element.appendChild(paragraphEl)
+    const parser = new DOMParser()
+    const xmlDoc = parser.parseFromString(paragraph.contents, 'text/xml')
+    const paragraphEl = xmlDoc.firstChild
+    if (paragraphEl && paragraphEl.nodeName === 'p') {
+      element.appendChild(paragraphEl)
+    }
   }
   private appendFootnoteToElement = (
     footnote: Footnote,
