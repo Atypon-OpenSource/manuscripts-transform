@@ -1879,11 +1879,7 @@ export class JATSExporter {
     if (parsedParagraph) {
       const paragraphEl = this.document.createElement('p')
       paragraphEl.innerHTML = parsedParagraph.innerHTML
-      const value = parsedParagraph.getAttribute('id')
-      if (value) {
-        paragraphEl.setAttribute('id', value)
-      }
-
+      paragraphEl.setAttribute('id', normalizeID(paragraph._id))
       element.appendChild(paragraphEl)
     }
   }
