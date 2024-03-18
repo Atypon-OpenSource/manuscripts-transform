@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-import { ManuscriptNode } from '../../schema'
+import { v4 as uuidv4 } from 'uuid'
+
+import { ManuscriptNode, schema } from '../../schema'
 import { generateID, nodeTypesMap } from '../../transformer'
 
 export const updateDocumentIDs = (
@@ -46,6 +48,14 @@ const updateNodeID = (
   replacements: Map<string, string>,
   warnings: string[]
 ) => {
+  if (node.type === schema.nodes.inline_equation) {
+    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
+    node.attrs = {
+      ...node.attrs,
+      id: `InlineMathFragment:${uuidv4()}`,
+    }
+    return
+  }
   if (!('id' in node.attrs)) {
     return
   }

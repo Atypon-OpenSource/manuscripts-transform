@@ -172,7 +172,7 @@ const createDefaultIdGenerator = (): IDGenerator => {
   return async (element: Element) => {
     const value = String(counter.increment(element.nodeName))
 
-    return `${element.nodeName}-${value}`
+    return `${element.localName}-${value}`
   }
 }
 
@@ -338,6 +338,7 @@ export class JATSExporter {
 
   private nodeFromJATS = (JATSFragment: string) => {
     JATSFragment = JATSFragment.trim()
+    JATSFragment = JATSFragment.replace('&nbsp;', ' ')
 
     if (!JATSFragment.length) {
       return null
@@ -1010,32 +1011,20 @@ export class JATSExporter {
       },
       doc: () => '',
       equation: (node) => {
-        const formula = this.document.createElement('disp-formula')
-        formula.setAttribute('id', normalizeID(node.attrs.id))
-
-        // const alternatives = this.document.createElement('alternatives')
-        // formula.appendChild(alternatives)
-
-        if (node.attrs.TeXRepresentation) {
-          const math = this.document.createElement('tex-math')
-          math.textContent = node.attrs.TeXRepresentation
-          formula.appendChild(math)
-        } else if (node.attrs.MathMLStringRepresentation) {
-          const math = this.nodeFromJATS(node.attrs.MathMLStringRepresentation)
-          if (math) {
-            formula.appendChild(math)
-          }
-        }
-
-        return formula
+        return this.createEquation(node)
       },
-      equation_element: (node) =>
-        createFigureElement(
-          node,
-          'fig',
-          node.type.schema.nodes.equation,
-          'equation'
-        ),
+      inline_equation: (node) => {
+        const eqElement = this.document.createElement('inline-formula')
+        const equation = this.createEquation(node, true)
+        eqElement.append(equation)
+        return eqElement
+      },
+      equation_element: (node) => {
+        const eqElement = this.document.createElement('disp-formula')
+        eqElement.setAttribute('id', normalizeID(node.attrs.id))
+        processChildNodes(eqElement, node, schema.nodes.equation)
+        return eqElement
+      },
       figcaption: (node) => {
         if (!node.textContent) {
           return ''
@@ -1108,27 +1097,6 @@ export class JATSExporter {
       },
       hard_break: () => '',
       highlight_marker: () => '',
-      inline_equation: (node) => {
-        const formula = this.document.createElement('inline-formula')
-        formula.setAttribute('id', normalizeID(node.attrs.id))
-        if (node.attrs.TeXRepresentation) {
-          const math = this.document.createElement('tex-math')
-          math.textContent = node.attrs.TeXRepresentation
-          formula.appendChild(math)
-        } else if (node.attrs.MathMLRepresentation) {
-          const math = this.nodeFromJATS(node.attrs.MathMLRepresentation)
-          if (math) {
-            formula.appendChild(math)
-          }
-        } else if (node.attrs.SVGRepresentation) {
-          const math = this.nodeFromJATS(node.attrs.SVGRepresentation)
-          if (math) {
-            formula.appendChild(math)
-          }
-        }
-
-        return formula
-      },
       inline_footnote: (node) => {
         const xref = this.document.createElement('xref')
         xref.setAttribute('ref-type', 'fn')
@@ -1493,6 +1461,21 @@ export class JATSExporter {
           }
         }
       }
+    }
+  }
+
+  private createEquation(node: ManuscriptNode, isInline = false) {
+    if (node.attrs.format === 'tex') {
+      const texMath = this.document.createElement('tex-math')
+      texMath.innerHTML = node.attrs.contents
+      return texMath
+    } else {
+      const math = this.nodeFromJATS(node.attrs.contents)
+      const mathml = math as Element
+      if (!isInline) {
+        mathml.setAttribute('id', normalizeID(node.attrs.id))
+      }
+      return mathml
     }
   }
 

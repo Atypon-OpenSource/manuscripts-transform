@@ -33,7 +33,6 @@ import {
   Figure,
   Footnote,
   FootnotesOrder,
-  InlineMathFragment,
   Journal,
   Keyword,
   KeywordGroup,
@@ -218,16 +217,6 @@ export const buildNote = (
   target,
   source,
   contents,
-})
-
-export const buildInlineMathFragment = (
-  containingObject: string,
-  TeXRepresentation: string
-): Build<InlineMathFragment> => ({
-  _id: generateID(ObjectTypes.InlineMathFragment),
-  objectType: ObjectTypes.InlineMathFragment,
-  containingObject: containingObject || undefined,
-  TeXRepresentation,
 })
 
 export const buildFootnote = (

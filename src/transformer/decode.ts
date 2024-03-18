@@ -351,9 +351,8 @@ export class Decoder {
 
       return schema.nodes.equation.createChecked({
         id: model._id,
-        MathMLStringRepresentation: model.MathMLStringRepresentation,
-        SVGStringRepresentation: model.SVGStringRepresentation,
-        TeXRepresentation: model.TeXRepresentation,
+        contents: model.contents,
+        format: model.format,
       }) as EquationNode
     },
     [ObjectTypes.EquationElement]: (data) => {
@@ -373,17 +372,12 @@ export class Decoder {
         throw new MissingElement(model.containedObjectID)
       }
 
-      const figcaption: FigCaptionNode = this.getFigcaption(model)
-
       return schema.nodes.equation_element.createChecked(
         {
           id: model._id,
-          suppressCaption: Boolean(model.suppressCaption),
-          suppressTitle: Boolean(
-            model.suppressTitle === undefined ? true : model.suppressTitle
-          ),
+          label: model.label,
         },
-        [equation, figcaption]
+        [equation]
       ) as EquationElementNode
     },
     [ObjectTypes.FootnotesElement]: (data) => {
