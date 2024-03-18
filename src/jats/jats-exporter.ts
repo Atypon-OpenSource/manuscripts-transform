@@ -2326,6 +2326,9 @@ export class JATSExporter {
               }
             }
           }
+          if(!fnGroup.hasChildNodes()){
+            fnGroup.remove()
+          }
         }
       }
     })
