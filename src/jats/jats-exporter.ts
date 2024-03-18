@@ -1871,10 +1871,19 @@ export class JATSExporter {
     paragraph: ParagraphElement,
     element: HTMLElement
   ) => {
-    const parser = new DOMParser()
-    const xmlDoc = parser.parseFromString(paragraph.contents, 'text/xml')
-    const paragraphEl = xmlDoc.firstChild
-    if (paragraphEl && paragraphEl.nodeName === 'p') {
+    const parsedDoc = new DOMParser().parseFromString(
+      paragraph.contents,
+      'text/html'
+    )
+    const parsedParagraph = parsedDoc.body.querySelector('p')
+    if (parsedParagraph) {
+      const paragraphEl = this.document.createElement('p')
+      paragraphEl.innerHTML = parsedParagraph.innerHTML
+      const value = parsedParagraph.getAttribute('id')
+      if (value) {
+        paragraphEl.setAttribute('id', value)
+      }
+
       element.appendChild(paragraphEl)
     }
   }
@@ -2309,7 +2318,7 @@ export class JATSExporter {
               }
             }
           }
-          if(!fnGroup.hasChildNodes()){
+          if (!fnGroup.hasChildNodes()) {
             fnGroup.remove()
           }
         }
