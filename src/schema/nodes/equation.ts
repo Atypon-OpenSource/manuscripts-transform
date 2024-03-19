@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2023 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,9 +21,8 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  MathMLStringRepresentation: string
-  SVGStringRepresentation: string
-  TeXRepresentation: string
+  format: string
+  contents: string
 }
 
 export interface EquationNode extends ManuscriptNode {
@@ -33,9 +32,8 @@ export interface EquationNode extends ManuscriptNode {
 export const equation: NodeSpec = {
   attrs: {
     id: { default: '' },
-    MathMLStringRepresentation: { default: '' },
-    SVGStringRepresentation: { default: '' },
-    TeXRepresentation: { default: '' },
+    contents: { default: '' },
+    format: { default: '' },
     dataTracked: { default: null },
     // placeholder: { default: 'Click to edit equation' },
   },
@@ -44,37 +42,26 @@ export const equation: NodeSpec = {
     {
       tag: `div.${ObjectTypes.Equation}`,
       getAttrs: (p) => {
-        const dom = p as HTMLDivElement
-
+        const htmlEl = p as HTMLElement
         return {
-          id: dom.getAttribute('id'),
-          MathMLStringRepresentation: dom.getAttribute(
-            'data-mathml-string-representation'
-          ),
-          SVGStringRepresentation: dom.innerHTML,
-          TeXRepresentation: dom.getAttribute('data-tex-representation'),
+          id: htmlEl.getAttribute('id'),
+          format: htmlEl.getAttribute('data-equation-format'),
+          contents: htmlEl.innerHTML,
         }
       },
     },
-    // TODO: convert MathML from pasted math elements?
   ],
-  toDOM: (node) => {
+  toDOM: (node: ManuscriptNode) => {
     const equationNode = node as EquationNode
+    const { id, contents, format } = equationNode.attrs
 
     const dom = document.createElement('div')
-    dom.setAttribute('id', equationNode.attrs.id)
     dom.classList.add(ObjectTypes.Equation)
-    if (equationNode.attrs.MathMLStringRepresentation) {
-      dom.setAttribute(
-        'data-mathml-string-representation',
-        equationNode.attrs.MathMLStringRepresentation
-      )
+    dom.setAttribute('id', id)
+    if (format) {
+      dom.setAttribute('data-equation-format', format)
     }
-    dom.setAttribute(
-      'data-tex-representation',
-      equationNode.attrs.TeXRepresentation
-    )
-    dom.innerHTML = equationNode.attrs.SVGStringRepresentation
+    dom.innerHTML = contents
 
     return dom
   },
