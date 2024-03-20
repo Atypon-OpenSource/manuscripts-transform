@@ -33,6 +33,7 @@ import { abstracts } from './nodes/abstracts'
 import { affiliation } from './nodes/affiliation'
 import { affiliations } from './nodes/affiliations'
 import { attribution } from './nodes/attribution'
+import { authorNotes } from './nodes/author_notes'
 import { backmatter } from './nodes/backmatter'
 import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographyItem } from './nodes/bibliography_item'
@@ -215,6 +216,7 @@ export const schema = new Schema<Nodes, Marks>({
     table_row: tableRow,
     table_col: tableCol,
     table_colgroup: tableColGroup,
+    table_header: tableHeader,
     text,
     toc_element: tocElement,
     toc_section: tocSection,
@@ -226,6 +228,6 @@ export const schema = new Schema<Nodes, Marks>({
     contributors,
     supplements,
     supplement,
-    table_header: tableHeader,
+    author_notes: authorNotes,
   },
 })

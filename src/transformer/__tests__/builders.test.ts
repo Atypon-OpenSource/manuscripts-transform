@@ -138,14 +138,12 @@ describe('commands', () => {
   })
 
   test('build paragraph', () => {
-    const placeholder = 'Start writing!'
-
-    const paragraph = buildParagraph(placeholder)
+    const innerHTML = 'Start writing!'
+    const paragraph = buildParagraph(innerHTML)
     expect(paragraph._id).toMatch(/^MPParagraphElement:\S+$/)
     expect(paragraph.objectType).toBe(ObjectTypes.ParagraphElement)
-    expect(paragraph.placeholderInnerHTML).toBe(placeholder)
     expect(paragraph.contents).toBe(
-      `<p xmlns="http://www.w3.org/1999/xhtml" id="${paragraph._id}" class="MPElement" data-placeholder-text="${placeholder}"></p>`
+      `<p id="${paragraph._id}">Start writing!</p>`
     )
   })
 })

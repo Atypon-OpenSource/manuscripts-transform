@@ -60,16 +60,17 @@ export const parseJATSFront = (doc: Document, front: Element) => {
     ...front.querySelectorAll('article-meta > contrib-group > aff'),
   ])
 
-  // footnotes
-  const { footnotes, footnoteIDs } = jatsFrontParser.parseAuthorNotes([
-    ...front.querySelectorAll(
-      'article-meta > author-notes > fn:not([fn-type])'
-    ),
-  ])
-
-  const { correspondingList, correspondingIDs } = jatsFrontParser.parseCorresp([
-    ...front.querySelectorAll('article-meta > author-notes > corresp'),
-  ])
+  // author-footnotes
+  const {
+    footnotes,
+    footnoteIDs,
+    authorNotes,
+    authorNotesParagraphs,
+    correspondingIDs,
+    correspondingList,
+  } = jatsFrontParser.parseAuthorNotes(
+    front.querySelector('article-meta > author-notes')
+  )
 
   // contributors
   const authors = jatsFrontParser.parseContributors(
@@ -97,11 +98,12 @@ export const parseJATSFront = (doc: Document, front: Element) => {
     ...history,
     DOI,
   }
-
   return generateIDs([
     manuscript,
     titles,
     journal,
+    ...authorNotesParagraphs,
+    ...authorNotes,
     ...footnotes,
     ...authors,
     ...affiliations,
