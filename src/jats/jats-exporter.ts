@@ -86,13 +86,36 @@ type NodeSpecs = { [key in Nodes]: (node: ManuscriptNode) => DOMOutputSpec }
 type MarkSpecs = {
   [key in Marks]: (mark: ManuscriptMark, inline: boolean) => DOMOutputSpec
 }
+
+const removeEmptyFootnotes = (element: Element | null) => {
+  const fnGroup = element?.querySelector('fn-group')
+  if (!element || !fnGroup) {
+    return
+  }
+  const previousParent = fnGroup.parentElement
+  for (const fn of fnGroup.querySelectorAll('fn')) {
+    if (fn.textContent?.trim() === '') {
+      fn.remove()
+    }
+  }
+  if (!fnGroup.childElementCount) {
+    previousParent?.removeChild(fnGroup)
+    if (
+      !element.childElementCount ||
+      (element.childElementCount === 1 && element.querySelector('title'))
+    ) {
+      element.remove()
+    }
+  }
+}
 const warn = debug('manuscripts-transform')
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
 const normalizeID = (id: string) => id.replace(/:/g, '_')
 
-const parser = ProseMirrorDOMParser.fromSchema(schema)
+const proseMirrorDOMParser = ProseMirrorDOMParser.fromSchema(schema)
+const parser = new DOMParser()
 
 const findChildNodeOfType = (
   node: ManuscriptNode,
@@ -438,7 +461,7 @@ export class JATSExporter {
 
     if (htmlTitleNode) {
       // TODO: parse and serialize with title schema
-      const titleNode = parser.parse(htmlTitleNode, {
+      const titleNode = proseMirrorDOMParser.parse(htmlTitleNode, {
         topNode: schema.nodes.section_title.create(),
       })
 
@@ -727,42 +750,16 @@ export class JATSExporter {
     return body
   }
 
-  private validateFNGroups = (fnGroups: NodeListOf<Element>) => {
-    const validFNGroups = []
-    const emptyFnsToRemove = [] // Array to store empty fns for removal
 
-    for (const fnGroup of fnGroups) {
-      const previousParent = fnGroup.parentElement
-      for (const fn of fnGroup.querySelectorAll('fn')) {
-        if (fn.textContent?.trim() === '') {
-          emptyFnsToRemove.push(fn)
-        }
-      }
-      emptyFnsToRemove.forEach((fn) => fn.remove())
-      if (!fnGroup.childElementCount) {
-        previousParent?.removeChild(fnGroup)
-        const title = previousParent?.querySelector('title')
-        if (title) {
-          title.remove()
-        }
-        if (!previousParent?.childElementCount) {
-          previousParent?.remove()
-        }
-      } else {
-        validFNGroups.push(fnGroup)
-      }
-    }
-    return validFNGroups
-  }
 
   protected buildBack = (body: HTMLElement) => {
     const back = this.document.createElement('back')
     this.moveSectionsToBack(back, body)
 
     // footnotes elements in footnotes section (i.e. not in table footer)
-    const fnGroups = this.document.querySelectorAll('sec > fn-group')
-    const validFNGroups = this.validateFNGroups(fnGroups)
-    for (const fnGroup of validFNGroups) {
+    const sections = this.document.querySelectorAll('sec')
+    sections.forEach((section) => removeEmptyFootnotes(section))
+    for (const fnGroup of this.document.querySelectorAll('sec > fn-group')) {
       const previousParent = fnGroup.parentElement
       back.appendChild(fnGroup)
 
@@ -956,13 +953,7 @@ export class JATSExporter {
       title: () => '',
       affiliations: () => '',
       contributors: () => '',
-      table_element_footer: (node) =>{
-        const fnGroup = findChildNodeOfType(node, node.type.schema.nodes.footnotes_element)
-        if(fnGroup){
-          
-        }
-        return ['table-wrap-foot', 0]
-      } 
+      table_element_footer: () => ['table-wrap-foot', 0],
       contributor: () => '',
       affiliation: () => '',
       attribution: () => ['attrib', 0],
@@ -1124,35 +1115,12 @@ export class JATSExporter {
       hard_break: () => '',
       highlight_marker: () => '',
       inline_footnote: (node) => {
-        const rids = node.attrs.rids
-        const filteredRids = rids.filter((rid: string) => {
-          const model = this.modelMap.get(rid) as Footnote
-          if (model) {
-            const parser = new DOMParser()
-            const doc = parser.parseFromString(model.contents, 'text/html')
-            const paragraphs = doc.querySelectorAll('p')
-
-            const allParagraphsEmpty = Array.from(paragraphs).every(
-              (paragraph) => {
-                return paragraph.textContent?.trim() === ''
-              }
-            )
-
-            return !allParagraphsEmpty
-          }
-          return false
-        })
-        if (filteredRids.length) {
-          const xref = this.document.createElement('xref')
-          xref.setAttribute('ref-type', 'fn')
-          xref.setAttribute('rid', normalizeID(filteredRids.join(' ')))
-          xref.textContent = node.attrs.contents
-
-          return xref
-        } else {
-          return ''
-        }
+        const filteredRids = getFilteredIDs(node)
+        return filteredRids.length
+          ? createFootnoteXref(filteredRids, node.attrs.contents)
+          : ''
       },
+
       keyword: () => '',
       keywords_element: () => '',
       keywords: () => '',
@@ -1443,12 +1411,33 @@ export class JATSExporter {
         node,
         node.type.schema.nodes.table_element_footer
       )
+      removeEmptyFootnotes(element.querySelector('table-wrap-foot'))
       if (isExecutableNodeType(node.type)) {
         processExecutableNode(node, element)
       }
       return element
     }
-
+    const createFootnoteXref = (rids: string[], content: string | null) => {
+      const xref = this.document.createElement('xref')
+      xref.setAttribute('ref-type', 'fn')
+      xref.setAttribute('rid', normalizeID(rids.join(' ')))
+      xref.textContent = content
+      return xref
+    }
+    const getFilteredIDs = (node: ManuscriptNode) => {
+      const allParagraphsEmpty = (paragraphs: NodeListOf<Element>) =>
+      Array.from(paragraphs).every(
+        (paragraph) => paragraph.textContent?.trim() === ''
+      )
+    return node.attrs.rids.filter((rid: string) => {
+      const model = this.modelMap.get(rid) as Footnote
+      if (model) {
+        const doc = parser.parseFromString(model.contents, 'text/html')
+        return !allParagraphsEmpty(doc.querySelectorAll('p'))
+      }
+      return false
+    })
+    }
     const processExecutableNode = (node: ManuscriptNode, element: Element) => {
       const listingNode = findChildNodeOfType(
         node,
