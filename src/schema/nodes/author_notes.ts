@@ -1,5 +1,5 @@
 /*!
- * © 2023 Atypon Systems LLC
+ * © 2019 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,15 +16,22 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
+import { ManuscriptNode } from '../types'
 
-export const contributors: NodeSpec = {
-  content: 'contributor* author_notes?',
+interface Attrs {
+  id: string
+}
+
+export interface AuthorNotesNode extends ManuscriptNode {
+  attrs: Attrs
+}
+
+export const authorNotes: NodeSpec = {
   attrs: {
     id: { default: '' },
+    dataTracked: { default: null },
   },
-  group: 'block',
-  selectable: false,
-  toDOM: () => ['div', { class: 'contributors' }, 0],
+  content: '(footnote | paragraph)+',
+  group: 'block element',
+  toDOM: () => ['author-notes', 0],
 }

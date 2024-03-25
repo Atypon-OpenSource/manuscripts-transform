@@ -16,11 +16,13 @@
 
 import {
   Affiliation,
+  AuthorNotes,
   BibliographyItem,
   Contributor,
   ContributorRole,
   Corresponding,
   Footnote,
+  getModelsByType,
   InlineStyle,
   Journal,
   Keyword,
@@ -28,6 +30,7 @@ import {
   Manuscript,
   Model,
   ObjectTypes,
+  ParagraphElement,
   Supplement,
 } from '@manuscripts/json-schema'
 import { CitationProvider } from '@manuscripts/library'
@@ -950,6 +953,7 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
+      author_notes: () => ['author-notes', 0],
       title: () => '',
       affiliations: () => '',
       contributors: () => '',
@@ -1815,61 +1819,36 @@ export class JATSExporter {
           }
         })
       }
-      const noteIDs: string[] = []
-      for (const contributor of [...authorContributors, ...otherContributors]) {
-        if (contributor.footnote) {
-          const ids = contributor.footnote.map((note) => {
-            return note.noteID
-          })
-          noteIDs.push(...ids)
-        }
-        if (contributor.corresp) {
-          const ids = contributor.corresp.map((corresp) => {
-            return corresp.correspID
-          })
-          noteIDs.push(...ids)
-        }
-      }
-      const footnotes: Footnote[] = []
-      footnotes.push(
-        ...this.models.filter(hasObjectType<Footnote>(ObjectTypes.Footnote))
-      )
-
-      const correspodings: Corresponding[] = []
-      correspodings.push(
-        ...this.models.filter(
-          hasObjectType<Corresponding>(ObjectTypes.Corresponding)
-        )
-      )
-
-      if (footnotes || correspodings) {
-        const authorNotesEl = this.document.createElement('author-notes')
-        const usedFootnotes = footnotes.filter((footnote) => {
-          return noteIDs.includes(footnote._id)
-        })
-        const usedCorrespodings = correspodings.filter((corresp) => {
-          return noteIDs.includes(corresp._id)
-        })
-        usedFootnotes.forEach((footnote) => {
-          const authorFootNote = this.document.createElement('fn')
-          authorFootNote.setAttribute('id', normalizeID(footnote._id))
-          authorFootNote.innerHTML = footnote.contents
-          authorNotesEl.appendChild(authorFootNote)
-        })
-        usedCorrespodings.forEach((corresponding) => {
-          const correspondingEl = this.document.createElement('corresp')
-          correspondingEl.setAttribute('id', normalizeID(corresponding._id))
-          if (corresponding.label) {
-            const labelEl = this.document.createElement('label')
-            labelEl.textContent = corresponding.label
-            correspondingEl.appendChild(labelEl)
+      const authorNotesEl = this.document.createElement('author-notes')
+      const usedCorrespodings = this.getUsedCorrespondings([
+        ...authorContributors,
+        ...otherContributors,
+      ])
+      usedCorrespodings.forEach((corresp) => {
+        this.appendCorrespondingToElement(corresp, authorNotesEl)
+      })
+      const authorNotes = getModelsByType<AuthorNotes>(
+        this.modelMap,
+        ObjectTypes.AuthorNotes
+      )?.[0]
+      if (authorNotes) {
+        authorNotes.containedObjectIDs.forEach((id) => {
+          const model = this.modelMap.get(id)
+          if (!model) {
+            return
           }
-          correspondingEl.append(corresponding.contents)
-          authorNotesEl.appendChild(correspondingEl)
+          if (id.startsWith('MPParagraphElement')) {
+            this.appendParagraphToElement(
+              model as ParagraphElement,
+              authorNotesEl
+            )
+          } else if (id.startsWith('MPFootnote')) {
+            this.appendFootnoteToElement(model as Footnote, authorNotesEl)
+          }
         })
-        if (authorNotesEl.childNodes.length > 0) {
-          articleMeta.insertBefore(authorNotesEl, contribGroup.nextSibling)
-        }
+      }
+      if (authorNotesEl.childNodes.length > 0) {
+        articleMeta.insertBefore(authorNotesEl, contribGroup.nextSibling)
       }
     }
 
@@ -1907,7 +1886,53 @@ export class JATSExporter {
     //   }
     // }
   }
+  private appendCorrespondingToElement = (
+    corresponding: Corresponding,
+    element: HTMLElement
+  ) => {
+    const correspondingEl = this.document.createElement('corresp')
+    correspondingEl.setAttribute('id', normalizeID(corresponding._id))
+    if (corresponding.label) {
+      const labelEl = this.document.createElement('label')
+      labelEl.textContent = corresponding.label
+      correspondingEl.appendChild(labelEl)
+    }
+    correspondingEl.append(corresponding.contents)
+    element.appendChild(correspondingEl)
+  }
 
+  private getUsedCorrespondings(contributors: Contributor[]): Corresponding[] {
+    return contributors
+      .flatMap((c) => c.corresp ?? [])
+      .map((corresp) => this.modelMap.get(corresp.correspID))
+      .filter((corresp): corresp is Corresponding => !!corresp)
+  }
+
+  private appendParagraphToElement = (
+    paragraph: ParagraphElement,
+    element: HTMLElement
+  ) => {
+    const parsedDoc = new DOMParser().parseFromString(
+      paragraph.contents,
+      'text/html'
+    )
+    const parsedParagraph = parsedDoc.body.querySelector('p')
+    if (parsedParagraph) {
+      const paragraphEl = this.document.createElement('p')
+      paragraphEl.innerHTML = parsedParagraph.innerHTML
+      paragraphEl.setAttribute('id', normalizeID(paragraph._id))
+      element.appendChild(paragraphEl)
+    }
+  }
+  private appendFootnoteToElement = (
+    footnote: Footnote,
+    element: HTMLElement
+  ) => {
+    const footnoteEl = this.document.createElement('fn')
+    footnoteEl.setAttribute('id', normalizeID(footnote._id))
+    footnoteEl.innerHTML = footnote.contents
+    element.appendChild(footnoteEl)
+  }
   private buildKeywords(articleMeta: Node) {
     const keywords = [...this.modelMap.values()].filter(
       (model) => model.objectType === ObjectTypes.Keyword
@@ -2329,6 +2354,9 @@ export class JATSExporter {
                 }
               }
             }
+          }
+          if (!fnGroup.hasChildNodes()) {
+            fnGroup.remove()
           }
         }
       }
