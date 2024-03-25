@@ -327,6 +327,7 @@ export class JATSExporter {
       this.moveFloatsGroup(body, article)
       this.removeBackContainer(body)
       this.updateFootnoteTypes(front, back)
+      this.fillEmptyFootnotes(article)
     }
 
     await this.rewriteIDs(idGenerator)
@@ -735,7 +736,6 @@ export class JATSExporter {
   protected buildBack = (body: HTMLElement) => {
     const back = this.document.createElement('back')
     this.moveSectionsToBack(back, body)
-    this.document.querySelectorAll('sec').forEach(this.removeEmptyFootnotes)
     this.document.querySelectorAll('sec > fn-group').forEach((fnGroup) => {
       const previousParent = fnGroup.parentElement
       back.appendChild(fnGroup)
@@ -1091,10 +1091,12 @@ export class JATSExporter {
       hard_break: () => '',
       highlight_marker: () => '',
       inline_footnote: (node) => {
-        const rids = filterInlineFootnotes(node)
-        return rids.length ? createFootnoteXref(rids, node.attrs.contents) : ''
+        const xref = this.document.createElement('xref')
+        xref.setAttribute('ref-type', 'fn')
+        xref.setAttribute('rid', normalizeID(node.attrs.rids.join(' ')))
+        xref.textContent = node.attrs.contents
+        return xref
       },
-
       keyword: () => '',
       keywords_element: () => '',
       keywords: () => '',
@@ -1385,31 +1387,10 @@ export class JATSExporter {
         node,
         node.type.schema.nodes.table_element_footer
       )
-      this.removeEmptyFootnotes(element.querySelector('table-wrap-foot'))
       if (isExecutableNodeType(node.type)) {
         processExecutableNode(node, element)
       }
       return element
-    }
-    const createFootnoteXref = (rids: string[], content: string | null) => {
-      const xref = this.document.createElement('xref')
-      xref.setAttribute('ref-type', 'fn')
-      xref.setAttribute('rid', normalizeID(rids.join(' ')))
-      xref.textContent = content
-      return xref
-    }
-    const filterInlineFootnotes = (node: ManuscriptNode) => {
-      const isParagraphEmpty = (paragraph: Element) =>
-        !paragraph.textContent?.trim()
-      return node.attrs.rids.filter((rid: string) => {
-        const footnote = this.modelMap.get(rid) as Footnote
-        if (footnote) {
-          const doc = parser.parseFromString(footnote.contents, 'text/html')
-          const paragraphs = doc.querySelectorAll('p')
-          return ![...paragraphs].every(isParagraphEmpty)
-        }
-        return false
-      })
     }
     const processExecutableNode = (node: ManuscriptNode, element: Element) => {
       const listingNode = findChildNodeOfType(
@@ -1854,26 +1835,6 @@ export class JATSExporter {
     //     corresp.appendChild(email)
     //   }
     // }
-  }
-  private removeEmptyFootnotes = (element: Element | null) => {
-    const fnGroup = element?.querySelector('fn-group')
-    if (!element || !fnGroup) {
-      return
-    }
-    fnGroup.querySelectorAll('fn').forEach((fn) => {
-      if (!fn.textContent?.trim()) {
-        fn.remove()
-      }
-    })
-    if (!fnGroup.childElementCount) {
-      fnGroup.remove()
-    }
-    if (
-      !element.childElementCount ||
-      (element.childElementCount === 1 && element.querySelector('title'))
-    ) {
-      element.remove()
-    }
   }
   private appendCorrespondingToElement = (
     corresponding: Corresponding,
@@ -2358,5 +2319,13 @@ export class JATSExporter {
         fn.setAttribute('fn-type', chooseJatsFnType(fnType))
       }
     })
+  }
+  private fillEmptyFootnotes(articleElement: Element) {
+    const emptyFootnotes = Array.from(
+      articleElement.querySelectorAll('fn')
+    ).filter((fn) => !fn.textContent?.trim())
+    emptyFootnotes.forEach((fn) =>
+      fn.appendChild(this.document.createElement('p'))
+    )
   }
 }
