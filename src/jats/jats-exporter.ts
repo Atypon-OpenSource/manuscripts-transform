@@ -1860,14 +1860,13 @@ export class JATSExporter {
     if (!element || !fnGroup) {
       return
     }
-    const previousParent = fnGroup.parentElement
     fnGroup.querySelectorAll('fn').forEach((fn) => {
       if (!fn.textContent?.trim()) {
         fn.remove()
       }
     })
     if (!fnGroup.childElementCount) {
-      previousParent?.removeChild(fnGroup)
+      fnGroup.remove()
       if (
         !element.childElementCount ||
         (element.childElementCount === 1 && element.querySelector('title'))
