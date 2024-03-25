@@ -1867,12 +1867,12 @@ export class JATSExporter {
     })
     if (!fnGroup.childElementCount) {
       fnGroup.remove()
-      if (
-        !element.childElementCount ||
-        (element.childElementCount === 1 && element.querySelector('title'))
-      ) {
-        element.remove()
-      }
+    }
+    if (
+      !element.childElementCount ||
+      (element.childElementCount === 1 && element.querySelector('title'))
+    ) {
+      element.remove()
     }
   }
   private appendCorrespondingToElement = (
