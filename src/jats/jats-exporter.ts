@@ -96,8 +96,7 @@ const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
 const normalizeID = (id: string) => id.replace(/:/g, '_')
 
-const prosemirrorDOMParser = ProsemirrorDOMParser.fromSchema(schema)
-const parser = new DOMParser()
+const parser = ProsemirrorDOMParser.fromSchema(schema)
 
 const findChildNodeOfType = (
   node: ManuscriptNode,
@@ -444,7 +443,7 @@ export class JATSExporter {
 
     if (htmlTitleNode) {
       // TODO: parse and serialize with title schema
-      const titleNode = prosemirrorDOMParser.parse(htmlTitleNode, {
+      const titleNode = parser.parse(htmlTitleNode, {
         topNode: schema.nodes.section_title.create(),
       })
 
@@ -736,19 +735,28 @@ export class JATSExporter {
   protected buildBack = (body: HTMLElement) => {
     const back = this.document.createElement('back')
     this.moveSectionsToBack(back, body)
-    this.document.querySelectorAll('sec > fn-group').forEach((fnGroup) => {
-      const previousParent = fnGroup.parentElement
-      back.appendChild(fnGroup)
+
+    // footnotes elements in footnotes section (i.e. not in table footer)
+    const footnotesElements = this.document.querySelectorAll('sec > fn-group')
+
+    for (const footnotesElement of footnotesElements) {
+      // move fn-group from body to back
+      const previousParent = footnotesElement.parentElement
+      back.appendChild(footnotesElement)
+
       if (previousParent) {
         const title = previousParent.querySelector('title')
         if (title) {
-          fnGroup.insertBefore(title, fnGroup.firstElementChild)
+          footnotesElement.insertBefore(
+            title,
+            footnotesElement.firstElementChild
+          )
         }
         if (!previousParent.childElementCount) {
           previousParent.remove()
         }
       }
-    })
+    }
     // bibliography element
     let refList = this.document.querySelector('ref-list')
     if (!refList) {
@@ -1862,7 +1870,10 @@ export class JATSExporter {
     paragraph: ParagraphElement,
     element: HTMLElement
   ) => {
-    const parsedDoc = parser.parseFromString(paragraph.contents, 'text/html')
+    const parsedDoc = new DOMParser().parseFromString(
+      paragraph.contents,
+      'text/html'
+    )
     const parsedParagraph = parsedDoc.body.querySelector('p')
     if (parsedParagraph) {
       const paragraphEl = this.document.createElement('p')
