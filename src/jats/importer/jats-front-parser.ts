@@ -19,11 +19,13 @@ import debug from 'debug'
 import { getTrimmedTextContent } from '../../lib/utils'
 import {
   buildAffiliation,
+  buildAuthorNotes,
   buildBibliographicName,
   buildContributor,
   buildCorresp,
   buildFootnote,
   buildJournal,
+  buildParagraph,
   buildTitles,
 } from '../../transformer'
 import { parseJournalMeta } from './jats-journal-meta-parser'
@@ -223,7 +225,49 @@ export const jatsFrontParser = {
       affiliationIDs,
     }
   },
-  parseAuthorNotes(elements: Element[]) {
+  parseAuthorNotes(element: Element | null) {
+    if (!element) {
+      return {
+        footnotes: [],
+        footnoteIDs: new Map<string, string>(),
+        authorNotes: [],
+        authorNotesParagraphs: [],
+        correspondingIDs: new Map<string, string>(),
+        correspondingList: [],
+      }
+    }
+    const { footnotes, footnoteIDs } = this.parseFootnotes([
+      ...element.querySelectorAll('fn:not([fn-type])'),
+    ])
+    const authorNotesParagraphs = this.parseParagraphs([
+      ...element.querySelectorAll(':scope > p'),
+    ])
+
+    //to be added later to author-notes
+    const { correspondingList, correspondingIDs } = this.parseCorresp([
+      ...element.querySelectorAll('corresp'),
+    ])
+
+    const authorNotes = [
+      buildAuthorNotes([
+        ...footnoteIDs.values(),
+        ...authorNotesParagraphs.map((p) => p._id),
+      ]),
+    ]
+
+    return {
+      footnotes,
+      footnoteIDs,
+      authorNotesParagraphs,
+      authorNotes,
+      correspondingIDs,
+      correspondingList,
+    }
+  },
+  parseParagraphs(elements: Element[]) {
+    return elements.map((p) => buildParagraph(p.innerHTML))
+  },
+  parseFootnotes(elements: Element[]) {
     const footnoteIDs = new Map<string, string>()
     const footnotes = elements.map((element) => {
       const fn = buildFootnote('', element.innerHTML)
