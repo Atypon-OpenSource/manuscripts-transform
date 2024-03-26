@@ -280,47 +280,29 @@ export const jatsBodyTransformations = {
     group: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
-    const footnotes = [
-      ...doc.querySelectorAll('fn:not(table-wrap-foot fn, author-notes fn)'),
-    ]
-    const footnotesSection = doc.querySelector('sec[sec-type="endnotes"]')
-    const footnotesSectionGroup = footnotesSection?.querySelector('fn-group')
-    const containingGroup = footnotesSectionGroup || createElement('fn-group')
-    for (const footnote of footnotes) {
-      const type = footnote.getAttribute('fn-type')
-      if (!type) {
+    const footnotes = Array.from(
+      doc.querySelectorAll('fn:not(table-wrap-foot fn, author-notes fn)')
+    )
+    let footnotesSection = doc.querySelector('sec[sec-type="endnotes"]')
+    const containingGroup = footnotesSection?.querySelector('fn-group') || createElement('fn-group')
+    footnotes.forEach((footnote) => {
+      if (!footnote.getAttribute('fn-type')) {
         containingGroup.appendChild(footnote)
       }
-    }
-
+    })
     if (!footnotesSection && containingGroup.innerHTML) {
-      const section = this.createFootnotesSection(
+      footnotesSection = this.createFootnotesSection(
         [containingGroup],
         createElement
       )
-      group.append(section)
     }
-
-    // move footnotes without fn-type from back to body section
-    let regularFootnoteGroups = [
-      ...doc.querySelectorAll('back > fn-group:not([fn-type])'),
-    ]
-    // check if these groups don't have an fn-type because they are actually a mixed group and not a normal footnote group
-    regularFootnoteGroups = regularFootnoteGroups.filter((group) => {
-      // count check for if all the irrelevant fns as already been extracted
-      return group.childElementCount === 0
-        ? false
-        : !group.querySelector('fn[fn-type]')
-    })
-
-    if (regularFootnoteGroups.length > 0) {
-      regularFootnoteGroups.map((g) => removeNodeFromParent(g))
-      const footnotes = this.createFootnotesSection(
-        regularFootnoteGroups,
-        createElement
+    if(footnotesSection){
+      group.insertBefore(
+        footnotesSection,
+        group.firstChild?.nextSibling || group.firstChild
       )
-      group.appendChild(footnotes)
     }
+  
   },
   // move captions to the end of their containers
   moveCaptionsToEnd(body: Element) {
