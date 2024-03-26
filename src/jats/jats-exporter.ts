@@ -37,7 +37,7 @@ import { CitationProvider } from '@manuscripts/library'
 import debug from 'debug'
 import {
   DOMOutputSpec,
-  DOMParser as ProseMirrorDOMParser,
+  DOMParser as ProsemirrorDOMParser,
   DOMSerializer,
 } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
@@ -89,13 +89,14 @@ type NodeSpecs = { [key in Nodes]: (node: ManuscriptNode) => DOMOutputSpec }
 type MarkSpecs = {
   [key in Marks]: (mark: ManuscriptMark, inline: boolean) => DOMOutputSpec
 }
+
 const warn = debug('manuscripts-transform')
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
 const normalizeID = (id: string) => id.replace(/:/g, '_')
 
-const parser = ProseMirrorDOMParser.fromSchema(schema)
+const parser = ProsemirrorDOMParser.fromSchema(schema)
 
 const findChildNodeOfType = (
   node: ManuscriptNode,
@@ -325,6 +326,7 @@ export class JATSExporter {
       this.moveFloatsGroup(body, article)
       this.removeBackContainer(body)
       this.updateFootnoteTypes(front, back)
+      this.fillEmptyFootnotes(article)
     }
 
     await this.rewriteIDs(idGenerator)
@@ -755,7 +757,6 @@ export class JATSExporter {
         }
       }
     }
-
     // bibliography element
     let refList = this.document.querySelector('ref-list')
     if (!refList) {
@@ -1102,7 +1103,6 @@ export class JATSExporter {
         xref.setAttribute('ref-type', 'fn')
         xref.setAttribute('rid', normalizeID(node.attrs.rids.join(' ')))
         xref.textContent = node.attrs.contents
-
         return xref
       },
       keyword: () => '',
@@ -1400,7 +1400,6 @@ export class JATSExporter {
       }
       return element
     }
-
     const processExecutableNode = (node: ManuscriptNode, element: Element) => {
       const listingNode = findChildNodeOfType(
         node,
@@ -2331,5 +2330,13 @@ export class JATSExporter {
         fn.setAttribute('fn-type', chooseJatsFnType(fnType))
       }
     })
+  }
+  private fillEmptyFootnotes(articleElement: Element) {
+    const emptyFootnotes = Array.from(
+      articleElement.querySelectorAll('fn')
+    ).filter((fn) => !fn.textContent?.trim())
+    emptyFootnotes.forEach((fn) =>
+      fn.appendChild(this.document.createElement('p'))
+    )
   }
 }
