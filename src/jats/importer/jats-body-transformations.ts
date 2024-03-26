@@ -284,7 +284,8 @@ export const jatsBodyTransformations = {
       doc.querySelectorAll('fn:not(table-wrap-foot fn, author-notes fn)')
     )
     let footnotesSection = doc.querySelector('sec[sec-type="endnotes"]')
-    const containingGroup = footnotesSection?.querySelector('fn-group') || createElement('fn-group')
+    const containingGroup =
+      footnotesSection?.querySelector('fn-group') || createElement('fn-group')
     footnotes.forEach((footnote) => {
       if (!footnote.getAttribute('fn-type')) {
         containingGroup.appendChild(footnote)
@@ -296,13 +297,12 @@ export const jatsBodyTransformations = {
         createElement
       )
     }
-    if(footnotesSection){
+    if (footnotesSection) {
       group.insertBefore(
         footnotesSection,
         group.firstChild?.nextSibling || group.firstChild
       )
     }
-  
   },
   // move captions to the end of their containers
   moveCaptionsToEnd(body: Element) {
