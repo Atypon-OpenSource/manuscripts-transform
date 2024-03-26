@@ -29,8 +29,9 @@ export interface TableElementFooterNode extends ManuscriptNode {
 export const tableElementFooter: NodeSpec = {
   attrs: {
     id: { default: '' },
+    dataTracked: {default: null}
   },
-  content: '(paragraph | footnotes_element)+',
+  content: '(paragraph | footnotes_element)*',
   group: 'block element',
   toDOM: () => ['table-wrap-foot', 0],
 }
