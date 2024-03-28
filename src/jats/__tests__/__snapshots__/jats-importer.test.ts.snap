@@ -6676,61 +6676,6 @@ Array [
   },
   Object {
     "_id": "MPSection:test",
-    "category": "MPSectionCategory:appendices",
-    "elementIDs": Array [
-      "MPTableElement:test",
-    ],
-    "label": "Appendix",
-    "objectType": "MPSection",
-    "path": Array [
-      "MPSection:test",
-    ],
-    "priority": 13,
-    "title": "Table A1",
-  },
-  Object {
-    "_id": "MPTableElement:test",
-    "containedObjectID": "MPTable:test",
-    "elementType": "table",
-    "listingID": "MPListing:test",
-    "objectType": "MPTableElement",
-    "tableElementFooterID": "MPTableElementFooter:test",
-  },
-  Object {
-    "_id": "MPTable:test",
-    "contents": "<table xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPTableElement:test\\" class=\\"MPElement\\" data-contained-object-id=\\"MPTable:test\\"><thead style=\\"display: table-header-group;\\"><tr><th data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"col\\" style=\\"border-top: solid 0.50pt; border-bottom: solid 0.50pt\\"></th><th data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" scope=\\"col\\" style=\\"border-top: solid 0.50pt; border-bottom: solid 0.50pt\\"><b>Exporter</b></th><th data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" scope=\\"col\\" style=\\"border-top: solid 0.50pt; border-bottom: solid 0.50pt\\"><b>EU exporter</b></th><th data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" scope=\\"col\\" style=\\"border-top: solid 0.50pt; border-bottom: solid 0.50pt\\"><b>HIC exporter</b></th></tr></thead><tbody><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\" style=\\"border-top: solid 0.50pt\\">Average number of employed (log)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" style=\\"border-top: solid 0.50pt\\">1.4904***<br />(.0107)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" style=\\"border-top: solid 0.50pt\\">.6878***<br />(.0225)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" style=\\"border-top: solid 0.50pt\\">.6473***<br />(.0222)</td></tr><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\">Average number of female employed (log)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">1.0341***<br />(.0104)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.6266***<br />(.0220)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.5870***<br />(.0219)</td></tr><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\">Female employment share</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">-.1245***<br />(.0023)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.0271***<br />(.0036)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.0355***<br />(.0036)</td></tr><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\">Average wages (log)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.9177***<br />(.0089)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.2975***<br />(.0138)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.2755***<br />(.0136)</td></tr><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\">Average female wages (log)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.8062***<br />(.0089)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.2322***<br />(.0142)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.2103***<br />(.0141)</td></tr><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\">Female-to-male wage ratio</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">-.0572***<br />(.0122)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">-.0316<br />(.0194)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">-.0488**<br />(.0192)</td></tr></tbody><tfoot style=\\"display: table-footer-group;\\"><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\" style=\\"border-bottom: solid 0.50pt\\">Average turnover (log)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" style=\\"border-bottom: solid 0.50pt\\">2.5000***<br />(.0171)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" style=\\"border-bottom: solid 0.50pt\\">.9636***<br />(.0292)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" style=\\"border-bottom: solid 0.50pt\\">.9103***<br />(.0288)</td></tr></tfoot></table>",
-    "objectType": "MPTable",
-  },
-  Object {
-    "_id": "MPTableElementFooter:test",
-    "containedObjectIDs": Array [
-      "MPParagraphElement:test",
-      "MPParagraphElement:test",
-    ],
-    "objectType": "MPTableElementFooter",
-  },
-  Object {
-    "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Source: GEOSTAT Statistics Survey of Enterprises for 2006-2017.</p>",
-    "elementType": "p",
-    "objectType": "MPParagraphElement",
-    "placeholderInnerHTML": "",
-  },
-  Object {
-    "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Notes: HIC = high income country. Exporters are firms that exported in at least 1 year of the sample. EU / HIC exporters are firms that exported to the EU / high income country in at least 1 year of the sample. Column 2: difference in means in log workers, log wages, log turnover between exporters and non-exporters, controlling for year and 1-digit industry. Column 3: difference in means between firms that export to at least one EU destination and non-EU exporters, controlling for year and 1-digit industry. Column 4: difference in means between firms that export to at least one HIC destination and non-HIC exporters, controlling for year and 1-digit industry. ***Significant at the 1% level, **Significant at the 5% level, *Significant at the 10% level.</p>",
-    "elementType": "p",
-    "objectType": "MPParagraphElement",
-    "placeholderInnerHTML": "",
-  },
-  Object {
-    "_id": "MPListing:test",
-    "contents": "",
-    "languageKey": "null",
-    "objectType": "MPListing",
-  },
-  Object {
-    "_id": "MPSection:test",
     "category": "MPSectionCategory:endnotes",
     "elementIDs": Array [
       "MPFootnotesElement:test",
@@ -6739,7 +6684,7 @@ Array [
     "path": Array [
       "MPSection:test",
     ],
-    "priority": 14,
+    "priority": 13,
     "title": "Footnotes",
   },
   Object {
@@ -7096,6 +7041,61 @@ Array [
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPSection:test",
+    "category": "MPSectionCategory:appendices",
+    "elementIDs": Array [
+      "MPTableElement:test",
+    ],
+    "label": "Appendix",
+    "objectType": "MPSection",
+    "path": Array [
+      "MPSection:test",
+    ],
+    "priority": 14,
+    "title": "Table A1",
+  },
+  Object {
+    "_id": "MPTableElement:test",
+    "containedObjectID": "MPTable:test",
+    "elementType": "table",
+    "listingID": "MPListing:test",
+    "objectType": "MPTableElement",
+    "tableElementFooterID": "MPTableElementFooter:test",
+  },
+  Object {
+    "_id": "MPTable:test",
+    "contents": "<table xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPTableElement:test\\" class=\\"MPElement\\" data-contained-object-id=\\"MPTable:test\\"><thead style=\\"display: table-header-group;\\"><tr><th data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"col\\" style=\\"border-top: solid 0.50pt; border-bottom: solid 0.50pt\\"></th><th data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" scope=\\"col\\" style=\\"border-top: solid 0.50pt; border-bottom: solid 0.50pt\\"><b>Exporter</b></th><th data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" scope=\\"col\\" style=\\"border-top: solid 0.50pt; border-bottom: solid 0.50pt\\"><b>EU exporter</b></th><th data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" scope=\\"col\\" style=\\"border-top: solid 0.50pt; border-bottom: solid 0.50pt\\"><b>HIC exporter</b></th></tr></thead><tbody><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\" style=\\"border-top: solid 0.50pt\\">Average number of employed (log)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" style=\\"border-top: solid 0.50pt\\">1.4904***<br />(.0107)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" style=\\"border-top: solid 0.50pt\\">.6878***<br />(.0225)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" style=\\"border-top: solid 0.50pt\\">.6473***<br />(.0222)</td></tr><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\">Average number of female employed (log)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">1.0341***<br />(.0104)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.6266***<br />(.0220)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.5870***<br />(.0219)</td></tr><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\">Female employment share</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">-.1245***<br />(.0023)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.0271***<br />(.0036)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.0355***<br />(.0036)</td></tr><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\">Average wages (log)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.9177***<br />(.0089)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.2975***<br />(.0138)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.2755***<br />(.0136)</td></tr><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\">Average female wages (log)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.8062***<br />(.0089)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.2322***<br />(.0142)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">.2103***<br />(.0141)</td></tr><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\">Female-to-male wage ratio</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">-.0572***<br />(.0122)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">-.0316<br />(.0194)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\">-.0488**<br />(.0192)</td></tr></tbody><tfoot style=\\"display: table-footer-group;\\"><tr><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"left\\" scope=\\"row\\" style=\\"border-bottom: solid 0.50pt\\">Average turnover (log)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" style=\\"border-bottom: solid 0.50pt\\">2.5000***<br />(.0171)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" style=\\"border-bottom: solid 0.50pt\\">.9636***<br />(.0292)</td><td data-placeholder-text=\\"Data\\" valign=\\"top\\" align=\\"center\\" style=\\"border-bottom: solid 0.50pt\\">.9103***<br />(.0288)</td></tr></tfoot></table>",
+    "objectType": "MPTable",
+  },
+  Object {
+    "_id": "MPTableElementFooter:test",
+    "containedObjectIDs": Array [
+      "MPParagraphElement:test",
+      "MPParagraphElement:test",
+    ],
+    "objectType": "MPTableElementFooter",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Source: GEOSTAT Statistics Survey of Enterprises for 2006-2017.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Notes: HIC = high income country. Exporters are firms that exported in at least 1 year of the sample. EU / HIC exporters are firms that exported to the EU / high income country in at least 1 year of the sample. Column 2: difference in means in log workers, log wages, log turnover between exporters and non-exporters, controlling for year and 1-digit industry. Column 3: difference in means between firms that export to at least one EU destination and non-EU exporters, controlling for year and 1-digit industry. Column 4: difference in means between firms that export to at least one HIC destination and non-HIC exporters, controlling for year and 1-digit industry. ***Significant at the 1% level, **Significant at the 5% level, *Significant at the 10% level.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPListing:test",
+    "contents": "",
+    "languageKey": "null",
+    "objectType": "MPListing",
   },
   Object {
     "_id": "MPElementsOrder:test",
