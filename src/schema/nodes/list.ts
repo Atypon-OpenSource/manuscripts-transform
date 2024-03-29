@@ -24,6 +24,7 @@ export interface BulletListNode extends ManuscriptNode {
   attrs: {
     id: string
     paragraphStyle: string
+    listStyleType: string
   }
 }
 
@@ -34,6 +35,7 @@ export const bulletList: NodeSpec = {
     id: { default: '' },
     paragraphStyle: { default: '' },
     dataTracked: { default: null },
+    listStyleType: { default: null },
   },
   parseDOM: [
     {
@@ -43,6 +45,7 @@ export const bulletList: NodeSpec = {
 
         return {
           id: dom.getAttribute('id'),
+          listStyleType: dom.getAttribute('list-type'),
         }
       },
     },
@@ -55,6 +58,7 @@ export const bulletList: NodeSpec = {
           'ul',
           {
             id: bulletListNode.attrs.id,
+            'list-type': bulletListNode.attrs.listStyleType,
             class: buildElementClass(bulletListNode.attrs),
             'data-object-type': ObjectTypes.ListElement,
           },
