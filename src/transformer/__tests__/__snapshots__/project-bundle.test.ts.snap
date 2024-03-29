@@ -566,6 +566,7 @@ Object {
                     "attrs": Object {
                       "dataTracked": null,
                       "id": "MPListElement:5752AF4C-4ED8-4FA5-9BE5-CCAB7DE83C99",
+                      "listStyleType": null,
                       "paragraphStyle": "",
                     },
                     "content": Array [
@@ -1971,6 +1972,7 @@ Object {
                     "attrs": Object {
                       "dataTracked": null,
                       "id": "MPListElement:5752AF4C-4ED8-4FA5-9BE5-CCAB7DE83C99",
+                      "listStyleType": null,
                       "paragraphStyle": "",
                     },
                     "content": Array [
