@@ -878,12 +878,14 @@ Array [
     "_id": "MPListElement:test",
     "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ul id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested bullet list</li><li data-placeholder-text=\\"List item\\">With two items</li></ul></li></ul>",
     "elementType": "ul",
+    "listStyleType": null,
     "objectType": "MPListElement",
   },
   Object {
     "_id": "MPListElement:test",
     "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ul>",
     "elementType": "ul",
+    "listStyleType": null,
     "objectType": "MPListElement",
   },
   Object {
@@ -8565,12 +8567,14 @@ Array [
     "_id": "MPListElement:test",
     "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ul id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested bullet list</li><li data-placeholder-text=\\"List item\\">With two items</li></ul></li></ul>",
     "elementType": "ul",
+    "listStyleType": null,
     "objectType": "MPListElement",
   },
   Object {
     "_id": "MPListElement:test",
     "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ul>",
     "elementType": "ul",
+    "listStyleType": null,
     "objectType": "MPListElement",
   },
   Object {

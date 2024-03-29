@@ -278,6 +278,7 @@ Map {
     "_id": "MPListElement:F11B9FCA-5DB5-4ED4-FEF9-10CDCB64F96E",
     "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:F11B9FCA-5DB5-4ED4-FEF9-10CDCB64F96E\\" class=\\"MPElement MPParagraphStyle_7EAB5784-717B-4672-BD59-8CA324FB0637\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list.</li></ul>",
     "elementType": "ul",
+    "listStyleType": null,
     "objectType": "MPListElement",
     "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
   },
