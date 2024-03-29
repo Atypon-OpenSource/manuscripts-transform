@@ -937,7 +937,8 @@ export class JATSExporter {
       title: () => '',
       affiliations: () => '',
       contributors: () => '',
-      table_element_footer: () => ['table-wrap-foot', 0],
+      table_element_footer: (node) =>
+        node.textContent ? ['table-wrap-foot', 0] : '',
       contributor: () => '',
       affiliation: () => '',
       attribution: () => ['attrib', 0],
