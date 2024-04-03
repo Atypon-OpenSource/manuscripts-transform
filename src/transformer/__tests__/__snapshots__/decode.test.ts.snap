@@ -546,6 +546,7 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPListElement:F11B9FCA-5DB5-4ED4-FEF9-10CDCB64F96E",
+                "listStyleType": null,
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
               },
               "content": Array [
@@ -2544,6 +2545,7 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPListElement:F11B9FCA-5DB5-4ED4-FEF9-10CDCB64F96E",
+                "listStyleType": null,
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
               },
               "content": Array [
@@ -4369,6 +4371,7 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPListElement:F11B9FCA-5DB5-4ED4-FEF9-10CDCB64F96E",
+                "listStyleType": null,
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
               },
               "content": Array [

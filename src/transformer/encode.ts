@@ -532,6 +532,7 @@ const encoders: NodeEncoderMap = {
   bullet_list: (node): Partial<ListElement> => ({
     elementType: 'ul',
     contents: listContents(node),
+    listStyleType: node.attrs.listStyleType,
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
   listing: (node): Partial<Listing> => ({

@@ -524,6 +524,7 @@ export class Decoder {
             {
               topNode: schema.nodes.bullet_list.create({
                 id: model._id,
+                listStyleType: model.listStyleType,
                 paragraphStyle: model.paragraphStyle,
               }),
             }

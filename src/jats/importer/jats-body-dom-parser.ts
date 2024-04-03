@@ -368,6 +368,7 @@ const nodes: NodeRule[] = [
 
       return {
         id: element.getAttribute('id'),
+        listStyleType: element.getAttribute('list-type'),
       }
     },
   },
