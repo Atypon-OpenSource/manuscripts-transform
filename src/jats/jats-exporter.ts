@@ -934,6 +934,7 @@ export class JATSExporter {
 
     const nodes: NodeSpecs = {
       author_notes: () => ['author-notes', 0],
+      corresp: () => '',
       title: () => '',
       affiliations: () => '',
       contributors: () => '',
