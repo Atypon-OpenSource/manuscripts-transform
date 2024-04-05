@@ -1782,37 +1782,7 @@ export class JATSExporter {
           }
         })
       }
-      const authorNotesEl = this.document.createElement('author-notes')
-      const usedCorrespodings = this.getUsedCorrespondings([
-        ...authorContributors,
-        ...otherContributors,
-      ])
-      usedCorrespodings.forEach((corresp) => {
-        this.appendCorrespondingToElement(corresp, authorNotesEl)
-      })
-      const authorNotes = getModelsByType<AuthorNotes>(
-        this.modelMap,
-        ObjectTypes.AuthorNotes
-      )?.[0]
-      if (authorNotes) {
-        authorNotes.containedObjectIDs.forEach((id) => {
-          const model = this.modelMap.get(id)
-          if (!model) {
-            return
-          }
-          if (id.startsWith('MPParagraphElement')) {
-            this.appendParagraphToElement(
-              model as ParagraphElement,
-              authorNotesEl
-            )
-          } else if (id.startsWith('MPFootnote')) {
-            this.appendFootnoteToElement(model as Footnote, authorNotesEl)
-          }
-            else if(id.startsWith('MPCorresponding')){
-              
-            }
-        })
-      }
+      const authorNotesEl = this.createAuthorNotesElement()
       if (authorNotesEl.childNodes.length > 0) {
         articleMeta.insertBefore(authorNotesEl, contribGroup.nextSibling)
       }
@@ -1851,6 +1821,47 @@ export class JATSExporter {
     //     corresp.appendChild(email)
     //   }
     // }
+  }
+  private createAuthorNotesElement = () => {
+    const authorNotesEl = this.document.createElement('author-notes')
+    const contributors = this.models.filter(isContributor)
+    const correspondings = this.getUsedCorrespondings(contributors)
+    correspondings.forEach((corresp) => {
+      this.appendCorrespondingToElement(corresp, authorNotesEl)
+    })
+    const authorNotes = getModelsByType<AuthorNotes>(
+      this.modelMap,
+      ObjectTypes.AuthorNotes
+    )?.[0]
+    if (authorNotes) {
+      this.appendModelsToAuthorNotes(
+        authorNotesEl,
+        authorNotes.containedObjectIDs
+      )
+    }
+    return authorNotesEl
+  }
+  private appendModelsToAuthorNotes(
+    authorNotesEl: HTMLElement,
+    containedObjectIDs: string[]
+  ) {
+    containedObjectIDs.forEach((id) => {
+      const model = this.modelMap.get(id)
+      if (!model) {
+        return
+      }
+      switch (true) {
+        case id.startsWith('MPParagraphElement'):
+          this.appendParagraphToElement(
+            model as ParagraphElement,
+            authorNotesEl
+          )
+          break
+        case id.startsWith('MPFootnote'):
+          this.appendFootnoteToElement(model as Footnote, authorNotesEl)
+          break
+      }
+    })
   }
   private appendCorrespondingToElement = (
     corresponding: Corresponding,
