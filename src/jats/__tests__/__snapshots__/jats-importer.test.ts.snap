@@ -60,7 +60,9 @@ Array [
   },
   Object {
     "_id": "MPAuthorNotes:test",
-    "containedObjectIDs": Array [],
+    "containedObjectIDs": Array [
+      "MPCorresponding:test",
+    ],
     "objectType": "MPAuthorNotes",
   },
   Object {
@@ -1318,6 +1320,7 @@ Array [
   Object {
     "_id": "MPAuthorNotes:test",
     "containedObjectIDs": Array [
+      "MPCorresponding:test",
       "MPFootnote:test",
     ],
     "objectType": "MPAuthorNotes",
@@ -3776,6 +3779,7 @@ Array [
   Object {
     "_id": "MPAuthorNotes:test",
     "containedObjectIDs": Array [
+      "MPCorresponding:test",
       "MPFootnote:test",
       "MPFootnote:test",
     ],
