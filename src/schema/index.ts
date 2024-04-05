@@ -47,6 +47,7 @@ import { comment } from './nodes/comment'
 import { comments } from './nodes/comments'
 import { contributor } from './nodes/contributor'
 import { contributors } from './nodes/contributors'
+import { corresp } from './nodes/corresp'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
 import { equation } from './nodes/equation'
@@ -229,5 +230,6 @@ export const schema = new Schema<Nodes, Marks>({
     supplements,
     supplement,
     author_notes: authorNotes,
+    corresp,
   },
 })

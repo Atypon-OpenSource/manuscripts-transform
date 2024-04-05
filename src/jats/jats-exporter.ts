@@ -1808,6 +1808,9 @@ export class JATSExporter {
           } else if (id.startsWith('MPFootnote')) {
             this.appendFootnoteToElement(model as Footnote, authorNotesEl)
           }
+            else if(id.startsWith('MPCorresponding')){
+              
+            }
         })
       }
       if (authorNotesEl.childNodes.length > 0) {
