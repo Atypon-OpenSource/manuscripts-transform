@@ -1852,13 +1852,13 @@ export class JATSExporter {
         return
       }
       switch (true) {
-        case id.startsWith('MPParagraphElement'):
+        case model.objectType === ObjectTypes.ParagraphElement:
           this.appendParagraphToElement(
             model as ParagraphElement,
             authorNotesEl
           )
           break
-        case id.startsWith('MPFootnote'):
+        case model.objectType === ObjectTypes.Footnote:
           this.appendFootnoteToElement(model as Footnote, authorNotesEl)
           break
       }
