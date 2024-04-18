@@ -23,7 +23,7 @@ interface Attrs {
   //target id
   tid: string
   position: string
-  text: string
+  content?: string
 }
 
 export interface HighlightMarkerNode extends ManuscriptNode {
@@ -39,6 +39,7 @@ export const highlightMarker: NodeSpec = {
     id: { default: '' },
     tid: { default: '' },
     position: { default: '' },
+    content: { default: null },
     dataTracked: { default: null },
   },
   parseDOM: [
@@ -51,20 +52,14 @@ export const highlightMarker: NodeSpec = {
           id: dom.getAttribute('id'),
           tid: dom.getAttribute('data-target-id'),
           position: dom.getAttribute('data-position'),
+          content: dom.innerHTML,
         }
       },
     },
   ],
   toDOM: (node) => {
     const highlightMarkerNode = node as HighlightMarkerNode
-
-    const dom = document.createElement('span')
-    dom.className = 'highlight-marker'
-    dom.setAttribute('id', highlightMarkerNode.attrs.id)
-    dom.setAttribute('data-target-id', highlightMarkerNode.attrs.tid)
-    dom.setAttribute('data-position', highlightMarkerNode.attrs.position)
-
-    return dom
+    return highlightMarkerNode.attrs.content || ''
   },
 }
 

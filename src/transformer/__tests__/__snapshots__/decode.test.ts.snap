@@ -6183,22 +6183,10 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "content": "highlight",
                     "dataTracked": null,
                     "id": "MPCommentAnnotation:test2",
-                    "position": "start",
-                    "tid": "MPSection:1",
-                  },
-                  "type": "highlight_marker",
-                },
-                Object {
-                  "text": "highlight",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPCommentAnnotation:test2",
-                    "position": "end",
+                    "position": "range",
                     "tid": "MPSection:1",
                   },
                   "type": "highlight_marker",
@@ -6223,22 +6211,10 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "content": "highlight",
                     "dataTracked": null,
                     "id": "MPCommentAnnotation:test",
-                    "position": "start",
-                    "tid": "MPParagraphElement:1",
-                  },
-                  "type": "highlight_marker",
-                },
-                Object {
-                  "text": "highlight",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPCommentAnnotation:test",
-                    "position": "end",
+                    "position": "range",
                     "tid": "MPParagraphElement:1",
                   },
                   "type": "highlight_marker",

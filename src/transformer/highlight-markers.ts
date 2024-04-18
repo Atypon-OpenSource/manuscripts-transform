@@ -140,14 +140,14 @@ export const insertHighlightMarkers = (
     if (comment.selector) {
       if (comment.selector.from === comment.selector.to) {
         element = createHighlightElement(comment, 'point')
-        output = injectHighlightMarker(element, comment.selector.from, output)
+        output = injectHighlightMarker(element, comment.selector, output)
       } else {
-        element = createHighlightElement(comment, 'start')
-        output = injectHighlightMarker(element, comment.selector.from, output)
-
-        const updatedEndOffset = element.outerHTML.length + comment.selector.to
-        element = createHighlightElement(comment, 'end')
-        output = injectHighlightMarker(element, updatedEndOffset, output)
+        element = createHighlightElement(
+          comment,
+          'range',
+          output.substring(comment.selector.from, comment.selector.to)
+        )
+        output = injectHighlightMarker(element, comment.selector, output)
       }
     }
   }
@@ -156,13 +156,17 @@ export const insertHighlightMarkers = (
 
 function injectHighlightMarker(
   element: HTMLElement,
-  offset: number,
+  selector: CommentAnnotation['selector'],
   contents: string
 ) {
+  if (!selector) {
+    return ''
+  }
+
   const parts = [
-    contents.substring(0, offset),
+    contents.substring(0, selector.from),
     element.outerHTML,
-    contents.substring(offset),
+    contents.substring(selector.to),
   ]
 
   return parts.join('')
@@ -170,12 +174,16 @@ function injectHighlightMarker(
 
 const createHighlightElement = (
   comment: CommentAnnotation,
-  position: string
+  position: string,
+  content?: string
 ) => {
   const element = document.createElement('span')
   element.className = 'highlight-marker'
   element.setAttribute('id', comment._id)
   element.setAttribute('data-target-id', comment.target)
   element.setAttribute('data-position', position)
+  if (content) {
+    element.innerHTML = content
+  }
   return element
 }
