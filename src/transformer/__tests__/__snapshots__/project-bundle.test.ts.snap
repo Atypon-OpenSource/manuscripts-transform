@@ -77,10 +77,7 @@ Object {
               "county": "Massachusetts",
               "dataTracked": null,
               "department": "Department of Cunning",
-              "email": Object {
-                "href": undefined,
-                "text": undefined,
-              },
+              "email": undefined,
               "id": "MPSection:aff",
               "institution": "University of Cunning",
               "postCode": "02453",
@@ -1291,10 +1288,7 @@ Object {
               "county": "Massachusetts",
               "dataTracked": null,
               "department": "Department of Cunning",
-              "email": Object {
-                "href": undefined,
-                "text": undefined,
-              },
+              "email": undefined,
               "id": "MPSection:aff",
               "institution": "University of Cunning",
               "postCode": "02453",
