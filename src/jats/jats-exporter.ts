@@ -1825,11 +1825,6 @@ export class JATSExporter {
   }
   private createAuthorNotesElement = () => {
     const authorNotesEl = this.document.createElement('author-notes')
-    const contributors = this.models.filter(isContributor)
-    const correspondings = this.getUsedCorrespondings(contributors)
-    correspondings.forEach((corresp) => {
-      this.appendCorrespondingToElement(corresp, authorNotesEl)
-    })
     const authorNotes = getModelsByType<AuthorNotes>(
       this.modelMap,
       ObjectTypes.AuthorNotes
@@ -1846,20 +1841,30 @@ export class JATSExporter {
     authorNotesEl: HTMLElement,
     containedObjectIDs: string[]
   ) {
+    const contributors = this.models.filter(isContributor)
+    const usedCorrespondings = this.getUsedCorrespondings(contributors)
     containedObjectIDs.forEach((id) => {
       const model = this.modelMap.get(id)
       if (!model) {
         return
       }
-      switch (true) {
-        case model.objectType === ObjectTypes.ParagraphElement:
+      switch (model.objectType) {
+        case ObjectTypes.ParagraphElement:
           this.appendParagraphToElement(
             model as ParagraphElement,
             authorNotesEl
           )
           break
-        case model.objectType === ObjectTypes.Footnote:
+        case ObjectTypes.Footnote:
           this.appendFootnoteToElement(model as Footnote, authorNotesEl)
+          break
+        case ObjectTypes.Corresponding:
+          if (usedCorrespondings.includes(model as Corresponding)) {
+            this.appendCorrespondingToElement(
+              model as Corresponding,
+              authorNotesEl
+            )
+          }
           break
       }
     })
