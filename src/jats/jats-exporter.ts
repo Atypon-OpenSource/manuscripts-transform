@@ -1085,6 +1085,9 @@ export class JATSExporter {
         return ['fn', attrs, 0]
       },
       footnotes_element: (node) => {
+        if (!node.textContent) {
+          return ''
+        }
         const kind = node.attrs.kind
         let tag = 'fn-group'
 

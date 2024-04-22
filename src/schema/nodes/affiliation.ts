@@ -55,12 +55,7 @@ export const affiliation: NodeSpec = {
     county: { default: '' },
     city: { default: '' },
     priority: { default: undefined },
-    email: {
-      default: {
-        href: undefined,
-        text: undefined,
-      },
-    },
+    email: { default: undefined },
     dataTracked: { default: null },
   },
   group: 'block',
