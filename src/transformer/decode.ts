@@ -200,8 +200,10 @@ export class Decoder {
   private creators: NodeCreatorMap = {
     [ObjectTypes.Titles]: (data) => {
       const model = data as Titles
+      const comments = this.createCommentNodes(model)
+      comments.forEach((c) => this.comments.set(c.attrs.id, c))
 
-      return this.parseContents(model.title, 'div', undefined, {
+      return this.parseContents(model.title, 'div', this.getComments(model), {
         topNode: schema.nodes.title.create({
           id: model._id,
         }),
