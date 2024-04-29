@@ -54,7 +54,7 @@ export const inlineFootnote: NodeSpec = {
     const footnoteNode = node as InlineFootnoteNode
     const dom = document.createElement('span')
     dom.className = 'footnote'
-    dom.setAttribute('data-reference-id', footnoteNode.attrs.rids.join(''))
+    dom.setAttribute('data-reference-id', footnoteNode.attrs.rids.join(' '))
     dom.textContent = footnoteNode.attrs.contents
 
     return dom
