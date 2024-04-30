@@ -21,6 +21,7 @@ import {
   BibliographyItem,
   CommentAnnotation,
   Contributor,
+  Corresponding,
   Element,
   Equation,
   EquationElement,
@@ -664,6 +665,15 @@ export class Decoder {
         },
         content
       )
+    },
+    [ObjectTypes.Corresponding]: (data) => {
+      const model = data as Corresponding
+      return this.parseContents(model.contents, 'corresp', [], {
+        topNode: schema.nodes.corresp.create({
+          id: model._id,
+          label: model.label,
+        }),
+      })
     },
     [ObjectTypes.Section]: (data) => {
       const model = data as Section

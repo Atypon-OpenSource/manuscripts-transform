@@ -243,13 +243,13 @@ export const jatsFrontParser = {
       ...element.querySelectorAll(':scope > p'),
     ])
 
-    //to be added later to author-notes
     const { correspondingList, correspondingIDs } = this.parseCorresp([
       ...element.querySelectorAll('corresp'),
     ])
 
     const authorNotes = [
       buildAuthorNotes([
+        ...correspondingIDs.values(),
         ...footnoteIDs.values(),
         ...authorNotesParagraphs.map((p) => p._id),
       ]),

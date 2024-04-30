@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,25 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
+  label?: string
 }
 
-export interface AuthorNotesNode extends ManuscriptNode {
+export interface CorrespNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const authorNotes: NodeSpec = {
+export const corresp: NodeSpec = {
+  content: 'inline*',
   attrs: {
     id: { default: '' },
+    label: { default: undefined },
     dataTracked: { default: null },
   },
-  content: '(corresp | footnote | paragraph)+',
-  group: 'block element',
-  toDOM: () => ['author-notes', 0],
+  group: 'block',
+  toDOM: () => ['corresp', 0],
 }
