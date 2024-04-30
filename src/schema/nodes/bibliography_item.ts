@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
+import { BibliographicDate, BibliographicName } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
-import {BibliographicDate, BibliographicName} from "@manuscripts/json-schema";
 
 interface Attrs {
   id: string
