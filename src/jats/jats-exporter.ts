@@ -1020,6 +1020,9 @@ export class JATSExporter {
       equation: (node) => {
         return this.createEquation(node)
       },
+      general_table_footnote: (node) => {
+        return this.serializeNode(node.child(0))
+      },
       inline_equation: (node) => {
         const eqElement = this.document.createElement('inline-formula')
         const equation = this.createEquation(node, true)

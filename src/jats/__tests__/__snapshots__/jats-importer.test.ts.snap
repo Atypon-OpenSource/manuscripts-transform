@@ -4325,8 +4325,8 @@ Array [
   Object {
     "_id": "MPTableElementFooter:test",
     "containedObjectIDs": Array [
-      "MPParagraphElement:test",
       "MPFootnotesElement:test",
+      "MPParagraphElement:test",
     ],
     "objectType": "MPTableElementFooter",
   },
@@ -4529,8 +4529,8 @@ Array [
   Object {
     "_id": "MPTableElementFooter:test",
     "containedObjectIDs": Array [
-      "MPParagraphElement:test",
       "MPFootnotesElement:test",
+      "MPParagraphElement:test",
       "MPParagraphElement:test",
     ],
     "objectType": "MPTableElementFooter",

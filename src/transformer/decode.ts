@@ -643,14 +643,23 @@ export class Decoder {
     },
     [ObjectTypes.TableElementFooter]: (data) => {
       const model = data as TableElementFooter
-      const content = model.containedObjectIDs.map((id) =>
-        this.decode(this.modelMap.get(id) as Model)
-      ) as ManuscriptNode[]
+      const contents: ManuscriptNode[] = []
+      for (const containedObjectID of model.containedObjectIDs) {
+        const model = this.modelMap.get(containedObjectID) as Model
+        if (model.objectType === ObjectTypes.ParagraphElement) {
+          const paragraph = this.decode(model)
+          contents.push(
+            schema.nodes.general_table_footnote.create({}, paragraph)
+          )
+        } else {
+          contents.push(this.decode(model) as ManuscriptNode)
+        }
+      }
       return schema.nodes.table_element_footer.create(
         {
           id: model._id,
         },
-        content
+        contents
       )
     },
 

@@ -344,6 +344,24 @@ const nodes: NodeRule[] = [
     },
   },
   {
+    tag: 'p',
+    node: 'general_table_footnote',
+    context: 'footnotes_element/|table_element_footer/',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+      }
+    },
+    getContent: (node) => {
+      const generalTableFootnote = schema.nodes.paragraph.create()
+      const content = jatsBodyDOMParser.parse(node, {
+        topNode: generalTableFootnote,
+      })
+      return Fragment.from([content]) as Fragment
+    },
+  },
+  {
     tag: 'fn',
     node: 'footnote',
     context: 'footnotes_element/|table_element_footer/',

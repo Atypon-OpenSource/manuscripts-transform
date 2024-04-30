@@ -22,16 +22,15 @@ interface Attrs {
   id: string
 }
 
-export interface TableElementFooterNode extends ManuscriptNode {
+export interface GeneralTableFootnote extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const tableElementFooter: NodeSpec = {
+export const generalTableFootnote: NodeSpec = {
+  content: 'paragraph*',
   attrs: {
     id: { default: '' },
-    dataTracked: {default: null}
   },
-  content: '(general_table_footnote | footnotes_element)*',
-  group: 'block element',
-  toDOM: () => ['table-wrap-foot', 0],
+  group: 'block',
+  toDOM: () => ['general-table-footnote', 0],
 }
