@@ -4531,7 +4531,6 @@ Array [
     "containedObjectIDs": Array [
       "MPFootnotesElement:test",
       "MPParagraphElement:test",
-      "MPParagraphElement:test",
     ],
     "objectType": "MPTableElementFooter",
   },
@@ -4576,13 +4575,6 @@ Array [
   Object {
     "_id": "MPParagraphElement:test",
     "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Fisher’s exact test. <sup>b</sup> Less than 600 g of fruit and vegetables per day, fish for dinner less than twice per week. <sup>c</sup> More than 7 drinks per week in women/more than 14 drinks per week in men. <sup>d</sup> Less than 30 min of moderate physical activity per day.</p>",
-    "elementType": "p",
-    "objectType": "MPParagraphElement",
-    "placeholderInnerHTML": "",
-  },
-  Object {
-    "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",

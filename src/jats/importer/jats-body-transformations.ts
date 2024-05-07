@@ -332,6 +332,20 @@ export const jatsBodyTransformations = {
         }
         tableWrap.insertBefore(colgroup, table.nextSibling)
       }
+      const tableFootWrap = tableWrap.querySelector('table-wrap-foot')
+      if (tableFootWrap) {
+        const paragraphs = tableFootWrap.querySelectorAll(':scope > p')
+        if (paragraphs.length) {
+          const generalTableFootnote = createElement(
+            'general-table-footnote'
+          )
+          for (const paragraph of paragraphs) {
+            removeNodeFromParent(paragraph)
+            generalTableFootnote.append(paragraph)
+          }
+          tableFootWrap.prepend(generalTableFootnote)
+        }
+      }
     })
   },
   orderTableFootnote(doc: Document, body: Element) {

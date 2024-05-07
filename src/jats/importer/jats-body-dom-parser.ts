@@ -344,7 +344,7 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'p',
+    tag: 'general-table-footnote',
     node: 'general_table_footnote',
     context: 'footnotes_element/|table_element_footer/',
     getAttrs: (node) => {

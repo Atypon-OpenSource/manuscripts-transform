@@ -31,7 +31,7 @@ export const tableElementFooter: NodeSpec = {
     id: { default: '' },
     dataTracked: {default: null}
   },
-  content: '(general_table_footnote | footnotes_element)*',
+  content: 'general_table_footnote? footnotes_element?',
   group: 'block element',
   toDOM: () => ['table-wrap-foot', 0],
 }

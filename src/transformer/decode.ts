@@ -644,16 +644,28 @@ export class Decoder {
     [ObjectTypes.TableElementFooter]: (data) => {
       const model = data as TableElementFooter
       const contents: ManuscriptNode[] = []
+      const generalTableFootnotes: ManuscriptNode[] = []
+      const footnotesElements: ManuscriptNode[] = []
       for (const containedObjectID of model.containedObjectIDs) {
         const model = this.modelMap.get(containedObjectID) as Model
         if (model.objectType === ObjectTypes.ParagraphElement) {
           const paragraph = this.decode(model)
-          contents.push(
-            schema.nodes.general_table_footnote.create({}, paragraph)
-          )
+          if (paragraph) {
+            generalTableFootnotes.push(paragraph)
+          }
         } else {
-          contents.push(this.decode(model) as ManuscriptNode)
+          footnotesElements.push(this.decode(model) as ManuscriptNode)
         }
+      }
+      if (generalTableFootnotes && generalTableFootnotes.length) {
+        contents.push(
+          schema.nodes.general_table_footnote.create({}, [
+            ...generalTableFootnotes,
+          ])
+        )
+      }
+      if (footnotesElements && footnotesElements.length) {
+        contents.push(...footnotesElements)
       }
       return schema.nodes.table_element_footer.create(
         {
