@@ -336,9 +336,7 @@ export const jatsBodyTransformations = {
       if (tableFootWrap) {
         const paragraphs = tableFootWrap.querySelectorAll(':scope > p')
         if (paragraphs.length) {
-          const generalTableFootnote = createElement(
-            'general-table-footnote'
-          )
+          const generalTableFootnote = createElement('general-table-footnote')
           for (const paragraph of paragraphs) {
             removeNodeFromParent(paragraph)
             generalTableFootnote.append(paragraph)

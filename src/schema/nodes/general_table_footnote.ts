@@ -30,7 +30,7 @@ export const generalTableFootnote: NodeSpec = {
   content: 'paragraph*',
   attrs: {
     id: { default: '' },
-    dataTracked: {default: null}
+    dataTracked: { default: null },
   },
   group: 'block',
   toDOM: () => ['general-table-footnote', 0],
