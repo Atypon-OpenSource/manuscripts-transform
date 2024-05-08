@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { BibliographicDate, BibliographicName } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
@@ -21,8 +22,8 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   id: string
   type: string
-  author?: string[]
-  issued?: string
+  author?: BibliographicName[]
+  issued?: BibliographicDate
   containerTitle?: string
   doi?: string
   volume?: string
@@ -58,97 +59,4 @@ export const bibliographyItem: NodeSpec = {
   },
   selectable: false,
   group: 'block',
-  parseDOM: [
-    {
-      tag: 'div.csl-entry',
-      getAttrs: (p) => {
-        const dom = p as HTMLDivElement
-
-        return {
-          id: dom.getAttribute('id'),
-          type: dom.getAttribute('data-type'),
-          author: dom.getAttribute('data-author') || undefined,
-          issued: dom.getAttribute('data-issued') || undefined,
-          containerTitle: dom.getAttribute('data-container-title') || undefined,
-          doi: dom.getAttribute('data-doi') || undefined,
-          volume: dom.getAttribute('data-volume') || undefined,
-          issue: dom.getAttribute('data-issue') || undefined,
-          supplement: dom.getAttribute('data-supplement') || undefined,
-          page: dom.getAttribute('data-page') || undefined,
-          title: dom.getAttribute('data-title') || undefined,
-          literal: dom.getAttribute('data-literal') || undefined,
-        }
-      },
-    },
-  ],
-  toDOM: (node) => {
-    const bibliographyItemNode = node as BibliographyItemNode
-
-    const attrs: { [key: string]: string } = {}
-
-    attrs.class = 'csl-entry'
-
-    const {
-      id,
-      type,
-      author,
-      issued,
-      containerTitle,
-      doi,
-      volume,
-      issue,
-      supplement,
-      page,
-      title,
-      literal,
-    } = bibliographyItemNode.attrs
-
-    attrs.id = id
-
-    if (type) {
-      attrs['data-type'] = type
-    }
-
-    if (author) {
-      attrs['data-author'] = author.join(',')
-    }
-
-    if (issued) {
-      attrs['data-issued'] = issued
-    }
-
-    if (containerTitle) {
-      attrs['data-container-title'] = containerTitle
-    }
-
-    if (doi) {
-      attrs['data-doi'] = doi
-    }
-
-    if (volume) {
-      attrs['data-volume'] = volume
-    }
-
-    if (issue) {
-      attrs['data-issue'] = issue
-    }
-
-    if (supplement) {
-      attrs['data-supplement'] = supplement
-    }
-
-    if (page) {
-      attrs['data-page'] = page
-    }
-
-    if (title) {
-      attrs['data-title'] = title
-    }
-
-    if (literal) {
-      attrs['data-literal'] = literal
-    }
-
-    return ['div', attrs, 0]
-  },
 }
