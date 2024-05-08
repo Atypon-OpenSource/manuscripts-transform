@@ -315,7 +315,7 @@ Map {
     "contentType": "image/png",
     "objectType": "MPFigure",
     "position": undefined,
-    "src": "chemoji/chemoji8.png",
+    "src": "attachment:figure1",
   },
   "MPFigureElement:B32BDEC8-E816-4946-C0BB-0404AF2F0C29" => Object {
     "_id": "MPFigureElement:B32BDEC8-E816-4946-C0BB-0404AF2F0C29",
