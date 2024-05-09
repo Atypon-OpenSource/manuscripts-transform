@@ -21,6 +21,7 @@ import {
   BibliographyItem,
   CommentAnnotation,
   Contributor,
+  Corresponding,
   ElementsOrder,
   Equation,
   EquationElement,
@@ -755,6 +756,10 @@ const encoders: NodeEncoderMap = {
       node.attrs.mimeType && node.attrs.mimeSubType
         ? [node.attrs.mimeType, node.attrs.mimeSubType].join('/')
         : '',
+  }),
+  corresp: (node): Partial<Corresponding> => ({
+    contents: inlineContents(node),
+    label: node.attrs.label,
   }),
 }
 

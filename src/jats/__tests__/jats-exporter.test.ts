@@ -850,7 +850,7 @@ describe('JATS exporter', () => {
   })
 
   test('export with supplement', async () => {
-    const supple: Supplement = {
+    const suppl: Supplement = {
       containerID: '',
       manuscriptID: '',
       createdAt: 0,
@@ -861,7 +861,7 @@ describe('JATS exporter', () => {
       href: 'attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312',
       MIME: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     }
-    input.data.push(supple)
+    input.data.push(suppl)
     const projectBundle = cloneProjectBundle(input)
     const { doc, modelMap } = parseProjectBundle(projectBundle)
     const manuscript = findManuscript(modelMap)

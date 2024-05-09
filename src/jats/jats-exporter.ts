@@ -333,7 +333,6 @@ export class JATSExporter {
     if (mediaPathGenerator) {
       await this.rewriteMediaPaths(mediaPathGenerator)
     }
-    this.rewriteCrossReferenceTypes()
 
     return serializeToXML(this.document)
   }
@@ -353,62 +352,30 @@ export class JATSExporter {
     return template.firstChild
   }
 
-  protected rewriteCrossReferenceTypes = () => {
-    const figRefs = this.document.querySelectorAll('xref[ref-type=fig][rid]')
+  protected rewriteMediaPaths = async (generator: MediaPathGenerator) => {
+    const doc = this.document
 
-    if (!figRefs.length) {
-      return
-    }
-
-    for (const xref of figRefs) {
-      const rid = xref.getAttribute('rid') // TODO: split?
-
-      if (rid) {
-        const nodeName = this.document.getElementById(rid)?.nodeName
-
-        if (nodeName) {
-          // https://jats.nlm.nih.gov/archiving/tag-library/1.2/attribute/ref-type.html
-          switch (nodeName) {
-            case 'table-wrap-group':
-            case 'table-wrap':
-            case 'table':
-              xref.setAttribute('ref-type', 'table')
-              break
-          }
-        }
-      }
-    }
-  }
-
-  protected rewriteMediaPaths = async (
-    mediaPathGenerator: MediaPathGenerator
-  ) => {
-    for (const fig of this.document.querySelectorAll('fig')) {
-      const parentID = fig.getAttribute('id') as string
-
+    for (const fig of doc.querySelectorAll('fig')) {
       for (const graphic of fig.querySelectorAll('graphic')) {
-        const newHref = await mediaPathGenerator(graphic, parentID)
+        const newHref = await generator(graphic, fig.id)
         graphic.setAttributeNS(XLINK_NAMESPACE, 'href', newHref)
       }
     }
 
-    for (const suppMaterial of this.document.querySelectorAll(
-      'supplementary-material'
-    )) {
-      const newHref = await mediaPathGenerator(suppMaterial, suppMaterial.id)
-      suppMaterial.setAttributeNS(XLINK_NAMESPACE, 'href', newHref)
+    for (const suppl of doc.querySelectorAll('supplementary-material')) {
+      const newHref = await generator(suppl, suppl.id)
+      suppl.setAttributeNS(XLINK_NAMESPACE, 'href', newHref)
     }
   }
 
   protected rewriteIDs = async (
-    idGenerator: IDGenerator = createDefaultIdGenerator()
+    generator: IDGenerator = createDefaultIdGenerator()
   ) => {
-    const idMap = new Map<string, string | null>()
+    const ids = new Map<string, string | null>()
 
     for (const element of this.document.querySelectorAll('[id]')) {
-      const previousID = element.getAttribute('id')
-
-      const newID = await idGenerator(element)
+      const oldID = element.getAttribute('id')
+      const newID = await generator(element)
 
       if (newID) {
         element.setAttribute('id', newID)
@@ -416,8 +383,8 @@ export class JATSExporter {
         element.removeAttribute('id')
       }
 
-      if (previousID) {
-        idMap.set(previousID, newID)
+      if (oldID) {
+        ids.set(oldID, newID)
       }
     }
 
@@ -425,14 +392,14 @@ export class JATSExporter {
       const rids = node.getAttribute('rid')
 
       if (rids) {
-        const newRIDs = rids
+        const newRids = rids
           .split(/\s+/)
           .filter(Boolean)
-          .map((previousRID) => idMap.get(previousRID))
-          .filter(Boolean) as string[]
+          .map((rid) => ids.get(rid))
+          .filter(Boolean)
 
-        if (newRIDs.length) {
-          node.setAttribute('rid', newRIDs.join(' '))
+        if (newRids.length) {
+          node.setAttribute('rid', newRids.join(' '))
         }
       }
     }
@@ -934,6 +901,7 @@ export class JATSExporter {
 
     const nodes: NodeSpecs = {
       author_notes: () => ['author-notes', 0],
+      corresp: () => '',
       title: () => '',
       affiliations: () => '',
       contributors: () => '',
@@ -1039,15 +1007,7 @@ export class JATSExporter {
       },
       figure: (node) => {
         const graphic = this.document.createElement('graphic')
-        const filename = generateAttachmentFilename(
-          node.attrs.id,
-          node.attrs.contentType
-        )
-        graphic.setAttributeNS(
-          XLINK_NAMESPACE,
-          'xlink:href',
-          `graphic/${filename}`
-        )
+        graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
 
         if (node.attrs.contentType) {
           const [mimeType, mimeSubType] = node.attrs.contentType.split('/')
@@ -1785,34 +1745,7 @@ export class JATSExporter {
           }
         })
       }
-      const authorNotesEl = this.document.createElement('author-notes')
-      const usedCorrespodings = this.getUsedCorrespondings([
-        ...authorContributors,
-        ...otherContributors,
-      ])
-      usedCorrespodings.forEach((corresp) => {
-        this.appendCorrespondingToElement(corresp, authorNotesEl)
-      })
-      const authorNotes = getModelsByType<AuthorNotes>(
-        this.modelMap,
-        ObjectTypes.AuthorNotes
-      )?.[0]
-      if (authorNotes) {
-        authorNotes.containedObjectIDs.forEach((id) => {
-          const model = this.modelMap.get(id)
-          if (!model) {
-            return
-          }
-          if (id.startsWith('MPParagraphElement')) {
-            this.appendParagraphToElement(
-              model as ParagraphElement,
-              authorNotesEl
-            )
-          } else if (id.startsWith('MPFootnote')) {
-            this.appendFootnoteToElement(model as Footnote, authorNotesEl)
-          }
-        })
-      }
+      const authorNotesEl = this.createAuthorNotesElement()
       if (authorNotesEl.childNodes.length > 0) {
         articleMeta.insertBefore(authorNotesEl, contribGroup.nextSibling)
       }
@@ -1851,6 +1784,52 @@ export class JATSExporter {
     //     corresp.appendChild(email)
     //   }
     // }
+  }
+  private createAuthorNotesElement = () => {
+    const authorNotesEl = this.document.createElement('author-notes')
+    const authorNotes = getModelsByType<AuthorNotes>(
+      this.modelMap,
+      ObjectTypes.AuthorNotes
+    )?.[0]
+    if (authorNotes) {
+      this.appendModelsToAuthorNotes(
+        authorNotesEl,
+        authorNotes.containedObjectIDs
+      )
+    }
+    return authorNotesEl
+  }
+  private appendModelsToAuthorNotes(
+    authorNotesEl: HTMLElement,
+    containedObjectIDs: string[]
+  ) {
+    const contributors = this.models.filter(isContributor)
+    const usedCorrespondings = this.getUsedCorrespondings(contributors)
+    containedObjectIDs.forEach((id) => {
+      const model = this.modelMap.get(id)
+      if (!model) {
+        return
+      }
+      switch (model.objectType) {
+        case ObjectTypes.ParagraphElement:
+          this.appendParagraphToElement(
+            model as ParagraphElement,
+            authorNotesEl
+          )
+          break
+        case ObjectTypes.Footnote:
+          this.appendFootnoteToElement(model as Footnote, authorNotesEl)
+          break
+        case ObjectTypes.Corresponding:
+          if (usedCorrespondings.includes(model as Corresponding)) {
+            this.appendCorrespondingToElement(
+              model as Corresponding,
+              authorNotesEl
+            )
+          }
+          break
+      }
+    })
   }
   private appendCorrespondingToElement = (
     corresponding: Corresponding,

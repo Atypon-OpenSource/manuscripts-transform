@@ -115,7 +115,7 @@ export type Nodes =
   | 'supplements'
   | 'supplement'
   | 'author_notes'
-
+  | 'corresp'
 export type ManuscriptSchema = Schema<Nodes, Marks>
 
 export type ManuscriptEditorState = EditorState
