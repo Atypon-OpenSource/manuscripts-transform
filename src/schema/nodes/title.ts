@@ -30,7 +30,7 @@ export interface TitleNode extends ManuscriptNode {
 }
 
 export const title: NodeSpec = {
-  content: 'inline*',
+  content: '(text | highlight_marker)*',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
