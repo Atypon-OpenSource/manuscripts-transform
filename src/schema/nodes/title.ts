@@ -30,9 +30,7 @@ export interface TitleNode extends ManuscriptNode {
 }
 
 export const title: NodeSpec = {
-  content: 'text*',
-  marks: 'italic smallcaps subscript superscript tracked_insert tracked_delete',
-
+  content: '(text | highlight_marker)*',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },

@@ -607,6 +607,19 @@ const x = 'y'",
 
 exports[`encoder encode highlight markers 1`] = `
 Map {
+  "MPCommentAnnotation:test0" => Object {
+    "_id": "MPCommentAnnotation:test0",
+    "contents": "title comment",
+    "contributions": Array [],
+    "objectType": "MPCommentAnnotation",
+    "originalText": "",
+    "resolved": false,
+    "selector": Object {
+      "from": 0,
+      "to": 5,
+    },
+    "target": "MPTitles:1",
+  },
   "MPCommentAnnotation:test" => Object {
     "_id": "MPCommentAnnotation:test",
     "contents": "Test Comment",
