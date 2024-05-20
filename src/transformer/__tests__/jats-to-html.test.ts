@@ -16,11 +16,9 @@
 
 import { Model } from '@manuscripts/json-schema'
 
-import { readFixture } from '../../jats/__tests__/files'
-import { normalizeIDs } from '../../jats/__tests__/ids'
-import { parseJATSArticle } from '../../jats/importer'
 import { Decoder } from '../decode'
 import { HTMLTransformer } from '../html'
+import { normalizeIDs } from './__helpers__/ids'
 
 // eslint-disable-next-line jest/no-disabled-tests
 describe.skip('JATS importing and exporting to HTML', () => {

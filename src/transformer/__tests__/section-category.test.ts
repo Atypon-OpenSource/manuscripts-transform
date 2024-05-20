@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { selectVersionIds, Version } from '../../jats'
 import { schema } from '../../schema'
 import {
   buildSectionCategory,
@@ -23,8 +22,13 @@ import {
   isAnySectionNode,
 } from '../section-category'
 
-const createJATSDocument = (version: Version) => {
-  const versionIDs = selectVersionIds(version)
+const createJATSDocument = () => {
+  const versionIDs = {
+    publicId:
+      '-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD with OASIS Tables with MathML3 v1.2d1 20170631//EN',
+    systemId:
+      'http://jats.nlm.nih.gov/archiving/1.2d1/JATS-archive-oasis-article1-mathml3.dtd',
+  }
 
   return document.implementation.createDocument(
     null,
@@ -69,7 +73,7 @@ describe('section category helpers', () => {
   })
 
   test('choose section category', () => {
-    const jatsDocument = createJATSDocument('1.2')
+    const jatsDocument = createJATSDocument()
 
     const createSection = (secType?: string, title?: string) => {
       const section = jatsDocument.createElement('sec')

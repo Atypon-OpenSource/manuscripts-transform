@@ -25,7 +25,6 @@ import {
 import { DOMOutputSpec, DOMSerializer } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
-import { createCounter } from '../jats/jats-exporter'
 import { buildStyledContentClass } from '../lib/styled-content'
 import {
   CitationNode,
@@ -86,6 +85,17 @@ const chooseNodeName = (element: Element) => {
   }
 
   return nodeName
+}
+export const createCounter = () => {
+  const counts = new Map<string, number>()
+  return {
+    increment: (field: string) => {
+      const value = counts.get(field)
+      const newValue = value === undefined ? 1 : value + 1
+      counts.set(field, newValue)
+      return newValue
+    },
+  }
 }
 
 const createDefaultIdGenerator = (): IDGenerator => {
