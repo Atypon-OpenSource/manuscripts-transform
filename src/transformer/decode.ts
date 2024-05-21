@@ -101,6 +101,7 @@ import { AuthorNotesNode } from '../schema/nodes/author_notes'
 import { KeywordGroupNode } from '../schema/nodes/keyword_group'
 import { buildTitles } from './builders'
 import { insertHighlightMarkers } from './highlight-markers'
+import { generateID } from './id'
 import { PlaceholderElement } from './models'
 import {
   ExtraObjectTypes,
@@ -661,9 +662,10 @@ export class Decoder {
       }
       if (generalTableFootnotes && generalTableFootnotes.length) {
         contents.push(
-          schema.nodes.general_table_footnote.create({}, [
-            ...generalTableFootnotes,
-          ])
+          schema.nodes.general_table_footnote.create(
+            { id: generateID(ExtraObjectTypes.GeneralTableFootnote) },
+            [...generalTableFootnotes]
+          )
         )
       }
       if (footnotesElements && footnotesElements.length) {
