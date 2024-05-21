@@ -33,5 +33,5 @@ export const generalTableFootnote: NodeSpec = {
     dataTracked: { default: null },
   },
   group: 'block',
-  toDOM: () => ['general-table-footnote', 0],
+  toDOM: () => ['div', { class: 'general-table-footnote' }, 0],
 }
