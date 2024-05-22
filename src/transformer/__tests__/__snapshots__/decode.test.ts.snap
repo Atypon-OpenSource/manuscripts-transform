@@ -6078,7 +6078,29 @@ Object {
       },
       "content": Array [
         Object {
-          "text": "main title",
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPCommentAnnotation:test0",
+            "position": "start",
+            "tid": "MPTitles:1",
+          },
+          "type": "highlight_marker",
+        },
+        Object {
+          "text": "main ",
+          "type": "text",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPCommentAnnotation:test0",
+            "position": "end",
+            "tid": "MPTitles:1",
+          },
+          "type": "highlight_marker",
+        },
+        Object {
+          "text": "title",
           "type": "text",
         },
       ],
@@ -6339,6 +6361,21 @@ Object {
         "id": "",
       },
       "content": Array [
+        Object {
+          "attrs": Object {
+            "contents": "title comment",
+            "contributions": Array [],
+            "id": "MPCommentAnnotation:test0",
+            "originalText": "",
+            "resolved": false,
+            "selector": Object {
+              "from": 0,
+              "to": 5,
+            },
+            "target": "MPTitles:1",
+          },
+          "type": "comment",
+        },
         Object {
           "attrs": Object {
             "contents": "Test Comment",
