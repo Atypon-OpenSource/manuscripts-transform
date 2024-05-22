@@ -905,8 +905,7 @@ export class JATSExporter {
       title: () => '',
       affiliations: () => '',
       contributors: () => '',
-      table_element_footer: (node) =>
-        node.textContent ? ['table-wrap-foot', 0] : '',
+      table_element_footer:() => ['table-wrap-foot', 0],
       contributor: () => '',
       affiliation: () => '',
       attribution: () => ['attrib', 0],
@@ -1036,11 +1035,9 @@ export class JATSExporter {
         if (node.attrs.id) {
           attrs.id = normalizeID(node.attrs.id)
         }
-
         if (node.attrs.category) {
           attrs['fn-type'] = node.attrs.category
         }
-
         return ['fn', attrs, 0]
       },
       footnotes_element: (node) => {
