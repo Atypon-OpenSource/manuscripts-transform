@@ -326,6 +326,7 @@ export class JATSExporter {
       this.moveFloatsGroup(body, article)
       this.removeBackContainer(body)
       this.updateFootnoteTypes(front, back)
+      this.fillEmptyFootnotesElements(article)
       this.fillEmptyFootnotes(article)
     }
 
@@ -2318,6 +2319,14 @@ export class JATSExporter {
     ).filter((fn) => !fn.textContent?.trim())
     emptyFootnotes.forEach((fn) =>
       fn.appendChild(this.document.createElement('p'))
+    )
+  }
+  private fillEmptyFootnotesElements(articleElement: Element){
+    const emptyElements = Array.from(
+      articleElement.querySelectorAll('fn-group')
+    ).filter((element) => !element.querySelector('fn') && !element.querySelector('p'))
+    emptyElements.forEach((element) =>
+      element.appendChild(this.document.createElement('fn'))
     )
   }
 }
