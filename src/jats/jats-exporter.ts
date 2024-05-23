@@ -326,7 +326,6 @@ export class JATSExporter {
       this.moveFloatsGroup(body, article)
       this.removeBackContainer(body)
       this.updateFootnoteTypes(front, back)
-      this.fillEmptyFootnotesElements(article)
       this.fillEmptyFootnotes(article)
     }
 
@@ -1042,14 +1041,9 @@ export class JATSExporter {
         return ['fn', attrs, 0]
       },
       footnotes_element: (node) => {
-        const kind = node.attrs.kind
-        let tag = 'fn-group'
-
-        if (kind && kind.includes('table')) {
-          tag = 'table-wrap-foot'
-        }
-
-        return [tag, { id: normalizeID(node.attrs.id) }, 0]
+        return node.childCount == 0 && !node.inlineContent
+          ? ['fn-group', { id: normalizeID(node.attrs.id) }, ['fn', 0]]
+          : ['fn-group', { id: normalizeID(node.attrs.id) }, 0]
       },
       footnotes_section: (node) => {
         const attrs: { [key: string]: string } = {
@@ -2321,14 +2315,5 @@ export class JATSExporter {
       fn.appendChild(this.document.createElement('p'))
     )
   }
-  private fillEmptyFootnotesElements(articleElement: Element) {
-    const emptyElements = Array.from(
-      articleElement.querySelectorAll('fn-group')
-    ).filter(
-      (element) => !element.querySelector('fn') && !element.querySelector('p')
-    )
-    emptyElements.forEach((element) =>
-      element.appendChild(this.document.createElement('fn'))
-    )
-  }
+
 }
