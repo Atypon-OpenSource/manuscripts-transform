@@ -1049,7 +1049,7 @@ export class JATSExporter {
           tag = 'table-wrap-foot'
         }
 
-        return [tag, { id: normalizeID(node.attrs.id) }, ['fn', 0]]
+        return [tag, { id: normalizeID(node.attrs.id) }, 0]
       },
       footnotes_section: (node) => {
         const attrs: { [key: string]: string } = {
