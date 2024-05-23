@@ -905,7 +905,10 @@ export class JATSExporter {
       title: () => '',
       affiliations: () => '',
       contributors: () => '',
-      table_element_footer: () => ['table-wrap-foot', 0],
+      table_element_footer: (node) =>
+        !node.textContent && node.childCount == 0
+          ? ['table-wrap-foot', ['fn-group', ['fn']]]
+          : ['table-wrap-foot', 0],
       contributor: () => '',
       affiliation: () => '',
       attribution: () => ['attrib', 0],
@@ -1041,7 +1044,7 @@ export class JATSExporter {
         return ['fn', attrs, 0]
       },
       footnotes_element: (node) => {
-        return node.childCount == 0 && !node.inlineContent
+        return node.childCount == 0 && !node.textContent
           ? ['fn-group', { id: normalizeID(node.attrs.id) }, ['fn', 0]]
           : ['fn-group', { id: normalizeID(node.attrs.id) }, 0]
       },
@@ -2315,5 +2318,4 @@ export class JATSExporter {
       fn.appendChild(this.document.createElement('p'))
     )
   }
-
 }
