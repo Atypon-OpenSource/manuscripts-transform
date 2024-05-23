@@ -906,7 +906,7 @@ export class JATSExporter {
       title: () => '',
       affiliations: () => '',
       contributors: () => '',
-      table_element_footer:() => ['table-wrap-foot', 0],
+      table_element_footer: () => ['table-wrap-foot', 0],
       contributor: () => '',
       affiliation: () => '',
       attribution: () => ['attrib', 0],
@@ -1049,7 +1049,7 @@ export class JATSExporter {
           tag = 'table-wrap-foot'
         }
 
-        return [tag, { id: normalizeID(node.attrs.id) }, 0]
+        return [tag, { id: normalizeID(node.attrs.id) }, ['fn', 0]]
       },
       footnotes_section: (node) => {
         const attrs: { [key: string]: string } = {
@@ -2321,10 +2321,12 @@ export class JATSExporter {
       fn.appendChild(this.document.createElement('p'))
     )
   }
-  private fillEmptyFootnotesElements(articleElement: Element){
+  private fillEmptyFootnotesElements(articleElement: Element) {
     const emptyElements = Array.from(
       articleElement.querySelectorAll('fn-group')
-    ).filter((element) => !element.querySelector('fn') && !element.querySelector('p'))
+    ).filter(
+      (element) => !element.querySelector('fn') && !element.querySelector('p')
+    )
     emptyElements.forEach((element) =>
       element.appendChild(this.document.createElement('fn'))
     )
