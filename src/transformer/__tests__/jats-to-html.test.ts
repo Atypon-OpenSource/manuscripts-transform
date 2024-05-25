@@ -26,8 +26,7 @@ import { HTMLTransformer } from '../html'
 describe.skip('JATS importing and exporting to HTML', () => {
   test('round-trips JATS XML to HTML', async () => {
     const input = await readFixture('debug-example.xml')
-    const doc = new DOMParser().parseFromString(input, 'application/xml')
-    const models = await parseJATSArticle(doc)
+    const models = await parseJATSArticle(input)
     const normalizedModels = normalizeIDs(models)
 
     const modelMap = new Map<string, Model>()
