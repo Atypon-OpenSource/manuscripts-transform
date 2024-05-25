@@ -41,8 +41,6 @@ import { jatsFrontParser } from './jats-front-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
 import { jatsReferenceParser } from './jats-reference-parser'
 import { References } from './jats-references'
-import fs from 'fs'
-import serializeToXML from 'w3c-xmlserializer'
 
 export const parseJATSFront = (doc: Document, front: Element) => {
   const createElement = createElementFn(doc)
