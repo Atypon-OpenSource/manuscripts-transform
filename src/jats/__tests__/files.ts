@@ -20,8 +20,7 @@ import { join } from 'path'
 export const readFixture = (filename: string) =>
   fs.promises.readFile(join(__dirname, '/__fixtures__/', filename), 'utf-8')
 
-export const readAndParseFixture = async (filename: string) =>
-  new DOMParser().parseFromString(
-    await readFixture(filename),
-    'application/xml'
-  )
+export const readAndParseFixture = async (filename: string) => {
+  const fixture = await readFixture(filename)
+  return new DOMParser().parseFromString(fixture, 'application/xml')
+}

@@ -41,6 +41,8 @@ import { jatsFrontParser } from './jats-front-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
 import { jatsReferenceParser } from './jats-reference-parser'
 import { References } from './jats-references'
+import fs from 'fs'
+import serializeToXML from 'w3c-xmlserializer'
 
 export const parseJATSFront = (doc: Document, front: Element) => {
   const createElement = createElementFn(doc)
@@ -159,6 +161,10 @@ const createBibliographyModels = (references: References) => {
   return models
 }
 
+const clearUnsupportedChars = (input = '') => {
+  return input.replace(/[\u2028\u2029]/gim, ' ')
+}
+
 const createElementFn = (doc: Document) => (tagName: string) =>
   doc.createElement(tagName)
 
@@ -167,7 +173,11 @@ const generateIDs = (models: Build<Model>[]) =>
     m._id ? m : { ...m, _id: generateID(m.objectType as ObjectTypes) }
   ) as Model[]
 
-export const parseJATSArticle = (doc: Document): Model[] => {
+export const parseJATSArticle = (rawDoc: string): Model[] => {
+  const doc = new DOMParser().parseFromString(
+    clearUnsupportedChars(rawDoc),
+    'application/xml'
+  )
   const article = doc.querySelector('article')
   const front = doc.querySelector('front')
   const body = doc.querySelector('body')

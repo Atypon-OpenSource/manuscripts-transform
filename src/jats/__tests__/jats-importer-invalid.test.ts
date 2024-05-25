@@ -1,5 +1,5 @@
 /*!
- * © 2024 Atypon Systems LLC
+ * © 2020 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,22 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Model } from '@manuscripts/json-schema'
 
-import { Decoder } from '../../transformer'
 import { parseJATSArticle } from '../importer'
 import { readFixture } from './files'
+import { normalizeIDs, normalizeTimestamps } from './ids'
 
-export const getModelMapFromXML = async (fileName: string) => {
-  const models = await parseJATSArticle(await readFixture(fileName))
-  const modelMap: Map<string, Model> = new Map()
-  for (const model of models) {
-    modelMap.set(model._id, model)
-  }
-  return modelMap
-}
-
-export const getDocFromModelMap = async (modelMap: Map<string, Model>) => {
-  const decoder = new Decoder(modelMap)
-  return decoder.createArticleNode()
-}
+describe('JATS importer', () => {
+  test('imports removing invalid chars', async () => {
+    const jats = await readFixture('athena-tableNotes.xml')
+    const models = parseJATSArticle(jats)
+    expect(normalizeIDs(normalizeTimestamps(models))).toMatchSnapshot()
+  })
+})

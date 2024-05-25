@@ -24,6 +24,7 @@
     "prettier": "prettier --write \"src/**/*.{ts,tsx}\" \"*.{js,json}\"",
     "preversion": "npm-run-all --parallel typecheck lint test",
     "test": "jest --runInBand",
+    "test-inv": "jest -i src/jats/__tests__/jats-importer-invalid.test.ts",
     "test:debug": "DEBUG=manuscripts-transform yarn test",
     "typecheck": "tsc --noEmit",
     "version": "yarn build"

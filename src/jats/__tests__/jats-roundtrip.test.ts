@@ -116,7 +116,7 @@ const roundtrip = async (filename: string) => {
   const input = await readFixture(filename)
   const doc = new DOMParser().parseFromString(input, 'application/xml')
 
-  const models = parseJATSArticle(doc)
+  const models = parseJATSArticle(input)
 
   const modelMap = new Map<string, Model>()
 
