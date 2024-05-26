@@ -1046,7 +1046,7 @@ export class JATSExporter {
       },
       footnotes_element: (node) =>
         !node.textContent && node.childCount == 0
-          ? ['fn-group', { id: normalizeID(node.attrs.id) }, ['fn', 0]]
+          ? ['fn-group', { id: normalizeID(node.attrs.id) }, ['fn']]
           : ['fn-group', { id: normalizeID(node.attrs.id) }, 0],
       footnotes_section: (node) => {
         const attrs: { [key: string]: string } = {
