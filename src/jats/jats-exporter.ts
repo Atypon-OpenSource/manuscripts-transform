@@ -1046,7 +1046,7 @@ export class JATSExporter {
       },
       footnotes_element: (node) =>
         !node.textContent && node.childCount == 0
-          ? ['fn-group', { id: normalizeID(node.attrs.id) }, ['fn']]
+          ? ['fn-group', { id: normalizeID(node.attrs.id) }, ['fn', 0]]
           : ['fn-group', { id: normalizeID(node.attrs.id) }, 0],
       footnotes_section: (node) => {
         const attrs: { [key: string]: string } = {
@@ -1059,9 +1059,13 @@ export class JATSExporter {
       hard_break: () => '',
       highlight_marker: () => '',
       inline_footnote: (node) => {
+        const rids = node.attrs.rids.filter(getModel)
+        if (rids.length == 0) {
+          return ''
+        }
         const xref = this.document.createElement('xref')
         xref.setAttribute('ref-type', 'fn')
-        xref.setAttribute('rid', normalizeID(node.attrs.rids.join(' ')))
+        xref.setAttribute('rid', normalizeID(rids.join(' ')))
         xref.textContent = node.attrs.contents
         return xref
       },
