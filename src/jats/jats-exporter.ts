@@ -908,7 +908,7 @@ export class JATSExporter {
       contributors: () => '',
       table_element_footer: (node) =>
         node.childCount == 0
-          ? ['table-wrap-foot', ['fn-group', ['fn']]]
+          ? ['table-wrap-foot', ['fn-group', ['fn', ['p']]]]
           : ['table-wrap-foot', 0],
       contributor: () => '',
       affiliation: () => '',
@@ -1046,7 +1046,7 @@ export class JATSExporter {
       },
       footnotes_element: (node) =>
         node.childCount == 0
-          ? ['fn-group', { id: normalizeID(node.attrs.id) }, ['fn']]
+          ? ['fn-group', { id: normalizeID(node.attrs.id) }, ['fn', ['p']]]
           : ['fn-group', { id: normalizeID(node.attrs.id) }, 0],
       footnotes_section: (node) => {
         const attrs: { [key: string]: string } = {
