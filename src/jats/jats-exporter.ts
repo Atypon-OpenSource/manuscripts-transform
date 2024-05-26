@@ -2314,21 +2314,24 @@ export class JATSExporter {
       }
     })
   }
-  private fillEmptyFootnotes(articleElement: Element) {
-    const emptyFootnotes = Array.from(
-      articleElement.querySelectorAll('fn')
-    ).filter((fn) => !fn.textContent?.trim())
-    emptyFootnotes.forEach((fn) =>
-      fn.appendChild(this.document.createElement('p'))
+  private fillEmptyElements(
+    articleElement: Element,
+    selector: string,
+    tagName = 'p'
+  ) {
+    const emptyElements = Array.from(
+      articleElement.querySelectorAll(selector)
+    ).filter((element) => !element.innerHTML)
+    emptyElements.forEach((element) =>
+      element.appendChild(this.document.createElement(tagName))
     )
   }
 
+  private fillEmptyFootnotes(articleElement: Element) {
+    this.fillEmptyElements(articleElement, 'fn')
+  }
+
   private fillEmptyTableFooters(articleElement: Element) {
-    const emptyElements = Array.from(
-      articleElement.querySelectorAll('table-wrap-foot')
-    ).filter((element) => !element.innerHTML)
-    emptyElements.forEach((element) =>
-      element.appendChild(this.document.createElement('p'))
-    )
+    this.fillEmptyElements(articleElement, 'table-wrap-foot')
   }
 }
