@@ -18,7 +18,7 @@ import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { buildElementClass } from '../../lib/attributes'
-import { ManuscriptNode } from '../types'
+import { DataTrackedAttrs, ManuscriptNode } from '../types'
 
 export interface BulletListNode extends ManuscriptNode {
   attrs: {
@@ -122,6 +122,7 @@ export const orderedList: NodeSpec = {
 export interface ListItemNode extends ManuscriptNode {
   attrs: {
     placeholder: string
+    dataTracked?: DataTrackedAttrs[]
   }
 }
 
@@ -154,6 +155,16 @@ export const listItem: NodeSpec = {
 
     if (listItemNode.attrs.placeholder) {
       attrs['data-placeholder-text'] = listItemNode.attrs.placeholder
+    }
+
+    const dataTracked = listItemNode.attrs.dataTracked
+
+    if (dataTracked && dataTracked.length) {
+      const { id, status, operation } = dataTracked[0]
+      attrs['data-track-id'] = id
+      attrs['data-track-status'] = status
+      attrs['data-track-op'] = operation
+      attrs['class'] = `${status} ${operation}`
     }
 
     return ['li', attrs, 0]
