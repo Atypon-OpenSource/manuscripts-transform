@@ -29,7 +29,6 @@ export interface ListNode extends ManuscriptNode {
   }
 }
 
-
 export const list: NodeSpec = {
   content: 'list_item+',
   group: 'block list element',
@@ -38,7 +37,7 @@ export const list: NodeSpec = {
     paragraphStyle: { default: '' },
     dataTracked: { default: null },
     listStyleType: { default: null },
-    type: {default: 'bullet'}
+    type: { default: 'bullet' },
   },
   parseDOM: [
     {
@@ -49,7 +48,7 @@ export const list: NodeSpec = {
         return {
           id: dom.getAttribute('id'),
           listStyleType: dom.getAttribute('list-type'),
-          type: 'bullet'
+          type: 'bullet',
         }
       },
     },
@@ -61,37 +60,37 @@ export const list: NodeSpec = {
         return {
           id: dom.getAttribute('id'),
           listStyleType: dom.getAttribute('list-type'),
-          type: 'order'
+          type: 'order',
         }
       },
-    }
+    },
   ],
   toDOM: (node) => {
     const ListNode = node as ListNode
-    console.log("toDom", ListNode,  ListNode.attrs.type === 'bullet')
+    console.log('toDom', ListNode, ListNode.attrs.type === 'bullet')
     return ListNode.attrs.type === 'bullet'
       ? [
           'ul',
           {
             id: ListNode.attrs.id,
             'list-type': ListNode.attrs.listStyleType,
-            'type': ListNode.attrs.type,
+            type: ListNode.attrs.type,
             class: buildElementClass(ListNode.attrs),
             'data-object-type': ObjectTypes.ListElement,
           },
           0,
         ]
       : [
-        'ol',
-        {
-          id: ListNode.attrs.id,
-          'list-type': ListNode.attrs.listStyleType,
-          'type': ListNode.attrs.type,
-          class: buildElementClass(ListNode.attrs),
-          'data-object-type': ObjectTypes.ListElement,
-        },
-        0,
-      ]
+          'ol',
+          {
+            id: ListNode.attrs.id,
+            'list-type': ListNode.attrs.listStyleType,
+            type: ListNode.attrs.type,
+            class: buildElementClass(ListNode.attrs),
+            'data-object-type': ObjectTypes.ListElement,
+          },
+          0,
+        ]
   },
 }
 
@@ -135,7 +134,6 @@ export const listItem: NodeSpec = {
     return ['li', attrs, 0]
   },
 }
-
 
 export const isListNode = (node: ManuscriptNode): node is ListNode => {
   const { nodes } = node.type.schema

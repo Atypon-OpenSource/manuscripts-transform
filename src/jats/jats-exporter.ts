@@ -930,8 +930,9 @@ export class JATSExporter {
       blockquote_element: () => ['disp-quote', { 'content-type': 'quote' }, 0],
       list: (node) => [
         'list',
-        { 'list-type': node.attrs.listStyleType ?? 'bullet', 
-          'type': node.attrs.type
+        {
+          'list-type': node.attrs.listStyleType ?? 'bullet',
+          type: node.attrs.type,
         },
         0,
       ],
