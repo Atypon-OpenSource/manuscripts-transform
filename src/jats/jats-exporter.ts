@@ -928,9 +928,11 @@ export class JATSExporter {
         0,
       ],
       blockquote_element: () => ['disp-quote', { 'content-type': 'quote' }, 0],
-      bullet_list: (node) => [
+      list: (node) => [
         'list',
-        { 'list-type': node.attrs.listStyleType ?? 'bullet' },
+        { 'list-type': node.attrs.listStyleType ?? 'bullet', 
+          'type': node.attrs.type
+        },
         0,
       ],
       caption: () => ['p', 0],
@@ -1121,11 +1123,6 @@ export class JATSExporter {
         graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', '')
         return graphic
       },
-      ordered_list: (node) => [
-        'list',
-        { 'list-type': node.attrs.listStyleType ?? 'order' },
-        0,
-      ],
       paragraph: (node) => {
         if (!node.childCount) {
           return ''

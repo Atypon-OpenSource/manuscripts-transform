@@ -68,7 +68,7 @@ import { keywordGroup } from './nodes/keyword_group'
 import { keywords } from './nodes/keywords'
 import { keywordsElement } from './nodes/keywords_element'
 import { link } from './nodes/link'
-import { bulletList, listItem, orderedList } from './nodes/list'
+import { list, listItem } from './nodes/list'
 import { listing } from './nodes/listing'
 import { listingElement } from './nodes/listing_element'
 import { manuscript } from './nodes/manuscript'
@@ -170,7 +170,7 @@ export const schema = new Schema<Nodes, Marks>({
     bibliography_element: bibliographyElement,
     bibliography_section: bibliographySection,
     blockquote_element: blockquoteElement,
-    bullet_list: bulletList,
+    list: list,
     caption,
     caption_title: captionTitle,
     citation,
@@ -202,7 +202,6 @@ export const schema = new Schema<Nodes, Marks>({
     listing_element: listingElement,
     manuscript,
     missing_figure: missingFigure,
-    ordered_list: orderedList,
     paragraph,
     placeholder,
     placeholder_element: placeholderElement,

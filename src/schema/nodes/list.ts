@@ -20,15 +20,17 @@ import { NodeSpec } from 'prosemirror-model'
 import { buildElementClass } from '../../lib/attributes'
 import { ManuscriptNode } from '../types'
 
-export interface BulletListNode extends ManuscriptNode {
+export interface ListNode extends ManuscriptNode {
   attrs: {
     id: string
     paragraphStyle: string
     listStyleType: string
+    type: string
   }
 }
 
-export const bulletList: NodeSpec = {
+
+export const list: NodeSpec = {
   content: 'list_item+',
   group: 'block list element',
   attrs: {
@@ -36,6 +38,7 @@ export const bulletList: NodeSpec = {
     paragraphStyle: { default: '' },
     dataTracked: { default: null },
     listStyleType: { default: null },
+    type: {default: 'bullet'}
   },
   parseDOM: [
     {
@@ -46,76 +49,49 @@ export const bulletList: NodeSpec = {
         return {
           id: dom.getAttribute('id'),
           listStyleType: dom.getAttribute('list-type'),
+          type: 'bullet'
         }
       },
     },
-  ],
-  toDOM: (node) => {
-    const bulletListNode = node as BulletListNode
-
-    return bulletListNode.attrs.id
-      ? [
-          'ul',
-          {
-            id: bulletListNode.attrs.id,
-            'list-type': bulletListNode.attrs.listStyleType,
-            class: buildElementClass(bulletListNode.attrs),
-            'data-object-type': ObjectTypes.ListElement,
-          },
-          0,
-        ]
-      : ['ul', 0]
-  },
-}
-
-export interface OrderedListNode extends ManuscriptNode {
-  attrs: {
-    id: string
-    listStyleType: string
-    paragraphStyle: string
-  }
-}
-
-export const orderedList: NodeSpec = {
-  content: 'list_item+',
-  group: 'block list element',
-  attrs: {
-    id: { default: '' },
-    // order: { default: 1 },
-    listStyleType: { default: null },
-    paragraphStyle: { default: '' },
-    dataTracked: { default: null },
-  },
-  parseDOM: [
     {
       tag: 'ol',
       getAttrs: (p) => {
-        const dom = p as HTMLOListElement
+        const dom = p as HTMLUListElement
 
         return {
           id: dom.getAttribute('id'),
           listStyleType: dom.getAttribute('list-type'),
-          // order: dom.hasAttribute('start') ? dom.getAttribute('start') : 1,
+          type: 'order'
         }
       },
-    },
+    }
   ],
   toDOM: (node) => {
-    const orderedListNode = node as OrderedListNode
-
-    return orderedListNode.attrs.id
+    const ListNode = node as ListNode
+    console.log("toDom", ListNode,  ListNode.attrs.type === 'bullet')
+    return ListNode.attrs.type === 'bullet'
       ? [
-          'ol',
+          'ul',
           {
-            id: orderedListNode.attrs.id,
-            'list-type': orderedListNode.attrs.listStyleType,
-            // start: node.attrs.order === 1 ? undefined : node.attrs.order,
-            class: buildElementClass(orderedListNode.attrs),
+            id: ListNode.attrs.id,
+            'list-type': ListNode.attrs.listStyleType,
+            'type': ListNode.attrs.type,
+            class: buildElementClass(ListNode.attrs),
             'data-object-type': ObjectTypes.ListElement,
           },
           0,
         ]
-      : ['ol', 0]
+      : [
+        'ol',
+        {
+          id: ListNode.attrs.id,
+          'list-type': ListNode.attrs.listStyleType,
+          'type': ListNode.attrs.type,
+          class: buildElementClass(ListNode.attrs),
+          'data-object-type': ObjectTypes.ListElement,
+        },
+        0,
+      ]
   },
 }
 
@@ -160,10 +136,9 @@ export const listItem: NodeSpec = {
   },
 }
 
-export type ListNode = BulletListNode | OrderedListNode
 
 export const isListNode = (node: ManuscriptNode): node is ListNode => {
   const { nodes } = node.type.schema
 
-  return node.type === nodes.bullet_list || node.type === nodes.ordered_list
+  return node.type === nodes.list
 }

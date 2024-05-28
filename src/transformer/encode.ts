@@ -530,11 +530,13 @@ const encoders: NodeEncoderMap = {
     placeholderInnerHTML: node.attrs.placeholder || '',
     quoteType: 'block',
   }),
-  bullet_list: (node): Partial<ListElement> => ({
-    elementType: 'ul',
+  list: (node): Partial<ListElement> => (
+    {
+    elementType: node.attrs.type === 'bullet' ? 'ul' : 'ol',
     contents: listContents(node),
     listStyleType: node.attrs.listStyleType,
     paragraphStyle: node.attrs.paragraphStyle || undefined,
+    type: node.attrs.type
   }),
   listing: (node): Partial<Listing> => ({
     contents: inlineText(node),
@@ -639,12 +641,6 @@ const encoders: NodeEncoderMap = {
   }),
   missing_figure: (node): Partial<MissingFigure> => ({
     position: node.attrs.position || undefined,
-  }),
-  ordered_list: (node): Partial<ListElement> => ({
-    elementType: 'ol',
-    contents: listContents(node),
-    listStyleType: node.attrs.listStyleType,
-    paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
   paragraph: (node): Partial<ParagraphElement> => ({
     elementType: 'p',

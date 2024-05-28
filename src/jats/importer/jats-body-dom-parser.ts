@@ -361,20 +361,8 @@ const nodes: NodeRule[] = [
     ignore: true,
   },
   {
-    tag: 'list[list-type=bullet]',
-    node: 'bullet_list',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      return {
-        id: element.getAttribute('id'),
-        listStyleType: element.getAttribute('list-type'),
-      }
-    },
-  },
-  {
-    tag: 'list[list-type]',
-    node: 'ordered_list',
+    tag: 'list',
+    node: 'list',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
