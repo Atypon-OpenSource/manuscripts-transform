@@ -326,6 +326,7 @@ export class JATSExporter {
       this.moveFloatsGroup(body, article)
       this.removeBackContainer(body)
       this.updateFootnoteTypes(front, back)
+      this.fillEmptyTableFooters(article)
       this.fillEmptyFootnotes(article)
     }
 
@@ -906,7 +907,9 @@ export class JATSExporter {
       affiliations: () => '',
       contributors: () => '',
       table_element_footer: (node) =>
-        node.textContent ? ['table-wrap-foot', 0] : '',
+        node.childCount == 0
+          ? ['table-wrap-foot', ['fn-group', ['fn', ['p']]]]
+          : ['table-wrap-foot', 0],
       contributor: () => '',
       affiliation: () => '',
       attribution: () => ['attrib', 0],
@@ -1039,26 +1042,15 @@ export class JATSExporter {
         if (node.attrs.id) {
           attrs.id = normalizeID(node.attrs.id)
         }
-
         if (node.attrs.category) {
           attrs['fn-type'] = node.attrs.category
         }
-
         return ['fn', attrs, 0]
       },
-      footnotes_element: (node) => {
-        if (!node.textContent) {
-          return ''
-        }
-        const kind = node.attrs.kind
-        let tag = 'fn-group'
-
-        if (kind && kind.includes('table')) {
-          tag = 'table-wrap-foot'
-        }
-
-        return [tag, { id: normalizeID(node.attrs.id) }, 0]
-      },
+      footnotes_element: (node) =>
+        node.childCount == 0
+          ? ['fn-group', { id: normalizeID(node.attrs.id) }, ['fn', ['p']]]
+          : ['fn-group', { id: normalizeID(node.attrs.id) }, 0],
       footnotes_section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
@@ -1070,9 +1062,13 @@ export class JATSExporter {
       hard_break: () => '',
       highlight_marker: () => '',
       inline_footnote: (node) => {
+        const rids = node.attrs.rids.filter(getModel)
+        if (rids.length == 0) {
+          return ''
+        }
         const xref = this.document.createElement('xref')
         xref.setAttribute('ref-type', 'fn')
-        xref.setAttribute('rid', normalizeID(node.attrs.rids.join(' ')))
+        xref.setAttribute('rid', normalizeID(rids.join(' ')))
         xref.textContent = node.attrs.contents
         return xref
       },
@@ -2321,12 +2317,24 @@ export class JATSExporter {
       }
     })
   }
-  private fillEmptyFootnotes(articleElement: Element) {
-    const emptyFootnotes = Array.from(
-      articleElement.querySelectorAll('fn')
-    ).filter((fn) => !fn.textContent?.trim())
-    emptyFootnotes.forEach((fn) =>
-      fn.appendChild(this.document.createElement('p'))
+  private fillEmptyElements(
+    articleElement: Element,
+    selector: string,
+    tagName = 'p'
+  ) {
+    const emptyElements = Array.from(
+      articleElement.querySelectorAll(selector)
+    ).filter((element) => !element.innerHTML)
+    emptyElements.forEach((element) =>
+      element.appendChild(this.document.createElement(tagName))
     )
+  }
+
+  private fillEmptyFootnotes(articleElement: Element) {
+    this.fillEmptyElements(articleElement, 'fn')
+  }
+
+  private fillEmptyTableFooters(articleElement: Element) {
+    this.fillEmptyElements(articleElement, 'table-wrap-foot')
   }
 }
