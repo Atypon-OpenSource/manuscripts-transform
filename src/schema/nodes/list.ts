@@ -14,18 +14,31 @@
  * limitations under the License.
  */
 
-import { ObjectTypes } from '@manuscripts/json-schema'
+import { ListElement, ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { buildElementClass } from '../../lib/attributes'
 import { ManuscriptNode } from '../types'
+
+export type JatsStyleType = NonNullable<ListElement['listStyleType']>
+
+export const JATS_HTML_LIST_STYLE_MAPPING: {
+  [key in JatsStyleType]: { style: string; type: string }
+} = {
+  simple: { style: 'none', type: 'ul' },
+  bullet: { style: 'disc', type: 'ul' },
+  order: { style: 'decimal', type: 'ol' },
+  'alpha-lower': { style: 'lower-alpha', type: 'ol' },
+  'alpha-upper': { style: 'upper-alpha', type: 'ol' },
+  'roman-lower': { style: 'lower-roman', type: 'ol' },
+  'roman-upper': { style: 'upper-roman', type: 'ol' },
+}
 
 export interface ListNode extends ManuscriptNode {
   attrs: {
     id: string
     paragraphStyle: string
     listStyleType: string
-    type: string
   }
 }
 
@@ -37,7 +50,6 @@ export const list: NodeSpec = {
     paragraphStyle: { default: '' },
     dataTracked: { default: null },
     listStyleType: { default: null },
-    type: { default: 'bullet' },
   },
   parseDOM: [
     {
@@ -48,7 +60,6 @@ export const list: NodeSpec = {
         return {
           id: dom.getAttribute('id'),
           listStyleType: dom.getAttribute('list-type'),
-          type: 'bullet',
         }
       },
     },
@@ -60,21 +71,18 @@ export const list: NodeSpec = {
         return {
           id: dom.getAttribute('id'),
           listStyleType: dom.getAttribute('list-type'),
-          type: 'order',
         }
       },
     },
   ],
   toDOM: (node) => {
     const ListNode = node as ListNode
-    console.log('toDom', ListNode, ListNode.attrs.type === 'bullet')
-    return ListNode.attrs.type === 'bullet'
+    return JATS_HTML_LIST_STYLE_MAPPING[ListNode.attrs.listStyleType as JatsStyleType].type === 'bullet'
       ? [
           'ul',
           {
             id: ListNode.attrs.id,
             'list-type': ListNode.attrs.listStyleType,
-            type: ListNode.attrs.type,
             class: buildElementClass(ListNode.attrs),
             'data-object-type': ObjectTypes.ListElement,
           },
@@ -85,7 +93,6 @@ export const list: NodeSpec = {
           {
             id: ListNode.attrs.id,
             'list-type': ListNode.attrs.listStyleType,
-            type: ListNode.attrs.type,
             class: buildElementClass(ListNode.attrs),
             'data-object-type': ObjectTypes.ListElement,
           },
