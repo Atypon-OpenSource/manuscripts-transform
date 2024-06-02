@@ -531,11 +531,10 @@ const encoders: NodeEncoderMap = {
     quoteType: 'block',
   }),
   list: (node): Partial<ListElement> => ({
-    elementType: node.attrs.type === 'bullet' ? 'ul' : 'ol',
+    elementType: node.attrs.listStyleType === 'bullet' ? 'ul' : 'ol',
     contents: listContents(node),
     listStyleType: node.attrs.listStyleType,
     paragraphStyle: node.attrs.paragraphStyle || undefined,
-    type: node.attrs.type,
   }),
   listing: (node): Partial<Listing> => ({
     contents: inlineText(node),

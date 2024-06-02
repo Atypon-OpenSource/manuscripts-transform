@@ -511,7 +511,6 @@ export class Decoder {
               topNode: schema.nodes.list.create({
                 id: model._id,
                 listStyleType: model.listStyleType,
-                type: model.type,
                 paragraphStyle: model.paragraphStyle,
                 comments: comments.map((c) => c.attrs.id),
               }),
@@ -528,7 +527,6 @@ export class Decoder {
               topNode: schema.nodes.list.create({
                 id: model._id,
                 listStyleType: model.listStyleType,
-                type: model.type,
                 paragraphStyle: model.paragraphStyle,
               }),
             }
