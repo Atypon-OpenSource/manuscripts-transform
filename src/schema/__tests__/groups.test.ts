@@ -42,9 +42,7 @@ const executableNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.table_element,
 ]
 
-const listNodeTypes: ManuscriptNodeType[] = [
-  schema.nodes.list,
-]
+const listNodeTypes: ManuscriptNodeType[] = [schema.nodes.list]
 
 describe('groups', () => {
   test('has group', () => {

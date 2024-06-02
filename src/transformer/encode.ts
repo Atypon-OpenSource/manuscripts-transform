@@ -533,7 +533,9 @@ const encoders: NodeEncoderMap = {
     quoteType: 'block',
   }),
   list: (node): Partial<ListElement> => ({
-    elementType: JATS_HTML_LIST_STYLE_MAPPING[node.attrs.listStyleType as JatsStyleType].type as ListElement["elementType"],
+    elementType: JATS_HTML_LIST_STYLE_MAPPING[
+      node.attrs.listStyleType as JatsStyleType
+    ].type as ListElement['elementType'],
     contents: listContents(node),
     listStyleType: node.attrs.listStyleType,
     paragraphStyle: node.attrs.paragraphStyle || undefined,
