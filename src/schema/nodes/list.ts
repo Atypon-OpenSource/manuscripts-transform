@@ -77,7 +77,7 @@ export const list: NodeSpec = {
   ],
   toDOM: (node) => {
     const ListNode = node as ListNode
-    return JATS_HTML_LIST_STYLE_MAPPING[ListNode.attrs.listStyleType as JatsStyleType].type === 'bullet'
+    return JATS_HTML_LIST_STYLE_MAPPING[ListNode.attrs.listStyleType as JatsStyleType].type === 'ul'
       ? [
           'ul',
           {

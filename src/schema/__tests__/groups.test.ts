@@ -26,12 +26,11 @@ const sectionNodeTypes: ManuscriptNodeType[] = [
 const elementNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.bibliography_element,
   schema.nodes.blockquote_element,
-  schema.nodes.bullet_list,
   schema.nodes.equation_element,
   schema.nodes.figure_element,
   schema.nodes.keywords_element,
   schema.nodes.listing_element,
-  schema.nodes.ordered_list,
+  schema.nodes.list,
   schema.nodes.paragraph,
   schema.nodes.pullquote_element,
   schema.nodes.table_element,
@@ -44,8 +43,7 @@ const executableNodeTypes: ManuscriptNodeType[] = [
 ]
 
 const listNodeTypes: ManuscriptNodeType[] = [
-  schema.nodes.bullet_list,
-  schema.nodes.ordered_list,
+  schema.nodes.list,
 ]
 
 describe('groups', () => {
