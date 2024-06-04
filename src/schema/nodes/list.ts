@@ -13,25 +13,44 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { ListElement, ObjectTypes } from '@manuscripts/json-schema'
+import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { buildElementClass } from '../../lib/attributes'
 import { ManuscriptNode } from '../types'
 
-export type JatsStyleType = NonNullable<ListElement['listStyleType']>
+export type JatsStyleType =
+  | 'simple'
+  | 'bullet'
+  | 'order'
+  | 'alpha-lower'
+  | 'alpha-upper'
+  | 'roman-lower'
+  | 'roman-upper'
+interface ListTypeInfo {
+  type: 'ul' | 'ol'
+  style: string
+}
 
-export const JATS_HTML_LIST_STYLE_MAPPING: {
-  [key in JatsStyleType]: { style: string; type: string }
-} = {
-  simple: { style: 'none', type: 'ul' },
-  bullet: { style: 'disc', type: 'ul' },
-  order: { style: 'decimal', type: 'ol' },
-  'alpha-lower': { style: 'lower-alpha', type: 'ol' },
-  'alpha-upper': { style: 'upper-alpha', type: 'ol' },
-  'roman-lower': { style: 'lower-roman', type: 'ol' },
-  'roman-upper': { style: 'upper-roman', type: 'ol' },
+export const getListType = (style: JatsStyleType): ListTypeInfo => {
+  switch (style) {
+    case 'simple':
+      return { type: 'ul', style: 'none' }
+    case 'bullet':
+      return { type: 'ul', style: 'disc' }
+    case 'order':
+      return { type: 'ol', style: 'decimal' }
+    case 'alpha-lower':
+      return { type: 'ol', style: 'lower-alpha' }
+    case 'alpha-upper':
+      return { type: 'ol', style: 'upper-alpha' }
+    case 'roman-lower':
+      return { type: 'ol', style: 'lower-roman' }
+    case 'roman-upper':
+      return { type: 'ol', style: 'upper-roman' }
+    default:
+      throw new Error(`Unsupported style type: ${style}`)
+  }
 }
 
 export interface ListNode extends ManuscriptNode {
@@ -66,7 +85,7 @@ export const list: NodeSpec = {
     {
       tag: 'ol',
       getAttrs: (p) => {
-        const dom = p as HTMLUListElement
+        const dom = p as HTMLOListElement
 
         return {
           id: dom.getAttribute('id'),
@@ -76,30 +95,18 @@ export const list: NodeSpec = {
     },
   ],
   toDOM: (node) => {
-    const ListNode = node as ListNode
-    return JATS_HTML_LIST_STYLE_MAPPING[
-      ListNode.attrs.listStyleType as JatsStyleType
-    ].type === 'ul'
-      ? [
-          'ul',
-          {
-            id: ListNode.attrs.id,
-            'list-type': ListNode.attrs.listStyleType,
-            class: buildElementClass(ListNode.attrs),
-            'data-object-type': ObjectTypes.ListElement,
-          },
-          0,
-        ]
-      : [
-          'ol',
-          {
-            id: ListNode.attrs.id,
-            'list-type': ListNode.attrs.listStyleType,
-            class: buildElementClass(ListNode.attrs),
-            'data-object-type': ObjectTypes.ListElement,
-          },
-          0,
-        ]
+    const list = node as ListNode
+    const { type } = getListType(list.attrs.listStyleType as JatsStyleType)
+    return [
+      type,
+      {
+        id: list.attrs.id,
+        'list-type': list.attrs.listStyleType,
+        class: buildElementClass(list.attrs),
+        'data-object-type': ObjectTypes.ListElement,
+      },
+      0,
+    ]
   },
 }
 

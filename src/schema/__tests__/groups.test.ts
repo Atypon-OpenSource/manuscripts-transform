@@ -42,8 +42,6 @@ const executableNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.table_element,
 ]
 
-const listNodeTypes: ManuscriptNodeType[] = [schema.nodes.list]
-
 describe('groups', () => {
   test('has group', () => {
     for (const nodeType of sectionNodeTypes) {
@@ -62,7 +60,7 @@ describe('groups', () => {
       expect(hasGroup(nodeType, GROUP_EXECUTABLE)).toBe(true)
     }
 
-    for (const nodeType of listNodeTypes) {
+    for (const nodeType of elementNodeTypes) {
       expect(hasGroup(nodeType, GROUP_LIST)).toBe(true)
     }
   })
