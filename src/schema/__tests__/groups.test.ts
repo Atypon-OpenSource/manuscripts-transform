@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { GROUP_EXECUTABLE, GROUP_LIST, ManuscriptNodeType, schema } from '../'
+import { GROUP_EXECUTABLE, ManuscriptNodeType, schema } from '../'
 import { GROUP_BLOCK, GROUP_ELEMENT, GROUP_SECTION, hasGroup } from '../groups'
 
 const sectionNodeTypes: ManuscriptNodeType[] = [
@@ -58,10 +58,6 @@ describe('groups', () => {
 
     for (const nodeType of executableNodeTypes) {
       expect(hasGroup(nodeType, GROUP_EXECUTABLE)).toBe(true)
-    }
-
-    for (const nodeType of elementNodeTypes) {
-      expect(hasGroup(nodeType, GROUP_LIST)).toBe(true)
     }
   })
 })

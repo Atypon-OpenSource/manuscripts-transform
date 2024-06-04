@@ -19,7 +19,6 @@ import { ManuscriptNodeType } from './types'
 export const GROUP_BLOCK = 'block'
 export const GROUP_ELEMENT = 'element'
 export const GROUP_EXECUTABLE = 'executable'
-export const GROUP_LIST = 'list'
 export const GROUP_SECTION = 'sections'
 
 export const hasGroup = (
