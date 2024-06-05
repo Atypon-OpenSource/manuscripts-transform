@@ -147,6 +147,9 @@ export * from './nodes/affiliations'
 export * from './nodes/contributors'
 export * from './nodes/supplement'
 export * from './nodes/supplements'
+export * from './nodes/corresp'
+export * from './nodes/author_notes'
+
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -231,5 +234,5 @@ export const schema = new Schema<Nodes, Marks>({
     supplement,
     author_notes: authorNotes,
     corresp,
-  },
+  }
 })
