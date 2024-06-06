@@ -1,5 +1,5 @@
 /*!
- * © 2020 Atypon Systems LLC
+ * © 2019 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,19 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// version file is created by prebuild script and gitignored which means you wont be able to find it in the source
+import { VERSION } from './version'
 
-module.exports = {
-  extends: '@manuscripts/eslint-config',
-  rules: {
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-  },
-  ignorePatterns: ['/src/version.ts'],
-  overrides: [
-    {
-      files: '**/*.test.ts',
-      rules: {
-        '@typescript-eslint/no-non-null-assertion': 'off',
-      },
-    },
-  ],
+export function getVersion() {
+  return VERSION
 }
