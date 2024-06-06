@@ -23,7 +23,7 @@
     "lint:fix": "eslint src --fix --ext .js,.ts",
     "prebuild": "rimraf dist && yarn version-file",
     "prettier": "prettier --write \"src/**/*.{ts,tsx}\" \"*.{js,json}\"",
-    "preversion": "npm-run-all --parallel typecheck lint test",
+    "preversion": "npm-run-all --parallel typecheck lint test build",
     "test": "jest --runInBand",
     "test:debug": "DEBUG=manuscripts-transform yarn test",
     "typecheck": "tsc --noEmit",
