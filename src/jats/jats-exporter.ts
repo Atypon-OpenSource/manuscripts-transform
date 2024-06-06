@@ -932,7 +932,6 @@ export class JATSExporter {
         'list',
         {
           'list-type': node.attrs.listStyleType ?? 'bullet',
-          type: node.attrs.type,
         },
         0,
       ],
