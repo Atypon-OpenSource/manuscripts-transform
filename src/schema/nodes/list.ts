@@ -39,15 +39,15 @@ export const getListType = (style: JatsStyleType): ListTypeInfo => {
     case 'bullet':
       return { type: 'ul', style: 'disc' }
     case 'order':
-      return { type: 'ol', style: 'decimal' }
+      return { type: 'ul', style: 'decimal' }
     case 'alpha-lower':
-      return { type: 'ol', style: 'lower-alpha' }
+      return { type: 'ul', style: 'lower-alpha' }
     case 'alpha-upper':
-      return { type: 'ol', style: 'upper-alpha' }
+      return { type: 'ul', style: 'upper-alpha' }
     case 'roman-lower':
-      return { type: 'ol', style: 'lower-roman' }
+      return { type: 'ul', style: 'lower-roman' }
     case 'roman-upper':
-      return { type: 'ol', style: 'upper-roman' }
+      return { type: 'ul', style: 'upper-roman' }
     default:
       throw new Error(`Unsupported style type: ${style}`)
   }
