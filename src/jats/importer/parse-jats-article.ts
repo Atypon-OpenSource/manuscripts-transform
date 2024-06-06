@@ -160,7 +160,7 @@ const createBibliographyModels = (references: References) => {
 }
 
 const clearUnsupportedChars = (input = '') => {
-  return input.replace(/[\u2028\u2029]/gim, ' ')
+  return input.replace(/[\u2028\u2029]/gim, '<break/>')
 }
 
 const createElementFn = (doc: Document) => (tagName: string) =>
