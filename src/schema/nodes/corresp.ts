@@ -45,6 +45,5 @@ export const corresp: NodeSpec = {
     ]
   },
 }
-export const isCorrespNode = (
-  node: ManuscriptNode
-): node is CorrespNode => node.type === node.type.schema.nodes.corresp
+export const isCorrespNode = (node: ManuscriptNode): node is CorrespNode =>
+  node.type === node.type.schema.nodes.corresp

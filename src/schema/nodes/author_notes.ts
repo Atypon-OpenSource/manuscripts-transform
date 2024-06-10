@@ -33,8 +33,12 @@ export const authorNotes: NodeSpec = {
   },
   content: 'section_title (corresp | footnote | paragraph)+',
   group: 'block element',
-  toDOM: (node) => ['div', { 
-    class: 'author-notes',
-    id: node.attrs.id
-  }, 0],
+  toDOM: (node) => [
+    'div',
+    {
+      class: 'author-notes',
+      id: node.attrs.id,
+    },
+    0,
+  ],
 }

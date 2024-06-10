@@ -927,7 +927,7 @@ export class Decoder {
       .filter(Boolean)
     return schema.nodes.author_notes.createAndFill({}, [
       schema.nodes.section_title.create({}, schema.text('Correspondence')),
-      ...elements
+      ...elements,
     ]) as ManuscriptNode
   }
 
