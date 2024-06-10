@@ -4531,12 +4531,20 @@ Array [
     "containedObjectIDs": Array [
       "MPFootnotesElement:test",
       "MPParagraphElement:test",
+      "MPParagraphElement:test",
     ],
     "objectType": "MPTableElementFooter",
   },
   Object {
     "_id": "MPParagraphElement:test",
     "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Values are expressed as frequencies (%) or as mean ± standard deviations. Abbreviations: AHM, antihypertensive medication; CLM, cholesterol lowering medication.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",

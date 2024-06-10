@@ -17,7 +17,12 @@
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
-import { Marks, Nodes, schema } from '../../schema'
+import {
+  ManuscriptNode,
+  Marks,
+  Nodes,
+  schema,
+} from '../../schema'
 import { chooseSectionCategory } from '../../transformer'
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
@@ -354,11 +359,15 @@ const nodes: NodeRule[] = [
       }
     },
     getContent: (node) => {
-      const generalTableFootnote = schema.nodes.paragraph.create()
-      const content = jatsBodyDOMParser.parse(node, {
-        topNode: generalTableFootnote,
+      const paragraphs: ManuscriptNode[] = []
+      node.childNodes.forEach((p) => {
+        const paragraph = schema.nodes.paragraph.create()
+        const content = jatsBodyDOMParser.parse(p, {
+          topNode: paragraph,
+        })
+        paragraphs.push(content)
       })
-      return Fragment.from([content]) as Fragment
+      return Fragment.from([...paragraphs]) as Fragment
     },
   },
   {
