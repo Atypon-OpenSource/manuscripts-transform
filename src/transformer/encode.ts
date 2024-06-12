@@ -442,6 +442,7 @@ const encoders: NodeEncoderMap = {
     title: inlineContents(node),
     subtitle: node.attrs.subtitle,
     runningTitle: node.attrs.runningTitle,
+    placeholder: node.attrs.placeholder,
     _id: node.attrs._id,
   }),
   bibliography_element: (node): Partial<BibliographyElement> => ({
@@ -770,7 +771,6 @@ const modelData = (
   priority: PrioritizedValue
 ): Partial<Model> => {
   const encoder = encoders[node.type.name as Nodes]
-
   if (!encoder) {
     throw new Error(`Unhandled model: ${node.type.name}`)
   }
@@ -806,10 +806,8 @@ export const modelFromNode = (
     _id: id,
     objectType: objectType,
   }
-
   const model = data as Model
   const markers = extractCommentMarkers(model)
-
   return { model, markers }
 }
 

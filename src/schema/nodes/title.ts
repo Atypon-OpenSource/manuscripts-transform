@@ -23,6 +23,7 @@ interface Attrs {
   title: string
   subtitle: string
   runningTitle: string
+  placeholder: string
 }
 
 export interface TitleNode extends ManuscriptNode {
@@ -33,6 +34,7 @@ export const title: NodeSpec = {
   content: '(text | highlight_marker)*',
   attrs: {
     id: { default: '' },
+    placeholder: { default: 'Insert title here...' },
     dataTracked: { default: null },
   },
   group: 'block element',

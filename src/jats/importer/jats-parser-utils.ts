@@ -112,7 +112,7 @@ const updateNodeRIDS = (
   node: ManuscriptNode,
   replacements: Map<string, string>,
   // eslint-disable-next-line
-    warnings: string[]
+  warnings: string[]
 ) => {
   const previousRIDs: string[] = node.attrs.rids
   if (!('rids' in node.attrs) || !previousRIDs.length) {
