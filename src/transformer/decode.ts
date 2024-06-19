@@ -958,9 +958,6 @@ export class Decoder {
   }
 
   private createCommentsNode() {
-    if (!this.comments.size) {
-      return false
-    }
     return schema.nodes.comments.createAndFill({}, [
       ...this.comments.values(),
     ]) as ManuscriptNode
@@ -1051,7 +1048,6 @@ export class Decoder {
       ...this.createContentSections(),
       this.createCommentsNode(),
     ]
-
     const contents = nodes.filter((node) => node !== false)
 
     return schema.nodes.manuscript.create(
