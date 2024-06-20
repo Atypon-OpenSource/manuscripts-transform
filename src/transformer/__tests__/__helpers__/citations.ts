@@ -56,6 +56,7 @@ export const createTestModelMapWithCitations = () => {
     runningTitle: 'runningTitle',
     createdAt: 0,
     updatedAt: 0,
+    placeholder: 'Insert title here...',
     manuscriptID: manuscript._id,
     containerID: project._id,
   }

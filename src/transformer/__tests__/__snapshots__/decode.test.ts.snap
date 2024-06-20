@@ -10,6 +10,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -21,6 +22,7 @@ Object {
     },
     Object {
       "attrs": Object {
+        "firstInitials": false,
         "id": "",
       },
       "content": Array [
@@ -125,58 +127,6 @@ Object {
         },
       ],
       "type": "affiliations",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Keywords",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "contents": "",
-            "dataTracked": null,
-            "id": "",
-            "paragraphStyle": "",
-            "type": "",
-          },
-          "type": "keywords_element",
-        },
-      ],
-      "type": "keywords",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -1967,6 +1917,7 @@ const x = 'y'",
     Object {
       "attrs": Object {
         "id": "",
+        "placeholder": " ",
       },
       "content": Array [
         Object {
@@ -2044,6 +1995,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -2055,6 +2007,7 @@ Object {
     },
     Object {
       "attrs": Object {
+        "firstInitials": false,
         "id": "",
       },
       "content": Array [
@@ -2159,58 +2112,6 @@ Object {
         },
       ],
       "type": "affiliations",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Keywords",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "contents": "",
-            "dataTracked": null,
-            "id": "",
-            "paragraphStyle": "",
-            "type": "",
-          },
-          "type": "keywords_element",
-        },
-      ],
-      "type": "keywords",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -3758,6 +3659,7 @@ const x = 'y'",
     Object {
       "attrs": Object {
         "id": "",
+        "placeholder": " ",
       },
       "content": Array [
         Object {
@@ -3835,6 +3737,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -3846,6 +3749,7 @@ Object {
     },
     Object {
       "attrs": Object {
+        "firstInitials": false,
         "id": "",
       },
       "content": Array [
@@ -3950,58 +3854,6 @@ Object {
         },
       ],
       "type": "affiliations",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Keywords",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "contents": "",
-            "dataTracked": null,
-            "id": "",
-            "paragraphStyle": "",
-            "type": "",
-          },
-          "type": "keywords_element",
-        },
-      ],
-      "type": "keywords",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -5792,6 +5644,7 @@ const x = 'y'",
     Object {
       "attrs": Object {
         "id": "",
+        "placeholder": " ",
       },
       "content": Array [
         Object {
@@ -5869,6 +5722,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "MPTitles:1",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -5877,70 +5731,6 @@ Object {
         },
       ],
       "type": "title",
-    },
-    Object {
-      "attrs": Object {
-        "id": "",
-      },
-      "type": "contributors",
-    },
-    Object {
-      "attrs": Object {
-        "id": "",
-      },
-      "type": "affiliations",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Keywords",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "contents": "",
-            "dataTracked": null,
-            "id": "",
-            "paragraphStyle": "",
-            "type": "",
-          },
-          "type": "keywords_element",
-        },
-      ],
-      "type": "keywords",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -6051,6 +5841,7 @@ Object {
     Object {
       "attrs": Object {
         "id": "",
+        "placeholder": " ",
       },
       "type": "backmatter",
     },
@@ -6075,6 +5866,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "MPTitles:1",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -6105,70 +5897,6 @@ Object {
         },
       ],
       "type": "title",
-    },
-    Object {
-      "attrs": Object {
-        "id": "MPSection:contributors",
-      },
-      "type": "contributors",
-    },
-    Object {
-      "attrs": Object {
-        "id": "MPSection:affiliations",
-      },
-      "type": "affiliations",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "MPSection:kwd",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Keywords",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "contents": "",
-            "dataTracked": null,
-            "id": "",
-            "paragraphStyle": "",
-            "type": "",
-          },
-          "type": "keywords_element",
-        },
-      ],
-      "type": "keywords",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -6353,6 +6081,7 @@ Object {
     Object {
       "attrs": Object {
         "id": "MPSection:backmatter",
+        "placeholder": " ",
       },
       "type": "backmatter",
     },
@@ -6436,6 +6165,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "MPTitles:1",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -6444,18 +6174,6 @@ Object {
         },
       ],
       "type": "title",
-    },
-    Object {
-      "attrs": Object {
-        "id": "",
-      },
-      "type": "contributors",
-    },
-    Object {
-      "attrs": Object {
-        "id": "",
-      },
-      "type": "affiliations",
     },
     Object {
       "attrs": Object {
@@ -6516,27 +6234,6 @@ Object {
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
-    },
-    Object {
-      "attrs": Object {
         "id": "",
       },
       "type": "abstracts",
@@ -6550,6 +6247,7 @@ Object {
     Object {
       "attrs": Object {
         "id": "",
+        "placeholder": " ",
       },
       "type": "backmatter",
     },
@@ -6574,6 +6272,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "someId",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -6582,18 +6281,6 @@ Object {
         },
       ],
       "type": "title",
-    },
-    Object {
-      "attrs": Object {
-        "id": "",
-      },
-      "type": "contributors",
-    },
-    Object {
-      "attrs": Object {
-        "id": "",
-      },
-      "type": "affiliations",
     },
     Object {
       "attrs": Object {
@@ -6654,27 +6341,6 @@ Object {
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
-    },
-    Object {
-      "attrs": Object {
         "id": "",
       },
       "type": "abstracts",
@@ -6688,6 +6354,7 @@ Object {
     Object {
       "attrs": Object {
         "id": "",
+        "placeholder": " ",
       },
       "type": "backmatter",
     },
