@@ -20,7 +20,7 @@ import { NodeSpec } from 'prosemirror-model'
 // It exists for the purpose of styling in the UI
 
 export const affiliations: NodeSpec = {
-  content: 'affiliation* paragraph*',
+  content: 'affiliation*',
   attrs: {
     id: { default: '' },
   },

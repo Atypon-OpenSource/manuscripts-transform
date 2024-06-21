@@ -1053,7 +1053,7 @@ export class Decoder {
       backmatter,
       comments,
     ]
-    
+
     return schema.nodes.manuscript.create(
       {
         id: manuscriptID || this.getManuscriptID(),

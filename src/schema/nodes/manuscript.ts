@@ -21,7 +21,7 @@ import { ManuscriptNode } from '../types'
 export interface ActualManuscriptNode extends ManuscriptNode {
   attrs: {
     id: string,
-    doi: string,
+    doi: string
   }
 }
 
@@ -50,11 +50,11 @@ export const manuscript: NodeSpec = {
   ],
   toDOM: (node) => {
     const manuscriptNode = node as ActualManuscriptNode
+
     return [
       'article',
       {
         id: manuscriptNode.attrs.id,
-        doi: manuscriptNode.attrs.doi,
       },
       0,
     ]
