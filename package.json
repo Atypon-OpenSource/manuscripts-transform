@@ -51,6 +51,7 @@
     "@types/lodash.pickby": "^4.6.7",
     "@types/mime": "^3.0.1",
     "@types/node": "^18.11.18",
+    "@types/npm": "^7.19.3",
     "@types/uuid": "^9.0.0",
     "@types/w3c-xmlserializer": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
