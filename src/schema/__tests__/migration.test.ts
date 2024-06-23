@@ -18,6 +18,8 @@ import { exec } from 'child_process'
 import { getVersion } from '../../getVersion'
 import { isEqual } from 'lodash'
 import { schema } from '..'
+import { migrateFor } from '../migration/migrate'
+import { Node as ProsemirrorNode } from 'prosemirror-model'
 
 const packageName = '@manuscripts/transform'
 
@@ -54,17 +56,28 @@ async function getPrevProdVersion() {
         }
         return true
       })
+      if (!prev) {
+        console.error(`Unable to locate previous version of ` + packageName)
+        return
+      }
+      // @TODO - may cause yarn.lock change - check before merging
       await runInChild(
         `npm install ${packageName}-${prev}@npm:${packageName}@${prev} --no-save`
       )
 
       const prevPackage = await import(`${packageName}-${prev}`)
       const prevSchema = prevPackage.schema
+
       if (isEqual(prevSchema, schema)) {
         console.log(
           `Schemas are equal between ${getVersion()} and ${prev}. Skipping migrations tests`
         )
+        return
       }
+
+      // @TODO - merge the exposure of createTestDoc first
+      const testDoc = prevPackage.createTestDoc() as ProsemirrorNode
+      migrateFor(testDoc.toJSON(), prev)
     }
   } catch (e) {
     console.error(e)
