@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import { schema } from '..'
-import { getVersion } from '../../getVersion'
 import { MigrationScript } from './migration-script'
 import migrationScripts from './migration-scripts'
 
