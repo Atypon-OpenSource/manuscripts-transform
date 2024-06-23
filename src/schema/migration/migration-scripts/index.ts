@@ -14,11 +14,8 @@
  * limitations under the License.
  */
 
-import { Schema } from 'prosemirror-model'
-import { JSONNode } from './migrate'
+import Migration125 from './1.2.5'
 
-export interface MigrationScript {
-  fromVersion: string
-  toVersion: string
-  migrateNode: (node: JSONNode, doc: JSONNode, newSchema: Schema) => JSONNode
-}
+const migrations = [new Migration125()]
+
+export default migrations

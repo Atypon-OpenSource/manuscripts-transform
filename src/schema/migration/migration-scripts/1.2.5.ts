@@ -14,14 +14,24 @@
  * limitations under the License.
  */
 
-import { Transaction } from 'prosemirror-state'
 import { MigrationScript } from '../migration-script'
-import { Node as ProsemirrorNode } from 'prosemirror-model'
+import { JSONNode } from '../migrate'
+import { Schema } from 'prosemirror-model'
 
-class Migration126 implements MigrationScript {
-  fromVersion: '1.2.4'
-  toVersion: '1.2.5'
-  descendants(pos: string, node: ProsemirrorNode) {}
+// @NOTE - this is an example migration
+class Migration125 implements MigrationScript {
+  fromVersion: '1.2.3'
+  toVersion: '1.2.4'
+  migrateNode(node: JSONNode, doc: JSONNode, schema: Schema) {
+    if (node.type === 'paragraph') {
+      const newNode = schema.nodes.paragraph.create(
+        { someNewFanctAttribute: 'example-value', ...node.attrs },
+        schema.text('some valid text')
+      )
+      return newNode.toJSON()
+    }
+    return node
+  }
 }
 
-export default Migration126
+export default Migration125
