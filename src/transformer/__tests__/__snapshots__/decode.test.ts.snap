@@ -3,6 +3,7 @@
 exports[`decoder create test doc 1`] = `
 Object {
   "attrs": Object {
+    "doi": "",
     "id": "MPManuscript:8EB79C14-9F61-483A-902F-A0B8EF5973C9",
   },
   "content": Array [
@@ -2037,6 +2038,7 @@ const x = 'y'",
 exports[`decoder create test doc with missing data: decoded-with-placeholders 1`] = `
 Object {
   "attrs": Object {
+    "doi": "",
     "id": "MPManuscript:8EB79C14-9F61-483A-902F-A0B8EF5973C9",
   },
   "content": Array [
@@ -3828,6 +3830,7 @@ const x = 'y'",
 exports[`decoder create test doc with missing data: decoded-without-placeholders 1`] = `
 Object {
   "attrs": Object {
+    "doi": "",
     "id": "MPManuscript:8EB79C14-9F61-483A-902F-A0B8EF5973C9",
   },
   "content": Array [
@@ -5862,6 +5865,7 @@ const x = 'y'",
 exports[`decoder decode citations 1`] = `
 Object {
   "attrs": Object {
+    "doi": "",
     "id": "MPManuscript:1",
   },
   "content": Array [
@@ -6068,6 +6072,7 @@ Object {
 exports[`decoder decode highlight markers 1`] = `
 Object {
   "attrs": Object {
+    "doi": "",
     "id": "MPManuscript:1",
   },
   "content": Array [
@@ -6429,6 +6434,7 @@ Object {
 exports[`decoder decode keyword element 1`] = `
 Object {
   "attrs": Object {
+    "doi": "",
     "id": "MPManuscript:1",
   },
   "content": Array [
@@ -6567,6 +6573,7 @@ Object {
 exports[`decoder decode keywords with authorQuery 1`] = `
 Object {
   "attrs": Object {
+    "doi": "",
     "id": "MPManuscript:1",
   },
   "content": Array [
