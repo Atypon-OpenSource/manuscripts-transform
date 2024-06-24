@@ -100,6 +100,7 @@ import { AuthorNotesNode } from '../schema/nodes/author_notes'
 import { KeywordGroupNode } from '../schema/nodes/keyword_group'
 import { buildTitles } from './builders'
 import { insertHighlightMarkers } from './highlight-markers'
+import { generateID } from './id'
 import { PlaceholderElement } from './models'
 import {
   ExtraObjectTypes,
@@ -644,14 +645,36 @@ export class Decoder {
     },
     [ObjectTypes.TableElementFooter]: (data) => {
       const model = data as TableElementFooter
-      const content = model.containedObjectIDs.map((id) =>
-        this.decode(this.modelMap.get(id) as Model)
-      ) as ManuscriptNode[]
+      const contents: ManuscriptNode[] = []
+      const generalTableFootnotes: ManuscriptNode[] = []
+      const footnotesElements: ManuscriptNode[] = []
+      for (const containedObjectID of model.containedObjectIDs) {
+        const model = this.modelMap.get(containedObjectID) as Model
+        if (model.objectType === ObjectTypes.ParagraphElement) {
+          const paragraph = this.decode(model)
+          if (paragraph) {
+            generalTableFootnotes.push(paragraph)
+          }
+        } else {
+          footnotesElements.push(this.decode(model) as ManuscriptNode)
+        }
+      }
+      if (generalTableFootnotes && generalTableFootnotes.length) {
+        contents.push(
+          schema.nodes.general_table_footnote.create(
+            { id: generateID(ExtraObjectTypes.GeneralTableFootnote) },
+            [...generalTableFootnotes]
+          )
+        )
+      }
+      if (footnotesElements && footnotesElements.length) {
+        contents.push(...footnotesElements)
+      }
       return schema.nodes.table_element_footer.create(
         {
           id: model._id,
         },
-        content
+        contents
       )
     },
 
