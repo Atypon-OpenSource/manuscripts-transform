@@ -56,6 +56,7 @@ import {
   Marks,
   Nodes,
   schema,
+  TableElementFooterNode,
   TableElementNode,
 } from '../schema'
 import { generateAttachmentFilename } from '../transformer/filename'
@@ -989,6 +990,12 @@ export class JATSExporter {
       doc: () => '',
       equation: (node) => {
         return this.createEquation(node)
+      },
+      general_table_footnote: (node) => {
+        const el = this.document.createElement('general-table-footnote')
+        el.setAttribute('id', normalizeID(node.attrs.id))
+        processChildNodes(el, node, schema.nodes.general_table_footnote)
+        return el
       },
       inline_equation: (node) => {
         const eqElement = this.document.createElement('inline-formula')
@@ -1954,6 +1961,19 @@ export class JATSExporter {
           }
         }
 
+        if (
+          isNodeType<TableElementFooterNode>(node, 'general_table_footnote')
+        ) {
+          const generalTableFootnote = body.querySelector(
+            `#${normalizeID(node.attrs.id)}`
+          )
+          if (generalTableFootnote) {
+            Array.from(generalTableFootnote.childNodes).forEach((cn) => {
+              generalTableFootnote.before(cn)
+            })
+            generalTableFootnote.remove()
+          }
+        }
         // move captions to the top of tables
         if (isNodeType<TableElementNode>(node, 'table_element')) {
           const tableElement = body.querySelector(

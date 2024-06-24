@@ -58,6 +58,7 @@ import { figureElement } from './nodes/figure_element'
 import { footnote } from './nodes/footnote'
 import { footnotesElement } from './nodes/footnotes_element'
 import { footnotesSection } from './nodes/footnotes_section'
+import { generalTableFootnote } from './nodes/general_table_footnote'
 import { graphicalAbstractSection } from './nodes/graphical_abstract_section'
 import { hardBreak } from './nodes/hard_break'
 import { highlightMarker } from './nodes/highlight_marker'
@@ -111,6 +112,7 @@ export * from './nodes/equation_element'
 export * from './nodes/figcaption'
 export * from './nodes/figure'
 export * from './nodes/figure_element'
+export * from './nodes/general_table_footnote'
 export * from './nodes/footnote'
 export * from './nodes/footnotes_element'
 export * from './nodes/footnotes_section'
@@ -187,6 +189,7 @@ export const schema = new Schema<Nodes, Marks>({
     footnote,
     footnotes_element: footnotesElement,
     footnotes_section: footnotesSection,
+    general_table_footnote: generalTableFootnote,
     graphical_abstract_section: graphicalAbstractSection,
     hard_break: hardBreak,
     highlight_marker: highlightMarker,
