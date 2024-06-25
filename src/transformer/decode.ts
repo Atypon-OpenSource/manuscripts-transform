@@ -63,7 +63,6 @@ import {
   BibliographyElementNode,
   BibliographyItemNode,
   BlockquoteElementNode,
-  BulletListNode,
   CaptionNode,
   CaptionTitleNode,
   CommentNode,
@@ -80,9 +79,9 @@ import {
   KeywordsNode,
   ListingElementNode,
   ListingNode,
+  ListNode,
   ManuscriptNode,
   MissingFigureNode,
-  OrderedListNode,
   ParagraphNode,
   PlaceholderElementNode,
   PlaceholderNode,
@@ -510,14 +509,14 @@ export class Decoder {
             undefined,
             this.getComments(model),
             {
-              topNode: schema.nodes.ordered_list.create({
+              topNode: schema.nodes.list.create({
                 id: model._id,
-                listStyleType: model.listStyleType,
+                listStyleType: model.listStyleType || 'order',
                 paragraphStyle: model.paragraphStyle,
                 comments: comments.map((c) => c.attrs.id),
               }),
             }
-          ) as OrderedListNode
+          ) as ListNode
 
         case 'ul':
           // TODO: wrap inline text in paragraphs
@@ -526,13 +525,13 @@ export class Decoder {
             undefined,
             this.getComments(model),
             {
-              topNode: schema.nodes.bullet_list.create({
+              topNode: schema.nodes.list.create({
                 id: model._id,
-                listStyleType: model.listStyleType,
+                listStyleType: model.listStyleType || 'bullet',
                 paragraphStyle: model.paragraphStyle,
               }),
             }
-          ) as BulletListNode
+          ) as ListNode
 
         default:
           throw new Error('Unknown list element type')
