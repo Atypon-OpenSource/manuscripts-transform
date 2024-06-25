@@ -459,7 +459,7 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPListElement:D1C6E3B5-C549-47B8-B051-1F534E8AA7E7",
-                "listStyleType": null,
+                "listStyleType": "order",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
               },
               "content": Array [
@@ -489,13 +489,13 @@ Object {
                   "type": "list_item",
                 },
               ],
-              "type": "ordered_list",
+              "type": "list",
             },
             Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPListElement:F11B9FCA-5DB5-4ED4-FEF9-10CDCB64F96E",
-                "listStyleType": null,
+                "listStyleType": "bullet",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
               },
               "content": Array [
@@ -525,13 +525,13 @@ Object {
                   "type": "list_item",
                 },
               ],
-              "type": "bullet_list",
+              "type": "list",
             },
             Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPListElement:AF5341C4-5E24-40BF-B853-F966726431EB",
-                "listStyleType": null,
+                "listStyleType": "order",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
               },
               "content": Array [
@@ -561,7 +561,7 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": null,
-                        "listStyleType": null,
+                        "listStyleType": "order",
                         "paragraphStyle": "",
                       },
                       "content": Array [
@@ -591,13 +591,13 @@ Object {
                           "type": "list_item",
                         },
                       ],
-                      "type": "ordered_list",
+                      "type": "list",
                     },
                   ],
                   "type": "list_item",
                 },
               ],
-              "type": "ordered_list",
+              "type": "list",
             },
             Object {
               "attrs": Object {
@@ -2408,7 +2408,7 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPListElement:D1C6E3B5-C549-47B8-B051-1F534E8AA7E7",
-                "listStyleType": null,
+                "listStyleType": "order",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
               },
               "content": Array [
@@ -2438,13 +2438,13 @@ Object {
                   "type": "list_item",
                 },
               ],
-              "type": "ordered_list",
+              "type": "list",
             },
             Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPListElement:F11B9FCA-5DB5-4ED4-FEF9-10CDCB64F96E",
-                "listStyleType": null,
+                "listStyleType": "bullet",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
               },
               "content": Array [
@@ -2474,13 +2474,13 @@ Object {
                   "type": "list_item",
                 },
               ],
-              "type": "bullet_list",
+              "type": "list",
             },
             Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPListElement:AF5341C4-5E24-40BF-B853-F966726431EB",
-                "listStyleType": null,
+                "listStyleType": "order",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
               },
               "content": Array [
@@ -2510,7 +2510,7 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": null,
-                        "listStyleType": null,
+                        "listStyleType": "order",
                         "paragraphStyle": "",
                       },
                       "content": Array [
@@ -2540,13 +2540,13 @@ Object {
                           "type": "list_item",
                         },
                       ],
-                      "type": "ordered_list",
+                      "type": "list",
                     },
                   ],
                   "type": "list_item",
                 },
               ],
-              "type": "ordered_list",
+              "type": "list",
             },
             Object {
               "attrs": Object {
@@ -4184,7 +4184,7 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPListElement:D1C6E3B5-C549-47B8-B051-1F534E8AA7E7",
-                "listStyleType": null,
+                "listStyleType": "order",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
               },
               "content": Array [
@@ -4214,13 +4214,13 @@ Object {
                   "type": "list_item",
                 },
               ],
-              "type": "ordered_list",
+              "type": "list",
             },
             Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPListElement:F11B9FCA-5DB5-4ED4-FEF9-10CDCB64F96E",
-                "listStyleType": null,
+                "listStyleType": "bullet",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
               },
               "content": Array [
@@ -4250,13 +4250,13 @@ Object {
                   "type": "list_item",
                 },
               ],
-              "type": "bullet_list",
+              "type": "list",
             },
             Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPListElement:AF5341C4-5E24-40BF-B853-F966726431EB",
-                "listStyleType": null,
+                "listStyleType": "order",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
               },
               "content": Array [
@@ -4286,7 +4286,7 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": null,
-                        "listStyleType": null,
+                        "listStyleType": "order",
                         "paragraphStyle": "",
                       },
                       "content": Array [
@@ -4316,13 +4316,13 @@ Object {
                           "type": "list_item",
                         },
                       ],
-                      "type": "ordered_list",
+                      "type": "list",
                     },
                   ],
                   "type": "list_item",
                 },
               ],
-              "type": "ordered_list",
+              "type": "list",
             },
             Object {
               "attrs": Object {

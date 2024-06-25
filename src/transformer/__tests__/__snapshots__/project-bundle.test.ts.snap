@@ -426,7 +426,7 @@ Object {
                     "attrs": Object {
                       "dataTracked": null,
                       "id": "MPListElement:EFDBD9B7-19D2-44A4-8686-C31572CCB72C",
-                      "listStyleType": null,
+                      "listStyleType": "order",
                       "paragraphStyle": "",
                     },
                     "content": Array [
@@ -506,13 +506,13 @@ Object {
                         "type": "list_item",
                       },
                     ],
-                    "type": "ordered_list",
+                    "type": "list",
                   },
                   Object {
                     "attrs": Object {
                       "dataTracked": null,
                       "id": "MPListElement:5752AF4C-4ED8-4FA5-9BE5-CCAB7DE83C99",
-                      "listStyleType": null,
+                      "listStyleType": "bullet",
                       "paragraphStyle": "",
                     },
                     "content": Array [
@@ -617,7 +617,7 @@ Object {
                         "type": "list_item",
                       },
                     ],
-                    "type": "bullet_list",
+                    "type": "list",
                   },
                   Object {
                     "attrs": Object {
@@ -951,6 +951,7 @@ Object {
       "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:5752AF4C-4ED8-4FA5-9BE5-CCAB7DE83C99\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">Hobbits</li><li data-placeholder-text=\\"List item\\">Ents</li><li data-placeholder-text=\\"List item\\">Orcs</li><li data-placeholder-text=\\"List item\\">Uruk-hai</li></ul>",
       "createdAt": 1558719800,
       "elementType": "ul",
+      "listStyleType": "bullet",
       "manuscriptID": "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8",
       "objectType": "MPListElement",
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
@@ -962,6 +963,7 @@ Object {
       "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:EFDBD9B7-19D2-44A4-8686-C31572CCB72C\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">The Shire</li><li data-placeholder-text=\\"List item\\">Minas Tirith</li><li data-placeholder-text=\\"List item\\">Rivendell</li></ol>",
       "createdAt": 1558719771,
       "elementType": "ol",
+      "listStyleType": "order",
       "manuscriptID": "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8",
       "objectType": "MPListElement",
       "paragraphStyle": "",
@@ -1780,7 +1782,7 @@ Object {
                     "attrs": Object {
                       "dataTracked": null,
                       "id": "MPListElement:EFDBD9B7-19D2-44A4-8686-C31572CCB72C",
-                      "listStyleType": null,
+                      "listStyleType": "order",
                       "paragraphStyle": "",
                     },
                     "content": Array [
@@ -1860,13 +1862,13 @@ Object {
                         "type": "list_item",
                       },
                     ],
-                    "type": "ordered_list",
+                    "type": "list",
                   },
                   Object {
                     "attrs": Object {
                       "dataTracked": null,
                       "id": "MPListElement:5752AF4C-4ED8-4FA5-9BE5-CCAB7DE83C99",
-                      "listStyleType": null,
+                      "listStyleType": "bullet",
                       "paragraphStyle": "",
                     },
                     "content": Array [
@@ -1971,7 +1973,7 @@ Object {
                         "type": "list_item",
                       },
                     ],
-                    "type": "bullet_list",
+                    "type": "list",
                   },
                   Object {
                     "attrs": Object {
@@ -2324,6 +2326,7 @@ Object {
       "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:5752AF4C-4ED8-4FA5-9BE5-CCAB7DE83C99\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">Hobbits</li><li data-placeholder-text=\\"List item\\">Ents</li><li data-placeholder-text=\\"List item\\">Orcs</li><li data-placeholder-text=\\"List item\\">Uruk-hai</li></ul>",
       "createdAt": 1558719800,
       "elementType": "ul",
+      "listStyleType": "bullet",
       "manuscriptID": "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8",
       "objectType": "MPListElement",
       "sessionID": "02b8ed9b-43bc-41a0-9732-f478f7fab0cc",
@@ -2335,6 +2338,7 @@ Object {
       "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:EFDBD9B7-19D2-44A4-8686-C31572CCB72C\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">The Shire</li><li data-placeholder-text=\\"List item\\">Minas Tirith</li><li data-placeholder-text=\\"List item\\">Rivendell</li></ol>",
       "createdAt": 1558719771,
       "elementType": "ol",
+      "listStyleType": "order",
       "manuscriptID": "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8",
       "objectType": "MPListElement",
       "paragraphStyle": "",

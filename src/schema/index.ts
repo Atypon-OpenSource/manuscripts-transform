@@ -58,6 +58,7 @@ import { figureElement } from './nodes/figure_element'
 import { footnote } from './nodes/footnote'
 import { footnotesElement } from './nodes/footnotes_element'
 import { footnotesSection } from './nodes/footnotes_section'
+import { generalTableFootnote } from './nodes/general_table_footnote'
 import { graphicalAbstractSection } from './nodes/graphical_abstract_section'
 import { hardBreak } from './nodes/hard_break'
 import { highlightMarker } from './nodes/highlight_marker'
@@ -68,7 +69,7 @@ import { keywordGroup } from './nodes/keyword_group'
 import { keywords } from './nodes/keywords'
 import { keywordsElement } from './nodes/keywords_element'
 import { link } from './nodes/link'
-import { bulletList, listItem, orderedList } from './nodes/list'
+import { list, listItem } from './nodes/list'
 import { listing } from './nodes/listing'
 import { listingElement } from './nodes/listing_element'
 import { manuscript } from './nodes/manuscript'
@@ -111,6 +112,7 @@ export * from './nodes/equation_element'
 export * from './nodes/figcaption'
 export * from './nodes/figure'
 export * from './nodes/figure_element'
+export * from './nodes/general_table_footnote'
 export * from './nodes/footnote'
 export * from './nodes/footnotes_element'
 export * from './nodes/footnotes_section'
@@ -170,7 +172,7 @@ export const schema = new Schema<Nodes, Marks>({
     bibliography_element: bibliographyElement,
     bibliography_section: bibliographySection,
     blockquote_element: blockquoteElement,
-    bullet_list: bulletList,
+    list: list,
     caption,
     caption_title: captionTitle,
     citation,
@@ -187,6 +189,7 @@ export const schema = new Schema<Nodes, Marks>({
     footnote,
     footnotes_element: footnotesElement,
     footnotes_section: footnotesSection,
+    general_table_footnote: generalTableFootnote,
     graphical_abstract_section: graphicalAbstractSection,
     hard_break: hardBreak,
     highlight_marker: highlightMarker,
@@ -202,7 +205,6 @@ export const schema = new Schema<Nodes, Marks>({
     listing_element: listingElement,
     manuscript,
     missing_figure: missingFigure,
-    ordered_list: orderedList,
     paragraph,
     placeholder,
     placeholder_element: placeholderElement,

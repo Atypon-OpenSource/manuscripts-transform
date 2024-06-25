@@ -53,6 +53,7 @@ import serializeToXML from 'w3c-xmlserializer'
 
 import { iterateChildren } from '../lib/utils'
 import {
+  getListType,
   hasGroup,
   isHighlightMarkerNode,
   isManuscriptNode,
@@ -354,6 +355,19 @@ const containedBibliographyItemIDs = (node: ManuscriptNode): string[] => {
   const bibliographyItemNodeType = node.type.schema.nodes.bibliography_item
   return containedObjectIDs(node, [bibliographyItemNodeType])
 }
+
+const tableElementFooterContainedIDs = (node: ManuscriptNode): string[] => {
+  const containedGeneralTableFootnoteIDs = containedObjectIDs(node, [
+    schema.nodes.footnotes_element,
+  ])
+  for (let i = 0; i < node.childCount; i++) {
+    const childNode = node.child(i)
+    if (childNode.type === schema.nodes.general_table_footnote) {
+      containedGeneralTableFootnoteIDs.push(...containedObjectIDs(childNode))
+    }
+  }
+  return containedGeneralTableFootnoteIDs
+}
 const containedObjectIDs = (
   node: ManuscriptNode,
   nodeTypes?: ManuscriptNodeType[]
@@ -531,8 +545,8 @@ const encoders: NodeEncoderMap = {
     placeholderInnerHTML: node.attrs.placeholder || '',
     quoteType: 'block',
   }),
-  bullet_list: (node): Partial<ListElement> => ({
-    elementType: 'ul',
+  list: (node): Partial<ListElement> => ({
+    elementType: getListType(node.attrs.listStyleType).type,
     contents: listContents(node),
     listStyleType: node.attrs.listStyleType,
     paragraphStyle: node.attrs.paragraphStyle || undefined,
@@ -598,7 +612,7 @@ const encoders: NodeEncoderMap = {
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
   table_element_footer: (node): Partial<TableElementFooter> => ({
-    containedObjectIDs: containedObjectIDs(node),
+    containedObjectIDs: tableElementFooterContainedIDs(node),
   }),
   author_notes: (node): Partial<AuthorNotes> => ({
     containedObjectIDs: containedObjectIDs(node),
@@ -640,12 +654,6 @@ const encoders: NodeEncoderMap = {
   }),
   missing_figure: (node): Partial<MissingFigure> => ({
     position: node.attrs.position || undefined,
-  }),
-  ordered_list: (node): Partial<ListElement> => ({
-    elementType: 'ol',
-    contents: listContents(node),
-    listStyleType: node.attrs.listStyleType,
-    paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
   paragraph: (node): Partial<ParagraphElement> => ({
     elementType: 'p',
@@ -824,6 +832,7 @@ const containerTypes = [
   schema.nodes.abstracts,
   schema.nodes.body,
   schema.nodes.backmatter,
+  schema.nodes.general_table_footnote,
 ]
 
 const placeholderTypes = [

@@ -29,6 +29,7 @@ import { ManuscriptModel } from './models'
 
 export enum ExtraObjectTypes {
   PlaceholderElement = 'MPPlaceholderElement',
+  GeneralTableFootnote = 'MPGeneralTableFootnote',
 }
 
 export const elementObjects = [

@@ -56,6 +56,7 @@ import {
   Marks,
   Nodes,
   schema,
+  TableElementFooterNode,
   TableElementNode,
 } from '../schema'
 import { generateAttachmentFilename } from '../transformer/filename'
@@ -928,9 +929,11 @@ export class JATSExporter {
         0,
       ],
       blockquote_element: () => ['disp-quote', { 'content-type': 'quote' }, 0],
-      bullet_list: (node) => [
+      list: (node) => [
         'list',
-        { 'list-type': node.attrs.listStyleType ?? 'bullet' },
+        {
+          'list-type': node.attrs.listStyleType ?? 'bullet',
+        },
         0,
       ],
       caption: () => ['p', 0],
@@ -989,6 +992,12 @@ export class JATSExporter {
       doc: () => '',
       equation: (node) => {
         return this.createEquation(node)
+      },
+      general_table_footnote: (node) => {
+        const el = this.document.createElement('general-table-footnote')
+        el.setAttribute('id', normalizeID(node.attrs.id))
+        processChildNodes(el, node, schema.nodes.general_table_footnote)
+        return el
       },
       inline_equation: (node) => {
         const eqElement = this.document.createElement('inline-formula')
@@ -1121,11 +1130,6 @@ export class JATSExporter {
         graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', '')
         return graphic
       },
-      ordered_list: (node) => [
-        'list',
-        { 'list-type': node.attrs.listStyleType ?? 'order' },
-        0,
-      ],
       paragraph: (node) => {
         if (!node.childCount) {
           return ''
@@ -1954,6 +1958,19 @@ export class JATSExporter {
           }
         }
 
+        if (
+          isNodeType<TableElementFooterNode>(node, 'general_table_footnote')
+        ) {
+          const generalTableFootnote = body.querySelector(
+            `#${normalizeID(node.attrs.id)}`
+          )
+          if (generalTableFootnote) {
+            Array.from(generalTableFootnote.childNodes).forEach((cn) => {
+              generalTableFootnote.before(cn)
+            })
+            generalTableFootnote.remove()
+          }
+        }
         // move captions to the top of tables
         if (isNodeType<TableElementNode>(node, 'table_element')) {
           const tableElement = body.querySelector(

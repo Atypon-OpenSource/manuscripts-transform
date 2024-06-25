@@ -68,8 +68,7 @@ export const nodeTitle = (node: ManuscriptNode) => {
     case nodes.footnotes_element:
       return node.attrs.collateByKind === 'footnote' ? 'Footnotes' : 'Endnotes' // TODO
 
-    case nodes.ordered_list:
-    case nodes.bullet_list:
+    case nodes.list:
     case nodes.blockquote_element:
     case nodes.footnote:
     case nodes.pullquote_element:
