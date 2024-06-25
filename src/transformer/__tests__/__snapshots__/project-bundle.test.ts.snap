@@ -23,7 +23,6 @@ Object {
       },
       Object {
         "attrs": Object {
-          "firstInitials": false,
           "id": "",
         },
         "content": Array [
@@ -1155,7 +1154,6 @@ Object {
       },
       Object {
         "attrs": Object {
-          "firstInitials": false,
           "id": "",
         },
         "content": Array [

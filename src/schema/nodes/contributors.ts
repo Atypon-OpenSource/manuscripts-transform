@@ -23,7 +23,6 @@ export const contributors: NodeSpec = {
   content: 'contributor* author_notes?',
   attrs: {
     id: { default: '' },
-    firstInitials: { default: false },
   },
   group: 'block',
   selectable: false,
