@@ -138,6 +138,35 @@ Object {
           },
           "content": Array [
             Object {
+              "text": "Correspondence",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "",
+            "label": undefined,
+          },
+          "type": "corresp",
+        },
+      ],
+      "type": "author_notes",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
               "text": "Keywords",
               "type": "text",
             },
@@ -2172,6 +2201,35 @@ Object {
           },
           "content": Array [
             Object {
+              "text": "Correspondence",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "",
+            "label": undefined,
+          },
+          "type": "corresp",
+        },
+      ],
+      "type": "author_notes",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
               "text": "Keywords",
               "type": "text",
             },
@@ -3950,6 +4008,35 @@ Object {
         },
       ],
       "type": "affiliations",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "Correspondence",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "",
+            "label": undefined,
+          },
+          "type": "corresp",
+        },
+      ],
+      "type": "author_notes",
     },
     Object {
       "attrs": Object {
@@ -5902,6 +5989,35 @@ Object {
           },
           "content": Array [
             Object {
+              "text": "Correspondence",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "",
+            "label": undefined,
+          },
+          "type": "corresp",
+        },
+      ],
+      "type": "author_notes",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
               "text": "Keywords",
               "type": "text",
             },
@@ -6117,6 +6233,35 @@ Object {
         "id": "MPSection:affiliations",
       },
       "type": "affiliations",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "Correspondence",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "",
+            "label": undefined,
+          },
+          "type": "corresp",
+        },
+      ],
+      "type": "author_notes",
     },
     Object {
       "attrs": Object {
@@ -6469,6 +6614,35 @@ Object {
           },
           "content": Array [
             Object {
+              "text": "Correspondence",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "",
+            "label": undefined,
+          },
+          "type": "corresp",
+        },
+      ],
+      "type": "author_notes",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
               "text": "Keywords",
               "type": "text",
             },
@@ -6594,6 +6768,35 @@ Object {
         "id": "",
       },
       "type": "affiliations",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "Correspondence",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "",
+            "label": undefined,
+          },
+          "type": "corresp",
+        },
+      ],
+      "type": "author_notes",
     },
     Object {
       "attrs": Object {
