@@ -15,11 +15,11 @@
  */
 
 import { exec } from 'child_process'
-import { getVersion } from '../../getVersion'
 import { isEqual } from 'lodash'
+
+import { getVersion } from '../../getVersion'
 import { schema } from '..'
 import { JSONNode, migrateFor } from '../migration/migrate'
-import { Node as ProsemirrorNode } from 'prosemirror-model'
 
 const packageName = '@manuscripts/transform'
 

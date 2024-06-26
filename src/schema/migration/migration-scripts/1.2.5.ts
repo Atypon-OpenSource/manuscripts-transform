@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-import { MigrationScript } from '../migration-script'
-import { JSONNode } from '../migrate'
 import { Schema } from 'prosemirror-model'
+
+import { JSONNode } from '../migrate'
+import { MigrationScript } from '../migration-script'
 
 // @NOTE - this is an example migration
 class Migration125 implements MigrationScript {

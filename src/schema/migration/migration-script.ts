@@ -15,6 +15,7 @@
  */
 
 import { Schema } from 'prosemirror-model'
+
 import { JSONNode } from './migrate'
 
 export interface MigrationScript {
