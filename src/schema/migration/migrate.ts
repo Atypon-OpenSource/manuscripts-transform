@@ -56,7 +56,7 @@ export function migrateFor(oldDoc: JSONNode, fromVersion: string) {
     }
   }
 
-  testDoc(migratedDoc, fromVersion)
+  return testDoc(migratedDoc, fromVersion)
   // now find all versions that we have to migrate that do from version
 }
 
@@ -79,13 +79,14 @@ function ensureVersionAscOrder() {
 
 function testDoc(doc: JSONNode, fromVersion: string) {
   try {
-    schema.nodeFromJSON(doc)
+    return schema.nodeFromJSON(doc)
   } catch (e) {
-    console.error(
+    const error =
       'Migration application from version ' +
-        fromVersion +
-        ' did not produce a valid document with error: ' +
-        e
-    )
+      fromVersion +
+      ' did not produce a valid document with error: ' +
+      e
+    console.error(error)
+    return new Error(error)
   }
 }

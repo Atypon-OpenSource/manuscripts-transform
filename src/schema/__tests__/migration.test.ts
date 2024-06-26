@@ -18,7 +18,7 @@ import { exec } from 'child_process'
 import { getVersion } from '../../getVersion'
 import { isEqual } from 'lodash'
 import { schema } from '..'
-import { migrateFor } from '../migration/migrate'
+import { JSONNode, migrateFor } from '../migration/migrate'
 import { Node as ProsemirrorNode } from 'prosemirror-model'
 
 const packageName = '@manuscripts/transform'
@@ -42,7 +42,7 @@ async function runInChild(cmd: string) {
   })
 }
 
-async function getPrevProdVersion() {
+async function checkIfNeededAndFetchDoc() {
   try {
     const versionsRaw = await runInChild(`npm show ${packageName} time --json`)
 
@@ -57,8 +57,10 @@ async function getPrevProdVersion() {
         return true
       })
       if (!prev) {
-        console.error(`Unable to locate previous version of ` + packageName)
-        return
+        console.error(
+          `Unable to locate previous version of ${packageName}. Skipping migration test.`
+        )
+        return null
       }
       // @TODO - may cause yarn.lock change - check before merging
       await runInChild(
@@ -70,18 +72,36 @@ async function getPrevProdVersion() {
 
       if (isEqual(prevSchema, schema)) {
         console.log(
-          `Schemas are equal between ${getVersion()} and ${prev}. Skipping migrations tests`
+          `Schemas are equal between ${getVersion()} and ${prev}. Skipping migrations test.`
         )
-        return
+        return null
       }
-
-      // @TODO - merge the exposure of createTestDoc first
-      const testDoc = prevPackage.createTestDoc() as ProsemirrorNode
-      migrateFor(testDoc.toJSON(), prev)
+      return [prev, prevPackage.createTestDoc().toJSON()] as [string, JSONNode]
+    } else {
+      throw new Error(
+        'Unable to procure previous versiosn lists of ' + packageName
+      )
     }
   } catch (e) {
-    console.error(e)
+    console.error(
+      'Migration test will note be executed due to the following error: ' + e
+    )
+    return null
   }
 }
 
-getPrevProdVersion()
+let prevVersionDoc: [string, JSONNode] | null = null
+
+beforeAll(async () => {
+  prevVersionDoc = await checkIfNeededAndFetchDoc()
+})
+
+describe('Prosemirror migration schema', () => {
+  // @TODO - merge the exposure of createTestDoc first
+  const maybeTest = prevVersionDoc ? test : test.skip
+
+  maybeTest('Migrating doc from prev version to the current', () => {
+    // eslint-disable-next-line jest/no-standalone-expect
+    expect(migrateFor(prevVersionDoc![1], prevVersionDoc![0])).not.toBe(Error)
+  })
+})
