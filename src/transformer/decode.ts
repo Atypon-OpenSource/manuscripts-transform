@@ -1079,6 +1079,7 @@ export class Decoder {
     return schema.nodes.manuscript.create(
       {
         id: manuscriptID || this.getManuscriptID(),
+        doi: this.getManuscriptDOI() || '',
       },
       contents
     )
@@ -1143,6 +1144,13 @@ export class Decoder {
     for (const item of this.modelMap.values()) {
       if (isManuscript(item)) {
         return item._id
+      }
+    }
+  }
+  private getManuscriptDOI = () => {
+    for (const item of this.modelMap.values()) {
+      if (isManuscript(item)) {
+        return item.DOI
       }
     }
   }
