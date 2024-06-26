@@ -19,9 +19,11 @@ import migrationScripts from './migration-scripts'
 
 export type JSONNode = {
   type: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   attrs: { [key: string]: any }
   content?: JSONNode[]
   text?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   marks?: Array<{ type: string; attrs?: Record<string, any> }>
 }
 
