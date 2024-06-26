@@ -53,6 +53,7 @@ import serializeToXML from 'w3c-xmlserializer'
 
 import { iterateChildren } from '../lib/utils'
 import {
+  getListType,
   hasGroup,
   isHighlightMarkerNode,
   isManuscriptNode,
@@ -543,8 +544,8 @@ const encoders: NodeEncoderMap = {
     placeholderInnerHTML: node.attrs.placeholder || '',
     quoteType: 'block',
   }),
-  bullet_list: (node): Partial<ListElement> => ({
-    elementType: 'ul',
+  list: (node): Partial<ListElement> => ({
+    elementType: getListType(node.attrs.listStyleType).type,
     contents: listContents(node),
     listStyleType: node.attrs.listStyleType,
     paragraphStyle: node.attrs.paragraphStyle || undefined,
@@ -652,12 +653,6 @@ const encoders: NodeEncoderMap = {
   }),
   missing_figure: (node): Partial<MissingFigure> => ({
     position: node.attrs.position || undefined,
-  }),
-  ordered_list: (node): Partial<ListElement> => ({
-    elementType: 'ol',
-    contents: listContents(node),
-    listStyleType: node.attrs.listStyleType,
-    paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
   paragraph: (node): Partial<ParagraphElement> => ({
     elementType: 'p',
