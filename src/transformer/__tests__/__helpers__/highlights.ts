@@ -61,6 +61,7 @@ export const createTestModelMapWithHighlights = () => {
     title: 'main title',
     createdAt: 0,
     updatedAt: 0,
+    placeholder: 'Insert title here...',
     manuscriptID: manuscript._id,
     containerID: project._id,
   }
@@ -224,6 +225,7 @@ export const createTestModelMapWithKeywords = () => {
     title: 'main title',
     createdAt: 0,
     updatedAt: 0,
+    placeholder: 'Insert title here...',
     manuscriptID: manuscript._id,
     containerID: project._id,
   }
@@ -303,6 +305,7 @@ export const createTestModelMapWithKeywordsAndAuthorQuery = () => {
     title: 'main title',
     createdAt: 0,
     updatedAt: 0,
+    placeholder: 'Insert title here...',
     manuscriptID: manuscript._id,
     containerID: project._id,
   }
@@ -402,6 +405,7 @@ export const createTestModelMapWithElements = () => {
     title: 'main title',
     createdAt: 0,
     updatedAt: 0,
+    placeholder: 'Insert title here...',
     manuscriptID: manuscript._id,
     containerID: project._id,
   }

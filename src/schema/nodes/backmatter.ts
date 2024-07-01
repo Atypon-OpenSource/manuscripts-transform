@@ -21,10 +21,11 @@ import { NodeSpec } from 'prosemirror-model'
 
 export const backmatter: NodeSpec = {
   content: 'sections*',
-  atom: true,
   attrs: {
     id: { default: '' },
+    placeholder: { default: ' ' },
   },
-  group: 'block',
+  group: 'block element',
+  parseDOM: [{ tag: 'div.backmatter' }],
   toDOM: () => ['div', { class: 'backmatter' }, 0],
 }

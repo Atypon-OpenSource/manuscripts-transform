@@ -12,6 +12,7 @@ Object {
         "attrs": Object {
           "dataTracked": null,
           "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+          "placeholder": "Insert title here...",
         },
         "content": Array [
           Object {
@@ -94,58 +95,6 @@ Object {
           },
         ],
         "type": "affiliations",
-      },
-      Object {
-        "attrs": Object {
-          "dataTracked": null,
-          "id": "MPSection:kwd",
-        },
-        "content": Array [
-          Object {
-            "attrs": Object {
-              "dataTracked": null,
-            },
-            "content": Array [
-              Object {
-                "text": "Keywords",
-                "type": "text",
-              },
-            ],
-            "type": "section_title",
-          },
-          Object {
-            "attrs": Object {
-              "contents": "",
-              "dataTracked": null,
-              "id": "",
-              "paragraphStyle": "",
-              "type": "",
-            },
-            "type": "keywords_element",
-          },
-        ],
-        "type": "keywords",
-      },
-      Object {
-        "attrs": Object {
-          "dataTracked": null,
-          "id": "",
-        },
-        "content": Array [
-          Object {
-            "attrs": Object {
-              "dataTracked": null,
-            },
-            "content": Array [
-              Object {
-                "text": "SupplementaryMaterials",
-                "type": "text",
-              },
-            ],
-            "type": "section_title",
-          },
-        ],
-        "type": "supplements",
       },
       Object {
         "attrs": Object {
@@ -830,6 +779,7 @@ Object {
       Object {
         "attrs": Object {
           "id": "",
+          "placeholder": " ",
         },
         "type": "backmatter",
       },
@@ -1176,6 +1126,7 @@ Object {
       "createdAt": 1538472121.690101,
       "manuscriptID": "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8",
       "objectType": "MPTitles",
+      "placeholder": "Insert title here...",
       "title": "main title",
       "updatedAt": 1538472121.690101,
     },
@@ -1195,6 +1146,7 @@ Object {
         "attrs": Object {
           "dataTracked": null,
           "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+          "placeholder": "Insert title here...",
         },
         "content": Array [
           Object {
@@ -1308,58 +1260,6 @@ Object {
           },
         ],
         "type": "affiliations",
-      },
-      Object {
-        "attrs": Object {
-          "dataTracked": null,
-          "id": "MPSection:kwd",
-        },
-        "content": Array [
-          Object {
-            "attrs": Object {
-              "dataTracked": null,
-            },
-            "content": Array [
-              Object {
-                "text": "Keywords",
-                "type": "text",
-              },
-            ],
-            "type": "section_title",
-          },
-          Object {
-            "attrs": Object {
-              "contents": "",
-              "dataTracked": null,
-              "id": "",
-              "paragraphStyle": "",
-              "type": "",
-            },
-            "type": "keywords_element",
-          },
-        ],
-        "type": "keywords",
-      },
-      Object {
-        "attrs": Object {
-          "dataTracked": null,
-          "id": "",
-        },
-        "content": Array [
-          Object {
-            "attrs": Object {
-              "dataTracked": null,
-            },
-            "content": Array [
-              Object {
-                "text": "SupplementaryMaterials",
-                "type": "text",
-              },
-            ],
-            "type": "section_title",
-          },
-        ],
-        "type": "supplements",
       },
       Object {
         "attrs": Object {
@@ -2236,6 +2136,7 @@ Object {
       Object {
         "attrs": Object {
           "id": "",
+          "placeholder": " ",
         },
         "type": "backmatter",
       },
@@ -2741,6 +2642,7 @@ Object {
       "createdAt": 1538472121.690101,
       "manuscriptID": "MPManuscript:BCEB682E-C475-4BF7-9470-D6194D3EF0D8",
       "objectType": "MPTitles",
+      "placeholder": "Insert title here...",
       "title": "main title",
       "updatedAt": 1538472121.690101,
     },
