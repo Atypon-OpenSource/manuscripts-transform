@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-import { Schema } from 'prosemirror-model'
-
+import { schema } from '../..'
 import { JSONNode } from '../migrate'
 import { MigrationScript } from '../migration-script'
 
@@ -23,7 +22,7 @@ import { MigrationScript } from '../migration-script'
 class Migration125 implements MigrationScript {
   fromVersion: '1.2.3'
   toVersion: '1.2.4'
-  migrateNode(node: JSONNode, doc: JSONNode, schema: Schema) {
+  migrateNode(node: JSONNode, doc: JSONNode) {
     if (node.type === 'paragraph') {
       const newNode = schema.nodes.paragraph.create(
         { someNewFanctAttribute: 'example-value', ...node.attrs },

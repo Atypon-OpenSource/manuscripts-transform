@@ -13,9 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import semver from 'semver'
 import { schema } from '..'
 import { MigrationScript } from './migration-script'
 import migrationScripts from './migration-scripts'
+
+export const migrationBaseVersion = '2.3.6' // this is a version of this package from which start migration scrips application
 
 export type JSONNode = {
   type: string
@@ -34,7 +37,7 @@ function migrate(
   //  const doc = schema.nodeFromJSON(doc)
 
   function migrateNode(node: JSONNode) {
-    const migrated = migrationScript(node, oldDoc, schema)
+    const migrated = migrationScript(node, oldDoc)
     if (migrated.content) {
       migrated.content = migrated.content.map((m) => migrateNode(m))
     }
@@ -52,6 +55,9 @@ export function migrateFor(oldDoc: JSONNode, fromVersion: string) {
   let migratedDoc = oldDoc
   for (let i = 0; i < migrationScripts.length; i++) {
     const script = migrationScripts[i]
+    if (semver.lt(script.fromVersion, migrationBaseVersion)) {
+      continue
+    }
     if (fromVersion == script.fromVersion) {
       //  OR <= for multiple migrations but we also have to fetch appropriate schemas or get rid of schema reference
       migratedDoc = migrate(migratedDoc, script.migrateNode)
@@ -63,20 +69,13 @@ export function migrateFor(oldDoc: JSONNode, fromVersion: string) {
 }
 
 function ensureVersionAscOrder() {
-  return migrationScripts.sort((a, b) => {
-    const aTiers = a.toVersion.split('.')
-    const bTiers = b.toVersion.split('.')
-    for (let i = 0; i < aTiers.length; i++) {
-      const aTier = parseInt(aTiers[i]) || 0
-      const bTier = parseInt(bTiers[i]) || 0
-      const result = aTier - bTier
-      if (result == 0) {
-        continue
-      }
-      return result
-    }
-    return 0
-  })
+  return migrationScripts.sort((a, b) =>
+    semver.eq(a.toVersion, b.toVersion)
+      ? 0
+      : semver.gt(a.toVersion, b.toVersion)
+      ? 1
+      : -1
+  )
 }
 
 function testDoc(doc: JSONNode, fromVersion: string) {
