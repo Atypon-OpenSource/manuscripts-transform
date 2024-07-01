@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import semver from 'semver'
+
 import { schema } from '..'
 import { MigrationScript } from './migration-script'
 import migrationScripts from './migration-scripts'
