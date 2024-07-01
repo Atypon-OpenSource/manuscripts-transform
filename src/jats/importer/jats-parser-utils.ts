@@ -56,6 +56,14 @@ const updateNodeID = (
     }
     return
   }
+  if (node.type === schema.nodes.general_table_footnote) {
+    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
+    node.attrs = {
+      ...node.attrs,
+      id: `GeneralTableFootnote:${uuidv4()}`,
+    }
+    return
+  }
   if (!('id' in node.attrs)) {
     return
   }
@@ -112,7 +120,7 @@ const updateNodeRIDS = (
   node: ManuscriptNode,
   replacements: Map<string, string>,
   // eslint-disable-next-line
-    warnings: string[]
+  warnings: string[]
 ) => {
   const previousRIDs: string[] = node.attrs.rids
   if (!('rids' in node.attrs) || !previousRIDs.length) {

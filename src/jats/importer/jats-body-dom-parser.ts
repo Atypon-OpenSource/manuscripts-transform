@@ -17,7 +17,12 @@
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
-import { Marks, Nodes, schema } from '../../schema'
+import {
+  ManuscriptNode,
+  Marks,
+  Nodes,
+  schema,
+} from '../../schema'
 import { chooseSectionCategory } from '../../transformer'
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
@@ -344,6 +349,28 @@ const nodes: NodeRule[] = [
     },
   },
   {
+    tag: 'general-table-footnote',
+    node: 'general_table_footnote',
+    context: 'table_element_footer/',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+      }
+    },
+    getContent: (node) => {
+      const paragraphs: ManuscriptNode[] = []
+      node.childNodes.forEach((p) => {
+        const paragraph = schema.nodes.paragraph.create()
+        const content = jatsBodyDOMParser.parse(p, {
+          topNode: paragraph,
+        })
+        paragraphs.push(content)
+      })
+      return Fragment.from([...paragraphs]) as Fragment
+    },
+  },
+  {
     tag: 'fn',
     node: 'footnote',
     context: 'footnotes_element/|table_element_footer/',
@@ -361,20 +388,8 @@ const nodes: NodeRule[] = [
     ignore: true,
   },
   {
-    tag: 'list[list-type=bullet]',
-    node: 'bullet_list',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-
-      return {
-        id: element.getAttribute('id'),
-        listStyleType: element.getAttribute('list-type'),
-      }
-    },
-  },
-  {
-    tag: 'list[list-type]',
-    node: 'ordered_list',
+    tag: 'list',
+    node: 'list',
     getAttrs: (node) => {
       const element = node as HTMLElement
 

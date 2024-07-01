@@ -864,15 +864,15 @@ Array [
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol>",
-    "elementType": "ol",
+    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ul>",
+    "elementType": "ul",
     "listStyleType": "order",
     "objectType": "MPListElement",
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ol>",
-    "elementType": "ol",
+    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list<ul id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ul></li></ul>",
+    "elementType": "ul",
     "listStyleType": "order",
     "objectType": "MPListElement",
   },
@@ -885,7 +885,7 @@ Array [
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"bullet\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ul>",
+    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"bullet\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ul id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ul></li></ul>",
     "elementType": "ul",
     "listStyleType": "bullet",
     "objectType": "MPListElement",
@@ -4325,8 +4325,8 @@ Array [
   Object {
     "_id": "MPTableElementFooter:test",
     "containedObjectIDs": Array [
-      "MPParagraphElement:test",
       "MPFootnotesElement:test",
+      "MPParagraphElement:test",
     ],
     "objectType": "MPTableElementFooter",
   },
@@ -4529,8 +4529,8 @@ Array [
   Object {
     "_id": "MPTableElementFooter:test",
     "containedObjectIDs": Array [
-      "MPParagraphElement:test",
       "MPFootnotesElement:test",
+      "MPParagraphElement:test",
       "MPParagraphElement:test",
     ],
     "objectType": "MPTableElementFooter",
@@ -4538,6 +4538,13 @@ Array [
   Object {
     "_id": "MPParagraphElement:test",
     "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Values are expressed as frequencies (%) or as mean ± standard deviations. Abbreviations: AHM, antihypertensive medication; CLM, cholesterol lowering medication.</p>",
+    "elementType": "p",
+    "objectType": "MPParagraphElement",
+    "placeholderInnerHTML": "",
+  },
+  Object {
+    "_id": "MPParagraphElement:test",
+    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -4576,13 +4583,6 @@ Array [
   Object {
     "_id": "MPParagraphElement:test",
     "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\">Fisher’s exact test. <sup>b</sup> Less than 600 g of fruit and vegetables per day, fish for dinner less than twice per week. <sup>c</sup> More than 7 drinks per week in women/more than 14 drinks per week in men. <sup>d</sup> Less than 30 min of moderate physical activity per day.</p>",
-    "elementType": "p",
-    "objectType": "MPParagraphElement",
-    "placeholderInnerHTML": "",
-  },
-  Object {
-    "_id": "MPParagraphElement:test",
-    "contents": "<p xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPParagraphElement:test\\" class=\\"MPElement\\" data-object-type=\\"MPParagraphElement\\"></p>",
     "elementType": "p",
     "objectType": "MPParagraphElement",
     "placeholderInnerHTML": "",
@@ -8555,15 +8555,15 @@ Array [
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol>",
-    "elementType": "ol",
+    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ul>",
+    "elementType": "ul",
     "listStyleType": "order",
     "objectType": "MPListElement",
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ol xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ol>",
-    "elementType": "ol",
+    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">An ordered list<ul id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ul></li></ul>",
+    "elementType": "ul",
     "listStyleType": "order",
     "objectType": "MPListElement",
   },
@@ -8576,7 +8576,7 @@ Array [
   },
   Object {
     "_id": "MPListElement:test",
-    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"bullet\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ol id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ol></li></ul>",
+    "contents": "<ul xmlns=\\"http://www.w3.org/1999/xhtml\\" id=\\"MPListElement:test\\" list-type=\\"bullet\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">A bullet list<ul id=\\"MPListElement:test\\" list-type=\\"order\\" class=\\"MPElement\\" data-object-type=\\"MPListElement\\"><li data-placeholder-text=\\"List item\\">With a nested ordered list</li><li data-placeholder-text=\\"List item\\">With two items</li></ul></li></ul>",
     "elementType": "ul",
     "listStyleType": "bullet",
     "objectType": "MPListElement",
