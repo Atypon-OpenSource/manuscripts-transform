@@ -14,74 +14,24 @@
  * limitations under the License.
  */
 
-import { exec } from 'child_process'
 import { isEqual } from 'lodash'
+import * as prevPackage from 'migration-base'
 
 import { getVersion } from '../../getVersion'
 import { schema } from '..'
 import { JSONNode, migrateFor } from '../migration/migrate'
 
-const packageName = '@manuscripts/transform'
-
-async function runInChild(cmd: string) {
-  return new Promise((resolve, reject) => {
-    exec(cmd, (error, stdout, stderr) => {
-      if (error) {
-        reject(`error: ${error.message}`)
-        // console.log(`error: ${error.message}`)
-        return
-      }
-      if (stderr) {
-        reject(`error: ${stderr}`)
-        // console.log(`stderr: ${stderr}`)
-        return
-      }
-      resolve(stdout)
-      //   console.log(`stdout: ${stdout}`)
-    })
-  })
-}
-
-async function checkIfNeededAndFetchDoc() {
+function checkIfNeededAndFetchDoc() {
   try {
-    const versionsRaw = await runInChild(`npm show ${packageName} time --json`)
+    const prevSchema = prevPackage.schema
 
-    const versions = JSON.parse(versionsRaw as string)
-    if (typeof versions === 'object') {
-      const versionsStrings = Object.keys(versions)
-      // getting the last production version
-      const prev = versionsStrings.reverse().find((v) => {
-        if (v.includes('-')) {
-          return false
-        }
-        return true
-      })
-      if (!prev) {
-        console.error(
-          `Unable to locate previous version of ${packageName}. Skipping migration test.`
-        )
-        return null
-      }
-      // @TODO - may cause yarn.lock change - check before merging
-      await runInChild(
-        `npm install ${packageName}-${prev}@npm:${packageName}@${prev} --no-save`
+    if (isEqual(prevSchema, schema)) {
+      console.log(
+        `Schemas are equal between ${getVersion()} and ${prevPackage.getVersion()}. Skipping migrations test.`
       )
-
-      const prevPackage = await import(`${packageName}-${prev}`)
-      const prevSchema = prevPackage.schema
-
-      if (isEqual(prevSchema, schema)) {
-        console.log(
-          `Schemas are equal between ${getVersion()} and ${prev}. Skipping migrations test.`
-        )
-        return null
-      }
-      return [prev, prevPackage.createTestDoc().toJSON()] as [string, JSONNode]
-    } else {
-      throw new Error(
-        'Unable to procure previous versiosn lists of ' + packageName
-      )
+      return null
     }
+    return prevPackage.createTestDoc().toJSON() as JSONNode
   } catch (e) {
     console.error(
       'Migration test will note be executed due to the following error: ' + e
@@ -90,18 +40,20 @@ async function checkIfNeededAndFetchDoc() {
   }
 }
 
-let prevVersionDoc: [string, JSONNode] | null = null
-
-beforeAll(async () => {
-  prevVersionDoc = await checkIfNeededAndFetchDoc()
-})
-
 describe('Prosemirror migration schema', () => {
+  const prevVersionDoc = checkIfNeededAndFetchDoc()
+
   // @TODO - merge the exposure of createTestDoc first
   const maybeTest = prevVersionDoc ? test : test.skip
 
+  if (!prevVersionDoc) {
+    console.log('Skipping migration test because no prevVersionDoc was found.')
+  }
+
   maybeTest('Migrating doc from prev version to the current', () => {
     // eslint-disable-next-line jest/no-standalone-expect
-    expect(migrateFor(prevVersionDoc![1], prevVersionDoc![0])).not.toBe(Error)
+    expect(migrateFor(prevVersionDoc!, prevPackage.getVersion())).not.toBe(
+      Error
+    )
   })
 })

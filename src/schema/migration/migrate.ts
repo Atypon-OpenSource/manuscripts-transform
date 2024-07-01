@@ -19,8 +19,6 @@ import { schema } from '..'
 import { MigrationScript } from './migration-script'
 import migrationScripts from './migration-scripts'
 
-export const migrationBaseVersion = '2.3.6' // this is a version of this package from which start migration scrips application
-
 export type JSONNode = {
   type: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -50,22 +48,19 @@ function migrate(
 
 export default migrate
 
-export function migrateFor(oldDoc: JSONNode, fromVersion: string) {
+export function migrateFor(oldDoc: JSONNode, baseVersion: string) {
   const migrationScripts = ensureVersionAscOrder()
 
   let migratedDoc = oldDoc
   for (let i = 0; i < migrationScripts.length; i++) {
     const script = migrationScripts[i]
-    if (semver.lt(script.fromVersion, migrationBaseVersion)) {
+    if (semver.lt(script.fromVersion, baseVersion)) {
       continue
     }
-    if (fromVersion == script.fromVersion) {
-      //  OR <= for multiple migrations but we also have to fetch appropriate schemas or get rid of schema reference
-      migratedDoc = migrate(migratedDoc, script.migrateNode)
-    }
+    migratedDoc = migrate(migratedDoc, script.migrateNode)
   }
 
-  return testDoc(migratedDoc, fromVersion)
+  return testDoc(migratedDoc, baseVersion)
   // now find all versions that we have to migrate that do from version
 }
 
