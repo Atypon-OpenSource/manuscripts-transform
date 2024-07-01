@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { schema } from '../..'
 import { JSONNode } from '../migrate'
 import { MigrationScript } from '../migration-script'
 
@@ -23,12 +22,19 @@ class Migration125 implements MigrationScript {
   fromVersion: '1.2.3'
   toVersion: '1.2.4'
   migrateNode(node: JSONNode, doc: JSONNode) {
+    /*
+      NOTE - if schema is used in this function, it is imported from the current version of the package
+      in pratical terms it means that it's always the latest schema and you can't rely on that it will correspond the version in
+      which you created the migration script. That would also mean that you shouldn't rely on schema for migrations
+    */
     if (node.type === 'paragraph') {
-      const newNode = schema.nodes.paragraph.create(
-        { someNewFanctAttribute: 'example-value', ...node.attrs },
-        schema.text('some valid text')
-      )
-      return newNode.toJSON()
+      return {
+        ...node,
+        attrs: {
+          ...node.attrs,
+          someNewFanctAttribute: 'example-value',
+        },
+      }
     }
     return node
   }
