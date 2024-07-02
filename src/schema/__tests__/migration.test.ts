@@ -13,25 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { isEqual } from 'lodash'
 import * as prevPackage from 'migration-base'
 
 import { getVersion } from '../../getVersion'
-import { schema } from '..'
 import { JSONNode, migrateFor } from '../migration/migrate'
+import { createTestDoc } from '../../transformer'
 
 function checkIfNeededAndFetchDoc() {
-  try {
-    const prevSchema = prevPackage.schema
+  const prevDoc = prevPackage.createTestDoc().toJSON()
+  const testD = createTestDoc()
+  testD.check()
 
-    if (isEqual(prevSchema, schema)) {
+  const currentDoc = testD.toJSON()
+
+  try {
+    if (isEqual(prevDoc, currentDoc)) {
       console.log(
-        `Schemas are equal between ${getVersion()} and ${prevPackage.getVersion()}. Skipping migrations test.`
+        `Schemas outputs is equal between ${getVersion()} and ${prevPackage.getVersion()}. Skipping migrations test.`
       )
       return null
     }
-    return prevPackage.createTestDoc().toJSON() as JSONNode
+
+    console.log(
+      'Schemas outputs has changed since base version - proceeding with test.'
+    )
+    return prevDoc as JSONNode
   } catch (e) {
     console.error(
       'Migration test will note be executed due to the following error: ' + e

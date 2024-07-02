@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { cloneDeep } from 'lodash'
 import semver from 'semver'
 
 import { schema } from '..'
@@ -50,18 +51,18 @@ export default migrate
 
 export function migrateFor(oldDoc: JSONNode, baseVersion: string) {
   const migrationScripts = ensureVersionAscOrder()
-
-  let migratedDoc = oldDoc
+  let migratedDoc = cloneDeep(oldDoc)
 
   for (let i = 0; i < migrationScripts.length; i++) {
     const script = migrationScripts[i]
     if (semver.lt(script.fromVersion, baseVersion)) {
       continue
     }
+    console.log('Migrating doc with script to version ' + script.toVersion)
     migratedDoc = migrate(migratedDoc, script.migrateNode)
   }
 
-  return testDoc(migratedDoc, baseVersion)
+  return testDoc(migratedDoc, oldDoc, baseVersion)
   // now find all versions that we have to migrate that do from version
 }
 
@@ -75,9 +76,16 @@ function ensureVersionAscOrder() {
   )
 }
 
-function testDoc(doc: JSONNode, fromVersion: string) {
+function testDoc(doc: JSONNode, oldDoc: JSONNode, fromVersion: string) {
   try {
-    return schema.nodeFromJSON(doc)
+    // not that even if the doc doesn't really require a migration but the schema changed it still needs to go through migration process
+    // this is needed to make sure that DB version of it is in sync with FE so the updates can be correctly exchanged
+    const resultDoc = schema.nodeFromJSON(doc)
+
+    resultDoc.check()
+    // console.log(JSON.stringify(oldDoc)))
+
+    return resultDoc
   } catch (e) {
     const error =
       'Migration application from version ' +

@@ -321,14 +321,27 @@ export class Decoder {
 
       const comments = this.createCommentNodes(model)
       comments.forEach((c) => this.comments.set(c.attrs.id, c))
-      const content: ManuscriptNode[] = [...paragraphs, ...figures, figcaption]
+
+      const donut = schema.nodes.donut.create({
+        id: 'some-id',
+        lambrusco: 'butter',
+      })
+
+      const content: ManuscriptNode[] = [
+        schema.nodes.title.create({ id: 'some-title-id' }),
+        donut,
+        figcaption,
+      ]
       const listing = this.extractListing(model)
+
       if (listing) {
         content.push(listing)
       } else {
         const listing = schema.nodes.listing.create()
         content.push(listing)
       }
+
+      // console.log(JSON.stringify(content))
 
       return schema.nodes.figure_element.createChecked(
         {

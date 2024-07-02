@@ -92,6 +92,7 @@ import { title } from './nodes/title'
 import { tocElement } from './nodes/toc_element'
 import { tocSection } from './nodes/toc_section'
 import { Marks, Nodes } from './types'
+import { donut } from './nodes/donut'
 
 export * from './groups'
 export * from './types'
@@ -149,6 +150,7 @@ export * from './nodes/affiliations'
 export * from './nodes/contributors'
 export * from './nodes/supplement'
 export * from './nodes/supplements'
+export * from './nodes/donut'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -221,6 +223,7 @@ export const schema = new Schema<Nodes, Marks>({
     table_colgroup: tableColGroup,
     table_header: tableHeader,
     text,
+    donut: donut,
     toc_element: tocElement,
     toc_section: tocSection,
     affiliation,
