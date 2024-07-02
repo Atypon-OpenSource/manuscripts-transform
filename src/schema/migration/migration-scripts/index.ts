@@ -15,8 +15,6 @@
  */
 
 import Migration125 from './1.2.5'
-import Migration2350 from './2.3.50'
-import Migration240 from './2.4.0'
 
 const migrations = [new Migration125(), new Migration240(), new Migration2350()]
 
