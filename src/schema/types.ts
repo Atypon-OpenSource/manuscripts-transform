@@ -79,6 +79,7 @@ export type Nodes =
   | 'keyword_group'
   | 'keywords'
   | 'link'
+  | 'donut'
   | 'list_item'
   | 'listing'
   | 'listing_element'
