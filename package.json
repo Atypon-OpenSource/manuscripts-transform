@@ -27,8 +27,7 @@
     "test": "jest --runInBand",
     "test:debug": "DEBUG=manuscripts-transform yarn test",
     "typecheck": "tsc --noEmit",
-    "version": "yarn build",
-    "test-migration": "jest -i src/schema/__tests__/migration.test.ts"
+    "version": "yarn build"
   },
   "dependencies": {
     "@manuscripts/json-schema": "2.2.8",
