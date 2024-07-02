@@ -17,8 +17,8 @@ import { isEqual } from 'lodash'
 import * as prevPackage from 'migration-base'
 
 import { getVersion } from '../../getVersion'
-import { JSONNode, migrateFor } from '../migration/migrate'
 import { createTestDoc } from '../../transformer'
+import { JSONNode, migrateFor } from '../migration/migrate'
 
 function checkIfNeededAndFetchDoc() {
   const prevDoc = prevPackage.createTestDoc().toJSON()

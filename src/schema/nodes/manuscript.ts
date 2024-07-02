@@ -20,7 +20,7 @@ import { ManuscriptNode } from '../types'
 
 export interface ActualManuscriptNode extends ManuscriptNode {
   attrs: {
-    id: string,
+    id: string
     doi: string
   }
 }
