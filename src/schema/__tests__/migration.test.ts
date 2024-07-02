@@ -13,51 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { isEqual } from 'lodash'
 import * as prevPackage from 'migration-base'
 
-import { getVersion } from '../../getVersion'
 import { createTestDoc } from '../../transformer'
 import { JSONNode, migrateFor } from '../migration/migrate'
 
-function checkIfNeededAndFetchDoc() {
+function checkRetrievePrevVersionDoc() {
+  // creating test premises - letting it fail for the dev to be aware that something is not right
   const prevDoc = prevPackage.createTestDoc().toJSON()
-  const testD = createTestDoc()
-  testD.check()
+  const testDoc = createTestDoc()
+  testDoc.check()
 
-  const currentDoc = testD.toJSON()
-
-  try {
-    if (isEqual(prevDoc, currentDoc)) {
-      console.log(
-        `Schemas outputs is equal between ${getVersion()} and ${prevPackage.getVersion()}. Skipping migrations test.`
-      )
-      return null
-    }
-
-    console.log(
-      'Schemas outputs has changed since base version - proceeding with test.'
-    )
-    return prevDoc as JSONNode
-  } catch (e) {
-    console.error(
-      'Migration test will note be executed due to the following error: ' + e
-    )
-    return null
-  }
+  return prevDoc as JSONNode
 }
 
 describe('Prosemirror migration schema', () => {
-  const prevVersionDoc = checkIfNeededAndFetchDoc()
-
-  // @TODO - merge the exposure of createTestDoc first
-  const maybeTest = prevVersionDoc ? test : test.skip
-
-  if (!prevVersionDoc) {
-    console.log('Skipping migration test because no prevVersionDoc was found.')
-  }
-
-  maybeTest('Migrating doc from prev version to the current', () => {
+  const prevVersionDoc = checkRetrievePrevVersionDoc()
+  test('Migrating doc from prev version to the current', () => {
     // eslint-disable-next-line jest/no-standalone-expect
     expect(() =>
       migrateFor(prevVersionDoc!, prevPackage.getVersion())

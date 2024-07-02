@@ -50,7 +50,6 @@ import { contributors } from './nodes/contributors'
 import { corresp } from './nodes/corresp'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
-import { donut } from './nodes/donut'
 import { equation } from './nodes/equation'
 import { equationElement } from './nodes/equation_element'
 import { figcaption } from './nodes/figcaption'
@@ -150,7 +149,6 @@ export * from './nodes/affiliations'
 export * from './nodes/contributors'
 export * from './nodes/supplement'
 export * from './nodes/supplements'
-export * from './nodes/donut'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -223,7 +221,6 @@ export const schema = new Schema<Nodes, Marks>({
     table_colgroup: tableColGroup,
     table_header: tableHeader,
     text,
-    donut: donut,
     toc_element: tocElement,
     toc_section: tocSection,
     affiliation,

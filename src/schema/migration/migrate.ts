@@ -30,12 +30,10 @@ export type JSONNode = {
   marks?: Array<{ type: string; attrs?: Record<string, any> }>
 }
 
-function migrate(
+export default function migrate(
   oldDoc: JSONNode,
   migrationScript: MigrationScript['migrateNode']
 ) {
-  //  const doc = schema.nodeFromJSON(doc)
-
   function migrateNode(node: JSONNode) {
     const migrated = migrationScript(node, oldDoc)
     if (migrated.content) {
@@ -46,8 +44,6 @@ function migrate(
 
   return migrateNode(oldDoc)
 }
-
-export default migrate
 
 export function migrateFor(oldDoc: JSONNode, baseVersion: string) {
   const migrationScripts = ensureVersionAscOrder()
@@ -83,8 +79,6 @@ function testDoc(doc: JSONNode, oldDoc: JSONNode, fromVersion: string) {
     const resultDoc = schema.nodeFromJSON(doc)
 
     resultDoc.check()
-    // console.log(JSON.stringify(oldDoc)))
-
     return resultDoc
   } catch (e) {
     const error =
