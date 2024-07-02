@@ -16,6 +16,6 @@
 
 import Migration125 from './1.2.5'
 
-const migrations = [new Migration125(), new Migration240(), new Migration2350()]
+const migrations = [new Migration125()]
 
 export default migrations
