@@ -52,8 +52,8 @@ describe('Prosemirror migration schema', () => {
 
   maybeTest('Migrating doc from prev version to the current', () => {
     // eslint-disable-next-line jest/no-standalone-expect
-    expect(migrateFor(prevVersionDoc!, prevPackage.getVersion())).not.toBe(
-      Error
-    )
+    expect(() =>
+      migrateFor(prevVersionDoc!, prevPackage.getVersion())
+    ).not.toThrow()
   })
 })

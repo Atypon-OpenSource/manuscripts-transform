@@ -19,8 +19,8 @@ import { MigrationScript } from '../migration-script'
 
 // @NOTE - this is an example migration
 class Migration125 implements MigrationScript {
-  fromVersion: '1.2.3'
-  toVersion: '1.2.4'
+  fromVersion = '1.2.3'
+  toVersion = '1.2.4'
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   migrateNode(node: JSONNode, doc: JSONNode) {
     /*

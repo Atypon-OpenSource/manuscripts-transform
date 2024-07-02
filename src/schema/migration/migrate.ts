@@ -52,6 +52,7 @@ export function migrateFor(oldDoc: JSONNode, baseVersion: string) {
   const migrationScripts = ensureVersionAscOrder()
 
   let migratedDoc = oldDoc
+
   for (let i = 0; i < migrationScripts.length; i++) {
     const script = migrationScripts[i]
     if (semver.lt(script.fromVersion, baseVersion)) {
@@ -81,9 +82,8 @@ function testDoc(doc: JSONNode, fromVersion: string) {
     const error =
       'Migration application from version ' +
       fromVersion +
-      ' did not produce a valid document with error: ' +
+      ' did not produce a valid document with ' +
       e
-    console.error(error)
-    return new Error(error)
+    throw new Error(error)
   }
 }
