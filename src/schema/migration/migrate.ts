@@ -58,21 +58,14 @@ export function migrateFor(oldDoc: JSONNode, baseVersion: string) {
     migratedDoc = migrate(migratedDoc, script.migrateNode)
   }
 
-  return testDoc(migratedDoc, oldDoc, baseVersion)
+  return testDoc(migratedDoc, baseVersion)
   // now find all versions that we have to migrate that do from version
 }
 
-function ensureVersionAscOrder() {
-  return migrationScripts.sort((a, b) =>
-    semver.eq(a.toVersion, b.toVersion)
-      ? 0
-      : semver.gt(a.toVersion, b.toVersion)
-      ? 1
-      : -1
-  )
-}
+const ensureVersionAscOrder = () =>
+  migrationScripts.sort((a, b) => semver.compare(a.toVersion, b.toVersion))
 
-function testDoc(doc: JSONNode, oldDoc: JSONNode, fromVersion: string) {
+function testDoc(doc: JSONNode, fromVersion: string) {
   try {
     // not that even if the doc doesn't really require a migration but the schema changed it still needs to go through migration process
     // this is needed to make sure that DB version of it is in sync with FE so the updates can be correctly exchanged
