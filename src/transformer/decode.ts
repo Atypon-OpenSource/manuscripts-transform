@@ -924,7 +924,9 @@ export class Decoder {
     const affiliations = getAffiliations(this.modelMap)
       .map((a) => this.decode(a) as AffiliationNode)
       .filter(Boolean)
-
+    if (!affiliations.length) {
+      return false
+    }
     return schema.nodes.affiliations.createAndFill(
       {},
       affiliations
@@ -939,6 +941,9 @@ export class Decoder {
       .map((authorNote) => this.decode(authorNote) as AuthorNotesNode)
       .filter(Boolean)
     const content: ManuscriptNode[] = [...contributors, ...authorNotes]
+    if (!content.length) {
+      return false
+    }
     return schema.nodes.contributors.createAndFill(
       {},
       content
@@ -949,7 +954,9 @@ export class Decoder {
     const elements = getKeywordElements(this.modelMap)
       .map((e) => this.decode(e) as KeywordsElementNode)
       .filter(Boolean)
-
+    if (!elements.length) {
+      return false
+    }
     return schema.nodes.keywords.createAndFill({}, [
       schema.nodes.section_title.create({}, schema.text('Keywords')),
       ...elements,
@@ -960,7 +967,9 @@ export class Decoder {
     const elements = getSupplements(this.modelMap)
       .map((e) => this.decode(e) as SupplementNode)
       .filter(Boolean)
-
+    if (!elements.length) {
+      return false
+    }
     return schema.nodes.supplements.createAndFill({}, [
       schema.nodes.section_title.create(
         {},
@@ -1011,12 +1020,7 @@ export class Decoder {
       {},
       groups[backmatterType._id]
     ) as ManuscriptNode
-
-    return {
-      abstracts,
-      body,
-      backmatter,
-    }
+    return [abstracts, body, backmatter]
   }
 
   private createCommentNodes(model: Model) {
@@ -1057,31 +1061,23 @@ export class Decoder {
     this.modelMap.get(id) as T | undefined
 
   public createArticleNode = (manuscriptID?: string): ManuscriptNode => {
-    const title = this.createTitleNode()
-    const contributors = this.createContributorsNode()
-    const affiliations = this.createAffiliationsNode()
-    const keywords = this.createKeywordsNode()
-    const suppl = this.createSupplementsNode()
-    const { abstracts, body, backmatter } = this.createContentSections()
-    const comments = this.createCommentsNode()
-    const contents: ManuscriptNode[] = [
-      title,
-      contributors,
-      affiliations,
-      keywords,
-      suppl,
-      abstracts,
-      body,
-      backmatter,
-      comments,
+    const nodes = [
+      this.createTitleNode(),
+      this.createContributorsNode(),
+      this.createAffiliationsNode(),
+      this.createKeywordsNode(),
+      this.createSupplementsNode(),
+      ...this.createContentSections(),
+      this.createCommentsNode(),
     ]
+    const contents = nodes.filter((node) => node !== false)
 
     return schema.nodes.manuscript.create(
       {
         id: manuscriptID || this.getManuscriptID(),
         doi: this.getManuscriptDOI() || '',
       },
-      contents
+      contents as ManuscriptNode[]
     )
   }
 
