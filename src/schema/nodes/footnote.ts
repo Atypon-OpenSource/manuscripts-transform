@@ -17,7 +17,6 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
-import { CommentNode } from './comment'
 
 type Kind = 'footnote' | 'endnote'
 
@@ -31,7 +30,6 @@ interface Attrs {
   kind: Kind
   paragraphStyle?: string
   placeholder?: string
-  comments?: CommentNode[]
 }
 
 export interface FootnoteNode extends ManuscriptNode {
@@ -47,7 +45,6 @@ export const footnote: NodeSpec = {
     paragraphStyle: { default: '' },
     placeholder: { default: '' },
     dataTracked: { default: null },
-    comments: { default: null },
   },
   parseDOM: [
     {

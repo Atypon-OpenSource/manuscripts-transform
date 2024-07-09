@@ -110,7 +110,6 @@ Object {
           Object {
             "attrs": Object {
               "category": "",
-              "comments": Array [],
               "dataTracked": null,
               "generatedLabel": undefined,
               "id": "MPSection:C6FD9C5E-C00E-4823-9507-E246E249B66A",
@@ -132,7 +131,6 @@ Object {
               },
               Object {
                 "attrs": Object {
-                  "comments": Array [],
                   "dataTracked": null,
                   "id": "MPParagraphElement:0EAC7ED3-41FB-468F-A267-60664A2F59B7",
                   "paragraphStyle": "",
@@ -149,7 +147,6 @@ Object {
               Object {
                 "attrs": Object {
                   "category": "",
-                  "comments": Array [],
                   "dataTracked": null,
                   "generatedLabel": undefined,
                   "id": "MPSection:EBCC30A6-9123-4CC3-B282-402954ACFD03",
@@ -171,7 +168,6 @@ Object {
                   },
                   Object {
                     "attrs": Object {
-                      "comments": Array [],
                       "dataTracked": null,
                       "expandListing": false,
                       "id": "MPTableElement:36132CFA-A6D0-4D8D-A347-0CF1136002FD",
@@ -409,7 +405,6 @@ Object {
                       },
                       Object {
                         "attrs": Object {
-                          "comments": Array [],
                           "contents": "",
                           "dataTracked": null,
                           "id": "MPListing:70C7EA88-57D8-4FBB-A661-67EC86D3C9E9",
@@ -439,7 +434,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -464,7 +458,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -489,7 +482,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -525,7 +517,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -550,7 +541,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -575,7 +565,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -600,7 +589,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -622,7 +610,6 @@ Object {
                   },
                   Object {
                     "attrs": Object {
-                      "comments": Array [],
                       "dataTracked": null,
                       "id": "MPListingElement:53F400DD-55BD-4F99-8C68-E9FB59B1E667",
                       "suppressCaption": true,
@@ -631,7 +618,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "comments": Array [],
                           "contents": ";; clojure
 
 (defn roll
@@ -679,7 +665,6 @@ Object {
                   },
                   Object {
                     "attrs": Object {
-                      "comments": null,
                       "dataTracked": null,
                       "id": "MPEquationElement:D562526E-431C-49DA-855D-F78CDD950FB9",
                       "label": "",
@@ -702,7 +687,6 @@ Object {
                       "alignment": undefined,
                       "alternatives": undefined,
                       "attribution": undefined,
-                      "comments": Array [],
                       "dataTracked": null,
                       "figureLayout": "",
                       "figureStyle": "",
@@ -753,7 +737,6 @@ Object {
                       },
                       Object {
                         "attrs": Object {
-                          "comments": Array [],
                           "contents": "",
                           "dataTracked": null,
                           "id": "MPListing:A4EBE717-DF67-4A50-B264-4A4F59AF1138",
@@ -1275,7 +1258,6 @@ Object {
           Object {
             "attrs": Object {
               "category": "",
-              "comments": Array [],
               "dataTracked": null,
               "generatedLabel": undefined,
               "id": "MPSection:369BC11C-4281-4BED-9AA3-5ABE066BF575",
@@ -1298,7 +1280,6 @@ Object {
               Object {
                 "attrs": Object {
                   "category": "",
-                  "comments": Array [],
                   "dataTracked": null,
                   "generatedLabel": undefined,
                   "id": "MPSection:786116A4-364C-428B-9B05-FE447B1AEEFB",
@@ -1321,7 +1302,6 @@ Object {
                   Object {
                     "attrs": Object {
                       "category": "",
-                      "comments": Array [],
                       "dataTracked": null,
                       "generatedLabel": undefined,
                       "id": "MPSection:DC18322C-BC8B-4737-BFC1-052D205657F3",
@@ -1344,7 +1324,6 @@ Object {
                       Object {
                         "attrs": Object {
                           "category": "",
-                          "comments": Array [],
                           "dataTracked": null,
                           "generatedLabel": undefined,
                           "id": "MPSection:BC4F7CFD-EEF2-4733-8AAE-AEC8F76DE4DD",
@@ -1367,7 +1346,6 @@ Object {
                           Object {
                             "attrs": Object {
                               "category": "",
-                              "comments": Array [],
                               "dataTracked": null,
                               "generatedLabel": undefined,
                               "id": "MPSection:7021DB67-252D-40D0-810F-6C2C285F8FCC",
@@ -1390,7 +1368,6 @@ Object {
                               Object {
                                 "attrs": Object {
                                   "category": "",
-                                  "comments": Array [],
                                   "dataTracked": null,
                                   "generatedLabel": undefined,
                                   "id": "MPSection:B5508891-F803-4DD5-AD1D-92A3B4ECFFE6",
@@ -1413,7 +1390,6 @@ Object {
                                   Object {
                                     "attrs": Object {
                                       "category": "",
-                                      "comments": Array [],
                                       "dataTracked": null,
                                       "generatedLabel": undefined,
                                       "id": "MPSection:D88308C0-7EC8-46BE-8DCC-661964D706F8",
@@ -1435,7 +1411,6 @@ Object {
                                       },
                                       Object {
                                         "attrs": Object {
-                                          "comments": Array [],
                                           "dataTracked": null,
                                           "id": "MPParagraphElement:5A5E25E4-0677-44D4-B5EA-AA5514113F27",
                                           "paragraphStyle": "",
@@ -1467,7 +1442,6 @@ Object {
           Object {
             "attrs": Object {
               "category": "",
-              "comments": Array [],
               "dataTracked": null,
               "generatedLabel": undefined,
               "id": "MPSection:C6FD9C5E-C00E-4823-9507-E246E249B66A",
@@ -1489,7 +1463,6 @@ Object {
               },
               Object {
                 "attrs": Object {
-                  "comments": Array [],
                   "dataTracked": null,
                   "id": "MPParagraphElement:0EAC7ED3-41FB-468F-A267-60664A2F59B7",
                   "paragraphStyle": "",
@@ -1506,7 +1479,6 @@ Object {
               Object {
                 "attrs": Object {
                   "category": "",
-                  "comments": Array [],
                   "dataTracked": null,
                   "generatedLabel": undefined,
                   "id": "MPSection:EBCC30A6-9123-4CC3-B282-402954ACFD03",
@@ -1528,7 +1500,6 @@ Object {
                   },
                   Object {
                     "attrs": Object {
-                      "comments": Array [],
                       "dataTracked": null,
                       "expandListing": false,
                       "id": "MPTableElement:36132CFA-A6D0-4D8D-A347-0CF1136002FD",
@@ -1766,7 +1737,6 @@ Object {
                       },
                       Object {
                         "attrs": Object {
-                          "comments": Array [],
                           "contents": "",
                           "dataTracked": null,
                           "id": "MPListing:70C7EA88-57D8-4FBB-A661-67EC86D3C9E9",
@@ -1796,7 +1766,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -1821,7 +1790,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -1846,7 +1814,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -1882,7 +1849,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -1907,7 +1873,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -1932,7 +1897,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -1957,7 +1921,6 @@ Object {
                         "content": Array [
                           Object {
                             "attrs": Object {
-                              "comments": null,
                               "dataTracked": null,
                               "id": "",
                               "paragraphStyle": "",
@@ -1979,7 +1942,6 @@ Object {
                   },
                   Object {
                     "attrs": Object {
-                      "comments": Array [],
                       "dataTracked": null,
                       "id": "MPListingElement:53F400DD-55BD-4F99-8C68-E9FB59B1E667",
                       "suppressCaption": true,
@@ -1988,7 +1950,6 @@ Object {
                     "content": Array [
                       Object {
                         "attrs": Object {
-                          "comments": Array [],
                           "contents": ";; clojure
 
 (defn roll
@@ -2036,7 +1997,6 @@ Object {
                   },
                   Object {
                     "attrs": Object {
-                      "comments": null,
                       "dataTracked": null,
                       "id": "MPEquationElement:D562526E-431C-49DA-855D-F78CDD950FB9",
                       "label": "",
@@ -2059,7 +2019,6 @@ Object {
                       "alignment": undefined,
                       "alternatives": undefined,
                       "attribution": undefined,
-                      "comments": Array [],
                       "dataTracked": null,
                       "figureLayout": "",
                       "figureStyle": "",
@@ -2110,7 +2069,6 @@ Object {
                       },
                       Object {
                         "attrs": Object {
-                          "comments": Array [],
                           "contents": "",
                           "dataTracked": null,
                           "id": "MPListing:A4EBE717-DF67-4A50-B264-4A4F59AF1138",
