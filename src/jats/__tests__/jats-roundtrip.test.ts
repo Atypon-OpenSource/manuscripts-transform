@@ -26,7 +26,6 @@ import { IDGenerator, MediaPathGenerator } from '../../types'
 import { parseJATSArticle } from '../importer'
 import { DEFAULT_CSL_OPTIONS } from './citations'
 import { readFixture } from './files'
-import fs from "fs";
 
 const parseXMLWithDTD = (data: string) =>
   parseXml(data, {
@@ -118,7 +117,6 @@ const roundtrip = async (filename: string) => {
   const doc = new DOMParser().parseFromString(input, 'application/xml')
 
   const models = parseJATSArticle(doc)
-  fs.writeFileSync(__dirname + '/models.json', JSON.stringify(models))
 
   const modelMap = new Map<string, Model>()
 
@@ -130,7 +128,6 @@ const roundtrip = async (filename: string) => {
 
   const decoder = new Decoder(modelMap)
   const article = decoder.createArticleNode(manuscript._id)
-  fs.writeFileSync(__dirname+'/article.json', JSON.stringify(article))
   const exporter = new JATSExporter()
   return await exporter.serializeToJATS(
     article.content,
