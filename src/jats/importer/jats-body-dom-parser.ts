@@ -17,12 +17,7 @@
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
-import {
-  ManuscriptNode,
-  Marks,
-  Nodes,
-  schema,
-} from '../../schema'
+import { ManuscriptNode, Marks, Nodes, schema } from '../../schema'
 import { chooseSectionCategory } from '../../transformer'
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'

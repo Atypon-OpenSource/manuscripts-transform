@@ -31,7 +31,14 @@ export const authorNotes: NodeSpec = {
     id: { default: '' },
     dataTracked: { default: null },
   },
-  content: '(corresp | footnote | paragraph)+',
+  content: 'section_title (corresp | footnote | paragraph)+',
   group: 'block element',
-  toDOM: () => ['author-notes', 0],
+  toDOM: (node) => [
+    'div',
+    {
+      class: 'author-notes',
+      id: node.attrs.id,
+    },
+    0,
+  ],
 }

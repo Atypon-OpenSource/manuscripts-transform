@@ -26,7 +26,7 @@ export const TABLE_CELL_STYLES = [
   'textAlign',
 ] as const
 
-export type TableCellStyleKey = (typeof TABLE_CELL_STYLES)[number]
+export type TableCellStyleKey = typeof TABLE_CELL_STYLES[number]
 
 const dashify = (str: string) => {
   return str
