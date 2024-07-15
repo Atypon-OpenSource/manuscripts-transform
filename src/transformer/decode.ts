@@ -60,6 +60,7 @@ import {
 } from '../lib/section-group-type'
 import {
   AffiliationNode,
+  AuthorNotesNode,
   BibliographyElementNode,
   BibliographyItemNode,
   BlockquoteElementNode,
@@ -96,7 +97,6 @@ import {
   TitleNode,
   TOCElementNode,
 } from '../schema'
-import { AuthorNotesNode } from '../schema/nodes/author_notes'
 import { KeywordGroupNode } from '../schema/nodes/keyword_group'
 import { buildTitles } from './builders'
 import { insertHighlightMarkers } from './highlight-markers'
@@ -159,10 +159,11 @@ const getSections = (modelMap: Map<string, Model>) =>
 const getAffiliations = (modelMap: Map<string, Model>) =>
   getModelsByType<Affiliation>(modelMap, ObjectTypes.Affiliation)
 
+const getContributors = (modelMap: Map<string, Model>) =>
+  getModelsByType<Contributor>(modelMap, ObjectTypes.Contributor)
+
 const getAuthorNotes = (modelMap: Map<string, Model>) =>
   getModelsByType<AuthorNotes>(modelMap, ObjectTypes.AuthorNotes)
-const getContributors = (modelMap: Map<string, Model>) =>
-  getModelsByType<Affiliation>(modelMap, ObjectTypes.Contributor)
 
 const getKeywordElements = (modelMap: Map<string, Model>) =>
   getModelsByType<KeywordsElement>(modelMap, ObjectTypes.KeywordsElement)
@@ -672,12 +673,15 @@ export class Decoder {
       const content = model.containedObjectIDs.map((id) =>
         this.decode(this.modelMap.get(id) as Model)
       ) as ManuscriptNode[]
-      return schema.nodes.author_notes.create(
+      return schema.nodes.author_notes.createAndFill(
         {
           id: model._id,
         },
-        content
-      )
+        [
+          schema.nodes.section_title.create({}, schema.text('Correspondence')),
+          ...content,
+        ]
+      ) as ManuscriptNode
     },
     [ObjectTypes.Corresponding]: (data) => {
       const model = data as Corresponding
@@ -924,10 +928,7 @@ export class Decoder {
     const contributors = getContributors(this.modelMap)
       .map((c) => this.decode(c) as ContributorNode)
       .filter(Boolean)
-    const authorNotes = getAuthorNotes(this.modelMap)
-      .map((authorNote) => this.decode(authorNote) as AuthorNotesNode)
-      .filter(Boolean)
-    const content: ManuscriptNode[] = [...contributors, ...authorNotes]
+    const content: ManuscriptNode[] = [...contributors]
     if (!content.length) {
       return false
     }
@@ -935,6 +936,12 @@ export class Decoder {
       {},
       content
     ) as ManuscriptNode
+  }
+
+  private createAuthorNotesNode() {
+    return getAuthorNotes(this.modelMap)
+      .map((authorNote) => this.decode(authorNote) as AuthorNotesNode)
+      .filter(Boolean)
   }
 
   private createKeywordsNode() {
@@ -1052,6 +1059,7 @@ export class Decoder {
       this.createTitleNode(),
       this.createContributorsNode(),
       this.createAffiliationsNode(),
+      ...this.createAuthorNotesNode(),
       this.createKeywordsNode(),
       this.createSupplementsNode(),
       ...this.createContentSections(),

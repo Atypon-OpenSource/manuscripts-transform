@@ -34,5 +34,16 @@ export const corresp: NodeSpec = {
     dataTracked: { default: null },
   },
   group: 'block',
-  toDOM: () => ['corresp', 0],
+  toDOM: (node) => {
+    return [
+      'div',
+      {
+        class: 'corresp',
+        id: node.attrs.id,
+      },
+      0,
+    ]
+  },
 }
+export const isCorrespNode = (node: ManuscriptNode): node is CorrespNode =>
+  node.type === node.type.schema.nodes.corresp
