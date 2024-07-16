@@ -86,48 +86,6 @@ export const section: NodeSpec = {
       },
     },
   ],
-  toDOM: (node) => {
-    const sectionNode = node as SectionNode
-
-    const { id, category, titleSuppressed, generatedLabel, pageBreakStyle } =
-      sectionNode.attrs
-
-    const classnames: string[] = []
-
-    if (titleSuppressed) {
-      classnames.push('title-suppressed')
-    }
-
-    if (typeof generatedLabel === 'undefined' || generatedLabel) {
-      classnames.push('generated-label')
-    }
-
-    if (
-      pageBreakStyle === PAGE_BREAK_BEFORE ||
-      pageBreakStyle === PAGE_BREAK_BEFORE_AND_AFTER
-    ) {
-      classnames.push('page-break-before')
-    }
-
-    if (
-      pageBreakStyle === PAGE_BREAK_AFTER ||
-      pageBreakStyle === PAGE_BREAK_BEFORE_AND_AFTER
-    ) {
-      classnames.push('page-break-after')
-    }
-
-    const attrs: { [key: string]: string } = { id }
-
-    if (classnames.length) {
-      attrs['class'] = classnames.join(' ')
-    }
-
-    if (category) {
-      attrs['data-category'] = node.attrs.category
-    }
-
-    return ['section', attrs, 0]
-  },
 }
 
 export const isSectionNode = (node: ManuscriptNode): node is SectionNode =>
