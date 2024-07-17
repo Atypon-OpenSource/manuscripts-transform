@@ -1,7 +1,7 @@
 {
   "name": "@manuscripts/transform",
   "description": "ProseMirror transformer for Manuscripts applications",
-  "version": "2.3.19-LEAN-3577-test",
+  "version": "2.3.20",
   "repository": "github:Atypon-OpenSource/manuscripts-transform",
   "license": "Apache-2.0",
   "main": "dist/cjs",
@@ -74,7 +74,7 @@
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.3.1",
     "libxmljs2": "^0.33.0",
-    "migration-base": "npm:@manuscripts/transform@2.3.9-LEAN-3577-support-merge",
+    "migration-base": "npm:@manuscripts/transform@2.3.19",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.1",
     "prosemirror-state": "^1.4.2",
