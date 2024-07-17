@@ -5,6 +5,7 @@ Map {
   "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1" => Object {
     "_id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
     "objectType": "MPTitles",
+    "placeholder": "Insert title here...",
     "runningTitle": undefined,
     "subtitle": undefined,
     "title": "main title",
@@ -659,6 +660,7 @@ Map {
   "MPTitles:1" => Object {
     "_id": "MPTitles:1",
     "objectType": "MPTitles",
+    "placeholder": "Insert title here...",
     "runningTitle": undefined,
     "subtitle": undefined,
     "title": "main title",
@@ -732,6 +734,7 @@ Map {
   "MPTitles:1" => Object {
     "_id": "MPTitles:1",
     "objectType": "MPTitles",
+    "placeholder": "Insert title here...",
     "runningTitle": undefined,
     "subtitle": undefined,
     "title": "main title",

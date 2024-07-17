@@ -351,6 +351,16 @@ const containedParagraphIDs = (node: ManuscriptNode): string[] => {
   return containedObjectIDs(node, [paragraphNodeType])
 }
 
+const containedAuthorNotesIDs = (node: ManuscriptNode): string[] => {
+  const correspNodeType = node.type.schema.nodes.corresp
+  const footnoteNodetype = node.type.schema.nodes.footnote
+  const paragraphNodeType = node.type.schema.nodes.paragraph
+  return containedObjectIDs(node, [
+    correspNodeType,
+    footnoteNodetype,
+    paragraphNodeType,
+  ])
+}
 const containedBibliographyItemIDs = (node: ManuscriptNode): string[] => {
   const bibliographyItemNodeType = node.type.schema.nodes.bibliography_item
   return containedObjectIDs(node, [bibliographyItemNodeType])
@@ -456,6 +466,7 @@ const encoders: NodeEncoderMap = {
     title: inlineContents(node),
     subtitle: node.attrs.subtitle,
     runningTitle: node.attrs.runningTitle,
+    placeholder: node.attrs.placeholder,
     _id: node.attrs._id,
   }),
   bibliography_element: (node): Partial<BibliographyElement> => ({
@@ -614,7 +625,7 @@ const encoders: NodeEncoderMap = {
     containedObjectIDs: tableElementFooterContainedIDs(node),
   }),
   author_notes: (node): Partial<AuthorNotes> => ({
-    containedObjectIDs: containedObjectIDs(node),
+    containedObjectIDs: containedAuthorNotesIDs(node),
   }),
   footnotes_section: (node, parent, path, priority): Partial<Section> => ({
     category: buildSectionCategory(node),
@@ -778,7 +789,6 @@ const modelData = (
   priority: PrioritizedValue
 ): Partial<Model> => {
   const encoder = encoders[node.type.name as Nodes]
-
   if (!encoder) {
     throw new Error(`Unhandled model: ${node.type.name}`)
   }
@@ -814,10 +824,8 @@ export const modelFromNode = (
     _id: id,
     objectType: objectType,
   }
-
   const model = data as Model
   const markers = extractCommentMarkers(model)
-
   return { model, markers }
 }
 
@@ -828,7 +836,7 @@ interface PrioritizedValue {
 const containerTypes = [
   schema.nodes.affiliations,
   schema.nodes.contributors,
-  schema.nodes.affiliations,
+  // schema.nodes.author_notes,
   schema.nodes.keywords,
   schema.nodes.supplements,
   schema.nodes.abstracts,

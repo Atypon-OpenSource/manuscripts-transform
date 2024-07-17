@@ -17,11 +17,9 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
-import { CommentNode } from './comment'
 
 interface Attrs {
   id: string
-  comments?: CommentNode[]
 }
 
 export interface KeywordNode extends ManuscriptNode {
@@ -34,7 +32,6 @@ export const keyword: NodeSpec = {
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
-    comments: { default: null },
   },
   group: 'block',
   selectable: false,

@@ -11,6 +11,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -126,58 +127,6 @@ Object {
         },
       ],
       "type": "affiliations",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Keywords",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "contents": "",
-            "dataTracked": null,
-            "id": "",
-            "paragraphStyle": "",
-            "type": "",
-          },
-          "type": "keywords_element",
-        },
-      ],
-      "type": "keywords",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -305,7 +254,6 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
-            "comments": Array [],
             "dataTracked": null,
             "generatedLabel": undefined,
             "id": "MPSection:77786D47-6060-4FBC-BC13-5FA754968D6A",
@@ -327,7 +275,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:150780D7-CFED-4529-9398-77B5C7625044",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -343,7 +290,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:60C13548-23C0-4348-FE98-0510E0B61B18",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -398,7 +344,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:A89DC62A-90ED-4283-AB6D-06CA2519D801",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -425,7 +370,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:05A0ED43-8928-4C69-A17C-0A98795001CD",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -471,7 +415,6 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
-            "comments": Array [],
             "dataTracked": null,
             "generatedLabel": undefined,
             "id": "MPSection:F8EE617B-484B-4CF2-F1CA-014F5307D5CF",
@@ -493,7 +436,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:4DF93A63-D44D-41CF-AF54-23712B8703FA",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -523,7 +465,6 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
                         "dataTracked": null,
                         "id": "",
                         "paragraphStyle": "",
@@ -559,7 +500,6 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
                         "dataTracked": null,
                         "id": "",
                         "paragraphStyle": "",
@@ -595,7 +535,6 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
                         "dataTracked": null,
                         "id": "",
                         "paragraphStyle": "",
@@ -625,7 +564,6 @@ Object {
                           "content": Array [
                             Object {
                               "attrs": Object {
-                                "comments": null,
                                 "dataTracked": null,
                                 "id": "",
                                 "paragraphStyle": "",
@@ -656,7 +594,6 @@ Object {
                 "alignment": undefined,
                 "alternatives": undefined,
                 "attribution": undefined,
-                "comments": Array [],
                 "dataTracked": null,
                 "figureLayout": "",
                 "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
@@ -707,7 +644,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -726,7 +662,6 @@ Object {
                 "alignment": undefined,
                 "alternatives": undefined,
                 "attribution": undefined,
-                "comments": Array [],
                 "dataTracked": null,
                 "figureLayout": "",
                 "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
@@ -777,7 +712,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -793,7 +727,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "expandListing": false,
                 "id": "MPTableElement:82BD8BAF-D136-4536-AD9C-92C30B9D7315",
@@ -1037,7 +970,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -1053,7 +985,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "expandListing": false,
                 "id": "MPTableElement:E0D445B4-18C4-43D3-97B3-1076A7BB5CF4",
@@ -1255,7 +1186,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -1271,7 +1201,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "expandListing": false,
                 "id": "MPTableElement:1DF69096-DBA3-47B0-B8C2-E06491E4C655",
@@ -1467,7 +1396,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -1483,7 +1411,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "expandListing": false,
                 "id": "MPTableElement:89CF51B2-A20C-4AB9-CBD9-F47DAF167DAA",
@@ -1679,7 +1606,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -1695,7 +1621,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": null,
                 "dataTracked": null,
                 "id": "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1",
                 "label": "Equation 1",
@@ -1715,7 +1640,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPListingElement:160785A9-4BC0-4C55-C4DE-AF5F4D858DCE",
                 "suppressCaption": false,
@@ -1724,7 +1648,6 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "comments": Array [],
                     "contents": "// a JavaScript code block
 
 const x = 'y'",
@@ -1764,7 +1687,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -1777,7 +1699,6 @@ const x = 'y'",
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math>",
                     "dataTracked": null,
                     "format": "mathml",
@@ -1790,7 +1711,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -1817,7 +1737,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:41B99DAB-F86C-477F-D36C-2B8590B5DAD0",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -1844,7 +1763,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:C8A173A4-DF32-4242-E800-28A1AE5B48B8",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -1871,7 +1789,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -1895,7 +1812,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:3708E8C7-441C-4502-8BFC-D3A2059CEF8B",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -1929,7 +1845,6 @@ const x = 'y'",
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "comments": Array [],
                     "dataTracked": null,
                     "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
                     "kind": "footnote",
@@ -1939,7 +1854,6 @@ const x = 'y'",
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
                         "dataTracked": null,
                         "id": "",
                         "paragraphStyle": "",
@@ -1968,6 +1882,7 @@ const x = 'y'",
     Object {
       "attrs": Object {
         "id": "",
+        "placeholder": " ",
       },
       "content": Array [
         Object {
@@ -2046,6 +1961,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -2161,58 +2077,6 @@ Object {
         },
       ],
       "type": "affiliations",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Keywords",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "contents": "",
-            "dataTracked": null,
-            "id": "",
-            "paragraphStyle": "",
-            "type": "",
-          },
-          "type": "keywords_element",
-        },
-      ],
-      "type": "keywords",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -2340,7 +2204,6 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
-            "comments": Array [],
             "dataTracked": null,
             "generatedLabel": undefined,
             "id": "MPSection:77786D47-6060-4FBC-BC13-5FA754968D6A",
@@ -2362,7 +2225,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:150780D7-CFED-4529-9398-77B5C7625044",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -2378,7 +2240,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:60C13548-23C0-4348-FE98-0510E0B61B18",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -2433,7 +2294,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:A89DC62A-90ED-4283-AB6D-06CA2519D801",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -2471,7 +2331,6 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
-            "comments": Array [],
             "dataTracked": null,
             "generatedLabel": undefined,
             "id": "MPSection:F8EE617B-484B-4CF2-F1CA-014F5307D5CF",
@@ -2493,7 +2352,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:4DF93A63-D44D-41CF-AF54-23712B8703FA",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -2523,7 +2381,6 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
                         "dataTracked": null,
                         "id": "",
                         "paragraphStyle": "",
@@ -2559,7 +2416,6 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
                         "dataTracked": null,
                         "id": "",
                         "paragraphStyle": "",
@@ -2595,7 +2451,6 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
                         "dataTracked": null,
                         "id": "",
                         "paragraphStyle": "",
@@ -2625,7 +2480,6 @@ Object {
                           "content": Array [
                             Object {
                               "attrs": Object {
-                                "comments": null,
                                 "dataTracked": null,
                                 "id": "",
                                 "paragraphStyle": "",
@@ -2663,7 +2517,6 @@ Object {
                 "alignment": undefined,
                 "alternatives": undefined,
                 "attribution": undefined,
-                "comments": Array [],
                 "dataTracked": null,
                 "figureLayout": "",
                 "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
@@ -2714,7 +2567,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -2730,7 +2582,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "expandListing": false,
                 "id": "MPTableElement:82BD8BAF-D136-4536-AD9C-92C30B9D7315",
@@ -2974,7 +2825,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -2990,7 +2840,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "expandListing": false,
                 "id": "MPTableElement:E0D445B4-18C4-43D3-97B3-1076A7BB5CF4",
@@ -3192,7 +3041,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -3208,7 +3056,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "expandListing": false,
                 "id": "MPTableElement:1DF69096-DBA3-47B0-B8C2-E06491E4C655",
@@ -3259,7 +3106,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -3275,7 +3121,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "expandListing": false,
                 "id": "MPTableElement:89CF51B2-A20C-4AB9-CBD9-F47DAF167DAA",
@@ -3471,7 +3316,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -3487,7 +3331,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": null,
                 "dataTracked": null,
                 "id": "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1",
                 "label": "Equation 1",
@@ -3507,7 +3350,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPListingElement:160785A9-4BC0-4C55-C4DE-AF5F4D858DCE",
                 "suppressCaption": false,
@@ -3516,7 +3358,6 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "comments": Array [],
                     "contents": "// a JavaScript code block
 
 const x = 'y'",
@@ -3556,7 +3397,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -3569,7 +3409,6 @@ const x = 'y'",
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math>",
                     "dataTracked": null,
                     "format": "mathml",
@@ -3582,7 +3421,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -3609,7 +3447,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:41B99DAB-F86C-477F-D36C-2B8590B5DAD0",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -3636,7 +3473,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:C8A173A4-DF32-4242-E800-28A1AE5B48B8",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -3663,7 +3499,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -3687,7 +3522,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:3708E8C7-441C-4502-8BFC-D3A2059CEF8B",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -3721,7 +3555,6 @@ const x = 'y'",
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "comments": Array [],
                     "dataTracked": null,
                     "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
                     "kind": "footnote",
@@ -3731,7 +3564,6 @@ const x = 'y'",
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
                         "dataTracked": null,
                         "id": "",
                         "paragraphStyle": "",
@@ -3760,6 +3592,7 @@ const x = 'y'",
     Object {
       "attrs": Object {
         "id": "",
+        "placeholder": " ",
       },
       "content": Array [
         Object {
@@ -3838,6 +3671,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "MPTitles:8EB79C14-9F61-483A-902F-A0B8EF5973C1",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -3953,58 +3787,6 @@ Object {
         },
       ],
       "type": "affiliations",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Keywords",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "contents": "",
-            "dataTracked": null,
-            "id": "",
-            "paragraphStyle": "",
-            "type": "",
-          },
-          "type": "keywords_element",
-        },
-      ],
-      "type": "keywords",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -4132,7 +3914,6 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
-            "comments": Array [],
             "dataTracked": null,
             "generatedLabel": undefined,
             "id": "MPSection:77786D47-6060-4FBC-BC13-5FA754968D6A",
@@ -4154,7 +3935,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:150780D7-CFED-4529-9398-77B5C7625044",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -4170,7 +3950,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:60C13548-23C0-4348-FE98-0510E0B61B18",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -4225,7 +4004,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:A89DC62A-90ED-4283-AB6D-06CA2519D801",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -4252,7 +4030,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:05A0ED43-8928-4C69-A17C-0A98795001CD",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -4298,7 +4075,6 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
-            "comments": Array [],
             "dataTracked": null,
             "generatedLabel": undefined,
             "id": "MPSection:F8EE617B-484B-4CF2-F1CA-014F5307D5CF",
@@ -4320,7 +4096,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:4DF93A63-D44D-41CF-AF54-23712B8703FA",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -4350,7 +4125,6 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
                         "dataTracked": null,
                         "id": "",
                         "paragraphStyle": "",
@@ -4386,7 +4160,6 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
                         "dataTracked": null,
                         "id": "",
                         "paragraphStyle": "",
@@ -4422,7 +4195,6 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
                         "dataTracked": null,
                         "id": "",
                         "paragraphStyle": "",
@@ -4452,7 +4224,6 @@ Object {
                           "content": Array [
                             Object {
                               "attrs": Object {
-                                "comments": null,
                                 "dataTracked": null,
                                 "id": "",
                                 "paragraphStyle": "",
@@ -4483,7 +4254,6 @@ Object {
                 "alignment": undefined,
                 "alternatives": undefined,
                 "attribution": undefined,
-                "comments": Array [],
                 "dataTracked": null,
                 "figureLayout": "",
                 "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
@@ -4534,7 +4304,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -4553,7 +4322,6 @@ Object {
                 "alignment": undefined,
                 "alternatives": undefined,
                 "attribution": undefined,
-                "comments": Array [],
                 "dataTracked": null,
                 "figureLayout": "",
                 "figureStyle": "MPFigureStyle:12916784-C8A2-414E-919D-490172E82B25",
@@ -4604,7 +4372,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -4620,7 +4387,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "expandListing": false,
                 "id": "MPTableElement:82BD8BAF-D136-4536-AD9C-92C30B9D7315",
@@ -4864,7 +4630,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -4880,7 +4645,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "expandListing": false,
                 "id": "MPTableElement:E0D445B4-18C4-43D3-97B3-1076A7BB5CF4",
@@ -5082,7 +4846,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -5098,7 +4861,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "expandListing": false,
                 "id": "MPTableElement:1DF69096-DBA3-47B0-B8C2-E06491E4C655",
@@ -5294,7 +5056,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -5310,7 +5071,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "expandListing": false,
                 "id": "MPTableElement:89CF51B2-A20C-4AB9-CBD9-F47DAF167DAA",
@@ -5506,7 +5266,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -5522,7 +5281,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": null,
                 "dataTracked": null,
                 "id": "MPEquationElement:3896A81A-D43B-483F-B990-F64518A940D1",
                 "label": "Equation 1",
@@ -5542,7 +5300,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPListingElement:160785A9-4BC0-4C55-C4DE-AF5F4D858DCE",
                 "suppressCaption": false,
@@ -5551,7 +5308,6 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "comments": Array [],
                     "contents": "// a JavaScript code block
 
 const x = 'y'",
@@ -5591,7 +5347,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:345B8B57-2E5E-45ED-E587-4EAAC2BD63E9",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -5604,7 +5359,6 @@ const x = 'y'",
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\"><mml:mi>ρ</mml:mi><mml:mi>ρ</mml:mi></mml:math>",
                     "dataTracked": null,
                     "format": "mathml",
@@ -5617,7 +5371,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:6B6DBF43-F7B2-404C-89DD-0EC1E1442B27",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -5644,7 +5397,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:41B99DAB-F86C-477F-D36C-2B8590B5DAD0",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -5671,7 +5423,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:C8A173A4-DF32-4242-E800-28A1AE5B48B8",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -5698,7 +5449,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:CB7347E5-8502-4667-82B9-51104BB1FEDB",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -5722,7 +5472,6 @@ const x = 'y'",
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:3708E8C7-441C-4502-8BFC-D3A2059CEF8B",
                 "paragraphStyle": "MPParagraphStyle:7EAB5784-717B-4672-BD59-8CA324FB0637",
@@ -5756,7 +5505,6 @@ const x = 'y'",
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "comments": Array [],
                     "dataTracked": null,
                     "id": "MPFootnote:B1589279-0F3B-472B-BF11-3F59D6B65791",
                     "kind": "footnote",
@@ -5766,7 +5514,6 @@ const x = 'y'",
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "comments": null,
                         "dataTracked": null,
                         "id": "",
                         "paragraphStyle": "",
@@ -5795,6 +5542,7 @@ const x = 'y'",
     Object {
       "attrs": Object {
         "id": "",
+        "placeholder": " ",
       },
       "content": Array [
         Object {
@@ -5873,6 +5621,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "MPTitles:1",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -5881,70 +5630,6 @@ Object {
         },
       ],
       "type": "title",
-    },
-    Object {
-      "attrs": Object {
-        "id": "",
-      },
-      "type": "contributors",
-    },
-    Object {
-      "attrs": Object {
-        "id": "",
-      },
-      "type": "affiliations",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Keywords",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "contents": "",
-            "dataTracked": null,
-            "id": "",
-            "paragraphStyle": "",
-            "type": "",
-          },
-          "type": "keywords_element",
-        },
-      ],
-      "type": "keywords",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -5960,7 +5645,6 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
-            "comments": Array [],
             "dataTracked": null,
             "generatedLabel": true,
             "id": "MPSection:1",
@@ -5982,7 +5666,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:1",
                 "paragraphStyle": "MPParagraphStyle:1",
@@ -6014,7 +5697,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [],
                 "dataTracked": null,
                 "id": "MPParagraphElement:2",
                 "paragraphStyle": "MPParagraphStyle:1",
@@ -6055,6 +5737,7 @@ Object {
     Object {
       "attrs": Object {
         "id": "",
+        "placeholder": " ",
       },
       "type": "backmatter",
     },
@@ -6080,6 +5763,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "MPTitles:1",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -6113,70 +5797,6 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:contributors",
-      },
-      "type": "contributors",
-    },
-    Object {
-      "attrs": Object {
-        "id": "MPSection:affiliations",
-      },
-      "type": "affiliations",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "MPSection:kwd",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Keywords",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "contents": "",
-            "dataTracked": null,
-            "id": "",
-            "paragraphStyle": "",
-            "type": "",
-          },
-          "type": "keywords_element",
-        },
-      ],
-      "type": "keywords",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
-    },
-    Object {
-      "attrs": Object {
         "id": "MPSection:abstracts",
       },
       "type": "abstracts",
@@ -6189,9 +5809,6 @@ Object {
         Object {
           "attrs": Object {
             "category": "",
-            "comments": Array [
-              "MPCommentAnnotation:test2",
-            ],
             "dataTracked": null,
             "generatedLabel": true,
             "id": "MPSection:1",
@@ -6235,9 +5852,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "comments": Array [
-                  "MPCommentAnnotation:test",
-                ],
                 "dataTracked": null,
                 "id": "MPParagraphElement:1",
                 "paragraphStyle": "MPParagraphStyle:1",
@@ -6282,9 +5896,6 @@ Object {
                 "alignment": undefined,
                 "alternatives": undefined,
                 "attribution": undefined,
-                "comments": Array [
-                  "MPCommentAnnotation:test1",
-                ],
                 "dataTracked": null,
                 "figureLayout": "",
                 "figureStyle": "MPFigureStyle:1",
@@ -6335,7 +5946,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "comments": null,
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -6358,6 +5968,7 @@ Object {
     Object {
       "attrs": Object {
         "id": "MPSection:backmatter",
+        "placeholder": " ",
       },
       "type": "backmatter",
     },
@@ -6442,6 +6053,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "MPTitles:1",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -6450,18 +6062,6 @@ Object {
         },
       ],
       "type": "title",
-    },
-    Object {
-      "attrs": Object {
-        "id": "",
-      },
-      "type": "contributors",
-    },
-    Object {
-      "attrs": Object {
-        "id": "",
-      },
-      "type": "affiliations",
     },
     Object {
       "attrs": Object {
@@ -6499,7 +6099,6 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "comments": Array [],
                     "dataTracked": null,
                     "id": "MPKeyword:1",
                   },
@@ -6522,27 +6121,6 @@ Object {
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
-    },
-    Object {
-      "attrs": Object {
         "id": "",
       },
       "type": "abstracts",
@@ -6556,6 +6134,7 @@ Object {
     Object {
       "attrs": Object {
         "id": "",
+        "placeholder": " ",
       },
       "type": "backmatter",
     },
@@ -6581,6 +6160,7 @@ Object {
       "attrs": Object {
         "dataTracked": null,
         "id": "someId",
+        "placeholder": "Insert title here...",
       },
       "content": Array [
         Object {
@@ -6589,18 +6169,6 @@ Object {
         },
       ],
       "type": "title",
-    },
-    Object {
-      "attrs": Object {
-        "id": "",
-      },
-      "type": "contributors",
-    },
-    Object {
-      "attrs": Object {
-        "id": "",
-      },
-      "type": "affiliations",
     },
     Object {
       "attrs": Object {
@@ -6638,7 +6206,6 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "comments": Array [],
                     "dataTracked": null,
                     "id": "MPKeyword:1",
                   },
@@ -6661,27 +6228,6 @@ Object {
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
-        "id": "",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "SupplementaryMaterials",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-      ],
-      "type": "supplements",
-    },
-    Object {
-      "attrs": Object {
         "id": "",
       },
       "type": "abstracts",
@@ -6695,6 +6241,7 @@ Object {
     Object {
       "attrs": Object {
         "id": "",
+        "placeholder": " ",
       },
       "type": "backmatter",
     },

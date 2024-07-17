@@ -17,12 +17,10 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
-import { CommentNode } from './comment'
 
 interface Attrs {
   id: string
   label: string
-  comments?: CommentNode[]
 }
 
 export interface EquationElementNode extends ManuscriptNode {
@@ -35,7 +33,6 @@ export const equationElement: NodeSpec = {
     id: { default: '' },
     label: { default: '' },
     dataTracked: { default: null },
-    comments: { default: null },
   },
   selectable: false,
   group: 'block element',
