@@ -1537,32 +1537,12 @@
     deepmerge "^4.3.1"
     uuid "^9.0.0"
 
-"@manuscripts/json-schema@2.2.8":
-  version "2.2.8"
-  resolved "https://registry.npmjs.org/@manuscripts/json-schema/-/json-schema-2.2.8.tgz"
-  integrity sha512-tmDnjuLViTAvptxkpe4eXaOmwlghm4Zpi58D716AIzhhsqwUCZ7besmi6+It6aPc/wHieCr+N0TnC2BRZNVIRw==
-  dependencies:
-    ajv "^8.12.0"
-    deepmerge "^4.3.1"
-    uuid "^9.0.0"
-
 "@manuscripts/library@1.3.10":
   version "1.3.10"
   resolved "https://registry.yarnpkg.com/@manuscripts/library/-/library-1.3.10.tgz#9fc350eac656f9056ec6a6ab3aa73bc45e39daee"
   integrity sha512-2XdsnITC/vJhbNHQrJo3giTyEKJ6HK+DyP9sjp/nT1o/mg5E2mTTfa+rHIB47sravEEbYdaaS4cr4VXbv9SXeA==
   dependencies:
     "@manuscripts/json-schema" "2.2.10"
-    astrocite-bibtex "^0.16.4"
-    astrocite-ris "^0.16.4"
-    citeproc "^2.4.62"
-    fontoxpath "^3.28.2"
-
-"@manuscripts/library@1.3.7":
-  version "1.3.7"
-  resolved "https://registry.npmjs.org/@manuscripts/library/-/library-1.3.7.tgz"
-  integrity sha512-LgJCflZSund+Ugojidc4kg/zgmUSEsyt5rKpx90mO0Mqj1AnRRdCSbU3LjrXuFo8sKHx4Xg8BPnsGGvgEsK+CQ==
-  dependencies:
-    "@manuscripts/json-schema" "2.2.8"
     astrocite-bibtex "^0.16.4"
     astrocite-ris "^0.16.4"
     citeproc "^2.4.62"
@@ -5037,13 +5017,13 @@ micromatch@^4.0.4:
     braces "^3.0.2"
     picomatch "^2.3.1"
 
-"migration-base@npm:@manuscripts/transform@2.3.9-LEAN-3577-support-merge":
-  version "2.3.9-LEAN-3577-support-merge"
-  resolved "https://registry.yarnpkg.com/@manuscripts/transform/-/transform-2.3.9-LEAN-3577-support-merge.tgz#e089d1295044aee246fd9a9e9573797d011412e2"
-  integrity sha512-2hUwd9Po/RKhcmoXsbJTvnCTTrKYBf3WkSZhTvWYyb2gYe8gHyFpjCcB/IP7wn1vsXQ7anvMCPLY6pG4uTCdIw==
+"migration-base@npm:@manuscripts/transform@2.3.20":
+  version "2.3.20"
+  resolved "https://registry.yarnpkg.com/@manuscripts/transform/-/transform-2.3.20.tgz#de33b792c5267dda8523ffd2c2e72bfa593d8a0d"
+  integrity sha512-1Sjc7ZaeCBVtG6a/Bz6hTBkk6pRXjO8B2ZmCMA0f5VtNd7r0yrJiZ5UbKDQE0SMcyFBDtjV7HueJ87WXyFvzrQ==
   dependencies:
-    "@manuscripts/json-schema" "2.2.8"
-    "@manuscripts/library" "1.3.7"
+    "@manuscripts/json-schema" "2.2.10"
+    "@manuscripts/library" "1.3.10"
     debug "^4.3.4"
     jszip "^3.10.1"
     mime "^3.0.0"
