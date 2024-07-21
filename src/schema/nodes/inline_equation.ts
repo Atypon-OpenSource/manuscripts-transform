@@ -17,13 +17,11 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
-import { CommentNode } from './comment'
 
 interface Attrs {
   id: string
   contents: string
   format: string
-  comments?: CommentNode[]
 }
 
 export interface InlineEquationNode extends ManuscriptNode {
@@ -33,7 +31,6 @@ export interface InlineEquationNode extends ManuscriptNode {
 export const inlineEquation: NodeSpec = {
   attrs: {
     dataTracked: { default: null },
-    comments: { default: null },
     id: { default: '' },
     contents: { default: '' },
     format: { default: '' },

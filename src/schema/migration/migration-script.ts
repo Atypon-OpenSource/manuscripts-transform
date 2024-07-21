@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,14 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export * from './lib/section-group-type'
-export * from './lib/table-cell-styles'
-export * from './lib/utils'
-export * from './schema'
-export * from './transformer'
-export * from './jats'
-export * from './types'
-export * from './errors'
-export { getVersion } from './getVersion'
-export { migrateFor, JSONNode } from './schema/migration/migrate'
-export { isSectionLabelNode } from './schema/nodes/section_label'
+
+import { JSONNode } from './migrate'
+
+export interface MigrationScript {
+  fromVersion: string
+  toVersion: string
+  migrateNode: (node: JSONNode, doc: JSONNode) => JSONNode
+}

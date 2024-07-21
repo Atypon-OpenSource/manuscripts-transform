@@ -18,7 +18,6 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 import { AttributionNode } from './attribution'
-import { CommentNode } from './comment'
 
 interface Attrs {
   columns: number
@@ -37,7 +36,6 @@ interface Attrs {
     src: string
     type?: string
   }[]
-  comments?: CommentNode[]
 }
 
 export interface FigureElementNode extends ManuscriptNode {
@@ -59,7 +57,6 @@ export const figureElement: NodeSpec = {
     attribution: { default: undefined },
     alternatives: { default: undefined },
     dataTracked: { default: null },
-    comments: { default: null },
   },
   selectable: false,
   group: 'block element executable',

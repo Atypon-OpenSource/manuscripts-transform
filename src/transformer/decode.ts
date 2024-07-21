@@ -255,7 +255,6 @@ export class Decoder {
         page: model.page,
         title: model.title,
         literal: model.literal,
-        comments: comments.map((c) => c.attrs.id),
       }) as BibliographyItemNode
     },
     [ExtraObjectTypes.PlaceholderElement]: (data) => {
@@ -275,7 +274,6 @@ export class Decoder {
         contentType: model.contentType,
         src: model.src,
         position: model.position,
-        comments: comments.map((c) => c.attrs.id),
       })
     },
     [ObjectTypes.FigureElement]: (data) => {
@@ -345,7 +343,6 @@ export class Decoder {
           ),
           attribution: model.attribution,
           alternatives: model.alternatives,
-          comments: comments.map((c) => c.attrs.id),
         },
         content
       ) as FigureElementNode
@@ -410,7 +407,6 @@ export class Decoder {
                 topNode: schema.nodes.footnote.create({
                   id: model._id,
                   kind: model.kind,
-                  comments: comments.map((c) => c.attrs.id),
                   // placeholder: model.placeholderText
                   // paragraphStyle: model.paragraphStyle,
                 }),
@@ -446,7 +442,6 @@ export class Decoder {
           topNode: schema.nodes.footnote.create({
             id: footnoteModel._id,
             kind: footnoteModel.kind,
-            comments: comments.map((c) => c.attrs.id),
           }),
         }
       ) as FootnoteNode
@@ -478,7 +473,6 @@ export class Decoder {
         {
           id: keywordGroup._id,
           type: keywordGroup.type,
-          comments: comments.map((c) => c.attrs.id),
         },
         keywords
       ) as KeywordGroupNode
@@ -493,7 +487,6 @@ export class Decoder {
         {
           id: keyword._id,
           contents: keyword.name,
-          comments: comments.map((c) => c.attrs.id),
         },
         schema.text(keyword.name)
       ) as KeywordNode
@@ -514,7 +507,6 @@ export class Decoder {
                 id: model._id,
                 listStyleType: model.listStyleType || 'order',
                 paragraphStyle: model.paragraphStyle,
-                comments: comments.map((c) => c.attrs.id),
               }),
             }
           ) as ListNode
@@ -547,7 +539,6 @@ export class Decoder {
         contents: model.contents,
         language: model.language,
         languageKey: model.languageKey,
-        comments: comments.map((c) => c.attrs.id),
       }) as ListingNode
     },
     [ObjectTypes.ListingElement]: (data) => {
@@ -577,7 +568,6 @@ export class Decoder {
           suppressTitle: Boolean(
             model.suppressTitle === undefined ? true : model.suppressTitle
           ),
-          comments: comments.map((c) => c.attrs.id),
         },
         [listing, figcaption]
       ) as ListingElementNode
@@ -603,7 +593,6 @@ export class Decoder {
             id: model._id,
             paragraphStyle: model.paragraphStyle,
             placeholder: model.placeholderInnerHTML,
-            comments: comments.map((c) => c.attrs.id),
           }),
         }
       ) as ParagraphNode
@@ -778,7 +767,6 @@ export class Decoder {
           titleSuppressed: model.titleSuppressed,
           pageBreakStyle: model.pageBreakStyle,
           generatedLabel: model.generatedLabel,
-          comments: comments.map((c) => c.attrs.id),
         },
         content
       )
@@ -834,7 +822,6 @@ export class Decoder {
           suppressHeader: model.suppressHeader,
           tableStyle: model.tableStyle,
           paragraphStyle: model.paragraphStyle,
-          comments: comments.map((c) => c.attrs.id),
         },
         content
       ) as TableElementNode
