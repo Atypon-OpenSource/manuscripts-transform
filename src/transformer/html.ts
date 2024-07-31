@@ -119,7 +119,6 @@ export class HTMLTransformer {
     const { idGenerator, mediaPathGenerator } = options
 
     this.modelMap = modelMap
-    const manuscript = findManuscript(this.modelMap)
     this.labelTargets = buildTargets(fragment)
     this.document = document.implementation.createDocument(
       'http://www.w3.org/1999/xhtml',

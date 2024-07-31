@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import { Manuscript } from '@manuscripts/json-schema'
-
 import { ManuscriptFragment, ManuscriptNodeType, schema } from '../schema'
 import { nodeNames } from './node-names'
 
