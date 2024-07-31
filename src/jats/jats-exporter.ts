@@ -315,7 +315,7 @@ export class JATSExporter {
     if (!frontMatterOnly) {
       // TODO: format citations using template if citationType === 'mixed'
       // TODO: or convert existing bibliography data to JATS?
-      this.labelTargets = buildTargets(fragment, manuscript)
+      this.labelTargets = buildTargets(fragment)
 
       const body = this.buildBody(fragment)
       article.appendChild(body)
