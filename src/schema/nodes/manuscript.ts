@@ -37,6 +37,9 @@ export const manuscript: NodeSpec = {
   attrs: {
     id: { default: '' },
     doi: { default: '' },
+    prototype: { default: '' },
+    primaryLanguageCode: { default: '' },
+    articleType: { default: '' },
   },
   group: 'block',
   parseDOM: [
