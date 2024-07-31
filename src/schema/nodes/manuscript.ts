@@ -22,6 +22,9 @@ export interface ActualManuscriptNode extends ManuscriptNode {
   attrs: {
     id: string
     doi: string
+    articleType: string
+    prototype: string
+    primaryLanguageCode: string
   }
 }
 
