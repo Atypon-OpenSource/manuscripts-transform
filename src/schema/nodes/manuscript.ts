@@ -22,6 +22,9 @@ export interface ActualManuscriptNode extends ManuscriptNode {
   attrs: {
     id: string
     doi: string
+    articleType: string
+    prototype: string
+    primaryLanguageCode: string
   }
 }
 
@@ -34,6 +37,9 @@ export const manuscript: NodeSpec = {
   attrs: {
     id: { default: '' },
     doi: { default: '' },
+    prototype: { default: '' },
+    primaryLanguageCode: { default: '' },
+    articleType: { default: '' },
   },
   group: 'block',
   parseDOM: [
