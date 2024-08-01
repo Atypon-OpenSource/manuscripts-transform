@@ -1548,6 +1548,14 @@
     citeproc "^2.4.62"
     fontoxpath "^3.28.2"
 
+"@manuscripts/library@1.3.11-LEAN-3828.1":
+  version "1.3.11-LEAN-3828.1"
+  resolved "https://registry.yarnpkg.com/@manuscripts/library/-/library-1.3.11-LEAN-3828.1.tgz#744489ad2485221b5556192724ae822014e1f2f9"
+  integrity sha512-t77iOKaRDU4wOkrvwycKOpM6w+MyLo4HDAa8TzqtBTzj4LHybOZiN7whskjMwTvazGuURetvVqc1OrZ8KY4Tdg==
+  dependencies:
+    "@manuscripts/json-schema" "2.2.10"
+    citeproc "^2.4.62"
+
 "@mapbox/node-pre-gyp@^1.0.11":
   version "1.0.11"
   resolved "https://registry.npmjs.org/@mapbox/node-pre-gyp/-/node-pre-gyp-1.0.11.tgz"
