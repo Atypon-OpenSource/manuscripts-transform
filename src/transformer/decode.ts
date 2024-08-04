@@ -795,15 +795,13 @@ export class Decoder {
       const comments = this.createCommentNodes(model)
       comments.forEach((c) => this.comments.set(c.attrs.id, c))
 
-      const content: ManuscriptNode[] = [table]
+      const content: ManuscriptNode[] = [figcaption, table]
       if (tableColGroup) {
         content.push(tableColGroup)
       }
       if (tableElementFooter) {
         content.push(tableElementFooter)
       }
-
-      content.push(figcaption)
 
       const listing = model.listingID
         ? this.createListing(model.listingID)
