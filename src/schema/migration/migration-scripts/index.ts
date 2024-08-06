@@ -17,7 +17,6 @@
 import Migration125 from './1.2.5'
 import Migration2322 from './2.3.22'
 
-
 const migrations = [new Migration125(), new Migration2322()]
 
 export default migrations
