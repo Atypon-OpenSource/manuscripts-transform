@@ -309,7 +309,7 @@ export const jatsBodyTransformations = {
     const captions = body.querySelectorAll('caption')
 
     for (const caption of captions) {
-      if (caption.parentNode) {
+      if (caption.parentNode && caption.parentNode.nodeName !== 'table-wrap') {
         caption.parentNode.appendChild(caption)
       }
     }
