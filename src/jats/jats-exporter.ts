@@ -1436,6 +1436,8 @@ export class JATSExporter {
     const CDATAEndSection = ']]>'
     if (node.attrs.format === 'tex') {
       const texMath = this.document.createElement('tex-math')
+      texMath.setAttribute('notation', 'LaTeX')
+      texMath.setAttribute('version', 'MathJax')
       texMath.innerHTML = `${CDATAStartSection} ${node.attrs.contents} ${CDATAEndSection}`
       return texMath
     } else {
