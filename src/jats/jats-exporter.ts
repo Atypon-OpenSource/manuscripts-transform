@@ -1432,13 +1432,11 @@ export class JATSExporter {
   }
 
   private createEquation(node: ManuscriptNode, isInline = false) {
-    const CDATAStartSection = '<![CDATA['
-    const CDATAEndSection = ']]>'
     if (node.attrs.format === 'tex') {
       const texMath = this.document.createElement('tex-math')
       texMath.setAttribute('notation', 'LaTeX')
       texMath.setAttribute('version', 'MathJax')
-      texMath.innerHTML = `${CDATAStartSection} ${node.attrs.contents} ${CDATAEndSection}`
+      texMath.innerHTML = node.attrs.contents
       return texMath
     } else {
       const math = this.nodeFromJATS(node.attrs.contents)
