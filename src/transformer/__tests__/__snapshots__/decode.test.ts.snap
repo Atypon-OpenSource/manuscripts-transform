@@ -745,6 +745,34 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A table",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
                     "id": "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
                   },
                   "content": Array [
@@ -945,34 +973,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A table",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                  ],
-                  "type": "figcaption",
-                },
-                Object {
-                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -1000,6 +1000,34 @@ Object {
                 "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
               },
               "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A table with hidden header",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
@@ -1161,34 +1189,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A table with hidden header",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                  ],
-                  "type": "figcaption",
-                },
-                Object {
-                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -1216,6 +1216,34 @@ Object {
                 "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
               },
               "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A table with hidden footer",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
@@ -1371,34 +1399,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A table with hidden footer",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                  ],
-                  "type": "figcaption",
-                },
-                Object {
-                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -1426,6 +1426,34 @@ Object {
                 "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
               },
               "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A table with hidden caption",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
@@ -1578,34 +1606,6 @@ Object {
                     },
                   ],
                   "type": "table",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A table with hidden caption",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                  ],
-                  "type": "figcaption",
                 },
                 Object {
                   "attrs": Object {
@@ -2603,6 +2603,34 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A table",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
                     "id": "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
                   },
                   "content": Array [
@@ -2803,34 +2831,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A table",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                  ],
-                  "type": "figcaption",
-                },
-                Object {
-                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -2858,6 +2858,34 @@ Object {
                 "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
               },
               "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A table with hidden header",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
@@ -3019,34 +3047,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A table with hidden header",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                  ],
-                  "type": "figcaption",
-                },
-                Object {
-                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -3077,14 +3077,6 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8",
-                    "label": "A table",
-                  },
-                  "type": "placeholder",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
                   },
                   "content": Array [
                     Object {
@@ -3109,6 +3101,14 @@ Object {
                     },
                   ],
                   "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPTable:2A2413E2-71F5-4B6C-F513-7B44748E49A8",
+                    "label": "A table",
+                  },
+                  "type": "placeholder",
                 },
                 Object {
                   "attrs": Object {
@@ -3139,6 +3139,34 @@ Object {
                 "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
               },
               "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A table with hidden caption",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
@@ -3291,34 +3319,6 @@ Object {
                     },
                   ],
                   "type": "table",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A table with hidden caption",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                  ],
-                  "type": "figcaption",
                 },
                 Object {
                   "attrs": Object {
@@ -4411,6 +4411,34 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A table",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
                     "id": "MPTable:509A944E-994C-4867-AE55-593628C5DBD5",
                   },
                   "content": Array [
@@ -4611,34 +4639,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A table",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                  ],
-                  "type": "figcaption",
-                },
-                Object {
-                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -4666,6 +4666,34 @@ Object {
                 "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
               },
               "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A table with hidden header",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
@@ -4827,34 +4855,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A table with hidden header",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                  ],
-                  "type": "figcaption",
-                },
-                Object {
-                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -4882,6 +4882,34 @@ Object {
                 "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
               },
               "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A table with hidden footer",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
@@ -5037,34 +5065,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A table with hidden footer",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                  ],
-                  "type": "figcaption",
-                },
-                Object {
-                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "",
@@ -5092,6 +5092,34 @@ Object {
                 "tableStyle": "MPTableStyle:08C0E93B-848D-491F-8EB2-A8A0B17714BA",
               },
               "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A table with hidden caption",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
@@ -5244,34 +5272,6 @@ Object {
                     },
                   ],
                   "type": "table",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A table with hidden caption",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                  ],
-                  "type": "figcaption",
                 },
                 Object {
                   "attrs": Object {

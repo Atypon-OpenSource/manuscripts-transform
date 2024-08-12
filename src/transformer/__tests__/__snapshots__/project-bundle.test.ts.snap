@@ -186,6 +186,34 @@ Object {
                       Object {
                         "attrs": Object {
                           "dataTracked": null,
+                        },
+                        "content": Array [
+                          Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                              "placeholder": "Title...",
+                            },
+                            "type": "caption_title",
+                          },
+                          Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                              "placeholder": "Caption...",
+                            },
+                            "content": Array [
+                              Object {
+                                "text": "Some comparisons",
+                                "type": "text",
+                              },
+                            ],
+                            "type": "caption",
+                          },
+                        ],
+                        "type": "figcaption",
+                      },
+                      Object {
+                        "attrs": Object {
+                          "dataTracked": null,
                           "id": "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
                         },
                         "content": Array [
@@ -377,34 +405,6 @@ Object {
                           },
                         ],
                         "type": "table",
-                      },
-                      Object {
-                        "attrs": Object {
-                          "dataTracked": null,
-                        },
-                        "content": Array [
-                          Object {
-                            "attrs": Object {
-                              "dataTracked": null,
-                              "placeholder": "Title...",
-                            },
-                            "type": "caption_title",
-                          },
-                          Object {
-                            "attrs": Object {
-                              "dataTracked": null,
-                              "placeholder": "Caption...",
-                            },
-                            "content": Array [
-                              Object {
-                                "text": "Some comparisons",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "caption",
-                          },
-                        ],
-                        "type": "figcaption",
                       },
                       Object {
                         "attrs": Object {
@@ -1521,6 +1521,34 @@ Object {
                       Object {
                         "attrs": Object {
                           "dataTracked": null,
+                        },
+                        "content": Array [
+                          Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                              "placeholder": "Title...",
+                            },
+                            "type": "caption_title",
+                          },
+                          Object {
+                            "attrs": Object {
+                              "dataTracked": null,
+                              "placeholder": "Caption...",
+                            },
+                            "content": Array [
+                              Object {
+                                "text": "Some comparisons",
+                                "type": "text",
+                              },
+                            ],
+                            "type": "caption",
+                          },
+                        ],
+                        "type": "figcaption",
+                      },
+                      Object {
+                        "attrs": Object {
+                          "dataTracked": null,
                           "id": "MPTable:20BF6401-3D6A-41F0-B7C3-BAE20B1D5745",
                         },
                         "content": Array [
@@ -1712,34 +1740,6 @@ Object {
                           },
                         ],
                         "type": "table",
-                      },
-                      Object {
-                        "attrs": Object {
-                          "dataTracked": null,
-                        },
-                        "content": Array [
-                          Object {
-                            "attrs": Object {
-                              "dataTracked": null,
-                              "placeholder": "Title...",
-                            },
-                            "type": "caption_title",
-                          },
-                          Object {
-                            "attrs": Object {
-                              "dataTracked": null,
-                              "placeholder": "Caption...",
-                            },
-                            "content": Array [
-                              Object {
-                                "text": "Some comparisons",
-                                "type": "text",
-                              },
-                            ],
-                            "type": "caption",
-                          },
-                        ],
-                        "type": "figcaption",
                       },
                       Object {
                         "attrs": Object {
