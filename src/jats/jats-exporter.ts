@@ -1436,7 +1436,7 @@ export class JATSExporter {
       const texMath = this.document.createElement('tex-math')
       texMath.setAttribute('notation', 'LaTeX')
       texMath.setAttribute('version', 'MathJax')
-      if (node.attrs.contents.includes('CDATA')) {
+      if (node.attrs.contents.includes('<![CDATA[')) {
         texMath.innerHTML = node.attrs.contents
       } else {
         texMath.innerHTML = `<![CDATA[ ${node.attrs.contents} ]]>`
