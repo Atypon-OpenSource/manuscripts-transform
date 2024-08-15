@@ -1065,10 +1065,15 @@ export class Decoder {
     ]
     const contents = nodes.filter((node) => node !== false)
 
+    const props = this.getManuscript()
+
     return schema.nodes.manuscript.create(
       {
         id: manuscriptID || this.getManuscriptID(),
-        doi: this.getManuscriptDOI() || '',
+        doi: props?.DOI || '',
+        articleType: props?.articleType,
+        prototype: props?.prototype,
+        primaryLanguageCode: props?.primaryLanguageCode,
       },
       contents as ManuscriptNode[]
     )
@@ -1136,10 +1141,10 @@ export class Decoder {
       }
     }
   }
-  private getManuscriptDOI = () => {
+  private getManuscript = () => {
     for (const item of this.modelMap.values()) {
       if (isManuscript(item)) {
-        return item.DOI
+        return item
       }
     }
   }
