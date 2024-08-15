@@ -13,27 +13,62 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { buildElementClass } from '../../lib/attributes'
 import { ManuscriptNode } from '../types'
 
-export interface BulletListNode extends ManuscriptNode {
-  attrs: {
-    id: string
-    paragraphStyle: string
+export type JatsStyleType =
+  | 'simple'
+  | 'bullet'
+  | 'order'
+  | 'alpha-lower'
+  | 'alpha-upper'
+  | 'roman-lower'
+  | 'roman-upper'
+interface ListTypeInfo {
+  type: 'ul' | 'ol'
+  style: string
+}
+
+export const getListType = (style: JatsStyleType): ListTypeInfo => {
+  switch (style) {
+    case 'simple':
+      return { type: 'ul', style: 'none' }
+    case 'bullet':
+      return { type: 'ul', style: 'disc' }
+    case 'order':
+      return { type: 'ul', style: 'decimal' }
+    case 'alpha-lower':
+      return { type: 'ul', style: 'lower-alpha' }
+    case 'alpha-upper':
+      return { type: 'ul', style: 'upper-alpha' }
+    case 'roman-lower':
+      return { type: 'ul', style: 'lower-roman' }
+    case 'roman-upper':
+      return { type: 'ul', style: 'upper-roman' }
+    default:
+      throw new Error(`Unsupported style type: ${style}`)
   }
 }
 
-export const bulletList: NodeSpec = {
+export interface ListNode extends ManuscriptNode {
+  attrs: {
+    id: string
+    paragraphStyle: string
+    listStyleType: string
+  }
+}
+
+export const list: NodeSpec = {
   content: 'list_item+',
   group: 'block list element',
   attrs: {
     id: { default: '' },
     paragraphStyle: { default: '' },
     dataTracked: { default: null },
+    listStyleType: { default: null },
   },
   parseDOM: [
     {
@@ -43,46 +78,10 @@ export const bulletList: NodeSpec = {
 
         return {
           id: dom.getAttribute('id'),
+          listStyleType: dom.getAttribute('list-type'),
         }
       },
     },
-  ],
-  toDOM: (node) => {
-    const bulletListNode = node as BulletListNode
-
-    return bulletListNode.attrs.id
-      ? [
-          'ul',
-          {
-            id: bulletListNode.attrs.id,
-            class: buildElementClass(bulletListNode.attrs),
-            'data-object-type': ObjectTypes.ListElement,
-          },
-          0,
-        ]
-      : ['ul', 0]
-  },
-}
-
-export interface OrderedListNode extends ManuscriptNode {
-  attrs: {
-    id: string
-    listStyleType: string
-    paragraphStyle: string
-  }
-}
-
-export const orderedList: NodeSpec = {
-  content: 'list_item+',
-  group: 'block list element',
-  attrs: {
-    id: { default: '' },
-    // order: { default: 1 },
-    listStyleType: { default: null },
-    paragraphStyle: { default: '' },
-    dataTracked: { default: null },
-  },
-  parseDOM: [
     {
       tag: 'ol',
       getAttrs: (p) => {
@@ -91,27 +90,23 @@ export const orderedList: NodeSpec = {
         return {
           id: dom.getAttribute('id'),
           listStyleType: dom.getAttribute('list-type'),
-          // order: dom.hasAttribute('start') ? dom.getAttribute('start') : 1,
         }
       },
     },
   ],
   toDOM: (node) => {
-    const orderedListNode = node as OrderedListNode
-
-    return orderedListNode.attrs.id
-      ? [
-          'ol',
-          {
-            id: orderedListNode.attrs.id,
-            'list-type': orderedListNode.attrs.listStyleType,
-            // start: node.attrs.order === 1 ? undefined : node.attrs.order,
-            class: buildElementClass(orderedListNode.attrs),
-            'data-object-type': ObjectTypes.ListElement,
-          },
-          0,
-        ]
-      : ['ol', 0]
+    const list = node as ListNode
+    const { type } = getListType(list.attrs.listStyleType as JatsStyleType)
+    return [
+      type,
+      {
+        id: list.attrs.id,
+        'list-type': list.attrs.listStyleType,
+        class: buildElementClass(list.attrs),
+        'data-object-type': ObjectTypes.ListElement,
+      },
+      0,
+    ]
   },
 }
 
@@ -156,10 +151,8 @@ export const listItem: NodeSpec = {
   },
 }
 
-export type ListNode = BulletListNode | OrderedListNode
-
 export const isListNode = (node: ManuscriptNode): node is ListNode => {
   const { nodes } = node.type.schema
 
-  return node.type === nodes.bullet_list || node.type === nodes.ordered_list
+  return node.type === nodes.list
 }

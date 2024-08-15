@@ -28,8 +28,7 @@ export interface LinkNode extends ManuscriptNode {
 }
 
 export const link: NodeSpec = {
-  content: 'text*',
-  marks: '', // no marks
+  content: 'inline*',
   attrs: {
     href: { default: '' },
     title: { default: '' },

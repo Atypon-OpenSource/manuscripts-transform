@@ -280,44 +280,28 @@ export const jatsBodyTransformations = {
     group: Element,
     createElement: (tagName: string) => HTMLElement
   ) {
-    const footnotes = [...doc.querySelectorAll('fn:not(table-wrap-foot fn)')]
-    const footnotesSection = doc.querySelector('sec[sec-type="endnotes"]')
-    const footnotesSectionGroup = footnotesSection?.querySelector('fn-group')
-    const containingGroup = footnotesSectionGroup || createElement('fn-group')
-    for (const footnote of footnotes) {
-      const type = footnote.getAttribute('fn-type')
-      if (!type) {
+    const footnotes = Array.from(
+      doc.querySelectorAll('fn:not(table-wrap-foot fn, author-notes fn)')
+    )
+    let footnotesSection = doc.querySelector('sec[sec-type="endnotes"]')
+    const containingGroup =
+      footnotesSection?.querySelector('fn-group') || createElement('fn-group')
+    footnotes.forEach((footnote) => {
+      if (!footnote.getAttribute('fn-type')) {
         containingGroup.appendChild(footnote)
       }
-    }
-
+    })
     if (!footnotesSection && containingGroup.innerHTML) {
-      const section = this.createFootnotesSection(
+      footnotesSection = this.createFootnotesSection(
         [containingGroup],
         createElement
       )
-      group.append(section)
     }
-
-    // move footnotes without fn-type from back to body section
-    let regularFootnoteGroups = [
-      ...doc.querySelectorAll('back > fn-group:not([fn-type])'),
-    ]
-    // check if these groups don't have an fn-type because they are actually a mixed group and not a normal footnote group
-    regularFootnoteGroups = regularFootnoteGroups.filter((group) => {
-      // count check for if all the irrelevant fns as already been extracted
-      return group.childElementCount === 0
-        ? false
-        : !group.querySelector('fn[fn-type]')
-    })
-
-    if (regularFootnoteGroups.length > 0) {
-      regularFootnoteGroups.map((g) => removeNodeFromParent(g))
-      const footnotes = this.createFootnotesSection(
-        regularFootnoteGroups,
-        createElement
+    if (footnotesSection) {
+      group.insertBefore(
+        footnotesSection,
+        group.firstChild?.nextSibling || group.firstChild
       )
-      group.appendChild(footnotes)
     }
   },
   // move captions to the end of their containers
@@ -325,16 +309,20 @@ export const jatsBodyTransformations = {
     const captions = body.querySelectorAll('caption')
 
     for (const caption of captions) {
-      if (caption.parentNode) {
+      if (caption.parentNode && caption.parentNode.nodeName !== 'table-wrap') {
         caption.parentNode.appendChild(caption)
       }
     }
   },
   fixTables(body: Element, createElement: (tagName: string) => HTMLElement) {
-    const tables = body.querySelectorAll('table-wrap > table')
-    tables.forEach((table) => {
+    const tableWraps = body.querySelectorAll('table-wrap')
+    tableWraps.forEach((tableWrap) => {
       // Move cols into a colgroup if they are not already
       // This more closely maps how they exist in HTML and, subsequently, in ManuscriptJSON
+      const table = tableWrap.querySelector('table')
+      if (!table) {
+        return
+      }
       const colgroup = table.querySelector('colgroup')
       const cols = table.querySelectorAll('col')
       if (!colgroup && table.firstChild && cols.length > 0) {
@@ -342,26 +330,18 @@ export const jatsBodyTransformations = {
         for (const col of cols) {
           colgroup.appendChild(col)
         }
-        table.insertBefore(colgroup, table.firstChild)
+        tableWrap.insertBefore(colgroup, table.nextSibling)
       }
-
-      // Ensures that tables have a header and footer row
-      const tbody = table.querySelector('tbody')
-      if (tbody) {
-        // if there are no table header rows, add an extra row to the start of the table body
-        const headerRow = table.querySelector('thead > tr')
-
-        if (!headerRow) {
-          const tr = createElement('tr')
-          tbody.insertBefore(tr, tbody.firstElementChild)
-        }
-
-        // if there are no table footer rows, add an extra row to the end of the table body
-        const footerRow = table.querySelector('tfoot > tr')
-
-        if (!footerRow) {
-          const tr = createElement('tr')
-          tbody.appendChild(tr)
+      const tableFootWrap = tableWrap.querySelector('table-wrap-foot')
+      if (tableFootWrap) {
+        const paragraphs = tableFootWrap.querySelectorAll(':scope > p')
+        if (paragraphs.length) {
+          const generalTableFootnote = createElement('general-table-footnote')
+          for (const paragraph of paragraphs) {
+            removeNodeFromParent(paragraph)
+            generalTableFootnote.append(paragraph)
+          }
+          tableFootWrap.prepend(generalTableFootnote)
         }
       }
     })

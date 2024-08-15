@@ -16,10 +16,12 @@
 
 import {
   Affiliation,
+  AuthorNotes,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
   Contributor,
+  Corresponding,
   ElementsOrder,
   Equation,
   EquationElement,
@@ -28,7 +30,6 @@ import {
   Footnote,
   FootnotesElement,
   FootnotesOrder,
-  InlineMathFragment,
   Keyword,
   KeywordGroup,
   KeywordsElement,
@@ -52,6 +53,7 @@ import serializeToXML from 'w3c-xmlserializer'
 
 import { iterateChildren } from '../lib/utils'
 import {
+  getListType,
   hasGroup,
   isHighlightMarkerNode,
   isManuscriptNode,
@@ -122,15 +124,6 @@ const listContents = (node: ManuscriptNode): string => {
   return serializeToXML(output)
 }
 
-const svgDefs = (svg: string): string | undefined => {
-  const template = document.createElement('template')
-  template.innerHTML = svg.trim()
-
-  const defs = template.content.querySelector('defs')
-
-  return defs ? serializeToXML(defs) : undefined
-}
-
 const tableRowDisplayStyle = (tagName: string, parent: ManuscriptNode) => {
   switch (tagName) {
     case 'thead':
@@ -198,10 +191,13 @@ const tableContents = (
   parent: TableElementNode
 ): string => {
   const input = serializer.serializeNode(node) as HTMLTableElement
+  const parentInput = serializer.serializeNode(parent) as HTMLElement
 
   const output = document.createElement('table')
 
-  const colgroup = buildTableColGroup(Array.from(input.querySelectorAll('col')))
+  const colgroup = buildTableColGroup(
+    Array.from(parentInput.querySelectorAll('col'))
+  )
   if (colgroup) {
     output.appendChild(colgroup)
   }
@@ -355,9 +351,32 @@ const containedParagraphIDs = (node: ManuscriptNode): string[] => {
   return containedObjectIDs(node, [paragraphNodeType])
 }
 
+const containedAuthorNotesIDs = (node: ManuscriptNode): string[] => {
+  const correspNodeType = node.type.schema.nodes.corresp
+  const footnoteNodetype = node.type.schema.nodes.footnote
+  const paragraphNodeType = node.type.schema.nodes.paragraph
+  return containedObjectIDs(node, [
+    correspNodeType,
+    footnoteNodetype,
+    paragraphNodeType,
+  ])
+}
 const containedBibliographyItemIDs = (node: ManuscriptNode): string[] => {
   const bibliographyItemNodeType = node.type.schema.nodes.bibliography_item
   return containedObjectIDs(node, [bibliographyItemNodeType])
+}
+
+const tableElementFooterContainedIDs = (node: ManuscriptNode): string[] => {
+  const containedGeneralTableFootnoteIDs = containedObjectIDs(node, [
+    schema.nodes.footnotes_element,
+  ])
+  for (let i = 0; i < node.childCount; i++) {
+    const childNode = node.child(i)
+    if (childNode.type === schema.nodes.general_table_footnote) {
+      containedGeneralTableFootnoteIDs.push(...containedObjectIDs(childNode))
+    }
+  }
+  return containedGeneralTableFootnoteIDs
 }
 const containedObjectIDs = (
   node: ManuscriptNode,
@@ -447,6 +466,7 @@ const encoders: NodeEncoderMap = {
     title: inlineContents(node),
     subtitle: node.attrs.subtitle,
     runningTitle: node.attrs.runningTitle,
+    placeholder: node.attrs.placeholder,
     _id: node.attrs._id,
   }),
   bibliography_element: (node): Partial<BibliographyElement> => ({
@@ -535,9 +555,10 @@ const encoders: NodeEncoderMap = {
     placeholderInnerHTML: node.attrs.placeholder || '',
     quoteType: 'block',
   }),
-  bullet_list: (node): Partial<ListElement> => ({
-    elementType: 'ul',
+  list: (node): Partial<ListElement> => ({
+    elementType: getListType(node.attrs.listStyleType).type,
     contents: listContents(node),
+    listStyleType: node.attrs.listStyleType,
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
   listing: (node): Partial<Listing> => ({
@@ -567,32 +588,13 @@ const encoders: NodeEncoderMap = {
         : false,
   }),
   equation: (node): Partial<Equation> => ({
-    MathMLStringRepresentation:
-      node.attrs.MathMLStringRepresentation || undefined,
-    TeXRepresentation: node.attrs.TeXRepresentation,
-    SVGStringRepresentation: node.attrs.SVGStringRepresentation,
-    // title: 'Equation',
+    contents: node.attrs.contents,
+    format: node.attrs.format,
   }),
   equation_element: (node): Partial<EquationElement> => ({
     containedObjectID: attributeOfNodeType(node, 'equation', 'id'),
-    caption: inlineContentOfChildNodeType(
-      node,
-      node.type.schema.nodes.figcaption,
-      node.type.schema.nodes.caption
-    ),
-    title: inlineContentOfChildNodeType(
-      node,
-      node.type.schema.nodes.figcaption,
-      node.type.schema.nodes.caption_title,
-      false
-    ),
-    elementType: 'p',
-    suppressCaption: Boolean(node.attrs.suppressCaption) || undefined,
-    suppressTitle:
-      node.attrs.suppressTitle === undefined ||
-      node.attrs.suppressTitle === true
-        ? undefined
-        : false,
+    elementType: 'div',
+    label: node.attrs.label,
   }),
   figure: (node): Partial<Figure> => ({
     contentType: node.attrs.contentType || undefined,
@@ -620,7 +622,10 @@ const encoders: NodeEncoderMap = {
     paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
   table_element_footer: (node): Partial<TableElementFooter> => ({
-    containedObjectIDs: containedObjectIDs(node),
+    containedObjectIDs: tableElementFooterContainedIDs(node),
+  }),
+  author_notes: (node): Partial<AuthorNotes> => ({
+    containedObjectIDs: containedAuthorNotesIDs(node),
   }),
   footnotes_section: (node, parent, path, priority): Partial<Section> => ({
     category: buildSectionCategory(node),
@@ -645,13 +650,6 @@ const encoders: NodeEncoderMap = {
       .map((childNode) => childNode.attrs.id)
       .filter((id) => id),
   }),
-  inline_equation: (node, parent): Partial<InlineMathFragment> => ({
-    containingObject: parent.attrs.id,
-    // MathMLRepresentation: node.attrs.MathMLRepresentation || undefined,
-    TeXRepresentation: node.attrs.TeXRepresentation,
-    SVGRepresentation: node.attrs.SVGRepresentation,
-    SVGGlyphs: svgDefs(node.attrs.SVGRepresentation),
-  }),
   keyword: (node, parent): Partial<Keyword> => ({
     containedGroup: parent.attrs.id,
     name: keywordContents(node),
@@ -666,12 +664,6 @@ const encoders: NodeEncoderMap = {
   }),
   missing_figure: (node): Partial<MissingFigure> => ({
     position: node.attrs.position || undefined,
-  }),
-  ordered_list: (node): Partial<ListElement> => ({
-    elementType: 'ol',
-    contents: listContents(node),
-    listStyleType: node.attrs.listStyleType,
-    paragraphStyle: node.attrs.paragraphStyle || undefined,
   }),
   paragraph: (node): Partial<ParagraphElement> => ({
     elementType: 'p',
@@ -784,6 +776,10 @@ const encoders: NodeEncoderMap = {
         ? [node.attrs.mimeType, node.attrs.mimeSubType].join('/')
         : '',
   }),
+  corresp: (node): Partial<Corresponding> => ({
+    contents: inlineContents(node),
+    label: node.attrs.label,
+  }),
 }
 
 const modelData = (
@@ -793,7 +789,6 @@ const modelData = (
   priority: PrioritizedValue
 ): Partial<Model> => {
   const encoder = encoders[node.type.name as Nodes]
-
   if (!encoder) {
     throw new Error(`Unhandled model: ${node.type.name}`)
   }
@@ -829,10 +824,8 @@ export const modelFromNode = (
     _id: id,
     objectType: objectType,
   }
-
   const model = data as Model
   const markers = extractCommentMarkers(model)
-
   return { model, markers }
 }
 
@@ -843,12 +836,13 @@ interface PrioritizedValue {
 const containerTypes = [
   schema.nodes.affiliations,
   schema.nodes.contributors,
-  schema.nodes.affiliations,
+  // schema.nodes.author_notes,
   schema.nodes.keywords,
   schema.nodes.supplements,
   schema.nodes.abstracts,
   schema.nodes.body,
   schema.nodes.backmatter,
+  schema.nodes.general_table_footnote,
 ]
 
 const placeholderTypes = [
@@ -858,7 +852,6 @@ const placeholderTypes = [
 
 export const encode = (node: ManuscriptNode): Map<string, Model> => {
   const models: Map<string, Model> = new Map()
-
   const priority: PrioritizedValue = {
     value: 1,
   }
@@ -878,10 +871,7 @@ export const encode = (node: ManuscriptNode): Map<string, Model> => {
       if (placeholderTypes.includes(child.type)) {
         return
       }
-      if (
-        parent.type === schema.nodes.paragraph &&
-        child.type !== schema.nodes.inline_equation
-      ) {
+      if (parent.type === schema.nodes.paragraph) {
         return
       }
 

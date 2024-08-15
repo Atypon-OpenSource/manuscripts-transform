@@ -16,16 +16,22 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
+import { ManuscriptNode } from '../types'
 
-export const backmatter: NodeSpec = {
-  content: 'sections*',
+interface Attrs {
+  id: string
+}
+
+export interface GeneralTableFootnote extends ManuscriptNode {
+  attrs: Attrs
+}
+
+export const generalTableFootnote: NodeSpec = {
+  content: 'paragraph*',
   attrs: {
     id: { default: '' },
-    placeholder: { default: ' ' },
+    dataTracked: { default: null },
   },
-  group: 'block element',
-  parseDOM: [{ tag: 'div.backmatter' }],
-  toDOM: () => ['div', { class: 'backmatter' }, 0],
+  group: 'block',
+  toDOM: () => ['div', { class: 'general-table-footnote' }, 0],
 }

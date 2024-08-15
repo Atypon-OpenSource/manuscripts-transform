@@ -53,7 +53,7 @@ export type Nodes =
   | 'bibliography_element'
   | 'bibliography_section'
   | 'blockquote_element'
-  | 'bullet_list'
+  | 'list'
   | 'caption'
   | 'caption_title'
   | 'comment'
@@ -87,7 +87,6 @@ export type Nodes =
   | 'body'
   | 'backmatter'
   | 'missing_figure'
-  | 'ordered_list'
   | 'paragraph'
   | 'placeholder'
   | 'placeholder_element'
@@ -97,12 +96,12 @@ export type Nodes =
   | 'section_title'
   | 'section_title_plain'
   | 'table'
-  | 'table_body'
   | 'table_cell'
   | 'table_element'
   | 'table_row'
   | 'table_colgroup'
   | 'table_col'
+  | 'table_header'
   | 'text'
   | 'toc_element'
   | 'toc_section'
@@ -114,7 +113,9 @@ export type Nodes =
   | 'contributors'
   | 'supplements'
   | 'supplement'
-
+  | 'author_notes'
+  | 'corresp'
+  | 'general_table_footnote'
 export type ManuscriptSchema = Schema<Nodes, Marks>
 
 export type ManuscriptEditorState = EditorState

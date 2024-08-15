@@ -128,7 +128,6 @@ const roundtrip = async (filename: string) => {
 
   const decoder = new Decoder(modelMap)
   const article = decoder.createArticleNode(manuscript._id)
-
   const exporter = new JATSExporter()
   return await exporter.serializeToJATS(
     article.content,

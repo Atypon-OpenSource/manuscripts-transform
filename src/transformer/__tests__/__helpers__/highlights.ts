@@ -61,10 +61,28 @@ export const createTestModelMapWithHighlights = () => {
     title: 'main title',
     createdAt: 0,
     updatedAt: 0,
+    placeholder: 'Insert title here...',
     manuscriptID: manuscript._id,
     containerID: project._id,
   }
   modelMap.set(titles._id, titles)
+
+  const titleComment: CommentAnnotation = {
+    objectType: ObjectTypes.CommentAnnotation,
+    _id: 'MPCommentAnnotation:test0',
+    target: 'MPTitles:1',
+    selector: { from: 0, to: 5 },
+    contents: 'title comment',
+    createdAt: 0,
+    updatedAt: 0,
+    manuscriptID: manuscript._id,
+    containerID: project._id,
+    contributions: [],
+    originalText: '',
+    resolved: false,
+  }
+
+  modelMap.set(titleComment._id, titleComment)
 
   const paragraphWithHighlight: ParagraphElement = {
     objectType: ObjectTypes.ParagraphElement,
@@ -207,6 +225,7 @@ export const createTestModelMapWithKeywords = () => {
     title: 'main title',
     createdAt: 0,
     updatedAt: 0,
+    placeholder: 'Insert title here...',
     manuscriptID: manuscript._id,
     containerID: project._id,
   }
@@ -286,6 +305,7 @@ export const createTestModelMapWithKeywordsAndAuthorQuery = () => {
     title: 'main title',
     createdAt: 0,
     updatedAt: 0,
+    placeholder: 'Insert title here...',
     manuscriptID: manuscript._id,
     containerID: project._id,
   }
@@ -385,6 +405,7 @@ export const createTestModelMapWithElements = () => {
     title: 'main title',
     createdAt: 0,
     updatedAt: 0,
+    placeholder: 'Insert title here...',
     manuscriptID: manuscript._id,
     containerID: project._id,
   }

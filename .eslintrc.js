@@ -19,6 +19,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
+  ignorePatterns: ['/src/version.ts'],
   overrides: [
     {
       files: '**/*.test.ts',

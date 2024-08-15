@@ -15,7 +15,6 @@
  */
 
 import {
-  Equation,
   Keyword,
   Manuscript,
   ObjectTypes,
@@ -38,7 +37,6 @@ import { journalMeta } from '../../transformer/__tests__/__helpers__/journal-met
 import { JATSExporter } from '../jats-exporter'
 import { Version } from '../jats-versions'
 import { DEFAULT_CSL_OPTIONS } from './citations'
-import { readFixture } from './files'
 import { getDocFromModelMap, getModelMapFromXML } from './utils'
 
 const input = projectDump as ProjectBundle
@@ -810,16 +808,6 @@ describe('JATS exporter', () => {
 
   test('DTD validation for MathML representation', async () => {
     const projectBundle = cloneProjectBundle(input)
-    const mathMLFragment = await readFixture('math-fragment.xml')
-
-    projectBundle.data.find((el) => {
-      if (el._id === 'MPEquation:C900DDA4-BE45-4AF6-8C9F-CA0AA5FCC403') {
-        const equation = el as Equation
-        equation.MathMLStringRepresentation = mathMLFragment
-        // @ts-ignore
-        delete equation.TeXRepresentation
-      }
-    })
     const { doc, modelMap } = parseProjectBundle(projectBundle)
 
     const transformer = new JATSExporter()
@@ -862,7 +850,7 @@ describe('JATS exporter', () => {
   })
 
   test('export with supplement', async () => {
-    const supple: Supplement = {
+    const suppl: Supplement = {
       containerID: '',
       manuscriptID: '',
       createdAt: 0,
@@ -873,7 +861,7 @@ describe('JATS exporter', () => {
       href: 'attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312',
       MIME: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     }
-    input.data.push(supple)
+    input.data.push(suppl)
     const projectBundle = cloneProjectBundle(input)
     const { doc, modelMap } = parseProjectBundle(projectBundle)
     const manuscript = findManuscript(modelMap)

@@ -13,19 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// version file is created by prebuild script and gitignored which means you wont be able to find it in the source
+import { VERSION } from './version'
 
-import { NodeSpec } from 'prosemirror-model'
-
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
-
-export const backmatter: NodeSpec = {
-  content: 'sections*',
-  attrs: {
-    id: { default: '' },
-    placeholder: { default: ' ' },
-  },
-  group: 'block element',
-  parseDOM: [{ tag: 'div.backmatter' }],
-  toDOM: () => ['div', { class: 'backmatter' }, 0],
+export function getVersion() {
+  return VERSION
 }

@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import { Manuscript } from '@manuscripts/json-schema'
-
 import { ManuscriptFragment, ManuscriptNodeType, schema } from '../schema'
 import { nodeNames } from './node-names'
 
@@ -42,42 +40,20 @@ const labelledNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.listing_element,
 ]
 
-const labelProperties: Map<ManuscriptNodeType, keyof Partial<Manuscript>> =
-  new Map([
-    [schema.nodes.figure_element, 'figureElementLabel'],
-    [schema.nodes.table_element, 'tableElementLabel'],
-    [schema.nodes.equation_element, 'equationElementLabel'],
-    [schema.nodes.listing_element, 'listingElementLabel'],
-  ])
-
 const excludedTypes = [schema.nodes.graphical_abstract_section]
 
-const chooseLabel = (
-  nodeType: ManuscriptNodeType,
-  manuscript: Manuscript
-): string => {
-  const labelProperty = labelProperties.get(nodeType)
-
-  if (labelProperty) {
-    const label = manuscript[labelProperty]
-
-    if (label) {
-      return label as string
-    }
-  }
-
+const chooseLabel = (nodeType: ManuscriptNodeType): string => {
   return nodeNames.get(nodeType) as string
 }
 
 export const buildTargets = (
-  fragment: ManuscriptFragment,
-  manuscript: Manuscript
+  fragment: ManuscriptFragment
 ): Map<string, Target> => {
   const counters: Counters = {}
 
   for (const nodeType of labelledNodeTypes) {
     counters[nodeType.name] = {
-      label: chooseLabel(nodeType, manuscript), // choosing label name: "Figure", "Table", etc.
+      label: chooseLabel(nodeType), // choosing label name: "Figure", "Table", etc.
       index: 0, // TODO: use manuscript.figureElementNumberingScheme
     }
   }

@@ -21,6 +21,10 @@ import { ManuscriptNode } from '../types'
 export interface ActualManuscriptNode extends ManuscriptNode {
   attrs: {
     id: string
+    doi: string
+    articleType: string
+    prototype: string
+    primaryLanguageCode: string
   }
 }
 
@@ -29,9 +33,13 @@ export interface ActualManuscriptNode extends ManuscriptNode {
 
 export const manuscript: NodeSpec = {
   content:
-    'title? contributors? affiliations? keywords? supplements? abstracts body backmatter comments',
+    'title? contributors? affiliations? author_notes? keywords? supplements? abstracts body backmatter comments',
   attrs: {
     id: { default: '' },
+    doi: { default: '' },
+    prototype: { default: '' },
+    primaryLanguageCode: { default: '' },
+    articleType: { default: '' },
   },
   group: 'block',
   parseDOM: [

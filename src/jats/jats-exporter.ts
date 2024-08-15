@@ -16,11 +16,13 @@
 
 import {
   Affiliation,
+  AuthorNotes,
   BibliographyItem,
   Contributor,
   ContributorRole,
   Corresponding,
   Footnote,
+  getModelsByType,
   InlineStyle,
   Journal,
   Keyword,
@@ -28,11 +30,16 @@ import {
   Manuscript,
   Model,
   ObjectTypes,
+  ParagraphElement,
   Supplement,
 } from '@manuscripts/json-schema'
 import { CitationProvider } from '@manuscripts/library'
 import debug from 'debug'
-import { DOMOutputSpec, DOMParser, DOMSerializer } from 'prosemirror-model'
+import {
+  DOMOutputSpec,
+  DOMParser as ProsemirrorDOMParser,
+  DOMSerializer,
+} from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { nodeFromHTML, textFromHTML } from '../lib/html'
@@ -49,6 +56,7 @@ import {
   Marks,
   Nodes,
   schema,
+  TableElementFooterNode,
   TableElementNode,
 } from '../schema'
 import { generateAttachmentFilename } from '../transformer/filename'
@@ -82,13 +90,14 @@ type NodeSpecs = { [key in Nodes]: (node: ManuscriptNode) => DOMOutputSpec }
 type MarkSpecs = {
   [key in Marks]: (mark: ManuscriptMark, inline: boolean) => DOMOutputSpec
 }
+
 const warn = debug('manuscripts-transform')
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
 const normalizeID = (id: string) => id.replace(/:/g, '_')
 
-const parser = DOMParser.fromSchema(schema)
+const parser = ProsemirrorDOMParser.fromSchema(schema)
 
 const findChildNodeOfType = (
   node: ManuscriptNode,
@@ -165,7 +174,7 @@ const createDefaultIdGenerator = (): IDGenerator => {
   return async (element: Element) => {
     const value = String(counter.increment(element.nodeName))
 
-    return `${element.nodeName}-${value}`
+    return `${element.localName}-${value}`
   }
 }
 
@@ -306,7 +315,7 @@ export class JATSExporter {
     if (!frontMatterOnly) {
       // TODO: format citations using template if citationType === 'mixed'
       // TODO: or convert existing bibliography data to JATS?
-      this.labelTargets = buildTargets(fragment, manuscript)
+      this.labelTargets = buildTargets(fragment)
 
       const body = this.buildBody(fragment)
       article.appendChild(body)
@@ -318,19 +327,21 @@ export class JATSExporter {
       this.moveFloatsGroup(body, article)
       this.removeBackContainer(body)
       this.updateFootnoteTypes(front, back)
+      this.fillEmptyTableFooters(article)
+      this.fillEmptyFootnotes(article)
     }
 
     await this.rewriteIDs(idGenerator)
     if (mediaPathGenerator) {
       await this.rewriteMediaPaths(mediaPathGenerator)
     }
-    this.rewriteCrossReferenceTypes()
 
     return serializeToXML(this.document)
   }
 
   private nodeFromJATS = (JATSFragment: string) => {
     JATSFragment = JATSFragment.trim()
+    JATSFragment = JATSFragment.replace('&nbsp;', ' ')
 
     if (!JATSFragment.length) {
       return null
@@ -343,62 +354,30 @@ export class JATSExporter {
     return template.firstChild
   }
 
-  protected rewriteCrossReferenceTypes = () => {
-    const figRefs = this.document.querySelectorAll('xref[ref-type=fig][rid]')
+  protected rewriteMediaPaths = async (generator: MediaPathGenerator) => {
+    const doc = this.document
 
-    if (!figRefs.length) {
-      return
-    }
-
-    for (const xref of figRefs) {
-      const rid = xref.getAttribute('rid') // TODO: split?
-
-      if (rid) {
-        const nodeName = this.document.getElementById(rid)?.nodeName
-
-        if (nodeName) {
-          // https://jats.nlm.nih.gov/archiving/tag-library/1.2/attribute/ref-type.html
-          switch (nodeName) {
-            case 'table-wrap-group':
-            case 'table-wrap':
-            case 'table':
-              xref.setAttribute('ref-type', 'table')
-              break
-          }
-        }
-      }
-    }
-  }
-
-  protected rewriteMediaPaths = async (
-    mediaPathGenerator: MediaPathGenerator
-  ) => {
-    for (const fig of this.document.querySelectorAll('fig')) {
-      const parentID = fig.getAttribute('id') as string
-
+    for (const fig of doc.querySelectorAll('fig')) {
       for (const graphic of fig.querySelectorAll('graphic')) {
-        const newHref = await mediaPathGenerator(graphic, parentID)
+        const newHref = await generator(graphic, fig.id)
         graphic.setAttributeNS(XLINK_NAMESPACE, 'href', newHref)
       }
     }
 
-    for (const suppMaterial of this.document.querySelectorAll(
-      'supplementary-material'
-    )) {
-      const newHref = await mediaPathGenerator(suppMaterial, suppMaterial.id)
-      suppMaterial.setAttributeNS(XLINK_NAMESPACE, 'href', newHref)
+    for (const suppl of doc.querySelectorAll('supplementary-material')) {
+      const newHref = await generator(suppl, suppl.id)
+      suppl.setAttributeNS(XLINK_NAMESPACE, 'href', newHref)
     }
   }
 
   protected rewriteIDs = async (
-    idGenerator: IDGenerator = createDefaultIdGenerator()
+    generator: IDGenerator = createDefaultIdGenerator()
   ) => {
-    const idMap = new Map<string, string | null>()
+    const ids = new Map<string, string | null>()
 
     for (const element of this.document.querySelectorAll('[id]')) {
-      const previousID = element.getAttribute('id')
-
-      const newID = await idGenerator(element)
+      const oldID = element.getAttribute('id')
+      const newID = await generator(element)
 
       if (newID) {
         element.setAttribute('id', newID)
@@ -406,8 +385,8 @@ export class JATSExporter {
         element.removeAttribute('id')
       }
 
-      if (previousID) {
-        idMap.set(previousID, newID)
+      if (oldID) {
+        ids.set(oldID, newID)
       }
     }
 
@@ -415,14 +394,14 @@ export class JATSExporter {
       const rids = node.getAttribute('rid')
 
       if (rids) {
-        const newRIDs = rids
+        const newRids = rids
           .split(/\s+/)
           .filter(Boolean)
-          .map((previousRID) => idMap.get(previousRID))
-          .filter(Boolean) as string[]
+          .map((rid) => ids.get(rid))
+          .filter(Boolean)
 
-        if (newRIDs.length) {
-          node.setAttribute('rid', newRIDs.join(' '))
+        if (newRids.length) {
+          node.setAttribute('rid', newRids.join(' '))
         }
       }
     }
@@ -747,7 +726,6 @@ export class JATSExporter {
         }
       }
     }
-
     // bibliography element
     let refList = this.document.querySelector('ref-list')
     if (!refList) {
@@ -924,10 +902,15 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
+      author_notes: () => '',
+      corresp: () => '',
       title: () => '',
       affiliations: () => '',
       contributors: () => '',
-      table_element_footer: () => ['table-wrap-foot', 0],
+      table_element_footer: (node) =>
+        node.childCount == 0
+          ? ['table-wrap-foot', ['fn-group', ['fn', ['p']]]]
+          : ['table-wrap-foot', 0],
       contributor: () => '',
       affiliation: () => '',
       attribution: () => ['attrib', 0],
@@ -946,7 +929,13 @@ export class JATSExporter {
         0,
       ],
       blockquote_element: () => ['disp-quote', { 'content-type': 'quote' }, 0],
-      bullet_list: () => ['list', { 'list-type': 'bullet' }, 0],
+      list: (node) => [
+        'list',
+        {
+          'list-type': node.attrs.listStyleType ?? 'bullet',
+        },
+        0,
+      ],
       caption: () => ['p', 0],
       caption_title: (node) => {
         if (!node.textContent) {
@@ -1002,32 +991,26 @@ export class JATSExporter {
       },
       doc: () => '',
       equation: (node) => {
-        const formula = this.document.createElement('disp-formula')
-        formula.setAttribute('id', normalizeID(node.attrs.id))
-
-        // const alternatives = this.document.createElement('alternatives')
-        // formula.appendChild(alternatives)
-
-        if (node.attrs.TeXRepresentation) {
-          const math = this.document.createElement('tex-math')
-          math.textContent = node.attrs.TeXRepresentation
-          formula.appendChild(math)
-        } else if (node.attrs.MathMLStringRepresentation) {
-          const math = this.nodeFromJATS(node.attrs.MathMLStringRepresentation)
-          if (math) {
-            formula.appendChild(math)
-          }
-        }
-
-        return formula
+        return this.createEquation(node)
       },
-      equation_element: (node) =>
-        createFigureElement(
-          node,
-          'fig',
-          node.type.schema.nodes.equation,
-          'equation'
-        ),
+      general_table_footnote: (node) => {
+        const el = this.document.createElement('general-table-footnote')
+        el.setAttribute('id', normalizeID(node.attrs.id))
+        processChildNodes(el, node, schema.nodes.general_table_footnote)
+        return el
+      },
+      inline_equation: (node) => {
+        const eqElement = this.document.createElement('inline-formula')
+        const equation = this.createEquation(node, true)
+        eqElement.append(equation)
+        return eqElement
+      },
+      equation_element: (node) => {
+        const eqElement = this.document.createElement('disp-formula')
+        eqElement.setAttribute('id', normalizeID(node.attrs.id))
+        processChildNodes(eqElement, node, schema.nodes.equation)
+        return eqElement
+      },
       figcaption: (node) => {
         if (!node.textContent) {
           return ''
@@ -1036,15 +1019,7 @@ export class JATSExporter {
       },
       figure: (node) => {
         const graphic = this.document.createElement('graphic')
-        const filename = generateAttachmentFilename(
-          node.attrs.id,
-          node.attrs.contentType
-        )
-        graphic.setAttributeNS(
-          XLINK_NAMESPACE,
-          'xlink:href',
-          `graphic/${filename}`
-        )
+        graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
 
         if (node.attrs.contentType) {
           const [mimeType, mimeSubType] = node.attrs.contentType.split('/')
@@ -1073,23 +1048,15 @@ export class JATSExporter {
         if (node.attrs.id) {
           attrs.id = normalizeID(node.attrs.id)
         }
-
         if (node.attrs.category) {
           attrs['fn-type'] = node.attrs.category
         }
-
         return ['fn', attrs, 0]
       },
-      footnotes_element: (node) => {
-        const kind = node.attrs.kind
-        let tag = 'fn-group'
-
-        if (kind && kind.includes('table')) {
-          tag = 'table-wrap-foot'
-        }
-
-        return [tag, { id: normalizeID(node.attrs.id) }, 0]
-      },
+      footnotes_element: (node) =>
+        node.childCount == 0
+          ? ['fn-group', { id: normalizeID(node.attrs.id) }, ['fn', ['p']]]
+          : ['fn-group', { id: normalizeID(node.attrs.id) }, 0],
       footnotes_section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
@@ -1100,33 +1067,15 @@ export class JATSExporter {
       },
       hard_break: () => '',
       highlight_marker: () => '',
-      inline_equation: (node) => {
-        const formula = this.document.createElement('inline-formula')
-        formula.setAttribute('id', normalizeID(node.attrs.id))
-        if (node.attrs.TeXRepresentation) {
-          const math = this.document.createElement('tex-math')
-          math.textContent = node.attrs.TeXRepresentation
-          formula.appendChild(math)
-        } else if (node.attrs.MathMLRepresentation) {
-          const math = this.nodeFromJATS(node.attrs.MathMLRepresentation)
-          if (math) {
-            formula.appendChild(math)
-          }
-        } else if (node.attrs.SVGRepresentation) {
-          const math = this.nodeFromJATS(node.attrs.SVGRepresentation)
-          if (math) {
-            formula.appendChild(math)
-          }
-        }
-
-        return formula
-      },
       inline_footnote: (node) => {
+        const rids = node.attrs.rids.filter(getModel)
+        if (rids.length == 0) {
+          return ''
+        }
         const xref = this.document.createElement('xref')
         xref.setAttribute('ref-type', 'fn')
-        xref.setAttribute('rid', normalizeID(node.attrs.rids.join(' ')))
+        xref.setAttribute('rid', normalizeID(rids.join(' ')))
         xref.textContent = node.attrs.contents
-
         return xref
       },
       keyword: () => '',
@@ -1181,11 +1130,6 @@ export class JATSExporter {
         graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', '')
         return graphic
       },
-      ordered_list: (node) => [
-        'list',
-        { 'list-type': node.attrs.listStyleType ?? 'order' },
-        0,
-      ],
       paragraph: (node) => {
         if (!node.childCount) {
           return ''
@@ -1242,9 +1186,20 @@ export class JATSExporter {
         element.setAttribute('position', 'anchor')
         return element
       },
-      table_body: () => ['tbody', 0],
       table_cell: (node) => [
-        node.attrs.celltype,
+        'td',
+        {
+          valign: node.attrs.valign,
+          align: node.attrs.align,
+          scope: node.attrs.scope,
+          style: node.attrs.style,
+          ...(node.attrs.rowspan > 1 && { rowspan: node.attrs.rowspan }),
+          ...(node.attrs.colspan > 1 && { colspan: node.attrs.colspan }),
+        },
+        0,
+      ],
+      table_header: (node) => [
+        'th',
         {
           valign: node.attrs.valign,
           align: node.attrs.align,
@@ -1345,6 +1300,32 @@ export class JATSExporter {
         element.appendChild(this.serializeNode(childNode))
       }
     }
+
+    const appendTable = (element: HTMLElement, node: ManuscriptNode) => {
+      const tableNode = findChildNodeOfType(node, node.type.schema.nodes.table)
+      const colGroupNode = findChildNodeOfType(
+        node,
+        node.type.schema.nodes.table_colgroup
+      )
+      if (!tableNode) {
+        return
+      }
+      const table = this.serializeNode(tableNode)
+      const tbodyElement = this.document.createElement('tbody')
+
+      while (table.firstChild) {
+        const child = table.firstChild
+        table.removeChild(child)
+        tbodyElement.appendChild(child)
+      }
+      table.appendChild(tbodyElement)
+      if (colGroupNode) {
+        const colGroup = this.serializeNode(colGroupNode)
+        table.insertBefore(colGroup, table.firstChild)
+      }
+
+      element.appendChild(table)
+    }
     const createFigureElement = (
       node: ManuscriptNode,
       nodeName: string,
@@ -1376,7 +1357,7 @@ export class JATSExporter {
       const element = createElement(node, nodeName)
       appendLabels(element, node)
       appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
-      appendChildNodeOfType(element, node, node.type.schema.nodes.table)
+      appendTable(element, node)
       appendChildNodeOfType(
         element,
         node,
@@ -1387,7 +1368,6 @@ export class JATSExporter {
       }
       return element
     }
-
     const processExecutableNode = (node: ManuscriptNode, element: Element) => {
       const listingNode = findChildNodeOfType(
         node,
@@ -1448,6 +1428,21 @@ export class JATSExporter {
           }
         }
       }
+    }
+  }
+
+  private createEquation(node: ManuscriptNode, isInline = false) {
+    if (node.attrs.format === 'tex') {
+      const texMath = this.document.createElement('tex-math')
+      texMath.innerHTML = node.attrs.contents
+      return texMath
+    } else {
+      const math = this.nodeFromJATS(node.attrs.contents)
+      const mathml = math as Element
+      if (!isInline) {
+        mathml.setAttribute('id', normalizeID(node.attrs.id))
+      }
+      return mathml
     }
   }
 
@@ -1750,61 +1745,9 @@ export class JATSExporter {
           }
         })
       }
-      const noteIDs: string[] = []
-      for (const contributor of [...authorContributors, ...otherContributors]) {
-        if (contributor.footnote) {
-          const ids = contributor.footnote.map((note) => {
-            return note.noteID
-          })
-          noteIDs.push(...ids)
-        }
-        if (contributor.corresp) {
-          const ids = contributor.corresp.map((corresp) => {
-            return corresp.correspID
-          })
-          noteIDs.push(...ids)
-        }
-      }
-      const footnotes: Footnote[] = []
-      footnotes.push(
-        ...this.models.filter(hasObjectType<Footnote>(ObjectTypes.Footnote))
-      )
-
-      const correspodings: Corresponding[] = []
-      correspodings.push(
-        ...this.models.filter(
-          hasObjectType<Corresponding>(ObjectTypes.Corresponding)
-        )
-      )
-
-      if (footnotes || correspodings) {
-        const authorNotesEl = this.document.createElement('author-notes')
-        const usedFootnotes = footnotes.filter((footnote) => {
-          return noteIDs.includes(footnote._id)
-        })
-        const usedCorrespodings = correspodings.filter((corresp) => {
-          return noteIDs.includes(corresp._id)
-        })
-        usedFootnotes.forEach((footnote) => {
-          const authorFootNote = this.document.createElement('fn')
-          authorFootNote.setAttribute('id', normalizeID(footnote._id))
-          authorFootNote.innerHTML = footnote.contents
-          authorNotesEl.appendChild(authorFootNote)
-        })
-        usedCorrespodings.forEach((corresponding) => {
-          const correspondingEl = this.document.createElement('corresp')
-          correspondingEl.setAttribute('id', normalizeID(corresponding._id))
-          if (corresponding.label) {
-            const labelEl = this.document.createElement('label')
-            labelEl.textContent = corresponding.label
-            correspondingEl.appendChild(labelEl)
-          }
-          correspondingEl.append(corresponding.contents)
-          authorNotesEl.appendChild(correspondingEl)
-        })
-        if (authorNotesEl.childNodes.length > 0) {
-          articleMeta.insertBefore(authorNotesEl, contribGroup.nextSibling)
-        }
+      const authorNotesEl = this.createAuthorNotesElement()
+      if (authorNotesEl.childNodes.length > 0) {
+        articleMeta.insertBefore(authorNotesEl, contribGroup.nextSibling)
       }
     }
 
@@ -1842,7 +1785,99 @@ export class JATSExporter {
     //   }
     // }
   }
+  private createAuthorNotesElement = () => {
+    const authorNotesEl = this.document.createElement('author-notes')
+    const authorNotes = getModelsByType<AuthorNotes>(
+      this.modelMap,
+      ObjectTypes.AuthorNotes
+    )?.[0]
+    if (authorNotes) {
+      this.appendModelsToAuthorNotes(
+        authorNotesEl,
+        authorNotes.containedObjectIDs
+      )
+    }
+    return authorNotesEl
+  }
+  private appendModelsToAuthorNotes(
+    authorNotesEl: HTMLElement,
+    containedObjectIDs: string[]
+  ) {
+    const contributors = this.models.filter(isContributor)
+    const usedCorrespondings = this.getUsedCorrespondings(contributors)
+    containedObjectIDs.forEach((id) => {
+      const model = this.modelMap.get(id)
+      if (!model) {
+        return
+      }
+      switch (model.objectType) {
+        case ObjectTypes.ParagraphElement:
+          this.appendParagraphToElement(
+            model as ParagraphElement,
+            authorNotesEl
+          )
+          break
+        case ObjectTypes.Footnote:
+          this.appendFootnoteToElement(model as Footnote, authorNotesEl)
+          break
+        case ObjectTypes.Corresponding:
+          if (usedCorrespondings.includes(model as Corresponding)) {
+            this.appendCorrespondingToElement(
+              model as Corresponding,
+              authorNotesEl
+            )
+          }
+          break
+      }
+    })
+  }
+  private appendCorrespondingToElement = (
+    corresponding: Corresponding,
+    element: HTMLElement
+  ) => {
+    const correspondingEl = this.document.createElement('corresp')
+    correspondingEl.setAttribute('id', normalizeID(corresponding._id))
+    if (corresponding.label) {
+      const labelEl = this.document.createElement('label')
+      labelEl.textContent = corresponding.label
+      correspondingEl.appendChild(labelEl)
+    }
+    correspondingEl.append(corresponding.contents)
+    element.appendChild(correspondingEl)
+  }
 
+  private getUsedCorrespondings(contributors: Contributor[]): Corresponding[] {
+    return contributors
+      .flatMap((c) => c.corresp ?? [])
+      .map((corresp) => this.modelMap.get(corresp.correspID))
+      .filter((corresp): corresp is Corresponding => !!corresp)
+  }
+
+  private appendParagraphToElement = (
+    paragraph: ParagraphElement,
+    element: HTMLElement
+  ) => {
+    const parsedDoc = new DOMParser().parseFromString(
+      paragraph.contents,
+      'text/html'
+    )
+    const parsedParagraph = parsedDoc.body.querySelector('p')
+    if (parsedParagraph) {
+      const paragraphEl = this.document.createElement('p')
+      paragraphEl.innerHTML = parsedParagraph.innerHTML
+      paragraphEl.setAttribute('id', normalizeID(paragraph._id))
+      element.appendChild(paragraphEl)
+    }
+  }
+  private appendFootnoteToElement = (
+    footnote: Footnote,
+    element: HTMLElement
+  ) => {
+    const footnoteEl = this.document.createElement('fn')
+    footnoteEl.setAttribute('id', normalizeID(footnote._id))
+    footnoteEl.innerHTML = footnote.contents
+    element.appendChild(footnoteEl)
+  }
   private buildKeywords(articleMeta: Node) {
     const keywords = [...this.modelMap.values()].filter(
       (model) => model.objectType === ObjectTypes.Keyword
@@ -1923,6 +1958,19 @@ export class JATSExporter {
           }
         }
 
+        if (
+          isNodeType<TableElementFooterNode>(node, 'general_table_footnote')
+        ) {
+          const generalTableFootnote = body.querySelector(
+            `#${normalizeID(node.attrs.id)}`
+          )
+          if (generalTableFootnote) {
+            Array.from(generalTableFootnote.childNodes).forEach((cn) => {
+              generalTableFootnote.before(cn)
+            })
+            generalTableFootnote.remove()
+          }
+        }
         // move captions to the top of tables
         if (isNodeType<TableElementNode>(node, 'table_element')) {
           const tableElement = body.querySelector(
@@ -2265,6 +2313,9 @@ export class JATSExporter {
               }
             }
           }
+          if (!fnGroup.hasChildNodes()) {
+            fnGroup.remove()
+          }
         }
       }
     })
@@ -2279,5 +2330,25 @@ export class JATSExporter {
         fn.setAttribute('fn-type', chooseJatsFnType(fnType))
       }
     })
+  }
+  private fillEmptyElements(
+    articleElement: Element,
+    selector: string,
+    tagName = 'p'
+  ) {
+    const emptyElements = Array.from(
+      articleElement.querySelectorAll(selector)
+    ).filter((element) => !element.innerHTML)
+    emptyElements.forEach((element) =>
+      element.appendChild(this.document.createElement(tagName))
+    )
+  }
+
+  private fillEmptyFootnotes(articleElement: Element) {
+    this.fillEmptyElements(articleElement, 'fn')
+  }
+
+  private fillEmptyTableFooters(articleElement: Element) {
+    this.fillEmptyElements(articleElement, 'table-wrap-foot')
   }
 }

@@ -36,7 +36,7 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.bibliography_element, ObjectTypes.BibliographyElement],
   [schema.nodes.bibliography_section, ObjectTypes.Section],
   [schema.nodes.blockquote_element, ObjectTypes.QuoteElement],
-  [schema.nodes.bullet_list, ObjectTypes.ListElement],
+  [schema.nodes.list, ObjectTypes.ListElement],
   [schema.nodes.citation, ObjectTypes.Citation],
   [schema.nodes.equation, ObjectTypes.Equation],
   [schema.nodes.equation_element, ObjectTypes.EquationElement],
@@ -48,7 +48,6 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.footnotes_section, ObjectTypes.Section],
   [schema.nodes.graphical_abstract_section, ObjectTypes.Section],
   [schema.nodes.highlight_marker, ObjectTypes.HighlightMarker],
-  [schema.nodes.inline_equation, ObjectTypes.InlineMathFragment],
   [schema.nodes.keyword, ObjectTypes.Keyword],
   [schema.nodes.keywords_element, ObjectTypes.KeywordsElement],
   [schema.nodes.keywords, ObjectTypes.Section],
@@ -56,7 +55,6 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.listing, ObjectTypes.Listing],
   [schema.nodes.listing_element, ObjectTypes.ListingElement],
   [schema.nodes.manuscript, ObjectTypes.Manuscript],
-  [schema.nodes.ordered_list, ObjectTypes.ListElement],
   [schema.nodes.paragraph, ObjectTypes.ParagraphElement],
   [schema.nodes.pullquote_element, ObjectTypes.QuoteElement],
   [schema.nodes.section, ObjectTypes.Section],
@@ -71,6 +69,8 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.affiliations, ObjectTypes.Section],
   [schema.nodes.title, ObjectTypes.Titles],
   [schema.nodes.supplement, ObjectTypes.Supplement],
+  [schema.nodes.author_notes, ObjectTypes.AuthorNotes],
+  [schema.nodes.corresp, ObjectTypes.Corresponding],
 ])
 
 export const isExecutableNodeType = (type: ManuscriptNodeType) =>

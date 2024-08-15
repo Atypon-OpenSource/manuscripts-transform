@@ -1,5 +1,5 @@
 /*!
- * © 2020 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { GROUP_EXECUTABLE, GROUP_LIST, ManuscriptNodeType, schema } from '../'
+import { GROUP_EXECUTABLE, ManuscriptNodeType, schema } from '../'
 import { GROUP_BLOCK, GROUP_ELEMENT, GROUP_SECTION, hasGroup } from '../groups'
 
 const sectionNodeTypes: ManuscriptNodeType[] = [
@@ -26,12 +26,11 @@ const sectionNodeTypes: ManuscriptNodeType[] = [
 const elementNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.bibliography_element,
   schema.nodes.blockquote_element,
-  schema.nodes.bullet_list,
   schema.nodes.equation_element,
   schema.nodes.figure_element,
   schema.nodes.keywords_element,
   schema.nodes.listing_element,
-  schema.nodes.ordered_list,
+  schema.nodes.list,
   schema.nodes.paragraph,
   schema.nodes.pullquote_element,
   schema.nodes.table_element,
@@ -41,11 +40,6 @@ const elementNodeTypes: ManuscriptNodeType[] = [
 const executableNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.figure_element,
   schema.nodes.table_element,
-]
-
-const listNodeTypes: ManuscriptNodeType[] = [
-  schema.nodes.bullet_list,
-  schema.nodes.ordered_list,
 ]
 
 describe('groups', () => {
@@ -64,10 +58,6 @@ describe('groups', () => {
 
     for (const nodeType of executableNodeTypes) {
       expect(hasGroup(nodeType, GROUP_EXECUTABLE)).toBe(true)
-    }
-
-    for (const nodeType of listNodeTypes) {
-      expect(hasGroup(nodeType, GROUP_LIST)).toBe(true)
     }
   })
 })

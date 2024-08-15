@@ -17,7 +17,6 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
-import { CommentNode } from './comment'
 
 interface Attrs {
   id: string
@@ -29,7 +28,6 @@ interface Attrs {
   suppressFooter: boolean
   suppressHeader: boolean
   expandListing: boolean
-  comments?: CommentNode[]
 }
 
 export interface TableElementNode extends ManuscriptNode {
@@ -38,7 +36,7 @@ export interface TableElementNode extends ManuscriptNode {
 
 export const tableElement: NodeSpec = {
   content:
-    '(table | placeholder) table_element_footer? figcaption? (listing | placeholder)',
+    ' figcaption? (table | placeholder) table_colgroup? table_element_footer? (listing | placeholder)',
   attrs: {
     id: { default: '' },
     paragraphStyle: { default: '' },
@@ -50,7 +48,6 @@ export const tableElement: NodeSpec = {
     suppressHeader: { default: false },
     expandListing: { default: false },
     dataTracked: { default: null },
-    comments: { default: null },
   },
   selectable: false,
   group: 'block element executable',

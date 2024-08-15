@@ -14,8 +14,31 @@
  * limitations under the License.
  */
 
-import { AllPackages } from 'mathjax-full/js/input/tex/AllPackages'
+import { NodeSpec } from 'prosemirror-model'
 
-export const packages = AllPackages.filter(
-  (name) => name !== 'html' && name !== 'bussproofs'
-)
+import { ManuscriptNode } from '../types'
+
+interface Attrs {
+  id: string
+}
+
+export interface AuthorNotesNode extends ManuscriptNode {
+  attrs: Attrs
+}
+
+export const authorNotes: NodeSpec = {
+  attrs: {
+    id: { default: '' },
+    dataTracked: { default: null },
+  },
+  content: 'section_title (corresp | footnote | paragraph)+',
+  group: 'block element',
+  toDOM: (node) => [
+    'div',
+    {
+      class: 'author-notes',
+      id: node.attrs.id,
+    },
+    0,
+  ],
+}

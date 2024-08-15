@@ -16,10 +16,12 @@
 
 import {
   Affiliation,
+  AuthorNotes,
   BibliographyElement,
   BibliographyItem,
   CommentAnnotation,
   Contributor,
+  Corresponding,
   Element,
   Equation,
   EquationElement,
@@ -58,10 +60,10 @@ import {
 } from '../lib/section-group-type'
 import {
   AffiliationNode,
+  AuthorNotesNode,
   BibliographyElementNode,
   BibliographyItemNode,
   BlockquoteElementNode,
-  BulletListNode,
   CaptionNode,
   CaptionTitleNode,
   CommentNode,
@@ -78,9 +80,9 @@ import {
   KeywordsNode,
   ListingElementNode,
   ListingNode,
+  ListNode,
   ManuscriptNode,
   MissingFigureNode,
-  OrderedListNode,
   ParagraphNode,
   PlaceholderElementNode,
   PlaceholderNode,
@@ -92,13 +94,13 @@ import {
   SupplementsNode,
   TableElementFooterNode,
   TableElementNode,
-  TableNode,
   TitleNode,
   TOCElementNode,
 } from '../schema'
 import { KeywordGroupNode } from '../schema/nodes/keyword_group'
 import { buildTitles } from './builders'
 import { insertHighlightMarkers } from './highlight-markers'
+import { generateID } from './id'
 import { PlaceholderElement } from './models'
 import {
   ExtraObjectTypes,
@@ -158,7 +160,10 @@ const getAffiliations = (modelMap: Map<string, Model>) =>
   getModelsByType<Affiliation>(modelMap, ObjectTypes.Affiliation)
 
 const getContributors = (modelMap: Map<string, Model>) =>
-  getModelsByType<Affiliation>(modelMap, ObjectTypes.Contributor)
+  getModelsByType<Contributor>(modelMap, ObjectTypes.Contributor)
+
+const getAuthorNotes = (modelMap: Map<string, Model>) =>
+  getModelsByType<AuthorNotes>(modelMap, ObjectTypes.AuthorNotes)
 
 const getKeywordElements = (modelMap: Map<string, Model>) =>
   getModelsByType<KeywordsElement>(modelMap, ObjectTypes.KeywordsElement)
@@ -197,8 +202,10 @@ export class Decoder {
   private creators: NodeCreatorMap = {
     [ObjectTypes.Titles]: (data) => {
       const model = data as Titles
+      const comments = this.createCommentNodes(model)
+      comments.forEach((c) => this.comments.set(c.attrs.id, c))
 
-      return this.parseContents(model.title, 'div', undefined, {
+      return this.parseContents(model.title, 'div', this.getComments(model), {
         topNode: schema.nodes.title.create({
           id: model._id,
         }),
@@ -248,7 +255,6 @@ export class Decoder {
         page: model.page,
         title: model.title,
         literal: model.literal,
-        comments: comments.map((c) => c.attrs.id),
       }) as BibliographyItemNode
     },
     [ExtraObjectTypes.PlaceholderElement]: (data) => {
@@ -268,7 +274,6 @@ export class Decoder {
         contentType: model.contentType,
         src: model.src,
         position: model.position,
-        comments: comments.map((c) => c.attrs.id),
       })
     },
     [ObjectTypes.FigureElement]: (data) => {
@@ -338,7 +343,6 @@ export class Decoder {
           ),
           attribution: model.attribution,
           alternatives: model.alternatives,
-          comments: comments.map((c) => c.attrs.id),
         },
         content
       ) as FigureElementNode
@@ -348,9 +352,8 @@ export class Decoder {
 
       return schema.nodes.equation.createChecked({
         id: model._id,
-        MathMLStringRepresentation: model.MathMLStringRepresentation,
-        SVGStringRepresentation: model.SVGStringRepresentation,
-        TeXRepresentation: model.TeXRepresentation,
+        contents: model.contents,
+        format: model.format,
       }) as EquationNode
     },
     [ObjectTypes.EquationElement]: (data) => {
@@ -370,17 +373,12 @@ export class Decoder {
         throw new MissingElement(model.containedObjectID)
       }
 
-      const figcaption: FigCaptionNode = this.getFigcaption(model)
-
       return schema.nodes.equation_element.createChecked(
         {
           id: model._id,
-          suppressCaption: Boolean(model.suppressCaption),
-          suppressTitle: Boolean(
-            model.suppressTitle === undefined ? true : model.suppressTitle
-          ),
+          label: model.label,
         },
-        [equation, figcaption]
+        [equation]
       ) as EquationElementNode
     },
     [ObjectTypes.FootnotesElement]: (data) => {
@@ -409,7 +407,6 @@ export class Decoder {
                 topNode: schema.nodes.footnote.create({
                   id: model._id,
                   kind: model.kind,
-                  comments: comments.map((c) => c.attrs.id),
                   // placeholder: model.placeholderText
                   // paragraphStyle: model.paragraphStyle,
                 }),
@@ -445,7 +442,6 @@ export class Decoder {
           topNode: schema.nodes.footnote.create({
             id: footnoteModel._id,
             kind: footnoteModel.kind,
-            comments: comments.map((c) => c.attrs.id),
           }),
         }
       ) as FootnoteNode
@@ -477,7 +473,6 @@ export class Decoder {
         {
           id: keywordGroup._id,
           type: keywordGroup.type,
-          comments: comments.map((c) => c.attrs.id),
         },
         keywords
       ) as KeywordGroupNode
@@ -492,7 +487,6 @@ export class Decoder {
         {
           id: keyword._id,
           contents: keyword.name,
-          comments: comments.map((c) => c.attrs.id),
         },
         schema.text(keyword.name)
       ) as KeywordNode
@@ -509,14 +503,13 @@ export class Decoder {
             undefined,
             this.getComments(model),
             {
-              topNode: schema.nodes.ordered_list.create({
+              topNode: schema.nodes.list.create({
                 id: model._id,
-                listStyleType: model.listStyleType,
+                listStyleType: model.listStyleType || 'order',
                 paragraphStyle: model.paragraphStyle,
-                comments: comments.map((c) => c.attrs.id),
               }),
             }
-          ) as OrderedListNode
+          ) as ListNode
 
         case 'ul':
           // TODO: wrap inline text in paragraphs
@@ -525,12 +518,13 @@ export class Decoder {
             undefined,
             this.getComments(model),
             {
-              topNode: schema.nodes.bullet_list.create({
+              topNode: schema.nodes.list.create({
                 id: model._id,
+                listStyleType: model.listStyleType || 'bullet',
                 paragraphStyle: model.paragraphStyle,
               }),
             }
-          ) as BulletListNode
+          ) as ListNode
 
         default:
           throw new Error('Unknown list element type')
@@ -545,7 +539,6 @@ export class Decoder {
         contents: model.contents,
         language: model.language,
         languageKey: model.languageKey,
-        comments: comments.map((c) => c.attrs.id),
       }) as ListingNode
     },
     [ObjectTypes.ListingElement]: (data) => {
@@ -575,7 +568,6 @@ export class Decoder {
           suppressTitle: Boolean(
             model.suppressTitle === undefined ? true : model.suppressTitle
           ),
-          comments: comments.map((c) => c.attrs.id),
         },
         [listing, figcaption]
       ) as ListingElementNode
@@ -601,7 +593,6 @@ export class Decoder {
             id: model._id,
             paragraphStyle: model.paragraphStyle,
             placeholder: model.placeholderInnerHTML,
-            comments: comments.map((c) => c.attrs.id),
           }),
         }
       ) as ParagraphNode
@@ -644,17 +635,63 @@ export class Decoder {
     },
     [ObjectTypes.TableElementFooter]: (data) => {
       const model = data as TableElementFooter
-      const content = model.containedObjectIDs.map((id) =>
-        this.decode(this.modelMap.get(id) as Model)
-      ) as ManuscriptNode[]
+      const contents: ManuscriptNode[] = []
+      const generalTableFootnotes: ManuscriptNode[] = []
+      const footnotesElements: ManuscriptNode[] = []
+      for (const containedObjectID of model.containedObjectIDs) {
+        const model = this.modelMap.get(containedObjectID) as Model
+        if (model.objectType === ObjectTypes.ParagraphElement) {
+          const paragraph = this.decode(model)
+          if (paragraph) {
+            generalTableFootnotes.push(paragraph)
+          }
+        } else {
+          footnotesElements.push(this.decode(model) as ManuscriptNode)
+        }
+      }
+      if (generalTableFootnotes && generalTableFootnotes.length) {
+        contents.push(
+          schema.nodes.general_table_footnote.create(
+            { id: generateID(ExtraObjectTypes.GeneralTableFootnote) },
+            [...generalTableFootnotes]
+          )
+        )
+      }
+      if (footnotesElements && footnotesElements.length) {
+        contents.push(...footnotesElements)
+      }
       return schema.nodes.table_element_footer.create(
         {
           id: model._id,
         },
-        content
+        contents
       )
     },
 
+    [ObjectTypes.AuthorNotes]: (data) => {
+      const model = data as AuthorNotes
+      const content = model.containedObjectIDs.map((id) =>
+        this.decode(this.modelMap.get(id) as Model)
+      ) as ManuscriptNode[]
+      return schema.nodes.author_notes.createAndFill(
+        {
+          id: model._id,
+        },
+        [
+          schema.nodes.section_title.create({}, schema.text('Correspondence')),
+          ...content,
+        ]
+      ) as ManuscriptNode
+    },
+    [ObjectTypes.Corresponding]: (data) => {
+      const model = data as Corresponding
+      return this.parseContents(model.contents, 'corresp', [], {
+        topNode: schema.nodes.corresp.create({
+          id: model._id,
+          label: model.label,
+        }),
+      })
+    },
     [ObjectTypes.Section]: (data) => {
       const model = data as Section
       const elements: Element[] = []
@@ -730,7 +767,6 @@ export class Decoder {
           titleSuppressed: model.titleSuppressed,
           pageBreakStyle: model.pageBreakStyle,
           generatedLabel: model.generatedLabel,
-          comments: comments.map((c) => c.attrs.id),
         },
         content
       )
@@ -744,40 +780,34 @@ export class Decoder {
     },
     [ObjectTypes.Table]: (data) => {
       const model = data as Table
-      const comments = this.createCommentNodes(model)
-      comments.forEach((c) => this.comments.set(c.attrs.id, c))
-
-      return this.parseContents(
-        model.contents,
-        undefined,
-        this.getComments(model),
-        {
-          topNode: schema.nodes.table.create({
-            id: model._id,
-            comments: comments.map((c) => c.attrs.id),
-          }),
-        }
-      ) as TableNode
+      return this.parseContents(model.contents, undefined, [], {
+        topNode: schema.nodes.table.create({
+          id: model._id,
+        }),
+      })
     },
     [ObjectTypes.TableElement]: (data) => {
       const model = data as TableElement
       const table = this.createTable(model)
+      const tableColGroup = this.createTableColGroup(model)
       const tableElementFooter = this.createTableElementFooter(model)
       const figcaption: FigCaptionNode = this.getFigcaption(model)
       const comments = this.createCommentNodes(model)
       comments.forEach((c) => this.comments.set(c.attrs.id, c))
 
-      const content: ManuscriptNode[] = tableElementFooter
-        ? [table, tableElementFooter, figcaption]
-        : [table, figcaption]
-
-      if (model.listingID) {
-        const listing = this.createListing(model.listingID)
-        content.push(listing)
-      } else {
-        const listing = schema.nodes.listing.create()
-        content.push(listing)
+      const content: ManuscriptNode[] = [figcaption, table]
+      if (tableColGroup) {
+        content.push(tableColGroup)
       }
+      if (tableElementFooter) {
+        content.push(tableElementFooter)
+      }
+
+      const listing = model.listingID
+        ? this.createListing(model.listingID)
+        : schema.nodes.listing.create()
+
+      content.push(listing)
       return schema.nodes.table_element.createChecked(
         {
           id: model._id,
@@ -790,7 +820,6 @@ export class Decoder {
           suppressHeader: model.suppressHeader,
           tableStyle: model.tableStyle,
           paragraphStyle: model.paragraphStyle,
-          comments: comments.map((c) => c.attrs.id),
         },
         content
       ) as TableElementNode
@@ -884,7 +913,9 @@ export class Decoder {
     const affiliations = getAffiliations(this.modelMap)
       .map((a) => this.decode(a) as AffiliationNode)
       .filter(Boolean)
-
+    if (!affiliations.length) {
+      return false
+    }
     return schema.nodes.affiliations.createAndFill(
       {},
       affiliations
@@ -895,18 +926,29 @@ export class Decoder {
     const contributors = getContributors(this.modelMap)
       .map((c) => this.decode(c) as ContributorNode)
       .filter(Boolean)
-
+    const content: ManuscriptNode[] = [...contributors]
+    if (!content.length) {
+      return false
+    }
     return schema.nodes.contributors.createAndFill(
       {},
-      contributors
+      content
     ) as ManuscriptNode
+  }
+
+  private createAuthorNotesNode() {
+    return getAuthorNotes(this.modelMap)
+      .map((authorNote) => this.decode(authorNote) as AuthorNotesNode)
+      .filter(Boolean)
   }
 
   private createKeywordsNode() {
     const elements = getKeywordElements(this.modelMap)
       .map((e) => this.decode(e) as KeywordsElementNode)
       .filter(Boolean)
-
+    if (!elements.length) {
+      return false
+    }
     return schema.nodes.keywords.createAndFill({}, [
       schema.nodes.section_title.create({}, schema.text('Keywords')),
       ...elements,
@@ -917,7 +959,9 @@ export class Decoder {
     const elements = getSupplements(this.modelMap)
       .map((e) => this.decode(e) as SupplementNode)
       .filter(Boolean)
-
+    if (!elements.length) {
+      return false
+    }
     return schema.nodes.supplements.createAndFill({}, [
       schema.nodes.section_title.create(
         {},
@@ -968,12 +1012,7 @@ export class Decoder {
       {},
       groups[backmatterType._id]
     ) as ManuscriptNode
-
-    return {
-      abstracts,
-      body,
-      backmatter,
-    }
+    return [abstracts, body, backmatter]
   }
 
   private createCommentNodes(model: Model) {
@@ -1014,30 +1053,29 @@ export class Decoder {
     this.modelMap.get(id) as T | undefined
 
   public createArticleNode = (manuscriptID?: string): ManuscriptNode => {
-    const title = this.createTitleNode()
-    const contributors = this.createContributorsNode()
-    const affiliations = this.createAffiliationsNode()
-    const keywords = this.createKeywordsNode()
-    const suppl = this.createSupplementsNode()
-    const { abstracts, body, backmatter } = this.createContentSections()
-    const comments = this.createCommentsNode()
-    const contents: ManuscriptNode[] = [
-      title,
-      contributors,
-      affiliations,
-      keywords,
-      suppl,
-      abstracts,
-      body,
-      backmatter,
-      comments,
+    const nodes = [
+      this.createTitleNode(),
+      this.createContributorsNode(),
+      this.createAffiliationsNode(),
+      ...this.createAuthorNotesNode(),
+      this.createKeywordsNode(),
+      this.createSupplementsNode(),
+      ...this.createContentSections(),
+      this.createCommentsNode(),
     ]
+    const contents = nodes.filter((node) => node !== false)
+
+    const props = this.getManuscript()
 
     return schema.nodes.manuscript.create(
       {
         id: manuscriptID || this.getManuscriptID(),
+        doi: props?.DOI || '',
+        articleType: props?.articleType,
+        prototype: props?.prototype,
+        primaryLanguageCode: props?.primaryLanguageCode,
       },
-      contents
+      contents as ManuscriptNode[]
     )
   }
 
@@ -1103,6 +1141,13 @@ export class Decoder {
       }
     }
   }
+  private getManuscript = () => {
+    for (const item of this.modelMap.values()) {
+      if (isManuscript(item)) {
+        return item
+      }
+    }
+  }
 
   private getFigcaption = (
     model: FigureElement | TableElement | EquationElement | ListingElement
@@ -1157,21 +1202,31 @@ export class Decoder {
   }
 
   private createTable(model: TableElement) {
-    const tableId = model.containedObjectID
-    const tableModel = this.getModel<Table>(tableId)
+    const tableID = model.containedObjectID
+    const tableModel = this.getModel<Table>(tableID)
 
-    let table: TableNode | PlaceholderNode
+    let table: ManuscriptNode | PlaceholderNode
     if (tableModel) {
-      table = this.decode(tableModel) as TableNode
+      table = this.decode(tableModel) as ManuscriptNode
     } else if (this.allowMissingElements) {
       table = schema.nodes.placeholder.create({
-        id: tableId,
+        id: tableID,
         label: 'A table',
       }) as PlaceholderNode
     } else {
-      throw new MissingElement(tableId)
+      throw new MissingElement(tableID)
     }
     return table
+  }
+  private createTableColGroup(model: TableElement) {
+    const tableID = model.containedObjectID
+    const tableModel = this.getModel<Table>(tableID)
+    if (!tableModel || !tableModel.contents.includes('<colgroup>')) {
+      return undefined
+    }
+    return this.parseContents(tableModel.contents, undefined, [], {
+      topNode: schema.nodes.table_colgroup.create(),
+    })
   }
 
   private createTableElementFooter(model: TableElement) {

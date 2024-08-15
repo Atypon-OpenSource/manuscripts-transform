@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,19 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { NodeSpec } from 'prosemirror-model'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
+import { ManuscriptNode } from '../types'
 
-export const backmatter: NodeSpec = {
-  content: 'sections*',
+interface Attrs {
+  id: string
+  label?: string
+}
+
+export interface CorrespNode extends ManuscriptNode {
+  attrs: Attrs
+}
+
+export const corresp: NodeSpec = {
+  content: 'inline*',
   attrs: {
     id: { default: '' },
-    placeholder: { default: ' ' },
+    label: { default: undefined },
+    dataTracked: { default: null },
   },
-  group: 'block element',
-  parseDOM: [{ tag: 'div.backmatter' }],
-  toDOM: () => ['div', { class: 'backmatter' }, 0],
+  group: 'block',
+  toDOM: (node) => {
+    return [
+      'div',
+      {
+        class: 'corresp',
+        id: node.attrs.id,
+      },
+      0,
+    ]
+  },
 }
+export const isCorrespNode = (node: ManuscriptNode): node is CorrespNode =>
+  node.type === node.type.schema.nodes.corresp

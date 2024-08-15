@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,9 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import Migration125 from './1.2.5'
+import Migration2322 from './2.3.22'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
+const migrations = [new Migration125(), new Migration2322()]
 
-export const backmatter: NodeSpec = {
-  content: 'sections*',
-  attrs: {
-    id: { default: '' },
-    placeholder: { default: ' ' },
-  },
-  group: 'block element',
-  parseDOM: [{ tag: 'div.backmatter' }],
-  toDOM: () => ['div', { class: 'backmatter' }, 0],
-}
+export default migrations
