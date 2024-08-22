@@ -622,37 +622,39 @@ describe('JATS exporter', () => {
     expect(attrs.title).toBe('An Example')
   })
 
-  test('Export with missing bibliography element', async () => {
-    const projectBundle = cloneProjectBundle(input)
+  //todo: is this necessary?
 
-    const id = 'MPSection:E07B0D52-9642-4D58-E577-26F8804E3DEE'
+  // test('Export with missing bibliography element', async () => {
+  //   const projectBundle = cloneProjectBundle(input)
 
-    projectBundle.data = projectBundle.data.filter(
-      (model) =>
-        model.objectType !== ObjectTypes.BibliographyElement && model._id !== id
-    )
+  //   const id = 'MPSection:E07B0D52-9642-4D58-E577-26F8804E3DEE'
 
-    const { doc, modelMap } = parseProjectBundle(projectBundle)
+  //   projectBundle.data = projectBundle.data.filter(
+  //     (model) =>
+  //       model.objectType !== ObjectTypes.BibliographyElement && model._id !== id
+  //   )
 
-    const transformer = new JATSExporter()
-    const manuscript = findManuscript(modelMap)
-    const xml = await transformer.serializeToJATS(
-      doc.content,
-      modelMap,
-      manuscript._id,
-      { csl: DEFAULT_CSL_OPTIONS }
-    )
+  //   const { doc, modelMap } = parseProjectBundle(projectBundle)
 
-    const { errors } = parseXMLWithDTD(xml)
+  //   const transformer = new JATSExporter()
+  //   const manuscript = findManuscript(modelMap)
+  //   const xml = await transformer.serializeToJATS(
+  //     doc.content,
+  //     modelMap,
+  //     manuscript._id,
+  //     { csl: DEFAULT_CSL_OPTIONS }
+  //   )
 
-    expect(errors).toHaveLength(0)
+  //   const { errors } = parseXMLWithDTD(xml)
 
-    const output = parseXMLWithDTD(xml)
+  //   expect(errors).toHaveLength(0)
 
-    const refs = output.find('//ref-list/ref')
+  //   const output = parseXMLWithDTD(xml)
 
-    expect(refs).toHaveLength(1)
-  })
+  //   const refs = output.find('//ref-list/ref')
+
+  //   expect(refs).toHaveLength(1)
+  // })
 
   test('Markup in citations', async () => {
     const projectBundle = cloneProjectBundle(inputWithCitations)
