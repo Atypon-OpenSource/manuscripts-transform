@@ -21,6 +21,10 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   id: string
   role: string
+  corresp: {
+    correspID: string
+    correspLabel: string
+  }[]
   affiliations: string[]
   bibliographicName: BibliographicName
   userID: string
@@ -30,6 +34,10 @@ interface Attrs {
   ORCIDIdentifier: string
   priority: number
   isJointContributor: boolean
+  footnote: {
+    noteID: string
+    noteLabel: string
+  }[]
 }
 
 export interface ContributorNode extends ManuscriptNode {

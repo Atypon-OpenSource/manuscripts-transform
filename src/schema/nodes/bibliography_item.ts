@@ -32,6 +32,7 @@ interface Attrs {
   page?: string
   title?: string
   literal?: string
+  paragraphStyle: string
 }
 
 export interface BibliographyItemNode extends ManuscriptNode {

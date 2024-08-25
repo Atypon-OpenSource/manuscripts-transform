@@ -749,65 +749,6 @@ describe('JATS exporter', () => {
     const back = output.find('//back')
     expect(back).toHaveLength(0)
   })
-
-  test('handle keywords', async () => {
-    const projectBundle = cloneProjectBundle(input)
-
-    const { doc, modelMap } = parseProjectBundle(projectBundle)
-
-    const keywords: Keyword[] = [
-      {
-        _id: 'MPKeyword:1',
-        objectType: 'MPKeyword',
-        createdAt: 0,
-        updatedAt: 0,
-        name: 'Foo',
-        containerID: 'MPProject:1',
-        priority: 0,
-      },
-      {
-        _id: 'MPKeyword:2',
-        objectType: 'MPKeyword',
-        createdAt: 0,
-        updatedAt: 0,
-        name: 'Bar',
-        containerID: 'MPProject:1',
-        priority: 0,
-      },
-    ]
-
-    for (const keyword of keywords) {
-      modelMap.set(keyword._id, keyword)
-    }
-
-    const manuscript = Array.from(modelMap.values()).find(
-      isManuscript
-    ) as Manuscript
-
-    const transformer = new JATSExporter()
-    const xml = await transformer.serializeToJATS(
-      doc.content,
-      modelMap,
-      manuscript._id,
-      {
-        version: '1.2',
-        doi: '10.0000/123',
-        id: '123',
-        csl: DEFAULT_CSL_OPTIONS,
-      }
-    )
-
-    expect(xml).toMatchSnapshot('jats-export-keywords')
-
-    const output = parseXMLWithDTD(xml)
-
-    const kwds = output.find<XMLElement>('//kwd-group/kwd')
-
-    expect(kwds).toHaveLength(2)
-    expect(kwds[0]!.text()).toBe('Foo')
-    expect(kwds[1]!.text()).toBe('Bar')
-  })
-
   test('DTD validation for MathML representation', async () => {
     const projectBundle = cloneProjectBundle(input)
     const { doc, modelMap } = parseProjectBundle(projectBundle)
