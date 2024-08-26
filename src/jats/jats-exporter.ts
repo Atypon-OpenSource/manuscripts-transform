@@ -1436,13 +1436,11 @@ export class JATSExporter {
       const texMath = this.document.createElement('tex-math')
       texMath.setAttribute('notation', 'LaTeX')
       texMath.setAttribute('version', 'MathJax')
-      // if (node.attrs.contents.includes('<![CDATA[')) {
-      //   texMath.innerHTML = node.attrs.contents
-      // } else {
-      //   texMath.innerHTML = `<![CDATA[ ${node.attrs.contents} ]]>`
-      // }
-      texMath.innerHTML = node.attrs.contents
-
+      if (node.attrs.contents.includes('<![CDATA[')) {
+        texMath.innerHTML = node.attrs.contents
+      } else {
+        texMath.innerHTML = `<![CDATA[ ${node.attrs.contents} ]]>`
+      }
       return texMath
     } else {
       const math = this.nodeFromJATS(node.attrs.contents)
