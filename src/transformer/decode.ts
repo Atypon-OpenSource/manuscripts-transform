@@ -937,8 +937,9 @@ export class Decoder {
   }
 
   private createAuthorNotesNode() {
-    const authorNotes = getAuthorNotes(this.modelMap).map((authorNote) => this.decode(authorNote) as AuthorNotesNode)
-    .filter(Boolean)
+    const authorNotes = getAuthorNotes(this.modelMap)
+      .map((authorNote) => this.decode(authorNote) as AuthorNotesNode)
+      .filter(Boolean)
     console.log('authorNotes', authorNotes)
     if (!authorNotes.length) {
       return false
