@@ -116,7 +116,6 @@ import {
   SectionCategory,
 } from './section-category'
 import { timestamp } from './timestamp'
-import { get } from 'lodash'
 
 const warn = debug('manuscripts-transform')
 
