@@ -116,6 +116,7 @@ import {
   SectionCategory,
 } from './section-category'
 import { timestamp } from './timestamp'
+import { get } from 'lodash'
 
 const warn = debug('manuscripts-transform')
 
@@ -937,9 +938,13 @@ export class Decoder {
   }
 
   private createAuthorNotesNode() {
-    return getAuthorNotes(this.modelMap)
-      .map((authorNote) => this.decode(authorNote) as AuthorNotesNode)
-      .filter(Boolean)
+    const authorNotes = getAuthorNotes(this.modelMap).map((authorNote) => this.decode(authorNote) as AuthorNotesNode)
+    .filter(Boolean)
+    console.log('authorNotes', authorNotes)
+    if (!authorNotes.length) {
+      return false
+    }
+    return authorNotes
   }
 
   private createKeywordsNode() {
