@@ -942,7 +942,7 @@ export class Decoder {
       .filter(Boolean)
     console.log('authorNotes', authorNotes)
     if (!authorNotes.length) {
-      return false
+      return []
     }
     return authorNotes
   }
