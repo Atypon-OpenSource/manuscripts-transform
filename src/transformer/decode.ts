@@ -122,7 +122,7 @@ const warn = debug('manuscripts-transform')
 const parser = DOMParser.fromSchema(schema)
 
 interface NodeCreatorMap {
-  [key: string]: (data: Model) => ManuscriptNode
+  [key: string]: (data: Model) => ManuscriptNode | null
 }
 
 export const getModelData = <T extends Model>(model: Model): T => {
@@ -673,6 +673,9 @@ export class Decoder {
       const content = model.containedObjectIDs.map((id) =>
         this.decode(this.modelMap.get(id) as Model)
       ) as ManuscriptNode[]
+      if (!content.length) {
+        return null
+      }
       return schema.nodes.author_notes.createAndFill(
         {
           id: model._id,
