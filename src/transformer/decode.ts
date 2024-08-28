@@ -673,6 +673,7 @@ export class Decoder {
       const content = model.containedObjectIDs.map((id) =>
         this.decode(this.modelMap.get(id) as Model)
       ) as ManuscriptNode[]
+      console.log('author notes contents', content)
       return schema.nodes.author_notes.createAndFill(
         {
           id: model._id,
@@ -1071,6 +1072,7 @@ export class Decoder {
     console.log('nodes', nodes)
     const contents = nodes.filter((node) => node !== false)
     console.log('contents', contents)
+    
     const props = this.getManuscript()
 
     return schema.nodes.manuscript.create(
