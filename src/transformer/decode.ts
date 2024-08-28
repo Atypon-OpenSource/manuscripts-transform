@@ -678,7 +678,7 @@ export class Decoder {
           id: model._id,
         },
         [
-          schema.nodes.section_title.create({}, schema.text('Correspondence')),
+          schema.nodes.section_title.create({}, schema.text('Correspondence 2222')),
           ...content,
         ]
       ) as ManuscriptNode
@@ -1068,8 +1068,9 @@ export class Decoder {
       ...this.createContentSections(),
       this.createCommentsNode(),
     ]
+    console.log('nodes', nodes)
     const contents = nodes.filter((node) => node !== false)
-
+    console.log('contents', contents)
     const props = this.getManuscript()
 
     return schema.nodes.manuscript.create(

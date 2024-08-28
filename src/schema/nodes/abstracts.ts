@@ -26,5 +26,5 @@ export const abstracts: NodeSpec = {
     id: { default: '' },
   },
   group: 'block',
-  toDOM: () => ['div', { class: 'abstracts' }, 0],
+  toDOM: () => ['div', { class: 'd' }, 0],
 }
