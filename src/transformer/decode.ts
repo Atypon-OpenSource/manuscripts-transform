@@ -673,13 +673,18 @@ export class Decoder {
       const content = model.containedObjectIDs.map((id) =>
         this.decode(this.modelMap.get(id) as Model)
       ) as ManuscriptNode[]
-      console.log('author notes contents', content)
+      if (!content.length) {
+        return null
+      }
       return schema.nodes.author_notes.createAndFill(
         {
           id: model._id,
         },
         [
-          schema.nodes.section_title.create({}, schema.text('Correspondence 2222')),
+          schema.nodes.section_title.create(
+            {},
+            schema.text('Correspondence')
+          ),
           ...content,
         ]
       ) as ManuscriptNode
@@ -941,10 +946,7 @@ export class Decoder {
     const authorNotes = getAuthorNotes(this.modelMap)
       .map((authorNote) => this.decode(authorNote) as AuthorNotesNode)
       .filter(Boolean)
-    console.log('authorNotes', authorNotes)
-    if (!authorNotes.length) {
-      return []
-    }
+
     return authorNotes
   }
 
@@ -1069,10 +1071,8 @@ export class Decoder {
       ...this.createContentSections(),
       this.createCommentsNode(),
     ]
-    console.log('nodes', nodes)
     const contents = nodes.filter((node) => node !== false)
-    console.log('contents', contents)
-    
+
     const props = this.getManuscript()
 
     return schema.nodes.manuscript.create(
