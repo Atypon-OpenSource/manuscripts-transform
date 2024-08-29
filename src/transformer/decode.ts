@@ -673,7 +673,8 @@ export class Decoder {
       const content = model.containedObjectIDs.map((id) =>
         this.decode(this.modelMap.get(id) as Model)
       ) as ManuscriptNode[]
-      if (!content.length) {
+      console.log('content', content)
+      if (content.length == 0) {
         return null
       }
       return schema.nodes.author_notes.createAndFill(
