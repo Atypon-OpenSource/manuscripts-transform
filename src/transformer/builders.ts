@@ -36,7 +36,6 @@ import {
   Journal,
   Keyword,
   KeywordGroup,
-  Manuscript,
   ManuscriptNote,
   ObjectTypes,
   ParagraphElement,
@@ -81,7 +80,7 @@ export const buildProject = (owner: string): Build<Project> => ({
   title: '',
 })
 
-export const buildManuscript = (): Build<Manuscript> => ({
+export const buildManuscript = () => ({
   _id: generateID(ObjectTypes.Manuscript),
   objectType: ObjectTypes.Manuscript,
 })

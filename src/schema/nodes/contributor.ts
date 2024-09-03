@@ -18,6 +18,8 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
+
+//todo remove bibliographicName
 interface Attrs {
   id: string
   role: string

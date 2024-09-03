@@ -14,14 +14,17 @@
  * limitations under the License.
  */
 
+import { ObjectTypes } from '@manuscripts/json-schema'
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
 import { ManuscriptNode, Marks, Nodes, schema } from '../../schema'
-import { chooseSectionCategory } from '../../transformer'
+import { chooseSectionCategory, generateID, timestamp } from '../../transformer'
+import { DEFAULT_PROFILE_ID } from './jats-comments'
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
+const highlightMarkers: string[] = []
 const chooseContentType = (graphicNode?: Element): string | undefined => {
   if (graphicNode) {
     const mimetype = graphicNode.getAttribute('mimetype')
@@ -111,6 +114,207 @@ const marks: MarkRule[] = [
 export type NodeRule = ParseRule & { node?: Nodes | null }
 
 const nodes: NodeRule[] = [
+  {
+    tag: 'highlight-marker',
+    node: 'highlight_marker',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      const parentNode = element.parentNode as HTMLElement
+      const id = element.getAttribute('id')
+      if (id) {
+        highlightMarkers.push(id)
+      }
+      return {
+        id: element.getAttribute('id'),
+        tid: parentNode.getAttribute('id'),
+        position: element.getAttribute('position'),
+      }
+    },
+  },
+  {
+    tag: 'comment-annotation',
+    node: 'comment',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      const id = element.getAttribute('id')
+      if (!id) {
+        return null
+      }
+      if (!highlightMarkers.includes(id)) {
+        return false
+      }
+      return {
+        id: element.getAttribute('id'),
+        contents: element.textContent,
+        selector: {
+          from: parseInt(element.getAttribute('from') || '0'),
+          to: parseInt(element.getAttribute('to') || '0'),
+        },
+        contributions: [
+          {
+            _id: generateID(ObjectTypes.Contribution),
+            objecType: ObjectTypes.Contribution,
+            profileID: DEFAULT_PROFILE_ID,
+            timestamp: timestamp(),
+          },
+        ],
+      }
+    },
+  },
+  {
+    tag: 'article-title',
+    node: 'title',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+      }
+    },
+  },
+  {
+    tag: 'author-notes-title',
+    node: 'section_title',
+  },
+  {
+    tag: 'bibliography-title',
+    node: 'section_title',
+    getContent: () => {
+      return Fragment.from(schema.text('References'))
+    },
+  },
+  {
+    tag: 'author-notes',
+    node: 'author_notes',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+      }
+    },
+  },
+  {
+    tag: 'fn-author',
+    node: 'footnote',
+
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+        kind: 'footnote',
+      }
+    },
+  },
+  {
+    tag: 'corresp',
+    node: 'corresp',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+        label: element.getAttribute('label'),
+      }
+    },
+    getContent: (node) => {
+      const element = node as HTMLElement
+      return Fragment.from(schema.text(element.textContent?.trim() || ''))
+    },
+  },
+  {
+    tag: 'contributors',
+    node: 'contributors',
+  },
+  {
+    tag: 'contributor',
+    node: 'contributor',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      const footnote: {
+        noteID: string
+        noteLabel: string
+      }[] = []
+      const affiliations: string[] = []
+      const corresp: {
+        correspID: string
+        correspLabel: string
+      }[] = []
+      element.querySelectorAll('fn').forEach((fn) => {
+        const noteID = fn.getAttribute('noteID')
+        const noteLabel = fn.getAttribute('noteLabel')
+        if (noteID && noteLabel) {
+          footnote.push({ noteID, noteLabel })
+        }
+      })
+
+      element.querySelectorAll('corresp').forEach((correspondence) => {
+        const correspLabel = correspondence.getAttribute('correspLabel')
+        const correspID = correspondence.getAttribute('correspID')
+        if (correspID && correspLabel) {
+          corresp.push({ correspID, correspLabel })
+        }
+      })
+
+      element.querySelectorAll('aff').forEach((aff) => {
+        const affID = aff.getAttribute('affiliationID')
+        if (affID) {
+          affiliations.push(affID)
+        }
+      })
+
+      return {
+        id: element.getAttribute('id'),
+        role: element.getAttribute('role'),
+        isCorresponding: element.getAttribute('isCorresponding'),
+        bibliographicName: {
+          given: element.getAttribute('given'),
+          family: element.getAttribute('family'),
+          ObjectType: 'MPBibliographicName',
+          _id: generateID(ObjectTypes.BibliographicName),
+        },
+        affiliations,
+        corresp,
+        footnote,
+        ORCIDIdentifier: element.getAttribute('ORCIDIdentifier'),
+        priority: element.getAttribute('priority'),
+      }
+    },
+  },
+  {
+    tag: 'affiliations',
+    node: 'affiliations',
+  },
+  {
+    tag: 'affiliation',
+    node: 'affiliation',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      const emailText = element.getAttribute('email-text')
+      const emailHref = element.getAttribute('email-href')
+      const email =
+        emailText && emailHref
+          ? {
+              text: emailText,
+              href: emailHref,
+            }
+          : undefined
+
+      return {
+        id: element.getAttribute('id'),
+        institution: element.getAttribute('institution') || '',
+        department: element.getAttribute('department') || '',
+        addressLine1: element.getAttribute('addressLine1') || '',
+        addressLine2: element.getAttribute('addressLine2') || '',
+        addressLine3: element.getAttribute('addressLine3') || '',
+        postCode: element.getAttribute('postCode') || '',
+        country: element.getAttribute('country') || '',
+        email: email,
+        priority: parseInt(element.getAttribute('priority') || '0'),
+      }
+    },
+    getContent: () => {
+      return Fragment.from(schema.text('_'))
+    },
+  },
+
   {
     tag: 'attrib',
     node: 'attribution',
@@ -460,6 +664,38 @@ const nodes: NodeRule[] = [
   {
     tag: 'sec[sec-type="backmatter"]',
     node: 'backmatter',
+  },
+  {
+    tag: 'sec[sec-type="bibliography"',
+    node: 'bibliography_section',
+  },
+  {
+    tag: 'bibliography-element',
+    node: 'bibliography_element',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+      }
+    },
+  },
+  {
+    tag: 'bibliography-item',
+    node: 'bibliography_item',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+        type: element.getAttribute('type'),
+        containerTitle: element.getAttribute('container-title'),
+        volume: element.getAttribute('volume'),
+        issue: element.getAttribute('issue'),
+        supplement: element.getAttribute('supplement'),
+        page: element.getAttribute('page'),
+        title: element.getAttribute('title'),
+        literal: element.getAttribute('literal'),
+      }
+    },
   },
   {
     tag: 'sec',

@@ -14,12 +14,18 @@
  * limitations under the License.
  */
 
-import { CommentAnnotation, Keyword, Model } from '@manuscripts/json-schema'
+import {
+  CommentAnnotation,
+  Keyword,
+  Model,
+  ObjectTypes,
+} from '@manuscripts/json-schema'
 import { v4 as uuidv4 } from 'uuid'
 
 import {
   buildComment,
   buildContribution,
+  generateID,
   highlightableFields,
   HighlightableModel,
   isHighlightableModel,
@@ -34,10 +40,13 @@ export type JATSComment = {
 
 export type JATSCommentMark = {
   token: string
-  comment: JATSComment
+  comment: {
+    id: string
+    text: string
+  }
 }
 
-const DEFAULT_PROFILE_ID =
+export const DEFAULT_PROFILE_ID =
   'MPUserProfile:0000000000000000000000000000000000000001'
 
 export const isJATSComment = (node: Node) => {
@@ -61,6 +70,56 @@ export const parseJATSComment = (node: Node): JATSComment | undefined => {
   }
 }
 
+export const parseJATSCommentNode = (
+  node: Node
+): { text: string; index: number } | undefined => {
+  const text = node.textContent
+  if (text) {
+    const queryText = /queryText="(.+)"/.exec(text)
+    if (queryText) {
+      const parentNode = node.parentNode as Element
+      const index = parentNode.outerHTML.indexOf(queryText[1])
+      return {
+        text: queryText[1],
+        index,
+      }
+    }
+  }
+}
+
+export const markNodeComments = (doc: Document) => {
+  const root = doc.getRootNode()
+  const queue: Node[] = [root]
+  const commentsElement = doc.createElement('comments-annotations')
+  while (queue.length !== 0) {
+    const node = queue.shift()
+    if (node) {
+      if (isJATSComment(node)) {
+        const comment = parseJATSCommentNode(node)
+        if (comment) {
+          const commentID = generateID(ObjectTypes.CommentAnnotation)
+          const highlightMarker = doc.createElement('highlight-marker')
+          highlightMarker.setAttribute('id', commentID)
+          highlightMarker.setAttribute('position', 'point')
+          node.parentNode?.insertBefore(highlightMarker, node)
+          const commentElement = doc.createElement('comment-annotation')
+          commentElement.setAttribute('id', commentID)
+          commentElement.textContent = comment.text
+          commentElement.setAttribute('from', comment.index.toString())
+          commentElement.setAttribute('to', comment.index.toString())
+          commentsElement.appendChild(commentElement)
+        }
+      }
+      node.childNodes.forEach((child) => {
+        queue.push(child)
+      })
+    }
+  }
+
+  if (commentsElement.hasChildNodes()) {
+    doc.documentElement.appendChild(commentsElement)
+  }
+}
 /**
  * Replaces processing instructions with tokens
  */
@@ -89,6 +148,7 @@ export const markComments = (doc: Document): JATSCommentMark[] => {
       })
     }
   }
+
   return marks
 }
 

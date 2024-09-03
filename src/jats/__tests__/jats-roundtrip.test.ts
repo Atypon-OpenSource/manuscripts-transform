@@ -144,7 +144,7 @@ const roundtrip = async (filename: string) => {
 
 describe('JATS roundtrip', () => {
   test('jats-import.xml roundtrip', async () => {
-    const jats = await roundtrip('jats-import.xml')
+    const jats = await roundtrip('jats-example-full.xml')
     expect(jats).toMatchSnapshot()
 
     const doc = parseXMLWithDTD(jats)

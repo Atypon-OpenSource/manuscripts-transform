@@ -18,13 +18,6 @@ import { ObjectTypes, Requirement } from '@manuscripts/json-schema'
 
 import { Decoder, encode } from '../../transformer'
 import { parseJATSArticle } from '../importer'
-import {
-  betamonyParser,
-  createAffiliationsNode,
-  createAuthorNotesNode,
-  createAuthorsNode,
-  createTitleNode,
-} from '../importer/jats-front-dom-parser'
 // import { jatsFrontTransformations } from '../importer/jats-front-transformations'
 import { JATSExporter } from '../jats-exporter'
 import { DEFAULT_CSL_OPTIONS } from './citations'
@@ -32,7 +25,9 @@ import { readAndParseFixture } from './files'
 
 // eslint-disable-next-line jest/expect-expect
 test('custom test', async () => {
-  const models = parseJATSArticle(await readAndParseFixture('jats-import.xml'))
+  const models = parseJATSArticle(
+    await readAndParseFixture('debug-example.xml')
+  )
 
   const modelMap = new Map<string, Requirement>()
   let id = ''

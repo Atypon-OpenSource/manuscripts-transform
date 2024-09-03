@@ -27,6 +27,69 @@ export const updateDocumentIDs = (
   recurseDoc(node, (n) => updateNodeID(n, replacements, warnings))
   recurseDoc(node, (n) => updateNodeRID(n, replacements, warnings))
   recurseDoc(node, (n) => updateNodeRIDS(n, replacements, warnings))
+
+  node.descendants((node) => {
+    if (node.type === schema.nodes.contributor) {
+      const footnote = node.attrs.footnote.map((fn: any) => {
+        return {
+          ...fn,
+          noteID: replacements.get(fn.noteID),
+        }
+      })
+      const corresp = node.attrs.corresp.map((corresp: any) => {
+        return {
+          ...corresp,
+          correspID: replacements.get(corresp.correspID),
+        }
+      })
+      const affiliations = node.attrs.affiliations.map(
+        (affiliation: string) => {
+          replacements.get(affiliation)
+        }
+      )
+      // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
+      node.attrs = {
+        ...node.attrs,
+        footnote,
+        corresp,
+        affiliations,
+      }
+      return false
+    }
+
+    if (node.type !== schema.nodes.contributors) {
+      return false
+    }
+  })
+
+  const highlightNodes: ManuscriptNode[] = []
+
+  node.descendants((node, _pos, parent) => {
+    if (node.type === schema.nodes.highlight_marker) {
+      // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
+      node.attrs = {
+        ...node.attrs,
+        tid: parent?.attrs.id || node.attrs.tid,
+      }
+      highlightNodes.push(node)
+    }
+  })
+
+  node.descendants((node) => {
+    if (node.type === schema.nodes.comment) {
+      const highlightNode = highlightNodes.find(
+        (n) => n.attrs.id === node.attrs.id
+      )
+      if (highlightNode) {
+        // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
+        node.attrs = {
+          ...node.attrs,
+          target: highlightNode.attrs.tid,
+        }
+      }
+    }
+  })
+
   return warnings
 }
 
@@ -54,6 +117,12 @@ const updateNodeID = (
       ...node.attrs,
       id: `InlineMathFragment:${uuidv4()}`,
     }
+    return
+  }
+  if (
+    node.type === schema.nodes.highlight_marker ||
+    node.type === schema.nodes.comment
+  ) {
     return
   }
   if (node.type === schema.nodes.general_table_footnote) {

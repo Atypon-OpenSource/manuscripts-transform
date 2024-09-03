@@ -18,4 +18,5 @@ export {
   parseJATSFront,
   parseJATSBody,
   parseJATSArticle,
+  createManuscriptNode,
 } from './parse-jats-article'

@@ -26,8 +26,8 @@ import { CitationProvider } from '@manuscripts/library'
 import debug from 'debug'
 import {
   DOMOutputSpec,
-  DOMParser as ProsemirrorDOMParser,
   DOMSerializer,
+  DOMParser as ProsemirrorDOMParser,
 } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
@@ -1263,7 +1263,6 @@ export class JATSExporter {
       strikethrough: () => ['strike'],
       styled: (mark) => {
         const inlineStyle = getModel<InlineStyle>(mark.attrs.rid)
-
         const attrs: { [key: string]: string } = {}
 
         if (inlineStyle && inlineStyle.title) {
