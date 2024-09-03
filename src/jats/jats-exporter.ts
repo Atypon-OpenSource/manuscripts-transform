@@ -1469,7 +1469,13 @@ export class JATSExporter {
   private createEquation(node: ManuscriptNode, isInline = false) {
     if (node.attrs.format === 'tex') {
       const texMath = this.document.createElement('tex-math')
-      texMath.innerHTML = node.attrs.contents
+      texMath.setAttribute('notation', 'LaTeX')
+      texMath.setAttribute('version', 'MathJax')
+      if (node.attrs.contents.includes('<![CDATA[')) {
+        texMath.innerHTML = node.attrs.contents
+      } else {
+        texMath.innerHTML = `<![CDATA[ ${node.attrs.contents} ]]>`
+      }
       return texMath
     } else {
       const math = this.nodeFromJATS(node.attrs.contents)
