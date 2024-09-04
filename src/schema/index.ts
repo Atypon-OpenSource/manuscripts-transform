@@ -92,6 +92,7 @@ import { title } from './nodes/title'
 import { tocElement } from './nodes/toc_element'
 import { tocSection } from './nodes/toc_section'
 import { Marks, Nodes } from './types'
+import { box_element } from "./nodes/box_element";
 
 export * from './groups'
 export * from './types'
@@ -235,5 +236,6 @@ export const schema = new Schema<Nodes, Marks>({
     supplement,
     author_notes: authorNotes,
     corresp,
+    box_element,
   },
 })

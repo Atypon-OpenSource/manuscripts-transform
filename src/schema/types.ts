@@ -116,6 +116,7 @@ export type Nodes =
   | 'author_notes'
   | 'corresp'
   | 'general_table_footnote'
+  | 'box_element'
 export type ManuscriptSchema = Schema<Nodes, Marks>
 
 export type ManuscriptEditorState = EditorState
