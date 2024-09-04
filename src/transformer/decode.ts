@@ -681,7 +681,6 @@ export class Decoder {
           id: model._id,
         },
         [
-          schema.nodes.section_title.create({}, schema.text('Correspondence')),
           ...content,
         ]
       ) as ManuscriptNode
