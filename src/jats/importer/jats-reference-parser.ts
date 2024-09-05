@@ -22,7 +22,6 @@ import {
   buildBibliographicName,
   buildBibliographyItem,
 } from '../../transformer/builders'
-import { isJATSComment, JATSComment, parseJATSComment } from './jats-comments'
 import { htmlFromJatsNode } from './jats-parser-utils'
 import { References } from './jats-references'
 
@@ -66,17 +65,7 @@ export const jatsReferenceParser = {
         )?.trim()
       }
 
-      const comments: JATSComment[] = []
       const mixedCitation = element.querySelector('mixed-citation')
-      mixedCitation?.childNodes.forEach((item) => {
-        // This isn't the best place but since we are already iterating the nodes it is better for performance
-        if (isJATSComment(item)) {
-          const comment = parseJATSComment(item)
-          if (comment) {
-            comments.push(comment)
-          }
-        }
-      })
 
       if (authorNodes.length <= 0) {
         mixedCitation?.childNodes.forEach((item) => {
@@ -177,7 +166,7 @@ export const jatsReferenceParser = {
       // TODO: handle `etal`?
 
       const id = element.getAttribute('id')
-      references.add(bibliographyItem as BibliographyItem, id, comments)
+      references.add(bibliographyItem as BibliographyItem, id)
     })
     return references
   },

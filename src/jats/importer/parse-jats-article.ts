@@ -20,7 +20,7 @@ import { InvalidInput } from '../../errors'
 import { ManuscriptNode } from '../../schema'
 import { buildManuscript } from '../../transformer/builders'
 import { jatsBodyTransformations } from './jats-body-transformations'
-import { markNodeComments } from './jats-comments'
+import { markComments } from './jats-comments'
 import { jatsBodyDOMParser } from './jats-dom-parser'
 import { jatsFrontParser } from './jats-front-parser'
 import { jatsFrontTransformations } from './jats-front-transformations'
@@ -79,7 +79,7 @@ export const parseJATSArticle = (doc: Document, template?: string) => {
     throw new InvalidInput('invalid JATS format')
   }
 
-  markNodeComments(doc)
+  markComments(doc)
 
   const journal = createJournal(front)
   const manuscript = createManuscript(front, template)
