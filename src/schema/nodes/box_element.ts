@@ -28,7 +28,7 @@ export interface BoxElementNode extends ManuscriptNode {
 }
 
 export const box_element: NodeSpec = {
-  content: 'figcaption? section?',
+  content: 'section_label? figcaption? section?',
   attrs: {
     id: { default: '' },
     label: { default: '' },
