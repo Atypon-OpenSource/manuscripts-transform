@@ -56,7 +56,8 @@ const choosePageBreakStyle = (element: HTMLElement): number => {
 
 export const section: NodeSpec = {
   // NOTE: the schema needs paragraphs to be the default type, so they must explicitly come first
-  content: 'section_label? section_title (box_element | paragraph | element)* sections*',
+  content:
+    'section_label? section_title (box_element | paragraph | element)* sections*',
   attrs: {
     id: { default: '' },
     category: { default: '' },
