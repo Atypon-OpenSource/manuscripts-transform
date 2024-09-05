@@ -914,6 +914,7 @@ export class JATSExporter {
       contributor: () => '',
       affiliation: () => '',
       attribution: () => ['attrib', 0],
+      box_element: () => ['boxed-text', 0],
       bibliography_element: () => '',
       bibliography_item: () => '',
       comments: () => '',

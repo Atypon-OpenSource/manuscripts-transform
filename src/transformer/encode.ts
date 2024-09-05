@@ -780,6 +780,21 @@ const encoders: NodeEncoderMap = {
     contents: inlineContents(node),
     label: node.attrs.label,
   }),
+  box_element: (node, parent, path, priority): Partial<Section> => ({
+    label: node.attrs.label,
+    priority: priority.value++,
+    path: path.concat([node.attrs.id]),
+    title: inlineContentOfChildNodeType(
+      node,
+      node.type.schema.nodes.figcaption,
+      node.type.schema.nodes.caption_title,
+      false
+    ),
+    elementIDs: childElements(node)
+      .map((childNode) => childNode.attrs.id)
+      .filter((id) => id),
+    category: buildSectionCategory(node),
+  }),
 }
 
 const modelData = (

@@ -122,6 +122,7 @@ export const parseJATSBody = (
   jatsBodyTransformations.moveCaptionsToEnd(body)
   jatsBodyTransformations.fixTables(body, createElement)
 
+  jatsBodyTransformations.createBoxedElementSection(doc, body, createElement)
   jatsBodyTransformations.createBody(doc, body, createElement)
   jatsBodyTransformations.createAbstracts(doc, body, createElement)
   jatsBodyTransformations.createBackmatter(doc, body, createElement)

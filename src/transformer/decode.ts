@@ -680,9 +680,7 @@ export class Decoder {
         {
           id: model._id,
         },
-        [
-          ...content,
-        ]
+        [...content]
       ) as ManuscriptNode
     },
     [ObjectTypes.Corresponding]: (data) => {
@@ -755,13 +753,19 @@ export class Decoder {
       )
       const comments = this.createCommentNodes(model)
       comments.forEach((c) => this.comments.set(c.attrs.id, c))
-      const content: ManuscriptNode[] = (
-        sectionLabelNode
-          ? [sectionLabelNode, sectionTitleNode]
-          : [sectionTitleNode]
-      )
-        .concat(elementNodes)
-        .concat(nestedSections)
+      let content: ManuscriptNode[] = []
+      if (sectionLabelNode) {
+        content.push(sectionLabelNode)
+      }
+      if (model.category === 'MPSectionCategory:box-element') {
+        const figCaption = this.getBoxElementFigCaption(model as Section)
+        if (figCaption) {
+          content.push(figCaption)
+        }
+      } else {
+        content.push(sectionTitleNode)
+      }
+      content = content.concat(elementNodes).concat(nestedSections)
       const sectionNode = sectionNodeType.createAndFill(
         {
           id: model._id,
@@ -1149,6 +1153,21 @@ export class Decoder {
         return item
       }
     }
+  }
+
+  private getBoxElementFigCaption = (model: Section) => {
+    const titleNode = schema.nodes.caption_title.create() as CaptionTitleNode
+    const captionTitle = model.title
+      ? this.parseContents(
+          model.title,
+          'caption_title',
+          this.getComments(model),
+          {
+            topNode: titleNode,
+          }
+        )
+      : titleNode
+    return schema.nodes.figcaption.create({}, captionTitle)
   }
 
   private getFigcaption = (
