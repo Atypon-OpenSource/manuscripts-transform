@@ -16,7 +16,12 @@
 
 import { v4 as uuidv4 } from 'uuid'
 
-import { ManuscriptNode, schema } from '../../schema'
+import {
+  contributorCorresp,
+  contributorFootnote,
+  ManuscriptNode,
+  schema,
+} from '../../schema'
 import { generateID, nodeTypesMap } from '../../transformer'
 
 export const updateDocumentIDs = (
@@ -24,71 +29,14 @@ export const updateDocumentIDs = (
   replacements: Map<string, string>
 ) => {
   const warnings: string[] = []
-  recurseDoc(node, (n) => updateNodeID(n, replacements, warnings))
-  recurseDoc(node, (n) => updateNodeRID(n, replacements, warnings))
-  recurseDoc(node, (n) => updateNodeRIDS(n, replacements, warnings))
-
-  node.descendants((node) => {
-    if (node.type === schema.nodes.contributor) {
-      const footnote = node.attrs.footnote.map((fn: any) => {
-        return {
-          ...fn,
-          noteID: replacements.get(fn.noteID),
-        }
-      })
-      const corresp = node.attrs.corresp.map((corresp: any) => {
-        return {
-          ...corresp,
-          correspID: replacements.get(corresp.correspID),
-        }
-      })
-      const affiliations = node.attrs.affiliations.map(
-        (affiliation: string) => {
-          replacements.get(affiliation)
-        }
-      )
-      // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-      node.attrs = {
-        ...node.attrs,
-        footnote,
-        corresp,
-        affiliations,
-      }
-      return false
-    }
-
-    if (node.type !== schema.nodes.contributors) {
-      return false
-    }
-  })
-
   const highlightNodes: ManuscriptNode[] = []
 
-  node.descendants((node, _pos, parent) => {
-    if (node.type === schema.nodes.highlight_marker) {
-      // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-      node.attrs = {
-        ...node.attrs,
-        tid: parent?.attrs.id || node.attrs.tid,
-      }
-      highlightNodes.push(node)
-    }
-  })
-
-  node.descendants((node) => {
-    if (node.type === schema.nodes.comment) {
-      const highlightNode = highlightNodes.find(
-        (n) => n.attrs.id === node.attrs.id
-      )
-      if (highlightNode) {
-        // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-        node.attrs = {
-          ...node.attrs,
-          target: highlightNode.attrs.tid,
-        }
-      }
-    }
-  })
+  recurseDoc(node, (n, parent) =>
+    updateNodeID(n, parent, replacements, warnings, highlightNodes)
+  )
+  recurseDoc(node, (n) => updateNodeRID(n, replacements, warnings))
+  recurseDoc(node, (n) => updateNodeRIDS(n, replacements, warnings))
+  recurseDoc(node, (n) => updateContributorNodesIDS(n, replacements, warnings))
 
   return warnings
 }
@@ -98,9 +46,13 @@ export const updateDocumentIDs = (
  * @param node
  * @param fn
  */
-function recurseDoc(node: ManuscriptNode, fn: (n: ManuscriptNode) => void) {
-  fn(node)
-  node.descendants((n) => fn(n))
+function recurseDoc(
+  node: ManuscriptNode,
+  fn: (n: ManuscriptNode, parent: ManuscriptNode | null) => void,
+  parent: ManuscriptNode | null = null
+) {
+  fn(node, parent)
+  node.descendants((n, pos, parent) => fn(n, parent))
 }
 
 /**
@@ -108,8 +60,10 @@ function recurseDoc(node: ManuscriptNode, fn: (n: ManuscriptNode) => void) {
  */
 const updateNodeID = (
   node: ManuscriptNode,
+  parent: ManuscriptNode | null,
   replacements: Map<string, string>,
-  warnings: string[]
+  warnings: string[],
+  highlightNodes: ManuscriptNode[]
 ) => {
   if (node.type === schema.nodes.inline_equation) {
     // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
@@ -119,12 +73,35 @@ const updateNodeID = (
     }
     return
   }
-  if (
-    node.type === schema.nodes.highlight_marker ||
-    node.type === schema.nodes.comment
-  ) {
+
+  if (node.type === schema.nodes.manuscript) {
     return
   }
+
+  if (node.type === schema.nodes.highlight_marker) {
+    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
+    node.attrs = {
+      ...node.attrs,
+      tid: parent?.attrs.id,
+    }
+    highlightNodes.push(node)
+    return
+  }
+
+  if (node.type === schema.nodes.comment) {
+    const highlightNode = highlightNodes.find(
+      (n) => n.attrs.id === node.attrs.id
+    )
+    if (highlightNode) {
+      // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
+      node.attrs = {
+        ...node.attrs,
+        target: highlightNode.attrs.tid,
+      }
+    }
+    return
+  }
+
   if (node.type === schema.nodes.general_table_footnote) {
     // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
     node.attrs = {
@@ -199,6 +176,46 @@ const updateNodeRIDS = (
   node.attrs = {
     ...node.attrs,
     rids: previousRIDs.map((r) => replacements.get(r) || r),
+  }
+}
+
+/**
+ * Updates the IDS for corresps, affiliations and footnotes inside the contributor
+ */
+
+const updateContributorNodesIDS = (
+  node: ManuscriptNode,
+  replacements: Map<string, string>,
+  // eslint-disable-next-line
+  warnings: string[]
+) => {
+  if (node.type === schema.nodes.contributor) {
+    const footnote = node.attrs.footnote?.map((fn: contributorFootnote) => {
+      return {
+        ...fn,
+        noteID: replacements.get(fn.noteID),
+      }
+    })
+    const corresp = node.attrs.corresp?.map((corresp: contributorCorresp) => {
+      return {
+        ...corresp,
+        correspID: replacements.get(corresp.correspID),
+      }
+    })
+    const affiliations = node.attrs.affiliations.map((affiliation: string) => {
+      return replacements.get(affiliation)
+    })
+    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
+    node.attrs = {
+      ...node.attrs,
+      footnote,
+      corresp,
+      affiliations,
+    }
+  }
+
+  if (node.type !== schema.nodes.contributors) {
+    return false
   }
 }
 

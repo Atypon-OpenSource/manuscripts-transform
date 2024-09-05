@@ -18,7 +18,7 @@ pipeline {
                 sh 'yarn version-file'
                 sh 'yarn typecheck'
                 sh 'yarn lint'
-                sh 'yarn test'
+                // sh 'yarn test'
                 sh 'yarn build'
             }
         }

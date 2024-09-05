@@ -37,6 +37,11 @@ export type JATSComment = {
   id: string
   text: string
 }
+export type JATSCommentNode = {
+  index: number
+  text: string
+  id: string
+}
 
 export type JATSCommentMark = {
   token: string
@@ -72,7 +77,7 @@ export const parseJATSComment = (node: Node): JATSComment | undefined => {
 
 export const parseJATSCommentNode = (
   node: Node
-): { text: string; index: number } | undefined => {
+): JATSCommentNode | undefined => {
   const text = node.textContent
   if (text) {
     const queryText = /queryText="(.+)"/.exec(text)
@@ -80,6 +85,7 @@ export const parseJATSCommentNode = (
       const parentNode = node.parentNode as Element
       const index = parentNode.outerHTML.indexOf(queryText[1])
       return {
+        id: generateID(ObjectTypes.CommentAnnotation),
         text: queryText[1],
         index,
       }
@@ -97,16 +103,9 @@ export const markNodeComments = (doc: Document) => {
       if (isJATSComment(node)) {
         const comment = parseJATSCommentNode(node)
         if (comment) {
-          const commentID = generateID(ObjectTypes.CommentAnnotation)
-          const highlightMarker = doc.createElement('highlight-marker')
-          highlightMarker.setAttribute('id', commentID)
-          highlightMarker.setAttribute('position', 'point')
+          const highlightMarker = createHighlightMarkerElement(doc, comment.id)
           node.parentNode?.insertBefore(highlightMarker, node)
-          const commentElement = doc.createElement('comment-annotation')
-          commentElement.setAttribute('id', commentID)
-          commentElement.textContent = comment.text
-          commentElement.setAttribute('from', comment.index.toString())
-          commentElement.setAttribute('to', comment.index.toString())
+          const commentElement = createCommentElement(doc, comment)
           commentsElement.appendChild(commentElement)
         }
       }
@@ -119,6 +118,24 @@ export const markNodeComments = (doc: Document) => {
   if (commentsElement.hasChildNodes()) {
     doc.documentElement.appendChild(commentsElement)
   }
+}
+
+const createHighlightMarkerElement = (doc: Document, id: string) => {
+  const highlightMarker = doc.createElement('highlight-marker')
+  highlightMarker.setAttribute('id', id)
+  highlightMarker.setAttribute('position', 'point')
+  return highlightMarker
+}
+
+const createCommentElement = (doc: Document, comment: JATSCommentNode) => {
+  const commentElement = doc.createElement('comment-annotation')
+  commentElement.setAttribute('id', comment.id)
+  commentElement.textContent = comment.text
+  if (comment.index !== -1) {
+    commentElement.setAttribute('from', comment.index.toString())
+    commentElement.setAttribute('to', comment.index.toString())
+  }
+  return commentElement
 }
 /**
  * Replaces processing instructions with tokens

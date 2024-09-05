@@ -16,26 +16,22 @@
 
 import {
   BibliographyItem,
-  InlineStyle,
   Journal,
   Manuscript,
-  Model,
   ObjectTypes,
 } from '@manuscripts/json-schema'
 import { CitationProvider } from '@manuscripts/library'
 import debug from 'debug'
 import {
   DOMOutputSpec,
-  DOMSerializer,
   DOMParser as ProsemirrorDOMParser,
+  DOMSerializer,
 } from 'prosemirror-model'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { nodeFromHTML, textFromHTML } from '../lib/html'
-import { normalizeStyleName } from '../lib/styled-content'
 import { iterateChildren } from '../lib/utils'
 import {
-  AffiliationNode,
   AuthorNotesNode,
   BibliographyItemNode,
   CitationNode,
@@ -55,14 +51,9 @@ import {
   TableElementFooterNode,
   TableElementNode,
 } from '../schema'
-import { KeywordGroupNode } from '../schema/nodes/keyword_group'
 import { generateAttachmentFilename } from '../transformer/filename'
 import { buildTargets, Target } from '../transformer/labels'
 import { isExecutableNodeType, isNodeType } from '../transformer/node-types'
-import {
-  findManuscript,
-  findManuscriptById,
-} from '../transformer/project-bundle'
 import {
   chooseJatsFnType,
   chooseSecType,
@@ -105,7 +96,7 @@ const findChildNodeOfType = (
   }
 }
 
-const findNodesOfType = <T extends ManuscriptNode>(
+const findNodesOfType = (
   fragment: ManuscriptFragment,
   nodeType: ManuscriptNodeType,
   recurse = true
@@ -117,7 +108,7 @@ const findNodesOfType = <T extends ManuscriptNode>(
     }
     return recurse
   })
-  return nodes as T[]
+  return nodes
 }
 
 const findNode = (
@@ -129,6 +120,7 @@ const findNode = (
   fragment.descendants((node) => {
     if (node.attrs.id === nodeID) {
       nodes.push(node)
+      return false
     }
     return recurse
   })
@@ -232,16 +224,15 @@ export const buildCitations = (citations: CitationNode[]) =>
   }))
 export class JATSExporter {
   protected document: Document
-  protected modelMap: Map<string, Model>
   protected serializer: DOMSerializer
   protected labelTargets?: Map<string, Target>
   protected citationTexts: Map<string, string>
   protected citationProvider: CitationProvider
   protected fragment: ManuscriptFragment
 
-  protected generateCitations(fragment: ManuscriptFragment) {
+  protected generateCitations() {
     const nodes: CitationNode[] = []
-    fragment.descendants((node) => {
+    this.fragment.descendants((node) => {
       if (isCitationNode(node)) {
         nodes.push(node)
       }
@@ -274,27 +265,23 @@ export class JATSExporter {
       } as BibliographyItem
     }
   }
-  protected generateCitationTexts(
-    fragment: ManuscriptFragment,
-    csl: CSLOptions,
-    manuscriptID: string
-  ) {
+  protected generateCitationTexts(csl: CSLOptions, manuscriptID: string) {
     this.citationTexts = new Map<string, string>()
     this.citationProvider = new CitationProvider({
       getLibraryItem: this.getLibraryItem(manuscriptID),
       locale: csl.locale,
       citationStyle: csl.style,
     })
-    const citations = this.generateCitations(fragment)
+    const citations = this.generateCitations()
     this.citationProvider.rebuildState(citations).forEach(([id, , output]) => {
       this.citationTexts.set(id, output)
     })
   }
   public serializeToJATS = async (
     fragment: ManuscriptFragment,
-    modelMap: Map<string, Model>,
-    manuscriptID: string,
-    options: JATSExporterOptions
+    options: JATSExporterOptions,
+    manuscript: Manuscript,
+    jorunal?: Journal
   ): Promise<string> => {
     const {
       version = '1.2',
@@ -307,8 +294,7 @@ export class JATSExporter {
       csl,
     } = options
     this.fragment = fragment
-    this.modelMap = modelMap
-    this.generateCitationTexts(fragment, csl, manuscriptID)
+    this.generateCitationTexts(csl, manuscript._id)
     this.createSerializer()
     const versionIds = selectVersionIds(version)
 
@@ -330,13 +316,8 @@ export class JATSExporter {
       XLINK_NAMESPACE
     )
 
-    const front = this.buildFront(doi, id, links)
+    const front = this.buildFront(manuscript, jorunal, doi, id, links)
     article.appendChild(front)
-
-    const manuscript: Manuscript = findManuscriptById(
-      this.modelMap,
-      manuscriptID
-    )
 
     article.setAttribute('article-type', manuscript.articleType || 'other')
 
@@ -452,8 +433,13 @@ export class JATSExporter {
     }
   }
 
-  protected buildFront = (doi?: string, id?: string, links?: Links) => {
-    const manuscript = findManuscript(this.modelMap)
+  protected buildFront = (
+    manuscript: Manuscript,
+    journal?: Journal,
+    doi?: string,
+    id?: string,
+    links?: Links
+  ) => {
     const titleNode = findNodesOfType(this.fragment, schema.nodes.title)[0]
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/front.html
     const front = this.document.createElement('front')
@@ -465,10 +451,6 @@ export class JATSExporter {
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/article-meta.html
     const articleMeta = this.document.createElement('article-meta')
     front.appendChild(articleMeta)
-
-    const journal = [...this.modelMap.values()].find(
-      (model) => model.objectType === ObjectTypes.Journal
-    ) as Journal | undefined
 
     if (journal) {
       if (journal.journalIdentifiers) {
@@ -932,9 +914,6 @@ export class JATSExporter {
   }
 
   protected createSerializer = () => {
-    const getModel = <T extends Model>(id?: string) =>
-      id ? (this.modelMap.get(id) as T | undefined) : undefined
-
     const nodes: NodeSpecs = {
       author_notes: () => '',
       corresp: () => '',
@@ -1261,16 +1240,8 @@ export class JATSExporter {
       italic: () => ['italic'],
       smallcaps: () => ['sc'],
       strikethrough: () => ['strike'],
-      styled: (mark) => {
-        const inlineStyle = getModel<InlineStyle>(mark.attrs.rid)
-        const attrs: { [key: string]: string } = {}
-
-        if (inlineStyle && inlineStyle.title) {
-          attrs.style = normalizeStyleName(inlineStyle.title)
-        }
-
-        return ['styled-content', attrs]
-      },
+      //I couldn't find any examples for this to test
+      styled: () => ['styled-content'],
       superscript: () => ['sup'],
       subscript: () => ['sub'],
       underline: () => ['underline'],
@@ -1512,10 +1483,10 @@ export class JATSExporter {
   }
 
   private buildContributors = (articleMeta: Node) => {
-    const contributorNodes = findNodesOfType<ContributorNode>(
+    const contributorNodes = findNodesOfType(
       this.fragment,
       schema.nodes.contributor
-    )
+    ) as ContributorNode[]
     const authorContributorNodes = contributorNodes
       .filter((n) => n.attrs.role === 'author')
       .sort(sortContributors)
@@ -1657,7 +1628,7 @@ export class JATSExporter {
         }
       }
 
-      const affiliations = findNodesOfType<AffiliationNode>(
+      const affiliations = findNodesOfType(
         this.fragment,
         schema.nodes.affiliation
       )
@@ -1744,10 +1715,10 @@ export class JATSExporter {
   }
   private createAuthorNotesElement = () => {
     const authorNotesEl = this.document.createElement('author-notes')
-    const authorNotes = findNodesOfType<AuthorNotesNode>(
+    const authorNotes = findNodesOfType(
       this.fragment,
       schema.nodes.author_notes
-    )[0]
+    )[0] as AuthorNotesNode
     if (authorNotes) {
       this.appendModelsToAuthorNotes(authorNotesEl, authorNotes)
     }
@@ -1757,10 +1728,10 @@ export class JATSExporter {
     authorNotesEl: HTMLElement,
     authorNotesNode: AuthorNotesNode
   ) {
-    const contributorsNodes = findNodesOfType<ContributorNode>(
+    const contributorsNodes = findNodesOfType(
       this.fragment,
       schema.nodes.contributor
-    )
+    ) as ContributorNode[]
     const usedCorrespondings = this.getUsedCorrespondings(contributorsNodes)
     authorNotesNode.descendants((node) => {
       switch (node.type) {
@@ -1838,7 +1809,7 @@ export class JATSExporter {
     element.appendChild(footnoteEl)
   }
   private buildKeywords(articleMeta: Node) {
-    const keywordGroups = findNodesOfType<KeywordGroupNode>(
+    const keywordGroups = findNodesOfType(
       this.fragment,
       schema.nodes.keyword_group
     )

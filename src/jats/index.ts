@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-export {
-  parseJATSFront,
-  parseJATSBody,
-  parseJATSArticle,
-  createManuscriptNode,
-} from './importer'
+export { parseJATSArticle, createArticleNode } from './importer'
 
 export * from './jats-exporter'
 export * from './jats-versions'
