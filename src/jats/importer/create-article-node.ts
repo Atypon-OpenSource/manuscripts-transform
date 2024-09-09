@@ -20,6 +20,16 @@ import { ManuscriptNode } from '../../schema'
 import { jatsBodyDOMParser } from './jats-dom-parser'
 
 export const createArticleNode = (manuscript: Manuscript) => {
+  const manuscriptEl = createManuscriptElement(manuscript)
+  const article = document.createElement('article')
+  const title = document.createElement('article-title')
+  article.appendChild(manuscriptEl)
+  article.appendChild(title)
+
+  return jatsBodyDOMParser.parse(article).firstChild as ManuscriptNode
+}
+
+export const createManuscriptElement = (manuscript: Manuscript) => {
   const manuscriptEl = document.createElement('manuscript')
   manuscriptEl.setAttribute('id', manuscript._id)
 
@@ -35,11 +45,5 @@ export const createArticleNode = (manuscript: Manuscript) => {
       manuscriptEl.setAttribute(key, value)
     }
   })
-
-  const article = document.createElement('article')
-  const title = document.createElement('article-title')
-  article.appendChild(manuscriptEl)
-  article.appendChild(title)
-
-  return jatsBodyDOMParser.parse(article).firstChild as ManuscriptNode
+  return manuscriptEl
 }

@@ -28,15 +28,18 @@ import { Element as XMLElement, parseXml } from 'libxmljs2'
 import projectDump from '../../__tests__/data/project-dump.json'
 import projectDumpWithCitations from '../../__tests__/data/project-dump-2.json'
 import {
+  findJournal,
   findManuscript,
   isManuscript,
   parseProjectBundle,
   ProjectBundle,
 } from '../../transformer'
 import { journalMeta } from '../../transformer/__tests__/__helpers__/journal-meta'
+import { parseJATSArticle } from '../importer'
 import { JATSExporter } from '../jats-exporter'
 import { Version } from '../jats-versions'
 import { DEFAULT_CSL_OPTIONS } from './citations'
+import { readAndParseFixture } from './files'
 import { getDocFromModelMap, getModelMapFromXML } from './utils'
 
 const input = projectDump as ProjectBundle
@@ -506,11 +509,15 @@ describe('JATS exporter', () => {
 
     const transformer = new JATSExporter()
     const manuscript = findManuscript(modelMap)
+    const journal = findJournal(modelMap)
+    if (!journal) {
+      throw new Error('Journal not found')
+    }
     const xml = await transformer.serializeToJATS(
-      doc.content,
-      modelMap,
-      manuscript._id,
-      { csl: DEFAULT_CSL_OPTIONS }
+      doc,
+      { csl: DEFAULT_CSL_OPTIONS },
+      manuscript,
+      journal
     )
 
     const { errors } = parseXMLWithDTD(xml)
@@ -750,16 +757,15 @@ describe('JATS exporter', () => {
     expect(back).toHaveLength(0)
   })
   test('DTD validation for MathML representation', async () => {
-    const projectBundle = cloneProjectBundle(input)
-    const { doc, modelMap } = parseProjectBundle(projectBundle)
-
+    const jats = await readAndParseFixture('jats-import.xml')
     const transformer = new JATSExporter()
-    const manuscript = findManuscript(modelMap)
+
+    const { manuscript, journal, node } = parseJATSArticle(jats)
     const xml = await transformer.serializeToJATS(
-      doc.content,
-      modelMap,
-      manuscript._id,
-      { csl: DEFAULT_CSL_OPTIONS }
+      node,
+      { csl: DEFAULT_CSL_OPTIONS },
+      manuscript,
+      journal
     )
 
     const { errors } = parseXMLWithDTD(xml)

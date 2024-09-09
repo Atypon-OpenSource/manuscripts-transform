@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import { ManuscriptNode } from 'migration-base'
+
 import { ManuscriptFragment, ManuscriptNodeType, schema } from '../schema'
 import { nodeNames } from './node-names'
 
@@ -47,7 +49,7 @@ const chooseLabel = (nodeType: ManuscriptNodeType): string => {
 }
 
 export const buildTargets = (
-  fragment: ManuscriptFragment
+  node: ManuscriptNode | ManuscriptFragment
 ): Map<string, Target> => {
   const counters: Counters = {}
 
@@ -66,7 +68,7 @@ export const buildTargets = (
 
   const targets: Map<string, Target> = new Map()
 
-  fragment.descendants((node, pos, parent) => {
+  node.descendants((node, pos, parent) => {
     if (node.type.name in counters) {
       if (parent && excludedTypes.includes(parent.type)) {
         return

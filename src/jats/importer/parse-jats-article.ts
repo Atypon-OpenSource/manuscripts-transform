@@ -19,6 +19,7 @@ import { Manuscript } from '@manuscripts/json-schema'
 import { InvalidInput } from '../../errors'
 import { ManuscriptNode } from '../../schema'
 import { buildManuscript } from '../../transformer/builders'
+import { createManuscriptElement } from './create-article-node'
 import { jatsBodyTransformations } from './jats-body-transformations'
 import { markComments } from './jats-comments'
 import { jatsBodyDOMParser } from './jats-dom-parser'
@@ -100,7 +101,8 @@ export const parseJATSArticle = (doc: Document, template?: string) => {
   const parsedFront = parseJatsFront(doc)
 
   const newArticle = createElement('article')
-
+  const manuscriptEl = createManuscriptElement(manuscript)
+  newArticle.appendChild(manuscriptEl)
   appendChildren(newArticle, parsedFront)
   appendChildren(newArticle, body)
 

@@ -27,13 +27,12 @@ import {
   DOMParser as ProsemirrorDOMParser,
   DOMSerializer,
 } from 'prosemirror-model'
+import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { nodeFromHTML, textFromHTML } from '../lib/html'
-import { iterateChildren } from '../lib/utils'
 import {
   AuthorNotesNode,
-  BibliographyItemNode,
   CitationNode,
   ContributorNode,
   CorrespNode,
@@ -59,16 +58,10 @@ import {
   chooseSecType,
 } from '../transformer/section-category'
 import { IDGenerator, MediaPathGenerator } from '../types'
-import { selectVersionIds, Version } from './jats-versions'
+import { selectVersionIds } from './jats-versions'
 
 interface Attrs {
   [key: string]: string
-}
-
-interface Links {
-  self?: {
-    [key: string]: string
-  }
 }
 
 type NodeSpecs = { [key in Nodes]: (node: ManuscriptNode) => DOMOutputSpec }
@@ -84,48 +77,6 @@ const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 const normalizeID = (id: string) => id.replace(/:/g, '_')
 
 const parser = ProsemirrorDOMParser.fromSchema(schema)
-
-const findChildNodeOfType = (
-  node: ManuscriptNode,
-  nodeType: ManuscriptNodeType
-) => {
-  for (const child of iterateChildren(node)) {
-    if (child.type === nodeType) {
-      return child
-    }
-  }
-}
-
-const findNodesOfType = (
-  fragment: ManuscriptFragment,
-  nodeType: ManuscriptNodeType,
-  recurse = true
-) => {
-  const nodes: ManuscriptNode[] = []
-  fragment.descendants((node) => {
-    if (node.type === nodeType) {
-      nodes.push(node)
-    }
-    return recurse
-  })
-  return nodes
-}
-
-const findNode = (
-  fragment: ManuscriptFragment,
-  nodeID: string,
-  recurse = true
-) => {
-  const nodes: ManuscriptNode[] = []
-  fragment.descendants((node) => {
-    if (node.attrs.id === nodeID) {
-      nodes.push(node)
-      return false
-    }
-    return recurse
-  })
-  return nodes[0]
-}
 // siblings from https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/article-meta.html
 const insertAbstractNode = (articleMeta: Element, abstractNode: Element) => {
   const siblings = [
@@ -201,17 +152,6 @@ export type CSLOptions = {
   style: string
   locale: string
 }
-export interface JATSExporterOptions {
-  csl: CSLOptions
-  version?: Version
-  doi?: string
-  id?: string
-  frontMatterOnly?: boolean
-  links?: Links
-  citationType?: 'element' | 'mixed'
-  idGenerator?: IDGenerator
-  mediaPathGenerator?: MediaPathGenerator
-}
 export const buildCitations = (citations: CitationNode[]) =>
   citations.map((citation) => ({
     citationID: citation.attrs.id,
@@ -228,11 +168,11 @@ export class JATSExporter {
   protected labelTargets?: Map<string, Target>
   protected citationTexts: Map<string, string>
   protected citationProvider: CitationProvider
-  protected fragment: ManuscriptFragment
+  protected manuscriptNode: ManuscriptNode
 
   protected generateCitations() {
     const nodes: CitationNode[] = []
-    this.fragment.descendants((node) => {
+    this.manuscriptNode.descendants((node) => {
       if (isCitationNode(node)) {
         nodes.push(node)
       }
@@ -242,7 +182,10 @@ export class JATSExporter {
 
   protected getLibraryItem = (manuscriptID: string) => {
     return (id: string) => {
-      const node = findNode(this.fragment, id) as BibliographyItemNode
+      const node = findChildrenByAttr(
+        this.manuscriptNode,
+        (attrs) => attrs.id === id
+      )[0]?.node
       if (!node) {
         return undefined
       }
@@ -278,23 +221,14 @@ export class JATSExporter {
     })
   }
   public serializeToJATS = async (
-    fragment: ManuscriptFragment,
-    options: JATSExporterOptions,
+    manuscriptNode: ManuscriptNode,
+    csl: CSLOptions,
     manuscript: Manuscript,
     jorunal?: Journal
   ): Promise<string> => {
-    const {
-      version = '1.2',
-      doi,
-      id,
-      frontMatterOnly = false,
-      links,
-      idGenerator,
-      mediaPathGenerator,
-      csl,
-    } = options
-    this.fragment = fragment
-    this.generateCitationTexts(csl, manuscript._id)
+    const version = '1.2'
+    this.manuscriptNode = manuscriptNode
+    this.generateCitationTexts(csl, manuscriptNode.attrs.id)
     this.createSerializer()
     const versionIds = selectVersionIds(version)
 
@@ -316,35 +250,26 @@ export class JATSExporter {
       XLINK_NAMESPACE
     )
 
-    const front = this.buildFront(manuscript, jorunal, doi, id, links)
+    const front = this.buildFront(manuscript, jorunal)
     article.appendChild(front)
 
     article.setAttribute('article-type', manuscript.articleType || 'other')
 
-    if (!frontMatterOnly) {
-      // TODO: format citations using template if citationType === 'mixed'
-      // TODO: or convert existing bibliography data to JATS?
-      this.labelTargets = buildTargets(fragment)
+    this.labelTargets = buildTargets(manuscriptNode)
+    const body = this.buildBody()
+    article.appendChild(body)
+    const back = this.buildBack(body)
+    this.moveCoiStatementToAuthorNotes(back, front)
+    article.appendChild(back)
+    this.unwrapBody(body)
+    this.moveAbstracts(front, body)
+    this.moveFloatsGroup(body, article)
+    this.removeBackContainer(body)
+    this.updateFootnoteTypes(front, back)
+    this.fillEmptyTableFooters(article)
+    this.fillEmptyFootnotes(article)
 
-      const body = this.buildBody()
-      article.appendChild(body)
-      const back = this.buildBack(body)
-      this.moveCoiStatementToAuthorNotes(back, front)
-      article.appendChild(back)
-      this.unwrapBody(body)
-      this.moveAbstracts(front, body)
-      this.moveFloatsGroup(body, article)
-      this.removeBackContainer(body)
-      this.updateFootnoteTypes(front, back)
-      this.fillEmptyTableFooters(article)
-      this.fillEmptyFootnotes(article)
-    }
-
-    await this.rewriteIDs(idGenerator)
-    if (mediaPathGenerator) {
-      await this.rewriteMediaPaths(mediaPathGenerator)
-    }
-
+    await this.rewriteIDs()
     return serializeToXML(this.document)
   }
 
@@ -433,14 +358,12 @@ export class JATSExporter {
     }
   }
 
-  protected buildFront = (
-    manuscript: Manuscript,
-    journal?: Journal,
-    doi?: string,
-    id?: string,
-    links?: Links
-  ) => {
-    const titleNode = findNodesOfType(this.fragment, schema.nodes.title)[0]
+  protected buildFront = (manuscript: Manuscript, journal?: Journal) => {
+    const { node: titleNode } = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.title
+    )[0]
+
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/front.html
     const front = this.document.createElement('front')
 
@@ -505,18 +428,11 @@ export class JATSExporter {
         journalMeta.appendChild(publisher)
       }
     }
-    if (id) {
-      const articleID = this.document.createElement('article-id')
-      articleID.setAttribute('pub-id-type', 'publisher-id')
-      articleID.textContent = id
-      articleMeta.appendChild(articleID)
-    }
-
-    if (doi || manuscript.DOI) {
+    if (manuscript.DOI) {
       const articleID = this.document.createElement('article-id')
       articleID.setAttribute('pub-id-type', 'doi')
       // @ts-ignore
-      articleID.textContent = manuscript.DOI ?? doi
+      articleID.textContent = manuscript.DOI
       articleMeta.appendChild(articleID)
     }
 
@@ -524,65 +440,38 @@ export class JATSExporter {
     articleMeta.appendChild(titleGroup)
 
     this.buildContributors(articleMeta)
-
-    if (links && links.self) {
-      for (const [key, value] of Object.entries(links.self)) {
-        const link = this.document.createElement('self-uri')
-        link.setAttribute('content-type', key)
-        link.setAttributeNS(XLINK_NAMESPACE, 'href', value)
-        articleMeta.appendChild(link)
-      }
-    }
-
     if (titleNode) {
       const element = this.document.createElement('article-title')
       this.setTitleContent(element, titleNode.textContent)
       titleGroup.appendChild(element)
     }
-    // we don't keep subtitle and running title in PM schema, do we need them??
-    // if (titles.subtitle) {
-    //   const element = this.document.createElement('subtitle')
-    //   this.setTitleContent(element, titles.subtitle)
-    //   titleGroup.appendChild(element)
-    // }
 
-    // if (titles.runningTitle) {
-    //   const element = this.document.createElement('alt-title')
-    //   element.setAttribute('alt-title-type', 'right-running')
-    //   this.setTitleContent(element, titles.runningTitle)
-    //   titleGroup.appendChild(element)
-    // }
-    const supplementsNodes = findNodesOfType(
-      this.fragment,
+    const supplementsNodes = findChildrenByType(
+      this.manuscriptNode,
       schema.nodes.supplement
     )
-    supplementsNodes.forEach((node) => {
-      if (node.type !== schema.nodes.section_title) {
-        const supplementaryMaterial = this.document.createElement(
-          'supplementary-material'
-        )
-        supplementaryMaterial.setAttribute('id', normalizeID(node.attrs.id))
-        supplementaryMaterial.setAttributeNS(
-          XLINK_NAMESPACE,
-          'href',
-          node.attrs.href ?? ''
-        )
-        supplementaryMaterial.setAttribute(
-          'mimetype',
-          node.attrs.mimeType ?? ''
-        )
-        supplementaryMaterial.setAttribute(
-          'mime-subtype',
-          node.attrs.mimeSubType ?? ''
-        )
-        const caption = this.document.createElement('caption')
+    supplementsNodes.forEach(({ node }) => {
+      const supplementaryMaterial = this.document.createElement(
+        'supplementary-material'
+      )
+      supplementaryMaterial.setAttribute('id', normalizeID(node.attrs.id))
+      supplementaryMaterial.setAttributeNS(
+        XLINK_NAMESPACE,
+        'href',
+        node.attrs.href ?? ''
+      )
+      supplementaryMaterial.setAttribute('mimetype', node.attrs.mimeType ?? '')
+      supplementaryMaterial.setAttribute(
+        'mime-subtype',
+        node.attrs.mimeSubType ?? ''
+      )
+      const caption = this.document.createElement('caption')
 
-        const title = this.document.createElement('title')
-        title.textContent = node.attrs.title ?? ''
-        caption.append(title)
-        supplementaryMaterial.append(caption)
-        articleMeta.append(supplementaryMaterial)
-      }
+      const title = this.document.createElement('title')
+      title.textContent = node.attrs.title ?? ''
+      caption.append(title)
+      supplementaryMaterial.append(caption)
+      articleMeta.append(supplementaryMaterial)
     })
     const history =
       articleMeta.querySelector('history') ||
@@ -705,7 +594,7 @@ export class JATSExporter {
   }
   protected buildBody = () => {
     const body = this.document.createElement('body')
-    this.fragment.forEach((cFragment) => {
+    this.manuscriptNode.forEach((cFragment) => {
       const serializedNode = this.serializeNode(cFragment)
       body.append(...serializedNode.childNodes)
     })
@@ -750,10 +639,10 @@ export class JATSExporter {
     back.appendChild(refList)
     const [meta] = this.citationProvider.makeBibliography()
     for (const id of meta.entry_ids) {
-      const bibliographyNode = findNodesOfType(
-        this.fragment,
+      const bibliographyNode = findChildrenByType(
+        this.manuscriptNode,
         schema.nodes.bibliography_item
-      ).find((n) => n.attrs.id === id[0])
+      ).find(({ node }) => node.attrs.id === id[0])?.node
       const ref = this.document.createElement('ref')
       ref.setAttribute('id', normalizeID(id[0]))
 
@@ -982,19 +871,22 @@ export class JATSExporter {
 
         const text = cross.attrs.customLabel || cross.attrs.label
 
-        const crossRef = findNode(this.fragment, rids[0])
-        if (!crossRef) {
+        const target = findChildrenByAttr(
+          this.manuscriptNode,
+          (attrs) => attrs.id === rids[0]
+        )[0]?.node
+        if (!target) {
           warn('')
           return text
         }
 
         const xref = this.document.createElement('xref')
 
-        const type = chooseRefType(crossRef.type)
+        const type = chooseRefType(target.type)
         if (type) {
           xref.setAttribute('ref-type', type)
         } else {
-          warn(`Unset ref-type for schema type ${crossRef.type.name}`)
+          warn(`Unset ref-type for schema type ${target.type.name}`)
         }
 
         xref.setAttribute('rid', normalizeID(rids.join(' ')))
@@ -1081,8 +973,12 @@ export class JATSExporter {
       hard_break: () => '',
       highlight_marker: () => '',
       inline_footnote: (node) => {
-        const rids = node.attrs.rids.filter((rid: string) =>
-          findNode(this.fragment, rid)
+        const rids = node.attrs.rids.filter(
+          (rid: string) =>
+            findChildrenByAttr(
+              this.manuscriptNode,
+              (attrs) => attrs.id === rid
+            )[0]?.node
         )
         if (rids.length == 0) {
           return ''
@@ -1301,18 +1197,21 @@ export class JATSExporter {
       node: ManuscriptNode,
       type: ManuscriptNodeType
     ) => {
-      const childNode = findChildNodeOfType(node, type)
+      const { node: childNode } = findChildrenByType(node, type)[0]
       if (childNode) {
         element.appendChild(this.serializeNode(childNode))
       }
     }
 
     const appendTable = (element: HTMLElement, node: ManuscriptNode) => {
-      const tableNode = findChildNodeOfType(node, node.type.schema.nodes.table)
-      const colGroupNode = findChildNodeOfType(
+      const { node: tableNode } = findChildrenByType(
+        node,
+        node.type.schema.nodes.table
+      )[0]
+      const { node: colGroupNode } = findChildrenByType(
         node,
         node.type.schema.nodes.table_colgroup
-      )
+      )[0]
       if (!tableNode) {
         return
       }
@@ -1375,10 +1274,10 @@ export class JATSExporter {
       return element
     }
     const processExecutableNode = (node: ManuscriptNode, element: Element) => {
-      const listingNode = findChildNodeOfType(
+      const { node: listingNode } = findChildrenByType(
         node,
         node.type.schema.nodes.listing
-      )
+      )[0]
 
       if (listingNode) {
         const { contents, languageKey } = listingNode.attrs
@@ -1483,10 +1382,10 @@ export class JATSExporter {
   }
 
   private buildContributors = (articleMeta: Node) => {
-    const contributorNodes = findNodesOfType(
-      this.fragment,
+    const contributorNodes = findChildrenByType(
+      this.manuscriptNode,
       schema.nodes.contributor
-    ) as ContributorNode[]
+    ).map((result) => result.node) as ContributorNode[]
     const authorContributorNodes = contributorNodes
       .filter((n) => n.attrs.role === 'author')
       .sort(sortContributors)
@@ -1628,10 +1527,10 @@ export class JATSExporter {
         }
       }
 
-      const affiliations = findNodesOfType(
-        this.fragment,
+      const affiliations = findChildrenByType(
+        this.manuscriptNode,
         schema.nodes.affiliation
-      )
+      ).map((result) => result.node)
 
       if (affiliations) {
         const usedAffiliations = affiliations.filter((affiliation) =>
@@ -1715,12 +1614,15 @@ export class JATSExporter {
   }
   private createAuthorNotesElement = () => {
     const authorNotesEl = this.document.createElement('author-notes')
-    const authorNotes = findNodesOfType(
-      this.fragment,
+    const { node: authorNotes } = findChildrenByType(
+      this.manuscriptNode,
       schema.nodes.author_notes
-    )[0] as AuthorNotesNode
+    )[0]
     if (authorNotes) {
-      this.appendModelsToAuthorNotes(authorNotesEl, authorNotes)
+      this.appendModelsToAuthorNotes(
+        authorNotesEl,
+        authorNotes as AuthorNotesNode
+      )
     }
     return authorNotesEl
   }
@@ -1728,10 +1630,10 @@ export class JATSExporter {
     authorNotesEl: HTMLElement,
     authorNotesNode: AuthorNotesNode
   ) {
-    const contributorsNodes = findNodesOfType(
-      this.fragment,
+    const contributorsNodes = findChildrenByType(
+      this.manuscriptNode,
       schema.nodes.contributor
-    ) as ContributorNode[]
+    ).map((result) => result.node) as ContributorNode[]
     const usedCorrespondings = this.getUsedCorrespondings(contributorsNodes)
     authorNotesNode.descendants((node) => {
       switch (node.type) {
@@ -1773,7 +1675,13 @@ export class JATSExporter {
   ): CorrespNode[] {
     return contributors
       .flatMap((c) => c.attrs.corresp ?? [])
-      .map((corresp) => findNode(this.fragment, corresp.correspID))
+      .map(
+        (corresp) =>
+          findChildrenByAttr(
+            this.manuscriptNode,
+            (attr) => attr.id === corresp.correspID
+          )[0]?.node
+      )
       .filter((corresp): corresp is CorrespNode => !!corresp)
   }
 
@@ -1809,10 +1717,10 @@ export class JATSExporter {
     element.appendChild(footnoteEl)
   }
   private buildKeywords(articleMeta: Node) {
-    const keywordGroups = findNodesOfType(
-      this.fragment,
+    const keywordGroups = findChildrenByType(
+      this.manuscriptNode,
       schema.nodes.keyword_group
-    )
+    ).map((result) => result.node)
 
     keywordGroups.forEach((group) => {
       const kwdGroup = this.document.createElement('kwd-group')
@@ -1830,7 +1738,7 @@ export class JATSExporter {
   }
 
   private fixBody = (body: Element) => {
-    this.fragment.descendants((node) => {
+    this.manuscriptNode.descendants((node) => {
       if (node.attrs.id) {
         // remove suppressed titles
         if (node.attrs.titleSuppressed) {
