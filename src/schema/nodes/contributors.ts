@@ -15,6 +15,7 @@
  */
 
 import { NodeSpec } from 'prosemirror-model'
+
 import { ManuscriptNode } from '../types'
 
 // This node has no representation in json-schema
