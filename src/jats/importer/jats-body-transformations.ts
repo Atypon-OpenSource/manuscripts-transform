@@ -225,7 +225,18 @@ export const jatsBodyTransformations = {
       const title = createElement('title')
       title.textContent = 'BoxElement'
       boxElementSec.append(title)
-      boxElementSec.append(...boxedText.children)
+      for (const firstElement of boxedText.children) {
+        if (
+          firstElement?.tagName === 'label' ||
+          firstElement?.tagName === 'caption'
+        ) {
+          boxElementSec.append(firstElement)
+          boxedText.removeChild(firstElement)
+        }
+      }
+      const containerSection = createElement('sec')
+      containerSection.append(...boxedText.children)
+      boxElementSec.append(containerSection)
       boxedText.replaceWith(boxElementSec)
     }
   },
