@@ -680,9 +680,7 @@ export class Decoder {
         {
           id: model._id,
         },
-        [
-          ...content,
-        ]
+        [...content]
       ) as ManuscriptNode
     },
     [ObjectTypes.Corresponding]: (data) => {
