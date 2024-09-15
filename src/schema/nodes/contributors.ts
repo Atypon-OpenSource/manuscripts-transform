@@ -16,8 +16,18 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
+import { ManuscriptNode } from '../types'
+
 // This node has no representation in json-schema
 // It exists for the purpose of styling in the UI
+
+interface Attrs {
+  id: string
+}
+
+export interface ContributorsNode extends ManuscriptNode {
+  attrs: Attrs
+}
 
 export const contributors: NodeSpec = {
   content: 'contributor*',

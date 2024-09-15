@@ -29,7 +29,7 @@ export interface FootnotesSectionNode extends ManuscriptNode {
 }
 
 export const footnotesSection: NodeSpec = {
-  content: 'section_title (footnotes_element | placeholder_element)+',
+  content: 'section_title footnotes_element?',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
