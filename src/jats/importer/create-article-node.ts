@@ -16,34 +16,19 @@
 
 import { Manuscript } from '@manuscripts/json-schema'
 
-import { ManuscriptNode } from '../../schema'
-import { jatsBodyDOMParser } from './jats-dom-parser'
+import { schema } from '../../schema'
+import { defaultTitle } from './jats-front-transformations'
 
-export const createArticleNode = (manuscript: Manuscript) => {
-  const manuscriptEl = createManuscriptElement(manuscript)
-  const article = document.createElement('article')
-  const title = document.createElement('article-title')
-  article.appendChild(manuscriptEl)
-  article.appendChild(title)
-
-  return jatsBodyDOMParser.parse(article).firstChild as ManuscriptNode
-}
-
-export const createManuscriptElement = (manuscript: Manuscript) => {
-  const manuscriptEl = document.createElement('manuscript')
-  manuscriptEl.setAttribute('id', manuscript._id)
-
-  const attributes = {
-    DOI: manuscript.DOI,
-    articleType: manuscript.articleType,
-    prototype: manuscript.prototype,
-    primaryLanguageCode: manuscript.primaryLanguageCode,
-  }
-
-  Object.entries(attributes).forEach(([key, value]) => {
-    if (value) {
-      manuscriptEl.setAttribute(key, value)
-    }
-  })
-  return manuscriptEl
+export const createArticleNode = (manuscript: Partial<Manuscript>) => {
+  const title = schema.nodes.title.createChecked({}, schema.text(defaultTitle))
+  return schema.nodes.manuscript.createAndFill(
+    {
+      id: manuscript._id,
+      doi: manuscript.DOI,
+      articleType: manuscript.articleType,
+      prototype: manuscript.prototype,
+      primaryLanguageCode: manuscript.primaryLanguageCode,
+    },
+    title
+  )
 }

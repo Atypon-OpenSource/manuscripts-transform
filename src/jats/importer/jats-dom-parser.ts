@@ -14,24 +14,27 @@
  * limitations under the License.
  */
 
-import { BibliographicName, ObjectTypes } from '@manuscripts/json-schema'
+import {
+  BibliographicName,
+  ObjectTypes,
+  timestamp,
+} from '@manuscripts/json-schema'
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
 import {
-  contributorCorresp,
-  contributorFootnote,
+  ContributorCorresp,
+  ContributorFootnote,
   ManuscriptNode,
   Marks,
   Nodes,
   schema,
 } from '../../schema'
-import { chooseSectionCategory, generateID, timestamp } from '../../transformer'
+import { chooseSectionCategory, generateID } from '../../transformer'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
-const highlightMarkers: string[] = []
 const chooseContentType = (graphicNode?: Element): string | undefined => {
   if (graphicNode) {
     const mimetype = graphicNode.getAttribute('mimetype')
@@ -129,13 +132,12 @@ export type NodeRule = ParseRule & { node?: Nodes | null }
 
 const nodes: NodeRule[] = [
   {
-    tag: 'manuscript',
+    tag: 'article',
     node: 'manuscript',
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
-        id: element.getAttribute('id'),
-        doi: element.getAttribute('doi') || '',
+        doi: element.getAttribute('DOI'),
         articleType: element.getAttribute('article-type') || '',
         prototype: element.getAttribute('prototype') || '',
         primaryLanguageCode:
@@ -145,18 +147,23 @@ const nodes: NodeRule[] = [
   },
 
   {
+    tag: 'article-title',
+    node: 'title',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+      }
+    },
+  },
+  {
     tag: 'highlight-marker',
     node: 'highlight_marker',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const parentNode = element.parentNode as HTMLElement
       const id = element.getAttribute('id')
-      if (id) {
-        highlightMarkers.push(id)
-      }
       return {
-        id: id ?? '',
-        tid: parentNode.getAttribute('id') ?? '',
+        id: id,
         position: element.getAttribute('position') ?? '',
       }
     },
@@ -166,18 +173,9 @@ const nodes: NodeRule[] = [
     node: 'comment',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const id = element.getAttribute('id')
-      if (!id || !highlightMarkers.includes(id)) {
-        return false
-      }
-      const from = element.getAttribute('from')
-      const to = element.getAttribute('to')
-      const selector =
-        from && to ? { from: parseInt(from), to: parseInt(to) } : undefined
       return {
         id: element.getAttribute('id'),
         contents: element.textContent,
-        selector,
         contributions: [
           {
             _id: generateID(ObjectTypes.Contribution),
@@ -189,16 +187,7 @@ const nodes: NodeRule[] = [
       }
     },
   },
-  {
-    tag: 'article-title',
-    node: 'title',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-      return {
-        id: element.getAttribute('id'),
-      }
-    },
-  },
+
   {
     tag: 'author-notes',
     node: 'author_notes',
@@ -215,7 +204,7 @@ const nodes: NodeRule[] = [
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
-        id: element.getAttribute('id') || '',
+        id: element.getAttribute('id'),
         kind: 'footnote',
       }
     },
@@ -226,7 +215,7 @@ const nodes: NodeRule[] = [
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
-        id: element.getAttribute('id') ?? '',
+        id: element.getAttribute('id'),
         label: element.getAttribute('label'),
       }
     },
@@ -236,9 +225,9 @@ const nodes: NodeRule[] = [
     node: 'contributor',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const footnote: contributorFootnote[] = []
+      const footnote: ContributorFootnote[] = []
       const affiliations: string[] = []
-      const corresp: contributorCorresp[] = []
+      const corresp: ContributorCorresp[] = []
 
       element.querySelectorAll('fn').forEach((fn) => {
         const noteID = fn.getAttribute('noteID')
@@ -265,7 +254,7 @@ const nodes: NodeRule[] = [
       const isCorrespondingEl = element.getAttribute('isCorresponding')
       return {
         id: element.getAttribute('id'),
-        role: element.getAttribute('role') ?? '',
+        role: 'author',
         isCorresponding: isCorrespondingEl
           ? isCorrespondingEl === 'true'
           : undefined,
@@ -294,7 +283,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
       const emailEl = element.querySelector('email')
       return {
-        id: element.getAttribute('id') ?? '',
+        id: element.getAttribute('id'),
         institution: element.getAttribute('institution') ?? '',
         department: element.getAttribute('department') ?? '',
         addressLine1: element.getAttribute('addressLine1') ?? '',
@@ -325,10 +314,6 @@ const nodes: NodeRule[] = [
     ignore: true,
   },
   {
-    tag: 'body',
-    node: 'manuscript',
-  },
-  {
     tag: 'break',
     node: 'hard_break',
   },
@@ -349,16 +334,14 @@ const nodes: NodeRule[] = [
       const title = element.querySelector('title')
       if (title) {
         const captionTitle = schema.nodes.caption_title.create()
-        content.push(jatsBodyDOMParser.parse(title, { topNode: captionTitle }))
+        content.push(jatsDOMParser.parse(title, { topNode: captionTitle }))
       }
 
       const paragraphs = element.querySelectorAll('p')
       if (paragraphs.length) {
         const figcaption = schema.nodes.caption.create()
         for (const paragraph of paragraphs) {
-          content.push(
-            jatsBodyDOMParser.parse(paragraph, { topNode: figcaption })
-          )
+          content.push(jatsDOMParser.parse(paragraph, { topNode: figcaption }))
         }
       }
 
@@ -562,7 +545,7 @@ const nodes: NodeRule[] = [
       const paragraphs: ManuscriptNode[] = []
       node.childNodes.forEach((p) => {
         const paragraph = schema.nodes.paragraph.create()
-        const content = jatsBodyDOMParser.parse(p, {
+        const content = jatsDOMParser.parse(p, {
           topNode: paragraph,
         })
         paragraphs.push(content)
@@ -889,4 +872,4 @@ const nodes: NodeRule[] = [
 // metadata
 // address, addr-line, aff, article-title, city,
 
-export const jatsBodyDOMParser = new DOMParser(schema, [...marks, ...nodes])
+export const jatsDOMParser = new DOMParser(schema, [...marks, ...nodes])

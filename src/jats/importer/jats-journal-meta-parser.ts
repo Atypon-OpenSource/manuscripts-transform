@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
+import { ObjectTypes } from '@manuscripts/json-schema'
+
 import { getTrimmedTextContent } from '../../lib/utils'
+import { generateID } from '../../transformer'
 
 export type ISSN = {
   ISSN: string
@@ -120,5 +123,14 @@ export const parseJournalMeta = (element: Element | null) => {
     title:
       getTrimmedTextContent(element, 'journal-title-group > journal-title') ??
       undefined,
+  }
+}
+
+export const parseJournal = (element: Element | null) => {
+  const meta = parseJournalMeta(element)
+  return {
+    ...meta,
+    _id: generateID(ObjectTypes.Journal),
+    objectType: ObjectTypes.Journal,
   }
 }

@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-import { BibliographicName, BibliographyItem } from '@manuscripts/json-schema'
+import { ObjectTypes } from '@manuscripts/json-schema'
 
 import { getTrimmedTextContent } from '../../lib/utils'
 import {
-  buildBibliographicDate,
-  buildBibliographicName,
-  buildBibliographyItem,
-} from '../../transformer/builders'
+  BibliographyItemAttributes,
+  BibliographyItemAuthor,
+} from '../../schema'
+import { generateID } from '../../transformer'
 import { htmlFromJatsNode } from './jats-parser-utils'
 import { References } from './jats-references'
 
@@ -42,7 +42,6 @@ export const jatsReferenceParser = {
     createElement: (tagName: string) => HTMLElement
   ): References {
     const references = new References()
-
     elements.forEach((element) => {
       const publicationType = element.getAttribute('publication-type')
 
@@ -52,12 +51,11 @@ export const jatsReferenceParser = {
         ),
       ]
 
-      const bibliographyItem = buildBibliographyItem({
+      const bibliographyItem: BibliographyItemAttributes = {
+        id: generateID(ObjectTypes.BibliographyItem),
         type: chooseBibliographyItemType(publicationType),
-      })
-
+      }
       const titleNode = element.querySelector('article-title')
-
       if (titleNode) {
         bibliographyItem.title = htmlFromJatsNode(
           titleNode,
@@ -78,15 +76,13 @@ export const jatsReferenceParser = {
           }
         })
       }
-
       const source = getTrimmedTextContent(element, 'source')
 
       if (source) {
-        bibliographyItem['container-title'] = source
+        bibliographyItem.containerTitle = source
       }
 
       const volume = getTrimmedTextContent(element, 'volume')
-
       if (volume) {
         bibliographyItem.volume = volume
       }
@@ -114,59 +110,43 @@ export const jatsReferenceParser = {
       const year = getTrimmedTextContent(element, 'year')
 
       if (year) {
-        bibliographyItem.issued = buildBibliographicDate({
+        bibliographyItem.issued = {
           'date-parts': [[year]],
-        })
+          _id: generateID(ObjectTypes.BibliographicDate),
+          objectType: ObjectTypes.BibliographicDate,
+        }
       }
 
       const doi = getTrimmedTextContent(element, 'pub-id[pub-id-type="doi"]')
 
       if (doi) {
-        bibliographyItem.DOI = doi
+        bibliographyItem.doi = doi
       }
 
-      // TODO: handle missing person-group-type?
-      // TODO: handle contrib-group nested inside collab
-      // TODO: handle collab name
-
-      const authors: BibliographicName[] = []
+      const authors: BibliographyItemAuthor[] = []
 
       authorNodes.forEach((authorNode) => {
-        const name = buildBibliographicName({})
-
+        const name: BibliographyItemAuthor = {
+          _id: generateID(ObjectTypes.BibliographicName),
+          objectType: ObjectTypes.BibliographicName,
+        }
         const given = getTrimmedTextContent(authorNode, 'given-names')
-
         if (given) {
           name.given = given
         }
-
         const family = getTrimmedTextContent(authorNode, 'surname')
 
         if (family) {
           name.family = family
         }
-
-        const suffix = getTrimmedTextContent(authorNode, 'suffix')
-
-        if (suffix) {
-          name.suffix = suffix
-        }
-
-        if (authorNode.nodeName === 'collab') {
-          name.literal = authorNode.textContent?.trim()
-        }
-
         authors.push(name)
       })
 
       if (authors.length) {
         bibliographyItem.author = authors
       }
-
-      // TODO: handle `etal`?
-
       const id = element.getAttribute('id')
-      references.add(bibliographyItem as BibliographyItem, id)
+      references.add(bibliographyItem, id)
     })
     return references
   },

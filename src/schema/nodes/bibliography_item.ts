@@ -14,16 +14,26 @@
  * limitations under the License.
  */
 
-import { BibliographicDate, BibliographicName } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface BibliographyItemAuthor {
+  given?: string
+  family?: string
+  _id: string
+  objectType: string
+}
+export interface BibliographyItemDate {
+  'date-parts': string[][]
+  _id: string
+  objectType: string
+}
+export interface BibliographyItemAttributes {
   id: string
   type: string
-  author?: BibliographicName[]
-  issued?: BibliographicDate
+  author?: BibliographyItemAuthor[]
+  issued?: BibliographyItemDate
   containerTitle?: string
   doi?: string
   volume?: string
@@ -32,11 +42,11 @@ interface Attrs {
   page?: string
   title?: string
   literal?: string
-  paragraphStyle: string
+  paragraphStyle?: string
 }
 
 export interface BibliographyItemNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: BibliographyItemAttributes
 }
 
 export const bibliographyItem: NodeSpec = {

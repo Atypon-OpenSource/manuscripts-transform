@@ -88,9 +88,5 @@ const createCommentElement = (doc: Document, comment: JATSComment) => {
   const commentElement = doc.createElement('comment-annotation')
   commentElement.setAttribute('id', comment.id)
   commentElement.textContent = comment.text
-  if (comment.index !== -1) {
-    commentElement.setAttribute('from', comment.index.toString())
-    commentElement.setAttribute('to', comment.index.toString())
-  }
   return commentElement
 }

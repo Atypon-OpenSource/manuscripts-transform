@@ -17,7 +17,7 @@
 import { ManuscriptNode } from 'migration-base'
 
 import { ManuscriptFragment, ManuscriptNodeType, schema } from '../schema'
-import { nodeNames } from './node-names'
+import { nodeNames } from '../transformer/node-names'
 
 export interface Target {
   type: string

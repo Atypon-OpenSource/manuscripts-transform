@@ -15,9 +15,6 @@
  */
 
 import {
-  Keyword,
-  Manuscript,
-  ObjectTypes,
   ParagraphElement,
   Section,
   Supplement,
@@ -27,13 +24,6 @@ import { Element as XMLElement, parseXml } from 'libxmljs2'
 
 import projectDump from '../../__tests__/data/project-dump.json'
 import projectDumpWithCitations from '../../__tests__/data/project-dump-2.json'
-import {
-  findJournal,
-  findManuscript,
-  isManuscript,
-  parseProjectBundle,
-  ProjectBundle,
-} from '../../transformer'
 import { journalMeta } from '../../transformer/__tests__/__helpers__/journal-meta'
 import { parseJATSArticle } from '../importer'
 import { JATSExporter } from '../jats-exporter'
@@ -763,7 +753,7 @@ describe('JATS exporter', () => {
     const { manuscript, journal, node } = parseJATSArticle(jats)
     const xml = await transformer.serializeToJATS(
       node,
-      { csl: DEFAULT_CSL_OPTIONS },
+      DEFAULT_CSL_OPTIONS,
       manuscript,
       journal
     )

@@ -17,12 +17,9 @@
 import { ObjectTypes } from '@manuscripts/json-schema'
 import { v4 as uuid } from 'uuid'
 
-import { ManuscriptNodeType } from '../schema'
-import { nodeTypesMap } from './node-types'
-import { ExtraObjectTypes } from './object-types'
-
-export const generateNodeID = (type: ManuscriptNodeType) => {
-  return nodeTypesMap.get(type) + ':' + uuid().toUpperCase()
+export enum ExtraObjectTypes {
+  PlaceholderElement = 'MPPlaceholderElement',
+  GeneralTableFootnote = 'MPGeneralTableFootnote',
 }
 
 export const generateID = (objectType: ObjectTypes | ExtraObjectTypes) => {

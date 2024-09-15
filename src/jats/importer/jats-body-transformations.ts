@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-import { BibliographyItem } from '@manuscripts/json-schema'
-
 import {
   abstractsType,
   backmatterType,
   bodyType,
   SectionGroupType,
 } from '../../lib/section-group-type'
+import { BibliographyItemAttributes } from '../../schema'
 import { chooseSectionCategoryByType, chooseSecType } from '../../transformer'
 import { References } from './jats-references'
 
@@ -449,11 +448,11 @@ export const jatsBodyTransformations = {
     return section
   },
   createBibliographyItem(
-    item: BibliographyItem,
+    item: BibliographyItemAttributes,
     createElement: (tagName: string) => HTMLElement
   ) {
     const bibliographyItem = createElement('bibliography-item')
-    bibliographyItem.setAttribute('id', item._id)
+    bibliographyItem.setAttribute('id', item.id)
     bibliographyItem.setAttribute('type', item.type)
 
     item.author?.forEach((author) => {
@@ -475,8 +474,8 @@ export const jatsBodyTransformations = {
       bibliographyItem.appendChild(issuedEl)
     }
 
-    if (item['container-title']) {
-      bibliographyItem.setAttribute('containerTitle', item['container-title'])
+    if (item.containerTitle) {
+      bibliographyItem.setAttribute('containerTitle', item.containerTitle)
     }
     if (item.volume) {
       bibliographyItem.setAttribute('volume', item.volume.toString())
@@ -496,8 +495,8 @@ export const jatsBodyTransformations = {
     if (item.literal) {
       bibliographyItem.setAttribute('literal', item.literal)
     }
-    if (item.DOI) {
-      bibliographyItem.setAttribute('DOI', item.DOI)
+    if (item.doi) {
+      bibliographyItem.setAttribute('DOI', item.doi)
     }
 
     return bibliographyItem

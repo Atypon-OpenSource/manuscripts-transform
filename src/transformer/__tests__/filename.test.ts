@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { generateAttachmentFilename } from '../filename'
+import { generateAttachmentFilename } from '../../jats/filename'
 
 describe('filename', () => {
   test('generates a filename for an attachment', () => {

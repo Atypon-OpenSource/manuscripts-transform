@@ -17,8 +17,8 @@
 import { v4 as uuidv4 } from 'uuid'
 
 import {
-  contributorCorresp,
-  contributorFootnote,
+  ContributorCorresp,
+  ContributorFootnote,
   ManuscriptNode,
   schema,
 } from '../../schema'
@@ -71,10 +71,6 @@ const updateNodeID = (
       ...node.attrs,
       id: `InlineMathFragment:${uuidv4()}`,
     }
-    return
-  }
-
-  if (node.type === schema.nodes.manuscript) {
     return
   }
 
@@ -190,13 +186,13 @@ const updateContributorNodesIDS = (
   warnings: string[]
 ) => {
   if (node.type === schema.nodes.contributor) {
-    const footnote = node.attrs.footnote?.map((fn: contributorFootnote) => {
+    const footnote = node.attrs.footnote?.map((fn: ContributorFootnote) => {
       return {
         ...fn,
         noteID: replacements.get(fn.noteID),
       }
     })
-    const corresp = node.attrs.corresp?.map((corresp: contributorCorresp) => {
+    const corresp = node.attrs.corresp?.map((corresp: ContributorCorresp) => {
       return {
         ...corresp,
         correspID: replacements.get(corresp.correspID),

@@ -24,8 +24,8 @@ import { CitationProvider } from '@manuscripts/library'
 import debug from 'debug'
 import {
   DOMOutputSpec,
-  DOMParser as ProsemirrorDOMParser,
   DOMSerializer,
+  DOMParser as ProsemirrorDOMParser,
 } from 'prosemirror-model'
 import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
@@ -39,7 +39,6 @@ import {
   CrossReferenceNode,
   FootnoteNode,
   isCitationNode,
-  ManuscriptFragment,
   ManuscriptMark,
   ManuscriptNode,
   ManuscriptNodeType,
@@ -50,15 +49,15 @@ import {
   TableElementFooterNode,
   TableElementNode,
 } from '../schema'
-import { generateAttachmentFilename } from '../transformer/filename'
-import { buildTargets, Target } from '../transformer/labels'
 import { isExecutableNodeType, isNodeType } from '../transformer/node-types'
 import {
   chooseJatsFnType,
   chooseSecType,
 } from '../transformer/section-category'
 import { IDGenerator, MediaPathGenerator } from '../types'
+import { generateAttachmentFilename } from './filename'
 import { selectVersionIds } from './jats-versions'
+import { buildTargets, Target } from './labels'
 
 interface Attrs {
   [key: string]: string
@@ -249,12 +248,9 @@ export class JATSExporter {
       'xmlns:xlink',
       XLINK_NAMESPACE
     )
-
     const front = this.buildFront(manuscript, jorunal)
     article.appendChild(front)
-
     article.setAttribute('article-type', manuscript.articleType || 'other')
-
     this.labelTargets = buildTargets(manuscriptNode)
     const body = this.buildBody()
     article.appendChild(body)
@@ -359,10 +355,10 @@ export class JATSExporter {
   }
 
   protected buildFront = (manuscript: Manuscript, journal?: Journal) => {
-    const { node: titleNode } = findChildrenByType(
+    const titleNode = findChildrenByType(
       this.manuscriptNode,
       schema.nodes.title
-    )[0]
+    )[0]?.node
 
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/front.html
     const front = this.document.createElement('front')
@@ -473,45 +469,6 @@ export class JATSExporter {
       supplementaryMaterial.append(caption)
       articleMeta.append(supplementaryMaterial)
     })
-    const history =
-      articleMeta.querySelector('history') ||
-      this.document.createElement('history')
-
-    if (manuscript.acceptanceDate) {
-      const date = this.buildDateElement(manuscript.acceptanceDate, 'accepted')
-      history.appendChild(date)
-    }
-    if (manuscript.correctionDate) {
-      const date = this.buildDateElement(manuscript.correctionDate, 'corrected')
-      history.appendChild(date)
-    }
-    if (manuscript.retractionDate) {
-      const date = this.buildDateElement(manuscript.retractionDate, 'retracted')
-      history.appendChild(date)
-    }
-    if (manuscript.receiveDate) {
-      const date = this.buildDateElement(manuscript.receiveDate, 'received')
-      history.appendChild(date)
-    }
-    if (manuscript.revisionReceiveDate) {
-      const date = this.buildDateElement(
-        manuscript.revisionReceiveDate,
-        'rev-recd'
-      )
-      history.appendChild(date)
-    }
-    if (manuscript.revisionRequestDate) {
-      const date = this.buildDateElement(
-        manuscript.revisionRequestDate,
-        'rev-request'
-      )
-      history.appendChild(date)
-    }
-
-    if (history.childElementCount) {
-      articleMeta.appendChild(history)
-    }
-
     this.buildKeywords(articleMeta)
 
     let countingElements = []
@@ -527,26 +484,34 @@ export class JATSExporter {
       )
       countingElements.push(...elements)
     }
+    const figureCount = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.figure
+    ).length
+    countingElements.push(this.buildCountingElement('fig-count', figureCount))
+    const equationCount = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.equation_element
+    ).length
+    const tableCount = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.table
+    ).length
+    const referencesCount = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.bibliography_item
+    ).length
+    countingElements.push(this.buildCountingElement('table-count', tableCount))
 
     countingElements.push(
-      this.buildCountingElement('fig-count', manuscript.figureCount)
+      this.buildCountingElement('equation-count', equationCount)
     )
 
     countingElements.push(
-      this.buildCountingElement('table-count', manuscript.tableCount)
+      this.buildCountingElement('ref-count', referencesCount)
     )
-
-    countingElements.push(
-      this.buildCountingElement('equation-count', manuscript.equationCount)
-    )
-
-    countingElements.push(
-      this.buildCountingElement('ref-count', manuscript.referencesCount)
-    )
-
-    countingElements.push(
-      this.buildCountingElement('word-count', manuscript.wordCount)
-    )
+    const wordCount = this.manuscriptNode.textContent.split(/\s+/).length
+    countingElements.push(this.buildCountingElement('word-count', wordCount))
 
     countingElements = countingElements.filter((el) => el) as Array<HTMLElement>
     if (countingElements.length > 0) {
@@ -1197,21 +1162,21 @@ export class JATSExporter {
       node: ManuscriptNode,
       type: ManuscriptNodeType
     ) => {
-      const { node: childNode } = findChildrenByType(node, type)[0]
+      const childNode = findChildrenByType(node, type)[0]?.node
       if (childNode) {
         element.appendChild(this.serializeNode(childNode))
       }
     }
 
     const appendTable = (element: HTMLElement, node: ManuscriptNode) => {
-      const { node: tableNode } = findChildrenByType(
+      const tableNode = findChildrenByType(
         node,
         node.type.schema.nodes.table
-      )[0]
-      const { node: colGroupNode } = findChildrenByType(
+      )[0]?.node
+      const colGroupNode = findChildrenByType(
         node,
         node.type.schema.nodes.table_colgroup
-      )[0]
+      )[0]?.node
       if (!tableNode) {
         return
       }
@@ -1274,10 +1239,10 @@ export class JATSExporter {
       return element
     }
     const processExecutableNode = (node: ManuscriptNode, element: Element) => {
-      const { node: listingNode } = findChildrenByType(
+      const listingNode = findChildrenByType(
         node,
         node.type.schema.nodes.listing
-      )[0]
+      )[0]?.node
 
       if (listingNode) {
         const { contents, languageKey } = listingNode.attrs
@@ -1356,11 +1321,6 @@ export class JATSExporter {
       return mathml
     }
   }
-
-  protected serializeFragment = (fragment: ManuscriptFragment) =>
-    this.serializer.serializeFragment(fragment, {
-      document: this.document,
-    })
 
   protected serializeNode = (node: ManuscriptNode) =>
     this.serializer.serializeNode(node, {
@@ -1614,14 +1574,14 @@ export class JATSExporter {
   }
   private createAuthorNotesElement = () => {
     const authorNotesEl = this.document.createElement('author-notes')
-    const { node: authorNotes } = findChildrenByType(
+    const authorNotesNode = findChildrenByType(
       this.manuscriptNode,
       schema.nodes.author_notes
-    )[0]
-    if (authorNotes) {
+    )[0]?.node
+    if (authorNotesNode) {
       this.appendModelsToAuthorNotes(
         authorNotesEl,
-        authorNotes as AuthorNotesNode
+        authorNotesNode as AuthorNotesNode
       )
     }
     return authorNotesEl

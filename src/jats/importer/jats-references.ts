@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { BibliographyItem } from '@manuscripts/json-schema'
+
+import { BibliographyItemAttributes } from '../../schema'
 
 export class References {
-  items: Map<string, BibliographyItem>
+  items: Map<string, BibliographyItemAttributes>
   IDs: Map<string, string>
 
   constructor() {
@@ -24,14 +25,14 @@ export class References {
     this.IDs = new Map()
   }
 
-  public add(item: BibliographyItem, id: string | null) {
-    this.items.set(item._id, item)
+  public add(item: BibliographyItemAttributes, id: string | null) {
+    this.items.set(item.id, item)
     if (id) {
-      this.IDs.set(id, item._id)
+      this.IDs.set(id, item.id)
     }
   }
 
-  public getBibliographyItems(): BibliographyItem[] {
+  public getBibliographyItems(): BibliographyItemAttributes[] {
     return [...this.items.values()]
   }
 }

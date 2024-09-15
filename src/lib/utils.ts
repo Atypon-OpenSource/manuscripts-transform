@@ -96,3 +96,14 @@ export const getTrimmedTextContent = (
   }
   return node.querySelector(querySelector)?.textContent?.trim()
 }
+
+export const setElementAttributes = (
+  element: Element,
+  attributes: { [key: string]: string | undefined }
+) => {
+  Object.entries(attributes).forEach(([key, value]) => {
+    if (value) {
+      element.setAttribute(key, value)
+    }
+  })
+}

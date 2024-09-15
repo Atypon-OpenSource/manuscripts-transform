@@ -36,7 +36,6 @@ describe('JATS importer', () => {
     const { node: secondNode } = parseJATSArticle(jats)
     jats = await readAndParseFixture('jats-import.xml')
 
-    //@ts-ignore
     const thirdNode = createArticleNode({
       _id: 'MPmanuscript:123',
       DOI: '123',
@@ -44,13 +43,6 @@ describe('JATS importer', () => {
       objectType: 'MPManuscript',
       containerID: '1231111',
     })
-    const titleNode2 = secondNode.content.content[0]
-
-    const contributorsNode2 = secondNode.content.content[1]
-
-    const affiliationsNode2 = secondNode.content.content[2]
-
-    const authorNodes2 = secondNode.content.content[3]
 
     expect(secondNode).toMatchSnapshot()
   }, 100000000000)

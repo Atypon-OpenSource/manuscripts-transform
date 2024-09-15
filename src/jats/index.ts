@@ -18,3 +18,5 @@ export { parseJATSArticle, createArticleNode } from './importer'
 
 export * from './jats-exporter'
 export * from './jats-versions'
+export * from './timestamp'
+export * from './labels'

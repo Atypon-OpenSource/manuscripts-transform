@@ -14,22 +14,18 @@
  * limitations under the License.
  */
 
-import { Manuscript } from '@manuscripts/json-schema'
-
 import { InvalidInput } from '../../errors'
 import { ManuscriptNode } from '../../schema'
-import { buildManuscript } from '../../transformer/builders'
-import { createManuscriptElement } from './create-article-node'
 import { jatsBodyTransformations } from './jats-body-transformations'
 import { markComments } from './jats-comments'
-import { jatsBodyDOMParser } from './jats-dom-parser'
-import { jatsFrontParser } from './jats-front-parser'
+import { jatsDOMParser } from './jats-dom-parser'
 import { jatsFrontTransformations } from './jats-front-transformations'
+import { parseJournal } from './jats-journal-meta-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
 import { jatsReferenceParser } from './jats-reference-parser'
 import { References } from './jats-references'
 
-export const parseJatsBody = (
+const parseJATSBody = (
   doc: Document,
   body: Element,
   references: References | undefined
@@ -49,42 +45,53 @@ export const parseJatsBody = (
     references,
     createElement
   )
-
-  return body
 }
+const parseJATSFront = (doc: Document, front: Element, template?: string) => {
+  const createElement = createElementFn(doc)
 
-export const parseJatsFront = (doc: Document) => {
-  const front = document.createElement('front')
-  jatsFrontTransformations.createTitle(doc, front)
-  jatsFrontTransformations.createAffiliations(doc, front)
-  jatsFrontTransformations.createAuthorNotes(doc, front)
-  jatsFrontTransformations.createContributors(doc, front)
-  return front
+  jatsFrontTransformations.setArticleAttrs(doc, template)
+
+  const authorNotes = jatsFrontTransformations.createAuthorNotes(
+    doc,
+    createElement
+  )
+  if (authorNotes) {
+    doc.documentElement.prepend(authorNotes)
+  }
+  const affiliations = jatsFrontTransformations.createAffiliations(
+    front,
+    createElement
+  )
+  if (affiliations) {
+    doc.documentElement.prepend(affiliations)
+  }
+  const contributors = jatsFrontTransformations.createContributors(
+    front,
+    createElement
+  )
+  if (contributors) {
+    doc.documentElement.prepend(contributors)
+  }
+  const title = jatsFrontTransformations.createTitle(front, createElement)
+  if (title) {
+    doc.documentElement.prepend(title)
+  }
+  doc.querySelector('front')?.remove()
 }
 
 const createElementFn = (doc: Document) => (tagName: string) =>
   doc.createElement(tagName)
 
-const appendChildren = (parent: Element, source: Element | null) => {
-  while (source?.firstChild) {
-    parent.appendChild(source.firstChild)
-  }
-}
 export const parseJATSArticle = (doc: Document, template?: string) => {
   const article = doc.querySelector('article')
   const front = doc.querySelector('front')
   const body = doc.querySelector('body')
   const back = doc.querySelector('back')
-
   if (!article || !front) {
     throw new InvalidInput('invalid JATS format')
   }
-
   markComments(doc)
-
-  const journal = createJournal(front)
-  const manuscript = createManuscript(front, template)
-
+  const journal = parseJournal(front.querySelector('journal-meta'))
   const createElement = createElementFn(doc)
   let references
   if (back) {
@@ -94,55 +101,18 @@ export const parseJATSArticle = (doc: Document, template?: string) => {
     )
   }
   const replacements = new Map<string, string>(references?.IDs)
-
+  parseJATSFront(doc, front, template)
   if (body) {
-    parseJatsBody(doc, body, references)
-  }
-  const parsedFront = parseJatsFront(doc)
-
-  const newArticle = createElement('article')
-  const manuscriptEl = createManuscriptElement(manuscript)
-  newArticle.appendChild(manuscriptEl)
-  appendChildren(newArticle, parsedFront)
-  appendChildren(newArticle, body)
-
-  const comments = doc.querySelector('comments-annotations')
-  if (comments) {
-    newArticle.appendChild(comments)
+    parseJATSBody(doc, body, references)
   }
 
-  const node = jatsBodyDOMParser.parse(newArticle).firstChild
+  const node = jatsDOMParser.parse(doc).firstChild
   if (!node) {
     throw new Error('No content was parsed from the JATS article body')
   }
   updateDocumentIDs(node, replacements)
   return {
     node: node as ManuscriptNode,
-    manuscript: manuscript as Manuscript,
     journal,
   }
-}
-
-const createManuscript = (front: Element, template?: string) => {
-  const DOI = jatsFrontParser.parseDOI(front)
-  const counts = jatsFrontParser.parseCounts(
-    front.querySelector('article-meta counts')
-  )
-  const history = jatsFrontParser.parseDates(
-    front.querySelector('article-meta > history')
-  )
-
-  const manuscript = {
-    ...buildManuscript(),
-    ...counts,
-    ...history,
-    DOI,
-    template,
-  } as any
-
-  return manuscript
-}
-
-const createJournal = (front: Element) => {
-  return jatsFrontParser.parseJournal(front.querySelector('journal-meta'))
 }

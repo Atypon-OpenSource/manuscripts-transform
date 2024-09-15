@@ -18,19 +18,18 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-//todo remove bibliographicName
-export type contributorCorresp = {
+export type ContributorCorresp = {
   correspID: string
   correspLabel: string
 }
-export type contributorFootnote = {
+export type ContributorFootnote = {
   noteID: string
   noteLabel: string
 }
 interface Attrs {
   id: string
   role: string
-  corresp: contributorCorresp[]
+  corresp: ContributorCorresp[]
   affiliations: string[]
   bibliographicName: BibliographicName
   userID: string
@@ -40,7 +39,7 @@ interface Attrs {
   ORCIDIdentifier: string
   priority: number
   isJointContributor: boolean
-  footnote: contributorFootnote[]
+  footnote: ContributorFootnote[]
 }
 
 export interface ContributorNode extends ManuscriptNode {

@@ -14,89 +14,257 @@
  * limitations under the License.
  */
 
-import { getTrimmedTextContent } from '../../lib/utils'
+import { ObjectTypes } from '@manuscripts/json-schema'
 
-const defaultTitle = 'Untitled Manuscript'
-const ids: string[] = []
+import { getTrimmedTextContent } from '../../lib/utils'
+import { generateID } from '../../transformer'
+import { htmlFromJatsNode } from './jats-parser-utils'
+
+export const defaultTitle = 'Untitled Manuscript'
 
 export const jatsFrontTransformations = {
-  createTitle(document: Document, front: Element) {
-    let element = document.querySelector(
+  setArticleAttrs(doc: Document, template?: string) {
+    const doi = doc.querySelector(
+      'article-meta > article-id[pub-id-type="doi"]'
+    )?.textContent
+    const Attrs = {
+      DOI: doi ?? '',
+      prototype: template ?? '',
+      id: generateID(ObjectTypes.Manuscript),
+    }
+    Object.entries(Attrs).forEach(([key, value]) => {
+      if (value) {
+        doc.querySelector('article')?.setAttribute(key, value)
+      }
+    })
+  },
+  createTitle(front: Element, createElement: (tagName: string) => HTMLElement) {
+    let title = front.querySelector(
       'article-meta > title-group > article-title'
     )
-    if (!element || !element.textContent) {
-      element = document.createElement('article-title')
-      element.textContent = defaultTitle
+    if (title) {
+      title.innerHTML = htmlFromJatsNode(title, createElement) ?? defaultTitle
+    } else {
+      title = createElement('article-title')
+      title.textContent = defaultTitle
     }
-    front.prepend(element)
+    return title
   },
-  createAuthorNotes(document: Document, front: Element) {
+  createAuthorNotes(
+    document: Document,
+    createElement: (tagName: string) => HTMLElement
+  ) {
     const authornotes = document.querySelector('article-meta > author-notes')
     if (!authornotes) {
       return
     }
-    const authorNotesEl = document.createElement('author-notes')
+    const authorNotesEl = createElement('author-notes')
     authornotes
       .querySelectorAll('fn:not([fn-type]), :scope > p, corresp')
       .forEach((node) => {
-        authorNotesTransformations.appendContent(document, node, authorNotesEl)
+        switch (node.nodeName) {
+          case 'fn': {
+            this.appendFootnote(node, authorNotesEl, createElement)
+            break
+          }
+          case 'p': {
+            this.appendParagraph(document, node, authorNotesEl)
+            break
+          }
+          case 'corresp': {
+            this.appendCorresp(node, authorNotesEl, createElement)
+            break
+          }
+        }
       })
 
-    front.append(authorNotesEl)
+    return authorNotesEl
   },
-  createContributors(document: Document, front: Element) {
-    const contribs = document.querySelectorAll(
+
+  appendFootnote(
+    node: Element,
+    element: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const fnEl = createElement('fn-author')
+    fnEl.innerHTML = node.innerHTML
+    fnEl.setAttribute('kind', 'footnote')
+    const id = node.getAttribute('id')
+    if (id) {
+      fnEl.setAttribute('id', id)
+    }
+    element.append(fnEl)
+  },
+  appendParagraph(document: Document, node: Element, element: Element) {
+    const pEl = document.createElementNS(null, 'p')
+    pEl.innerHTML = node.innerHTML
+    element.append(pEl)
+  },
+  appendCorresp(
+    node: Element,
+    element: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const correspEl = createElement('corresp')
+    const label = node.querySelector('label')
+    if (label) {
+      label.remove()
+    }
+    correspEl.textContent = node.textContent?.trim() || ''
+    correspEl.setAttribute('label', label?.textContent?.trim() || '')
+    const id = node.getAttribute('id')
+    if (id) {
+      correspEl.setAttribute('id', id)
+    }
+    element.append(correspEl)
+  },
+  createContributors(
+    front: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const contribs = front.querySelectorAll(
       'article-meta > contrib-group > contrib[contrib-type="author"]'
     )
-    const contributors = document.createElement('contributors')
+    const contributors = createElement('contributors')
     contribs.forEach((element, priority) => {
-      const contributor = contributorsTransformations.createContributorElement(
-        document,
-        priority
-      )
-      contributorsTransformations.setNameAttributes(element, contributor)
-      contributorsTransformations.setOrcidAttributes(element, contributor)
-      contributorsTransformations.setIsCorrespondingAttribute(
-        element,
-        contributor
-      )
-      contributorsTransformations.setXrefs(document, element, contributor)
+      const contributor = this.createContributorElement(priority, createElement)
+      this.setNameAttrs(element, contributor)
+      this.setOrcidAttribute(element, contributor)
+      this.setIsCorrespondingAttribute(element, contributor)
+      this.setContributorReferences(element, contributor, createElement)
       contributors.append(contributor)
     })
-    front.insertBefore(contributors, front.querySelector('affiliations'))
+    return contributors
   },
-  createAffiliations(document: Document, front: Element) {
-    const affiliations = document.querySelectorAll(
+  createContributorElement(
+    priority: number,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const contributor = createElement('contributor')
+    contributor.setAttribute('priority', priority.toString())
+    contributor.setAttribute('role', 'author')
+    return contributor
+  },
+  setNameAttrs(node: Element, element: Element) {
+    const given = getTrimmedTextContent(node, 'name > given-names')
+    if (given) {
+      element.setAttribute('given', given)
+    }
+    const surname = getTrimmedTextContent(node, 'name > surname')
+    if (surname) {
+      element.setAttribute('family', surname)
+    }
+  },
+  setOrcidAttribute(node: Element, element: Element) {
+    const orcid = getTrimmedTextContent(
+      node,
+      'contrib-id[contrib-id-type="orcid"]'
+    )
+    if (orcid) {
+      element.setAttribute('ORCIDIdentifier', orcid)
+    }
+  },
+  setIsCorrespondingAttribute(node: Element, element: Element) {
+    const isCorresponding = node.getAttribute('corresp') === 'yes'
+    if (isCorresponding) {
+      element.setAttribute('isCorresponding', isCorresponding.toString())
+    }
+  },
+  setContributorReferences(
+    node: Element,
+    element: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const xrefs = node.querySelectorAll('xref')
+    const footnotes = createElement('fns')
+    const corresps = createElement('corresps')
+    const affs = createElement('affs')
+    xrefs.forEach((xref) => {
+      const rid = xref.getAttribute('rid')
+      const type = xref.getAttribute('ref-type')
+      if (rid) {
+        switch (type) {
+          case 'fn':
+            this.appendFootnoteID(xref, footnotes, rid, createElement)
+            break
+          case 'corresp':
+            this.appendCorrespID(xref, corresps, rid, createElement)
+            break
+          case 'aff':
+            this.appendAffiliationID(affs, rid, createElement)
+            break
+        }
+      }
+    })
+    element.append(footnotes, corresps, affs)
+  },
+  appendFootnoteID(
+    xref: Element,
+    footnotes: Element,
+    rid: string,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const fn = createElement('fn')
+    fn.setAttribute('noteID', rid)
+    fn.setAttribute('noteLabel', xref.textContent?.trim() || '')
+    footnotes.append(fn)
+  },
+  appendCorrespID(
+    xref: Element,
+    corresps: Element,
+    rid: string,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const corresp = createElement('corresp')
+    corresp.setAttribute('correspID', rid)
+    corresp.setAttribute('correspLabel', xref.textContent?.trim() || '')
+    corresps.append(corresp)
+  },
+  appendAffiliationID(
+    affs: Element,
+    rid: string,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const rids = rid.split(/\s+/).filter(Boolean) as string[]
+    if (rids.length) {
+      rids.forEach((affID) => {
+        const aff = createElement('aff')
+        aff.setAttribute('affiliationID', affID)
+        affs.append(aff)
+      })
+    }
+  },
+  createAffiliations(
+    front: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const affiliations = front.querySelectorAll(
       'article-meta > contrib-group > aff'
     )
-    const affiliationGroup = document.createElement('affiliations')
+    const affiliationGroup = createElement('affiliations')
     affiliations.forEach((element, priority) => {
-      const affiliation = affiliationsTransformations.createAffiliationElement(
-        document,
+      const affiliation = this.createAffiliationElement(
         element,
-        priority
+        priority,
+        createElement
       )
-      affiliationsTransformations.setInstitutionAttributes(element, affiliation)
-      affiliationsTransformations.setAddressAttributes(element, affiliation)
-      affiliationsTransformations.appendEmail(element, affiliation)
+      this.setInstitutionAttrs(element, affiliation)
+      this.setAddressAttrs(element, affiliation)
+      this.appendEmail(element, affiliation)
       affiliationGroup.append(affiliation)
     })
-    front.append(affiliationGroup)
+    return affiliationGroup
   },
-}
-
-const affiliationsTransformations = {
   createAffiliationElement(
-    document: Document,
     element: Element,
-    priority: number
+    priority: number,
+    createElement: (tagName: string) => HTMLElement
   ) {
-    const affiliation = document.createElement('affiliation')
+    const affiliation = createElement('affiliation')
     affiliation.setAttribute('priority', priority.toString())
     const id = element.getAttribute('id')
     if (id) {
       affiliation.setAttribute('id', id)
-      ids.push(id)
     }
     return affiliation
   },
@@ -106,7 +274,7 @@ const affiliationsTransformations = {
       affiliation.appendChild(emailEl)
     }
   },
-  setInstitutionAttributes(element: Element, affiliation: Element) {
+  setInstitutionAttrs(element: Element, affiliation: Element) {
     for (const node of element.querySelectorAll('institution')) {
       const content = node.textContent?.trim()
       if (!content) {
@@ -120,7 +288,7 @@ const affiliationsTransformations = {
       }
     }
   },
-  setAddressAttributes(element: Element, affiliation: Element) {
+  setAddressAttrs(element: Element, affiliation: Element) {
     const addressLine1 = getTrimmedTextContent(
       element,
       'addr-line:nth-of-type(1)'
@@ -151,151 +319,5 @@ const affiliationsTransformations = {
     if (country) {
       affiliation.setAttribute('country', country)
     }
-  },
-}
-
-const contributorsTransformations = {
-  createContributorElement(document: Document, priority: number) {
-    const contributor = document.createElement('contributor')
-    contributor.setAttribute('priority', priority.toString())
-    contributor.setAttribute('role', 'author')
-
-    return contributor
-  },
-  setNameAttributes(element: Element, contributor: Element) {
-    const given = getTrimmedTextContent(element, 'name > given-names')
-    if (given) {
-      contributor.setAttribute('given', given)
-    }
-    const surname = getTrimmedTextContent(element, 'name > surname')
-    if (surname) {
-      contributor.setAttribute('family', surname)
-    }
-  },
-  setOrcidAttributes(element: Element, contributor: Element) {
-    const orcid = getTrimmedTextContent(
-      element,
-      'contrib-id[contrib-id-type="orcid"]'
-    )
-    if (orcid) {
-      contributor.setAttribute('ORCIDIdentifier', orcid)
-    }
-  },
-  setIsCorrespondingAttribute(element: Element, contributor: Element) {
-    const isCorresponding = element.getAttribute('corresp') === 'yes'
-    if (isCorresponding) {
-      contributor.setAttribute('isCorresponding', isCorresponding.toString())
-    }
-  },
-  setXrefs(document: Document, element: Element, contributor: Element) {
-    const xrefs = element.querySelectorAll('xref')
-    const footnotes = document.createElement('fns')
-    const corresps = document.createElement('corresps')
-    const affs = document.createElement('affs')
-    xrefs.forEach((xref) => {
-      const rid = xref.getAttribute('rid')
-      const type = xref.getAttribute('ref-type')
-      if (rid && ids.includes(rid)) {
-        switch (type) {
-          case 'fn':
-            this.appendFootnoteID(document, xref, footnotes, rid)
-            break
-          case 'corresp':
-            this.appendCorrespID(document, xref, corresps, rid)
-            break
-          case 'aff':
-            this.appendAffiliationID(document, affs, rid)
-            break
-        }
-      }
-    })
-    contributor.append(footnotes, corresps, affs)
-  },
-  appendFootnoteID(
-    document: Document,
-    xref: Element,
-    footnotes: Element,
-    rid: string
-  ) {
-    const fn = document.createElement('fn')
-    fn.setAttribute('noteID', rid)
-    fn.setAttribute('noteLabel', xref.textContent?.trim() || '')
-    footnotes.append(fn)
-  },
-  appendCorrespID(
-    document: Document,
-    xref: Element,
-    corresps: Element,
-    rid: string
-  ) {
-    const corresp = document.createElement('corresp')
-    corresp.setAttribute('correspID', rid)
-    corresp.setAttribute('correspLabel', xref.textContent?.trim() || '')
-    corresps.append(corresp)
-  },
-  appendAffiliationID(document: Document, affs: Element, rid: string) {
-    const rids = rid.split(/\s+/).filter(Boolean) as string[]
-    if (rids.length) {
-      rids.forEach((affID) => {
-        const aff = document.createElement('aff')
-        aff.setAttribute('affiliationID', affID)
-        affs.append(aff)
-      })
-    }
-  },
-}
-
-const authorNotesTransformations = {
-  appendContent(document: Document, node: Element, authorNotesEl: Element) {
-    switch (node.nodeName) {
-      case 'fn': {
-        authorNotesTransformations.appendFootnote(document, node, authorNotesEl)
-        break
-      }
-      case 'p': {
-        authorNotesTransformations.appendParagraph(
-          document,
-          node,
-          authorNotesEl
-        )
-        break
-      }
-      case 'corresp': {
-        authorNotesTransformations.appendCorresp(document, node, authorNotesEl)
-        break
-      }
-    }
-  },
-  appendFootnote(document: Document, node: Element, authorNotesEl: Element) {
-    const fnEl = document.createElement('fn-author')
-    fnEl.innerHTML = node.innerHTML
-    fnEl.setAttribute('kind', 'footnote')
-    const id = node.getAttribute('id')
-    if (id) {
-      ids.push(id)
-      fnEl.setAttribute('id', id)
-    }
-    authorNotesEl.append(fnEl)
-  },
-  appendParagraph(document: Document, node: Element, authorNotesEl: Element) {
-    const pEl = document.createElementNS(null, 'p')
-    pEl.innerHTML = node.innerHTML
-    authorNotesEl.append(pEl)
-  },
-  appendCorresp(document: Document, node: Element, authorNotesEl: Element) {
-    const correspEl = document.createElement('corresp')
-    const label = node.querySelector('label')
-    if (label) {
-      label.remove()
-    }
-    correspEl.textContent = node.textContent?.trim() || ''
-    correspEl.setAttribute('label', label?.textContent?.trim() || '')
-    const id = node.getAttribute('id')
-
-    if (id) {
-      ids.push(id)
-      correspEl.setAttribute('id', id)
-    }
-    authorNotesEl.append(correspEl)
   },
 }
