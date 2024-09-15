@@ -16,7 +16,7 @@
 
 import { Manuscript } from '@manuscripts/json-schema'
 
-import { schema } from '../../schema'
+import { ManuscriptNode, schema } from '../../schema'
 import { defaultTitle } from './jats-front-transformations'
 
 export const createArticleNode = (manuscript: Partial<Manuscript>) => {
@@ -30,5 +30,5 @@ export const createArticleNode = (manuscript: Partial<Manuscript>) => {
       primaryLanguageCode: manuscript.primaryLanguageCode,
     },
     title
-  )
+  ) as ManuscriptNode
 }
