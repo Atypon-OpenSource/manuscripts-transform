@@ -17,7 +17,6 @@
 import {
   BibliographyItem,
   Journal,
-  Manuscript,
   ObjectTypes,
 } from '@manuscripts/json-schema'
 import { CitationProvider } from '@manuscripts/library'
@@ -56,7 +55,7 @@ import {
 } from '../transformer/section-category'
 import { IDGenerator, MediaPathGenerator } from '../types'
 import { generateAttachmentFilename } from './filename'
-import { selectVersionIds } from './jats-versions'
+import { selectVersionIds, Version } from './jats-versions'
 import { buildTargets, Target } from './labels'
 
 interface Attrs {
@@ -151,6 +150,11 @@ export type CSLOptions = {
   style: string
   locale: string
 }
+export type ExportOptions = {
+  version?: Version
+  journal?: Journal
+  csl: CSLOptions
+}
 export const buildCitations = (citations: CitationNode[]) =>
   citations.map((citation) => ({
     citationID: citation.attrs.id,
@@ -221,15 +225,12 @@ export class JATSExporter {
   }
   public serializeToJATS = async (
     manuscriptNode: ManuscriptNode,
-    csl: CSLOptions,
-    manuscript: Manuscript,
-    jorunal?: Journal
+    options: ExportOptions
   ): Promise<string> => {
-    const version = '1.2'
     this.manuscriptNode = manuscriptNode
-    this.generateCitationTexts(csl, manuscriptNode.attrs.id)
+    this.generateCitationTexts(options.csl, manuscriptNode.attrs.id)
     this.createSerializer()
-    const versionIds = selectVersionIds(version)
+    const versionIds = selectVersionIds(options.version ?? "1.2")
 
     this.document = document.implementation.createDocument(
       null,
@@ -248,9 +249,12 @@ export class JATSExporter {
       'xmlns:xlink',
       XLINK_NAMESPACE
     )
-    const front = this.buildFront(manuscript, jorunal)
+    const front = this.buildFront(options.journal)
     article.appendChild(front)
-    article.setAttribute('article-type', manuscript.articleType || 'other')
+    article.setAttribute(
+      'article-type',
+      manuscriptNode.attrs.articleType || 'other'
+    )
     this.labelTargets = buildTargets(manuscriptNode)
     const body = this.buildBody()
     article.appendChild(body)
@@ -354,7 +358,7 @@ export class JATSExporter {
     }
   }
 
-  protected buildFront = (manuscript: Manuscript, journal?: Journal) => {
+  protected buildFront = (journal?: Journal) => {
     const titleNode = findChildrenByType(
       this.manuscriptNode,
       schema.nodes.title
@@ -424,7 +428,7 @@ export class JATSExporter {
         journalMeta.appendChild(publisher)
       }
     }
-    if (manuscript.DOI) {
+    if (this.manuscriptNode.attrs.doi) {
       const articleID = this.document.createElement('article-id')
       articleID.setAttribute('pub-id-type', 'doi')
       // @ts-ignore
@@ -472,18 +476,6 @@ export class JATSExporter {
     this.buildKeywords(articleMeta)
 
     let countingElements = []
-    if (manuscript.genericCounts) {
-      const elements = manuscript.genericCounts.map(
-        (el: { count: number; countType: string }) => {
-          const countingElement = this.buildCountingElement('count', el.count)
-          if (countingElement) {
-            countingElement.setAttribute('count-type', el.countType)
-          }
-          return countingElement
-        }
-      )
-      countingElements.push(...elements)
-    }
     const figureCount = findChildrenByType(
       this.manuscriptNode,
       schema.nodes.figure
