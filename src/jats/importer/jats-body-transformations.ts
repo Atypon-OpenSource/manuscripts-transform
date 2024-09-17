@@ -225,13 +225,10 @@ export const jatsBodyTransformations = {
       const title = createElement('title')
       title.textContent = 'BoxElement'
       boxElementSec.append(title)
-      for (const firstElement of boxedText.children) {
-        if (
-          firstElement?.tagName === 'label' ||
-          firstElement?.tagName === 'caption'
-        ) {
-          boxElementSec.append(firstElement)
-          boxedText.removeChild(firstElement)
+
+      for (const element of [...boxedText.children]) {
+        if (element?.tagName === 'label' || element?.tagName === 'caption') {
+          boxElementSec.append(element)
         }
       }
       const containerSection = createElement('sec')
@@ -336,7 +333,11 @@ export const jatsBodyTransformations = {
     const captions = body.querySelectorAll('caption')
 
     for (const caption of captions) {
-      if (caption.parentNode && (caption.parentNode.nodeName !== 'table-wrap' && caption.parentNode.nodeName !== 'boxed-text')) {
+      if (
+        caption.parentNode &&
+        caption.parentNode.nodeName !== 'table-wrap' &&
+        caption.parentNode.nodeName !== 'boxed-text'
+      ) {
         caption.parentNode.appendChild(caption)
       }
     }

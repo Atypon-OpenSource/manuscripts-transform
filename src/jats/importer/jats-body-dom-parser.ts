@@ -169,7 +169,7 @@ const nodes: NodeRule[] = [
     tag: 'caption',
     node: 'figcaption',
     context: 'box_element/',
-    getAttrs: node => {
+    getAttrs: (node) => {
       const element = node as HTMLElement
       return {
         id: element.getAttribute('id'),
