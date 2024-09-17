@@ -40,6 +40,7 @@ import { bibliographyItem } from './nodes/bibliography_item'
 import { bibliographySection } from './nodes/bibliography_section'
 import { blockquoteElement } from './nodes/blockquote_element'
 import { body } from './nodes/body'
+import { box_element } from './nodes/box_element'
 import { caption } from './nodes/caption'
 import { captionTitle } from './nodes/caption_title'
 import { citation } from './nodes/citation'
@@ -119,7 +120,9 @@ export * from './nodes/footnotes_section'
 export * from './nodes/graphical_abstract_section'
 export * from './nodes/hard_break'
 export * from './nodes/highlight_marker'
+export * from './nodes/inline_equation'
 export * from './nodes/inline_footnote'
+export * from './nodes/keyword_group'
 export * from './nodes/keyword'
 export * from './nodes/keywords_element'
 export * from './nodes/keywords'
@@ -235,5 +238,6 @@ export const schema = new Schema<Nodes, Marks>({
     supplement,
     author_notes: authorNotes,
     corresp,
+    box_element,
   },
 })

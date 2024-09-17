@@ -20,42 +20,54 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
+  label: string
 }
 
-// TODO: endnotes section?
-
-export interface FootnotesSectionNode extends ManuscriptNode {
+export interface BoxElementNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const footnotesSection: NodeSpec = {
-  content: 'section_title footnotes_element?',
+export const box_element: NodeSpec = {
+  content: 'figcaption? section?',
   attrs: {
     id: { default: '' },
+    label: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block sections',
+  group: 'block element',
   selectable: false,
   parseDOM: [
     {
-      tag: 'section.footnotes',
+      tag: 'div.boxed-text',
+      getAttrs: (p) => {
+        const dom = p as HTMLParagraphElement
+
+        const attrs: Partial<Attrs> = {
+          id: dom.getAttribute('id') || undefined,
+          label: dom.getAttribute('label') || undefined,
+        }
+        return attrs
+      },
     },
   ],
   toDOM: (node) => {
-    const footnotesSectionNode = node as FootnotesSectionNode
+    const boxElementNode = node as BoxElementNode
+
+    const attrs: { [key: string]: string } = {}
+
+    if (boxElementNode.attrs.id) {
+      attrs.id = boxElementNode.attrs.id
+    }
+    if (boxElementNode.attrs.label) {
+      attrs.label = boxElementNode.attrs.label
+    }
 
     return [
-      'section',
+      'div',
       {
-        id: footnotesSectionNode.attrs.id,
-        class: 'footnotes',
+        class: 'boxed-text',
+        ...attrs,
       },
-      0,
     ]
   },
 }
-
-export const isFootnotesSectionNode = (
-  node: ManuscriptNode
-): node is FootnotesSectionNode =>
-  node.type === node.type.schema.nodes.footnotes_section
