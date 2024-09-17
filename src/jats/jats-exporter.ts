@@ -769,6 +769,7 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
+      box_element: () => ['boxed-text', 0],
       author_notes: () => '',
       corresp: () => '',
       title: () => '',
