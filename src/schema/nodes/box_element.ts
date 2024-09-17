@@ -20,7 +20,6 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  label: string | null
 }
 
 export interface BoxElementNode extends ManuscriptNode {
@@ -31,20 +30,18 @@ export const box_element: NodeSpec = {
   content: 'section_label? figcaption? section?',
   attrs: {
     id: { default: '' },
-    label: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',
   selectable: false,
   parseDOM: [
     {
-      tag: 'boxed-text',
+      tag: 'div.boxed-text',
       getAttrs: (p) => {
         const dom = p as HTMLParagraphElement
 
         const attrs: Partial<Attrs> = {
           id: dom.getAttribute('id') || undefined,
-          label: dom.querySelector('label')?.textContent,
         }
         return attrs
       },
@@ -58,10 +55,13 @@ export const box_element: NodeSpec = {
     if (boxElementNode.attrs.id) {
       attrs.id = boxElementNode.attrs.id
     }
-    if (boxElementNode.attrs.label) {
-      attrs.label = boxElementNode.attrs.label
-    }
 
-    return ['boxed-text', attrs, 0]
+    return [
+      'div',
+      {
+        class: 'boxed-text',
+        ...attrs,
+      },
+    ]
   },
 }
