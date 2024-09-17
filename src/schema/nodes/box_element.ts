@@ -20,6 +20,7 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
+  label: string
 }
 
 export interface BoxElementNode extends ManuscriptNode {
@@ -27,9 +28,10 @@ export interface BoxElementNode extends ManuscriptNode {
 }
 
 export const box_element: NodeSpec = {
-  content: 'section_label? figcaption? section?',
+  content: 'figcaption? section?',
   attrs: {
     id: { default: '' },
+    label: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',
@@ -42,6 +44,7 @@ export const box_element: NodeSpec = {
 
         const attrs: Partial<Attrs> = {
           id: dom.getAttribute('id') || undefined,
+          label: dom.getAttribute('label') || undefined,
         }
         return attrs
       },
@@ -54,6 +57,9 @@ export const box_element: NodeSpec = {
 
     if (boxElementNode.attrs.id) {
       attrs.id = boxElementNode.attrs.id
+    }
+    if (boxElementNode.attrs.label) {
+      attrs.label = boxElementNode.attrs.label
     }
 
     return [
