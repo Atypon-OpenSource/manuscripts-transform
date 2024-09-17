@@ -18,16 +18,21 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
+type LooseNumber = string | number
+
 export interface BibliographyItemAuthor {
   given?: string
   family?: string
   _id: string
-  objectType: string
+  objectType: 'MPBibliographicName'
 }
 export interface BibliographyItemDate {
-  'date-parts': string[][]
+  'date-parts'?: [
+    [LooseNumber, LooseNumber?, LooseNumber?],
+    [LooseNumber, LooseNumber?, LooseNumber?]?
+  ]
   _id: string
-  objectType: string
+  objectType: 'MPBibliographicDate'
 }
 export interface BibliographyItemAttributes {
   id: string
