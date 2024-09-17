@@ -34,7 +34,7 @@ export const box_element: NodeSpec = {
     label: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block element',
+  group: 'block element sections',
   selectable: false,
   parseDOM: [
     {
