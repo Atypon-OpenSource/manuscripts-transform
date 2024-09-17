@@ -34,6 +34,7 @@ import { affiliation } from './nodes/affiliation'
 import { affiliations } from './nodes/affiliations'
 import { attribution } from './nodes/attribution'
 import { authorNotes } from './nodes/author_notes'
+import { awardGroup } from './nodes/award_group'
 import { backmatter } from './nodes/backmatter'
 import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographyItem } from './nodes/bibliography_item'
@@ -58,6 +59,7 @@ import { figureElement } from './nodes/figure_element'
 import { footnote } from './nodes/footnote'
 import { footnotesElement } from './nodes/footnotes_element'
 import { footnotesSection } from './nodes/footnotes_section'
+import { fundingGroup } from './nodes/funding_group'
 import { generalTableFootnote } from './nodes/general_table_footnote'
 import { graphicalAbstractSection } from './nodes/graphical_abstract_section'
 import { hardBreak } from './nodes/hard_break'
@@ -237,5 +239,7 @@ export const schema = new Schema<Nodes, Marks>({
     supplement,
     author_notes: authorNotes,
     corresp,
+    funding_group: fundingGroup,
+    award_group: awardGroup,
   },
 })
