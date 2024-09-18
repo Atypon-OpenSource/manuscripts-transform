@@ -14,40 +14,39 @@
  * limitations under the License.
  */
 
-import { ManuscriptNode } from 'migration-base'
 import { NodeSpec } from 'prosemirror-model'
+
+import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
   recipient: string
-  awardIDs: string[]
-  fundingSource: string
+  code: string
+  source: string
 }
 
-export interface AwardGroupNode extends ManuscriptNode {
+export interface AwardNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const awardGroup: NodeSpec = {
-  content: 'inline*',
+export const award: NodeSpec = {
   attrs: {
     id: { default: '' },
     recipient: { default: undefined },
-    awardIDs: { default: [] },
-    fundingSource: { default: [] },
+    code: { default: undefined },
+    source: { default: undefined },
     dataTracked: { default: null },
   },
   toDOM: (node) => {
     return [
       'div',
       {
-        class: 'awardGroup',
+        class: 'award',
         id: node.attrs.id,
       },
     ]
   },
 }
 
-export const isAwardGroupNode = (
-  node: ManuscriptNode
-): node is AwardGroupNode => node.type === node.type.schema.nodes.award_group
+export const isAwardNode = (node: ManuscriptNode): node is AwardNode =>
+  node.type === node.type.schema.nodes.award

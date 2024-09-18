@@ -116,8 +116,8 @@ export type Nodes =
   | 'author_notes'
   | 'corresp'
   | 'general_table_footnote'
-  | 'funding_group'
-  | 'award_group'
+  | 'awards'
+  | 'award'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

@@ -22,11 +22,11 @@ interface Attrs {
   id: string
 }
 
-export interface FundingGroupNode extends ManuscriptNode {
+export interface AwardsNode extends ManuscriptNode {
   attrs: Attrs
 }
-export const fundingGroup: NodeSpec = {
-  content: 'award_group*',
+export const awards: NodeSpec = {
+  content: 'award*',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
@@ -35,14 +35,12 @@ export const fundingGroup: NodeSpec = {
     return [
       'div',
       {
-        class: 'fundingGroup',
+        class: 'awards',
         id: node.attrs.id,
       },
     ]
   },
 }
 
-export const isFundingGroupNode = (
-  node: ManuscriptNode
-): node is FundingGroupNode =>
-  node.type === node.type.schema.nodes.funding_group
+export const isAwardsNode = (node: ManuscriptNode): node is AwardsNode =>
+  node.type === node.type.schema.nodes.awards
