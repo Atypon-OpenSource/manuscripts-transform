@@ -186,21 +186,31 @@ const updateContributorNodesIDS = (
   warnings: string[]
 ) => {
   if (node.type === schema.nodes.contributor) {
-    const footnote = node.attrs.footnote?.map((fn: ContributorFootnote) => {
-      return {
-        ...fn,
-        noteID: replacements.get(fn.noteID),
-      }
-    })
-    const corresp = node.attrs.corresp?.map((corresp: ContributorCorresp) => {
-      return {
-        ...corresp,
-        correspID: replacements.get(corresp.correspID),
-      }
-    })
-    const affiliations = node.attrs.affiliations.map((affiliation: string) => {
-      return replacements.get(affiliation)
-    })
+    const footnote = node.attrs.footnote
+      ?.map((fn: ContributorFootnote) => {
+        return replacements.get(fn.noteID)
+          ? {
+              ...fn,
+              noteID: replacements.get(fn.noteID),
+            }
+          : undefined
+      })
+      .filter(Boolean)
+    const corresp = node.attrs.corresp
+      ?.map((corresp: ContributorCorresp) => {
+        return replacements.get(corresp.correspID)
+          ? {
+              ...corresp,
+              correspID: replacements.get(corresp.correspID),
+            }
+          : undefined
+      })
+      .filter(Boolean)
+    const affiliations = node.attrs.affiliations
+      .map((affiliation: string) => {
+        return replacements.get(affiliation)
+      })
+      .filter(Boolean)
     // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
     node.attrs = {
       ...node.attrs,

@@ -20,7 +20,7 @@ import { readAndParseFixture } from './files'
 import { normalizeIDs, normalizeTimestamps } from './ids'
 describe('JATS importer', () => {
   test('parses full JATS example to Manuscripts models', async () => {
-    let jats = await readAndParseFixture('jats-import.xml')
+    let jats = await readAndParseFixture('jats-equations.xml')
     // const models = parseArticleOLD(jats)
     // const manuscript = models.find(
     //   (m) => m.objectType === 'MPManuscript'
@@ -34,7 +34,7 @@ describe('JATS importer', () => {
 
     // //@ts-ignore
     const { node: secondNode } = parseJATSArticle(jats)
-    jats = await readAndParseFixture('jats-import.xml')
+    jats = await readAndParseFixture('jats-equations.xml')
 
     const thirdNode = createArticleNode({
       _id: 'MPmanuscript:123',

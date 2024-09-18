@@ -179,7 +179,7 @@ export const jatsFrontTransformations = {
     const footnotes = createElement('fns')
     const corresps = createElement('corresps')
     const affs = createElement('affs')
-    xrefs.forEach((xref) => {
+    for (const xref of xrefs) {
       const rid = xref.getAttribute('rid')
       const type = xref.getAttribute('ref-type')
       if (rid) {
@@ -195,7 +195,8 @@ export const jatsFrontTransformations = {
             break
         }
       }
-    })
+    }
+
     element.append(footnotes, corresps, affs)
   },
   appendFootnoteID(
