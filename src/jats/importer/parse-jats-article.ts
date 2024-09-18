@@ -51,10 +51,7 @@ const parseJATSFront = (doc: Document, front: Element, template?: string) => {
 
   jatsFrontTransformations.setArticleAttrs(doc, template)
 
-  const authorNotes = jatsFrontTransformations.createAuthorNotes(
-    doc,
-    createElement
-  )
+  const authorNotes = jatsFrontTransformations.createAuthorNotes(doc)
   if (authorNotes) {
     doc.documentElement.prepend(authorNotes)
   }
@@ -76,7 +73,6 @@ const parseJATSFront = (doc: Document, front: Element, template?: string) => {
   if (title) {
     doc.documentElement.prepend(title)
   }
-  doc.querySelector('front')?.remove()
 }
 
 const createElementFn = (doc: Document) => (tagName: string) =>
@@ -105,7 +101,6 @@ export const parseJATSArticle = (doc: Document, template?: string) => {
   if (body) {
     parseJATSBody(doc, body, references)
   }
-
   const node = jatsDOMParser.parse(doc).firstChild
   if (!node) {
     throw new Error('No content was parsed from the JATS article body')

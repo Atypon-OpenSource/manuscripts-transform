@@ -23,15 +23,17 @@ import { CitationProvider } from '@manuscripts/library'
 import debug from 'debug'
 import {
   DOMOutputSpec,
-  DOMSerializer,
   DOMParser as ProsemirrorDOMParser,
+  DOMSerializer,
 } from 'prosemirror-model'
 import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
 
-import { nodeFromHTML, textFromHTML } from '../lib/html'
+import { nodeFromHTML, textFromHTML } from '../../lib/html'
+import { generateAttachmentFilename } from '../../lib/utils'
 import {
   AuthorNotesNode,
+  BibliographyItemAuthor,
   CitationNode,
   ContributorNode,
   CorrespNode,
@@ -47,14 +49,14 @@ import {
   schema,
   TableElementFooterNode,
   TableElementNode,
-} from '../schema'
-import { isExecutableNodeType, isNodeType } from '../transformer/node-types'
+} from '../../schema'
 import {
   chooseJatsFnType,
   chooseSecType,
-} from '../transformer/section-category'
-import { IDGenerator, MediaPathGenerator } from '../types'
-import { generateAttachmentFilename } from './filename'
+  isExecutableNodeType,
+  isNodeType,
+} from '../../transformer'
+import { IDGenerator } from '../types'
 import { selectVersionIds, Version } from './jats-versions'
 import { buildTargets, Target } from './labels'
 
@@ -230,7 +232,7 @@ export class JATSExporter {
     this.manuscriptNode = manuscriptNode
     this.generateCitationTexts(options.csl, manuscriptNode.attrs.id)
     this.createSerializer()
-    const versionIds = selectVersionIds(options.version ?? "1.2")
+    const versionIds = selectVersionIds(options.version ?? '1.2')
 
     this.document = document.implementation.createDocument(
       null,
@@ -286,22 +288,6 @@ export class JATSExporter {
     template.innerHTML = JATSFragment
 
     return template.firstChild
-  }
-
-  protected rewriteMediaPaths = async (generator: MediaPathGenerator) => {
-    const doc = this.document
-
-    for (const fig of doc.querySelectorAll('fig')) {
-      for (const graphic of fig.querySelectorAll('graphic')) {
-        const newHref = await generator(graphic, fig.id)
-        graphic.setAttributeNS(XLINK_NAMESPACE, 'href', newHref)
-      }
-    }
-
-    for (const suppl of doc.querySelectorAll('supplementary-material')) {
-      const newHref = await generator(suppl, suppl.id)
-      suppl.setAttributeNS(XLINK_NAMESPACE, 'href', newHref)
-    }
   }
 
   protected rewriteIDs = async (
@@ -639,29 +625,30 @@ export class JATSExporter {
           personGroupNode.setAttribute('person-group-type', 'author')
           citation.appendChild(personGroupNode)
 
-          bibliographyNode.attrs.author.forEach((author: any) => {
-            const name = this.document.createElement('string-name')
+          bibliographyNode.attrs.author.forEach(
+            (author: BibliographyItemAuthor) => {
+              const name = this.document.createElement('string-name')
 
-            if (author.family) {
-              const node = this.document.createElement('surname')
-              node.textContent = author.family
-              name.appendChild(node)
+              if (author.family) {
+                const node = this.document.createElement('surname')
+                node.textContent = author.family
+                name.appendChild(node)
+              }
+              if (author.given) {
+                const node = this.document.createElement('given-names')
+                node.textContent = author.given
+                name.appendChild(node)
+              }
+              if (name.hasChildNodes()) {
+                personGroupNode.appendChild(name)
+              }
+              if (author.literal) {
+                const collab = this.document.createElement('collab')
+                collab.textContent = author.literal
+                personGroupNode.appendChild(collab)
+              }
             }
-            if (author.given) {
-              const node = this.document.createElement('given-names')
-              node.textContent = author.given
-              name.appendChild(node)
-            }
-            if (name.hasChildNodes()) {
-              personGroupNode.appendChild(name)
-            }
-
-            if (author.literal) {
-              const collab = this.document.createElement('collab')
-              collab.textContent = author.literal
-              personGroupNode.appendChild(collab)
-            }
-          })
+          )
         }
 
         if (bibliographyNode?.attrs.issued) {

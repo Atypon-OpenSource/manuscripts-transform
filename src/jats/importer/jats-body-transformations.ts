@@ -498,6 +498,9 @@ export const jatsBodyTransformations = {
     if (item.doi) {
       bibliographyItem.setAttribute('DOI', item.doi)
     }
+    if (item.literal) {
+      bibliographyItem.setAttribute('literal', item.literal)
+    }
 
     return bibliographyItem
   },

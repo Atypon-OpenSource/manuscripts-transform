@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-export { parseJATSArticle, createArticleNode } from './importer'
-
-export * from './jats-exporter'
-export * from './jats-versions'
-export * from './timestamp'
-export * from './labels'
+export * from './exporter/jats-exporter'
+export * from './exporter/jats-versions'
+export * from './exporter/labels'
+export * from './importer/create-article-node'
+export { parseJATSArticle } from './importer/parse-jats-article'

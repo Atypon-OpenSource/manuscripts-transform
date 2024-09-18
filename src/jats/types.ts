@@ -14,8 +14,3 @@
  * limitations under the License.
  */
 export type IDGenerator = (element: Element) => Promise<string | null>
-
-export type MediaPathGenerator = (
-  element: Element,
-  parentID: string
-) => Promise<string>

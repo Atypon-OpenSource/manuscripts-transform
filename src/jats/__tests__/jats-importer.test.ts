@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-import { parseJATSArticle } from '../importer'
+
 import { createArticleNode } from '../importer/create-article-node'
+import { parseJATSArticle } from '../importer/parse-jats-article'
 import { readAndParseFixture } from './files'
 import { normalizeIDs, normalizeTimestamps } from './ids'
 describe('JATS importer', () => {
   test('parses full JATS example to Manuscripts models', async () => {
-    let jats = await readAndParseFixture('jats-equations.xml')
+    let jats = await readAndParseFixture('jats-import.xml')
     // const models = parseArticleOLD(jats)
     // const manuscript = models.find(
     //   (m) => m.objectType === 'MPManuscript'
@@ -34,7 +35,7 @@ describe('JATS importer', () => {
 
     // //@ts-ignore
     const { node: secondNode } = parseJATSArticle(jats)
-    jats = await readAndParseFixture('jats-equations.xml')
+    jats = await readAndParseFixture('jats-import.xml')
 
     const thirdNode = createArticleNode({
       _id: 'MPmanuscript:123',

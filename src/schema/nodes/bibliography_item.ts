@@ -23,6 +23,7 @@ type LooseNumber = string | number
 export interface BibliographyItemAuthor {
   given?: string
   family?: string
+  literal?: string
   _id: string
   objectType: 'MPBibliographicName'
 }

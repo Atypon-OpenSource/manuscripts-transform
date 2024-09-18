@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
-import {
-  BibliographicName,
-  ObjectTypes,
-  timestamp,
-} from '@manuscripts/json-schema'
+import { BibliographicName, ObjectTypes } from '@manuscripts/json-schema'
+import { getTrimmedTextContent } from 'migration-base'
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
+import { timestamp } from '../../lib/utils'
 import {
   ContributorCorresp,
   ContributorFootnote,
@@ -137,11 +135,11 @@ const nodes: NodeRule[] = [
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
-        doi: element.getAttribute('DOI'),
-        articleType: element.getAttribute('article-type') || '',
-        prototype: element.getAttribute('prototype') || '',
+        doi: element.getAttribute('DOI') ?? '',
+        articleType: element.getAttribute('article-type') ?? '',
+        prototype: element.getAttribute('prototype') ?? '',
         primaryLanguageCode:
-          element.getAttribute('primary-language-code') || '',
+          element.getAttribute('primary-language-code') ?? '',
       }
     },
   },
@@ -187,7 +185,6 @@ const nodes: NodeRule[] = [
       }
     },
   },
-
   {
     tag: 'author-notes',
     node: 'author_notes',
@@ -199,8 +196,9 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'fn-author',
+    tag: 'fn:not([fn-type])',
     node: 'footnote',
+    context: 'author_notes/',
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
@@ -214,14 +212,22 @@ const nodes: NodeRule[] = [
     node: 'corresp',
     getAttrs: (node) => {
       const element = node as HTMLElement
+      const label = element.querySelector('label')
+      if (label) {
+        label.remove()
+      }
       return {
         id: element.getAttribute('id'),
-        label: element.getAttribute('label'),
+        label: label?.textContent?.trim(),
       }
+    },
+    getContent: (node) => {
+      const element = node as HTMLElement
+      return Fragment.from(schema.text(element.textContent?.trim() || ''))
     },
   },
   {
-    tag: 'contributor',
+    tag: 'contrib[contrib-type="author"]',
     node: 'contributor',
     getAttrs: (node) => {
       const element = node as HTMLElement
@@ -229,45 +235,51 @@ const nodes: NodeRule[] = [
       const affiliations: string[] = []
       const corresp: ContributorCorresp[] = []
 
-      element.querySelectorAll('fn').forEach((fn) => {
-        const noteID = fn.getAttribute('noteID')
-        const noteLabel = fn.getAttribute('noteLabel')
-        if (noteID && noteLabel) {
-          footnote.push({ noteID, noteLabel })
+      const xrefs = element.querySelectorAll('xref')
+      for (const xref of xrefs) {
+        const rid = xref.getAttribute('rid')
+        const type = xref.getAttribute('ref-type')
+        if (!rid) {
+          continue
         }
-      })
+        switch (type) {
+          case 'fn':
+            footnote.push({
+              noteID: rid,
+              noteLabel: xref.textContent?.trim() || '',
+            })
+            break
+          case 'corresp':
+            corresp.push({
+              correspID: rid,
+              correspLabel: xref.textContent?.trim() || '',
+            })
+            break
+          case 'aff':
+            affiliations.push(rid)
+            break
+        }
+      }
 
-      element.querySelectorAll('corresp').forEach((correspondence) => {
-        const correspLabel = correspondence.getAttribute('correspLabel')
-        const correspID = correspondence.getAttribute('correspID')
-        if (correspID && correspLabel) {
-          corresp.push({ correspID, correspLabel })
-        }
-      })
-
-      element.querySelectorAll('aff').forEach((aff) => {
-        const affID = aff.getAttribute('affiliationID')
-        if (affID) {
-          affiliations.push(affID)
-        }
-      })
-      const isCorrespondingEl = element.getAttribute('isCorresponding')
       return {
         id: element.getAttribute('id'),
         role: 'author',
-        isCorresponding: isCorrespondingEl
-          ? isCorrespondingEl === 'true'
+        affiliations,
+        corresp,
+        footnote,
+        isCorresponding: element.getAttribute('corresp')
+          ? element.getAttribute('corresp') === 'yes'
           : undefined,
         bibliographicName: {
-          given: element.getAttribute('given'),
-          family: element.getAttribute('family'),
-          ObjectType: 'MPBibliographicName',
+          given: getTrimmedTextContent(element, 'name > given-names'),
+          family: getTrimmedTextContent(element, 'name > surname'),
+          ObjectType: ObjectTypes.BibliographicName,
           _id: generateID(ObjectTypes.BibliographicName),
         },
-        affiliations,
-        corresp: corresp.length ? corresp : undefined,
-        footnote: footnote.length ? footnote : undefined,
-        ORCIDIdentifier: element.getAttribute('ORCIDIdentifier'),
+        ORCIDIdentifier: getTrimmedTextContent(
+          element,
+          'contrib-id[contrib-id-type="orcid"]'
+        ),
         priority: parsePriority(element.getAttribute('priority')),
       }
     },
@@ -277,26 +289,60 @@ const nodes: NodeRule[] = [
   },
 
   {
-    tag: 'affiliation',
+    tag: 'affiliations',
+    node: 'affiliations',
+  },
+  {
+    tag: 'aff',
     node: 'affiliation',
+    context: 'affiliations/',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const emailEl = element.querySelector('email')
+      const getEmail = (element: HTMLElement) => {
+        const email = element.querySelector('email')
+        if (email) {
+          return {
+            href: email.getAttributeNS(XLINK_NAMESPACE, 'href') ?? '',
+            text: email.textContent?.trim() ?? '',
+          }
+        }
+      }
+      const getInstitutionDetails = (element: HTMLElement) => {
+        let department = ''
+        let institution = ''
+        for (const node of element.querySelectorAll('institution')) {
+          const content = node.textContent?.trim()
+          if (!content) {
+            continue
+          }
+          const type = node.getAttribute('content-type')
+          if (type === 'dept') {
+            department = content
+          } else {
+            institution = content
+          }
+        }
+        return { department, institution }
+      }
+      const getAddressLine = (element: HTMLElement, index: number) => {
+        return (
+          getTrimmedTextContent(element, `addr-line:nth-of-type(${index})`) ||
+          ''
+        )
+      }
+
+      const { department, institution } = getInstitutionDetails(element)
+
       return {
         id: element.getAttribute('id'),
-        institution: element.getAttribute('institution') ?? '',
-        department: element.getAttribute('department') ?? '',
-        addressLine1: element.getAttribute('addressLine1') ?? '',
-        addressLine2: element.getAttribute('addressLine2') ?? '',
-        addressLine3: element.getAttribute('addressLine3') ?? '',
-        postCode: element.getAttribute('postCode') ?? '',
-        country: element.getAttribute('country') ?? '',
-        email: emailEl
-          ? {
-              href: emailEl.getAttributeNS(XLINK_NAMESPACE, 'href') ?? '',
-              text: emailEl.textContent?.trim() ?? '',
-            }
-          : undefined,
+        institution: institution ?? '',
+        department: department ?? '',
+        addressLine1: getAddressLine(element, 1),
+        addressLine2: getAddressLine(element, 2),
+        addressLine3: getAddressLine(element, 3),
+        postCode: getTrimmedTextContent(element, 'postal-code') ?? '',
+        country: getTrimmedTextContent(element, 'country') ?? '',
+        email: getEmail(element),
         priority: parsePriority(element.getAttribute('priority')),
       }
     },
@@ -772,7 +818,7 @@ const nodes: NodeRule[] = [
     tag: 'title',
     node: 'section_title',
     context:
-      'section/|footnotes_section/|bibliography_section/|keywords/|supplements/',
+      'section/|footnotes_section/|bibliography_section/|keywords/|supplements/|author_notes/',
   },
   {
     tag: 'title',

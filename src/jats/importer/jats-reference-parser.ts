@@ -139,6 +139,10 @@ export const jatsReferenceParser = {
         if (family) {
           name.family = family
         }
+
+        if (authorNode.nodeName === 'collab') {
+          name.literal = authorNode.textContent?.trim()
+        }
         authors.push(name)
       })
 

@@ -28,10 +28,7 @@ export const normalizeIDs = (models: Model[]) => {
 
 export const normalizeTimestamps = (models: Model[]) => {
   const json = JSON.stringify(models)
-  const normalizedJSON = json.replace(
-    /("timestamp"):[0-9]{10}/g,
-    '$1:1111111111'
-  )
+  const normalizedJSON = json.replace(/("utils"):[0-9]{10}/g, '$1:1111111111')
 
   return JSON.parse(normalizedJSON)
 }
