@@ -467,27 +467,29 @@ export class JATSExporter {
       schema.nodes.figure
     ).length
     countingElements.push(this.buildCountingElement('fig-count', figureCount))
+
     const equationCount = findChildrenByType(
       this.manuscriptNode,
       schema.nodes.equation_element
     ).length
-    const tableCount = findChildrenByType(
-      this.manuscriptNode,
-      schema.nodes.table
-    ).length
-    const referencesCount = findChildrenByType(
-      this.manuscriptNode,
-      schema.nodes.bibliography_item
-    ).length
-    countingElements.push(this.buildCountingElement('table-count', tableCount))
-
     countingElements.push(
       this.buildCountingElement('equation-count', equationCount)
     )
 
+    const tableCount = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.table
+    ).length
+    countingElements.push(this.buildCountingElement('table-count', tableCount))
+
+    const referencesCount = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.bibliography_item
+    ).length
     countingElements.push(
       this.buildCountingElement('ref-count', referencesCount)
     )
+
     const wordCount = this.manuscriptNode.textContent.split(/\s+/).length
     countingElements.push(this.buildCountingElement('word-count', wordCount))
 

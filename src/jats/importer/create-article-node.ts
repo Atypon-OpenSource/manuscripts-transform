@@ -16,18 +16,21 @@
 
 import { Manuscript } from '@manuscripts/json-schema'
 
+import { defaultTitle } from '../../lib/deafults'
 import { ManuscriptNode, schema } from '../../schema'
-import { defaultTitle } from './jats-front-transformations'
 
 export const createArticleNode = (manuscript: Partial<Manuscript>) => {
   const title = schema.nodes.title.createChecked({}, schema.text(defaultTitle))
+  if (!manuscript._id) {
+    throw new Error('Manuscript ID is missing')
+  }
   return schema.nodes.manuscript.createAndFill(
     {
       id: manuscript._id,
-      doi: manuscript.DOI,
-      articleType: manuscript.articleType,
-      prototype: manuscript.prototype,
-      primaryLanguageCode: manuscript.primaryLanguageCode,
+      doi: manuscript.DOI ?? '',
+      articleType: manuscript.articleType ?? '',
+      prototype: manuscript.prototype ?? '',
+      primaryLanguageCode: manuscript.primaryLanguageCode ?? '',
     },
     title
   ) as ManuscriptNode

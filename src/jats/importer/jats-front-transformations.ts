@@ -16,10 +16,9 @@
 
 import { ObjectTypes } from '@manuscripts/json-schema'
 
+import { defaultTitle } from '../../lib/deafults'
 import { generateID } from '../../transformer'
 import { htmlFromJatsNode } from './jats-parser-utils'
-
-export const defaultTitle = 'Untitled Manuscript'
 
 export const jatsFrontTransformations = {
   setArticleAttrs(doc: Document, template?: string) {

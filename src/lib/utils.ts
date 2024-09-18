@@ -97,18 +97,8 @@ export const getTrimmedTextContent = (
   return node.querySelector(querySelector)?.textContent?.trim()
 }
 
-export const setElementAttributes = (
-  element: Element,
-  attributes: { [key: string]: string | undefined }
-) => {
-  Object.entries(attributes).forEach(([key, value]) => {
-    if (value) {
-      element.setAttribute(key, value)
-    }
-  })
-}
-
 export const timestamp = () => Math.floor(Date.now() / 1000)
+
 export const generateAttachmentFilename = (
   id: string,
   contentType?: string
