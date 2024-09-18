@@ -63,6 +63,7 @@ export type SectionCategory =
   | 'MPSectionCategory:supplementary-material'
   | 'MPSectionCategory:supported-by'
   | 'MPSectionCategory:ethics-statement'
+  | 'MPSectionCategory:box-element'
 
 export type SecType =
   | 'abstract'
@@ -94,6 +95,7 @@ export type SecType =
   | 'supplementary-material'
   | 'supported-by'
   | 'ethics-statement'
+  | 'box-element'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -113,6 +115,9 @@ export const chooseSectionNodeType = (
 
     case 'MPSectionCategory:toc':
       return schema.nodes.toc_section
+
+    case 'MPSectionCategory:box-element':
+      return schema.nodes.box_element
 
     default:
       return schema.nodes.section
@@ -172,6 +177,9 @@ export const buildSectionCategory = (
 
     case schema.nodes.graphical_abstract_section:
       return 'MPSectionCategory:abstract-graphical'
+
+    case schema.nodes.box_element:
+      return 'MPSectionCategory:box-element'
 
     default:
       return node.attrs.category || undefined
@@ -308,6 +316,8 @@ export const chooseSectionCategoryByType = (
       return 'MPSectionCategory:supported-by'
     case 'ethics-statement':
       return 'MPSectionCategory:ethics-statement'
+    case 'box-element':
+      return 'MPSectionCategory:box-element'
     default:
       return undefined
   }
@@ -382,5 +392,7 @@ export const chooseSectionCategoryFromTitle = (
     case 'financial-disclosure':
     case 'funding information':
       return 'MPSectionCategory:financial-disclosure'
+    case 'box-element':
+      return 'MPSectionCategory:box-element'
   }
 }
