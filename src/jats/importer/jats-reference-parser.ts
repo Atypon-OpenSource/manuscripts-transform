@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-import { ObjectTypes } from '@manuscripts/json-schema'
+import { BibliographicName, ObjectTypes } from '@manuscripts/json-schema'
 
 import { getTrimmedTextContent } from '../../lib/utils'
-import {
-  BibliographyItemAttributes,
-  BibliographyItemAuthor,
-} from '../../schema'
+import { BibliographyItemAttrs } from '../../schema'
 import { generateID } from '../../transformer'
 import { htmlFromJatsNode } from './jats-parser-utils'
 import { References } from './jats-references'
@@ -51,7 +48,7 @@ export const jatsReferenceParser = {
         ),
       ]
 
-      const bibliographyItem: BibliographyItemAttributes = {
+      const bibliographyItem: BibliographyItemAttrs = {
         id: generateID(ObjectTypes.BibliographyItem),
         type: chooseBibliographyItemType(publicationType),
       }
@@ -123,10 +120,10 @@ export const jatsReferenceParser = {
         bibliographyItem.doi = doi
       }
 
-      const authors: BibliographyItemAuthor[] = []
+      const authors: BibliographicName[] = []
 
       authorNodes.forEach((authorNode) => {
-        const name: BibliographyItemAuthor = {
+        const name: BibliographicName = {
           _id: generateID(ObjectTypes.BibliographicName),
           objectType: ObjectTypes.BibliographicName,
         }

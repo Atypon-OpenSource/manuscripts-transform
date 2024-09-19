@@ -14,32 +14,16 @@
  * limitations under the License.
  */
 
+import { BibliographicDate, BibliographicName } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-type LooseNumber = string | number
-
-export interface BibliographyItemAuthor {
-  given?: string
-  family?: string
-  literal?: string
-  _id: string
-  objectType: 'MPBibliographicName'
-}
-export interface BibliographyItemDate {
-  'date-parts'?: [
-    [LooseNumber, LooseNumber?, LooseNumber?],
-    [LooseNumber, LooseNumber?, LooseNumber?]?
-  ]
-  _id: string
-  objectType: 'MPBibliographicDate'
-}
-export interface BibliographyItemAttributes {
+export interface BibliographyItemAttrs {
   id: string
   type: string
-  author?: BibliographyItemAuthor[]
-  issued?: BibliographyItemDate
+  author?: BibliographicName[]
+  issued?: BibliographicDate
   containerTitle?: string
   doi?: string
   volume?: string
@@ -52,7 +36,7 @@ export interface BibliographyItemAttributes {
 }
 
 export interface BibliographyItemNode extends ManuscriptNode {
-  attrs: BibliographyItemAttributes
+  attrs: BibliographyItemAttrs
 }
 
 export const bibliographyItem: NodeSpec = {

@@ -53,10 +53,13 @@ export const jatsFrontTransformations = {
     }
     return title
   },
-  createAuthorNotes(document: Document) {
+  createAuthorNotes(
+    document: Document,
+    createElement: (tagName: string) => HTMLElement
+  ) {
     const authorNotes = document.querySelector('article-meta > author-notes')
     if (authorNotes) {
-      const sectionTitle = document.createElement('title')
+      const sectionTitle = createElement('title')
       authorNotes.prepend(sectionTitle)
     }
     return authorNotes

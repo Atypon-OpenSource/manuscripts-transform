@@ -15,6 +15,7 @@
  */
 
 import {
+  BibliographicName,
   BibliographyItem,
   Journal,
   ObjectTypes,
@@ -33,7 +34,6 @@ import { nodeFromHTML, textFromHTML } from '../../lib/html'
 import { generateAttachmentFilename } from '../../lib/utils'
 import {
   AuthorNotesNode,
-  BibliographyItemAuthor,
   CitationNode,
   ContributorNode,
   CorrespNode,
@@ -627,30 +627,28 @@ export class JATSExporter {
           personGroupNode.setAttribute('person-group-type', 'author')
           citation.appendChild(personGroupNode)
 
-          bibliographyNode.attrs.author.forEach(
-            (author: BibliographyItemAuthor) => {
-              const name = this.document.createElement('string-name')
+          bibliographyNode.attrs.author.forEach((author: BibliographicName) => {
+            const name = this.document.createElement('string-name')
 
-              if (author.family) {
-                const node = this.document.createElement('surname')
-                node.textContent = author.family
-                name.appendChild(node)
-              }
-              if (author.given) {
-                const node = this.document.createElement('given-names')
-                node.textContent = author.given
-                name.appendChild(node)
-              }
-              if (name.hasChildNodes()) {
-                personGroupNode.appendChild(name)
-              }
-              if (author.literal) {
-                const collab = this.document.createElement('collab')
-                collab.textContent = author.literal
-                personGroupNode.appendChild(collab)
-              }
+            if (author.family) {
+              const node = this.document.createElement('surname')
+              node.textContent = author.family
+              name.appendChild(node)
             }
-          )
+            if (author.given) {
+              const node = this.document.createElement('given-names')
+              node.textContent = author.given
+              name.appendChild(node)
+            }
+            if (name.hasChildNodes()) {
+              personGroupNode.appendChild(name)
+            }
+            if (author.literal) {
+              const collab = this.document.createElement('collab')
+              collab.textContent = author.literal
+              personGroupNode.appendChild(collab)
+            }
+          })
         }
 
         if (bibliographyNode?.attrs.issued) {

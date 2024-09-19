@@ -14,24 +14,13 @@
  * limitations under the License.
  */
 
-import { Manuscript } from '@manuscripts/json-schema'
-
 import { defaultTitle } from '../../lib/deafults'
-import { ManuscriptNode, schema } from '../../schema'
+import { ManuscriptAttrs, ManuscriptNode, schema } from '../../schema'
 
-export const createArticleNode = (manuscript: Partial<Manuscript>) => {
+export const createArticleNode = (attrs: Partial<ManuscriptAttrs>) => {
   const title = schema.nodes.title.createChecked({}, schema.text(defaultTitle))
-  if (!manuscript._id) {
+  if (!attrs.id) {
     throw new Error('Manuscript ID is missing')
   }
-  return schema.nodes.manuscript.createAndFill(
-    {
-      id: manuscript._id,
-      doi: manuscript.DOI ?? '',
-      articleType: manuscript.articleType ?? '',
-      prototype: manuscript.prototype ?? '',
-      primaryLanguageCode: manuscript.primaryLanguageCode ?? '',
-    },
-    title
-  ) as ManuscriptNode
+  return schema.nodes.manuscript.createAndFill(attrs, title) as ManuscriptNode
 }

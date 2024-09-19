@@ -20,7 +20,7 @@ import {
   bodyType,
   SectionGroupType,
 } from '../../lib/section-group-type'
-import { BibliographyItemAttributes } from '../../schema'
+import { BibliographyItemAttrs } from '../../schema'
 import { chooseSectionCategoryByType, chooseSecType } from '../../transformer'
 import { References } from './jats-references'
 
@@ -448,7 +448,7 @@ export const jatsBodyTransformations = {
     return section
   },
   createBibliographyItem(
-    item: BibliographyItemAttributes,
+    item: BibliographyItemAttrs,
     createElement: (tagName: string) => HTMLElement
   ) {
     const bibliographyItem = createElement('bibliography-item')

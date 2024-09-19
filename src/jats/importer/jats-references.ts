@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import { BibliographyItemAttributes } from '../../schema'
+import { BibliographyItemAttrs } from '../../schema'
 
 export class References {
-  items: Map<string, BibliographyItemAttributes>
+  items: Map<string, BibliographyItemAttrs>
   IDs: Map<string, string>
 
   constructor() {
@@ -25,14 +25,14 @@ export class References {
     this.IDs = new Map()
   }
 
-  public add(item: BibliographyItemAttributes, id: string | null) {
+  public add(item: BibliographyItemAttrs, id: string | null) {
     this.items.set(item.id, item)
     if (id) {
       this.IDs.set(id, item.id)
     }
   }
 
-  public getBibliographyItems(): BibliographyItemAttributes[] {
+  public getBibliographyItems(): BibliographyItemAttrs[] {
     return [...this.items.values()]
   }
 }

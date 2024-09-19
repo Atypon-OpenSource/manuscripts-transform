@@ -19,13 +19,15 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 
 export interface ActualManuscriptNode extends ManuscriptNode {
-  attrs: {
-    id: string
-    doi: string
-    articleType: string
-    prototype: string
-    primaryLanguageCode: string
-  }
+  attrs: ManuscriptAttrs
+}
+
+export interface ManuscriptAttrs {
+  id: string
+  doi: string
+  articleType: string
+  prototype: string
+  primaryLanguageCode: string
 }
 
 // The direct children of this node do not have a json-schema representation

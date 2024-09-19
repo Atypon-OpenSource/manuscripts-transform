@@ -51,7 +51,10 @@ const parseJATSFront = (doc: Document, front: Element, template?: string) => {
 
   jatsFrontTransformations.setArticleAttrs(doc, template)
 
-  const authorNotes = jatsFrontTransformations.createAuthorNotes(doc)
+  const authorNotes = jatsFrontTransformations.createAuthorNotes(
+    doc,
+    createElement
+  )
   if (authorNotes) {
     doc.documentElement.prepend(authorNotes)
   }
