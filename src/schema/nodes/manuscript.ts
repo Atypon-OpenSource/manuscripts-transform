@@ -33,7 +33,7 @@ export interface ActualManuscriptNode extends ManuscriptNode {
 
 export const manuscript: NodeSpec = {
   content:
-    'title? awards? contributors? affiliations? author_notes? keywords? supplements? abstracts body backmatter comments',
+    'title? contributors? affiliations? author_notes? awards? keywords? supplements? abstracts body backmatter comments',
   attrs: {
     id: { default: '' },
     doi: { default: '' },
