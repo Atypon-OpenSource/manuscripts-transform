@@ -15,11 +15,10 @@
  */
 
 import { BibliographicName, ObjectTypes } from '@manuscripts/json-schema'
-import { getTrimmedTextContent } from 'migration-base'
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
-import { timestamp } from '../../lib/utils'
+import { getTrimmedTextContent, timestamp } from '../../lib/utils'
 import {
   ContributorCorresp,
   ContributorFootnote,

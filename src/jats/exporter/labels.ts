@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 
-import { ManuscriptNode } from 'migration-base'
-
-import { ManuscriptFragment, ManuscriptNodeType, schema } from '../../schema'
+import {
+  ManuscriptFragment,
+  ManuscriptNode,
+  ManuscriptNodeType,
+  schema,
+} from '../../schema'
 import { nodeNames } from '../../transformer/node-names'
 
 export interface Target {
