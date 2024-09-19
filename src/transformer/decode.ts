@@ -744,6 +744,7 @@ export class Decoder {
 
       const nestedSections = getSections(this.modelMap)
         .filter(hasParentSection(model._id))
+        .filter((s) => s.category !== 'MPSectionCategory:box-element')
         .map(this.creators[ObjectTypes.Section]) as ManuscriptNode[]
 
       const sectionCategory = model.category || guessSectionCategory(elements)
