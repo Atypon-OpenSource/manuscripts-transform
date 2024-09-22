@@ -15,10 +15,9 @@
  */
 
 import { ObjectTypes } from '@manuscripts/json-schema'
-import { NodeSpec } from 'prosemirror-model'
 
 import { buildElementClass } from '../../lib/attributes'
-import { ManuscriptNode } from '../types'
+import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
 
 interface Attrs {
   id: string
@@ -30,7 +29,8 @@ export interface BlockquoteElementNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const blockquoteElement: NodeSpec = {
+export const blockquoteElement: ManuscriptNodeSpec = {
+  name: 'Blockquote',
   content: 'paragraph+ attribution',
   attrs: {
     id: { default: '' },

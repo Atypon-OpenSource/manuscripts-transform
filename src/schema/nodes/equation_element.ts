@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
 
 interface Attrs {
   id: string
@@ -27,7 +25,8 @@ export interface EquationElementNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const equationElement: NodeSpec = {
+export const equationElement: ManuscriptNodeSpec = {
+  name: 'Equation',
   content: '(equation | placeholder)',
   attrs: {
     id: { default: '' },

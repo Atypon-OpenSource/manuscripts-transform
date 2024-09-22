@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
 
 interface Attrs {
   id: string
@@ -28,7 +26,8 @@ export interface InlineEquationNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const inlineEquation: NodeSpec = {
+export const inlineEquation: ManuscriptNodeSpec = {
+  name: 'Inline equation',
   attrs: {
     dataTracked: { default: null },
     id: { default: '' },

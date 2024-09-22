@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
 
 interface Attrs {
   rids: string[]
@@ -28,7 +26,8 @@ export interface CrossReferenceNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const crossReference: NodeSpec = {
+export const crossReference: ManuscriptNodeSpec = {
+  name: 'Cross reference',
   inline: true,
   group: 'inline',
   draggable: true,

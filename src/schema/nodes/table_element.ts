@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
 
 interface Attrs {
   id: string
@@ -34,7 +32,8 @@ export interface TableElementNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const tableElement: NodeSpec = {
+export const tableElement: ManuscriptNodeSpec = {
+  name: 'Table',
   content:
     ' figcaption? (table | placeholder) table_colgroup? table_element_footer? (listing | placeholder)',
   attrs: {
