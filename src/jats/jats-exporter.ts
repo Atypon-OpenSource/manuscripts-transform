@@ -902,6 +902,8 @@ export class JATSExporter {
       id ? (this.modelMap.get(id) as T | undefined) : undefined
 
     const nodes: NodeSpecs = {
+      award: () => '',
+      awards: () => '',
       box_element: (node) => createBoxElement(node),
       author_notes: () => '',
       corresp: () => '',
