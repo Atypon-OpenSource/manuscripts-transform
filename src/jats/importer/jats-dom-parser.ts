@@ -286,7 +286,6 @@ const nodes: NodeRule[] = [
       return Fragment.from(schema.text('_'))
     },
   },
-
   {
     tag: 'affiliations',
     node: 'affiliations',

@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,21 +20,33 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  placeholder: string
+  recipient: string
+  code: string
+  source: string
 }
 
-export interface TitleNode extends ManuscriptNode {
+export interface AwardNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const title: NodeSpec = {
-  content: '(text | highlight_marker)*',
+export const award: NodeSpec = {
   attrs: {
     id: { default: '' },
-    placeholder: { default: 'Insert title here...' },
+    recipient: { default: undefined },
+    code: { default: undefined },
+    source: { default: undefined },
     dataTracked: { default: null },
   },
-  group: 'block element',
-  parseDOM: [{ tag: 'div' }],
-  toDOM: () => ['div', 0],
+  toDOM: (node) => {
+    return [
+      'div',
+      {
+        class: 'award',
+        id: node.attrs.id,
+      },
+    ]
+  },
 }
+
+export const isAwardNode = (node: ManuscriptNode): node is AwardNode =>
+  node.type === node.type.schema.nodes.award

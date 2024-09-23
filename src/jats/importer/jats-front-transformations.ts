@@ -77,7 +77,7 @@ export const jatsFrontTransformations = {
       el.setAttribute('priority', priority.toString())
       contributors.appendChild(el)
     })
-    return contributors
+    return contributors.childNodes.length > 0 ? contributors : null
   },
   createAffiliations(
     front: Element,
@@ -85,14 +85,14 @@ export const jatsFrontTransformations = {
   ) {
     const affiliations = createElement('affiliations')
 
-    const affiliationsElement = front.querySelectorAll(
+    const affiliationsElements = front.querySelectorAll(
       'article-meta > contrib-group > aff'
     )
-    affiliationsElement.forEach((el, priority) => {
+    affiliationsElements.forEach((el, priority) => {
       el.setAttribute('priority', priority.toString())
       affiliations.appendChild(el)
     })
 
-    return affiliations
+    return affiliations.childNodes.length > 0 ? affiliations : null
   },
 }
