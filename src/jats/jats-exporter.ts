@@ -904,7 +904,7 @@ export class JATSExporter {
     const nodes: NodeSpecs = {
       award: () => '',
       awards: () => '',
-      box_element: () => ['boxed-text', 0],
+      box_element: (node) => createBoxElement(node),
       author_notes: () => '',
       corresp: () => '',
       title: () => '',
@@ -1328,6 +1328,13 @@ export class JATSExporter {
       }
 
       element.appendChild(table)
+    }
+    const createBoxElement = (node: ManuscriptNode) => {
+      const element = createElement(node, 'boxed-text')
+      appendLabels(element, node)
+      appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
+      processChildNodes(element, node, node.type.schema.nodes.section)
+      return element
     }
     const createFigureElement = (
       node: ManuscriptNode,
