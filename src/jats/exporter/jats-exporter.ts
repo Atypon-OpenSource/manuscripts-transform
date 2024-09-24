@@ -154,6 +154,7 @@ export type CSLOptions = {
 export type ExportOptions = {
   version?: Version
   journal?: Journal
+  idGenerator: IDGenerator,
   csl: CSLOptions
 }
 export const buildCitations = (citations: CitationNode[]) =>
@@ -270,7 +271,7 @@ export class JATSExporter {
     this.fillEmptyTableFooters(article)
     this.fillEmptyFootnotes(article)
 
-    await this.rewriteIDs()
+    await this.rewriteIDs(options.idGenerator)
     return serializeToXML(this.document)
   }
 
@@ -771,11 +772,7 @@ export class JATSExporter {
       backmatter: () => ['backmatter', 0],
       supplement: () => '',
       supplements: () => '',
-      bibliography_section: (node) => [
-        'ref-list',
-        { id: normalizeID(node.attrs.id) },
-        0,
-      ],
+      bibliography_section: () => '',
       blockquote_element: () => ['disp-quote', { 'content-type': 'quote' }, 0],
       list: (node) => [
         'list',

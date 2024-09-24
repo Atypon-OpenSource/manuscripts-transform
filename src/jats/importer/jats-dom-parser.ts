@@ -716,6 +716,7 @@ const nodes: NodeRule[] = [
           _id: author.getAttribute('id') || '',
           given: author.getAttribute('given') || '',
           family: author.getAttribute('family') || '',
+          literal: author.getAttribute('literal') || undefined,
           objectType: 'MPBibliographicName',
         })
       })
@@ -739,7 +740,7 @@ const nodes: NodeRule[] = [
         literal: element.getAttribute('literal'),
         author: authors,
         issued,
-        DOI: element.getAttribute('DOI'),
+        doi: element.getAttribute('DOI'),
       }
     },
   },

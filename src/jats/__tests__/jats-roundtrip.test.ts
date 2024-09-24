@@ -14,16 +14,13 @@
  * limitations under the License.
  */
 
-import { Model } from '@manuscripts/json-schema'
+import { Journal } from '@manuscripts/json-schema'
 import { parseXml } from 'libxmljs2'
-import mime from 'mime'
 
 import { getTrimmedTextContent } from '../../lib/utils'
-import { findManuscript } from '../../transformer'
-import { Decoder } from '../../transformer/decode'
-import { IDGenerator, MediaPathGenerator } from '../types'
 import { createCounter, JATSExporter } from '../exporter/jats-exporter'
-import { parseJATSArticle } from '../importer'
+import { parseJATSArticle } from '../importer/parse-jats-article'
+import { IDGenerator } from '../types'
 import { DEFAULT_CSL_OPTIONS } from './citations'
 import { readFixture } from './files'
 
@@ -85,66 +82,23 @@ const idGenerator = (doc: Document): IDGenerator => {
   }
 }
 
-const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
-
-const mediaPathGenerator: MediaPathGenerator = async (element, parentID) => {
-  const href = element.getAttributeNS(XLINK_NAMESPACE, 'href')
-
-  if (href) {
-    const extension = href.split('.').pop()
-
-    if (extension) {
-      return `${parentID}.${extension}`
-    }
-  }
-
-  const mimetype = element.getAttribute('mime-type')
-  const mimeSubtype = element.getAttribute('mime-subtype')
-
-  if (mimetype && mimeSubtype) {
-    const extension = mime.getExtension(`${mimetype}/${mimeSubtype}`)
-
-    if (extension) {
-      return `${parentID}.${extension}`
-    }
-  }
-
-  return parentID // TODO: default extension?
-}
-
 const roundtrip = async (filename: string) => {
   const input = await readFixture(filename)
   const doc = new DOMParser().parseFromString(input, 'application/xml')
 
-  const models = parseJATSArticle(doc)
+  const { node, journal } = parseJATSArticle(doc)
 
-  const modelMap = new Map<string, Model>()
-
-  for (const model of models) {
-    modelMap.set(model._id, model)
-  }
-
-  const manuscript = findManuscript(modelMap)
-
-  const decoder = new Decoder(modelMap)
-  const article = decoder.createArticleNode(manuscript._id)
   const exporter = new JATSExporter()
-  return await exporter.serializeToJATS(
-    article.content,
-    modelMap,
-    manuscript._id,
-    {
-      version: '1.2',
-      idGenerator: idGenerator(doc),
-      mediaPathGenerator,
-      csl: DEFAULT_CSL_OPTIONS,
-    }
-  )
+  return await exporter.serializeToJATS(node, {
+    journal: journal as Journal,
+    csl: DEFAULT_CSL_OPTIONS,
+    idGenerator: idGenerator(doc),
+  })
 }
 
 describe('JATS roundtrip', () => {
   test('jats-import.xml roundtrip', async () => {
-    const jats = await roundtrip('jats-example-full.xml')
+    const jats = await roundtrip('jats-import.xml')
     expect(jats).toMatchSnapshot()
 
     const doc = parseXMLWithDTD(jats)

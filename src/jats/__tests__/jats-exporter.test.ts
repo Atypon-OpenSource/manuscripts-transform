@@ -14,12 +14,6 @@
  * limitations under the License.
  */
 
-import {
-  ParagraphElement,
-  Section,
-  Supplement,
-  Table,
-} from '@manuscripts/json-schema'
 import { Element as XMLElement, parseXml } from 'libxmljs2'
 
 import { JATSExporter } from '../exporter/jats-exporter'
@@ -27,7 +21,6 @@ import { Version } from '../exporter/jats-versions'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { DEFAULT_CSL_OPTIONS } from './citations'
 import { readAndParseFixture } from './files'
-import { getDocFromModelMap, getModelMapFromXML } from './utils'
 
 const parseXMLWithDTD = (data: string) =>
   parseXml(data, {

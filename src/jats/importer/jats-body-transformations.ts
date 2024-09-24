@@ -460,6 +460,7 @@ export const jatsBodyTransformations = {
       authorElement.setAttribute('id', author._id)
       authorElement.setAttribute('family', author.family || '')
       authorElement.setAttribute('given', author.given || '')
+      authorElement.setAttribute('literal', author.literal || '')
       bibliographyItem.appendChild(authorElement)
     })
 
@@ -475,7 +476,7 @@ export const jatsBodyTransformations = {
     }
 
     if (item.containerTitle) {
-      bibliographyItem.setAttribute('containerTitle', item.containerTitle)
+      bibliographyItem.setAttribute('container-title', item.containerTitle)
     }
     if (item.volume) {
       bibliographyItem.setAttribute('volume', item.volume.toString())
