@@ -523,6 +523,10 @@ const nodes: NodeRule[] = [
     ignore: true,
   },
   {
+    tag: 'boxed-text',
+    ignore: true,
+  },
+  {
     tag: 'label',
     context: 'section/',
     node: 'section_label',
