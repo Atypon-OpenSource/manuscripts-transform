@@ -14,7 +14,12 @@
  * limitations under the License.
  */
 
-import { BibliographicName, ObjectTypes } from '@manuscripts/json-schema'
+import {
+  BibliographicName,
+  buildBibliographicDate,
+  buildBibliographicName,
+  ObjectTypes,
+} from '@manuscripts/json-schema'
 
 import { getTrimmedTextContent } from '../../lib/utils'
 import { BibliographyItemAttrs } from '../../schema'
@@ -107,11 +112,9 @@ export const jatsReferenceParser = {
       const year = getTrimmedTextContent(element, 'year')
 
       if (year) {
-        bibliographyItem.issued = {
+        bibliographyItem.issued = buildBibliographicDate({
           'date-parts': [[year]],
-          _id: generateID(ObjectTypes.BibliographicDate),
-          objectType: ObjectTypes.BibliographicDate,
-        }
+        })
       }
 
       const doi = getTrimmedTextContent(element, 'pub-id[pub-id-type="doi"]')
@@ -123,10 +126,7 @@ export const jatsReferenceParser = {
       const authors: BibliographicName[] = []
 
       authorNodes.forEach((authorNode) => {
-        const name: BibliographicName = {
-          _id: generateID(ObjectTypes.BibliographicName),
-          objectType: ObjectTypes.BibliographicName,
-        }
+        const name = buildBibliographicName({})
         const given = getTrimmedTextContent(authorNode, 'given-names')
         if (given) {
           name.given = given

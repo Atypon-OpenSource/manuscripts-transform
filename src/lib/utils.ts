@@ -98,18 +98,3 @@ export const getTrimmedTextContent = (
 }
 
 export const timestamp = () => Math.floor(Date.now() / 1000)
-
-export const generateAttachmentFilename = (
-  id: string,
-  contentType?: string
-) => {
-  const basename = id.replace(':', '_')
-
-  if (!contentType) {
-    return basename
-  }
-
-  const [, mimeSubType] = contentType.split('/')
-
-  return `${basename}.${mimeSubType}`
-}

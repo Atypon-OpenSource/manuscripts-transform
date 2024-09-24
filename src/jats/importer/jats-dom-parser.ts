@@ -81,6 +81,36 @@ const getEquationContent = (p: string | HTMLElement) => {
   return { id, format, contents }
 }
 
+const getEmail = (element: HTMLElement) => {
+  const email = element.querySelector('email')
+  if (email) {
+    return {
+      href: email.getAttributeNS(XLINK_NAMESPACE, 'href') ?? '',
+      text: email.textContent?.trim() ?? '',
+    }
+  }
+}
+const getInstitutionDetails = (element: HTMLElement) => {
+  let department = ''
+  let institution = ''
+  for (const node of element.querySelectorAll('institution')) {
+    const content = node.textContent?.trim()
+    if (!content) {
+      continue
+    }
+    const type = node.getAttribute('content-type')
+    if (type === 'dept') {
+      department = content
+    } else {
+      institution = content
+    }
+  }
+  return { department, institution }
+}
+const getAddressLine = (element: HTMLElement, index: number) => {
+  return getTrimmedTextContent(element, `addr-line:nth-of-type(${index})`) || ''
+}
+
 export type MarkRule = ParseRule & { mark: Marks | null }
 
 const marks: MarkRule[] = [
@@ -296,38 +326,6 @@ const nodes: NodeRule[] = [
     context: 'affiliations/',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const getEmail = (element: HTMLElement) => {
-        const email = element.querySelector('email')
-        if (email) {
-          return {
-            href: email.getAttributeNS(XLINK_NAMESPACE, 'href') ?? '',
-            text: email.textContent?.trim() ?? '',
-          }
-        }
-      }
-      const getInstitutionDetails = (element: HTMLElement) => {
-        let department = ''
-        let institution = ''
-        for (const node of element.querySelectorAll('institution')) {
-          const content = node.textContent?.trim()
-          if (!content) {
-            continue
-          }
-          const type = node.getAttribute('content-type')
-          if (type === 'dept') {
-            department = content
-          } else {
-            institution = content
-          }
-        }
-        return { department, institution }
-      }
-      const getAddressLine = (element: HTMLElement, index: number) => {
-        return (
-          getTrimmedTextContent(element, `addr-line:nth-of-type(${index})`) ||
-          ''
-        )
-      }
 
       const { department, institution } = getInstitutionDetails(element)
 
@@ -692,6 +690,10 @@ const nodes: NodeRule[] = [
   {
     tag: 'sec[sec-type="backmatter"]',
     node: 'backmatter',
+  },
+  {
+    tag: 'sec[sec-type="bibliography"]',
+    node: 'bibliography_section',
   },
   {
     tag: 'bibliography-element',

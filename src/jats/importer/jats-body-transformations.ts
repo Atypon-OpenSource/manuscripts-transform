@@ -441,7 +441,7 @@ export const jatsBodyTransformations = {
   },
   createBibliographySection(createElement: (tagName: string) => HTMLElement) {
     const section = createElement('sec')
-    section.setAttribute('sec-type', 'bibliography_section')
+    section.setAttribute('sec-type', 'bibliography')
     const title = createElement('title')
     title.textContent = 'References'
     section.appendChild(title)

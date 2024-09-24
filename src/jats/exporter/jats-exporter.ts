@@ -31,7 +31,6 @@ import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { nodeFromHTML, textFromHTML } from '../../lib/html'
-import { generateAttachmentFilename } from '../../lib/utils'
 import {
   AuthorNotesNode,
   CitationNode,
@@ -1239,45 +1238,6 @@ export class JATSExporter {
           code.setAttribute('language', languageKey)
           code.textContent = contents
           listing.appendChild(code)
-
-          // TODO: something more appropriate than "caption"?
-          const caption = this.document.createElement('caption')
-          listing.appendChild(caption)
-
-          // TODO: real data
-          const attachments: Array<{ id: string; type: string }> = []
-
-          for (const attachment of attachments) {
-            const p = this.document.createElement('p')
-            caption.appendChild(p)
-
-            const filename = generateAttachmentFilename(
-              `${listingNode.attrs.id}:${attachment.id}`,
-              attachment.type
-            )
-
-            const supp = this.document.createElement('supplementary-material')
-
-            supp.setAttributeNS(
-              XLINK_NAMESPACE,
-              'xlink:href',
-              `suppl/${filename}`
-            )
-
-            const [mimeType, mimeSubType] = attachment.type.split('/')
-
-            if (mimeType) {
-              supp.setAttribute('mimetype', mimeType)
-
-              if (mimeSubType) {
-                supp.setAttribute('mime-subtype', mimeSubType)
-              }
-            }
-
-            // TODO: might need title, length, etc for data files
-
-            p.appendChild(supp)
-          }
         }
       }
     }
