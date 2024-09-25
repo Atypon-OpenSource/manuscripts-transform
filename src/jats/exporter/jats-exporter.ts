@@ -154,7 +154,6 @@ export type CSLOptions = {
 export type ExportOptions = {
   version?: Version
   journal?: Journal
-  idGenerator: IDGenerator
   csl: CSLOptions
 }
 export const buildCitations = (citations: CitationNode[]) =>
@@ -271,7 +270,7 @@ export class JATSExporter {
     this.fillEmptyTableFooters(article)
     this.fillEmptyFootnotes(article)
 
-    await this.rewriteIDs(options.idGenerator)
+    await this.rewriteIDs()
     return serializeToXML(this.document)
   }
 

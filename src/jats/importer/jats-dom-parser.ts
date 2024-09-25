@@ -34,7 +34,7 @@ import {
   Nodes,
   schema,
 } from '../../schema'
-import { chooseSectionCategory, generateID } from '../../transformer'
+import { chooseSectionCategory } from '../../transformer'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
@@ -294,7 +294,7 @@ const nodes: NodeRule[] = [
   },
 
   {
-    tag: 'article-title',
+    tag: 'article-meta > title-group > article-title',
     node: 'title',
     getAttrs: (node) => {
       const element = node as HTMLElement
@@ -416,7 +416,6 @@ const nodes: NodeRule[] = [
           given: getTrimmedTextContent(element, 'name > given-names'),
           family: getTrimmedTextContent(element, 'name > surname'),
           ObjectType: ObjectTypes.BibliographicName,
-          _id: generateID(ObjectTypes.BibliographicName),
         },
         ORCIDIdentifier: getTrimmedTextContent(
           element,

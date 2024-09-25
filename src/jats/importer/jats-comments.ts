@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-import { ObjectTypes } from '@manuscripts/json-schema'
-
-import { generateID } from '../../transformer'
+import { schema } from '../../schema'
+import { generateNodeID } from '../../transformer'
 
 export const DEFAULT_PROFILE_ID =
   'MPUserProfile:0000000000000000000000000000000000000001'
@@ -32,7 +31,7 @@ const parseJATSComment = (node: Node): string | undefined => {
   const text = node.textContent
   if (text) {
     const queryText = /queryText="(.+)"/.exec(text)
-    return queryText && queryText[1]
+    return (queryText && queryText[1]) || undefined
   }
 }
 
@@ -46,7 +45,7 @@ export const markComments = (doc: Document) => {
       if (isJATSComment(node)) {
         const text = parseJATSComment(node)
         if (text) {
-          const id = generateID(ObjectTypes.CommentAnnotation)
+          const id = generateNodeID(schema.nodes.comment)
           const parent = node.parentNode as Element
           if (parent) {
             //todo
