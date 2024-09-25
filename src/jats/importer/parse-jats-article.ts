@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { InvalidInput } from '../../errors'
 import { ManuscriptNode } from '../../schema'
 import { jatsBodyTransformations } from './jats-body-transformations'
 import { markComments } from './jats-comments'
@@ -22,15 +21,14 @@ import { jatsDOMParser } from './jats-dom-parser'
 import { jatsFrontTransformations } from './jats-front-transformations'
 import { parseJournal } from './jats-journal-meta-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
-import { jatsReferenceParser } from './jats-reference-parser'
-import { References } from './jats-references'
 
-const parseJATSBody = (
-  doc: Document,
-  body: Element,
-  references: References | undefined
-) => {
+const parseJATSBody = (doc: Document) => {
   const createElement = createElementFn(doc)
+  const body = doc.querySelector('body')
+  if (!body) {
+    return
+  }
+
   jatsBodyTransformations.ensureSection(body, createElement)
   jatsBodyTransformations.moveCaptionsToEnd(body)
   jatsBodyTransformations.fixTables(body, createElement)
@@ -40,14 +38,20 @@ const parseJATSBody = (
   jatsBodyTransformations.createSuppleMaterials(doc, body, createElement)
   jatsBodyTransformations.createKeywords(doc, body, createElement)
   jatsBodyTransformations.orderTableFootnote(doc, body)
-  jatsBodyTransformations.moveReferencesToBackmatter(
-    body,
-    references,
-    createElement
-  )
+
+  const back = doc.querySelector('back')
+  if (!back) {
+    return
+  }
+
+  jatsBodyTransformations.moveReferencesToBackmatter(body, back, createElement)
 }
-const parseJATSFront = (doc: Document, front: Element, template?: string) => {
+const parseJATSFront = (doc: Document, template?: string) => {
   const createElement = createElementFn(doc)
+  const front = doc.querySelector('front')
+  if (!front) {
+    return
+  }
 
   jatsFrontTransformations.setArticleAttrs(doc, template)
 
@@ -82,33 +86,15 @@ const createElementFn = (doc: Document) => (tagName: string) =>
   doc.createElement(tagName)
 
 export const parseJATSArticle = (doc: Document, template?: string) => {
-  const article = doc.querySelector('article')
-  const front = doc.querySelector('front')
-  const body = doc.querySelector('body')
-  const back = doc.querySelector('back')
-  if (!article || !front) {
-    throw new InvalidInput('invalid JATS format')
-  }
   markComments(doc)
-  const journal = parseJournal(front.querySelector('journal-meta'))
-  const createElement = createElementFn(doc)
-  let references
-  if (back) {
-    references = jatsReferenceParser.parseReferences(
-      [...back.querySelectorAll('ref-list > ref')],
-      createElement
-    )
-  }
-  const replacements = new Map<string, string>(references?.IDs)
-  parseJATSFront(doc, front, template)
-  if (body) {
-    parseJATSBody(doc, body, references)
-  }
+  const journal = parseJournal(doc)
+  parseJATSFront(doc, template)
+  parseJATSBody(doc)
   const node = jatsDOMParser.parse(doc).firstChild
   if (!node) {
     throw new Error('No content was parsed from the JATS article body')
   }
-  updateDocumentIDs(node, replacements)
+  updateDocumentIDs(node)
   return {
     node: node as ManuscriptNode,
     journal,

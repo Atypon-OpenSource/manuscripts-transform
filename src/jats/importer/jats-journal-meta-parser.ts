@@ -126,8 +126,12 @@ export const parseJournalMeta = (element: Element | null) => {
   }
 }
 
-export const parseJournal = (element: Element | null) => {
-  const meta = parseJournalMeta(element)
+export const parseJournal = (doc: Document) => {
+  const journalMeta = doc.querySelector('journal-meta')
+  if (!journalMeta) {
+    return
+  }
+  const meta = parseJournalMeta(journalMeta)
   return {
     ...meta,
     _id: generateID(ObjectTypes.Journal),

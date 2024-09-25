@@ -18,56 +18,48 @@ import { ObjectTypes } from '@manuscripts/json-schema'
 
 import { generateID } from '../../transformer'
 
-export type JATSComment = {
-  index: number
-  text: string
-  id: string
-}
-
 export const DEFAULT_PROFILE_ID =
   'MPUserProfile:0000000000000000000000000000000000000001'
 
-export const isJATSComment = (node: Node) => {
+const isJATSComment = (node: Node) => {
   return (
     node.nodeType === node.PROCESSING_INSTRUCTION_NODE &&
     node.nodeName === 'AuthorQuery'
   )
 }
 
-export const parseJATSComment = (node: Node): JATSComment | undefined => {
+const parseJATSComment = (node: Node): string | undefined => {
   const text = node.textContent
   if (text) {
     const queryText = /queryText="(.+)"/.exec(text)
-    if (queryText) {
-      const parentNode = node.parentNode as Element
-      const index = parentNode.outerHTML.indexOf(queryText[1])
-      return {
-        id: generateID(ObjectTypes.CommentAnnotation),
-        text: queryText[1],
-        index,
-      }
-    }
+    return queryText && queryText[1]
   }
 }
 
 export const markComments = (doc: Document) => {
-  const root = doc.getRootNode()
-  const queue: Node[] = [root]
-  const commentsElement = doc.createElement('comments-annotations')
+  const root = doc.getRootNode() as Element
+  const queue: Element[] = [root]
+  const commentsElement = doc.createElement('comments')
   while (queue.length !== 0) {
     const node = queue.shift()
     if (node) {
       if (isJATSComment(node)) {
-        const comment = parseJATSComment(node)
-        if (comment) {
-          const highlightMarker = createHighlightMarkerElement(doc, comment.id)
-          node.parentNode?.insertBefore(highlightMarker, node)
-          const commentElement = createCommentElement(doc, comment)
-          commentsElement.appendChild(commentElement)
+        const text = parseJATSComment(node)
+        if (text) {
+          const id = generateID(ObjectTypes.CommentAnnotation)
+          const parent = node.parentNode as Element
+          if (parent) {
+            //todo
+            const marker = createHighlightMarkerElement(doc, id)
+            parent.insertBefore(marker, node)
+            const targetID = parent.id
+            const commentElement = createCommentElement(doc, id, targetID, text)
+            commentsElement.appendChild(commentElement)
+          }
         }
       }
       node.childNodes.forEach((child) => {
-        queue.push(child)
+        queue.push(child as Element)
       })
     }
   }
@@ -84,9 +76,17 @@ const createHighlightMarkerElement = (doc: Document, id: string) => {
   return highlightMarker
 }
 
-const createCommentElement = (doc: Document, comment: JATSComment) => {
-  const commentElement = doc.createElement('comment-annotation')
-  commentElement.setAttribute('id', comment.id)
-  commentElement.textContent = comment.text
+const createCommentElement = (
+  doc: Document,
+  id: string,
+  targetID: string | undefined,
+  text: string
+) => {
+  const commentElement = doc.createElement('comment')
+  commentElement.setAttribute('id', id)
+  if (targetID) {
+    commentElement.setAttribute('target-id', targetID)
+  }
+  commentElement.textContent = text
   return commentElement
 }

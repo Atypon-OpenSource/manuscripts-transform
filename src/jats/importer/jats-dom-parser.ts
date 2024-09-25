@@ -14,12 +14,19 @@
  * limitations under the License.
  */
 
-import { BibliographicName, ObjectTypes } from '@manuscripts/json-schema'
+import {
+  BibliographicName,
+  buildBibliographicDate,
+  buildBibliographicName,
+  buildContribution,
+  ObjectTypes,
+} from '@manuscripts/json-schema'
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
-import { getTrimmedTextContent, timestamp } from '../../lib/utils'
+import { getTrimmedTextContent } from '../../lib/utils'
 import {
+  BibliographyItemAttrs,
   ContributorCorresp,
   ContributorFootnote,
   ManuscriptNode,
@@ -111,6 +118,119 @@ const getAddressLine = (element: HTMLElement, index: number) => {
   return getTrimmedTextContent(element, `addr-line:nth-of-type(${index})`) || ''
 }
 
+const chooseBibliographyItemType = (publicationType: string | null) => {
+  switch (publicationType) {
+    case 'book':
+    case 'thesis':
+      return publicationType
+    case 'journal':
+    default:
+      return 'article-journal'
+  }
+}
+
+const parseRef = (element: Element) => {
+  const publicationType = element.getAttribute('publication-type')
+
+  const authorNodes = [
+    ...element.querySelectorAll('person-group[person-group-type="author"] > *'),
+  ]
+
+  const id = element.id
+
+  const attrs: BibliographyItemAttrs = {
+    id,
+    type: chooseBibliographyItemType(publicationType),
+  }
+  const titleNode = element.querySelector('article-title')
+  if (titleNode) {
+    attrs.title = titleNode.textContent || ''
+  }
+
+  const mixedCitation = element.querySelector('mixed-citation')
+
+  if (authorNodes.length <= 0) {
+    mixedCitation?.childNodes.forEach((item) => {
+      if (
+        item.nodeType === Node.TEXT_NODE &&
+        item.textContent?.match(/[A-Za-z]+/g)
+      ) {
+        attrs.literal = mixedCitation.textContent?.trim() ?? ''
+        return attrs
+      }
+    })
+  }
+  const source = getTrimmedTextContent(element, 'source')
+
+  if (source) {
+    attrs.containerTitle = source
+  }
+
+  const volume = getTrimmedTextContent(element, 'volume')
+  if (volume) {
+    attrs.volume = volume
+  }
+
+  const issue = getTrimmedTextContent(element, 'issue')
+
+  if (issue) {
+    attrs.issue = issue
+  }
+
+  const supplement = getTrimmedTextContent(element, 'supplement')
+
+  if (supplement) {
+    attrs.supplement = supplement
+  }
+
+  const fpage = getTrimmedTextContent(element, 'fpage')
+
+  const lpage = getTrimmedTextContent(element, 'lpage')
+
+  if (fpage) {
+    attrs.page = lpage ? `${fpage}-${lpage}` : fpage
+  }
+
+  const year = getTrimmedTextContent(element, 'year')
+
+  if (year) {
+    attrs.issued = buildBibliographicDate({
+      'date-parts': [[year]],
+    })
+  }
+
+  const doi = getTrimmedTextContent(element, 'pub-id[pub-id-type="doi"]')
+
+  if (doi) {
+    attrs.doi = doi
+  }
+
+  const authors: BibliographicName[] = []
+
+  authorNodes.forEach((authorNode) => {
+    const name = buildBibliographicName({})
+    const given = getTrimmedTextContent(authorNode, 'given-names')
+    if (given) {
+      name.given = given
+    }
+    const family = getTrimmedTextContent(authorNode, 'surname')
+
+    if (family) {
+      name.family = family
+    }
+
+    if (authorNode.nodeName === 'collab') {
+      name.literal = authorNode.textContent?.trim()
+    }
+    authors.push(name)
+  })
+
+  if (authors.length) {
+    attrs.author = authors
+  }
+  return attrs
+}
+
 export type MarkRule = ParseRule & { mark: Marks | null }
 
 const marks: MarkRule[] = [
@@ -188,29 +308,22 @@ const nodes: NodeRule[] = [
     node: 'highlight_marker',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const id = element.getAttribute('id')
       return {
-        id: id,
-        position: element.getAttribute('position') ?? '',
+        id: element.id,
+        position: element.getAttribute('position'),
       }
     },
   },
   {
-    tag: 'comment-annotation',
+    tag: 'comment',
     node: 'comment',
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
         id: element.getAttribute('id'),
+        target: element.getAttribute('target-id'),
         contents: element.textContent,
-        contributions: [
-          {
-            _id: generateID(ObjectTypes.Contribution),
-            objecType: ObjectTypes.Contribution,
-            profileID: DEFAULT_PROFILE_ID,
-            timestamp: timestamp(),
-          },
-        ],
+        contributions: [buildContribution(DEFAULT_PROFILE_ID)],
       }
     },
   },
@@ -696,53 +809,15 @@ const nodes: NodeRule[] = [
     node: 'bibliography_section',
   },
   {
-    tag: 'bibliography-element',
+    tag: 'ref-list',
+    context: 'bibliography_section/',
     node: 'bibliography_element',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-      return {
-        id: element.getAttribute('id'),
-      }
-    },
   },
   {
-    tag: 'bibliography-item',
+    tag: 'ref',
+    context: 'bibliography_element/',
     node: 'bibliography_item',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-      const authors: BibliographicName[] = []
-      element.querySelectorAll('author').forEach((author) => {
-        authors.push({
-          _id: author.getAttribute('id') || '',
-          given: author.getAttribute('given') || '',
-          family: author.getAttribute('family') || '',
-          literal: author.getAttribute('literal') || undefined,
-          objectType: 'MPBibliographicName',
-        })
-      })
-      const issuedEl = element.querySelector('issued')
-      const issued = issuedEl
-        ? {
-            objectType: 'MPBibliographicDate',
-            _id: issuedEl.getAttribute('id'),
-            'date-parts': [[issuedEl.getAttribute('year')]],
-          }
-        : undefined
-      return {
-        id: element.getAttribute('id'),
-        type: element.getAttribute('type'),
-        containerTitle: element.getAttribute('container-title'),
-        volume: element.getAttribute('volume'),
-        issue: element.getAttribute('issue'),
-        supplement: element.getAttribute('supplement'),
-        page: element.getAttribute('page'),
-        title: element.getAttribute('title'),
-        literal: element.getAttribute('literal'),
-        author: authors,
-        issued,
-        doi: element.getAttribute('DOI'),
-      }
-    },
+    getAttrs: (node) => parseRef(node as Element),
   },
   {
     tag: 'sec',

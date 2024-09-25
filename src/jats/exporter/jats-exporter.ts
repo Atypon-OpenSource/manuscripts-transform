@@ -154,7 +154,7 @@ export type CSLOptions = {
 export type ExportOptions = {
   version?: Version
   journal?: Journal
-  idGenerator: IDGenerator,
+  idGenerator: IDGenerator
   csl: CSLOptions
 }
 export const buildCitations = (citations: CitationNode[]) =>

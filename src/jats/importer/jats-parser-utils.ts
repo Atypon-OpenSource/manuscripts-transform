@@ -24,19 +24,17 @@ import {
 } from '../../schema'
 import { generateID, nodeTypesMap } from '../../transformer'
 
-export const updateDocumentIDs = (
-  node: ManuscriptNode,
-  replacements: Map<string, string>
-) => {
+export const updateDocumentIDs = (node: ManuscriptNode) => {
+  const replacements = new Map()
   const warnings: string[] = []
-  const highlightNodes: ManuscriptNode[] = []
 
-  recurseDoc(node, (n, parent) =>
-    updateNodeID(n, parent, replacements, warnings, highlightNodes)
-  )
+  recurseDoc(node, (n) => updateNodeID(n, replacements, warnings))
+  addTargetToHighlightComments(node)
   recurseDoc(node, (n) => updateNodeRID(n, replacements, warnings))
   recurseDoc(node, (n) => updateNodeRIDS(n, replacements, warnings))
   recurseDoc(node, (n) => updateContributorNodesIDS(n, replacements, warnings))
+  recurseDoc(node, (n) => updateCommentTarget(n, replacements, warnings))
+
 
   return warnings
 }
@@ -46,13 +44,9 @@ export const updateDocumentIDs = (
  * @param node
  * @param fn
  */
-function recurseDoc(
-  node: ManuscriptNode,
-  fn: (n: ManuscriptNode, parent: ManuscriptNode | null) => void,
-  parent: ManuscriptNode | null = null
-) {
-  fn(node, parent)
-  node.descendants((n, pos, parent) => fn(n, parent))
+const recurseDoc = (node: ManuscriptNode, fn: (n: ManuscriptNode) => void) => {
+  fn(node)
+  node.descendants((n) => fn(n))
 }
 
 /**
@@ -60,40 +54,14 @@ function recurseDoc(
  */
 const updateNodeID = (
   node: ManuscriptNode,
-  parent: ManuscriptNode | null,
   replacements: Map<string, string>,
   warnings: string[],
-  highlightNodes: ManuscriptNode[]
 ) => {
   if (node.type === schema.nodes.inline_equation) {
     // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
     node.attrs = {
       ...node.attrs,
       id: `InlineMathFragment:${uuidv4()}`,
-    }
-    return
-  }
-
-  if (node.type === schema.nodes.highlight_marker) {
-    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-    node.attrs = {
-      ...node.attrs,
-      tid: parent?.attrs.id,
-    }
-    highlightNodes.push(node)
-    return
-  }
-
-  if (node.type === schema.nodes.comment) {
-    const highlightNode = highlightNodes.find(
-      (n) => n.attrs.id === node.attrs.id
-    )
-    if (highlightNode) {
-      // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-      node.attrs = {
-        ...node.attrs,
-        target: highlightNode.attrs.tid,
-      }
     }
     return
   }
@@ -106,6 +74,14 @@ const updateNodeID = (
     }
     return
   }
+
+  if (
+    node.type === schema.nodes.comment ||
+    node.type === schema.nodes.highlight_marker
+  ) {
+    return
+  }
+
   if (!('id' in node.attrs)) {
     return
   }
@@ -223,6 +199,51 @@ const updateContributorNodesIDS = (
   if (node.type !== schema.nodes.contributors) {
     return false
   }
+}
+
+const updateCommentTarget = (
+  node: ManuscriptNode,
+  replacements: Map<string, string>,
+  // eslint-disable-next-line
+  warnings: string[]
+) => {
+  if (node.type !== schema.nodes.comment) {
+    return
+  }
+  const target = node.attrs.target
+  if (!target) {
+    return
+  }
+  if (!replacements.has(target)) {
+    // TODO produces a lot of missing replacements..
+    // warnings.push(`Missing replacement for node.attrs.rid ${previousRID}`)
+  } else {
+    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
+    node.attrs = {
+      ...node.attrs,
+      target: replacements.get(target),
+    }
+  }
+}
+
+const addTargetToHighlightComments = (doc: ManuscriptNode)  => {
+  const targetIDs = new Map<string, string>()
+
+  doc.descendants((node, pos, parent) => {
+    if (node.type === schema.nodes.highlight_marker) {
+      targetIDs.set(node.attrs.id, parent!.attrs.id)
+    }
+    if (node.type === schema.nodes.comment) {
+      const targetID = targetIDs.get(node.attrs.id)
+      if (targetID) {
+        // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
+        node.attrs = {
+          ...node.attrs,
+          target: targetID
+        }
+      }
+    }
+  })
 }
 
 // JATS to HTML conversion

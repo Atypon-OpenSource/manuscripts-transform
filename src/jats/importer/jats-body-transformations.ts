@@ -20,9 +20,7 @@ import {
   bodyType,
   SectionGroupType,
 } from '../../lib/section-group-type'
-import { BibliographyItemAttrs } from '../../schema'
 import { chooseSectionCategoryByType, chooseSecType } from '../../transformer'
-import { References } from './jats-references'
 
 const removeNodeFromParent = (node: Element) =>
   node.parentNode && node.parentNode.removeChild(node)
@@ -419,90 +417,24 @@ export const jatsBodyTransformations = {
   },
   moveReferencesToBackmatter(
     body: Element,
-    references: References | undefined,
-    createElement: (tagName: string) => HTMLElement
+    back: Element,
+    createElement: (tagName: string) => Element
   ) {
     const backmatter = body.querySelector('sec[sec-type="backmatter"]')
-
-    if (!references || !references.items.size || !backmatter) {
+    const refList = back.querySelector('ref-list')
+    if (!backmatter || !refList) {
       return
     }
 
-    const bibliographySection = this.createBibliographySection(createElement)
-    const bibliographyElement = createElement('bibliography-element')
+    removeNodeFromParent(refList)
 
-    references.getBibliographyItems().forEach((item) => {
-      const bibliographyItem = this.createBibliographyItem(item, createElement)
-      bibliographyElement.appendChild(bibliographyItem)
-    })
-
-    bibliographySection.appendChild(bibliographyElement)
-    backmatter.appendChild(bibliographySection)
-  },
-  createBibliographySection(createElement: (tagName: string) => HTMLElement) {
     const section = createElement('sec')
     section.setAttribute('sec-type', 'bibliography')
     const title = createElement('title')
     title.textContent = 'References'
     section.appendChild(title)
-    return section
-  },
-  createBibliographyItem(
-    item: BibliographyItemAttrs,
-    createElement: (tagName: string) => HTMLElement
-  ) {
-    const bibliographyItem = createElement('bibliography-item')
-    bibliographyItem.setAttribute('id', item.id)
-    bibliographyItem.setAttribute('type', item.type)
+    section.appendChild(refList)
 
-    item.author?.forEach((author) => {
-      const authorElement = createElement('author')
-      authorElement.setAttribute('id', author._id)
-      authorElement.setAttribute('family', author.family || '')
-      authorElement.setAttribute('given', author.given || '')
-      authorElement.setAttribute('literal', author.literal || '')
-      bibliographyItem.appendChild(authorElement)
-    })
-
-    if (item.issued) {
-      const issuedEl = createElement('issued')
-      issuedEl.setAttribute('id', item.issued?._id || '')
-      const dateParts = item.issued['date-parts']
-      const year = dateParts?.[0]?.[0]
-      if (year) {
-        issuedEl.setAttribute('year', year.toString())
-      }
-      bibliographyItem.appendChild(issuedEl)
-    }
-
-    if (item.containerTitle) {
-      bibliographyItem.setAttribute('container-title', item.containerTitle)
-    }
-    if (item.volume) {
-      bibliographyItem.setAttribute('volume', item.volume.toString())
-    }
-    if (item.issue) {
-      bibliographyItem.setAttribute('issue', item.issue.toString())
-    }
-    if (item.supplement) {
-      bibliographyItem.setAttribute('supplement', item.supplement)
-    }
-    if (item.page) {
-      bibliographyItem.setAttribute('page', item.page.toString())
-    }
-    if (item.title) {
-      bibliographyItem.setAttribute('title', item.title)
-    }
-    if (item.literal) {
-      bibliographyItem.setAttribute('literal', item.literal)
-    }
-    if (item.doi) {
-      bibliographyItem.setAttribute('DOI', item.doi)
-    }
-    if (item.literal) {
-      bibliographyItem.setAttribute('literal', item.literal)
-    }
-
-    return bibliographyItem
+    backmatter.appendChild(section)
   },
 }
