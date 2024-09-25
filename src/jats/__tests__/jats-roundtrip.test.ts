@@ -17,10 +17,8 @@
 import { Journal } from '@manuscripts/json-schema'
 import { parseXml } from 'libxmljs2'
 
-import { getTrimmedTextContent } from '../../lib/utils'
-import { createCounter, JATSExporter } from '../exporter/jats-exporter'
+import { JATSExporter } from '../exporter/jats-exporter'
 import { parseJATSArticle } from '../importer/parse-jats-article'
-import { IDGenerator } from '../types'
 import { DEFAULT_CSL_OPTIONS } from './citations'
 import { readFixture } from './files'
 
@@ -30,57 +28,6 @@ const parseXMLWithDTD = (data: string) =>
     dtdvalid: true,
     nonet: true,
   })
-
-const idGenerator = (doc: Document): IDGenerator => {
-  const counter = createCounter()
-
-  const xpath = 'article-id[pub-id-type="publisher-id"]'
-  const id = getTrimmedTextContent(doc, xpath)
-
-  return async (element: Element) => {
-    switch (element.nodeName) {
-      case 'contrib':
-      case 'p':
-      case 'ref-list':
-      case 'table':
-        return null
-
-      case 'ref': {
-        const index = String(counter.increment(element.nodeName))
-
-        return `${id}-bib-${index.padStart(4, '0')}`
-      }
-
-      case 'sec': {
-        if (!element.parentNode || element.parentNode.nodeName !== 'body') {
-          return null
-        }
-
-        const index = String(counter.increment(element.nodeName))
-
-        return `${id}-sec${index}`
-      }
-
-      case 'fig': {
-        const index = String(counter.increment(element.nodeName))
-
-        return `${id}-fig-${index.padStart(4, '0')}`
-      }
-
-      case 'table-wrap': {
-        const index = String(counter.increment(element.nodeName))
-
-        return `${id}-tbl-${index.padStart(4, '0')}`
-      }
-
-      default: {
-        const index = String(counter.increment(element.nodeName))
-
-        return `${id}-${element.nodeName}${index}`
-      }
-    }
-  }
-}
 
 const roundtrip = async (filename: string) => {
   const input = await readFixture(filename)
@@ -92,7 +39,6 @@ const roundtrip = async (filename: string) => {
   return await exporter.serializeToJATS(node, {
     journal: journal as Journal,
     csl: DEFAULT_CSL_OPTIONS,
-    idGenerator: idGenerator(doc),
   })
 }
 

@@ -410,7 +410,6 @@ export const jatsBodyTransformations = {
       const title = createElement('title')
       title.textContent = 'supplementary-material'
       section.append(title)
-      // Using the first kwd-group since for the moment we only support single kwd-group
       section.append(...suppleMaterials)
       body.prepend(section)
     }

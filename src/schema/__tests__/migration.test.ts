@@ -15,8 +15,8 @@
  */
 import * as prevPackage from 'migration-base'
 
-import { createTestDoc } from '../../transformer'
 import { JSONNode, migrateFor } from '../migration/migrate'
+import { createTestDoc } from './doc'
 
 function checkRetrievePrevVersionDoc() {
   // creating test premises - letting it fail for the dev to be aware that something is not right

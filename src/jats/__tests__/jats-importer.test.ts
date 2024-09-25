@@ -26,6 +26,8 @@ import {
 } from '../../schema'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { readAndParseFixture } from './files'
+import { changeIDs, createNodeFromJATS } from './utils'
+
 const countDescendantsOfType = (
   node: ManuscriptNode,
   type: ManuscriptNodeType
@@ -35,6 +37,8 @@ const countDescendantsOfType = (
 const removeExtraWhitespace = (text: string) => {
   return text.replace(/\s+/g, ' ').trim()
 }
+const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
+
 describe('JATS importer', () => {
   describe('title node', () => {
     it('should have title node with content if title element exists', async () => {
@@ -164,7 +168,7 @@ describe('JATS importer', () => {
       expect(contributorsNode).toBeUndefined()
     })
   })
-  describe('affiliations node', () => {
+  describe('affiliations', () => {
     it('should have affiliations node with content if affiliations element exists', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
       const affiliationsElements = jats.querySelectorAll(
@@ -265,7 +269,7 @@ describe('JATS importer', () => {
       expect(affiliationsNode).toBeUndefined()
     })
   })
-  describe('author notes node', () => {
+  describe('author-notes', () => {
     it('should have author notes node with content if author notes element exists', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
       const authorNotesEl = jats.querySelector('article-meta > author-notes')
@@ -297,7 +301,126 @@ describe('JATS importer', () => {
       expect(authorNotesNode).toBeUndefined()
     })
   })
-  describe('abstract node', () => {
-    
+  describe('keywords', () => {
+    it('should have keywords node with content if keywords element exists', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const keywordGroup = jats.querySelector('kwd-group')
+      if (!keywordGroup) {
+        throw new Error('Keyword group not found')
+      }
+      const keywordsElements = keywordGroup.querySelectorAll('kwd')
+      const { node } = parseJATSArticle(jats)
+      const keywords = findChildrenByType(node, schema.nodes.keywords)[0]?.node
+      expect(keywords).toBeDefined()
+      const keywordsNodes = findChildrenByType(keywords, schema.nodes.keyword)
+      expect(keywordsNodes).toHaveLength(keywordsElements.length)
+      const sectionTitle = findChildrenByType(
+        keywords,
+        schema.nodes.section_title
+      )[0]?.node
+      expect(sectionTitle).toBeDefined()
+      expect(sectionTitle.textContent).toBe('Keywords')
+      keywordsElements.forEach((keywordEl, priority) => {
+        const keywordNode = keywordsNodes[priority].node
+        expect(keywordNode.textContent).toBe(keywordEl.textContent)
+      })
+    })
+    it('should not have keywords node if keywords element does not exist', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const keywordGroup = jats.querySelector('kwd-group')
+      keywordGroup?.remove()
+      const { node } = parseJATSArticle(jats)
+      const keywords = findChildrenByType(node, schema.nodes.keywords)[0]?.node
+      expect(keywords).toBeUndefined()
+    })
+  })
+  describe('supplements', () => {
+    it('should have supplements node with content if supplementary-material elements exist', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const supplementryMaterial = jats.querySelectorAll(
+        'article-meta > supplementary-material'
+      )
+      if (!supplementryMaterial.length) {
+        throw new Error('Supplements not found')
+      }
+      const { node } = parseJATSArticle(jats)
+      const supplementsNode = findChildrenByType(
+        node,
+        schema.nodes.supplements
+      )[0]?.node
+      expect(supplementsNode).toBeDefined()
+      const sectionTitle = findChildrenByType(
+        supplementsNode,
+        schema.nodes.section_title
+      )[0]?.node
+      expect(sectionTitle).toBeDefined()
+      expect(sectionTitle.textContent).toBe('supplementary-material')
+
+      supplementryMaterial.forEach((supplementEl, priority) => {
+        const supplementNode = findChildrenByType(
+          supplementsNode,
+          schema.nodes.supplement
+        )[priority].node
+        expect(supplementNode.attrs.title).toBe(
+          supplementEl.querySelector('title')?.textContent
+        )
+        expect(supplementNode.attrs.href).toBe(
+          supplementEl.getAttributeNS(XLINK_NAMESPACE, 'href')
+        )
+        expect(supplementNode.attrs.mimeType).toBe(
+          supplementEl.getAttribute('mimetype')
+        )
+        expect(supplementNode.attrs.mimeSubType).toBe(
+          supplementEl.getAttribute('mime-subtype')
+        )
+      })
+    })
+    it('should not have supplements node if supplementary-material elements do not exist', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const supplementryMaterial = jats.querySelectorAll(
+        'article-meta > supplementary-material'
+      )
+      supplementryMaterial.forEach((supplement) => {
+        supplement.remove()
+      })
+      const { node } = parseJATSArticle(jats)
+      const supplementsNode = findChildrenByType(
+        node,
+        schema.nodes.supplements
+      )[0]?.node
+      expect(supplementsNode).toBeUndefined()
+    })
+  })
+  describe('snapshots', () => {
+    test('jats-import', async () => {
+      const { node } = await createNodeFromJATS('jats-import.xml')
+      changeIDs(node)
+      expect(node).toMatchSnapshot('jats-import')
+    })
+    test('jats-document', async () => {
+      const { node } = await createNodeFromJATS('jats-document.xml')
+      changeIDs(node)
+      expect(node).toMatchSnapshot('jats-document')
+    })
+    test('jats-example-doc', async () => {
+      const { node } = await createNodeFromJATS('jats-example-doc.xml')
+      changeIDs(node)
+      expect(node).toMatchSnapshot('jats-exmaple-doc')
+    })
+    test('jats-example-full', async () => {
+      const { node } = await createNodeFromJATS('jats-example-full.xml')
+      changeIDs(node)
+      expect(node).toMatchSnapshot('jats-example-full')
+    })
+    test('jats-example', async () => {
+      const { node } = await createNodeFromJATS('jats-example.xml')
+      changeIDs(node)
+      expect(node).toMatchSnapshot('jats-example')
+    })
+    test('jats-tables-example', async () => {
+      const { node } = await createNodeFromJATS('jats-tables-example.xml')
+      changeIDs(node)
+      expect(node).toMatchSnapshot('jats-tables-example')
+    })
   })
 })
