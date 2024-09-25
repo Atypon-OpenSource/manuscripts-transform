@@ -120,6 +120,13 @@ export const moveAffiliations = (
   }
 }
 
+export const moveAwards = (front: Element, createElement: CreateElement) => {
+  const awards = front.querySelector('article-meta > funding-group')
+  if (awards) {
+    front.parentNode?.insertBefore(awards, front)
+  }
+}
+
 export const moveAbstracts = (
   doc: Document,
   group: Element,

@@ -36,7 +36,7 @@ import {
 } from '../../schema'
 import { chooseSectionCategory } from '../../transformer'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
-import {htmlFromJatsNode} from "./jats-parser-utils";
+import { htmlFromJatsNode } from './jats-parser-utils'
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
@@ -330,6 +330,26 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
       return {
         id: element.getAttribute('id'),
+      }
+    },
+  },
+  {
+    tag: 'funding-group',
+    node: 'awards',
+  },
+  {
+    tag: 'award-group',
+    node: 'award',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+        recipient: element.querySelector('principal-award-recipient')
+          ?.textContent,
+        code: Array.from(element.querySelectorAll('award-id'))
+          .map((awardID) => awardID.textContent)
+          .reduce((acc, text) => (acc ? `${acc}:${text}` : text), ''),
+        source: element.querySelector('funding-source')?.textContent,
       }
     },
   },
