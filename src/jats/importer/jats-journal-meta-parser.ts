@@ -17,7 +17,6 @@
 import { ObjectTypes } from '@manuscripts/json-schema'
 
 import { getTrimmedTextContent } from '../../lib/utils'
-import { generateID } from '../../transformer'
 
 export type ISSN = {
   ISSN: string
@@ -134,7 +133,6 @@ export const parseJournal = (doc: Document) => {
   const meta = parseJournalMeta(journalMeta)
   return {
     ...meta,
-    _id: generateID(ObjectTypes.Journal),
     objectType: ObjectTypes.Journal,
   }
 }

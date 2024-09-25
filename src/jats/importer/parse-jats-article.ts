@@ -14,89 +14,80 @@
  * limitations under the License.
  */
 
-import { ManuscriptNode } from '../../schema'
-import { jatsBodyTransformations } from './jats-body-transformations'
+import { ActualManuscriptNode } from '../../schema'
+import {
+  createAbstracts,
+  createBackmatter,
+  createBody,
+  createKeywordsSection,
+  createSupplementaryMaterialsSection,
+  ensureSection,
+  moveAffiliations,
+  moveAuthorNotes,
+  moveCaptionsToEnd,
+  moveContributors,
+  moveReferencesToBackmatter,
+  moveTitle,
+  orderTableFootnote,
+} from './jats-body-transformations'
 import { markComments } from './jats-comments'
 import { jatsDOMParser } from './jats-dom-parser'
-import { jatsFrontTransformations } from './jats-front-transformations'
 import { parseJournal } from './jats-journal-meta-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
 
-const parseJATSBody = (doc: Document) => {
+const processJATS = (doc: Document) => {
   const createElement = createElementFn(doc)
+
+  markComments(doc)
+
+  const front = doc.querySelector('front')
+  if (!front) {
+    return
+  }
+
+  moveTitle(front, createElement)
+  moveContributors(front, createElement)
+  moveAffiliations(front, createElement)
+  moveAuthorNotes(front, createElement)
+
   const body = doc.querySelector('body')
   if (!body) {
     return
   }
 
-  jatsBodyTransformations.ensureSection(body, createElement)
-  jatsBodyTransformations.moveCaptionsToEnd(body)
-  jatsBodyTransformations.fixTables(body, createElement)
-  jatsBodyTransformations.createBody(doc, body, createElement)
-  jatsBodyTransformations.createAbstracts(doc, body, createElement)
-  jatsBodyTransformations.createBackmatter(doc, body, createElement)
-  jatsBodyTransformations.createSuppleMaterials(doc, body, createElement)
-  jatsBodyTransformations.createKeywords(doc, body, createElement)
-  jatsBodyTransformations.orderTableFootnote(doc, body)
+  ensureSection(body, createElement)
+  moveCaptionsToEnd(body)
+  createBody(doc, body, createElement)
+  createAbstracts(doc, body, createElement)
+  createBackmatter(doc, body, createElement)
+  createSupplementaryMaterialsSection(doc, body, createElement)
+  createKeywordsSection(doc, body, createElement)
+  orderTableFootnote(doc, body)
 
   const back = doc.querySelector('back')
   if (!back) {
     return
   }
 
-  jatsBodyTransformations.moveReferencesToBackmatter(body, back, createElement)
-}
-const parseJATSFront = (doc: Document, template?: string) => {
-  const createElement = createElementFn(doc)
-  const front = doc.querySelector('front')
-  if (!front) {
-    return
-  }
-
-  jatsFrontTransformations.setArticleAttrs(doc, template)
-
-  const authorNotes = jatsFrontTransformations.createAuthorNotes(
-    doc,
-    createElement
-  )
-  if (authorNotes) {
-    doc.documentElement.prepend(authorNotes)
-  }
-  const affiliations = jatsFrontTransformations.createAffiliations(
-    front,
-    createElement
-  )
-  if (affiliations) {
-    doc.documentElement.prepend(affiliations)
-  }
-  const contributors = jatsFrontTransformations.createContributors(
-    front,
-    createElement
-  )
-  if (contributors) {
-    doc.documentElement.prepend(contributors)
-  }
-  const title = jatsFrontTransformations.createTitle(front, createElement)
-  if (title) {
-    doc.documentElement.prepend(title)
-  }
+  moveReferencesToBackmatter(body, back, createElement)
 }
 
 const createElementFn = (doc: Document) => (tagName: string) =>
   doc.createElement(tagName)
 
 export const parseJATSArticle = (doc: Document, template?: string) => {
-  markComments(doc)
   const journal = parseJournal(doc)
-  parseJATSFront(doc, template)
-  parseJATSBody(doc)
-  const node = jatsDOMParser.parse(doc).firstChild
+  processJATS(doc)
+  const node = jatsDOMParser.parse(doc).firstChild as ActualManuscriptNode
   if (!node) {
     throw new Error('No content was parsed from the JATS article body')
   }
   updateDocumentIDs(node)
+  if (template) {
+    node.attrs.prototype = template
+  }
   return {
-    node: node as ManuscriptNode,
+    node,
     journal,
   }
 }

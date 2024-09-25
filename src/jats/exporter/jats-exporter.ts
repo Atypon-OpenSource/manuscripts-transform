@@ -270,7 +270,7 @@ export class JATSExporter {
     this.fillEmptyTableFooters(article)
     this.fillEmptyFootnotes(article)
 
-    await this.rewriteIDs(options.idGenerator)
+    await this.rewriteIDs()
     return serializeToXML(this.document)
   }
 

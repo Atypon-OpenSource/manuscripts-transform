@@ -22,7 +22,7 @@ import {
   ManuscriptNode,
   schema,
 } from '../../schema'
-import { generateID, nodeTypesMap } from '../../transformer'
+import { generateNodeID, nodeTypesMap } from '../../transformer'
 
 export const updateDocumentIDs = (node: ManuscriptNode) => {
   const replacements = new Map()
@@ -34,7 +34,6 @@ export const updateDocumentIDs = (node: ManuscriptNode) => {
   recurseDoc(node, (n) => updateNodeRIDS(n, replacements, warnings))
   recurseDoc(node, (n) => updateContributorNodesIDS(n, replacements, warnings))
   recurseDoc(node, (n) => updateCommentTarget(n, replacements, warnings))
-
 
   return warnings
 }
@@ -55,7 +54,7 @@ const recurseDoc = (node: ManuscriptNode, fn: (n: ManuscriptNode) => void) => {
 const updateNodeID = (
   node: ManuscriptNode,
   replacements: Map<string, string>,
-  warnings: string[],
+  warnings: string[]
 ) => {
   if (node.type === schema.nodes.inline_equation) {
     // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
@@ -91,7 +90,7 @@ const updateNodeID = (
     return
   }
   const previousID = node.attrs.id
-  const nextID = generateID(objectType)
+  const nextID = generateNodeID(node.type)
   if (previousID) {
     if (
       replacements.has(previousID) ||
@@ -226,7 +225,7 @@ const updateCommentTarget = (
   }
 }
 
-const addTargetToHighlightComments = (doc: ManuscriptNode)  => {
+const addTargetToHighlightComments = (doc: ManuscriptNode) => {
   const targetIDs = new Map<string, string>()
 
   doc.descendants((node, pos, parent) => {
@@ -239,7 +238,7 @@ const addTargetToHighlightComments = (doc: ManuscriptNode)  => {
         // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
         node.attrs = {
           ...node.attrs,
-          target: targetID
+          target: targetID,
         }
       }
     }
@@ -293,10 +292,13 @@ const renameJatsNodesToHTML = (
  */
 export const htmlFromJatsNode = (
   element: Element | undefined | null,
-  createElement: (tagName: string) => HTMLElement
+  createElement?: (tagName: string) => HTMLElement
 ) => {
   if (!element) {
     return undefined
+  }
+  if (!createElement) {
+    createElement = (tagName) => element.ownerDocument.createElement(tagName)
   }
   const temp = createElement('template') as HTMLTemplateElement
   // Interesting fact: template has special semantics that are not same as regular element's

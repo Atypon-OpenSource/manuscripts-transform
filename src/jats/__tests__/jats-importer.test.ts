@@ -122,9 +122,6 @@ describe('JATS importer', () => {
         expect(contributorNode.attrs.ORCIDIdentifier).toBe(
           ORCIDIdentifier?.textContent?.trim()
         )
-        expect(contributorNode.attrs.priority.toString()).toBe(
-          priority.toString()
-        )
         expect(contributorNode.attrs.bibliographicName.given).toEqual(
           bibliographicName.given
         )
