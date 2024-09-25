@@ -24,6 +24,7 @@ import {
   ensureSection,
   moveAffiliations,
   moveAuthorNotes,
+  moveAwards,
   moveCaptionsToEnd,
   moveContributors,
   moveReferencesToBackmatter,
@@ -49,6 +50,7 @@ const processJATS = (doc: Document) => {
   moveContributors(front, createElement)
   moveAffiliations(front, createElement)
   moveAuthorNotes(front, createElement)
+  moveAwards(front, createElement)
 
   const body = doc.querySelector('body')
   if (!body) {

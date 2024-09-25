@@ -24,8 +24,8 @@ import { CitationProvider } from '@manuscripts/library'
 import debug from 'debug'
 import {
   DOMOutputSpec,
-  DOMParser as ProsemirrorDOMParser,
   DOMSerializer,
+  DOMParser as ProsemirrorDOMParser,
 } from 'prosemirror-model'
 import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
@@ -49,6 +49,7 @@ import {
   TableElementFooterNode,
   TableElementNode,
 } from '../../schema'
+import { AwardNode } from '../../schema/nodes/award'
 import {
   chooseJatsFnType,
   chooseSecType,
@@ -747,8 +748,32 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
-      award: () => '',
-      awards: () => '',
+      award: (node) => {
+        const awardGroup = node as AwardNode
+        const awardGroupElement = this.document.createElement('award-group')
+        awardGroupElement.setAttribute('id', normalizeID(awardGroup.attrs.id))
+        const fundingSource = awardGroup.attrs.source
+        const principalRecipient = awardGroup.attrs.recipient
+        awardGroup.attrs.code.split(':').forEach((code) => {
+          const awardID = this.document.createElement('award-id')
+          awardID.textContent = code
+          awardGroupElement.appendChild(awardID)
+        })
+        if (fundingSource) {
+          const awardSource = this.document.createElement('funding-source')
+          awardSource.textContent = fundingSource
+          awardGroupElement.appendChild(awardSource)
+        }
+        if (principalRecipient) {
+          const awardRecipient = this.document.createElement(
+            'principal-recipient'
+          )
+          awardRecipient.textContent = principalRecipient
+          awardGroupElement.appendChild(awardRecipient)
+        }
+        return awardGroupElement
+      },
+      awards: () => ['funding-group', 0],
       box_element: () => ['boxed-text', 0],
       author_notes: () => '',
       corresp: () => '',
