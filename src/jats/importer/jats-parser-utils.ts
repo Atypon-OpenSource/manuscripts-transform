@@ -292,10 +292,13 @@ const renameJatsNodesToHTML = (
  */
 export const htmlFromJatsNode = (
   element: Element | undefined | null,
-  createElement: (tagName: string) => HTMLElement
+  createElement?: (tagName: string) => HTMLElement
 ) => {
   if (!element) {
     return undefined
+  }
+  if (!createElement) {
+    createElement = (tagName) => element.ownerDocument.createElement(tagName)
   }
   const temp = createElement('template') as HTMLTemplateElement
   // Interesting fact: template has special semantics that are not same as regular element's

@@ -36,6 +36,7 @@ import {
 } from '../../schema'
 import { chooseSectionCategory } from '../../transformer'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
+import {htmlFromJatsNode} from "./jats-parser-utils";
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
@@ -70,8 +71,6 @@ const getEquationContent = (p: string | HTMLElement) => {
   let contents: string | null = ''
   let format: string | null = ''
   for (const child of container.childNodes) {
-    // remove namespace prefix
-    // TODO: real namespaces
     const nodeName = child.nodeName.replace(/^[a-z]:/, '')
 
     switch (nodeName) {
@@ -118,6 +117,10 @@ const getAddressLine = (element: HTMLElement, index: number) => {
   return getTrimmedTextContent(element, `addr-line:nth-of-type(${index})`) || ''
 }
 
+const getHTMLContent = (node: Element, querySelector: string) => {
+  return htmlFromJatsNode(node.querySelector(querySelector))
+}
+
 const chooseBibliographyItemType = (publicationType: string | null) => {
   switch (publicationType) {
     case 'book':
@@ -142,9 +145,9 @@ const parseRef = (element: Element) => {
     id,
     type: chooseBibliographyItemType(publicationType),
   }
-  const titleNode = element.querySelector('article-title')
-  if (titleNode) {
-    attrs.title = titleNode.textContent || ''
+  const title = getHTMLContent(element, 'article-title')
+  if (title) {
+    attrs.title = title
   }
 
   const mixedCitation = element.querySelector('mixed-citation')
@@ -160,8 +163,8 @@ const parseRef = (element: Element) => {
       }
     })
   }
-  const source = getTrimmedTextContent(element, 'source')
 
+  const source = getHTMLContent(element, 'source')
   if (source) {
     attrs.containerTitle = source
   }
@@ -172,27 +175,22 @@ const parseRef = (element: Element) => {
   }
 
   const issue = getTrimmedTextContent(element, 'issue')
-
   if (issue) {
     attrs.issue = issue
   }
 
   const supplement = getTrimmedTextContent(element, 'supplement')
-
   if (supplement) {
     attrs.supplement = supplement
   }
 
   const fpage = getTrimmedTextContent(element, 'fpage')
-
   const lpage = getTrimmedTextContent(element, 'lpage')
-
   if (fpage) {
     attrs.page = lpage ? `${fpage}-${lpage}` : fpage
   }
 
   const year = getTrimmedTextContent(element, 'year')
-
   if (year) {
     attrs.issued = buildBibliographicDate({
       'date-parts': [[year]],
@@ -200,13 +198,11 @@ const parseRef = (element: Element) => {
   }
 
   const doi = getTrimmedTextContent(element, 'pub-id[pub-id-type="doi"]')
-
   if (doi) {
     attrs.doi = doi
   }
 
   const authors: BibliographicName[] = []
-
   authorNodes.forEach((authorNode) => {
     const name = buildBibliographicName({})
     const given = getTrimmedTextContent(authorNode, 'given-names')
@@ -294,7 +290,7 @@ const nodes: NodeRule[] = [
   },
 
   {
-    tag: 'article-meta > title-group > article-title',
+    tag: 'article-title',
     node: 'title',
     getAttrs: (node) => {
       const element = node as HTMLElement

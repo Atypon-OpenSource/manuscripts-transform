@@ -48,9 +48,11 @@ export const markComments = (doc: Document) => {
           const id = generateNodeID(schema.nodes.comment)
           const parent = node.parentNode as Element
           if (parent) {
-            //todo
+            //todo check if node is highlightable?
+            //if (isHighlightable()) {
             const marker = createHighlightMarkerElement(doc, id)
             parent.insertBefore(marker, node)
+            //}
             const targetID = parent.id
             const commentElement = createCommentElement(doc, id, targetID, text)
             commentsElement.appendChild(commentElement)
