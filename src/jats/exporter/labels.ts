@@ -43,6 +43,7 @@ const labelledNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.table_element,
   schema.nodes.equation_element,
   schema.nodes.listing_element,
+  schema.nodes.box_element,
 ]
 
 const excludedTypes = [schema.nodes.graphical_abstract_section]

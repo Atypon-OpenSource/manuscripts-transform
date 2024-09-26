@@ -503,6 +503,17 @@ const nodes: NodeRule[] = [
     context: 'table_element/',
   },
   {
+    tag: 'caption',
+    node: 'figcaption',
+    context: 'box_element/',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+      }
+    },
+  },
+  {
     tag: 'code',
     node: 'listing',
     context: 'listing_element/',
@@ -799,6 +810,18 @@ const nodes: NodeRule[] = [
     node: 'backmatter',
   },
   {
+    tag: 'sec[sec-type="box-element"]',
+    node: 'box_element',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      return {
+        id: element.getAttribute('id'),
+        label: element.querySelector('label')?.textContent,
+      }
+    },
+  },
+  {
     tag: 'sec[sec-type="bibliography"]',
     node: 'bibliography_section',
   },
@@ -845,6 +868,15 @@ const nodes: NodeRule[] = [
     tag: 'kwd',
     context: 'keyword_group//',
     node: 'keyword',
+  },
+  {
+    tag: 'label',
+    context: 'box_element/',
+    ignore: true,
+  },
+  {
+    tag: 'boxed-text',
+    ignore: true,
   },
   {
     tag: 'label',

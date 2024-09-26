@@ -23,6 +23,7 @@ import {
   createAbstracts,
   createBackmatter,
   createBody,
+  createBoxedElementSection,
   createKeywordsSection,
   createSupplementaryMaterialsSection,
   ensureSection,
@@ -58,6 +59,7 @@ const processJATS = (doc: Document) => {
 
   ensureSection(body, createElement)
   moveCaptionsToEnd(body)
+  createBoxedElementSection(body, createElement)
   createBody(doc, body, createElement)
   createAbstracts(doc, body, createElement)
   createBackmatter(doc, body, createElement)
