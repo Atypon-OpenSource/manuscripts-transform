@@ -220,7 +220,7 @@ const moveSpecialFootnotes = (
         if (titleText) {
           title.textContent = titleText
         }
-        removeNodeFromParent(title)
+        removeNodeFromParent(fnTitle)
         section.append(title)
       }
       section.append(...fn.children)
@@ -253,7 +253,7 @@ const createAbstractSection = (
   const sectionType = abstractType ? `abstract-${abstractType}` : 'abstract'
   section.setAttribute('sec-type', sectionType)
 
-  if (!abstract.querySelector('title')) {
+  if (!abstract.querySelector(':scope > title')) {
     const title = createElement('title')
     title.textContent = abstractType
       ? `${capitalizeFirstLetter(abstractType)} Abstract`
@@ -458,5 +458,42 @@ export const orderTableFootnote = (doc: Document, body: Element) => {
       rids.has(fn.getAttribute('id')) ? -1 : 0
     )
     fnGroup.replaceChildren(...fns)
+  })
+}
+
+export const fixTables = (
+  doc: Document,
+  body: Element,
+  createElement: CreateElement
+) => {
+  const tableWraps = body.querySelectorAll('table-wrap')
+  tableWraps.forEach((tableWrap) => {
+    // Move cols into a colgroup if they are not already
+    // This more closely maps how they exist in HTML and, subsequently, in ManuscriptJSON
+    const table = tableWrap.querySelector('table')
+    if (!table) {
+      return
+    }
+    const colgroup = table.querySelector('colgroup')
+    const cols = table.querySelectorAll('col')
+    if (!colgroup && table.firstChild && cols.length > 0) {
+      const colgroup = createElement('colgroup')
+      for (const col of cols) {
+        colgroup.appendChild(col)
+      }
+      tableWrap.insertBefore(colgroup, table.nextSibling)
+    }
+    const tableFootWrap = tableWrap.querySelector('table-wrap-foot')
+    if (tableFootWrap) {
+      const paragraphs = tableFootWrap.querySelectorAll(':scope > p')
+      if (paragraphs.length) {
+        const generalTableFootnote = createElement('general-table-footnote')
+        for (const paragraph of paragraphs) {
+          removeNodeFromParent(paragraph)
+          generalTableFootnote.append(paragraph)
+        }
+        tableFootWrap.prepend(generalTableFootnote)
+      }
+    }
   })
 }

@@ -48,12 +48,14 @@ export const markComments = (doc: Document) => {
           const id = generateNodeID(schema.nodes.comment)
           const parent = node.parentNode as Element
           if (parent) {
-            //todo check if node is highlightable?
-            //if (isHighlightable()) {
+            //todo can we check if node is highlightable?
             const marker = createHighlightMarkerElement(doc, id)
             parent.insertBefore(marker, node)
-            //}
-            const targetID = parent.id
+            /**
+             * this value will get overridden in updateHighlightCommentTargets
+             * for highlight comments
+             */
+            const targetID = parent.closest('[id]')?.id
             const commentElement = createCommentElement(doc, id, targetID, text)
             commentsElement.appendChild(commentElement)
           }

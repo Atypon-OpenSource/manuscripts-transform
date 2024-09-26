@@ -581,14 +581,19 @@ export class JATSExporter {
 
     // move ref-list from body to back
     back.appendChild(refList)
+
+    const bibliographyItems = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.bibliography_item
+    ).map((n) => n.node)
     const [meta] = this.citationProvider.makeBibliography()
-    for (const id of meta.entry_ids) {
-      const bibliographyNode = findChildrenByType(
-        this.manuscriptNode,
-        schema.nodes.bibliography_item
-      ).find(({ node }) => node.attrs.id === id[0])?.node
+    for (const [id] of meta.entry_ids) {
+      const bibliographyItem = bibliographyItems.find((n) => n.attrs.id === id)
+      if (!bibliographyItem) {
+        continue
+      }
       const ref = this.document.createElement('ref')
-      ref.setAttribute('id', normalizeID(id[0]))
+      ref.setAttribute('id', normalizeID(id))
 
       // TODO: add option for mixed-citation; format citations using template
       // TODO: add citation elements depending on publication type
@@ -612,21 +617,21 @@ export class JATSExporter {
       }
       // in case a literal was found in a bibItem the rest of the attributes are ignored
       // since the literal att should only be populated when the mixed-citation fails to parse
-      if (bibliographyNode?.attrs.literal) {
+      if (bibliographyItem.attrs.literal) {
         const mixedCitation = this.document.createElement('mixed-citation')
-        updateCitationPubType(mixedCitation, bibliographyNode.attrs.type)
-        mixedCitation.textContent = bibliographyNode.attrs.literal
+        updateCitationPubType(mixedCitation, bibliographyItem.attrs.type)
+        mixedCitation.textContent = bibliographyItem.attrs.literal
         ref.appendChild(mixedCitation)
         refList.appendChild(ref)
       } else {
         const citation = this.document.createElement('element-citation')
-        updateCitationPubType(citation, bibliographyNode?.attrs.type)
-        if (bibliographyNode?.attrs.author) {
+        updateCitationPubType(citation, bibliographyItem.attrs.type)
+        if (bibliographyItem.attrs.author) {
           const personGroupNode = this.document.createElement('person-group')
           personGroupNode.setAttribute('person-group-type', 'author')
           citation.appendChild(personGroupNode)
 
-          bibliographyNode.attrs.author.forEach((author: BibliographicName) => {
+          bibliographyItem.attrs.author.forEach((author: BibliographicName) => {
             const name = this.document.createElement('string-name')
 
             if (author.family) {
@@ -650,8 +655,8 @@ export class JATSExporter {
           })
         }
 
-        if (bibliographyNode?.attrs.issued) {
-          const dateParts = bibliographyNode?.attrs.issued['date-parts']
+        if (bibliographyItem.attrs.issued) {
+          const dateParts = bibliographyItem.attrs.issued['date-parts']
 
           if (dateParts && dateParts.length) {
             const [[year, month, day]] = dateParts
@@ -676,38 +681,38 @@ export class JATSExporter {
           }
         }
 
-        if (bibliographyNode?.attrs.title) {
+        if (bibliographyItem.attrs.title) {
           const node = this.document.createElement('article-title')
-          this.setTitleContent(node, bibliographyNode?.attrs.title)
+          this.setTitleContent(node, bibliographyItem.attrs.title)
           citation.appendChild(node)
         }
 
-        if (bibliographyNode?.attrs.containerTitle) {
+        if (bibliographyItem.attrs.containerTitle) {
           const node = this.document.createElement('source')
-          node.textContent = bibliographyNode?.attrs.containerTitle
+          this.setTitleContent(node, bibliographyItem.attrs.containerTitle)
           citation.appendChild(node)
         }
 
-        if (bibliographyNode?.attrs.volume) {
+        if (bibliographyItem.attrs.volume) {
           const node = this.document.createElement('volume')
-          node.textContent = String(bibliographyNode?.attrs.volume)
+          node.textContent = String(bibliographyItem.attrs.volume)
           citation.appendChild(node)
         }
 
-        if (bibliographyNode?.attrs.issue) {
+        if (bibliographyItem.attrs.issue) {
           const node = this.document.createElement('issue')
-          node.textContent = String(bibliographyNode?.attrs.issue)
+          node.textContent = String(bibliographyItem.attrs.issue)
           citation.appendChild(node)
         }
 
-        if (bibliographyNode?.attrs.supplement) {
+        if (bibliographyItem.attrs.supplement) {
           const node = this.document.createElement('supplement')
-          node.textContent = bibliographyNode?.attrs.supplement
+          node.textContent = bibliographyItem.attrs.supplement
           citation.appendChild(node)
         }
 
-        if (bibliographyNode?.attrs.page) {
-          const pageString = String(bibliographyNode?.attrs.page)
+        if (bibliographyItem.attrs.page) {
+          const pageString = String(bibliographyItem.attrs.page)
 
           if (/^\d+$/.test(pageString)) {
             const node = this.document.createElement('fpage')
@@ -730,10 +735,10 @@ export class JATSExporter {
             citation.appendChild(node)
           }
         }
-        if (bibliographyNode?.attrs.doi) {
+        if (bibliographyItem.attrs.doi) {
           const node = this.document.createElement('pub-id')
           node.setAttribute('pub-id-type', 'doi')
-          node.textContent = String(bibliographyNode?.attrs.doi)
+          node.textContent = String(bibliographyItem.attrs.doi)
           citation.appendChild(node)
         }
 
