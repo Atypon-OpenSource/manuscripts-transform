@@ -36,7 +36,7 @@ import {
 } from '../../schema'
 import { chooseSectionCategory } from '../../transformer'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
-import {htmlFromJatsNode} from "./jats-parser-utils";
+import { htmlFromJatsNode } from './jats-parser-utils'
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 

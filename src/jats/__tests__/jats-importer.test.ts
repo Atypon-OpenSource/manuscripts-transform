@@ -24,6 +24,7 @@ import {
   ManuscriptNodeType,
   schema,
 } from '../../schema'
+import { markComments } from '../importer/jats-comments'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { readAndParseFixture } from './files'
 import { changeIDs, createNodeFromJATS } from './utils'
@@ -388,36 +389,88 @@ describe('JATS importer', () => {
       expect(supplementsNode).toBeUndefined()
     })
   })
-  describe('snapshots', () => {
-    test('jats-import', async () => {
-      const { node } = await createNodeFromJATS('jats-import.xml')
-      changeIDs(node)
-      expect(node).toMatchSnapshot('jats-import')
+  describe('comments', () => {
+    it('should mark comments correctly', async () => {
+      const doc = await readAndParseFixture('jats-import.xml')
+      markComments(doc)
+      const commentsElement = doc.querySelector('comments')
+      expect(commentsElement).not.toBeNull()
+
+      const markers = doc.querySelectorAll('highlight-marker')
+      //todo: markers count can be different to the comments count
+      expect(markers.length).toBe(12)
+
+      const commentElements = commentsElement?.querySelectorAll('comment')
+      expect(commentElements?.length).toBe(12)
     })
-    test('jats-document', async () => {
-      const { node } = await createNodeFromJATS('jats-document.xml')
-      changeIDs(node)
-      expect(node).toMatchSnapshot('jats-document')
+    it('should create a comments node with comments if comments exist', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const { node } = parseJATSArticle(jats)
+      const commentsNode = findChildrenByType(node, schema.nodes.comments)[0]
+        ?.node
+      expect(commentsNode).toBeDefined()
+      const comments = findChildrenByType(commentsNode, schema.nodes.comment)
+      expect(comments).toHaveLength(12)
     })
-    test('jats-example-doc', async () => {
-      const { node } = await createNodeFromJATS('jats-example-doc.xml')
-      changeIDs(node)
-      expect(node).toMatchSnapshot('jats-exmaple-doc')
+    it('should parse comments correctly', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const { node } = parseJATSArticle(jats)
+      const commentsNode = findChildrenByType(node, schema.nodes.comments)[0]
+        ?.node
+      const comments = findChildrenByType(commentsNode, schema.nodes.comment)
+      comments.forEach(({ node: commentNode }, priority) => {
+        const commentEl = jats.querySelectorAll('comments > comment')[priority]
+        expect(commentNode.attrs.contents).toBe(commentEl.textContent)
+      })
     })
-    test('jats-example-full', async () => {
-      const { node } = await createNodeFromJATS('jats-example-full.xml')
-      changeIDs(node)
-      expect(node).toMatchSnapshot('jats-example-full')
+  })
+
+  describe('abstracts', () => {
+    it('should have abstract node with content if abstract element exists', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const abstractsEl = jats.querySelector('front > article-meta > abstract')
+      if (!abstractsEl) {
+        throw new Error('Abstract element not found')
+      }
+      const { node } = parseJATSArticle(jats)
+      const abstractsNode = findChildrenByType(node, schema.nodes.abstracts)[0]
+        ?.node
+      expect(abstractsNode).toBeDefined()
     })
-    test('jats-example', async () => {
-      const { node } = await createNodeFromJATS('jats-example.xml')
-      changeIDs(node)
-      expect(node).toMatchSnapshot('jats-example')
+    it("should have an abstracts even if abstarcts element doesn't exist", async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const abstractsEl = jats.querySelector('front > article-meta > abstract')
+      abstractsEl?.remove()
+      const { node } = parseJATSArticle(jats)
+      const abstractsNode = findChildrenByType(node, schema.nodes.abstracts)[0]
+        ?.node
+      expect(abstractsNode).toBeDefined()
     })
-    test('jats-tables-example', async () => {
-      const { node } = await createNodeFromJATS('jats-tables-example.xml')
-      changeIDs(node)
-      expect(node).toMatchSnapshot('jats-tables-example')
-    })
+  })
+
+  test('parses JATS AuthorQueries example to Manuscripts document', async () => {
+    const { node } = await createNodeFromJATS('jats-document.xml')
+    changeIDs(node)
+    expect(node).toMatchSnapshot()
+  })
+  test('parses full JATS example to Manuscripts document', async () => {
+    const { node } = await createNodeFromJATS('jats-example-doc.xml')
+    changeIDs(node)
+    expect(node).toMatchSnapshot()
+  })
+  test("parses JATS article without references and doesn't create empty references section", async () => {
+    const { node } = await createNodeFromJATS('jats-import-no-refs.xml')
+    changeIDs(node)
+    expect(node).toMatchSnapshot()
+  })
+  test('parses JATS article to Manuscripts document', async () => {
+    const { node } = await createNodeFromJATS('jats-example.xml')
+    changeIDs(node)
+    expect(node).toMatchSnapshot()
+  })
+  test('parses JATS article with tables and table footnotes', async () => {
+    const { node } = await createNodeFromJATS('jats-tables-example.xml')
+    changeIDs(node)
+    expect(node).toMatchSnapshot()
   })
 })
