@@ -351,7 +351,7 @@ describe('JATS importer', () => {
         schema.nodes.section_title
       )[0]?.node
       expect(sectionTitle).toBeDefined()
-      expect(sectionTitle.textContent).toBe('supplementary-material')
+      expect(sectionTitle.textContent).toBe('Supplementary Material')
 
       supplementryMaterial.forEach((supplementEl, priority) => {
         const supplementNode = findChildrenByType(

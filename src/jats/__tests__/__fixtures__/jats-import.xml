@@ -1112,8 +1112,9 @@
       </ref>
       <ref id="BRB3-2019-12-0787-bib-0013">
         <label>13</label>
-        <?AuthorQuery id="Q6" queryText="Medline reports the journal title should be &quot;International journal of stroke : official journal of the International Stroke Society or Int J Stroke&quot;, not &quot;International Journal of Stroke&quot;. (Ref. 13 &quot;Hornnes, Larsen, Boysen, 2010&quot;)"?>
-        <mixed-citation publication-type="journal"><person-group person-group-type="author"
+        <mixed-citation publication-type="journal">
+          <?AuthorQuery id="Q6" queryText="Medline reports the journal title should be &quot;International journal of stroke : official journal of the International Stroke Society or Int J Stroke&quot;, not &quot;International Journal of Stroke&quot;. (Ref. 13 &quot;Hornnes, Larsen, Boysen, 2010&quot;)"?>
+          <person-group person-group-type="author"
         ><string-name><surname>Hornnes</surname>,
           <given-names>N.</given-names></string-name>,
           <string-name><surname>Larsen</surname>,

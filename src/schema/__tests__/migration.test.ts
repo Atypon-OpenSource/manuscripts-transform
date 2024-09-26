@@ -15,24 +15,11 @@
  */
 import * as prevPackage from 'migration-base'
 
-import { JSONNode, migrateFor } from '../migration/migrate'
-import { createTestDoc } from './doc'
-
-function checkRetrievePrevVersionDoc() {
-  // creating test premises - letting it fail for the dev to be aware that something is not right
-  const prevDoc = prevPackage.createTestDoc().toJSON()
-  const testDoc = createTestDoc()
-  testDoc.check()
-
-  return prevDoc as JSONNode
-}
+import { migrateFor } from '../migration/migrate'
 
 describe('Prosemirror migration schema', () => {
-  const prevVersionDoc = checkRetrievePrevVersionDoc()
+  const oldDoc = prevPackage.createTestDoc().toJSON()
   test('Migrating doc from prev version to the current', () => {
-    // eslint-disable-next-line jest/no-standalone-expect
-    expect(() =>
-      migrateFor(prevVersionDoc!, prevPackage.getVersion())
-    ).not.toThrow()
+    expect(() => migrateFor(oldDoc!, prevPackage.getVersion())).not.toThrow()
   })
 })

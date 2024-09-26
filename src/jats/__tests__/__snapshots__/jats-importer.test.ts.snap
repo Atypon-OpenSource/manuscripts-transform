@@ -55,7 +55,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": true,
             "isJointContributor": undefined,
-            "priority": 0,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -88,7 +88,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
-            "priority": 1,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -121,7 +121,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
-            "priority": 2,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -154,7 +154,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
-            "priority": 3,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -188,7 +188,7 @@ Object {
             "id": "some-id",
             "institution": "The Affiliated Guangji Hospital of Soochow University",
             "postCode": "",
-            "priority": 0,
+            "priority": undefined,
           },
           "content": Array [
             Object {
@@ -212,7 +212,7 @@ Object {
             "id": "some-id",
             "institution": "",
             "postCode": "",
-            "priority": 1,
+            "priority": undefined,
           },
           "content": Array [
             Object {
@@ -236,7 +236,7 @@ Object {
             "id": "some-id",
             "institution": "Xinghua Forth People’s Hospital",
             "postCode": "",
-            "priority": 2,
+            "priority": undefined,
           },
           "content": Array [
             Object {
@@ -2178,7 +2178,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
-            "priority": 0,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -3652,7 +3652,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
-            "priority": 0,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -3685,7 +3685,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
-            "priority": 1,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -3719,7 +3719,7 @@ Object {
             "id": "some-id",
             "institution": "",
             "postCode": "",
-            "priority": 0,
+            "priority": undefined,
           },
           "content": Array [
             Object {
@@ -3743,7 +3743,7 @@ Object {
             "id": "some-id",
             "institution": "",
             "postCode": "",
-            "priority": 1,
+            "priority": undefined,
           },
           "content": Array [
             Object {
@@ -14846,6 +14846,35 @@ Object {
                   "type": "table",
                 },
                 Object {
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "width": "49.98%",
+                      },
+                      "type": "table_col",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "width": "14.26%",
+                      },
+                      "type": "table_col",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "width": "17.19%",
+                      },
+                      "type": "table_col",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "width": "18.57%",
+                      },
+                      "type": "table_col",
+                    },
+                  ],
+                  "type": "table_colgroup",
+                },
+                Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "some-id",
@@ -15171,7 +15200,7 @@ Object {
                         "objectType": "MPBibliographicName",
                       },
                     ],
-                    "containerTitle": "Journal of Banking & Finance",
+                    "containerTitle": "Journal of Banking &amp; Finance",
                     "dataTracked": null,
                     "doi": undefined,
                     "id": "some-id",
@@ -15481,7 +15510,7 @@ Object {
                         "objectType": "MPBibliographicName",
                       },
                     ],
-                    "containerTitle": "Journal of Banking & Finance",
+                    "containerTitle": "Journal of Banking &amp; Finance",
                     "dataTracked": null,
                     "doi": undefined,
                     "id": "some-id",
@@ -15521,7 +15550,7 @@ Object {
                         "objectType": "MPBibliographicName",
                       },
                     ],
-                    "containerTitle": "Journal of Banking & Finance",
+                    "containerTitle": "Journal of Banking &amp; Finance",
                     "dataTracked": null,
                     "doi": undefined,
                     "id": "some-id",
@@ -15637,7 +15666,7 @@ Object {
                     "page": "54-86",
                     "paragraphStyle": "",
                     "supplement": undefined,
-                    "title": "The 2000 presidential election and the information cost of sensitive versus non-sensitive S&P 500 stocks",
+                    "title": "The 2000 presidential election and the information cost of sensitive versus non-sensitive S&amp;P 500 stocks",
                     "type": "article-journal",
                     "volume": "12",
                   },
@@ -16243,7 +16272,7 @@ Object {
                         "objectType": "MPBibliographicName",
                       },
                     ],
-                    "containerTitle": "Journal of Banking & Finance",
+                    "containerTitle": "Journal of Banking &amp; Finance",
                     "dataTracked": null,
                     "doi": undefined,
                     "id": "some-id",
@@ -16644,7 +16673,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": true,
             "isJointContributor": undefined,
-            "priority": 0,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -16678,7 +16707,7 @@ Object {
             "id": "some-id",
             "institution": "University of Life",
             "postCode": "",
-            "priority": 0,
+            "priority": undefined,
           },
           "content": Array [
             Object {
@@ -18656,7 +18685,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": true,
             "isJointContributor": undefined,
-            "priority": 0,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -18694,7 +18723,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
-            "priority": 1,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -18731,7 +18760,7 @@ Object {
             "institution": "Herlev og Gentofte
           Hospital",
             "postCode": "2730",
-            "priority": 0,
+            "priority": undefined,
           },
           "content": Array [
             Object {
@@ -18964,7 +18993,7 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "supplementary-material",
+              "text": "Supplementary Material",
               "type": "text",
             },
           ],
@@ -26890,7 +26919,7 @@ Object {
                         "objectType": "MPBibliographicName",
                       },
                     ],
-                    "containerTitle": "Stroke",
+                    "containerTitle": "<i>Stroke</i>",
                     "dataTracked": null,
                     "doi": "https://doi.org/10.1161/STR.0b013e3181f7d043",
                     "id": "some-id",
@@ -27061,7 +27090,7 @@ Object {
                     "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "2013 Practice guidelines for the management of arterial
-            hypertension of the European Society of Hypertension (ESH) and the European
+            hypertension of the <i>European</i> Society of Hypertension (ESH) and the European
             Society of Cardiology (ESC): ESH/ESC Task Force for the Management of
             Arterial Hypertension.",
                     "type": "article-journal",
@@ -27251,25 +27280,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "contents": "Medline reports the journal title should be &quot;International journal of stroke : official journal of the International Stroke Society or Int J Stroke&quot;, not &quot;International Journal of Stroke&quot;. (Ref. 13 &quot;Hornnes, Larsen, Boysen, 2010&quot;)",
-            "contributions": Array [
-              Object {
-                "_id": "some-id",
-                "objectType": "MPContribution",
-                "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
-                "timestamp": 1234,
-              },
-            ],
-            "id": "some-id",
-            "originalText": "",
-            "resolved": false,
-            "selector": undefined,
-            "target": "some-id",
-          },
-          "type": "comment",
-        },
-        Object {
-          "attrs": Object {
             "contents": "Medline reports the journal title should be &quot;Journal of stroke and cerebrovascular diseases : the official journal of National Stroke Association or J Stroke Cerebrovasc Dis&quot;, not &quot;Journal of Stroke and Cerebrovascular Diseases&quot;. (Ref. 17 &quot;Hornnes, Larsen, Boysen, 2011&quot;)",
             "contributions": Array [
               Object {
@@ -27422,6 +27432,25 @@ Object {
         },
         Object {
           "attrs": Object {
+            "contents": "Medline reports the journal title should be &quot;International journal of stroke : official journal of the International Stroke Society or Int J Stroke&quot;, not &quot;International Journal of Stroke&quot;. (Ref. 13 &quot;Hornnes, Larsen, Boysen, 2010&quot;)",
+            "contributions": Array [
+              Object {
+                "_id": "some-id",
+                "objectType": "MPContribution",
+                "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
+                "timestamp": 1234,
+              },
+            ],
+            "id": "some-id",
+            "originalText": "",
+            "resolved": false,
+            "selector": undefined,
+            "target": "some-id",
+          },
+          "type": "comment",
+        },
+        Object {
+          "attrs": Object {
             "contents": "Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;",
             "contributions": Array [
               Object {
@@ -27497,7 +27526,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
-            "priority": 0,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -27530,7 +27559,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
-            "priority": 1,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -27563,7 +27592,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
-            "priority": 2,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -27596,7 +27625,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
-            "priority": 3,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -27629,7 +27658,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
-            "priority": 4,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -27662,7 +27691,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
-            "priority": 5,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -27695,7 +27724,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": true,
             "isJointContributor": undefined,
-            "priority": 6,
+            "priority": undefined,
             "role": "author",
             "userID": undefined,
           },
@@ -27729,7 +27758,7 @@ Object {
             "id": "some-id",
             "institution": "Queen Mary Hospital",
             "postCode": "",
-            "priority": 0,
+            "priority": undefined,
           },
           "content": Array [
             Object {
@@ -27753,7 +27782,7 @@ Object {
             "id": "some-id",
             "institution": "Queen Mary Hospital",
             "postCode": "",
-            "priority": 1,
+            "priority": undefined,
           },
           "content": Array [
             Object {
