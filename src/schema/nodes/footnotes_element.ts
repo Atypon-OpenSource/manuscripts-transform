@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
 
 interface Attrs {
   id: string
@@ -28,7 +26,13 @@ export interface FootnotesElementNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const footnotesElement: NodeSpec = {
+interface FootnotesElementNodeSpec extends ManuscriptNodeSpec {
+  isWrapper: true
+}
+
+export const footnotesElement: FootnotesElementNodeSpec = {
+  name: 'Footnotes',
+  isWrapper: true,
   attrs: {
     id: { default: '' },
     kind: { default: 'footnote' },
