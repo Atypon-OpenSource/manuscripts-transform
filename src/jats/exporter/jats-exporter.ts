@@ -49,7 +49,7 @@ import {
   TableElementFooterNode,
   TableElementNode,
 } from '../../schema'
-import { award, AwardNode } from '../../schema/nodes/award'
+import { AwardNode } from '../../schema/nodes/award'
 import {
   chooseJatsFnType,
   chooseSecType,

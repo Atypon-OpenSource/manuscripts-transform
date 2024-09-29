@@ -279,7 +279,9 @@ const nodes: NodeRule[] = [
     node: 'manuscript',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const doi = element.querySelector('front > article-meta > article-id[pub-id-type="doi"]')
+      const doi = element.querySelector(
+        'front > article-meta > article-id[pub-id-type="doi"]'
+      )
       return {
         doi: doi?.textContent,
         articleType: element.getAttribute('article-type') ?? '',
