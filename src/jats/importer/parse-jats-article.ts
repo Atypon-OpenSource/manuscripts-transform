@@ -15,13 +15,19 @@
  */
 
 import { ActualManuscriptNode } from '../../schema'
+import { markComments } from './jats-comments'
+import { jatsDOMParser } from './jats-dom-parser'
+import { parseJournal } from './jats-journal-meta-parser'
+import { updateDocumentIDs } from './jats-parser-utils'
 import {
   createAbstracts,
   createBackmatter,
   createBody,
+  createBoxedElementSection,
   createKeywordsSection,
   createSupplementaryMaterialsSection,
   ensureSection,
+  fixTables,
   moveAffiliations,
   moveAuthorNotes,
   moveAwards,
@@ -30,11 +36,7 @@ import {
   moveReferencesToBackmatter,
   moveTitle,
   orderTableFootnote,
-} from './jats-body-transformations'
-import { markComments } from './jats-comments'
-import { jatsDOMParser } from './jats-dom-parser'
-import { parseJournal } from './jats-journal-meta-parser'
-import { updateDocumentIDs } from './jats-parser-utils'
+} from './jats-transformations'
 
 const processJATS = (doc: Document) => {
   const createElement = createElementFn(doc)
@@ -50,7 +52,7 @@ const processJATS = (doc: Document) => {
   moveContributors(front, createElement)
   moveAffiliations(front, createElement)
   moveAuthorNotes(front, createElement)
-  moveAwards(front, createElement)
+  moveAwards(front)
 
   const body = doc.querySelector('body')
   if (!body) {
@@ -59,11 +61,13 @@ const processJATS = (doc: Document) => {
 
   ensureSection(body, createElement)
   moveCaptionsToEnd(body)
+  createBoxedElementSection(body, createElement)
   createBody(doc, body, createElement)
   createAbstracts(doc, body, createElement)
   createBackmatter(doc, body, createElement)
   createSupplementaryMaterialsSection(doc, body, createElement)
   createKeywordsSection(doc, body, createElement)
+  fixTables(doc, body, createElement)
   orderTableFootnote(doc, body)
 
   const back = doc.querySelector('back')

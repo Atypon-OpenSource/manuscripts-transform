@@ -24,12 +24,18 @@ import {
 } from '../../schema'
 import { generateNodeID, nodeTypesMap } from '../../transformer'
 
+const nonJSONSchemaTypes = new Set([
+  'inline_equation',
+  'general_table_footnote',
+  'award',
+])
+
 export const updateDocumentIDs = (node: ManuscriptNode) => {
   const replacements = new Map()
   const warnings: string[] = []
 
   recurseDoc(node, (n) => updateNodeID(n, replacements, warnings))
-  addTargetToHighlightComments(node)
+  updateHighlightCommentTargets(node)
   recurseDoc(node, (n) => updateNodeRID(n, replacements, warnings))
   recurseDoc(node, (n) => updateNodeRIDS(n, replacements, warnings))
   recurseDoc(node, (n) => updateContributorNodesIDS(n, replacements, warnings))
@@ -56,24 +62,17 @@ const updateNodeID = (
   replacements: Map<string, string>,
   warnings: string[]
 ) => {
-  if (node.type === schema.nodes.inline_equation) {
+  if (nonJSONSchemaTypes.has(node.type.name)) {
+    const id = `${node.type.name
+      .split('_')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join('')}:${uuidv4()}`
     // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
     node.attrs = {
       ...node.attrs,
-      id: `InlineMathFragment:${uuidv4()}`,
+      id,
     }
-    return
   }
-
-  if (node.type === schema.nodes.general_table_footnote) {
-    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-    node.attrs = {
-      ...node.attrs,
-      id: `GeneralTableFootnote:${uuidv4()}`,
-    }
-    return
-  }
-
   if (
     node.type === schema.nodes.comment ||
     node.type === schema.nodes.highlight_marker
@@ -225,7 +224,12 @@ const updateCommentTarget = (
   }
 }
 
-const addTargetToHighlightComments = (doc: ManuscriptNode) => {
+/**
+ * This updates the target ID for highlight comments, since the IDs found when
+ * marking comments might not be valid (e.g. paragraphs don't have IDs at that
+ * point)
+ */
+const updateHighlightCommentTargets = (doc: ManuscriptNode) => {
   const targetIDs = new Map<string, string>()
 
   doc.descendants((node, pos, parent) => {

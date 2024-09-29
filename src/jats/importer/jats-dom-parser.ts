@@ -279,12 +279,11 @@ const nodes: NodeRule[] = [
     node: 'manuscript',
     getAttrs: (node) => {
       const element = node as HTMLElement
+      const doi = element.querySelector('front > article-meta > article-id[pub-id-type="doi"]')
       return {
-        doi: element.getAttribute('DOI') ?? '',
+        doi: doi?.textContent,
         articleType: element.getAttribute('article-type') ?? '',
-        prototype: element.getAttribute('prototype') ?? '',
-        primaryLanguageCode:
-          element.getAttribute('primary-language-code') ?? '',
+        primaryLanguageCode: element.getAttribute('lang') ?? '',
       }
     },
   },
@@ -348,7 +347,7 @@ const nodes: NodeRule[] = [
           ?.textContent,
         code: Array.from(element.querySelectorAll('award-id'))
           .map((awardID) => awardID.textContent)
-          .reduce((acc, text) => (acc ? `${acc}:${text}` : text), ''),
+          .reduce((acc, text) => (acc ? `${acc};${text}` : text), ''),
         source: element.querySelector('funding-source')?.textContent,
       }
     },
@@ -522,6 +521,17 @@ const nodes: NodeRule[] = [
     tag: 'caption',
     node: 'figcaption',
     context: 'table_element/',
+  },
+  {
+    tag: 'caption',
+    node: 'figcaption',
+    context: 'box_element/',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+      }
+    },
   },
   {
     tag: 'code',
@@ -820,6 +830,18 @@ const nodes: NodeRule[] = [
     node: 'backmatter',
   },
   {
+    tag: 'sec[sec-type="box-element"]',
+    node: 'box_element',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      return {
+        id: element.getAttribute('id'),
+        label: element.querySelector('label')?.textContent,
+      }
+    },
+  },
+  {
     tag: 'sec[sec-type="bibliography"]',
     node: 'bibliography_section',
   },
@@ -866,6 +888,15 @@ const nodes: NodeRule[] = [
     tag: 'kwd',
     context: 'keyword_group//',
     node: 'keyword',
+  },
+  {
+    tag: 'label',
+    context: 'box_element/',
+    ignore: true,
+  },
+  {
+    tag: 'boxed-text',
+    ignore: true,
   },
   {
     tag: 'label',
