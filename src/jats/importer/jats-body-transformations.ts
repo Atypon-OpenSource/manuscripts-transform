@@ -405,6 +405,12 @@ export const jatsBodyTransformations = {
       body.appendChild(sec)
     }
   },
+  moveHistoryToBody(document: Document, body: Element) {
+    const history = document.querySelector('history')
+    if (history && history.children.length) {
+      body.prepend(history)
+    }
+  },
   createKeywords(
     document: Document,
     body: Element,

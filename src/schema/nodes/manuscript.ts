@@ -25,6 +25,14 @@ export interface ActualManuscriptNode extends ManuscriptNode {
     articleType: string
     prototype: string
     primaryLanguageCode: string
+    dates: {
+      acceptanceDate?: number
+      correctionDate?: number
+      retractionDate?: number
+      revisionRequestDate?: number
+      revisionReceiveDate?: number
+      receiveDate?: number
+    }
   }
 }
 
@@ -40,6 +48,16 @@ export const manuscript: NodeSpec = {
     prototype: { default: '' },
     primaryLanguageCode: { default: '' },
     articleType: { default: '' },
+    dates: {
+      default: {
+        acceptanceDate: undefined,
+        correctionDate: undefined,
+        retractionDate: undefined,
+        revisionRequestDate: undefined,
+        revisionReceiveDate: undefined,
+        receiveDate: undefined,
+      },
+    },
   },
   group: 'block',
   parseDOM: [

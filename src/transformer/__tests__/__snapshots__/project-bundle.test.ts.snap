@@ -5,6 +5,14 @@ Object {
   "doc": Object {
     "attrs": Object {
       "articleType": "",
+      "dates": Object {
+        "acceptanceDate": undefined,
+        "correctionDate": undefined,
+        "receiveDate": undefined,
+        "retractionDate": undefined,
+        "revisionReceiveDate": undefined,
+        "revisionRequestDate": undefined,
+      },
       "doi": "",
       "id": "MPManuscript:B3BB2CD8-F944-47C3-9F01-1996DBD417EE",
       "primaryLanguageCode": "",
@@ -1125,6 +1133,14 @@ Object {
   "doc": Object {
     "attrs": Object {
       "articleType": "",
+      "dates": Object {
+        "acceptanceDate": undefined,
+        "correctionDate": undefined,
+        "receiveDate": undefined,
+        "retractionDate": undefined,
+        "revisionReceiveDate": undefined,
+        "revisionRequestDate": undefined,
+      },
       "doi": "",
       "id": "MPManuscript:B3BB2CD8-F944-47C3-9F01-1996DBD417EE",
       "primaryLanguageCode": "",

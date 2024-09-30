@@ -1078,7 +1078,20 @@ export class Decoder {
     const contents = nodes.filter((node) => node !== false)
 
     const props = this.getManuscript()
-
+    const history: {
+      acceptanceDate?: number
+      correctionDate?: number
+      retractionDate?: number
+      revisionRequestDate?: number
+      revisionReceiveDate?: number
+      receiveDate?: number
+    } = {}
+    history.acceptanceDate = props?.acceptanceDate
+    history.receiveDate = props?.receiveDate
+    history.correctionDate = props?.correctionDate
+    history.retractionDate = props?.retractionDate
+    history.revisionRequestDate = props?.revisionRequestDate
+    history.revisionReceiveDate = props?.revisionReceiveDate
     return schema.nodes.manuscript.create(
       {
         id: manuscriptID || this.getManuscriptID(),
@@ -1086,6 +1099,7 @@ export class Decoder {
         articleType: props?.articleType,
         prototype: props?.prototype,
         primaryLanguageCode: props?.primaryLanguageCode,
+        dates: history,
       },
       contents as ManuscriptNode[]
     )

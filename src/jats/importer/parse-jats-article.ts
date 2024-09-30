@@ -128,9 +128,13 @@ export const parseJATSBody = (
   jatsBodyTransformations.createBackmatter(doc, body, createElement)
   jatsBodyTransformations.createSuppleMaterials(doc, body, createElement)
   jatsBodyTransformations.createKeywords(doc, body, createElement)
+
+  jatsBodyTransformations.moveHistoryToBody(doc, body)
   jatsBodyTransformations.orderTableFootnote(doc, body)
 
-  const node = jatsBodyDOMParser.parse(body).firstChild
+  const article = createElement('article')
+  article.appendChild(body)
+  const node = jatsBodyDOMParser.parse(article).firstChild
   if (!node) {
     throw new Error('No content was parsed from the JATS article body')
   }

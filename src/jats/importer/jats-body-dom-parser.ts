@@ -17,6 +17,7 @@
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
+import { dateToTimestamp } from '../../lib/utils'
 import { ManuscriptNode, Marks, Nodes, schema } from '../../schema'
 import { chooseSectionCategory } from '../../transformer'
 
@@ -62,6 +63,51 @@ const getEquationContent = (p: string | HTMLElement) => {
     }
   }
   return { id, format, contents }
+}
+
+const parseDates = (historyNode: Element | null) => {
+  if (!historyNode) {
+    return undefined
+  }
+  const history: {
+    acceptanceDate?: number
+    correctionDate?: number
+    retractionDate?: number
+    revisionRequestDate?: number
+    revisionReceiveDate?: number
+    receiveDate?: number
+  } = {}
+
+  for (const date of historyNode.children) {
+    const dateType = date.getAttribute('date-type')
+    switch (dateType) {
+      case 'received': {
+        history.receiveDate = dateToTimestamp(date)
+        break
+      }
+      case 'rev-recd': {
+        history.revisionReceiveDate = dateToTimestamp(date)
+        break
+      }
+      case 'accepted': {
+        history.acceptanceDate = dateToTimestamp(date)
+        break
+      }
+      case 'rev-request': {
+        history.revisionRequestDate = dateToTimestamp(date)
+        break
+      }
+      case 'retracted': {
+        history.retractionDate = dateToTimestamp(date)
+        break
+      }
+      case 'corrected': {
+        history.correctionDate = dateToTimestamp(date)
+        break
+      }
+    }
+  }
+  return history
 }
 
 export type MarkRule = ParseRule & { mark: Marks | null }
@@ -120,8 +166,21 @@ const nodes: NodeRule[] = [
     ignore: true,
   },
   {
+    tag: 'history',
+    ignore: true,
+  },
+  {
     tag: 'body',
     node: 'manuscript',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      const history = element.querySelector('history')
+      const dates = parseDates(history)
+      return {
+        id: element.getAttribute('id'),
+        dates,
+      }
+    },
   },
   {
     tag: 'break',
