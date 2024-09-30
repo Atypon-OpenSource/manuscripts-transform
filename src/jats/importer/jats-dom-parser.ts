@@ -24,7 +24,7 @@ import {
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
-import { getTrimmedTextContent } from '../../lib/utils'
+import { getTrimmedTextContent, removeCDATATags } from '../../lib/utils'
 import {
   BibliographyItemAttrs,
   ContributorCorresp,
@@ -75,7 +75,7 @@ const getEquationContent = (p: string | HTMLElement) => {
 
     switch (nodeName) {
       case 'tex-math':
-        contents = (child as Element).innerHTML
+        contents = removeCDATATags((child as Element).innerHTML)
         format = 'tex'
         break
       case 'mml:math':
@@ -279,7 +279,9 @@ const nodes: NodeRule[] = [
     node: 'manuscript',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const doi = element.querySelector('front > article-meta > article-id[pub-id-type="doi"]')
+      const doi = element.querySelector(
+        'front > article-meta > article-id[pub-id-type="doi"]'
+      )
       return {
         doi: doi?.textContent,
         articleType: element.getAttribute('article-type') ?? '',
