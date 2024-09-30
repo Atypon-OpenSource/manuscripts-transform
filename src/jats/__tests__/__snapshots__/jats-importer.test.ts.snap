@@ -1,5 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`JATS importer comments should parse abstract comment 1`] = `
+Array [
+  Object {
+    "text": "A paragraph with",
+    "type": "text",
+  },
+  Object {
+    "attrs": Object {
+      "id": "MPCommentAnnotation:test",
+      "position": "point",
+    },
+    "type": "highlight_marker",
+  },
+  Object {
+    "text": " a comment",
+    "type": "text",
+  },
+]
+`;
+
+exports[`JATS importer comments should parse back comment 1`] = `
+Array [
+  Object {
+    "text": "A paragraph with a comment",
+    "type": "text",
+  },
+  Object {
+    "attrs": Object {
+      "id": "MPCommentAnnotation:test",
+      "position": "point",
+    },
+    "type": "highlight_marker",
+  },
+]
+`;
+
+exports[`JATS importer comments should parse body comment 1`] = `
+Array [
+  Object {
+    "text": "A ",
+    "type": "text",
+  },
+  Object {
+    "attrs": Object {
+      "id": "MPCommentAnnotation:test",
+      "position": "point",
+    },
+    "type": "highlight_marker",
+  },
+  Object {
+    "text": "paragraph with a comment",
+    "type": "text",
+  },
+]
+`;
+
 exports[`JATS importer parses JATS AuthorQueries example to Manuscripts document 1`] = `
 Object {
   "attrs": Object {

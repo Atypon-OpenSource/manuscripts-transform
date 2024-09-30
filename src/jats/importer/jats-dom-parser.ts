@@ -860,6 +860,7 @@ const nodes: NodeRule[] = [
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
+        id: element.id,
         type: element.getAttribute('kwd-group-type'),
       }
     },

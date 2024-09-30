@@ -29,7 +29,6 @@ export const updateDocumentIDs = (node: ManuscriptNode) => {
   const warnings: string[] = []
 
   recurseDoc(node, (n) => updateNodeID(n, replacements, warnings))
-  updateHighlightCommentTargets(node)
   recurseDoc(node, (n) => updateNodeRID(n, replacements, warnings))
   recurseDoc(node, (n) => updateNodeRIDS(n, replacements, warnings))
   recurseDoc(node, (n) => updateContributorNodesIDS(n, replacements, warnings))
@@ -223,31 +222,6 @@ const updateCommentTarget = (
       target: replacements.get(target),
     }
   }
-}
-
-/**
- * This updates the target ID for highlight comments, since the IDs found when
- * marking comments might not be valid (e.g. paragraphs don't have IDs at that
- * point)
- */
-const updateHighlightCommentTargets = (doc: ManuscriptNode) => {
-  const targetIDs = new Map<string, string>()
-
-  doc.descendants((node, pos, parent) => {
-    if (node.type === schema.nodes.highlight_marker) {
-      targetIDs.set(node.attrs.id, parent!.attrs.id)
-    }
-    if (node.type === schema.nodes.comment) {
-      const targetID = targetIDs.get(node.attrs.id)
-      if (targetID) {
-        // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-        node.attrs = {
-          ...node.attrs,
-          target: targetID,
-        }
-      }
-    }
-  })
 }
 
 // JATS to HTML conversion
