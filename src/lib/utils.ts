@@ -98,6 +98,3 @@ export const getTrimmedTextContent = (
 }
 
 export const timestamp = () => Math.floor(Date.now() / 1000)
-
-export const removeCDATATags = (text: string) =>
-  text.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').trim()
