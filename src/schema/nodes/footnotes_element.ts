@@ -27,7 +27,7 @@ export interface FootnotesElementNode extends ManuscriptNode {
 }
 
 interface FootnotesElementNodeSpec extends ManuscriptNodeSpec {
-  isWrapper: true
+  isWrapper: boolean
 }
 
 export const footnotesElement: FootnotesElementNodeSpec = {
