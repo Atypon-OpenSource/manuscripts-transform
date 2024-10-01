@@ -213,6 +213,30 @@ export const jatsBodyTransformations = {
       group.appendChild(sec)
     }
   },
+  createBoxedElementSection(
+    doc: Document,
+    body: Element,
+    createElement: (tagName: string) => HTMLElement
+  ) {
+    const boxedTexts = body.querySelectorAll('boxed-text')
+    for (const boxedText of boxedTexts) {
+      const boxElementSec = createElement('sec')
+      boxElementSec.setAttribute('sec-type', 'box-element')
+      const title = createElement('title')
+      title.textContent = 'BoxElement'
+      boxElementSec.append(title)
+
+      for (const element of [...boxedText.children]) {
+        if (element?.tagName === 'label' || element?.tagName === 'caption') {
+          boxElementSec.append(element)
+        }
+      }
+      const containerSection = createElement('sec')
+      containerSection.append(...boxedText.children)
+      boxElementSec.append(containerSection)
+      boxedText.replaceWith(boxElementSec)
+    }
+  },
   createBody(
     doc: Document,
     body: Element,
@@ -309,7 +333,11 @@ export const jatsBodyTransformations = {
     const captions = body.querySelectorAll('caption')
 
     for (const caption of captions) {
-      if (caption.parentNode && caption.parentNode.nodeName !== 'table-wrap') {
+      if (
+        caption.parentNode &&
+        caption.parentNode.nodeName !== 'table-wrap' &&
+        caption.parentNode.nodeName !== 'boxed-text'
+      ) {
         caption.parentNode.appendChild(caption)
       }
     }

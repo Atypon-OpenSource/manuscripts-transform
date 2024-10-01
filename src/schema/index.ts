@@ -34,6 +34,8 @@ import { affiliation } from './nodes/affiliation'
 import { affiliations } from './nodes/affiliations'
 import { attribution } from './nodes/attribution'
 import { authorNotes } from './nodes/author_notes'
+import { award } from './nodes/award'
+import { awards } from './nodes/awards'
 import { backmatter } from './nodes/backmatter'
 import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographyItem } from './nodes/bibliography_item'
@@ -239,5 +241,7 @@ export const schema = new Schema<Nodes, Marks>({
     author_notes: authorNotes,
     corresp,
     box_element,
+    awards,
+    award,
   },
 })

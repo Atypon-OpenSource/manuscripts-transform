@@ -744,6 +744,7 @@ export class Decoder {
 
       const nestedSections = getSections(this.modelMap)
         .filter(hasParentSection(model._id))
+        .filter((s) => s.category !== 'MPSectionCategory:box-element')
         .map(this.creators[ObjectTypes.Section]) as ManuscriptNode[]
 
       const sectionCategory = model.category || guessSectionCategory(elements)
@@ -753,23 +754,34 @@ export class Decoder {
       )
       const comments = this.createCommentNodes(model)
       comments.forEach((c) => this.comments.set(c.attrs.id, c))
-      const content: ManuscriptNode[] = (
-        sectionLabelNode
-          ? [sectionLabelNode, sectionTitleNode]
-          : [sectionTitleNode]
-      )
-        .concat(elementNodes)
-        .concat(nestedSections)
-      const sectionNode = sectionNodeType.createAndFill(
-        {
-          id: model._id,
-          category: sectionCategory,
-          titleSuppressed: model.titleSuppressed,
-          pageBreakStyle: model.pageBreakStyle,
-          generatedLabel: model.generatedLabel,
-        },
-        content
-      )
+      let content: ManuscriptNode[] = []
+      if (
+        sectionLabelNode &&
+        model.category !== 'MPSectionCategory:box-element'
+      ) {
+        content.push(sectionLabelNode)
+      }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const attrs: any = {
+        id: model._id,
+        category: sectionCategory,
+        titleSuppressed: model.titleSuppressed,
+        pageBreakStyle: model.pageBreakStyle,
+        generatedLabel: model.generatedLabel,
+      }
+      if (model.category === 'MPSectionCategory:box-element') {
+        const figCaption = this.getBoxElementFigCaption(model as Section)
+        if (figCaption) {
+          content.push(figCaption)
+        }
+        if (model.label) {
+          attrs.label = model.label
+        }
+      } else {
+        content.push(sectionTitleNode)
+      }
+      content = content.concat(elementNodes).concat(nestedSections)
+      const sectionNode = sectionNodeType.createAndFill(attrs, content)
 
       if (!sectionNode) {
         console.error(model)
@@ -1147,6 +1159,21 @@ export class Decoder {
         return item
       }
     }
+  }
+
+  private getBoxElementFigCaption = (model: Section) => {
+    const titleNode = schema.nodes.caption_title.create() as CaptionTitleNode
+    const captionTitle = model.title
+      ? this.parseContents(
+          model.title,
+          'caption_title',
+          this.getComments(model),
+          {
+            topNode: titleNode,
+          }
+        )
+      : titleNode
+    return schema.nodes.figcaption.create({}, captionTitle)
   }
 
   private getFigcaption = (
