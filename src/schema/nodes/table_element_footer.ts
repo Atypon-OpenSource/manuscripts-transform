@@ -24,13 +24,8 @@ export interface TableElementFooterNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-interface TableElementNodeSpec extends ManuscriptNodeSpec {
-  isWrapper: boolean
-}
-
-export const tableElementFooter: TableElementNodeSpec = {
+export const tableElementFooter: ManuscriptNodeSpec = {
   name: 'Table Footer',
-  isWrapper: true,
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },

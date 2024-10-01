@@ -26,13 +26,8 @@ export interface FootnotesElementNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-interface FootnotesElementNodeSpec extends ManuscriptNodeSpec {
-  isWrapper: boolean
-}
-
-export const footnotesElement: FootnotesElementNodeSpec = {
+export const footnotesElement: ManuscriptNodeSpec = {
   name: 'Footnotes',
-  isWrapper: true,
   attrs: {
     id: { default: '' },
     kind: { default: 'footnote' },
