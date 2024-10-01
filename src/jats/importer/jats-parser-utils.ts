@@ -14,21 +14,13 @@
  * limitations under the License.
  */
 
-import { v4 as uuidv4 } from 'uuid'
-
 import {
   ContributorCorresp,
   ContributorFootnote,
   ManuscriptNode,
   schema,
 } from '../../schema'
-import { generateNodeID, nodeTypesMap } from '../../transformer'
-
-const nonJSONSchemaTypes = new Set([
-  'inline_equation',
-  'general_table_footnote',
-  'award',
-])
+import { generateNodeID } from '../../transformer'
 
 export const updateDocumentIDs = (node: ManuscriptNode) => {
   const replacements = new Map()
@@ -62,17 +54,6 @@ const updateNodeID = (
   replacements: Map<string, string>,
   warnings: string[]
 ) => {
-  if (nonJSONSchemaTypes.has(node.type.name)) {
-    const id = `${node.type.name
-      .split('_')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join('')}:${uuidv4()}`
-    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-    node.attrs = {
-      ...node.attrs,
-      id,
-    }
-  }
   if (
     node.type === schema.nodes.comment ||
     node.type === schema.nodes.highlight_marker
@@ -81,11 +62,6 @@ const updateNodeID = (
   }
 
   if (!('id' in node.attrs)) {
-    return
-  }
-  const objectType = nodeTypesMap.get(node.type)
-  if (!objectType) {
-    warnings.push(`Unknown object type for node type ${node.type.name}`)
     return
   }
   const previousID = node.attrs.id
