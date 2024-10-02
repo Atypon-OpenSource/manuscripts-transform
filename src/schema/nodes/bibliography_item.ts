@@ -15,8 +15,9 @@
  */
 
 import { BibliographicDate, BibliographicName } from '@manuscripts/json-schema'
+import { NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
+import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
@@ -37,9 +38,8 @@ export interface BibliographyItemNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const bibliographyItem: ManuscriptNodeSpec = {
+export const bibliographyItem: NodeSpec = {
   // this is to help the prosemirror decoration to reach HTML of this node
-  name: 'Reference',
   content: 'inline{0}',
   attrs: {
     id: { default: '' },

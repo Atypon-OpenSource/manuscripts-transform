@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
+import { NodeSpec } from 'prosemirror-model'
+
+import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
@@ -24,8 +26,7 @@ export interface TableElementFooterNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const tableElementFooter: ManuscriptNodeSpec = {
-  name: 'Table Footer',
+export const tableElementFooter: NodeSpec = {
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },

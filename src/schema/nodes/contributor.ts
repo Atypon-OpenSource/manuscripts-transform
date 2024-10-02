@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 import { BibliographicName } from '@manuscripts/json-schema'
+import { NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
+import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
@@ -35,8 +36,7 @@ export interface ContributorNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const contributor: ManuscriptNodeSpec = {
-  name: 'Author',
+export const contributor: NodeSpec = {
   content: 'inline*',
   attrs: {
     id: { default: '' },

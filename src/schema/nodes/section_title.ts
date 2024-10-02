@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 
-import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
+import { NodeSpec } from 'prosemirror-model'
+
+import { ManuscriptNode } from '../types'
 
 export interface SectionTitleNode extends ManuscriptNode {
   attrs: Record<string, unknown>
 }
 
-export const sectionTitle: ManuscriptNodeSpec = {
-  name: 'Section Title',
+export const sectionTitle: NodeSpec = {
   content: '(text | highlight_marker)*',
   marks:
     'italic superscript subscript smallcaps bold tracked_insert tracked_delete',

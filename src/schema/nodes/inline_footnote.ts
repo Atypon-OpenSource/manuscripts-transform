@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
+import { NodeSpec } from 'prosemirror-model'
+
+import { ManuscriptNode } from '../types'
 
 interface Attrs {
   rids: string[]
@@ -25,8 +27,7 @@ export interface InlineFootnoteNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const inlineFootnote: ManuscriptNodeSpec = {
-  name: 'Footnote Reference',
+export const inlineFootnote: NodeSpec = {
   attrs: {
     rids: { default: [] },
     contents: { default: '' },

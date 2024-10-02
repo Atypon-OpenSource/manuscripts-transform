@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 import { ObjectTypes } from '@manuscripts/json-schema'
+import { NodeSpec } from 'prosemirror-model'
 
 import { buildElementClass } from '../../lib/attributes'
-import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
+import { ManuscriptNode } from '../types'
 
 export type JatsStyleType =
   | 'simple'
@@ -60,8 +61,7 @@ export interface ListNode extends ManuscriptNode {
   }
 }
 
-export const list: ManuscriptNodeSpec = {
-  name: 'List',
+export const list: NodeSpec = {
   content: 'list_item+',
   group: 'block list element',
   attrs: {
@@ -116,10 +116,9 @@ export interface ListItemNode extends ManuscriptNode {
   }
 }
 
-export const listItem: ManuscriptNodeSpec = {
+export const listItem: NodeSpec = {
   // NOTE: can't mix inline (text) and block content (list)
   // content: 'paragraph list+',
-  name: 'List Item',
   content: 'paragraph? (paragraph | list)+',
   group: 'block',
   defining: true,

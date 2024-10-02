@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
+import { NodeSpec } from 'prosemirror-model'
+
+import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
@@ -24,8 +26,7 @@ export interface GeneralTableFootnote extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const generalTableFootnote: ManuscriptNodeSpec = {
-  name: 'General table note',
+export const generalTableFootnote: NodeSpec = {
   content: 'paragraph*',
   attrs: {
     id: { default: '' },

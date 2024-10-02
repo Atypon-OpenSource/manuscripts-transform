@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-import { ManuscriptNode, ManuscriptNodeSpec } from '../types'
+import { NodeSpec } from 'prosemirror-model'
+
+import { ManuscriptNode } from '../types'
 import { AttributionNode } from './attribution'
 
 interface Attrs {
@@ -40,8 +42,7 @@ export interface FigureElementNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const figureElement: ManuscriptNodeSpec = {
-  name: 'Figure',
+export const figureElement: NodeSpec = {
   content:
     '(paragraph | figure | missing_figure | placeholder)+ attribution* figcaption (listing | placeholder)',
   attrs: {
