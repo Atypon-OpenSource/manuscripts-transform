@@ -53,7 +53,6 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.table_element, 'Table'],
   [schema.nodes.blockquote_element, 'Block Quote'],
   [schema.nodes.pullquote_element, 'Pull Quote'],
-  [schema.nodes.keywords, 'Section'],
   [schema.nodes.toc_section, 'Section'],
   [schema.nodes.box_element, 'Box'],
 ])
