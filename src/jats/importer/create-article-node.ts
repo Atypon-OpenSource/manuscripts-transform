@@ -14,11 +14,14 @@
  * limitations under the License.
  */
 
-import { defaultTitle } from '../../lib/deafults'
 import { ManuscriptAttrs, ManuscriptNode, schema } from '../../schema'
+import { generateNodeID } from '../../transformer'
 
 export const createArticleNode = (attrs: Partial<ManuscriptAttrs>) => {
-  const title = schema.nodes.title.createChecked({}, schema.text(defaultTitle))
+  const title = schema.nodes.title.createChecked({
+    id: generateNodeID(schema.nodes.title),
+  })
+
   if (!attrs.id) {
     throw new Error('Manuscript ID is missing')
   }
