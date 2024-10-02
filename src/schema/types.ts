@@ -147,7 +147,3 @@ export type DataTrackedAttrs = {
   userID: string
   createdAt: number
 }
-
-export interface ManuscriptNodeSpec extends NodeSpec {
-  name: string
-}
