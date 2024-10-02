@@ -75,7 +75,7 @@ const getEquationContent = (p: string | HTMLElement) => {
 
     switch (nodeName) {
       case 'tex-math':
-        contents = (child as Element).innerHTML
+        contents = child.textContent
         format = 'tex'
         break
       case 'mml:math':
@@ -882,6 +882,7 @@ const nodes: NodeRule[] = [
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
+        id: element.id,
         type: element.getAttribute('kwd-group-type'),
       }
     },

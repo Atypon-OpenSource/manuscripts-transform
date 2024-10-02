@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { Node, NodeType } from 'prosemirror-model'
 import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 
 import { defaultTitle } from '../../lib/deafults'
@@ -24,7 +25,6 @@ import {
   ManuscriptNodeType,
   schema,
 } from '../../schema'
-import { markComments } from '../importer/jats-comments'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { readAndParseFixture } from './files'
 import { changeIDs, createNodeFromJATS } from './utils'
@@ -440,38 +440,99 @@ describe('JATS importer', () => {
     })
   })
   describe('comments', () => {
-    it('should mark comments correctly', async () => {
-      const doc = await readAndParseFixture('jats-import.xml')
-      markComments(doc)
-      const commentsElement = doc.querySelector('comments')
-      expect(commentsElement).not.toBeNull()
-
-      const markers = doc.querySelectorAll('highlight-marker')
-      //todo: markers count can be different to the comments count
-      expect(markers.length).toBe(12)
-
-      const commentElements = commentsElement?.querySelectorAll('comment')
-      expect(commentElements?.length).toBe(12)
-    })
-    it('should create a comments node with comments if comments exist', async () => {
-      const jats = await readAndParseFixture('jats-import.xml')
+    const findNodesByType = (node: Node, type: NodeType) => {
+      return findChildrenByType(node, type).map((n) => n.node)
+    }
+    const findNodeByType = (node: Node, type: NodeType) => {
+      return findNodesByType(node, type)[0]
+    }
+    // it('should parse title comment', async () => {
+    //   const jats = await readAndParseFixture('jats-comments.xml')
+    //   const { node } = parseJATSArticle(jats)
+    //   const title = findNodeByType(node, schema.nodes.title)
+    //   const marker = findNodeByType(title, schema.nodes.highlight_marker)
+    //   const commentID = marker.attrs.id
+    //
+    //   // @ts-ignore
+    //   marker.attrs.id = 'MPCommentAnnotation:test'
+    //   expect(title.content).toMatchSnapshot()
+    //
+    //   const comments = findNodesByType(node, schema.nodes.comment)
+    //   const comment = comments.filter((c) => c.attrs.id === commentID)[0]
+    //   expect(comment.attrs.contents).toBe('Title comment')
+    // })
+    it('should parse keyword comment', async () => {
+      const jats = await readAndParseFixture('jats-comments.xml')
       const { node } = parseJATSArticle(jats)
-      const commentsNode = findChildrenByType(node, schema.nodes.comments)[0]
-        ?.node
-      expect(commentsNode).toBeDefined()
-      const comments = findChildrenByType(commentsNode, schema.nodes.comment)
-      expect(comments).toHaveLength(12)
+      const group = findNodeByType(node, schema.nodes.keyword_group)
+      const markers = findNodesByType(group, schema.nodes.highlight_marker)
+      expect(markers.length).toBe(0)
+
+      const groupID = group.attrs.id
+      const comments = findNodesByType(node, schema.nodes.comment)
+      const comment = comments.filter((c) => c.attrs.target === groupID)[0]
+      expect(comment.attrs.contents).toBe('Keyword comment')
     })
-    it('should parse comments correctly', async () => {
-      const jats = await readAndParseFixture('jats-import.xml')
+    it('should parse abstract comment', async () => {
+      const jats = await readAndParseFixture('jats-comments.xml')
       const { node } = parseJATSArticle(jats)
-      const commentsNode = findChildrenByType(node, schema.nodes.comments)[0]
-        ?.node
-      const comments = findChildrenByType(commentsNode, schema.nodes.comment)
-      comments.forEach(({ node: commentNode }, priority) => {
-        const commentEl = jats.querySelectorAll('comments > comment')[priority]
-        expect(commentNode.attrs.contents).toBe(commentEl.textContent)
-      })
+      const abstracts = findNodeByType(node, schema.nodes.abstracts)
+      const paragraph = findNodeByType(abstracts, schema.nodes.paragraph)
+      const marker = findNodeByType(paragraph, schema.nodes.highlight_marker)
+      const commentID = marker.attrs.id
+
+      // @ts-ignore
+      marker.attrs.id = 'MPCommentAnnotation:test'
+      expect(paragraph.content).toMatchSnapshot()
+
+      const comments = findNodesByType(node, schema.nodes.comment)
+      const comment = comments.filter((c) => c.attrs.id === commentID)[0]
+      expect(comment.attrs.contents).toBe('Abstract comment')
+    })
+    it('should parse body comment', async () => {
+      const jats = await readAndParseFixture('jats-comments.xml')
+      const { node } = parseJATSArticle(jats)
+      const body = findNodeByType(node, schema.nodes.body)
+      const paragraph = findNodeByType(body, schema.nodes.paragraph)
+      const marker = findNodeByType(paragraph, schema.nodes.highlight_marker)
+      const commentID = marker.attrs.id
+
+      // @ts-ignore
+      marker.attrs.id = 'MPCommentAnnotation:test'
+      expect(paragraph.content).toMatchSnapshot()
+
+      const comments = findNodesByType(node, schema.nodes.comment)
+      const comment = comments.filter((c) => c.attrs.id === commentID)[0]
+      expect(comment.attrs.contents).toBe('Body comment')
+    })
+    it('should parse back comment', async () => {
+      const jats = await readAndParseFixture('jats-comments.xml')
+      const { node } = parseJATSArticle(jats)
+      const back = findNodeByType(node, schema.nodes.backmatter)
+      const paragraph = findNodeByType(back, schema.nodes.paragraph)
+      const marker = findNodeByType(paragraph, schema.nodes.highlight_marker)
+      const commentID = marker.attrs.id
+
+      // @ts-ignore
+      marker.attrs.id = 'MPCommentAnnotation:test'
+      expect(paragraph.content).toMatchSnapshot()
+
+      const comments = findNodesByType(node, schema.nodes.comment)
+      const comment = comments.filter((c) => c.attrs.id === commentID)[0]
+      expect(comment.attrs.contents).toBe('Back comment')
+    })
+    it('should parse ref-list comment', async () => {
+      const jats = await readAndParseFixture('jats-comments.xml')
+      const { node } = parseJATSArticle(jats)
+      const element = findNodeByType(node, schema.nodes.bibliography_element)
+      const markers = findNodesByType(element, schema.nodes.highlight_marker)
+      expect(markers.length).toBe(0)
+
+      const item = element.child(0)
+      const itemID = item.attrs.id
+      const comments = findNodesByType(node, schema.nodes.comment)
+      const comment = comments.filter((c) => c.attrs.target === itemID)[0]
+      expect(comment.attrs.contents).toBe('Ref comment')
     })
   })
 

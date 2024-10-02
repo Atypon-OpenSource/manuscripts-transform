@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import { v4 as uuid } from 'uuid'
+
 import { schema } from '../../schema'
 import { generateNodeID } from '../../transformer'
 
@@ -35,10 +37,23 @@ const parseJATSComment = (node: Node): string | undefined => {
   }
 }
 
+const isHighlightable = (node: Element) => {
+  //todo find a better way to do this
+  return node.nodeName === 'p'
+}
+
+const findTarget = (node: Element) => {
+  const target = node.closest('ref, kwd-group')
+  if (target) {
+    return target
+  }
+  return node
+}
+
 export const markComments = (doc: Document) => {
   const root = doc.getRootNode() as Element
   const queue: Element[] = [root]
-  const commentsElement = doc.createElement('comments')
+  const comments = doc.createElement('comments')
   while (queue.length !== 0) {
     const node = queue.shift()
     if (node) {
@@ -46,19 +61,22 @@ export const markComments = (doc: Document) => {
         const text = parseJATSComment(node)
         if (text) {
           const id = generateNodeID(schema.nodes.comment)
+          let target
           const parent = node.parentNode as Element
-          if (parent) {
-            //todo can we check if node is highlightable?
+          if (isHighlightable(parent)) {
             const marker = createHighlightMarkerElement(doc, id)
             parent.insertBefore(marker, node)
-            /**
-             * this value will get overridden in updateHighlightCommentTargets
-             * for highlight comments
-             */
-            const targetID = parent.closest('[id]')?.id
-            const commentElement = createCommentElement(doc, id, targetID, text)
-            commentsElement.appendChild(commentElement)
+            target = parent
+          } else {
+            target = findTarget(parent)
           }
+          // if the target has no ID, generate one here and rely on
+          // updateDocumentIDs to fix it
+          if (!target.id) {
+            target.id = uuid()
+          }
+          const comment = createCommentElement(doc, id, target.id, text)
+          comments.appendChild(comment)
         }
       }
       node.childNodes.forEach((child) => {
@@ -67,8 +85,8 @@ export const markComments = (doc: Document) => {
     }
   }
 
-  if (commentsElement.hasChildNodes()) {
-    doc.documentElement.appendChild(commentsElement)
+  if (comments.hasChildNodes()) {
+    doc.documentElement.appendChild(comments)
   }
 }
 
