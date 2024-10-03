@@ -160,45 +160,24 @@ describe('JATS importer', () => {
         throw new Error('Awards element not found')
       }
       const { node } = parseJATSArticle(jats)
-      const awardsNode = findChildrenByType(node, schema.nodes.awards)[0]?.node
+      const awardsNode = findNodeByType(node, schema.nodes.awards)
       expect(awardsNode).toBeDefined()
       expect(
-        findChildrenByType(awardsNode, schema.nodes.award).length
+        findNodesByType(awardsNode, schema.nodes.award).length
       ).toBeGreaterThan(0)
     })
     it('should correctly parse award nodes', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
-      const awardsEl = jats.querySelector('article-meta > funding-group')
-      if (!awardsEl) {
-        throw new Error('Awards element not found')
-      }
-      const awards = awardsEl.querySelectorAll('award-group')
       const { node } = parseJATSArticle(jats)
-      const awardsNode = findChildrenByType(node, schema.nodes.awards)[0]?.node
-      const awardNodes = findChildrenByType(awardsNode, schema.nodes.award)
-      expect(awardNodes.length).toBeGreaterThan(0)
-      expect(awardNodes).toHaveLength(awards.length)
-      awards.forEach((awardEl, priority) => {
-        const awardNode = awardNodes[priority].node
-        expect(awardNode.attrs.recipient).toBe(
-          awardEl.querySelector('principal-award-recipient')?.textContent
-        )
-        expect(awardNode.attrs.code).toBe(
-          Array.from(awardEl.querySelectorAll('award-id'))
-            .map((awardID) => awardID.textContent)
-            .reduce((acc, text) => (acc ? `${acc};${text}` : text), '')
-        )
-        expect(awardNode.attrs.source).toBe(
-          awardEl.querySelector('funding-source')?.textContent
-        )
-      })
+      const awardsNode = findNodeByType(node, schema.nodes.awards)
+      expect(awardsNode).toMatchSnapshot()
     })
     it('should not have awards node if awards element does not exist', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
       const awardsEl = jats.querySelector('article-meta > funding-group')
       awardsEl?.remove()
       const { node } = parseJATSArticle(jats)
-      const awardsNode = findChildrenByType(node, schema.nodes.awards)[0]?.node
+      const awardsNode = findNodeByType(node, schema.nodes.awards)
       expect(awardsNode).toBeUndefined()
     })
   })

@@ -2447,7 +2447,11 @@ Object {
     },
     Object {
       "attrs": Object {
+<<<<<<< HEAD
         "id": "some-id",
+=======
+        "id": "",
+>>>>>>> d0322e10080e02075cf3e91acd1c0b967a636e6d
       },
       "content": Array [
         Object {
@@ -3978,7 +3982,11 @@ Object {
     },
     Object {
       "attrs": Object {
+<<<<<<< HEAD
         "id": "some-id",
+=======
+        "id": "",
+>>>>>>> d0322e10080e02075cf3e91acd1c0b967a636e6d
       },
       "type": "comments",
     },
@@ -17257,7 +17265,11 @@ Object {
     },
     Object {
       "attrs": Object {
+<<<<<<< HEAD
         "id": "some-id",
+=======
+        "id": "",
+>>>>>>> d0322e10080e02075cf3e91acd1c0b967a636e6d
       },
       "content": Array [
         Object {
@@ -17808,7 +17820,11 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
+<<<<<<< HEAD
         "id": "some-id",
+=======
+        "id": "",
+>>>>>>> d0322e10080e02075cf3e91acd1c0b967a636e6d
       },
       "content": Array [
         Object {
@@ -24562,7 +24578,11 @@ Object {
     },
     Object {
       "attrs": Object {
+<<<<<<< HEAD
         "id": "some-id",
+=======
+        "id": "",
+>>>>>>> d0322e10080e02075cf3e91acd1c0b967a636e6d
       },
       "content": Array [
         Object {
@@ -37592,7 +37612,11 @@ Object {
     },
     Object {
       "attrs": Object {
+<<<<<<< HEAD
         "id": "some-id",
+=======
+        "id": "",
+>>>>>>> d0322e10080e02075cf3e91acd1c0b967a636e6d
       },
       "content": Array [
         Object {

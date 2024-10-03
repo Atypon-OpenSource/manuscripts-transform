@@ -335,26 +335,6 @@ const nodes: NodeRule[] = [
     },
   },
   {
-    tag: 'funding-group',
-    node: 'awards',
-  },
-  {
-    tag: 'award-group',
-    node: 'award',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-      return {
-        id: element.getAttribute('id'),
-        recipient: element.querySelector('principal-award-recipient')
-          ?.textContent,
-        code: Array.from(element.querySelectorAll('award-id'))
-          .map((awardID) => awardID.textContent)
-          .reduce((acc, text) => (acc ? `${acc};${text}` : text), ''),
-        source: element.querySelector('funding-source')?.textContent,
-      }
-    },
-  },
-  {
     tag: 'fn:not([fn-type])',
     node: 'footnote',
     context: 'author_notes/',
