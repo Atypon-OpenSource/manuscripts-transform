@@ -88,30 +88,6 @@ describe('JATS exporter', () => {
     expect(tableWrapFoot).not.toBeUndefined()
   })
 
-  // test('export table rowspan & colspan & multiple headers', async () => {
-  //   const transformer = new JATSExporter()
-  //   const input = await readAndParseFixture('jats-tables-example.xml')
-  //   const { node, journal } = parseJATSArticle(input)
-  //   const xml = await transformer.serializeToJATS(node, {
-  //     csl: DEFAULT_CSL_OPTIONS,
-  //     //@ts-ignore
-  //     journal,
-  //   })
-  //   const resultDoc = parseXMLWithDTD(xml)
-
-  //   // Check for rowspan
-  //   const rowSpanCells = resultDoc.find('//table/tbody/tr/td[@rowspan]')
-  //   expect(rowSpanCells.length).toBeGreaterThan(0)
-
-  //   // Check for colspan
-  //   const colSpanCells = resultDoc.find('//table/thead/tr/th[@colspan]')
-  //   const colSpanValues = colSpanCells.map((cell) =>
-  //     parseInt(cell.getAttribute('colspan'), 10)
-  //   )
-
-  //   expect(colSpanValues).toContain(2)
-  // })
-
   test('add journal ID', async () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-example-full.xml')
@@ -197,193 +173,98 @@ describe('JATS exporter', () => {
     expect(attrs['ext-link-type']).toBe('uri')
   })
 
-  // test('Markup in citations', async () => {
-  //   const projectBundle = cloneProjectBundle(inputWithCitations)
+  test('Markup in citations', async () => {
+    const transformer = new JATSExporter()
+    const input = await readAndParseFixture('jats-import.xml')
+    const { node, journal } = parseJATSArticle(input)
+    const xml = await transformer.serializeToJATS(node, {
+      csl: DEFAULT_CSL_OPTIONS,
+      //@ts-ignore
+      journal,
+    })
 
-  //   const { doc, modelMap } = parseProjectBundle(projectBundle)
+    const output = parseXMLWithDTD(xml)
 
-  //   const transformer = new JATSExporter()
-  //   const manuscript = findManuscript(modelMap)
-  //   const xml = await transformer.serializeToJATS(
-  //     doc.content,
-  //     modelMap,
-  //     manuscript._id,
-  //     { csl: DEFAULT_CSL_OPTIONS }
-  //   )
+    const refs = output.find<XMLElement>('//xref[@ref-type="bibr"]')
 
-  //   const output = parseXMLWithDTD(xml)
+    expect(refs).toHaveLength(17)
+    expect(refs[0].child(0)!.type()).toBe('text')
+    expect(refs[0].text()).toBe('1,2')
+    expect(refs[1].child(0)!.type()).toBe('text')
+    expect(refs[1].text()).toBe('3')
+  })
 
-  //   const refs = output.find<XMLElement>('//xref[@ref-type="bibr"]')
+  test('DTD validation for MathML representation', async () => {
+    const transformer = new JATSExporter()
+    const input = await readAndParseFixture('jats-example-doc.xml')
+    const { node, journal } = parseJATSArticle(input)
+    const xml = await transformer.serializeToJATS(node, {
+      csl: DEFAULT_CSL_OPTIONS,
+      //@ts-ignore
+      journal,
+    })
 
-  //   expect(refs).toHaveLength(2)
+    const { errors } = parseXMLWithDTD(xml)
 
-  //   expect(refs[0].child(0)!.type()).toBe('text')
-  //   expect(refs[0].text()).toBe('1,2')
-  //   expect(refs[1].child(0)!.type()).toBe('text')
-  //   expect(refs[1].text()).toBe('3–5')
-  // })
+    expect(errors).toHaveLength(0)
+  })
 
-  // test('Export manuscript history', async () => {
-  //   const projectBundle = cloneProjectBundle(input)
+  test('export with supplement', async () => {
+    const transformer = new JATSExporter()
+    const input = await readAndParseFixture('jats-import.xml')
+    const { node, journal } = parseJATSArticle(input)
+    const xml = await transformer.serializeToJATS(node, {
+      csl: DEFAULT_CSL_OPTIONS,
+      //@ts-ignore
+      journal,
+    })
+    const resultDoc = parseXMLWithDTD(xml)
+    const supplementaryMaterial = resultDoc.get('//supplementary-material')
+    if (!supplementaryMaterial) {
+      throw new Error('No supplementary material found')
+    }
+    //@ts-ignore
+    const textContent = supplementaryMaterial.text().trim()
+    //@ts-ignore
+    const mimeTypeAttr = supplementaryMaterial.attr('mimetype')
+    //@ts-ignore
+    const mimeSubtypeAttr = supplementaryMaterial.attr('mime-subtype')
+    //@ts-ignore
+    const hrefAttr = supplementaryMaterial.attr('href')
 
-  //   const { doc, modelMap } = parseProjectBundle(projectBundle)
+    expect(textContent).toBe(
+      'final manuscript-hum-huili-dbh-suicide-20200707_figures (9)'
+    )
+    expect(mimeTypeAttr?.value()).toBe('application')
+    expect(mimeSubtypeAttr?.value()).toBe(
+      'vnd.openxmlformats-officedocument.wordprocessingml.document'
+    )
+    expect(hrefAttr?.value()).toBe(
+      'attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312'
+    )
+  })
 
-  //   const transformer = new JATSExporter()
-  //   const manuscript = findManuscript(modelMap)
-  //   manuscript.revisionRequestDate = 1549312452
-  //   manuscript.correctionDate = 1549312452
-  //   manuscript.revisionReceiveDate = 839335536
-  //   manuscript.acceptanceDate = 1818419713
+  test('export footnotes', async () => {
+    const transformer = new JATSExporter()
+    const input = await readAndParseFixture('jats-fn-group.xml')
+    const { node, journal } = parseJATSArticle(input)
+    const xml = await transformer.serializeToJATS(node, {
+      csl: DEFAULT_CSL_OPTIONS,
+      //@ts-ignore
+      journal,
+    })
+    const footnoteCategories = [
+      'con',
+      'deceased',
+      'equal',
+      'financial-disclosure',
+    ]
 
-  //   const xml = await transformer.serializeToJATS(
-  //     doc.content,
-  //     modelMap,
-  //     manuscript._id,
-  //     {
-  //       version: '1.2',
-  //       doi: '10.1234/5678',
-  //       id: '4567',
-  //       frontMatterOnly: true,
-  //       csl: DEFAULT_CSL_OPTIONS,
-  //     }
-  //   )
-  //   expect(xml).toMatchSnapshot()
+    const resultDoc = parseXMLWithDTD(xml)
 
-  //   const { errors } = parseXMLWithDTD(xml)
-  //   expect(errors).toHaveLength(0)
-  // })
-
-  // test('DTD validation for MathML representation', async () => {
-  //   const jats = await readAndParseFixture('jats-import.xml')
-  //   const transformer = new JATSExporter()
-
-  //   const { manuscript, journal, node } = parseJATSArticle(jats)
-  //   const xml = await transformer.serializeToJATS(
-  //     node,
-  //     DEFAULT_CSL_OPTIONS,
-  //     manuscript,
-  //     journal
-  //   )
-
-  //   const { errors } = parseXMLWithDTD(xml)
-
-  //   expect(errors).toHaveLength(0)
-  // })
-
-  // test('export with article-type attribute', async () => {
-  //   const projectBundle = cloneProjectBundle(input)
-
-  //   const { doc, modelMap } = parseProjectBundle(projectBundle)
-
-  //   const manuscript = findManuscript(modelMap)
-
-  //   manuscript.articleType = 'essay'
-
-  //   const transformer = new JATSExporter()
-
-  //   const xml = await transformer.serializeToJATS(
-  //     doc.content,
-  //     modelMap,
-  //     manuscript._id,
-  //     { csl: DEFAULT_CSL_OPTIONS }
-  //   )
-
-  //   expect(xml).toMatchSnapshot('jats-export-with-article-type')
-
-  //   const { errors } = parseXMLWithDTD(xml)
-
-  //   expect(errors).toHaveLength(0)
-  // })
-
-  // test('export with supplement', async () => {
-  //   const suppl: Supplement = {
-  //     containerID: '',
-  //     manuscriptID: '',
-  //     createdAt: 0,
-  //     updatedAt: 0,
-  //     _id: 'MPSupplement:B5B88C22-FBE7-4C03-811D-938424F7B452',
-  //     objectType: 'MPSupplement',
-  //     title: 'final manuscript-hum-huili-dbh-suicide-20200707_figures (9)',
-  //     href: 'attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312',
-  //     MIME: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-  //   }
-  //   input.data.push(suppl)
-  //   const projectBundle = cloneProjectBundle(input)
-  //   const { doc, modelMap } = parseProjectBundle(projectBundle)
-  //   const manuscript = findManuscript(modelMap)
-  //   const transformer = new JATSExporter()
-  //   const xml = await transformer.serializeToJATS(
-  //     doc.content,
-  //     modelMap,
-  //     manuscript._id,
-  //     { csl: DEFAULT_CSL_OPTIONS }
-  //   )
-
-  //   expect(xml).toMatchSnapshot('jats-export-with-supplement')
-  //   const { errors } = parseXMLWithDTD(xml)
-  //   expect(errors).toHaveLength(0)
-  // })
-
-  // test('export footnotes', async () => {
-  //   const projectBundle = cloneProjectBundle(input)
-
-  //   const footnoteCategories = [
-  //     'con',
-  //     'conflict',
-  //     'deceased',
-  //     'equal',
-  //     'present-address',
-  //     'presented-at',
-  //     'previously-at',
-  //     'supplementary-material',
-  //     'supported-by',
-  //     'financial-disclosure',
-  //     'ethics-statement',
-  //     'competing-interests',
-  //   ]
-
-  //   let cnt = 0
-  //   for (const category of footnoteCategories) {
-  //     const fnSectionModel: Section = {
-  //       _id: `MPSection:${cnt++}`,
-  //       category: `MPSectionCategory:${category}`,
-  //       elementIDs: [],
-  //       objectType: 'MPSection',
-  //       path: [`MPSection:${cnt++}`],
-  //       priority: 0,
-  //       title: `a title for ${category}`,
-  //       createdAt: 0,
-  //       updatedAt: 0,
-  //       manuscriptID: 'MPManuscript:1',
-  //       containerID: 'MPProject:1',
-  //     }
-
-  //     projectBundle.data.push(fnSectionModel)
-  //   }
-
-  //   const { doc, modelMap } = parseProjectBundle(projectBundle)
-
-  //   const transformer = new JATSExporter()
-  //   const manuscript = findManuscript(modelMap)
-  //   const xml = await transformer.serializeToJATS(
-  //     doc.content,
-  //     modelMap,
-  //     manuscript._id,
-  //     { csl: DEFAULT_CSL_OPTIONS }
-  //   )
-
-  //   const resultDoc = parseXMLWithDTD(xml)
-
-  //   for (const category of footnoteCategories) {
-  //     const fnType =
-  //       category === 'competing-interests' ? 'coi-statement' : category
-  //     let fn = resultDoc.get(`/article/back/fn-group/fn[@fn-type="${fnType}"]`)
-  //     if (fnType === 'coi-statement') {
-  //       fn = resultDoc.get(
-  //         `/article/front/article-meta/author-notes/fn[@fn-type="${fnType}"]`
-  //       )
-  //     }
-  //     expect(fn).not.toBeUndefined()
-  //   }
-  // })
+    for (const category of footnoteCategories) {
+      const fn = resultDoc.get(`/article/back/fn-group/fn[@fn-type="${category}"]`)
+      expect(fn).not.toBeUndefined()
+    }
+  })
 })

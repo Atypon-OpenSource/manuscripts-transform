@@ -468,6 +468,12 @@ export class JATSExporter {
     ).length
     countingElements.push(this.buildCountingElement('fig-count', figureCount))
 
+    const tableCount = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.table
+    ).length
+    countingElements.push(this.buildCountingElement('table-count', tableCount))
+
     const equationCount = findChildrenByType(
       this.manuscriptNode,
       schema.nodes.equation_element
@@ -475,12 +481,6 @@ export class JATSExporter {
     countingElements.push(
       this.buildCountingElement('equation-count', equationCount)
     )
-
-    const tableCount = findChildrenByType(
-      this.manuscriptNode,
-      schema.nodes.table
-    ).length
-    countingElements.push(this.buildCountingElement('table-count', tableCount))
 
     const referencesCount = findChildrenByType(
       this.manuscriptNode,
@@ -490,6 +490,7 @@ export class JATSExporter {
       this.buildCountingElement('ref-count', referencesCount)
     )
 
+    //todo: is this correct?
     const wordCount = this.manuscriptNode.textContent.split(/\s+/).length
     countingElements.push(this.buildCountingElement('word-count', wordCount))
 
