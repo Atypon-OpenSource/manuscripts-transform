@@ -23,7 +23,7 @@
         </subj-group>
       </article-categories>
       <title-group>
-        <article-title>Blood pressure after follow up in a stroke prevention
+        <article-title>Blood <bold>pressure</bold> after follow up in a stroke prevention
           clinic</article-title>
         <alt-title alt-title-type="right-running">Blood pressure after stroke</alt-title>
       </title-group>
@@ -1145,8 +1145,9 @@
       </ref>
       <ref id="BRB3-2019-12-0787-bib-0013">
         <label>13</label>
-        <?AuthorQuery id="Q6" queryText="Medline reports the journal title should be &quot;International journal of stroke : official journal of the International Stroke Society or Int J Stroke&quot;, not &quot;International Journal of Stroke&quot;. (Ref. 13 &quot;Hornnes, Larsen, Boysen, 2010&quot;)"?>
-        <mixed-citation publication-type="journal"><person-group person-group-type="author"
+        <mixed-citation publication-type="journal">
+          <?AuthorQuery id="Q6" queryText="Medline reports the journal title should be &quot;International journal of stroke : official journal of the International Stroke Society or Int J Stroke&quot;, not &quot;International Journal of Stroke&quot;. (Ref. 13 &quot;Hornnes, Larsen, Boysen, 2010&quot;)"?>
+          <person-group person-group-type="author"
         ><string-name><surname>Hornnes</surname>,
           <given-names>N.</given-names></string-name>,
           <string-name><surname>Larsen</surname>,
@@ -1322,7 +1323,7 @@
             in patients with stroke or transient ischemic attack: A guideline for
             healthcare professionals from the american heart association/american stroke
             association.</article-title>
-          <source>Stroke</source>, <volume>42</volume>,
+          <source><italic>Stroke</italic></source>, <volume>42</volume>,
           <fpage>227</fpage>&#x2013;<lpage>276</lpage>. <pub-id pub-id-type="doi"
           >https://doi.org/10.1161/STR.0b013e3181f7d043</pub-id><pub-id
             pub-id-type="pmid">20966421</pub-id></mixed-citation>
@@ -1370,7 +1371,7 @@
             Task Force for the Management of Arterial
             Hypertension</collab></person-group>. (<year>2013</year>).
           <article-title>2013 Practice guidelines for the management of arterial
-            hypertension of the European Society of Hypertension (ESH) and the European
+            hypertension of the <italic>European</italic> Society of Hypertension (ESH) and the European
             Society of Cardiology (ESC): ESH/ESC Task Force for the Management of
             Arterial Hypertension.</article-title>
           <source>Journal of Hypertension</source>, <volume>31</volume>,

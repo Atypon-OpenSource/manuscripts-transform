@@ -3,7 +3,6 @@
 <article xmlns:xlink="http://www.w3.org/1999/xlink" article-type="other">
   <front>
     <journal-meta>
-      <journal-id journal-id-type="publisher-id">HUP-19-0076</journal-id>
       <journal-id journal-id-type="nlm-ta">Human Psychopharmacology: Clinical and Experimental</journal-id>
       <journal-title-group>
         <journal-title>Human Psychopharmacology: Clinical and Experimental</journal-title>
@@ -16,6 +15,7 @@
       </publisher>
     </journal-meta>
     <article-meta>
+      <article-id pub-id-type="publisher-id">HUP-19-0076</article-id>
       <title-group>
         <article-title>A complete manuscript</article-title>
       </title-group>
@@ -43,13 +43,13 @@
     <fn-group>
       <fn fn-type="financial-disclosure">
         <p content-type="fn-title">FUNDING INFORMATION</p>
-        <p>This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).</p>
+        <p>This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key <xref ref-type="bibr" rid="HUP-19-0076-bib-0001">1</xref>Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).</p>
       </fn>
     </fn-group>
     <ref-list>
       <title>References</title>
       <ref id="HUP-19-0076-bib-0001">
-        <mixed-citation publication-type="journal">
+        <element-citation publication-type="journal">
           <person-group person-group-type="author">
             <string-name>
               <surname>Caldwell</surname>
@@ -67,10 +67,10 @@
           <issue>4</issue>
           <fpage>479</fpage>
           <lpage>493</lpage>
-        </mixed-citation>
+        </element-citation>
       </ref>
       <ref id="HUP-19-0076-bib-0002">
-        <mixed-citation publication-type="journal">
+        <element-citation publication-type="journal">
           <person-group person-group-type="author">
             <string-name>
               <surname>Hor</surname>
@@ -90,7 +90,7 @@
           <fpage>81</fpage>
           <lpage>90</lpage>
           <pub-id pub-id-type="doi">https://doi.org/10.1177/1359786810385490</pub-id>
-        </mixed-citation>
+        </element-citation>
       </ref>
     </ref-list>
   </back>

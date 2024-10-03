@@ -19,11 +19,9 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
+  //TODO rename to rid
   id: string
-  //target id
-  tid: string
   position: string
-  text: string
 }
 
 export interface HighlightMarkerNode extends ManuscriptNode {
@@ -37,9 +35,7 @@ export const highlightMarker: NodeSpec = {
   atom: true,
   attrs: {
     id: { default: '' },
-    tid: { default: '' },
     position: { default: '' },
-    dataTracked: { default: null },
   },
   parseDOM: [
     {
@@ -49,7 +45,6 @@ export const highlightMarker: NodeSpec = {
 
         return {
           id: dom.getAttribute('id'),
-          tid: dom.getAttribute('data-target-id'),
           position: dom.getAttribute('data-position'),
         }
       },
@@ -61,7 +56,6 @@ export const highlightMarker: NodeSpec = {
     const dom = document.createElement('span')
     dom.className = 'highlight-marker'
     dom.setAttribute('id', highlightMarkerNode.attrs.id)
-    dom.setAttribute('data-target-id', highlightMarkerNode.attrs.tid)
     dom.setAttribute('data-position', highlightMarkerNode.attrs.position)
 
     return dom

@@ -1,5 +1,5 @@
 /*!
- * © 2020 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,16 @@
  * limitations under the License.
  */
 
-export {
-  parseJATSFront,
-  parseJATSBody,
-  parseJATSArticle,
-} from './parse-jats-article'
+import { ManuscriptAttrs, ManuscriptNode, schema } from '../../schema'
+import { generateNodeID } from '../../transformer'
+
+export const createArticleNode = (attrs: Partial<ManuscriptAttrs>) => {
+  const title = schema.nodes.title.createChecked({
+    id: generateNodeID(schema.nodes.title),
+  })
+
+  if (!attrs.id) {
+    throw new Error('Manuscript ID is missing')
+  }
+  return schema.nodes.manuscript.createAndFill(attrs, title) as ManuscriptNode
+}

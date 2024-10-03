@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD with OASIS Tables with MathML3 v1.2 20190208//EN" "http://jats.nlm.nih.gov/archiving/1.2/JATS-archive-oasis-article1-mathml3.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" article-type="other">
+    <front>
+        <article-meta>
+            <title-group>
+                <article-title>A title with a comment</article-title>
+            </title-group>
+            <abstract>
+                <p>A paragraph with <?AuthorQuery id="c1" queryText="Abstract comment"?> a comment</p>
+            </abstract>
+            <kwd-group>
+                <kwd>A <?AuthorQuery id="c1" queryText="Keyword comment"?> keyword with a comment</kwd>
+            </kwd-group>
+        </article-meta>
+    </front>
+    <body>
+        <sec>
+            <title>Section</title>
+            <p>A <?AuthorQuery id="c1" queryText="Body comment"?>paragraph with a comment</p>
+        </sec>
+    </body>
+    <back>
+        <fn-group>
+            <fn fn-type="con">
+                <label>con</label>
+                <p>This is information about con.</p>
+            </fn>
+            <fn fn-type="deceased">
+                <label>deceased</label>
+                <p>This is information about deceased.</p>
+            </fn>
+            <fn fn-type="equal">
+                <label>equal</label>
+                <p>This is information about equal.</p>
+            </fn>
+            <fn fn-type="financial-disclosure">
+                <p content-type="fn-title">FUNDING INFORMATION</p>
+                <p>A paragraph with a comment
+                    <?AuthorQuery id="c1" queryText="Back comment"?></p>
+            </fn>
+
+        </fn-group>
+        <ref-list>
+            <title>References</title>
+            <ref id="ref1">
+                <element-citation publication-type="journal">
+                    <?AuthorQuery id="Q1" queryText="Ref comment"?>
+                    <year>1992</year>
+                    <article-title>Test article</article-title>
+                    <source>Test journal</source>
+                    <volume>0</volume>
+                    <issue>0</issue>
+                    <fpage>0</fpage>
+                    <lpage>0</lpage>
+                </element-citation>
+            </ref>
+        </ref-list>
+    </back>
+</article>

@@ -19,7 +19,7 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface BibliographyItemAttrs {
   id: string
   type: string
   author?: BibliographicName[]
@@ -32,10 +32,11 @@ interface Attrs {
   page?: string
   title?: string
   literal?: string
+  paragraphStyle?: string
 }
 
 export interface BibliographyItemNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: BibliographyItemAttrs
 }
 
 export const bibliographyItem: NodeSpec = {
