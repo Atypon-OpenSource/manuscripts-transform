@@ -148,6 +148,38 @@ Object {
 }
 `;
 
+exports[`JATS importer awards should correctly parse award nodes 1`] = `
+Object {
+  "attrs": Object {
+    "dataTracked": null,
+    "id": "undefined:3DFA27AC-D567-4508-A93B-6F7113F5322B",
+  },
+  "content": Array [
+    Object {
+      "attrs": Object {
+        "code": "GM18458",
+        "dataTracked": null,
+        "id": "undefined:62CF0114-A543-40C9-B54E-C4EE2A5C7028",
+        "recipient": "Berkeley",
+        "source": "National Institutes of Health",
+      },
+      "type": "award",
+    },
+    Object {
+      "attrs": Object {
+        "code": "DMS-0204674;DMS-0244638",
+        "dataTracked": null,
+        "id": "undefined:8E85F7F6-2D3A-43C2-85A0-E7FD4BF514D8",
+        "recipient": undefined,
+        "source": "National Science Foundation",
+      },
+      "type": "award",
+    },
+  ],
+  "type": "awards",
+}
+`;
+
 exports[`JATS importer backmatter should parse references correctly 1`] = `
 Object {
   "attrs": Object {
@@ -2447,11 +2479,7 @@ Object {
     },
     Object {
       "attrs": Object {
-<<<<<<< HEAD
-        "id": "some-id",
-=======
-        "id": "",
->>>>>>> d0322e10080e02075cf3e91acd1c0b967a636e6d
+        "id": "undefined:test",
       },
       "content": Array [
         Object {
@@ -3982,11 +4010,7 @@ Object {
     },
     Object {
       "attrs": Object {
-<<<<<<< HEAD
-        "id": "some-id",
-=======
-        "id": "",
->>>>>>> d0322e10080e02075cf3e91acd1c0b967a636e6d
+        "id": "undefined:test",
       },
       "type": "comments",
     },
@@ -17265,11 +17289,7 @@ Object {
     },
     Object {
       "attrs": Object {
-<<<<<<< HEAD
-        "id": "some-id",
-=======
-        "id": "",
->>>>>>> d0322e10080e02075cf3e91acd1c0b967a636e6d
+        "id": "undefined:test",
       },
       "content": Array [
         Object {
@@ -17820,11 +17840,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-<<<<<<< HEAD
-        "id": "some-id",
-=======
-        "id": "",
->>>>>>> d0322e10080e02075cf3e91acd1c0b967a636e6d
+        "id": "undefined:test",
       },
       "content": Array [
         Object {
@@ -24578,11 +24594,7 @@ Object {
     },
     Object {
       "attrs": Object {
-<<<<<<< HEAD
-        "id": "some-id",
-=======
-        "id": "",
->>>>>>> d0322e10080e02075cf3e91acd1c0b967a636e6d
+        "id": "undefined:test",
       },
       "content": Array [
         Object {
@@ -37612,11 +37624,7 @@ Object {
     },
     Object {
       "attrs": Object {
-<<<<<<< HEAD
-        "id": "some-id",
-=======
-        "id": "",
->>>>>>> d0322e10080e02075cf3e91acd1c0b967a636e6d
+        "id": "undefined:test",
       },
       "content": Array [
         Object {

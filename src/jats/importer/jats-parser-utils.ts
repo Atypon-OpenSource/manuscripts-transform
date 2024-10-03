@@ -22,14 +22,6 @@ import {
 } from '../../schema'
 import { generateNodeID } from '../../transformer'
 
-import {
-  ContributorCorresp,
-  ContributorFootnote,
-  ManuscriptNode,
-  schema,
-} from '../../schema'
-import { generateNodeID, nodeTypesMap } from '../../transformer'
-
 export const updateDocumentIDs = (node: ManuscriptNode) => {
   const replacements = new Map()
   const warnings: string[] = []
@@ -61,24 +53,6 @@ const updateNodeID = (
   replacements: Map<string, string>,
   warnings: string[]
 ) => {
-  if (node.type === schema.nodes.inline_equation) {
-    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-    node.attrs = {
-      ...node.attrs,
-      id: `InlineMathFragment:${uuidv4()}`,
-    }
-    return
-  }
-
-  if (node.type === schema.nodes.general_table_footnote) {
-    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-    node.attrs = {
-      ...node.attrs,
-      id: `GeneralTableFootnote:${uuidv4()}`,
-    }
-    return
-  }
-
   if (
     node.type === schema.nodes.comment ||
     node.type === schema.nodes.highlight_marker

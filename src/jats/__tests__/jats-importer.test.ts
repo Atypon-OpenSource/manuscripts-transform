@@ -155,10 +155,6 @@ describe('JATS importer', () => {
   describe('awards', () => {
     it('should have awards node if awards element exists', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
-      const awardsEl = jats.querySelector('article-meta > funding-group')
-      if (!awardsEl) {
-        throw new Error('Awards element not found')
-      }
       const { node } = parseJATSArticle(jats)
       const awardsNode = findNodeByType(node, schema.nodes.awards)
       expect(awardsNode).toBeDefined()
