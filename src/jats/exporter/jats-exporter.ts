@@ -169,7 +169,7 @@ export const buildCitations = (citations: CitationNode[]) =>
 export class JATSExporter {
   protected document: Document
   protected serializer: DOMSerializer
-  protected labelTargets?: Map<string, Target>
+  protected labelTargets: Map<string, Target>
   protected citationTexts: Map<string, string>
   protected citationProvider: CitationProvider
   protected manuscriptNode: ManuscriptNode
@@ -814,18 +814,19 @@ export class JATSExporter {
         const cross = node as CrossReferenceNode
         const rids = cross.attrs.rids
         if (!rids.length) {
-          return cross.attrs.label
+          return cross.attrs.label ?? ''
         }
 
-        const text = cross.attrs.customLabel || cross.attrs.label
+        const rid = rids[0]
+        const text = cross.attrs.label || this.labelTargets.get(rid)?.label
 
         const target = findChildrenByAttr(
           this.manuscriptNode,
-          (attrs) => attrs.id === rids[0]
+          (attrs) => attrs.id === rid
         )[0]?.node
         if (!target) {
           warn('')
-          return text
+          return text || ''
         }
 
         const xref = this.document.createElement('xref')
@@ -838,7 +839,7 @@ export class JATSExporter {
         }
 
         xref.setAttribute('rid', normalizeID(rids.join(' ')))
-        xref.textContent = text
+        xref.textContent = text ?? ''
 
         return xref
       },

@@ -4961,7 +4961,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Table 1",
                         "rids": Array [
@@ -4989,7 +4988,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Table 2",
                         "rids": Array [
@@ -5004,7 +5002,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Table 3",
                         "rids": Array [
@@ -13819,7 +13816,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Table 3",
                         "rids": Array [
@@ -13896,7 +13892,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure 1 A–D",
                         "rids": Array [
@@ -14097,7 +14092,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure 2",
                         "rids": Array [
@@ -14275,7 +14269,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Table 1",
                         "rids": Array [
@@ -14326,7 +14319,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Table 1",
                         "rids": Array [
@@ -14377,7 +14369,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Table 2",
                         "rids": Array [
@@ -14392,7 +14383,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Table 3",
                         "rids": Array [
@@ -14469,7 +14459,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure 1 E–G",
                         "rids": Array [
@@ -14484,7 +14473,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure 1 G",
                         "rids": Array [
@@ -14550,7 +14538,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure 2",
                         "rids": Array [
@@ -14673,7 +14660,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Table 2",
                         "rids": Array [
@@ -14773,7 +14759,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure 3 A-C",
                         "rids": Array [
@@ -18359,7 +18344,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "customLabel": "",
                     "dataTracked": null,
                     "label": "Figure 1",
                     "rids": Array [
@@ -18374,7 +18358,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "customLabel": "",
                     "dataTracked": null,
                     "label": "Table 1",
                     "rids": Array [
@@ -21226,7 +21209,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "customLabel": "",
                     "dataTracked": null,
                     "label": "Figure 2",
                     "rids": Array [
@@ -21364,7 +21346,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure 3",
                         "rids": Array [
@@ -21626,7 +21607,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Table 2",
                         "rids": Array [
@@ -24423,7 +24403,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "customLabel": "",
                     "dataTracked": null,
                     "label": "Figure I",
                     "rids": Array [
@@ -26089,7 +26068,6 @@ Object {
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Table 1",
                         "rids": Array [
@@ -29269,7 +29247,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Table 1",
                         "rids": Array [
@@ -29435,7 +29412,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "customLabel": "",
                     "dataTracked": null,
                     "label": "equation (4)",
                     "rids": Array [
@@ -29695,7 +29671,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "equations (4)",
                         "rids": Array [
@@ -29710,7 +29685,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "(5)",
                         "rids": Array [
@@ -29725,7 +29699,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure II",
                         "rids": Array [
@@ -29977,7 +29950,6 @@ Object {
                             },
                             Object {
                               "attrs": Object {
-                                "customLabel": "",
                                 "dataTracked": null,
                                 "label": "Table 1",
                                 "rids": Array [
@@ -30128,7 +30100,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure II",
                         "rids": Array [
@@ -30143,7 +30114,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure II",
                         "rids": Array [
@@ -30172,7 +30142,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "equations (4)",
                         "rids": Array [
@@ -30187,7 +30156,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "(5)",
                         "rids": Array [
@@ -30217,7 +30185,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure III",
                         "rids": Array [
@@ -30484,7 +30451,6 @@ Object {
                             },
                             Object {
                               "attrs": Object {
-                                "customLabel": "",
                                 "dataTracked": null,
                                 "label": "Table 1",
                                 "rids": Array [
@@ -30650,7 +30616,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure III",
                         "rids": Array [
@@ -30665,7 +30630,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure III",
                         "rids": Array [
@@ -30724,7 +30688,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "equations (4)",
                         "rids": Array [
@@ -30739,7 +30702,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "(5)",
                         "rids": Array [
@@ -30754,7 +30716,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure IV",
                         "rids": Array [
@@ -31037,7 +30998,6 @@ Object {
                             },
                             Object {
                               "attrs": Object {
-                                "customLabel": "",
                                 "dataTracked": null,
                                 "label": "Table 1",
                                 "rids": Array [
@@ -31240,7 +31200,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure IV",
                         "rids": Array [
@@ -31269,7 +31228,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure IV",
                         "rids": Array [
@@ -31284,7 +31242,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure IV",
                         "rids": Array [
@@ -31363,7 +31320,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "equation (5)",
                         "rids": Array [
@@ -31378,7 +31334,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure V",
                         "rids": Array [
@@ -31589,7 +31544,6 @@ Object {
                             },
                             Object {
                               "attrs": Object {
-                                "customLabel": "",
                                 "dataTracked": null,
                                 "label": "Table 1",
                                 "rids": Array [
@@ -31740,7 +31694,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "equation (5)",
                         "rids": Array [
@@ -31755,7 +31708,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure VI",
                         "rids": Array [
@@ -31966,7 +31918,6 @@ Object {
                             },
                             Object {
                               "attrs": Object {
-                                "customLabel": "",
                                 "dataTracked": null,
                                 "label": "Table 1",
                                 "rids": Array [
@@ -32211,7 +32162,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "equation (5)",
                         "rids": Array [
@@ -32226,7 +32176,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "customLabel": "",
                         "dataTracked": null,
                         "label": "Figure VII",
                         "rids": Array [
@@ -32437,7 +32386,6 @@ Object {
                             },
                             Object {
                               "attrs": Object {
-                                "customLabel": "",
                                 "dataTracked": null,
                                 "label": "Table 1",
                                 "rids": Array [
@@ -32639,7 +32587,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "customLabel": "",
                     "dataTracked": null,
                     "label": "Figure VIII",
                     "rids": Array [
@@ -32850,7 +32797,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "customLabel": "",
                             "dataTracked": null,
                             "label": "Table 1",
                             "rids": Array [
