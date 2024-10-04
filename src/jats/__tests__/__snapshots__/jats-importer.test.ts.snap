@@ -940,7 +940,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Hor and Taylor, 2010",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -956,7 +955,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Caldwell and Gottesman, 1992",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -3547,7 +3545,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "1",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -3573,7 +3570,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "2,3",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -3600,7 +3596,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "1–3",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -4422,7 +4417,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "1",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -4438,7 +4432,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "2",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -4468,7 +4461,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "3",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -4484,7 +4476,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "4",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -4500,7 +4491,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "5",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -4516,7 +4506,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "6",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -4532,7 +4521,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "7",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -4548,7 +4536,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "8",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -4588,7 +4575,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "9",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -4604,7 +4590,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "7",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -4620,7 +4605,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "9,10",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -4637,7 +4621,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "11",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -4754,7 +4737,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "12",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -4802,7 +4784,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "13,14",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -4845,7 +4826,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "15",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -4861,7 +4841,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "15",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -5042,7 +5021,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "9–11,16,17",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -5439,7 +5417,6 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
-                                    "contents": "1",
                                     "dataTracked": null,
                                     "id": "MPCitation:test",
                                     "rids": Array [
@@ -5480,7 +5457,6 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
-                                    "contents": "2",
                                     "dataTracked": null,
                                     "id": "MPCitation:test",
                                     "rids": Array [
@@ -9290,7 +9266,6 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
-                                    "contents": "1",
                                     "dataTracked": null,
                                     "id": "MPCitation:test",
                                     "rids": Array [
@@ -9331,7 +9306,6 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
-                                    "contents": "2",
                                     "dataTracked": null,
                                     "id": "MPCitation:test",
                                     "rids": Array [
@@ -14141,7 +14115,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "16",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -14291,7 +14264,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "16",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -14531,7 +14503,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "14",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -14936,7 +14907,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "7",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -14952,7 +14922,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "8",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -14968,7 +14937,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "18",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -14984,7 +14952,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "8,18",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15001,7 +14968,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "7",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15017,7 +14983,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "8",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15043,7 +15008,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "7",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15059,7 +15023,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "8",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15075,7 +15038,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "18",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15105,7 +15067,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "5",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15121,7 +15082,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "19",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15137,7 +15097,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "20",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15153,7 +15112,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "20",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15169,7 +15127,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "5,19,20",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15197,7 +15154,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "5",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15213,7 +15169,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "19",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15243,7 +15198,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "21",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -15287,7 +15241,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "21",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -17714,7 +17667,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "1;2",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -17731,7 +17683,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "3",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -17747,7 +17698,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "4",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -17763,7 +17713,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "5",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -17789,7 +17738,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "4;6–8",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -17808,7 +17756,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "9",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -17834,7 +17781,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "10–13",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -17853,7 +17799,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "14–19",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -17874,7 +17819,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "20",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -18032,7 +17976,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "21",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -23579,7 +23522,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "22",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -23609,7 +23551,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "19",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -23625,7 +23566,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "23",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -23641,7 +23581,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "24",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -23667,7 +23606,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "25",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -23742,7 +23680,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "24",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -24005,7 +23942,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "21",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24667,7 +24603,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Brown, Harlow, and Tinic (1988)",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24711,7 +24646,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Gemmill (1992)",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24727,7 +24661,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Nippani and Medlin (2002)",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24743,7 +24676,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Nippani and Arize (2005)",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24759,7 +24691,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "He et al. (2009)",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24775,7 +24706,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Li and Born (2006)",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24791,7 +24721,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Białkowski, Gottschalk, and Wisniewski (2008)",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24807,7 +24736,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Goodell and Vähämaa (2013)",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24837,7 +24765,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Ho and Stoll 1981",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24853,7 +24780,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Kyle 1985",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24869,7 +24795,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Amihud and Mendelson 1986",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24899,7 +24824,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Pasquariello and Zafeiridou (2014)",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24953,7 +24877,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Pástor and Stambaugh 2003",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24969,7 +24892,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Ho and Stoll, 1981",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -24985,7 +24907,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Easley and O’Hara 1987",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -25001,7 +24922,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Pástor and Veronesi 2012",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -25074,7 +24994,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Amihud’s (2002)",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -25104,7 +25023,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Julio and Yook 2012",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -25120,7 +25038,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Hong and Kostovetsky 2012",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -25164,7 +25081,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "Pasquariello and Zafeiridou (2014)",
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
@@ -25247,7 +25163,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "Holden and Jacobsen (2014)",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -25690,7 +25605,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "Lee and Ready (1991)",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -26046,7 +25960,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "Amihud (2002)",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -26125,7 +26038,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "Holden and Jacobsen (2014)",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -26218,7 +26130,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "Amihud (2002)",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -29130,7 +29041,6 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
-                                    "contents": "Lee and Ready, 1991",
                                     "dataTracked": null,
                                     "id": "MPCitation:test",
                                     "rids": Array [
@@ -30307,7 +30217,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "Amihud (2002)",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -30563,7 +30472,6 @@ Object {
                             },
                             Object {
                               "attrs": Object {
-                                "contents": "Amihud’s (2002)",
                                 "dataTracked": null,
                                 "id": "MPCitation:test",
                                 "rids": Array [
@@ -30743,7 +30651,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "Amihud (2002)",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -30803,7 +30710,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "Pástor and Veronesi 2012",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -30819,7 +30725,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "2013",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -32267,7 +32172,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "Julio and Yook 2012",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -32283,7 +32187,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "Hong and Kostovetsky 2012",
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
@@ -33379,7 +33282,6 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "Ozsoylev and Werner (2011)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33416,7 +33318,6 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "Pasquariello and Zafeiridou (2014)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33497,7 +33398,6 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "Voth (2002)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33513,7 +33413,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Mei and Guo (2004)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33529,7 +33428,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Li and Born (2006)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33545,7 +33443,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Białkowski, Gottschalk, and Wisniewski (2008)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33561,7 +33458,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Boutchkova et al. (2012)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33577,7 +33473,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Baker, Bloom, and Davis (2016)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33593,7 +33488,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Kelly, Pástor, and Veronesi (2016)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33630,7 +33524,6 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "Pástor and Veronesi (2013)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33696,7 +33589,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Boutchkova et al. (2012)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33712,7 +33604,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Pástor and Veronesi (2012",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33728,7 +33619,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "2013",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33744,7 +33634,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Brogaard and Detzel (2015)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33760,7 +33649,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Gungoraydinoglu, Çolak, and Öztekin (2017)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33776,7 +33664,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Bonaparte, Kumar, and Page (2017)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33792,7 +33679,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Bhattacharya et al. (2017)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33808,7 +33694,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Marshall et al. (2017)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33824,7 +33709,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Liu, Shu, and Wei (2017)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33840,7 +33724,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Perignon and Vallée (2017)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33856,7 +33739,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "test-author",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -33918,7 +33800,6 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "Holden and Jacobsen (2014)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -34055,7 +33936,6 @@ Object {
                       "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "Amihud (2002)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
@@ -34071,7 +33951,6 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "contents": "Barry and Brown (1984)",
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
