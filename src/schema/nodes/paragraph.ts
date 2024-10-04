@@ -17,12 +17,10 @@
 import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
-import { buildElementClass } from '../../lib/attributes'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  paragraphStyle: string
   placeholder: string
 }
 
@@ -34,10 +32,8 @@ export const paragraph: NodeSpec = {
   content: 'inline*',
   attrs: {
     id: { default: '' },
-    paragraphStyle: { default: '' }, // TODO: default paragraph style
     placeholder: { default: '' }, // TODO: 'List item' if inside a list
     dataTracked: { default: null },
-    // tight: { default: false }, // https://gitlab.com/mpapp-private/manuscripts-frontend/issues/75
   },
   group: 'block element',
   selectable: false,
@@ -57,9 +53,6 @@ export const paragraph: NodeSpec = {
           attrs.placeholder = placeholder
         }
 
-        // https://gitlab.com/mpapp-private/manuscripts-frontend/issues/75
-        // attrs.tight = dom.parentNode && dom.parentNode.nodeName === 'LI',
-
         return attrs
       },
     },
@@ -72,8 +65,6 @@ export const paragraph: NodeSpec = {
     if (paragraphNode.attrs.id) {
       attrs.id = paragraphNode.attrs.id
     }
-
-    attrs.class = buildElementClass(paragraphNode.attrs)
 
     attrs['data-object-type'] = ObjectTypes.ParagraphElement
 

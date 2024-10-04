@@ -28,7 +28,6 @@ type Kind = 'footnote' | 'endnote'
 interface Attrs {
   id: string
   kind: Kind
-  paragraphStyle?: string
   placeholder?: string
 }
 
@@ -42,7 +41,6 @@ export const footnote: NodeSpec = {
   attrs: {
     id: { default: '' },
     kind: { default: 'footnote' },
-    paragraphStyle: { default: '' },
     placeholder: { default: '' },
     dataTracked: { default: null },
   },
@@ -73,7 +71,7 @@ export const footnote: NodeSpec = {
     // TODO: footnote-contents wrapper?
 
     // TODO: default kind
-    const { kind, paragraphStyle, placeholder, id } = footnoteNode.attrs
+    const { kind, placeholder, id } = footnoteNode.attrs
 
     const attrs: Record<string, string> = { class: 'footnote-text', id: '' }
 
@@ -83,10 +81,6 @@ export const footnote: NodeSpec = {
 
     if (id) {
       attrs.id = id
-    }
-
-    if (paragraphStyle) {
-      attrs.paragraphStyle = paragraphStyle
     }
 
     if (placeholder) {

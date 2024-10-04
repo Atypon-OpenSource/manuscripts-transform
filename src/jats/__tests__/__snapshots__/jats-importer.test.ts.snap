@@ -70,7 +70,6 @@ Object {
         "dataTracked": null,
         "id": "MPFootnote:test",
         "kind": "footnote",
-        "paragraphStyle": "",
         "placeholder": "",
       },
       "content": Array [
@@ -78,7 +77,6 @@ Object {
           "attrs": Object {
             "dataTracked": null,
             "id": "MPParagraphElement:test",
-            "paragraphStyle": "",
             "placeholder": "",
           },
           "content": Array [
@@ -96,7 +94,6 @@ Object {
           "attrs": Object {
             "dataTracked": null,
             "id": "MPParagraphElement:test",
-            "paragraphStyle": "",
             "placeholder": "",
           },
           "content": Array [
@@ -118,7 +115,6 @@ Object {
         "dataTracked": null,
         "id": "MPFootnote:test",
         "kind": "footnote",
-        "paragraphStyle": "",
         "placeholder": "",
       },
       "content": Array [
@@ -126,7 +122,6 @@ Object {
           "attrs": Object {
             "dataTracked": null,
             "id": "MPParagraphElement:test",
-            "paragraphStyle": "",
             "placeholder": "",
           },
           "content": Array [
@@ -175,7 +170,6 @@ Object {
     },
     "literal": undefined,
     "page": "123-134",
-    "paragraphStyle": "",
     "supplement": undefined,
     "title": "This is the article title.",
     "type": "article-journal",
@@ -686,8 +680,6 @@ Object {
             "contents": "",
             "dataTracked": null,
             "id": "MPKeywordsElement:test",
-            "paragraphStyle": "",
-            "type": "",
           },
           "content": Array [
             Object {
@@ -785,10 +777,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:abstract",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -807,7 +796,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -822,7 +810,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -863,7 +850,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -878,7 +864,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -893,7 +878,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -928,10 +912,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:introduction",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -950,7 +931,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -1008,7 +988,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -1062,7 +1041,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -1142,7 +1120,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -1290,10 +1267,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:materials-method",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -1312,10 +1286,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -1334,7 +1305,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1349,7 +1319,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1367,10 +1336,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -1389,7 +1355,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1404,7 +1369,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1419,7 +1383,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1437,10 +1400,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -1459,7 +1419,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1490,10 +1449,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -1512,7 +1468,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1553,7 +1508,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1581,7 +1535,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1602,10 +1555,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:results",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -1624,7 +1574,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -1717,7 +1666,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -1732,7 +1680,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -1773,7 +1720,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -1791,10 +1737,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:discussion",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -1813,7 +1756,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -1841,7 +1783,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -1947,7 +1888,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -1962,7 +1902,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -2068,7 +2007,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -2112,10 +2050,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:conclusions",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -2134,7 +2069,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -2174,10 +2108,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:competing-interests",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -2196,7 +2127,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -2214,10 +2144,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:financial-disclosure",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -2236,7 +2163,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -2254,10 +2180,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:acknowledgement",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -2276,7 +2199,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -2313,7 +2235,6 @@ Object {
                 "contents": "",
                 "dataTracked": null,
                 "id": "MPBibliographyElement:test",
-                "paragraphStyle": "",
               },
               "content": Array [
                 Object {
@@ -2348,7 +2269,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "479-493",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Schizophrenia-a high-risk factor for suicide: clues to risk reduction.",
                     "type": "article-journal",
@@ -2388,7 +2308,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "81-90",
-                    "paragraphStyle": "",
                     "supplement": "Suppl",
                     "title": "Suicide and schizophrenia: a systematic review of rates and risk factors.",
                     "type": "article-journal",
@@ -2428,7 +2347,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "81-90",
-                    "paragraphStyle": "",
                     "supplement": "Suppl",
                     "title": "Suicide and schizophrenia: a systematic review of rates and risk factors.",
                     "type": "article-journal",
@@ -2593,10 +2511,7 @@ Object {
           "attrs": Object {
             "category": "",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -2615,7 +2530,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -2633,10 +2547,7 @@ Object {
           "attrs": Object {
             "category": "",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -2656,7 +2567,6 @@ Object {
                 "dataTracked": null,
                 "id": "MPListElement:test",
                 "listStyleType": "order",
-                "paragraphStyle": "",
               },
               "content": Array [
                 Object {
@@ -2669,7 +2579,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -2693,7 +2602,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -2715,7 +2623,6 @@ Object {
                 "dataTracked": null,
                 "id": "MPListElement:test",
                 "listStyleType": "order",
-                "paragraphStyle": "",
               },
               "content": Array [
                 Object {
@@ -2728,7 +2635,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -2744,7 +2650,6 @@ Object {
                         "dataTracked": null,
                         "id": "MPListElement:test",
                         "listStyleType": "order",
-                        "paragraphStyle": "",
                       },
                       "content": Array [
                         Object {
@@ -2757,7 +2662,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -2781,7 +2685,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -2809,7 +2712,6 @@ Object {
                 "dataTracked": null,
                 "id": "MPListElement:test",
                 "listStyleType": "bullet",
-                "paragraphStyle": "",
               },
               "content": Array [
                 Object {
@@ -2822,7 +2724,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -2838,7 +2739,6 @@ Object {
                         "dataTracked": null,
                         "id": "MPListElement:test",
                         "listStyleType": "bullet",
-                        "paragraphStyle": "",
                       },
                       "content": Array [
                         Object {
@@ -2851,7 +2751,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -2875,7 +2774,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -2903,7 +2801,6 @@ Object {
                 "dataTracked": null,
                 "id": "MPListElement:test",
                 "listStyleType": "bullet",
-                "paragraphStyle": "",
               },
               "content": Array [
                 Object {
@@ -2916,7 +2813,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -2932,7 +2828,6 @@ Object {
                         "dataTracked": null,
                         "id": "MPListElement:test",
                         "listStyleType": "order",
-                        "paragraphStyle": "",
                       },
                       "content": Array [
                         Object {
@@ -2945,7 +2840,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -2969,7 +2863,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -2999,10 +2892,7 @@ Object {
           "attrs": Object {
             "category": "",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -3019,17 +2909,10 @@ Object {
             },
             Object {
               "attrs": Object {
-                "alignment": undefined,
-                "alternatives": undefined,
                 "attribution": undefined,
                 "dataTracked": null,
-                "figureLayout": "",
-                "figureStyle": "",
                 "id": "MPFigureElement:test",
                 "label": "",
-                "sizeFraction": 0,
-                "suppressCaption": false,
-                "suppressTitle": undefined,
               },
               "content": Array [
                 Object {
@@ -3037,7 +2920,6 @@ Object {
                     "contentType": "image/jpeg",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "position": null,
                     "src": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
                   },
                   "type": "figure",
@@ -3085,10 +2967,7 @@ Object {
           "attrs": Object {
             "category": "",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -3106,15 +2985,8 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "expandListing": false,
                 "id": "MPTableElement:test",
                 "label": "",
-                "paragraphStyle": "",
-                "suppressCaption": false,
-                "suppressFooter": false,
-                "suppressHeader": false,
-                "suppressTitle": undefined,
-                "tableStyle": "",
               },
               "content": Array [
                 Object {
@@ -3343,10 +3215,7 @@ Object {
           "attrs": Object {
             "category": "",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -3365,7 +3234,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -3411,10 +3279,7 @@ Object {
           "attrs": Object {
             "category": "",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -3433,8 +3298,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPListingElement:test",
-                "suppressCaption": true,
-                "suppressTitle": undefined,
               },
               "content": Array [
                 Object {
@@ -3465,10 +3328,7 @@ Object {
           "attrs": Object {
             "category": "",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -3487,7 +3347,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -3567,7 +3426,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -3603,10 +3461,7 @@ Object {
           "attrs": Object {
             "category": "",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -3625,7 +3480,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPQuoteElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -3633,7 +3487,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -3666,10 +3519,7 @@ Object {
           "attrs": Object {
             "category": "",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -3688,7 +3538,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -3715,7 +3564,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -3743,7 +3591,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -3784,10 +3631,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:competing-interests",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -3806,7 +3650,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -3824,10 +3667,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:financial-disclosure",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -3846,7 +3686,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -3883,7 +3722,6 @@ Object {
                 "contents": "",
                 "dataTracked": null,
                 "id": "MPBibliographyElement:test",
-                "paragraphStyle": "",
               },
               "content": Array [
                 Object {
@@ -3905,7 +3743,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "52-54",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Creating Graphically Complex Indexes With InDesign",
                     "type": "article-journal",
@@ -3932,7 +3769,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "603-612",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Technique for extracting reusable XML Schema from schema-less XML Documents",
                     "type": "article-journal",
@@ -3959,7 +3795,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "27-42",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "XML Fragmentation for Resource-Efficient Query Processing over XML Fragment Stream",
                     "type": "article-journal",
@@ -4338,7 +4173,6 @@ Object {
             "dataTracked": null,
             "id": "MPFootnote:test",
             "kind": "footnote",
-            "paragraphStyle": "",
             "placeholder": "",
           },
           "content": Array [
@@ -4346,7 +4180,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -4386,8 +4219,6 @@ Object {
             "contents": "",
             "dataTracked": null,
             "id": "MPKeywordsElement:test",
-            "paragraphStyle": "",
-            "type": "",
           },
           "content": Array [
             Object {
@@ -4493,10 +4324,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:abstract",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -4515,7 +4343,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -4567,10 +4394,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:introduction",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -4589,7 +4413,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -4636,7 +4459,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -4743,7 +4565,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -4758,7 +4579,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -4834,7 +4654,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -4852,10 +4671,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:materials-method",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -4874,10 +4690,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -4896,7 +4709,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -4914,10 +4726,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -4936,7 +4745,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -4966,10 +4774,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -4988,7 +4793,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -5081,10 +4885,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -5103,7 +4904,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -5124,10 +4924,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:results",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -5146,10 +4943,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -5168,7 +4962,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -5273,15 +5066,8 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "expandListing": false,
                     "id": "MPTableElement:test",
                     "label": "",
-                    "paragraphStyle": "",
-                    "suppressCaption": false,
-                    "suppressFooter": false,
-                    "suppressHeader": false,
-                    "suppressTitle": undefined,
-                    "tableStyle": "",
                   },
                   "content": Array [
                     Object {
@@ -9097,7 +8883,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -9132,15 +8917,8 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "expandListing": false,
                     "id": "MPTableElement:test",
                     "label": "",
-                    "paragraphStyle": "",
-                    "suppressCaption": false,
-                    "suppressFooter": false,
-                    "suppressHeader": false,
-                    "suppressTitle": undefined,
-                    "tableStyle": "",
                   },
                   "content": Array [
                     Object {
@@ -11615,7 +11393,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -11650,15 +11427,8 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "expandListing": false,
                     "id": "MPTableElement:test",
                     "label": "",
-                    "paragraphStyle": "",
-                    "suppressCaption": false,
-                    "suppressFooter": false,
-                    "suppressHeader": false,
-                    "suppressTitle": undefined,
-                    "tableStyle": "",
                   },
                   "content": Array [
                     Object {
@@ -14011,7 +13781,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -14050,10 +13819,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -14072,7 +13838,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -14105,10 +13870,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -14127,7 +13889,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -14181,24 +13942,16 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "alignment": undefined,
-                    "alternatives": undefined,
                     "attribution": undefined,
                     "dataTracked": null,
-                    "figureLayout": "",
-                    "figureStyle": "",
                     "id": "MPFigureElement:test",
                     "label": "FIGURE 1",
-                    "sizeFraction": 0,
-                    "suppressCaption": false,
-                    "suppressTitle": undefined,
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -14213,7 +13966,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -14228,7 +13980,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -14243,7 +13994,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -14258,7 +14008,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -14273,7 +14022,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -14288,7 +14036,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -14304,7 +14051,6 @@ Object {
                         "contentType": "image/tiff",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&name=figure+1+revised.tif",
                       },
                       "type": "figure",
@@ -14352,10 +14098,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -14374,7 +14117,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -14418,17 +14160,10 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "alignment": undefined,
-                    "alternatives": undefined,
                     "attribution": undefined,
                     "dataTracked": null,
-                    "figureLayout": "",
-                    "figureStyle": "",
                     "id": "MPFigureElement:test",
                     "label": "FIGURE 2",
-                    "sizeFraction": 0,
-                    "suppressCaption": false,
-                    "suppressTitle": undefined,
                   },
                   "content": Array [
                     Object {
@@ -14436,7 +14171,6 @@ Object {
                         "contentType": "image/jpeg",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&name=figure+2.jpg",
                       },
                       "type": "figure",
@@ -14493,10 +14227,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -14515,7 +14246,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -14533,10 +14263,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -14555,7 +14282,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -14604,10 +14330,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -14626,7 +14349,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -14659,10 +14381,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -14681,7 +14400,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -14729,10 +14447,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -14751,7 +14466,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -14841,10 +14555,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -14863,7 +14574,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -14896,10 +14606,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -14918,7 +14625,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -14936,10 +14642,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -14958,7 +14661,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -14976,10 +14678,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -14998,7 +14697,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -15044,10 +14742,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -15066,7 +14761,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -15084,10 +14778,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -15106,7 +14797,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -15134,17 +14824,10 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "alignment": undefined,
-                    "alternatives": undefined,
                     "attribution": undefined,
                     "dataTracked": null,
-                    "figureLayout": "",
-                    "figureStyle": "",
                     "id": "MPFigureElement:test",
                     "label": "FIGURE 3",
-                    "sizeFraction": 0,
-                    "suppressCaption": false,
-                    "suppressTitle": undefined,
                   },
                   "content": Array [
                     Object {
@@ -15152,7 +14835,6 @@ Object {
                         "contentType": "image/jpeg",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&name=figure+3.jpg",
                       },
                       "type": "figure",
@@ -15212,10 +14894,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:discussion",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -15234,7 +14913,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15249,7 +14927,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15357,7 +15034,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15420,7 +15096,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15513,7 +15188,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15560,7 +15234,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15591,7 +15264,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15606,7 +15278,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15637,7 +15308,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15664,10 +15334,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:con",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -15686,7 +15353,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15701,7 +15367,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15716,7 +15381,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15731,7 +15395,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15746,7 +15409,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15761,7 +15423,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15776,7 +15437,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15794,10 +15454,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:competing-interests",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -15816,7 +15473,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -15853,7 +15509,6 @@ Object {
                 "contents": "",
                 "dataTracked": null,
                 "id": "MPBibliographyElement:test",
-                "paragraphStyle": "",
               },
               "content": Array [
                 Object {
@@ -15922,7 +15577,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "2690-2697",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "PD-L1 and PD-L2 Genetic Alterations Define Classical Hodgkin Lymphoma and Predict Outcome.",
                     "type": "article-journal",
@@ -15962,7 +15616,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "2265-2270",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Signaling pathways and immune evasion mechanisms in classical Hodgkin lymphoma.",
                     "type": "article-journal",
@@ -16036,7 +15689,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "3167-3175",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Phase I study of single-agent anti-programmed death-1 (MDX-1106) in refractory solid tumors: Safety, clinical activity, pharmacodynamics, and immunologic correlates.",
                     "type": "article-journal",
@@ -16110,7 +15762,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "311-319",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "PD-1 blockade with nivolumab in relapsed or refractory Hodgkin’s lymphoma.",
                     "type": "article-journal",
@@ -16184,7 +15835,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "134-144",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Safety and tumor responses with lambrolizumab (anti-PD-1) in melanoma.",
                     "type": "article-journal",
@@ -16258,7 +15908,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "3733-3739",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Programmed Death-1 Blockade With Pembrolizumab in Patients With Classical Hodgkin Lymphoma After Brentuximab Vedotin Failure.",
                     "type": "article-journal",
@@ -16308,7 +15957,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "2125-2132",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "KEYNOTE-087. Phase II Study of the Efficacy and Safety of Pembrolizumab for Relapsed/Refractory Classic Hodgkin Lymphoma.",
                     "type": "article-journal",
@@ -16378,7 +16026,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "11-20",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Translational pharmacokinetic / pharmacodynamic modeling of tumor growth inhibition supports dose-range selection of the anti-PD-1 antibody pembrolizumab.",
                     "type": "article-journal",
@@ -16424,7 +16071,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "131-132",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Low-dose pembrolizumab induced remission in patients with refractory classical Hodgkin lymphoma.",
                     "type": "article-journal",
@@ -16482,7 +16128,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "647-651",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Low-dose pembrolizumab for relapsed/refractory Hodgkin lymphoma: High efficacy with minimal toxicity.",
                     "type": "article-journal",
@@ -16528,7 +16173,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1219-1220",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Low-dose nivolumab induced remission in refractory classical Hodgkin lymphoma.",
                     "type": "article-journal",
@@ -16607,7 +16251,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1714-1768",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Management of Immune-Related Adverse Events in Patients Treated With Immune Checkpoint Inhibitor Therapy: American Society of Clinical Oncology Clinical Practice Guideline.",
                     "type": "article-journal",
@@ -16752,7 +16395,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "3059-3068",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Recommendations for initial evaluation, staging, and response assessment of Hodgkin and non-Hodgkin lymphoma: The Lugano classification.",
                     "type": "article-journal",
@@ -16826,7 +16468,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "2489-2496",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Refinement of the Lugano Classification lymphoma response criteria in the era of immunomodulatory therapy.",
                     "type": "article-journal",
@@ -16884,7 +16525,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "865-870",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Quantification of circulating Epstein-Barr virus DNA in NK/T-cell lymphoma treated with the SMILE protocol: Diagnostic and prognostic significance.",
                     "type": "article-journal",
@@ -16930,7 +16570,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "2451-2455",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Low-dose pembrolizumab re-treatment induced complete radiologic and molecular remission in Hodgkin lymphoma recurring from a previous relapse successfully treated by pembrolizumab.",
                     "type": "article-journal",
@@ -16976,7 +16615,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "385-388",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Low-dose pembrolizumab induced complete radiologic and molecular response of posttransplant lymphoproliferative disorder presenting as classical Hodgkin lymphoma.",
                     "type": "article-journal",
@@ -17050,7 +16688,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1144-1153",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Pembrolizumab in relapsed or refractory Hodgkin lymphoma: 2-year follow-up of KEYNOTE-087.",
                     "type": "article-journal",
@@ -17124,7 +16761,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1283-1294",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Nivolumab for classical Hodgkin’s lymphoma after failure of both autologous stem-cell transplantation and brentuximab vedotin: A multicentre, multicohort, single-arm phase 2 trial.",
                     "type": "article-journal",
@@ -17198,7 +16834,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1428-1439",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Nivolumab for Relapsed/Refractory Classic Hodgkin Lymphoma After Failure of Autologous Hematopoietic Cell Transplantation: Extended Follow-Up of the Multicohort Single-Arm Phase II CheckMate 205 Trial.",
                     "type": "article-journal",
@@ -17238,7 +16873,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1689-1697",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Transplant strategies in relapsed/refractory Hodgkin lymphoma.",
                     "type": "article-journal",
@@ -17630,7 +17264,6 @@ Object {
             "dataTracked": null,
             "id": "MPFootnote:test",
             "kind": "footnote",
-            "paragraphStyle": "",
             "placeholder": "",
           },
           "content": Array [
@@ -17638,7 +17271,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -17653,7 +17285,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -17672,7 +17303,6 @@ Object {
             "dataTracked": null,
             "id": "MPFootnote:test",
             "kind": "footnote",
-            "paragraphStyle": "",
             "placeholder": "",
           },
           "content": Array [
@@ -17680,7 +17310,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -17720,8 +17349,6 @@ Object {
             "contents": "",
             "dataTracked": null,
             "id": "MPKeywordsElement:test",
-            "paragraphStyle": "",
-            "type": "",
           },
           "content": Array [
             Object {
@@ -17847,10 +17474,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:abstract",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -17869,10 +17493,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -17891,7 +17512,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -17909,10 +17529,7 @@ Object {
               "attrs": Object {
                 "category": "MPSectionCategory:materials-method",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -17931,7 +17548,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -17949,10 +17565,7 @@ Object {
               "attrs": Object {
                 "category": "MPSectionCategory:results",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -17971,7 +17584,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18015,10 +17627,7 @@ Object {
               "attrs": Object {
                 "category": "MPSectionCategory:conclusions",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -18037,7 +17646,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18066,10 +17674,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:introduction",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -18100,7 +17705,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -18176,7 +17780,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -18222,7 +17825,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -18293,10 +17895,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -18315,7 +17914,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18330,10 +17928,7 @@ Object {
                   "attrs": Object {
                     "category": "",
                     "dataTracked": null,
-                    "generatedLabel": undefined,
                     "id": "MPSection:test",
-                    "pageBreakStyle": undefined,
-                    "titleSuppressed": false,
                   },
                   "content": Array [
                     Object {
@@ -18352,10 +17947,7 @@ Object {
                       "attrs": Object {
                         "category": "",
                         "dataTracked": null,
-                        "generatedLabel": undefined,
                         "id": "MPSection:test",
-                        "pageBreakStyle": undefined,
-                        "titleSuppressed": false,
                       },
                       "content": Array [
                         Object {
@@ -18374,7 +17966,6 @@ Object {
                           "attrs": Object {
                             "dataTracked": null,
                             "id": "MPParagraphElement:test",
-                            "paragraphStyle": "",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -18401,10 +17992,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:materials-method",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -18435,7 +18023,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -18466,7 +18053,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -18481,7 +18067,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -18496,10 +18081,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -18530,7 +18112,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18545,7 +18126,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18563,10 +18143,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -18597,7 +18174,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18612,7 +18188,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18627,7 +18202,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18645,10 +18219,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -18679,7 +18250,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18694,7 +18264,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18720,7 +18289,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18738,10 +18306,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -18772,7 +18337,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18817,10 +18381,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:results",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -18851,7 +18412,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -18894,17 +18454,10 @@ Object {
             },
             Object {
               "attrs": Object {
-                "alignment": undefined,
-                "alternatives": undefined,
                 "attribution": undefined,
                 "dataTracked": null,
-                "figureLayout": "",
-                "figureStyle": "",
                 "id": "MPFigureElement:test",
                 "label": "FIGURE 1",
-                "sizeFraction": 0,
-                "suppressCaption": false,
-                "suppressTitle": undefined,
               },
               "content": Array [
                 Object {
@@ -18912,7 +18465,6 @@ Object {
                     "contentType": "image/png",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "position": null,
                     "src": "BRB3-2019-12-0787-fig-0001.PNG",
                   },
                   "type": "figure",
@@ -18956,15 +18508,8 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "expandListing": false,
                 "id": "MPTableElement:test",
                 "label": "",
-                "paragraphStyle": "",
-                "suppressCaption": false,
-                "suppressFooter": false,
-                "suppressHeader": false,
-                "suppressTitle": undefined,
-                "tableStyle": "",
               },
               "content": Array [
                 Object {
@@ -21607,7 +21152,6 @@ Object {
                           "attrs": Object {
                             "dataTracked": null,
                             "id": "MPParagraphElement:test",
-                            "paragraphStyle": "",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -21626,7 +21170,6 @@ Object {
                         "dataTracked": null,
                         "id": "MPFootnotesElement:test",
                         "kind": "footnote",
-                        "paragraphStyle": "",
                       },
                       "content": Array [
                         Object {
@@ -21634,7 +21177,6 @@ Object {
                             "dataTracked": null,
                             "id": "MPFootnote:test",
                             "kind": "footnote",
-                            "paragraphStyle": "",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -21642,7 +21184,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -21662,7 +21203,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -21740,7 +21280,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -21768,17 +21307,10 @@ Object {
             },
             Object {
               "attrs": Object {
-                "alignment": undefined,
-                "alternatives": undefined,
                 "attribution": undefined,
                 "dataTracked": null,
-                "figureLayout": "",
-                "figureStyle": "",
                 "id": "MPFigureElement:test",
                 "label": "FIGURE 2",
-                "sizeFraction": 0,
-                "suppressCaption": false,
-                "suppressTitle": undefined,
               },
               "content": Array [
                 Object {
@@ -21786,7 +21318,6 @@ Object {
                     "contentType": "image/png",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "position": null,
                     "src": "BRB3-2019-12-0787-fig-0002.PNG",
                   },
                   "type": "figure",
@@ -21831,10 +21362,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -21865,7 +21393,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -21919,17 +21446,10 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "alignment": undefined,
-                    "alternatives": undefined,
                     "attribution": undefined,
                     "dataTracked": null,
-                    "figureLayout": "",
-                    "figureStyle": "",
                     "id": "MPFigureElement:test",
                     "label": "FIGURE 3",
-                    "sizeFraction": 0,
-                    "suppressCaption": false,
-                    "suppressTitle": undefined,
                   },
                   "content": Array [
                     Object {
@@ -21937,7 +21457,6 @@ Object {
                         "contentType": "image/png",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "BRB3-2019-12-0787-fig-0003.PNG",
                       },
                       "type": "figure",
@@ -21985,10 +21504,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -22019,7 +21535,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22060,7 +21575,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22101,7 +21615,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22129,7 +21642,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22170,7 +21682,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22199,15 +21710,8 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "expandListing": false,
                     "id": "MPTableElement:test",
                     "label": "",
-                    "paragraphStyle": "",
-                    "suppressCaption": false,
-                    "suppressFooter": false,
-                    "suppressHeader": false,
-                    "suppressTitle": undefined,
-                    "tableStyle": "",
                   },
                   "content": Array [
                     Object {
@@ -23839,7 +23343,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -23854,7 +23357,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "type": "paragraph",
@@ -23867,7 +23369,6 @@ Object {
                             "dataTracked": null,
                             "id": "MPFootnotesElement:test",
                             "kind": "footnote",
-                            "paragraphStyle": "",
                           },
                           "content": Array [
                             Object {
@@ -23875,7 +23376,6 @@ Object {
                                 "dataTracked": null,
                                 "id": "MPFootnote:test",
                                 "kind": "footnote",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -23883,7 +23383,6 @@ Object {
                                   "attrs": Object {
                                     "dataTracked": null,
                                     "id": "MPParagraphElement:test",
-                                    "paragraphStyle": "",
                                     "placeholder": "",
                                   },
                                   "content": Array [
@@ -23903,7 +23402,6 @@ Object {
                                   "attrs": Object {
                                     "dataTracked": null,
                                     "id": "MPParagraphElement:test",
-                                    "paragraphStyle": "",
                                     "placeholder": "",
                                   },
                                   "content": Array [
@@ -23981,7 +23479,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -24028,10 +23525,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:discussion",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -24062,7 +23556,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -24077,7 +23570,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -24108,7 +23600,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -24167,7 +23658,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -24198,10 +23688,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -24232,7 +23719,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -24247,7 +23733,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -24284,10 +23769,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:conclusions",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -24318,7 +23800,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -24345,10 +23826,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:availability",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -24367,7 +23845,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -24385,10 +23862,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:con",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -24407,7 +23881,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -24440,7 +23913,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -24469,10 +23941,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:competing-interests",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -24491,7 +23960,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -24509,10 +23977,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:acknowledgement",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -24531,7 +23996,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -24807,8 +24271,6 @@ Object {
             "contents": "",
             "dataTracked": null,
             "id": "MPKeywordsElement:test",
-            "paragraphStyle": "",
-            "type": "",
           },
           "content": Array [
             Object {
@@ -24888,10 +24350,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:abstract",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -24910,7 +24369,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -24936,10 +24394,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:introduction",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -24970,7 +24425,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -24985,7 +24439,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -25074,17 +24527,10 @@ Object {
             },
             Object {
               "attrs": Object {
-                "alignment": undefined,
-                "alternatives": undefined,
                 "attribution": undefined,
                 "dataTracked": null,
-                "figureLayout": "",
-                "figureStyle": "",
                 "id": "MPFigureElement:test",
                 "label": "Figure I",
-                "sizeFraction": 0,
-                "suppressCaption": false,
-                "suppressTitle": undefined,
               },
               "content": Array [
                 Object {
@@ -25092,7 +24538,6 @@ Object {
                     "contentType": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "position": null,
                     "src": "Wiley-JFR-Final Manuscript-MT-Image001",
                   },
                   "type": "figure",
@@ -25102,7 +24547,6 @@ Object {
                     "contentType": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "position": null,
                     "src": "Wiley-JFR-Final Manuscript-MT-Image002",
                   },
                   "type": "figure",
@@ -25214,7 +24658,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -25245,7 +24688,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -25260,7 +24702,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -25387,7 +24828,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -25490,7 +24930,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -25612,7 +25051,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -25657,7 +25095,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -25704,7 +25141,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -25752,10 +25188,7 @@ Object {
           "attrs": Object {
             "category": "",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -25786,10 +25219,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -25808,7 +25238,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -25896,7 +25325,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -26044,7 +25472,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -26123,7 +25550,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -26405,7 +25831,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -26485,7 +25910,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -26656,7 +26080,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -26674,10 +26097,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -26696,7 +26116,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -26737,7 +26156,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -26766,7 +26184,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -26821,15 +26238,8 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "expandListing": false,
                     "id": "MPTableElement:test",
                     "label": "",
-                    "paragraphStyle": "",
-                    "suppressCaption": false,
-                    "suppressFooter": false,
-                    "suppressHeader": false,
-                    "suppressTitle": undefined,
-                    "tableStyle": "",
                   },
                   "content": Array [
                     Object {
@@ -29567,7 +28977,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                                 "id": "MPParagraphElement:test",
-                                "paragraphStyle": "",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -29953,7 +29362,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -29989,10 +29397,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:materials-method",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -30023,7 +29428,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -30085,7 +29489,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -30155,7 +29558,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -30232,7 +29634,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -30339,10 +29740,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:results",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -30373,10 +29771,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -30395,7 +29790,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -30453,17 +29847,10 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "alignment": undefined,
-                    "alternatives": undefined,
                     "attribution": undefined,
                     "dataTracked": null,
-                    "figureLayout": "",
-                    "figureStyle": "",
                     "id": "MPFigureElement:test",
                     "label": "Figure II",
-                    "sizeFraction": 0,
-                    "suppressCaption": false,
-                    "suppressTitle": undefined,
                   },
                   "content": Array [
                     Object {
@@ -30471,7 +29858,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image003",
                       },
                       "type": "figure",
@@ -30481,7 +29867,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image004",
                       },
                       "type": "figure",
@@ -30491,7 +29876,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image005",
                       },
                       "type": "figure",
@@ -30501,7 +29885,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image006",
                       },
                       "type": "figure",
@@ -30841,7 +30224,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -30886,7 +30268,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -30960,17 +30341,10 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "alignment": undefined,
-                    "alternatives": undefined,
                     "attribution": undefined,
                     "dataTracked": null,
-                    "figureLayout": "",
-                    "figureStyle": "",
                     "id": "MPFigureElement:test",
                     "label": "Figure III",
-                    "sizeFraction": 0,
-                    "suppressCaption": false,
-                    "suppressTitle": undefined,
                   },
                   "content": Array [
                     Object {
@@ -30978,7 +30352,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image007",
                       },
                       "type": "figure",
@@ -30988,7 +30361,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image008",
                       },
                       "type": "figure",
@@ -30998,7 +30370,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image009",
                       },
                       "type": "figure",
@@ -31008,7 +30379,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image010",
                       },
                       "type": "figure",
@@ -31364,7 +30734,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -31425,7 +30794,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -31515,17 +30883,10 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "alignment": undefined,
-                    "alternatives": undefined,
                     "attribution": undefined,
                     "dataTracked": null,
-                    "figureLayout": "",
-                    "figureStyle": "",
                     "id": "MPFigureElement:test",
                     "label": "Figure IV",
-                    "sizeFraction": 0,
-                    "suppressCaption": false,
-                    "suppressTitle": undefined,
                   },
                   "content": Array [
                     Object {
@@ -31533,7 +30894,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image011",
                       },
                       "type": "figure",
@@ -31543,7 +30903,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image012",
                       },
                       "type": "figure",
@@ -31553,7 +30912,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image013",
                       },
                       "type": "figure",
@@ -31563,7 +30921,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image014",
                       },
                       "type": "figure",
@@ -31573,7 +30930,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image015",
                       },
                       "type": "figure",
@@ -31583,7 +30939,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image016",
                       },
                       "type": "figure",
@@ -31988,7 +31343,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -32018,7 +31372,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -32066,10 +31419,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -32088,7 +31438,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -32117,7 +31466,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -32160,17 +31508,10 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "alignment": undefined,
-                    "alternatives": undefined,
                     "attribution": undefined,
                     "dataTracked": null,
-                    "figureLayout": "",
-                    "figureStyle": "",
                     "id": "MPFigureElement:test",
                     "label": "Figure V",
-                    "sizeFraction": 0,
-                    "suppressCaption": false,
-                    "suppressTitle": undefined,
                   },
                   "content": Array [
                     Object {
@@ -32178,7 +31519,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image017",
                       },
                       "type": "figure",
@@ -32188,7 +31528,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image018",
                       },
                       "type": "figure",
@@ -32198,7 +31537,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image019",
                       },
                       "type": "figure",
@@ -32208,7 +31546,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image020",
                       },
                       "type": "figure",
@@ -32507,7 +31844,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -32550,17 +31886,10 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "alignment": undefined,
-                    "alternatives": undefined,
                     "attribution": undefined,
                     "dataTracked": null,
-                    "figureLayout": "",
-                    "figureStyle": "",
                     "id": "MPFigureElement:test",
                     "label": "Figure VI",
-                    "sizeFraction": 0,
-                    "suppressCaption": false,
-                    "suppressTitle": undefined,
                   },
                   "content": Array [
                     Object {
@@ -32568,7 +31897,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image021",
                       },
                       "type": "figure",
@@ -32578,7 +31906,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image022",
                       },
                       "type": "figure",
@@ -32588,7 +31915,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image023",
                       },
                       "type": "figure",
@@ -32598,7 +31924,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image024",
                       },
                       "type": "figure",
@@ -32897,7 +32222,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -32915,10 +32239,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "generatedLabel": undefined,
                 "id": "MPSection:test",
-                "pageBreakStyle": undefined,
-                "titleSuppressed": false,
               },
               "content": Array [
                 Object {
@@ -32937,7 +32258,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -32998,7 +32318,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPParagraphElement:test",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -33041,17 +32360,10 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "alignment": undefined,
-                    "alternatives": undefined,
                     "attribution": undefined,
                     "dataTracked": null,
-                    "figureLayout": "",
-                    "figureStyle": "",
                     "id": "MPFigureElement:test",
                     "label": "Figure VII",
-                    "sizeFraction": 0,
-                    "suppressCaption": false,
-                    "suppressTitle": undefined,
                   },
                   "content": Array [
                     Object {
@@ -33059,7 +32371,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image025",
                       },
                       "type": "figure",
@@ -33069,7 +32380,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image026",
                       },
                       "type": "figure",
@@ -33079,7 +32389,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image027",
                       },
                       "type": "figure",
@@ -33089,7 +32398,6 @@ Object {
                         "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "position": null,
                         "src": "Wiley-JFR-Final Manuscript-MT-Image028",
                       },
                       "type": "figure",
@@ -33394,10 +32702,7 @@ Object {
           "attrs": Object {
             "category": "",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -33428,7 +32733,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -33443,7 +32747,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -33471,17 +32774,10 @@ Object {
             },
             Object {
               "attrs": Object {
-                "alignment": undefined,
-                "alternatives": undefined,
                 "attribution": undefined,
                 "dataTracked": null,
-                "figureLayout": "",
-                "figureStyle": "",
                 "id": "MPFigureElement:test",
                 "label": "Figure VIII",
-                "sizeFraction": 0,
-                "suppressCaption": false,
-                "suppressTitle": undefined,
               },
               "content": Array [
                 Object {
@@ -33489,7 +32785,6 @@ Object {
                     "contentType": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "position": null,
                     "src": "Wiley-JFR-Final Manuscript-MT-Image029",
                   },
                   "type": "figure",
@@ -33499,7 +32794,6 @@ Object {
                     "contentType": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "position": null,
                     "src": "Wiley-JFR-Final Manuscript-MT-Image030",
                   },
                   "type": "figure",
@@ -33509,7 +32803,6 @@ Object {
                     "contentType": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "position": null,
                     "src": "Wiley-JFR-Final Manuscript-MT-Image031",
                   },
                   "type": "figure",
@@ -33519,7 +32812,6 @@ Object {
                     "contentType": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "position": null,
                     "src": "Wiley-JFR-Final Manuscript-MT-Image032",
                   },
                   "type": "figure",
@@ -33821,10 +33113,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:conclusions",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -33855,7 +33144,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -33870,7 +33158,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPParagraphElement:test",
-                "paragraphStyle": "",
                 "placeholder": "",
               },
               "content": Array [
@@ -33916,7 +33203,6 @@ Object {
                 "dataTracked": null,
                 "id": "MPFootnotesElement:test",
                 "kind": "footnote",
-                "paragraphStyle": "",
               },
               "content": Array [
                 Object {
@@ -33924,7 +33210,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -33932,7 +33217,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -33970,7 +33254,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -33978,7 +33261,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34016,7 +33298,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34024,7 +33305,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34043,7 +33323,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34051,7 +33330,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34089,7 +33367,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34097,7 +33374,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34128,7 +33404,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34136,7 +33411,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34167,7 +33441,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34175,7 +33448,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34213,7 +33485,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34221,7 +33492,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34348,7 +33618,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34356,7 +33625,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34387,7 +33655,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34395,7 +33662,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34414,7 +33680,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34422,7 +33687,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34617,7 +33881,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34625,7 +33888,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34644,7 +33906,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34652,7 +33913,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34683,7 +33943,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34691,7 +33950,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34710,7 +33968,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34718,7 +33975,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34737,7 +33993,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34745,7 +34000,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34764,7 +34018,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34772,7 +34025,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34791,7 +34043,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34799,7 +34050,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34846,7 +34096,6 @@ Object {
                     "dataTracked": null,
                     "id": "MPFootnote:test",
                     "kind": "footnote",
-                    "paragraphStyle": "",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34854,7 +34103,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPParagraphElement:test",
-                        "paragraphStyle": "",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -34897,10 +34145,7 @@ Object {
           "attrs": Object {
             "category": "MPSectionCategory:appendices",
             "dataTracked": null,
-            "generatedLabel": undefined,
             "id": "MPSection:test",
-            "pageBreakStyle": undefined,
-            "titleSuppressed": false,
           },
           "content": Array [
             Object {
@@ -34930,15 +34175,8 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "expandListing": false,
                 "id": "MPTableElement:test",
                 "label": "",
-                "paragraphStyle": "",
-                "suppressCaption": false,
-                "suppressFooter": false,
-                "suppressHeader": false,
-                "suppressTitle": undefined,
-                "tableStyle": "",
               },
               "content": Array [
                 Object {
@@ -35918,7 +35156,6 @@ Object {
                           "attrs": Object {
                             "dataTracked": null,
                             "id": "MPParagraphElement:test",
-                            "paragraphStyle": "",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -35933,7 +35170,6 @@ Object {
                           "attrs": Object {
                             "dataTracked": null,
                             "id": "MPParagraphElement:test",
-                            "paragraphStyle": "",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -35991,7 +35227,6 @@ Object {
                 "contents": "",
                 "dataTracked": null,
                 "id": "MPBibliographyElement:test",
-                "paragraphStyle": "",
               },
               "content": Array [
                 Object {
@@ -36020,7 +35255,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "31-56",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Illiquidity and stock returns: Cross-section and time-series effects",
                     "type": "article-journal",
@@ -36060,7 +35294,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "223-49",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Asset pricing and the bid-ask spread",
                     "type": "article-journal",
@@ -36106,7 +35339,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1593-1636",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Measuring economic policy uncertainty",
                     "type": "article-journal",
@@ -36146,7 +35378,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "283-94",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Differential information and the small firm effect",
                     "type": "article-journal",
@@ -36198,7 +35429,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1869-1901",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "What affects innovation more: Policy or policy uncertainty?",
                     "type": "article-journal",
@@ -36244,7 +35474,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1941-53",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Stock market volatility around national elections",
                     "type": "article-journal",
@@ -36290,7 +35519,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "69-94",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Political climate, optimism, and investment decisions",
                     "type": "article-journal",
@@ -36342,7 +35570,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1111-1154",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Precarious politics and return volatility.",
                     "type": "article-journal",
@@ -36394,7 +35621,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1111-54",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Precarious politics and return volatility",
                     "type": "article-journal",
@@ -36434,7 +35660,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "3-18",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "The asset-pricing implications of government economic policy uncertainty",
                     "type": "article-journal",
@@ -36480,7 +35705,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "355-85",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Risk aversion, uncertain information, and market efficiency",
                     "type": "article-journal",
@@ -36520,7 +35744,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "69-90",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Price, trade size, and information in securities markets",
                     "type": "article-journal",
@@ -36554,7 +35777,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "211-31",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Political risk and market efficiency: Tests based in British stock and options markets in the 1987 election",
                     "type": "article-journal",
@@ -36594,7 +35816,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1108-17",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "US presidential elections and implied volatility: The role of political uncertainty",
                     "type": "article-journal",
@@ -36640,7 +35861,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "167-92",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Political environment, financial intermediation costs, and financing patterns",
                     "type": "article-journal",
@@ -36692,7 +35912,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "54-86",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "The 2000 presidential election and the information cost of sensitive versus non-sensitive S&amp;P 500 stocks",
                     "type": "article-journal",
@@ -36732,7 +35951,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "47-73",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Optimal dealer pricing under transactions and return uncertainty",
                     "type": "article-journal",
@@ -36772,7 +35990,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1747-85",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Liquidity measurement problems in fast, competitive markets: Expensive and cheap solutions",
                     "type": "article-journal",
@@ -36812,7 +36029,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1-19",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Red and blue investing: Values and finance",
                     "type": "article-journal",
@@ -36852,7 +36068,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "45-83",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Political uncertainty and corporate investment cycles",
                     "type": "article-journal",
@@ -36898,7 +36113,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "2417-79",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "The price of political uncertainty: Theory and evidence from the option market",
                     "type": "article-journal",
@@ -36932,7 +36146,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1315-35",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Continuous auctions and insider trading",
                     "type": "article-journal",
@@ -36972,7 +36185,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "733-46",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Inferring trade direction from intraday data",
                     "type": "article-journal",
@@ -37012,7 +36224,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "609-22",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Presidential election uncertainty and common stock returns in the United States",
                     "type": "article-journal",
@@ -37058,7 +36269,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "286-310",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "The impacts of political uncertainty on asset prices: Evidence from the Bo scandal in China",
                     "type": "article-journal",
@@ -37110,7 +36320,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1-13",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Politics and liquidity",
                     "type": "article-journal",
@@ -37150,7 +36359,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "639-57",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Political uncertainty, financial crisis and market volatility",
                     "type": "article-journal",
@@ -37190,7 +36398,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "271-79",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "US presidential election impact on Canadian and Mexican stock markets",
                     "type": "article-journal",
@@ -37230,7 +36437,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "162-69",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "The 2000 presidential election and the stock market",
                     "type": "article-journal",
@@ -37270,7 +36476,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "469-91",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Liquidity and asset prices in rational expectations equilibrium with ambiguous information",
                     "type": "article-journal",
@@ -37316,7 +36521,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1575-1604",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Political elections and the resolution of uncertainty: The international evidence",
                     "type": "article-journal",
@@ -37335,7 +36539,6 @@ Object {
                     "issued": undefined,
                     "literal": "Pasquariello, P., and C. Zafeiridou, 2014, Political uncertainty and financial market liquidity, Working Paper, University of Michigan.",
                     "page": undefined,
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": undefined,
                     "type": "article-journal",
@@ -37375,7 +36578,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "642-85",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Liquidity risk and expected stock returns",
                     "type": "article-journal",
@@ -37415,7 +36617,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1219-64",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Uncertainty about government policy and stock prices",
                     "type": "article-journal",
@@ -37455,7 +36656,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "520-45",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "Political uncertainty and risk premia",
                     "type": "article-journal",
@@ -37495,7 +36695,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1903-34",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "The political economy of financial innovation: Evidence from local governments",
                     "type": "article-journal",
@@ -37535,7 +36734,6 @@ Object {
                     },
                     "literal": undefined,
                     "page": "1841-72",
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": "The presidential puzzle: Political cycles and the stock market",
                     "type": "article-journal",
@@ -37554,7 +36752,6 @@ Object {
                     "issued": undefined,
                     "literal": "Voth, H. J., 2002, Stock price volatility and political uncertainty: Evidence from the interwar period, Working Paper, University of Zurich.",
                     "page": undefined,
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": undefined,
                     "type": "article-journal",
@@ -37573,7 +36770,6 @@ Object {
                     "issued": undefined,
                     "literal": "test-authorJintest reference which contains unparsed text",
                     "page": undefined,
-                    "paragraphStyle": "",
                     "supplement": undefined,
                     "title": undefined,
                     "type": "article-journal",

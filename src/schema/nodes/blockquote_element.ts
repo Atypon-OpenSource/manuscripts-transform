@@ -17,12 +17,10 @@
 import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
-import { buildElementClass } from '../../lib/attributes'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  paragraphStyle: string
   placeholder: string
 }
 
@@ -34,7 +32,6 @@ export const blockquoteElement: NodeSpec = {
   content: 'paragraph+ attribution',
   attrs: {
     id: { default: '' },
-    paragraphStyle: { default: '' }, // TODO: default paragraph style
     placeholder: { default: '' },
     dataTracked: { default: null },
   },
@@ -68,8 +65,6 @@ export const blockquoteElement: NodeSpec = {
     if (blockquoteElementNode.attrs.id) {
       attrs.id = blockquoteElementNode.attrs.id
     }
-
-    attrs.class = buildElementClass(blockquoteElementNode.attrs)
 
     attrs['data-object-type'] = ObjectTypes.QuoteElement
 

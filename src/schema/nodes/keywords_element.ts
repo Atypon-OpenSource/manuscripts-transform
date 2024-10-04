@@ -19,9 +19,8 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
-  contents: string
   id: string
-  paragraphStyle?: string
+  contents: string
 }
 
 export interface KeywordsElementNode extends ManuscriptNode {
@@ -34,8 +33,6 @@ export const keywordsElement: NodeSpec = {
   attrs: {
     id: { default: '' },
     contents: { default: '' },
-    paragraphStyle: { default: '' },
-    type: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',

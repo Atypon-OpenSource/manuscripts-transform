@@ -32,7 +32,6 @@ export interface BibliographyItemAttrs {
   page?: string
   title?: string
   literal?: string
-  paragraphStyle?: string
 }
 
 export interface BibliographyItemNode extends ManuscriptNode {
@@ -55,7 +54,6 @@ export const bibliographyItem: NodeSpec = {
     page: { default: undefined },
     title: { default: undefined },
     literal: { default: undefined },
-    paragraphStyle: { default: '' },
     dataTracked: { default: null },
   },
   selectable: false,
