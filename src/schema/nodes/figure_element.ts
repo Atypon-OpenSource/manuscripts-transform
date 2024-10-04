@@ -21,7 +21,6 @@ import { AttributionNode } from './attribution'
 
 interface Attrs {
   id: string
-  label: string
   attribution?: AttributionNode
 }
 
@@ -34,7 +33,6 @@ export const figureElement: NodeSpec = {
     '(paragraph | figure | missing_figure | placeholder)+ attribution* figcaption (listing | placeholder)',
   attrs: {
     id: { default: '' },
-    label: { default: '' },
     attribution: { default: undefined },
     dataTracked: { default: null },
   },

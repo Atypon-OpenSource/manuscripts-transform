@@ -2910,7 +2910,6 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {
@@ -3255,7 +3254,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPEquationElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {
@@ -13919,7 +13917,6 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "label": "FIGURE 1",
                   },
                   "content": Array [
                     Object {
@@ -14136,7 +14133,6 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "label": "FIGURE 2",
                   },
                   "content": Array [
                     Object {
@@ -14798,7 +14794,6 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "label": "FIGURE 3",
                   },
                   "content": Array [
                     Object {
@@ -18400,7 +18395,6 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "label": "FIGURE 1",
               },
               "content": Array [
                 Object {
@@ -21253,7 +21247,6 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "label": "FIGURE 2",
               },
               "content": Array [
                 Object {
@@ -21392,7 +21385,6 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "label": "FIGURE 3",
                   },
                   "content": Array [
                     Object {
@@ -24466,7 +24458,6 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "label": "Figure I",
               },
               "content": Array [
                 Object {
@@ -25196,7 +25187,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPEquationElement:test",
-                    "label": "(1)",
                   },
                   "content": Array [
                     Object {
@@ -25414,7 +25404,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPEquationElement:test",
-                    "label": "(2)",
                   },
                   "content": Array [
                     Object {
@@ -25772,7 +25761,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPEquationElement:test",
-                    "label": "(3)",
                   },
                   "content": Array [
                     Object {
@@ -29352,7 +29340,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPEquationElement:test",
-                "label": "(4)",
               },
               "content": Array [
                 Object {
@@ -29482,7 +29469,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPEquationElement:test",
-                "label": "(5)",
               },
               "content": Array [
                 Object {
@@ -29760,7 +29746,6 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "label": "Figure II",
                   },
                   "content": Array [
                     Object {
@@ -30253,7 +30238,6 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "label": "Figure III",
                   },
                   "content": Array [
                     Object {
@@ -30791,7 +30775,6 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "label": "Figure IV",
                   },
                   "content": Array [
                     Object {
@@ -31416,7 +31399,6 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "label": "Figure V",
                   },
                   "content": Array [
                     Object {
@@ -31794,7 +31776,6 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "label": "Figure VI",
                   },
                   "content": Array [
                     Object {
@@ -32266,7 +32247,6 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "label": "Figure VII",
                   },
                   "content": Array [
                     Object {
@@ -32680,7 +32660,6 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "label": "Figure VIII",
               },
               "content": Array [
                 Object {

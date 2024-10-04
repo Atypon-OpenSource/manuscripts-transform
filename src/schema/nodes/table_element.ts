@@ -20,7 +20,6 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  label: string
 }
 
 export interface TableElementNode extends ManuscriptNode {
