@@ -20,5 +20,13 @@ import { ManuscriptNodeType } from '../schema'
 import { nodeTypesMap } from './node-types'
 
 export const generateNodeID = (type: ManuscriptNodeType) => {
-  return nodeTypesMap.get(type) + ':' + uuid().toUpperCase()
+  const uniqueID = ':' + uuid().toUpperCase()
+  let name = nodeTypesMap.get(type)
+  if (name === undefined) {
+    name = type.name
+      .split('_')
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join('')
+  }
+  return name + uniqueID
 }

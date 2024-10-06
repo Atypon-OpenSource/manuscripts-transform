@@ -20,7 +20,7 @@ import {
   ManuscriptNode,
   schema,
 } from '../../schema'
-import { generateNodeID } from '../../transformer'
+import { generateNodeID, nodeTypesMap } from '../../transformer'
 
 export const updateDocumentIDs = (node: ManuscriptNode) => {
   const replacements = new Map()

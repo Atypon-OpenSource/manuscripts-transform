@@ -17,13 +17,7 @@
 import { Node, NodeType } from 'prosemirror-model'
 import { findChildrenByType } from 'prosemirror-utils'
 
-import {
-  ContributorCorresp,
-  ContributorFootnote,
-  ManuscriptNode,
-  schema,
-} from '../../schema'
-import { nodeTypesMap } from '../../transformer'
+import { ManuscriptNode, schema } from '../../schema'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { readAndParseFixture } from './files'
 
@@ -32,56 +26,75 @@ export const createNodeFromJATS = async (fileName: string) => {
   return parseJATSArticle(jats)
 }
 
-export const changeIDs = (node: ManuscriptNode) => {
-  //@ts-ignore
-  node.attrs.id = updateNodeID(node)
-  node.descendants((child) => {
-    if (child.attrs.id) {
-      //@ts-ignore
-      child.attrs.id = nodeTypesMap.get(child.type) + ':test'
+const uuidRegex =
+  /[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/g
+const replaceUUIDWithTest = (input: string) => input.replace(uuidRegex, 'test')
+
+const updateContributorNodeIDs = (node: ManuscriptNode) => {
+  if (node.type === schema.nodes.contributor) {
+    //@ts-ignore
+    node.attrs.footnote = node.attrs.footnote.map((fn) => {
+      return { ...fn, noteID: replaceUUIDWithTest(fn.noteID) }
+    })
+    //@ts-ignore
+    node.attrs.corresp = node.attrs.corresp.map((corresp) => {
+      return { ...corresp, correspID: replaceUUIDWithTest(corresp.correspID) }
+    })
+    //@ts-ignore
+    node.attrs.affiliations = node.attrs.affiliations.map((aff: string) =>
+      replaceUUIDWithTest(aff)
+    )
+    if (node.attrs.bibliographicName._id) {
+      node.attrs.bibliographicName._id = replaceUUIDWithTest(
+        node.attrs.bibliographicName._id
+      )
     }
+  }
+}
+
+const updateCommentNodeIDs = (node: ManuscriptNode) => {
+  if (node.type === schema.nodes.comment) {
+    //@ts-ignore
+    node.attrs.target = replaceUUIDWithTest(node.attrs.target)
+    //@ts-ignore
+    node.attrs.contributions = node.attrs.contributions.map(
+      (contribution: any) => {
+        return {
+          ...contribution,
+          _id: replaceUUIDWithTest(contribution._id),
+          timestamp: 1234,
+        }
+      }
+    )
+  }
+}
+
+const updateBibliographyItemNodeIDs = (node: ManuscriptNode) => {
+  if (node.type === schema.nodes.bibliography_item) {
+    node.attrs.author?.forEach(
+      (author: any) => (author._id = replaceUUIDWithTest(author._id))
+    )
+    //@ts-ignore
+    if (node.attrs.issued) {
+      node.attrs.issued._id = replaceUUIDWithTest(node.attrs.issued._id)
+    }
+  }
+}
+
+export const changeIDs = (node: ManuscriptNode) => {
+  node.descendants((child) => {
     if (child.attrs.rid) {
       //@ts-ignore
-      child.attrs.rid = 'some-rid'
+      child.attrs.rid = replaceUUIDWithTest('some-rid')
     }
-    if (child.type === schema.nodes.contributor) {
-      child.attrs.footnote.forEach((footnote: ContributorFootnote) => {
-        //@ts-ignore
-        footnote.noteID = 'MPFootnote:test'
-      })
-      child.attrs.corresp.forEach((corresp: ContributorCorresp) => {
-        //@ts-ignore
-        corresp.correspID = 'MPCorrespondance:test'
-      })
-      child.attrs.affiliations.forEach(
-        (_affiliation: string, index: number) => {
-          //@ts-ignore
-          child.attrs.affiliations[index] = 'MPAffiliation:test'
-        }
-      )
-
-      child.attrs.bibliographicName._id = 'MPBibliographicName:test'
-    }
-
-    if (child.type === schema.nodes.comment) {
+    if (child.attrs.rids) {
       //@ts-ignore
-      child.attrs.target = 'target-id'
-      child.attrs.contributions.forEach((contribution: any) => {
-        contribution._id = 'MPContribution:test'
-        contribution.timestamp = 1234
-      })
+      child.attrs.rids = child.attrs.rids.map((rid) => replaceUUIDWithTest(rid))
     }
-
-    if (child.type === schema.nodes.bibliography_item) {
-      child.attrs.author?.forEach((author: any) => (author._id = 'MPBibliographicName:test'))
-      //@ts-ignore
-      if (child.attrs.issued) {
-        child.attrs.issued._id = 'MPBibliographicDate:test'
-      }
-    }
-    child.attrs.rids?.forEach((_rid: string, index: number) => {
-      child.attrs.rids[index] = 'some-rid'
-    })
+    updateNodeID(child)
+    updateContributorNodeIDs(child)
+    updateCommentNodeIDs(child)
+    updateBibliographyItemNodeIDs(child)
   })
 }
 
@@ -92,6 +105,8 @@ export const findNodeByType = (node: Node, type: NodeType, descend = true) => {
   return findNodesByType(node, type, descend)[0]
 }
 export const updateNodeID = (node: ManuscriptNode) => {
-  //@ts-ignore
-  node.attrs = { ...node.attrs, id: nodeTypesMap.get(node.type) + ':test' }
+  if (node.attrs.id) {
+    //@ts-ignore
+    node.attrs.id = replaceUUIDWithTest(node.attrs.id)
+  }
 }

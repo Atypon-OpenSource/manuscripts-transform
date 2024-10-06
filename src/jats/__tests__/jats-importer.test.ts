@@ -139,8 +139,7 @@ describe('JATS importer', () => {
       expect(
         findNodesByType(authorNotesNode, schema.nodes.corresp)
       ).toHaveLength(1)
-      updateNodeID(authorNotesNode)
-      authorNotesNode.descendants(updateNodeID)
+      changeIDs(authorNotesNode)
       expect(authorNotesNode).toMatchSnapshot()
     })
     it('should not have author notes node if author notes element does not exist', async () => {
@@ -166,6 +165,7 @@ describe('JATS importer', () => {
       const jats = await readAndParseFixture('jats-import.xml')
       const { node } = parseJATSArticle(jats)
       const awardsNode = findNodeByType(node, schema.nodes.awards)
+      changeIDs(awardsNode)
       expect(awardsNode).toMatchSnapshot()
     })
     it('should not have awards node if awards element does not exist', async () => {

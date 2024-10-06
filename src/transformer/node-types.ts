@@ -27,7 +27,7 @@ import {
   schema,
 } from '../schema'
 
-export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
+export const nodeTypesMap: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.abstracts, ObjectTypes.Section],
   [schema.nodes.body, ObjectTypes.Section],
   [schema.nodes.backmatter, ObjectTypes.Section],
