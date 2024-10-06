@@ -21,7 +21,7 @@ import { nodeTypesMap } from './node-types'
 
 export const generateNodeID = (type: ManuscriptNodeType) => {
   const uniqueID = ':' + uuid().toUpperCase()
-  let name = nodeTypesMap.get(type)
+  let name: string | undefined = nodeTypesMap.get(type)
   if (name === undefined) {
     name = type.name
       .split('_')
