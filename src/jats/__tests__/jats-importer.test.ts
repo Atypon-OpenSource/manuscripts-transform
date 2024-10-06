@@ -75,7 +75,7 @@ describe('JATS importer', () => {
         updateNodeID(node)
         //@ts-ignore
         node.attrs.affiliations = node.attrs.affiliations.map(
-          (_aff: string) => 'MPAffiliation:test'
+          () => 'MPAffiliation:test'
         )
         //@ts-ignore
         node.attrs.footnote = node.attrs.footnote.map(

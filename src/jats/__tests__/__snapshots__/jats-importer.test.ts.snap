@@ -36,7 +36,7 @@ exports[`JATS importer author-notes should have author notes node with content i
 Object {
   "attrs": Object {
     "dataTracked": null,
-    "id": "MPAuthorNotes:16AB3BA4-8852-4E94-A0A2-382969F65F7B",
+    "id": "MPAuthorNotes:test",
   },
   "content": Array [
     Object {
@@ -139,7 +139,7 @@ exports[`JATS importer awards should correctly parse award nodes 1`] = `
 Object {
   "attrs": Object {
     "dataTracked": null,
-    "id": "Awards:3D17D817-9403-4A18-95FB-AC50CC90BDB7",
+    "id": "Awards:test",
   },
   "content": Array [
     Object {
@@ -409,7 +409,7 @@ Object {
   "attrs": Object {
     "articleType": "other",
     "doi": "",
-    "id": "MPManuscript:135BA988-0F98-4CD3-96E9-E164C1C42D55",
+    "id": "MPManuscript:test",
     "primaryLanguageCode": "",
     "prototype": "",
   },
@@ -2535,7 +2535,7 @@ Object {
   "attrs": Object {
     "articleType": "",
     "doi": "",
-    "id": "MPManuscript:2CDF7324-14C5-4B9C-8FB4-43DCA994A842",
+    "id": "MPManuscript:test",
     "primaryLanguageCode": "",
     "prototype": "",
   },
@@ -4006,7 +4006,7 @@ Object {
   "attrs": Object {
     "articleType": "other",
     "doi": "",
-    "id": "MPManuscript:BD6DDAFD-39F1-4834-9B6F-FD280380BD02",
+    "id": "MPManuscript:test",
     "primaryLanguageCode": "",
     "prototype": "",
   },
@@ -17470,7 +17470,7 @@ Object {
   "attrs": Object {
     "articleType": "other",
     "doi": "",
-    "id": "MPManuscript:97B3EB00-EF29-40C1-B68D-DBB35BA78303",
+    "id": "MPManuscript:test",
     "primaryLanguageCode": "",
     "prototype": "",
   },
@@ -24640,7 +24640,7 @@ Object {
   "attrs": Object {
     "articleType": "research-article",
     "doi": "",
-    "id": "MPManuscript:334FE41F-E4F6-4D52-B495-3E765FD237FB",
+    "id": "MPManuscript:test",
     "primaryLanguageCode": "",
     "prototype": "",
   },

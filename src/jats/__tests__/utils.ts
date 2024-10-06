@@ -81,17 +81,25 @@ const updateBibliographyItemNodeIDs = (node: ManuscriptNode) => {
   }
 }
 
+const updateNodeRID = (node: ManuscriptNode) => {
+  if (node.attrs.rid) {
+    //@ts-ignore
+    node.attrs.rid = replaceUUIDWithTest(node.attrs.rid)
+  }
+}
+const updateNodeRIDs = (node: ManuscriptNode) => {
+  if (node.attrs.rids) {
+    //@ts-ignore
+    node.attrs.rids = node.attrs.rids.map((rid) => replaceUUIDWithTest(rid))
+  }
+}
+
 export const changeIDs = (node: ManuscriptNode) => {
+  updateNodeID(node)
   node.descendants((child) => {
-    if (child.attrs.rid) {
-      //@ts-ignore
-      child.attrs.rid = replaceUUIDWithTest('some-rid')
-    }
-    if (child.attrs.rids) {
-      //@ts-ignore
-      child.attrs.rids = child.attrs.rids.map((rid) => replaceUUIDWithTest(rid))
-    }
     updateNodeID(child)
+    updateNodeRID(child)
+    updateNodeRIDs(child)
     updateContributorNodeIDs(child)
     updateCommentNodeIDs(child)
     updateBibliographyItemNodeIDs(child)
