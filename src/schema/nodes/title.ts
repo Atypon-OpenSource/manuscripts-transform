@@ -20,9 +20,6 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  title: string
-  subtitle: string
-  runningTitle: string
   placeholder: string
 }
 

@@ -14,212 +14,87 @@
  * limitations under the License.
  */
 
-import {
-  BibliographyElement,
-  Model,
-  ObjectTypes,
-  Section,
-} from '@manuscripts/json-schema'
-
-import { InvalidInput } from '../../errors'
-import {
-  buildBibliographyElement,
-  buildSection,
-  encode,
-} from '../../transformer'
-import { Build, buildManuscript } from '../../transformer/builders'
-import { generateID } from '../../transformer/id'
-import { findManuscript } from '../../transformer/project-bundle'
-import { jatsBodyDOMParser } from './jats-body-dom-parser'
-import { jatsBodyTransformations } from './jats-body-transformations'
-import {
-  createComments,
-  createReferenceComments,
-  markComments,
-} from './jats-comments'
-import { jatsFrontParser } from './jats-front-parser'
+import { ActualManuscriptNode } from '../../schema'
+import { markComments } from './jats-comments'
+import { jatsDOMParser } from './jats-dom-parser'
+import { parseJournal } from './jats-journal-meta-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
-import { jatsReferenceParser } from './jats-reference-parser'
-import { References } from './jats-references'
+import {
+  createAbstracts,
+  createBackmatter,
+  createBody,
+  createBoxedElementSection,
+  createKeywordsSection,
+  createSupplementaryMaterialsSection,
+  ensureSection,
+  fixTables,
+  moveAffiliations,
+  moveAuthorNotes,
+  moveAwards,
+  moveCaptionsToEnd,
+  moveContributors,
+  moveReferencesToBackmatter,
+  moveTitle,
+  orderTableFootnote,
+} from './jats-transformations'
 
-export const parseJATSFront = (doc: Document, front: Element) => {
+const processJATS = (doc: Document) => {
   const createElement = createElementFn(doc)
 
-  const journal = jatsFrontParser.parseJournal(
-    front.querySelector('journal-meta')
-  )
+  markComments(doc)
 
-  const titles = jatsFrontParser.parseTitles(
-    front.querySelector('article-meta > title-group'),
-    createElement
-  )
-
-  const DOI = jatsFrontParser.parseDOI(front)
-  // affiliations
-  const { affiliations, affiliationIDs } = jatsFrontParser.parseAffiliations([
-    ...front.querySelectorAll('article-meta > contrib-group > aff'),
-  ])
-
-  // author-footnotes
-  const {
-    footnotes,
-    footnoteIDs,
-    authorNotes,
-    authorNotesParagraphs,
-    correspondingIDs,
-    correspondingList,
-  } = jatsFrontParser.parseAuthorNotes(
-    front.querySelector('article-meta > author-notes')
-  )
-
-  // contributors
-  const authors = jatsFrontParser.parseContributors(
-    [
-      ...front.querySelectorAll(
-        'article-meta > contrib-group > contrib[contrib-type="author"]'
-      ),
-    ],
-    affiliationIDs,
-    footnoteIDs,
-    correspondingIDs
-  )
-
-  const history = jatsFrontParser.parseDates(
-    front.querySelector('article-meta > history')
-  )
-
-  const counts = jatsFrontParser.parseCounts(
-    front.querySelector('article-meta counts')
-  )
-
-  const manuscript = {
-    ...buildManuscript(),
-    ...counts,
-    ...history,
-    DOI,
+  const front = doc.querySelector('front')
+  if (!front) {
+    return
   }
-  return generateIDs([
-    manuscript,
-    titles,
-    journal,
-    ...authorNotesParagraphs,
-    ...authorNotes,
-    ...footnotes,
-    ...authors,
-    ...affiliations,
-    ...correspondingList,
-  ])
-}
 
-export const parseJATSBody = (
-  doc: Document,
-  body: Element,
-  references?: References
-) => {
-  const createElement = createElementFn(doc)
+  moveTitle(front, createElement)
+  moveContributors(front, createElement)
+  moveAffiliations(front, createElement)
+  moveAuthorNotes(front, createElement)
+  moveAwards(front)
 
-  jatsBodyTransformations.ensureSection(body, createElement)
-  jatsBodyTransformations.moveCaptionsToEnd(body)
-  jatsBodyTransformations.fixTables(body, createElement)
-
-  jatsBodyTransformations.createBoxedElementSection(doc, body, createElement)
-  jatsBodyTransformations.createBody(doc, body, createElement)
-  jatsBodyTransformations.createAbstracts(doc, body, createElement)
-  jatsBodyTransformations.createBackmatter(doc, body, createElement)
-  jatsBodyTransformations.createSuppleMaterials(doc, body, createElement)
-  jatsBodyTransformations.createKeywords(doc, body, createElement)
-
-  jatsBodyTransformations.moveHistoryToBody(doc, body)
-  jatsBodyTransformations.orderTableFootnote(doc, body)
-
-  const article = createElement('article')
-  article.appendChild(body)
-  const node = jatsBodyDOMParser.parse(article).firstChild
-  if (!node) {
-    throw new Error('No content was parsed from the JATS article body')
+  const body = doc.querySelector('body')
+  if (!body) {
+    return
   }
-  const replacements = new Map<string, string>(references?.IDs)
-  updateDocumentIDs(node, replacements)
 
-  return encode(node).values()
-}
+  ensureSection(body, createElement)
+  moveCaptionsToEnd(body)
+  createBoxedElementSection(body, createElement)
+  createBody(doc, body, createElement)
+  createAbstracts(doc, body, createElement)
+  createBackmatter(doc, body, createElement)
+  createSupplementaryMaterialsSection(doc, body, createElement)
+  createKeywordsSection(doc, body, createElement)
+  fixTables(doc, body, createElement)
+  moveHistoryToBody(doc, body)
+  orderTableFootnote(doc, body)
 
-const createBibliographyModels = (references: References) => {
-  const models = []
-  const bibliographyItems = references.getBibliographyItems()
-  const bibliographyElement = buildBibliographyElement(
-    bibliographyItems
-  ) as BibliographyElement
-  const bibliographySection = {
-    ...buildSection(99),
-    category: 'MPSectionCategory:bibliography',
-    elementIDs: [bibliographyElement._id],
-    title: 'References',
-  } as Section
-  const comments = createReferenceComments(references)
-  models.push(bibliographySection)
-  models.push(bibliographyElement)
-  models.push(...bibliographyItems)
-  models.push(...comments)
-  return models
+  const back = doc.querySelector('back')
+  if (!back) {
+    return
+  }
+
+  moveReferencesToBackmatter(body, back, createElement)
 }
 
 const createElementFn = (doc: Document) => (tagName: string) =>
   doc.createElement(tagName)
 
-const generateIDs = (models: Build<Model>[]) =>
-  models.map((m) =>
-    m._id ? m : { ...m, _id: generateID(m.objectType as ObjectTypes) }
-  ) as Model[]
-
-export const parseJATSArticle = (doc: Document): Model[] => {
-  const article = doc.querySelector('article')
-  const front = doc.querySelector('front')
-  const body = doc.querySelector('body')
-  const back = doc.querySelector('back')
-  if (!front) {
-    throw new InvalidInput('Invalid JATS format! Missing front element')
+export const parseJATSArticle = (doc: Document, template?: string) => {
+  const journal = parseJournal(doc)
+  processJATS(doc)
+  const node = jatsDOMParser.parse(doc).firstChild as ActualManuscriptNode
+  if (!node) {
+    throw new Error('No content was parsed from the JATS article body')
   }
-
-  if (!article) {
-    throw new InvalidInput('Invalid JATS format! Missing article element')
+  updateDocumentIDs(node)
+  if (template) {
+    node.attrs.prototype = template
   }
-
-  const marks = markComments(doc)
-
-  const createElement = createElementFn(doc)
-
-  const models: Model[] = []
-
-  let references
-  if (back) {
-    references = jatsReferenceParser.parseReferences(
-      [...back.querySelectorAll('ref-list > ref')],
-      createElement
-    )
+  return {
+    node,
+    journal,
   }
-
-  models.push(...parseJATSFront(doc, front))
-
-  if (body) {
-    models.push(...parseJATSBody(doc, body, references))
-  }
-
-  const modelMap = new Map(models.map((model) => [model._id, model]))
-  const manuscript = findManuscript(modelMap)
-  if (manuscript) {
-    const type = article.getAttribute('article-type')
-    manuscript.articleType = type || 'other'
-  }
-
-  if (references && references.items.size) {
-    models.push(...createBibliographyModels(references))
-  }
-
-  if (marks.length) {
-    const comments = createComments(models, marks)
-    models.push(...comments)
-  }
-
-  return models
 }

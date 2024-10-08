@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+export * from './errors'
+export { getVersion } from './getVersion'
+export * from './jats'
+export * from './jats/types'
 export * from './lib/section-group-type'
 export * from './lib/table-cell-styles'
 export * from './lib/utils'
 export * from './schema'
-export * from './transformer'
-export * from './jats'
-export * from './types'
-export * from './errors'
-export { getVersion } from './getVersion'
-export { migrateFor, JSONNode } from './schema/migration/migrate'
+export { JSONNode, migrateFor } from './schema/migration/migrate'
 export { isSectionLabelNode } from './schema/nodes/section_label'
+export * from './transformer'

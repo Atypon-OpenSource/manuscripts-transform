@@ -14,12 +14,30 @@
  * limitations under the License.
  */
 
+import {
+  BibliographicName,
+  buildBibliographicDate,
+  buildBibliographicName,
+  buildContribution,
+  ObjectTypes,
+} from '@manuscripts/json-schema'
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
 import { dateToTimestamp } from '../../lib/utils'
-import { ManuscriptNode, Marks, Nodes, schema } from '../../schema'
+import { getTrimmedTextContent } from '../../lib/utils'
+import {
+  BibliographyItemAttrs,
+  ContributorCorresp,
+  ContributorFootnote,
+  ManuscriptNode,
+  Marks,
+  Nodes,
+  schema,
+} from '../../schema'
 import { chooseSectionCategory } from '../../transformer'
+import { DEFAULT_PROFILE_ID } from './jats-comments'
+import { htmlFromJatsNode } from './jats-parser-utils'
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
@@ -40,6 +58,13 @@ const chooseContentType = (graphicNode?: Element): string | undefined => {
   }
 }
 
+const parsePriority = (priority: string | null) => {
+  if (!priority) {
+    return undefined
+  }
+  return parseInt(priority)
+}
+
 const getEquationContent = (p: string | HTMLElement) => {
   const element = p as HTMLElement
   const id = element.getAttribute('id')
@@ -47,13 +72,11 @@ const getEquationContent = (p: string | HTMLElement) => {
   let contents: string | null = ''
   let format: string | null = ''
   for (const child of container.childNodes) {
-    // remove namespace prefix
-    // TODO: real namespaces
     const nodeName = child.nodeName.replace(/^[a-z]:/, '')
 
     switch (nodeName) {
       case 'tex-math':
-        contents = (child as Element).innerHTML
+        contents = child.textContent
         format = 'tex'
         break
       case 'mml:math':
@@ -110,6 +133,146 @@ const parseDates = (historyNode: Element | null) => {
   return history
 }
 
+const getEmail = (element: HTMLElement) => {
+  const email = element.querySelector('email')
+  if (email) {
+    return {
+      href: email.getAttributeNS(XLINK_NAMESPACE, 'href') ?? '',
+      text: email.textContent?.trim() ?? '',
+    }
+  }
+}
+const getInstitutionDetails = (element: HTMLElement) => {
+  let department = ''
+  let institution = ''
+  for (const node of element.querySelectorAll('institution')) {
+    const content = node.textContent?.trim()
+    if (!content) {
+      continue
+    }
+    const type = node.getAttribute('content-type')
+    if (type === 'dept') {
+      department = content
+    } else {
+      institution = content
+    }
+  }
+  return { department, institution }
+}
+const getAddressLine = (element: HTMLElement, index: number) => {
+  return getTrimmedTextContent(element, `addr-line:nth-of-type(${index})`) || ''
+}
+
+const getHTMLContent = (node: Element, querySelector: string) => {
+  return htmlFromJatsNode(node.querySelector(querySelector))
+}
+
+const chooseBibliographyItemType = (publicationType: string | null) => {
+  switch (publicationType) {
+    case 'book':
+    case 'thesis':
+      return publicationType
+    case 'journal':
+    default:
+      return 'article-journal'
+  }
+}
+
+const parseRef = (element: Element) => {
+  const publicationType = element.getAttribute('publication-type')
+
+  const authorNodes = [
+    ...element.querySelectorAll('person-group[person-group-type="author"] > *'),
+  ]
+
+  const id = element.id
+
+  const attrs: BibliographyItemAttrs = {
+    id,
+    type: chooseBibliographyItemType(publicationType),
+  }
+  const title = getHTMLContent(element, 'article-title')
+  if (title) {
+    attrs.title = title
+  }
+
+  const mixedCitation = element.querySelector('mixed-citation')
+
+  if (authorNodes.length <= 0) {
+    mixedCitation?.childNodes.forEach((item) => {
+      if (
+        item.nodeType === Node.TEXT_NODE &&
+        item.textContent?.match(/[A-Za-z]+/g)
+      ) {
+        attrs.literal = mixedCitation.textContent?.trim() ?? ''
+        return attrs
+      }
+    })
+  }
+
+  const source = getHTMLContent(element, 'source')
+  if (source) {
+    attrs.containerTitle = source
+  }
+
+  const volume = getTrimmedTextContent(element, 'volume')
+  if (volume) {
+    attrs.volume = volume
+  }
+
+  const issue = getTrimmedTextContent(element, 'issue')
+  if (issue) {
+    attrs.issue = issue
+  }
+
+  const supplement = getTrimmedTextContent(element, 'supplement')
+  if (supplement) {
+    attrs.supplement = supplement
+  }
+
+  const fpage = getTrimmedTextContent(element, 'fpage')
+  const lpage = getTrimmedTextContent(element, 'lpage')
+  if (fpage) {
+    attrs.page = lpage ? `${fpage}-${lpage}` : fpage
+  }
+
+  const year = getTrimmedTextContent(element, 'year')
+  if (year) {
+    attrs.issued = buildBibliographicDate({
+      'date-parts': [[year]],
+    })
+  }
+
+  const doi = getTrimmedTextContent(element, 'pub-id[pub-id-type="doi"]')
+  if (doi) {
+    attrs.doi = doi
+  }
+
+  const authors: BibliographicName[] = []
+  authorNodes.forEach((authorNode) => {
+    const name = buildBibliographicName({})
+    const given = getTrimmedTextContent(authorNode, 'given-names')
+    if (given) {
+      name.given = given
+    }
+    const family = getTrimmedTextContent(authorNode, 'surname')
+
+    if (family) {
+      name.family = family
+    }
+
+    if (authorNode.nodeName === 'collab') {
+      name.literal = authorNode.textContent?.trim()
+    }
+    authors.push(name)
+  })
+
+  if (authors.length) {
+    attrs.author = authors
+  }
+  return attrs
+}
+
 export type MarkRule = ParseRule & { mark: Marks | null }
 
 const marks: MarkRule[] = [
@@ -158,6 +321,208 @@ export type NodeRule = ParseRule & { node?: Nodes | null }
 
 const nodes: NodeRule[] = [
   {
+    tag: 'article',
+    node: 'manuscript',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      const doi = element.querySelector(
+        'front > article-meta > article-id[pub-id-type="doi"]'
+      )
+      return {
+        doi: doi?.textContent,
+        articleType: element.getAttribute('article-type') ?? '',
+        primaryLanguageCode: element.getAttribute('lang') ?? '',
+      }
+    },
+  },
+
+  {
+    tag: 'article-title',
+    node: 'title',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+      }
+    },
+  },
+  {
+    tag: 'highlight-marker',
+    node: 'highlight_marker',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.id,
+        position: element.getAttribute('position'),
+      }
+    },
+  },
+  {
+    tag: 'comment',
+    node: 'comment',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+        target: element.getAttribute('target-id'),
+        contents: element.textContent,
+        contributions: [buildContribution(DEFAULT_PROFILE_ID)],
+      }
+    },
+  },
+  {
+    tag: 'author-notes',
+    node: 'author_notes',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+      }
+    },
+  },
+  {
+    tag: 'funding-group',
+    node: 'awards',
+  },
+  {
+    tag: 'award-group',
+    node: 'award',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+        recipient: element.querySelector('principal-award-recipient')
+          ?.textContent,
+        code: Array.from(element.querySelectorAll('award-id'))
+          .map((awardID) => awardID.textContent)
+          .reduce((acc, text) => (acc ? `${acc};${text}` : text), ''),
+        source: element.querySelector('funding-source')?.textContent,
+      }
+    },
+  },
+  {
+    tag: 'fn:not([fn-type])',
+    node: 'footnote',
+    context: 'author_notes/',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+        kind: 'footnote',
+      }
+    },
+  },
+  {
+    tag: 'corresp',
+    node: 'corresp',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      const label = element.querySelector('label')
+      if (label) {
+        label.remove()
+      }
+      return {
+        id: element.getAttribute('id'),
+        label: label?.textContent?.trim(),
+      }
+    },
+    getContent: (node) => {
+      const element = node as HTMLElement
+      return Fragment.from(schema.text(element.textContent?.trim() || ''))
+    },
+  },
+  {
+    tag: 'contrib[contrib-type="author"]',
+    node: 'contributor',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      const footnote: ContributorFootnote[] = []
+      const affiliations: string[] = []
+      const corresp: ContributorCorresp[] = []
+
+      const xrefs = element.querySelectorAll('xref')
+      for (const xref of xrefs) {
+        const rid = xref.getAttribute('rid')
+        const type = xref.getAttribute('ref-type')
+        if (!rid) {
+          continue
+        }
+        switch (type) {
+          case 'fn':
+            footnote.push({
+              noteID: rid,
+              noteLabel: xref.textContent?.trim() || '',
+            })
+            break
+          case 'corresp':
+            corresp.push({
+              correspID: rid,
+              correspLabel: xref.textContent?.trim() || '',
+            })
+            break
+          case 'aff':
+            affiliations.push(rid)
+            break
+        }
+      }
+
+      return {
+        id: element.getAttribute('id'),
+        role: 'author',
+        affiliations,
+        corresp,
+        footnote,
+        isCorresponding: element.getAttribute('corresp')
+          ? element.getAttribute('corresp') === 'yes'
+          : undefined,
+        bibliographicName: {
+          given: getTrimmedTextContent(element, 'name > given-names'),
+          family: getTrimmedTextContent(element, 'name > surname'),
+          ObjectType: ObjectTypes.BibliographicName,
+        },
+        ORCIDIdentifier: getTrimmedTextContent(
+          element,
+          'contrib-id[contrib-id-type="orcid"]'
+        ),
+        priority: parsePriority(element.getAttribute('priority')),
+      }
+    },
+    getContent: () => {
+      return Fragment.from(schema.text('_'))
+    },
+  },
+  {
+    tag: 'affiliations',
+    node: 'affiliations',
+  },
+  {
+    tag: 'aff',
+    node: 'affiliation',
+    context: 'affiliations/',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+
+      const { department, institution } = getInstitutionDetails(element)
+
+      return {
+        id: element.getAttribute('id'),
+        institution: institution ?? '',
+        department: department ?? '',
+        addressLine1: getAddressLine(element, 1),
+        addressLine2: getAddressLine(element, 2),
+        addressLine3: getAddressLine(element, 3),
+        postCode: getTrimmedTextContent(element, 'postal-code') ?? '',
+        country: getTrimmedTextContent(element, 'country') ?? '',
+        email: getEmail(element),
+        priority: parsePriority(element.getAttribute('priority')),
+      }
+    },
+    getContent: () => {
+      return Fragment.from(schema.text('_'))
+    },
+  },
+
+  {
     tag: 'attrib',
     node: 'attribution',
   },
@@ -203,16 +568,14 @@ const nodes: NodeRule[] = [
       const title = element.querySelector('title')
       if (title) {
         const captionTitle = schema.nodes.caption_title.create()
-        content.push(jatsBodyDOMParser.parse(title, { topNode: captionTitle }))
+        content.push(jatsDOMParser.parse(title, { topNode: captionTitle }))
       }
 
       const paragraphs = element.querySelectorAll('p')
       if (paragraphs.length) {
         const figcaption = schema.nodes.caption.create()
         for (const paragraph of paragraphs) {
-          content.push(
-            jatsBodyDOMParser.parse(paragraph, { topNode: figcaption })
-          )
+          content.push(jatsDOMParser.parse(paragraph, { topNode: figcaption }))
         }
       }
 
@@ -427,7 +790,7 @@ const nodes: NodeRule[] = [
       const paragraphs: ManuscriptNode[] = []
       node.childNodes.forEach((p) => {
         const paragraph = schema.nodes.paragraph.create()
-        const content = jatsBodyDOMParser.parse(p, {
+        const content = jatsDOMParser.parse(p, {
           topNode: paragraph,
         })
         paragraphs.push(content)
@@ -544,6 +907,21 @@ const nodes: NodeRule[] = [
     },
   },
   {
+    tag: 'sec[sec-type="bibliography"]',
+    node: 'bibliography_section',
+  },
+  {
+    tag: 'ref-list',
+    context: 'bibliography_section/',
+    node: 'bibliography_element',
+  },
+  {
+    tag: 'ref',
+    context: 'bibliography_element/',
+    node: 'bibliography_item',
+    getAttrs: (node) => parseRef(node as Element),
+  },
+  {
     tag: 'sec',
     node: 'section',
     getAttrs: (node) => {
@@ -567,6 +945,7 @@ const nodes: NodeRule[] = [
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
+        id: element.id,
         type: element.getAttribute('kwd-group-type'),
       }
     },
@@ -627,7 +1006,7 @@ const nodes: NodeRule[] = [
     tag: 'title',
     node: 'section_title',
     context:
-      'section/|footnotes_section/|bibliography_section/|keywords/|supplements/',
+      'section/|footnotes_section/|bibliography_section/|keywords/|supplements/|author_notes/',
   },
   {
     tag: 'title',
@@ -643,8 +1022,8 @@ const nodes: NodeRule[] = [
     node: 'table_cell',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const colspan = element.getAttribute('colspan')
-      const rowspan = element.getAttribute('rowspan')
+      const colspan = parseInt(element.getAttribute('colspan') || '1')
+      const rowspan = parseInt(element.getAttribute('rowspan') || '1')
       return {
         ...(colspan && { colspan }),
         ...(rowspan && { rowspan }),
@@ -660,8 +1039,8 @@ const nodes: NodeRule[] = [
     node: 'table_header',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const colspan = element.getAttribute('colspan')
-      const rowspan = element.getAttribute('rowspan')
+      const colspan = parseInt(element.getAttribute('colspan') || '1')
+      const rowspan = parseInt(element.getAttribute('rowspan') || '1')
       return {
         ...(colspan && { colspan }),
         ...(rowspan && { rowspan }),
@@ -727,4 +1106,4 @@ const nodes: NodeRule[] = [
 // metadata
 // address, addr-line, aff, article-title, city,
 
-export const jatsBodyDOMParser = new DOMParser(schema, [...marks, ...nodes])
+export const jatsDOMParser = new DOMParser(schema, [...marks, ...nodes])

@@ -14,19 +14,24 @@
  * limitations under the License.
  */
 
-import { v4 as uuidv4 } from 'uuid'
+import {
+  ContributorCorresp,
+  ContributorFootnote,
+  ManuscriptNode,
+  schema,
+} from '../../schema'
+import { generateNodeID } from '../../transformer'
 
-import { ManuscriptNode, schema } from '../../schema'
-import { generateID, nodeTypesMap } from '../../transformer'
-
-export const updateDocumentIDs = (
-  node: ManuscriptNode,
-  replacements: Map<string, string>
-) => {
+export const updateDocumentIDs = (node: ManuscriptNode) => {
+  const replacements = new Map()
   const warnings: string[] = []
+
   recurseDoc(node, (n) => updateNodeID(n, replacements, warnings))
   recurseDoc(node, (n) => updateNodeRID(n, replacements, warnings))
   recurseDoc(node, (n) => updateNodeRIDS(n, replacements, warnings))
+  recurseDoc(node, (n) => updateContributorNodesIDS(n, replacements, warnings))
+  recurseDoc(node, (n) => updateCommentTarget(n, replacements, warnings))
+
   return warnings
 }
 
@@ -35,7 +40,7 @@ export const updateDocumentIDs = (
  * @param node
  * @param fn
  */
-function recurseDoc(node: ManuscriptNode, fn: (n: ManuscriptNode) => void) {
+const recurseDoc = (node: ManuscriptNode, fn: (n: ManuscriptNode) => void) => {
   fn(node)
   node.descendants((n) => fn(n))
 }
@@ -48,32 +53,18 @@ const updateNodeID = (
   replacements: Map<string, string>,
   warnings: string[]
 ) => {
-  if (node.type === schema.nodes.inline_equation) {
-    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-    node.attrs = {
-      ...node.attrs,
-      id: `InlineMathFragment:${uuidv4()}`,
-    }
+  if (
+    node.type === schema.nodes.comment ||
+    node.type === schema.nodes.highlight_marker
+  ) {
     return
   }
-  if (node.type === schema.nodes.general_table_footnote) {
-    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
-    node.attrs = {
-      ...node.attrs,
-      id: `GeneralTableFootnote:${uuidv4()}`,
-    }
-    return
-  }
+
   if (!('id' in node.attrs)) {
     return
   }
-  const objectType = nodeTypesMap.get(node.type)
-  if (!objectType) {
-    warnings.push(`Unknown object type for node type ${node.type.name}`)
-    return
-  }
   const previousID = node.attrs.id
-  const nextID = generateID(objectType)
+  const nextID = generateNodeID(node.type)
   if (previousID) {
     if (
       replacements.has(previousID) ||
@@ -133,6 +124,81 @@ const updateNodeRIDS = (
   }
 }
 
+/**
+ * Updates the IDS for corresps, affiliations and footnotes inside the contributor
+ */
+
+const updateContributorNodesIDS = (
+  node: ManuscriptNode,
+  replacements: Map<string, string>,
+  // eslint-disable-next-line
+  warnings: string[]
+) => {
+  if (node.type === schema.nodes.contributor) {
+    const footnote = node.attrs.footnote
+      ?.map((fn: ContributorFootnote) => {
+        return replacements.get(fn.noteID)
+          ? {
+              ...fn,
+              noteID: replacements.get(fn.noteID),
+            }
+          : undefined
+      })
+      .filter(Boolean)
+    const corresp = node.attrs.corresp
+      ?.map((corresp: ContributorCorresp) => {
+        return replacements.get(corresp.correspID)
+          ? {
+              ...corresp,
+              correspID: replacements.get(corresp.correspID),
+            }
+          : undefined
+      })
+      .filter(Boolean)
+    const affiliations = node.attrs.affiliations
+      .map((affiliation: string) => {
+        return replacements.get(affiliation)
+      })
+      .filter(Boolean)
+    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
+    node.attrs = {
+      ...node.attrs,
+      footnote,
+      corresp,
+      affiliations,
+    }
+  }
+
+  if (node.type !== schema.nodes.contributors) {
+    return false
+  }
+}
+
+const updateCommentTarget = (
+  node: ManuscriptNode,
+  replacements: Map<string, string>,
+  // eslint-disable-next-line
+  warnings: string[]
+) => {
+  if (node.type !== schema.nodes.comment) {
+    return
+  }
+  const target = node.attrs.target
+  if (!target) {
+    return
+  }
+  if (!replacements.has(target)) {
+    // TODO produces a lot of missing replacements..
+    // warnings.push(`Missing replacement for node.attrs.rid ${previousRID}`)
+  } else {
+    // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
+    node.attrs = {
+      ...node.attrs,
+      target: replacements.get(target),
+    }
+  }
+}
+
 // JATS to HTML conversion
 const JATS_TO_HTML_MAPPING = new Map<string, string>([
   ['bold', 'b'],
@@ -180,10 +246,13 @@ const renameJatsNodesToHTML = (
  */
 export const htmlFromJatsNode = (
   element: Element | undefined | null,
-  createElement: (tagName: string) => HTMLElement
+  createElement?: (tagName: string) => HTMLElement
 ) => {
   if (!element) {
     return undefined
+  }
+  if (!createElement) {
+    createElement = (tagName) => element.ownerDocument.createElement(tagName)
   }
   const temp = createElement('template') as HTMLTemplateElement
   // Interesting fact: template has special semantics that are not same as regular element's

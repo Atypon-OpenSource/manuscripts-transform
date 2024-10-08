@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import { ObjectTypes } from '@manuscripts/json-schema'
+
 import { getTrimmedTextContent } from '../../lib/utils'
 
 export type ISSN = {
@@ -120,5 +122,17 @@ export const parseJournalMeta = (element: Element | null) => {
     title:
       getTrimmedTextContent(element, 'journal-title-group > journal-title') ??
       undefined,
+  }
+}
+
+export const parseJournal = (doc: Document) => {
+  const journalMeta = doc.querySelector('journal-meta')
+  if (!journalMeta) {
+    return
+  }
+  const meta = parseJournalMeta(journalMeta)
+  return {
+    ...meta,
+    objectType: ObjectTypes.Journal,
   }
 }

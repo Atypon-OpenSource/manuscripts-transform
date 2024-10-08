@@ -97,6 +97,8 @@ export const getTrimmedTextContent = (
   return node.querySelector(querySelector)?.textContent?.trim()
 }
 
+export const timestamp = () => Math.floor(Date.now() / 1000)
+
 export const dateToTimestamp = (dateElement: Element) => {
   const selectors = ['year', 'month', 'day']
   const values: Array<number> = []

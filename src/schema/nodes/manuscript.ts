@@ -19,20 +19,22 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 
 export interface ActualManuscriptNode extends ManuscriptNode {
-  attrs: {
-    id: string
-    doi: string
-    articleType: string
-    prototype: string
-    primaryLanguageCode: string
-    dates: {
-      acceptanceDate?: number
-      correctionDate?: number
-      retractionDate?: number
-      revisionRequestDate?: number
-      revisionReceiveDate?: number
-      receiveDate?: number
-    }
+  attrs: ManuscriptAttrs
+}
+
+export interface ManuscriptAttrs {
+  id: string
+  doi: string
+  articleType: string
+  prototype: string
+  primaryLanguageCode: string
+  dates: {
+    acceptanceDate?: number
+    correctionDate?: number
+    retractionDate?: number
+    revisionRequestDate?: number
+    revisionReceiveDate?: number
+    receiveDate?: number
   }
 }
 
