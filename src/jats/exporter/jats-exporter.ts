@@ -49,6 +49,7 @@ import {
   TableElementFooterNode,
   TableElementNode,
 } from '../../schema'
+import { AwardNode } from '../../schema/nodes/award'
 import {
   chooseJatsFnType,
   chooseSecType,
@@ -269,7 +270,7 @@ export class JATSExporter {
     this.updateFootnoteTypes(front, back)
     this.fillEmptyTableFooters(article)
     this.fillEmptyFootnotes(article)
-
+    this.moveAwards(front, body)
     await this.rewriteIDs()
     return serializeToXML(this.document)
   }
@@ -753,8 +754,29 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
-      award: () => '',
-      awards: () => '',
+      awards: () => ['funding-group', 0],
+      award: (node) => {
+        const awardGroup = node as AwardNode
+        const awardGroupElement = this.document.createElement('award-group')
+        awardGroupElement.setAttribute('id', normalizeID(awardGroup.attrs.id))
+        appendChildIfPresent(
+          awardGroupElement,
+          'funding-source',
+          awardGroup.attrs.source
+        )
+        awardGroup.attrs.code
+          .split(';')
+          .forEach((code) =>
+            appendChildIfPresent(awardGroupElement, 'award-id', code)
+          )
+        appendChildIfPresent(
+          awardGroupElement,
+          'principal-award-recipient',
+          awardGroup.attrs.recipient
+        )
+
+        return awardGroupElement
+      },
       box_element: (node) => createBoxElement(node),
       author_notes: () => '',
       corresp: () => '',
@@ -1094,7 +1116,18 @@ export class JATSExporter {
     }
 
     this.serializer = new DOMSerializer(nodes, marks)
-
+    const appendChildIfPresent = (
+      parent: Element,
+      tagName: string,
+      textContent: string
+    ) => {
+      if (!textContent) {
+        return
+      }
+      const element = this.document.createElement(tagName)
+      element.textContent = textContent
+      parent.appendChild(element)
+    }
     const processChildNodes = (
       element: HTMLElement,
       node: ManuscriptNode,
@@ -1814,6 +1847,26 @@ export class JATSExporter {
       warn('Backmatter section is not empty.')
     }
     body.removeChild(container)
+  }
+  private moveAwards = (front: HTMLElement, body: HTMLElement) => {
+    const awardGroups = body.querySelectorAll(':scope > award-group')
+    if (!awardGroups.length) {
+      return
+    }
+    const fundingGroup = this.document.createElement('funding-group')
+    awardGroups.forEach((award) => {
+      fundingGroup.appendChild(award)
+    })
+    const articleMeta = front.querySelector(':scope > article-meta')
+
+    if (articleMeta) {
+      const insertBeforeElement = articleMeta.querySelector(
+        ':scope > support-group, :scope > conference, :scope > counts, :scope > custom-meta-group'
+      )
+      insertBeforeElement
+        ? articleMeta.insertBefore(fundingGroup, insertBeforeElement)
+        : articleMeta.appendChild(fundingGroup)
+    }
   }
   private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
     const container = body.querySelector(':scope > sec[sec-type="abstracts"]')

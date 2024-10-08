@@ -42,7 +42,6 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "undefined:test",
       },
       "type": "section_title",
     },
@@ -54,9 +53,6 @@ Object {
       },
       "content": Array [
         Object {
-          "attrs": Object {
-            "id": "undefined:test",
-          },
           "text": "Corresponding author: Agnete Hviid
           Hornnes agnete.hviid.hornnes@regionh.dk FAX: 0045 3868
           4031",
@@ -83,9 +79,6 @@ Object {
           },
           "content": Array [
             Object {
-              "attrs": Object {
-                "id": "undefined:test",
-              },
               "text": "*",
               "type": "text",
             },
@@ -101,9 +94,6 @@ Object {
           },
           "content": Array [
             Object {
-              "attrs": Object {
-                "id": "undefined:test",
-              },
               "text": "Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark",
               "type": "text",
             },
@@ -131,9 +121,6 @@ Object {
           },
           "content": Array [
             Object {
-              "attrs": Object {
-                "id": "undefined:test",
-              },
               "text": "ClinicalTrials.gov NCT03782857.",
               "type": "text",
             },
@@ -145,6 +132,38 @@ Object {
     },
   ],
   "type": "author_notes",
+}
+`;
+
+exports[`JATS importer awards should correctly parse award nodes 1`] = `
+Object {
+  "attrs": Object {
+    "dataTracked": null,
+    "id": "Awards:test",
+  },
+  "content": Array [
+    Object {
+      "attrs": Object {
+        "code": "GM18458",
+        "dataTracked": null,
+        "id": "Award:test",
+        "recipient": "Berkeley",
+        "source": "National Institutes of Health",
+      },
+      "type": "award",
+    },
+    Object {
+      "attrs": Object {
+        "code": "DMS-0204674;DMS-0244638",
+        "dataTracked": null,
+        "id": "Award:test",
+        "recipient": undefined,
+        "source": "National Science Foundation",
+      },
+      "type": "award",
+    },
+  ],
+  "type": "awards",
 }
 `;
 
@@ -422,14 +441,13 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Hui",
               "given": "Li",
             },
             "contents": "",
             "corresp": Array [
               Object {
-                "correspID": "MPCorrespondance:test",
+                "correspID": "MPCorresponding:test",
                 "correspLabel": "*",
               },
             ],
@@ -460,7 +478,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Hu",
               "given": "Wei Ming",
             },
@@ -493,7 +510,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Zhu",
               "given": "Zhen Hua",
             },
@@ -526,7 +542,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Gao",
               "given": "Song Tian",
             },
@@ -964,7 +979,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -980,7 +995,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -992,7 +1007,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "id": "MPHighlightMarker:test",
+                    "id": "MPCommentAnnotation:test",
                     "position": "point",
                   },
                   "type": "highlight_marker",
@@ -2447,7 +2462,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "",
+        "id": "Comments:test",
       },
       "content": Array [
         Object {
@@ -2465,7 +2480,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPParagraphElement:test",
           },
           "type": "comment",
         },
@@ -2484,7 +2499,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPBibliographyItem:test",
           },
           "type": "comment",
         },
@@ -2503,7 +2518,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPBibliographyItem:test",
           },
           "type": "comment",
         },
@@ -2550,7 +2565,6 @@ Object {
             "affiliations": Array [],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "User",
               "given": "Developer",
             },
@@ -3378,7 +3392,7 @@ Object {
                     "contents": "2+3=5",
                     "dataTracked": null,
                     "format": "tex",
-                    "id": "undefined:test",
+                    "id": "InlineEquation:test",
                   },
                   "type": "inline_equation",
                 },
@@ -3702,7 +3716,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -3729,8 +3743,8 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
-                      "some-rid",
+                      "MPBibliographyItem:test",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -3757,9 +3771,9 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
-                      "some-rid",
-                      "some-rid",
+                      "MPBibliographyItem:test",
+                      "MPBibliographyItem:test",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -3978,7 +3992,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "",
+        "id": "Comments:test",
       },
       "type": "comments",
     },
@@ -4024,7 +4038,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Chan",
               "given": "Thomas S.Y.",
             },
@@ -4057,7 +4070,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Hwang",
               "given": "Yu-Yan",
             },
@@ -4090,7 +4102,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Khong",
               "given": "Pek-Lan",
             },
@@ -4123,7 +4134,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Leung",
               "given": "Anskar Y.H.",
             },
@@ -4156,7 +4166,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Chim",
               "given": "Chor-Sang",
             },
@@ -4189,7 +4198,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Tse",
               "given": "Eric",
             },
@@ -4222,7 +4230,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Kwong",
               "given": "Yok-Lam",
             },
@@ -4603,7 +4610,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -4619,7 +4626,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -4650,7 +4657,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -4666,7 +4673,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -4682,7 +4689,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -4698,7 +4705,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -4714,7 +4721,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -4730,7 +4737,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -4772,7 +4779,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -4788,7 +4795,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -4804,8 +4811,8 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
-                      "some-rid",
+                      "MPBibliographyItem:test",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -4821,7 +4828,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -4950,7 +4957,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -5002,8 +5009,8 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
-                          "some-rid",
+                          "MPBibliographyItem:test",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -5045,7 +5052,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -5061,7 +5068,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -5195,7 +5202,7 @@ Object {
                         "dataTracked": null,
                         "label": "Table 1",
                         "rids": Array [
-                          "some-rid",
+                          "MPTableElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -5223,7 +5230,7 @@ Object {
                         "dataTracked": null,
                         "label": "Table 2",
                         "rids": Array [
-                          "some-rid",
+                          "MPTableElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -5238,7 +5245,7 @@ Object {
                         "dataTracked": null,
                         "label": "Table 3",
                         "rids": Array [
-                          "some-rid",
+                          "MPTableElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -5253,11 +5260,11 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
-                          "some-rid",
-                          "some-rid",
-                          "some-rid",
-                          "some-rid",
+                          "MPBibliographyItem:test",
+                          "MPBibliographyItem:test",
+                          "MPBibliographyItem:test",
+                          "MPBibliographyItem:test",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -5657,7 +5664,7 @@ Object {
                                     "dataTracked": null,
                                     "id": "MPCitation:test",
                                     "rids": Array [
-                                      "some-rid",
+                                      "MPBibliographyItem:test",
                                     ],
                                     "selectedText": "",
                                   },
@@ -5698,7 +5705,7 @@ Object {
                                     "dataTracked": null,
                                     "id": "MPCitation:test",
                                     "rids": Array [
-                                      "some-rid",
+                                      "MPBibliographyItem:test",
                                     ],
                                     "selectedText": "",
                                   },
@@ -9090,7 +9097,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "undefined:test",
+                            "id": "GeneralTableFootnote:test",
                           },
                           "content": Array [
                             Object {
@@ -9516,7 +9523,7 @@ Object {
                                     "dataTracked": null,
                                     "id": "MPCitation:test",
                                     "rids": Array [
-                                      "some-rid",
+                                      "MPBibliographyItem:test",
                                     ],
                                     "selectedText": "",
                                   },
@@ -9557,7 +9564,7 @@ Object {
                                     "dataTracked": null,
                                     "id": "MPCitation:test",
                                     "rids": Array [
-                                      "some-rid",
+                                      "MPBibliographyItem:test",
                                     ],
                                     "selectedText": "",
                                   },
@@ -11608,7 +11615,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "undefined:test",
+                            "id": "GeneralTableFootnote:test",
                           },
                           "content": Array [
                             Object {
@@ -14004,7 +14011,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "undefined:test",
+                            "id": "GeneralTableFootnote:test",
                           },
                           "content": Array [
                             Object {
@@ -14086,7 +14093,7 @@ Object {
                         "dataTracked": null,
                         "label": "Table 3",
                         "rids": Array [
-                          "some-rid",
+                          "MPTableElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -14167,7 +14174,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure 1 A–D",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -14388,7 +14395,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure 2",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -14403,7 +14410,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -14569,7 +14576,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -14585,7 +14592,7 @@ Object {
                         "dataTracked": null,
                         "label": "Table 1",
                         "rids": Array [
-                          "some-rid",
+                          "MPTableElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -14640,7 +14647,7 @@ Object {
                         "dataTracked": null,
                         "label": "Table 1",
                         "rids": Array [
-                          "some-rid",
+                          "MPTableElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -14695,7 +14702,7 @@ Object {
                         "dataTracked": null,
                         "label": "Table 2",
                         "rids": Array [
-                          "some-rid",
+                          "MPTableElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -14710,7 +14717,7 @@ Object {
                         "dataTracked": null,
                         "label": "Table 3",
                         "rids": Array [
-                          "some-rid",
+                          "MPTableElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -14791,7 +14798,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure 1 E–G",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -14806,7 +14813,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure 1 G",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -14821,7 +14828,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -14877,7 +14884,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure 2",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -15012,7 +15019,7 @@ Object {
                         "dataTracked": null,
                         "label": "Table 2",
                         "rids": Array [
-                          "some-rid",
+                          "MPTableElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -15120,7 +15127,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure 3 A-C",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -15263,7 +15270,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15279,7 +15286,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15295,7 +15302,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15311,8 +15318,8 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
-                      "some-rid",
+                      "MPBibliographyItem:test",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15328,7 +15335,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15344,7 +15351,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15371,7 +15378,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15387,7 +15394,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15403,7 +15410,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15434,7 +15441,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15450,7 +15457,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15466,7 +15473,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15482,7 +15489,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15498,9 +15505,9 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
-                      "some-rid",
-                      "some-rid",
+                      "MPBibliographyItem:test",
+                      "MPBibliographyItem:test",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15527,7 +15534,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15543,7 +15550,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15574,7 +15581,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -15620,7 +15627,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -17257,7 +17264,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "",
+        "id": "Comments:test",
       },
       "content": Array [
         Object {
@@ -17275,7 +17282,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPBibliographyItem:test",
           },
           "type": "comment",
         },
@@ -17294,7 +17301,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPBibliographyItem:test",
           },
           "type": "comment",
         },
@@ -17313,7 +17320,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPBibliographyItem:test",
           },
           "type": "comment",
         },
@@ -17332,7 +17339,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPBibliographyItem:test",
           },
           "type": "comment",
         },
@@ -17351,7 +17358,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPBibliographyItem:test",
           },
           "type": "comment",
         },
@@ -17370,7 +17377,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPBibliographyItem:test",
           },
           "type": "comment",
         },
@@ -17389,7 +17396,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPBibliographyItem:test",
           },
           "type": "comment",
         },
@@ -17408,7 +17415,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPBibliographyItem:test",
           },
           "type": "comment",
         },
@@ -17427,7 +17434,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPBibliographyItem:test",
           },
           "type": "comment",
         },
@@ -17446,7 +17453,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPBibliographyItem:test",
           },
           "type": "comment",
         },
@@ -17495,7 +17502,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Hornnes",
               "given": "Agnete Hviid",
             },
@@ -17528,7 +17534,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Poulsen",
               "given": "Mai Bang",
             },
@@ -17808,7 +17813,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "",
+        "id": "Supplements:test",
       },
       "content": Array [
         Object {
@@ -18114,8 +18119,8 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0001",
+                      "BRB3-2019-12-0787-bib-0002",
                     ],
                     "selectedText": "",
                   },
@@ -18131,7 +18136,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0003",
                     ],
                     "selectedText": "",
                   },
@@ -18147,7 +18152,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0004",
                     ],
                     "selectedText": "",
                   },
@@ -18163,7 +18168,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0005",
                     ],
                     "selectedText": "",
                   },
@@ -18190,10 +18195,10 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
-                      "some-rid",
-                      "some-rid",
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0004",
+                      "BRB3-2019-12-0787-bib-0006",
+                      "BRB3-2019-12-0787-bib-0007",
+                      "BRB3-2019-12-0787-bib-0008",
                     ],
                     "selectedText": "",
                   },
@@ -18209,7 +18214,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0009",
                     ],
                     "selectedText": "",
                   },
@@ -18236,10 +18241,10 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
-                      "some-rid",
-                      "some-rid",
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0010",
+                      "BRB3-2019-12-0787-bib-0011",
+                      "BRB3-2019-12-0787-bib-0012",
+                      "BRB3-2019-12-0787-bib-0013",
                     ],
                     "selectedText": "",
                   },
@@ -18255,12 +18260,12 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
-                      "some-rid",
-                      "some-rid",
-                      "some-rid",
-                      "some-rid",
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0014",
+                      "BRB3-2019-12-0787-bib-0015",
+                      "BRB3-2019-12-0787-bib-0016",
+                      "BRB3-2019-12-0787-bib-0017",
+                      "BRB3-2019-12-0787-bib-0018",
+                      "BRB3-2019-12-0787-bib-0019",
                     ],
                     "selectedText": "",
                   },
@@ -18276,7 +18281,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0020",
                     ],
                     "selectedText": "",
                   },
@@ -18449,7 +18454,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0021",
                     ],
                     "selectedText": "",
                   },
@@ -18704,7 +18709,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "id": "MPHighlightMarker:test",
+                        "id": "MPCommentAnnotation:test",
                         "position": "point",
                       },
                       "type": "highlight_marker",
@@ -18782,7 +18787,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "id": "MPHighlightMarker:test",
+                        "id": "MPCommentAnnotation:test",
                         "position": "point",
                       },
                       "type": "highlight_marker",
@@ -18865,7 +18870,7 @@ Object {
                     "dataTracked": null,
                     "label": "Figure 1",
                     "rids": Array [
-                      "some-rid",
+                      "MPFigureElement:test",
                     ],
                   },
                   "type": "cross_reference",
@@ -18880,7 +18885,7 @@ Object {
                     "dataTracked": null,
                     "label": "Table 1",
                     "rids": Array [
-                      "some-rid",
+                      "MPTableElement:test",
                     ],
                   },
                   "type": "cross_reference",
@@ -21600,7 +21605,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "undefined:test",
+                        "id": "GeneralTableFootnote:test",
                       },
                       "content": Array [
                         Object {
@@ -21754,7 +21759,7 @@ Object {
                     "dataTracked": null,
                     "label": "Figure 2",
                     "rids": Array [
-                      "some-rid",
+                      "MPFigureElement:test",
                     ],
                   },
                   "type": "cross_reference",
@@ -21905,7 +21910,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure 3",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -22184,7 +22189,7 @@ Object {
                         "dataTracked": null,
                         "label": "Table 2",
                         "rids": Array [
-                          "some-rid",
+                          "MPTableElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -23832,7 +23837,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "undefined:test",
+                            "id": "GeneralTableFootnote:test",
                           },
                           "content": Array [
                             Object {
@@ -24091,7 +24096,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0022",
                     ],
                     "selectedText": "",
                   },
@@ -24122,7 +24127,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0019",
                     ],
                     "selectedText": "",
                   },
@@ -24138,7 +24143,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0023",
                     ],
                     "selectedText": "",
                   },
@@ -24154,7 +24159,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0024",
                     ],
                     "selectedText": "",
                   },
@@ -24181,7 +24186,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0025",
                     ],
                     "selectedText": "",
                   },
@@ -24261,7 +24266,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "BRB3-2019-12-0787-bib-0024",
                         ],
                         "selectedText": "",
                       },
@@ -24450,7 +24455,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "id": "MPHighlightMarker:test",
+                    "id": "MPCommentAnnotation:test",
                     "position": "point",
                   },
                   "type": "highlight_marker",
@@ -24545,7 +24550,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "BRB3-2019-12-0787-bib-0021",
                     ],
                     "selectedText": "",
                   },
@@ -24562,7 +24567,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "",
+        "id": "Comments:test",
       },
       "content": Array [
         Object {
@@ -24580,7 +24585,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPParagraphElement:test",
           },
           "type": "comment",
         },
@@ -24599,7 +24604,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPParagraphElement:test",
           },
           "type": "comment",
         },
@@ -24618,7 +24623,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPParagraphElement:test",
           },
           "type": "comment",
         },
@@ -24667,7 +24672,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Cox",
               "given": "Justin",
             },
@@ -24700,7 +24704,6 @@ Object {
             ],
             "bibliographicName": Object {
               "ObjectType": "MPBibliographicName",
-              "_id": "MPBibliographicName:test",
               "family": "Griffith",
               "given": "Todd",
             },
@@ -24998,7 +25001,7 @@ Object {
                     "contents": "1",
                     "dataTracked": null,
                     "rids": Array [
-                      "some-rid",
+                      "MPFootnote:test",
                     ],
                   },
                   "type": "inline_footnote",
@@ -25017,7 +25020,7 @@ Object {
                     "contents": "2",
                     "dataTracked": null,
                     "rids": Array [
-                      "some-rid",
+                      "MPFootnote:test",
                     ],
                   },
                   "type": "inline_footnote",
@@ -25031,7 +25034,7 @@ Object {
                     "contents": "3",
                     "dataTracked": null,
                     "rids": Array [
-                      "some-rid",
+                      "MPFootnote:test",
                     ],
                   },
                   "type": "inline_footnote",
@@ -25046,7 +25049,7 @@ Object {
                     "dataTracked": null,
                     "label": "Figure I",
                     "rids": Array [
-                      "some-rid",
+                      "MPFigureElement:test",
                     ],
                   },
                   "type": "cross_reference",
@@ -25060,7 +25063,7 @@ Object {
                     "contents": "4",
                     "dataTracked": null,
                     "rids": Array [
-                      "some-rid",
+                      "MPFootnote:test",
                     ],
                   },
                   "type": "inline_footnote",
@@ -25228,7 +25231,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25274,7 +25277,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25290,7 +25293,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25306,7 +25309,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25322,7 +25325,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25338,7 +25341,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25354,7 +25357,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25370,7 +25373,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25401,7 +25404,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25417,7 +25420,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25433,7 +25436,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25448,7 +25451,7 @@ Object {
                     "contents": "5",
                     "dataTracked": null,
                     "rids": Array [
-                      "some-rid",
+                      "MPFootnote:test",
                     ],
                   },
                   "type": "inline_footnote",
@@ -25463,7 +25466,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25478,7 +25481,7 @@ Object {
                     "contents": "6",
                     "dataTracked": null,
                     "rids": Array [
-                      "some-rid",
+                      "MPFootnote:test",
                     ],
                   },
                   "type": "inline_footnote",
@@ -25503,7 +25506,7 @@ Object {
                     "contents": "7",
                     "dataTracked": null,
                     "rids": Array [
-                      "some-rid",
+                      "MPFootnote:test",
                     ],
                   },
                   "type": "inline_footnote",
@@ -25518,7 +25521,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25534,7 +25537,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25550,7 +25553,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25566,7 +25569,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25581,7 +25584,7 @@ Object {
                     "contents": "8",
                     "dataTracked": null,
                     "rids": Array [
-                      "some-rid",
+                      "MPFootnote:test",
                     ],
                   },
                   "type": "inline_footnote",
@@ -25600,7 +25603,7 @@ Object {
                     "contents": "9",
                     "dataTracked": null,
                     "rids": Array [
-                      "some-rid",
+                      "MPFootnote:test",
                     ],
                   },
                   "type": "inline_footnote",
@@ -25625,7 +25628,7 @@ Object {
                     "contents": "10",
                     "dataTracked": null,
                     "rids": Array [
-                      "some-rid",
+                      "MPFootnote:test",
                     ],
                   },
                   "type": "inline_footnote",
@@ -25640,7 +25643,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25671,7 +25674,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25687,7 +25690,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25717,7 +25720,7 @@ Object {
                     "contents": "11",
                     "dataTracked": null,
                     "rids": Array [
-                      "some-rid",
+                      "MPFootnote:test",
                     ],
                   },
                   "type": "inline_footnote",
@@ -25732,7 +25735,7 @@ Object {
                     "dataTracked": null,
                     "id": "MPCitation:test",
                     "rids": Array [
-                      "some-rid",
+                      "MPBibliographyItem:test",
                     ],
                     "selectedText": "",
                   },
@@ -25822,7 +25825,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -25885,7 +25888,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "MPEquation:test",
+                        "id": "eq1",
                       },
                       "type": "equation",
                     },
@@ -25979,7 +25982,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "undefined:test",
+                        "id": "InlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -26112,7 +26115,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "MPEquation:test",
+                        "id": "eq2",
                       },
                       "type": "equation",
                     },
@@ -26189,7 +26192,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "undefined:test",
+                        "id": "InlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -26229,7 +26232,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "undefined:test",
+                        "id": "InlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -26268,7 +26271,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -26290,7 +26293,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "undefined:test",
+                        "id": "InlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -26310,7 +26313,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "undefined:test",
+                        "id": "InlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -26330,7 +26333,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "undefined:test",
+                        "id": "InlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -26350,7 +26353,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "undefined:test",
+                        "id": "InlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -26370,7 +26373,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "undefined:test",
+                        "id": "InlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -26390,7 +26393,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "undefined:test",
+                        "id": "InlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -26474,7 +26477,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "MPEquation:test",
+                        "id": "eq3",
                       },
                       "type": "equation",
                     },
@@ -26505,7 +26508,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "undefined:test",
+                        "id": "InlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -26539,7 +26542,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "undefined:test",
+                        "id": "InlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -26572,7 +26575,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "undefined:test",
+                        "id": "InlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -26611,7 +26614,7 @@ Object {
                         "contents": "12",
                         "dataTracked": null,
                         "rids": Array [
-                          "some-rid",
+                          "MPFootnote:test",
                         ],
                       },
                       "type": "inline_footnote",
@@ -26626,7 +26629,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -26710,7 +26713,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -26725,7 +26728,7 @@ Object {
                         "contents": "13",
                         "dataTracked": null,
                         "rids": Array [
-                          "some-rid",
+                          "MPFootnote:test",
                         ],
                       },
                       "type": "inline_footnote",
@@ -26750,7 +26753,7 @@ Object {
                         "contents": "14",
                         "dataTracked": null,
                         "rids": Array [
-                          "some-rid",
+                          "MPFootnote:test",
                         ],
                       },
                       "type": "inline_footnote",
@@ -26776,7 +26779,7 @@ Object {
                         "dataTracked": null,
                         "label": "Table 1",
                         "rids": Array [
-                          "some-rid",
+                          "MPTableElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -26790,7 +26793,7 @@ Object {
                         "contents": "15",
                         "dataTracked": null,
                         "rids": Array [
-                          "some-rid",
+                          "MPFootnote:test",
                         ],
                       },
                       "type": "inline_footnote",
@@ -26805,7 +26808,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -29560,7 +29563,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "undefined:test",
+                            "id": "GeneralTableFootnote:test",
                           },
                           "content": Array [
                             Object {
@@ -29614,7 +29617,7 @@ Object {
           </mml:math>",
                                     "dataTracked": null,
                                     "format": "mathml",
-                                    "id": "undefined:test",
+                                    "id": "InlineEquation:test",
                                   },
                                   "type": "inline_equation",
                                 },
@@ -29665,7 +29668,7 @@ Object {
           </mml:math>",
                                     "dataTracked": null,
                                     "format": "mathml",
-                                    "id": "undefined:test",
+                                    "id": "InlineEquation:test",
                                   },
                                   "type": "inline_equation",
                                 },
@@ -29685,7 +29688,7 @@ Object {
           </mml:math>",
                                     "dataTracked": null,
                                     "format": "mathml",
-                                    "id": "undefined:test",
+                                    "id": "InlineEquation:test",
                                   },
                                   "type": "inline_equation",
                                 },
@@ -29725,7 +29728,7 @@ Object {
                                     "dataTracked": null,
                                     "id": "MPCitation:test",
                                     "rids": Array [
-                                      "some-rid",
+                                      "MPBibliographyItem:test",
                                     ],
                                     "selectedText": "",
                                   },
@@ -29779,7 +29782,7 @@ Object {
           </mml:math>",
                                     "dataTracked": null,
                                     "format": "mathml",
-                                    "id": "undefined:test",
+                                    "id": "InlineEquation:test",
                                   },
                                   "type": "inline_equation",
                                 },
@@ -29800,7 +29803,7 @@ Object {
           </mml:math>",
                                     "dataTracked": null,
                                     "format": "mathml",
-                                    "id": "undefined:test",
+                                    "id": "InlineEquation:test",
                                   },
                                   "type": "inline_equation",
                                 },
@@ -29967,7 +29970,7 @@ Object {
                         "dataTracked": null,
                         "label": "Table 1",
                         "rids": Array [
-                          "some-rid",
+                          "MPTableElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -30074,7 +30077,7 @@ Object {
       </mml:math>",
                     "dataTracked": null,
                     "format": "mathml",
-                    "id": "MPEquation:test",
+                    "id": "eq4",
                   },
                   "type": "equation",
                 },
@@ -30124,7 +30127,7 @@ Object {
                     "contents": "16",
                     "dataTracked": null,
                     "rids": Array [
-                      "some-rid",
+                      "MPFootnote:test",
                     ],
                   },
                   "type": "inline_footnote",
@@ -30139,7 +30142,7 @@ Object {
                     "dataTracked": null,
                     "label": "equation (4)",
                     "rids": Array [
-                      "some-rid",
+                      "MPEquationElement:test",
                     ],
                   },
                   "type": "cross_reference",
@@ -30221,7 +30224,7 @@ Object {
       </mml:math>",
                     "dataTracked": null,
                     "format": "mathml",
-                    "id": "MPEquation:test",
+                    "id": "eq5",
                   },
                   "type": "equation",
                 },
@@ -30291,7 +30294,7 @@ Object {
       </mml:math>",
                     "dataTracked": null,
                     "format": "mathml",
-                    "id": "undefined:test",
+                    "id": "InlineEquation:test",
                   },
                   "type": "inline_equation",
                 },
@@ -30311,7 +30314,7 @@ Object {
       </mml:math>",
                     "dataTracked": null,
                     "format": "mathml",
-                    "id": "undefined:test",
+                    "id": "InlineEquation:test",
                   },
                   "type": "inline_equation",
                 },
@@ -30324,7 +30327,7 @@ Object {
                     "contents": "17",
                     "dataTracked": null,
                     "rids": Array [
-                      "some-rid",
+                      "MPFootnote:test",
                     ],
                   },
                   "type": "inline_footnote",
@@ -30409,7 +30412,7 @@ Object {
                         "dataTracked": null,
                         "label": "equations (4)",
                         "rids": Array [
-                          "some-rid",
+                          "MPEquationElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -30424,7 +30427,7 @@ Object {
                         "dataTracked": null,
                         "label": "(5)",
                         "rids": Array [
-                          "some-rid",
+                          "MPEquationElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -30439,7 +30442,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure II",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -30572,7 +30575,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "undefined:test",
+                                "id": "InlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -30593,7 +30596,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "undefined:test",
+                                "id": "InlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -30654,7 +30657,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "undefined:test",
+                                "id": "InlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -30703,7 +30706,7 @@ Object {
                                 "dataTracked": null,
                                 "label": "Table 1",
                                 "rids": Array [
-                                  "some-rid",
+                                  "MPTableElement:test",
                                 ],
                               },
                               "type": "cross_reference",
@@ -30855,7 +30858,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure II",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -30870,7 +30873,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure II",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -30900,7 +30903,7 @@ Object {
                         "dataTracked": null,
                         "label": "equations (4)",
                         "rids": Array [
-                          "some-rid",
+                          "MPEquationElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -30915,7 +30918,7 @@ Object {
                         "dataTracked": null,
                         "label": "(5)",
                         "rids": Array [
-                          "some-rid",
+                          "MPEquationElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -30930,7 +30933,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -30946,7 +30949,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure III",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -31079,7 +31082,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "undefined:test",
+                                "id": "InlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -31100,7 +31103,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "undefined:test",
+                                "id": "InlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -31161,7 +31164,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "undefined:test",
+                                "id": "InlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -31197,7 +31200,7 @@ Object {
                                 "dataTracked": null,
                                 "id": "MPCitation:test",
                                 "rids": Array [
-                                  "some-rid",
+                                  "MPBibliographyItem:test",
                                 ],
                                 "selectedText": "",
                               },
@@ -31226,7 +31229,7 @@ Object {
                                 "dataTracked": null,
                                 "label": "Table 1",
                                 "rids": Array [
-                                  "some-rid",
+                                  "MPTableElement:test",
                                 ],
                               },
                               "type": "cross_reference",
@@ -31378,7 +31381,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -31394,7 +31397,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure III",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -31409,7 +31412,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure III",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -31439,7 +31442,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -31455,7 +31458,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -31471,7 +31474,7 @@ Object {
                         "dataTracked": null,
                         "label": "equations (4)",
                         "rids": Array [
-                          "some-rid",
+                          "MPEquationElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -31486,7 +31489,7 @@ Object {
                         "dataTracked": null,
                         "label": "(5)",
                         "rids": Array [
-                          "some-rid",
+                          "MPEquationElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -31501,7 +31504,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure IV",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -31654,7 +31657,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "undefined:test",
+                                "id": "InlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -31675,7 +31678,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "undefined:test",
+                                "id": "InlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -31736,7 +31739,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "undefined:test",
+                                "id": "InlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -31798,7 +31801,7 @@ Object {
                                 "dataTracked": null,
                                 "label": "Table 1",
                                 "rids": Array [
-                                  "some-rid",
+                                  "MPTableElement:test",
                                 ],
                               },
                               "type": "cross_reference",
@@ -32002,7 +32005,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure IV",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -32032,7 +32035,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure IV",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -32047,7 +32050,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure IV",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -32101,7 +32104,7 @@ Object {
                         "contents": "18",
                         "dataTracked": null,
                         "rids": Array [
-                          "some-rid",
+                          "MPFootnote:test",
                         ],
                       },
                       "type": "inline_footnote",
@@ -32131,7 +32134,7 @@ Object {
                         "dataTracked": null,
                         "label": "equation (5)",
                         "rids": Array [
-                          "some-rid",
+                          "MPEquationElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -32146,7 +32149,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure V",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -32294,7 +32297,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "undefined:test",
+                                "id": "InlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -32369,7 +32372,7 @@ Object {
                                 "dataTracked": null,
                                 "label": "Table 1",
                                 "rids": Array [
-                                  "some-rid",
+                                  "MPTableElement:test",
                                 ],
                               },
                               "type": "cross_reference",
@@ -32521,7 +32524,7 @@ Object {
                         "dataTracked": null,
                         "label": "equation (5)",
                         "rids": Array [
-                          "some-rid",
+                          "MPEquationElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -32536,7 +32539,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure VI",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -32684,7 +32687,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "undefined:test",
+                                "id": "InlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -32759,7 +32762,7 @@ Object {
                                 "dataTracked": null,
                                 "label": "Table 1",
                                 "rids": Array [
-                                  "some-rid",
+                                  "MPTableElement:test",
                                 ],
                               },
                               "type": "cross_reference",
@@ -32951,7 +32954,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -32967,7 +32970,7 @@ Object {
                         "dataTracked": null,
                         "id": "MPCitation:test",
                         "rids": Array [
-                          "some-rid",
+                          "MPBibliographyItem:test",
                         ],
                         "selectedText": "",
                       },
@@ -32982,7 +32985,7 @@ Object {
                         "contents": "19",
                         "dataTracked": null,
                         "rids": Array [
-                          "some-rid",
+                          "MPFootnote:test",
                         ],
                       },
                       "type": "inline_footnote",
@@ -33012,7 +33015,7 @@ Object {
                         "dataTracked": null,
                         "label": "equation (5)",
                         "rids": Array [
-                          "some-rid",
+                          "MPEquationElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -33027,7 +33030,7 @@ Object {
                         "dataTracked": null,
                         "label": "Figure VII",
                         "rids": Array [
-                          "some-rid",
+                          "MPFigureElement:test",
                         ],
                       },
                       "type": "cross_reference",
@@ -33175,7 +33178,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "undefined:test",
+                                "id": "InlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -33250,7 +33253,7 @@ Object {
                                 "dataTracked": null,
                                 "label": "Table 1",
                                 "rids": Array [
-                                  "some-rid",
+                                  "MPTableElement:test",
                                 ],
                               },
                               "type": "cross_reference",
@@ -33457,7 +33460,7 @@ Object {
                     "dataTracked": null,
                     "label": "Figure VIII",
                     "rids": Array [
-                      "some-rid",
+                      "MPFigureElement:test",
                     ],
                   },
                   "type": "cross_reference",
@@ -33605,7 +33608,7 @@ Object {
       </mml:math>",
                             "dataTracked": null,
                             "format": "mathml",
-                            "id": "undefined:test",
+                            "id": "InlineEquation:test",
                           },
                           "type": "inline_equation",
                         },
@@ -33680,7 +33683,7 @@ Object {
                             "dataTracked": null,
                             "label": "Table 1",
                             "rids": Array [
-                              "some-rid",
+                              "MPTableElement:test",
                             ],
                           },
                           "type": "cross_reference",
@@ -34107,7 +34110,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34146,7 +34149,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34231,7 +34234,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34247,7 +34250,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34263,7 +34266,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34279,7 +34282,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34295,7 +34298,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34311,7 +34314,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34327,7 +34330,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34366,7 +34369,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34436,7 +34439,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34452,7 +34455,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34468,7 +34471,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34484,7 +34487,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34500,7 +34503,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34516,7 +34519,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34532,7 +34535,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34548,7 +34551,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34564,7 +34567,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34580,7 +34583,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34596,7 +34599,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34662,7 +34665,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34809,7 +34812,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -34825,7 +34828,7 @@ Object {
                             "dataTracked": null,
                             "id": "MPCitation:test",
                             "rids": Array [
-                              "some-rid",
+                              "MPBibliographyItem:test",
                             ],
                             "selectedText": "",
                           },
@@ -35911,7 +35914,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "undefined:test",
+                        "id": "GeneralTableFootnote:test",
                       },
                       "content": Array [
                         Object {
@@ -37592,7 +37595,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "",
+        "id": "Comments:test",
       },
       "content": Array [
         Object {
@@ -37610,7 +37613,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "MPBibliographyItem:test",
           },
           "type": "comment",
         },
@@ -37629,7 +37632,7 @@ Object {
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "target-id",
+            "target": "test",
           },
           "type": "comment",
         },
