@@ -24,8 +24,7 @@ import {
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
-import { dateToTimestamp } from '../../lib/utils'
-import { getTrimmedTextContent } from '../../lib/utils'
+import { dateToTimestamp, getTrimmedTextContent } from '../../lib/utils'
 import {
   BibliographyItemAttrs,
   ContributorCorresp,
@@ -328,10 +327,13 @@ const nodes: NodeRule[] = [
       const doi = element.querySelector(
         'front > article-meta > article-id[pub-id-type="doi"]'
       )
+      const history = element.querySelector('history')
+      const dates = parseDates(history)
       return {
         doi: doi?.textContent,
         articleType: element.getAttribute('article-type') ?? '',
         primaryLanguageCode: element.getAttribute('lang') ?? '',
+        dates,
       }
     },
   },
@@ -533,19 +535,6 @@ const nodes: NodeRule[] = [
   {
     tag: 'history',
     ignore: true,
-  },
-  {
-    tag: 'body',
-    node: 'manuscript',
-    getAttrs: (node) => {
-      const element = node as HTMLElement
-      const history = element.querySelector('history')
-      const dates = parseDates(history)
-      return {
-        id: element.getAttribute('id'),
-        dates,
-      }
-    },
   },
   {
     tag: 'break',

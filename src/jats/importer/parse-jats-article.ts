@@ -33,6 +33,7 @@ import {
   moveAwards,
   moveCaptionsToEnd,
   moveContributors,
+  moveHistoryToBody,
   moveReferencesToBackmatter,
   moveTitle,
   orderTableFootnote,

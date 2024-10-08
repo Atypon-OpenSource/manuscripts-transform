@@ -408,6 +408,11 @@ exports[`JATS importer parses JATS AuthorQueries example to Manuscripts document
 Object {
   "attrs": Object {
     "articleType": "other",
+    "dates": Object {
+      "acceptanceDate": 1599091200,
+      "receiveDate": 1576195200,
+      "revisionReceiveDate": 1597276800,
+    },
     "doi": "",
     "id": "MPManuscript:test",
     "primaryLanguageCode": "",
@@ -2534,6 +2539,14 @@ exports[`JATS importer parses JATS article to Manuscripts document 1`] = `
 Object {
   "attrs": Object {
     "articleType": "",
+    "dates": Object {
+      "acceptanceDate": undefined,
+      "correctionDate": undefined,
+      "receiveDate": undefined,
+      "retractionDate": undefined,
+      "revisionReceiveDate": undefined,
+      "revisionRequestDate": undefined,
+    },
     "doi": "",
     "id": "MPManuscript:test",
     "primaryLanguageCode": "",
@@ -4005,6 +4018,11 @@ exports[`JATS importer parses JATS article with tables and table footnotes 1`] =
 Object {
   "attrs": Object {
     "articleType": "other",
+    "dates": Object {
+      "acceptanceDate": 1599004800,
+      "receiveDate": 1588550400,
+      "revisionReceiveDate": 1595721600,
+    },
     "doi": "",
     "id": "MPManuscript:test",
     "primaryLanguageCode": "",
@@ -17469,6 +17487,11 @@ exports[`JATS importer parses JATS article without references and doesn't create
 Object {
   "attrs": Object {
     "articleType": "other",
+    "dates": Object {
+      "acceptanceDate": 1590537600,
+      "receiveDate": 1578528000,
+      "revisionReceiveDate": undefined,
+    },
     "doi": "",
     "id": "MPManuscript:test",
     "primaryLanguageCode": "",
@@ -24639,6 +24662,12 @@ exports[`JATS importer parses full JATS example to Manuscripts document 1`] = `
 Object {
   "attrs": Object {
     "articleType": "research-article",
+    "dates": Object {
+      "acceptanceDate": 899683200,
+      "receiveDate": 886636800,
+      "revisionReceiveDate": 898646400,
+      "revisionRequestDate": 892512000,
+    },
     "doi": "",
     "id": "MPManuscript:test",
     "primaryLanguageCode": "",

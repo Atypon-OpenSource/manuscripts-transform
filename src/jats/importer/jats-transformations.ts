@@ -477,6 +477,13 @@ export const moveReferencesToBackmatter = (
   backmatter.appendChild(section)
 }
 
+export const moveHistoryToBody = (document: Document, body: Element) => {
+  const history = document.querySelector('history')
+  if (history && history.children.length) {
+    body.prepend(history)
+  }
+}
+
 export const orderTableFootnote = (doc: Document, body: Element) => {
   const rids = new Set(
     [...body.querySelectorAll('tbody > xref[ref-type="fn"]')].map((xref) =>
