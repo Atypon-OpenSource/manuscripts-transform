@@ -160,6 +160,18 @@
         <kwd>blood pressure target</kwd>
         <kwd>randomized controlled trial</kwd>
       </kwd-group>
+      <funding-group>
+        <award-group>
+          <funding-source>National Institutes of Health</funding-source>
+          <principal-award-recipient>Berkeley</principal-award-recipient>
+          <award-id>GM18458</award-id>
+        </award-group>
+        <award-group>
+          <funding-source>National Science Foundation</funding-source>
+          <award-id>DMS-0204674</award-id>
+          <award-id>DMS-0244638</award-id>
+        </award-group>
+      </funding-group>
       <counts>
         <count count-type="box" count="0"/>
         <fig-count count="3"/>

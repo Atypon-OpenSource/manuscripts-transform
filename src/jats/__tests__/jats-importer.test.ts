@@ -75,7 +75,7 @@ describe('JATS importer', () => {
         updateNodeID(node)
         //@ts-ignore
         node.attrs.affiliations = node.attrs.affiliations.map(
-          (_aff: string) => 'MPAffiliation:test'
+          () => 'MPAffiliation:test'
         )
         //@ts-ignore
         node.attrs.footnote = node.attrs.footnote.map(
@@ -139,8 +139,7 @@ describe('JATS importer', () => {
       expect(
         findNodesByType(authorNotesNode, schema.nodes.corresp)
       ).toHaveLength(1)
-      updateNodeID(authorNotesNode)
-      authorNotesNode.descendants(updateNodeID)
+      changeIDs(authorNotesNode)
       expect(authorNotesNode).toMatchSnapshot()
     })
     it('should not have author notes node if author notes element does not exist', async () => {
@@ -150,6 +149,32 @@ describe('JATS importer', () => {
       const { node } = parseJATSArticle(jats)
       const authorNotesNode = findNodeByType(node, schema.nodes.authorNotes)
       expect(authorNotesNode).toBeUndefined()
+    })
+  })
+  describe('awards', () => {
+    it('should have awards node if awards element exists', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const { node } = parseJATSArticle(jats)
+      const awardsNode = findNodeByType(node, schema.nodes.awards)
+      expect(awardsNode).toBeDefined()
+      expect(
+        findNodesByType(awardsNode, schema.nodes.award).length
+      ).toBeGreaterThan(0)
+    })
+    it('should correctly parse award nodes', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const { node } = parseJATSArticle(jats)
+      const awardsNode = findNodeByType(node, schema.nodes.awards)
+      changeIDs(awardsNode)
+      expect(awardsNode).toMatchSnapshot()
+    })
+    it('should not have awards node if awards element does not exist', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const awardsEl = jats.querySelector('article-meta > funding-group')
+      awardsEl?.remove()
+      const { node } = parseJATSArticle(jats)
+      const awardsNode = findNodeByType(node, schema.nodes.awards)
+      expect(awardsNode).toBeUndefined()
     })
   })
   describe('keywords', () => {
