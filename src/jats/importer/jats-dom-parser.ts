@@ -959,8 +959,8 @@ const nodes: NodeRule[] = [
     node: 'table_cell',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const colspan = element.getAttribute('colspan')
-      const rowspan = element.getAttribute('rowspan')
+      const colspan = parseInt(element.getAttribute('colspan') || '1')
+      const rowspan = parseInt(element.getAttribute('rowspan') || '1')
       return {
         ...(colspan && { colspan }),
         ...(rowspan && { rowspan }),
@@ -976,8 +976,8 @@ const nodes: NodeRule[] = [
     node: 'table_header',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const colspan = element.getAttribute('colspan')
-      const rowspan = element.getAttribute('rowspan')
+      const colspan = parseInt(element.getAttribute('colspan') || '1')
+      const rowspan = parseInt(element.getAttribute('rowspan') || '1')
       return {
         ...(colspan && { colspan }),
         ...(rowspan && { rowspan }),
