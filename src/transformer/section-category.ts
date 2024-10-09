@@ -64,6 +64,7 @@ export type SectionCategory =
   | 'MPSectionCategory:supported-by'
   | 'MPSectionCategory:ethics-statement'
   | 'MPSectionCategory:box-element'
+  | 'MPSectionCategory:subsection'
 
 export type SecType =
   | 'abstract'
@@ -96,6 +97,7 @@ export type SecType =
   | 'supported-by'
   | 'ethics-statement'
   | 'box-element'
+  | 'subsection'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -328,8 +330,11 @@ export const chooseSectionCategory = (
 ): SectionCategory | undefined => {
   const secType = section.getAttribute('sec-type') as SecType
   const secCat = chooseSectionCategoryByType(secType)
+  const parent = section.parentNode?.parentNode?.nodeName.toLowerCase()
   if (secCat) {
     return secCat
+  } else if (parent !== 'body') {
+    return 'MPSectionCategory:subsection'
   } else {
     const titleNode = section.firstElementChild
 

@@ -1325,7 +1325,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -1380,7 +1380,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -1450,7 +1450,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -1503,7 +1503,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -4879,7 +4879,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -4919,7 +4919,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -4971,7 +4971,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -5086,7 +5086,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -5151,7 +5151,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -14055,7 +14055,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -14110,7 +14110,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -14357,7 +14357,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -14498,7 +14498,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -14538,7 +14538,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -14609,7 +14609,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -14664,7 +14664,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -14734,7 +14734,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -14846,7 +14846,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -14901,7 +14901,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -14941,7 +14941,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -14981,7 +14981,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -15049,7 +15049,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -15089,7 +15089,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -17872,7 +17872,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -17912,7 +17912,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:materials-method",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -17952,7 +17952,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:results",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -18018,7 +18018,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:conclusions",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -18296,7 +18296,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -18333,7 +18333,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "category": "",
+                    "category": "MPSectionCategory:subsection",
                     "dataTracked": null,
                     "generatedLabel": undefined,
                     "id": "MPSection:test",
@@ -18355,7 +18355,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "category": "",
+                        "category": "MPSectionCategory:subsection",
                         "dataTracked": null,
                         "generatedLabel": undefined,
                         "id": "MPSection:test",
@@ -18499,7 +18499,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -18566,7 +18566,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -18648,7 +18648,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -18741,7 +18741,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -21834,7 +21834,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -21988,7 +21988,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -24201,7 +24201,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -25787,7 +25787,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -26675,7 +26675,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -30374,7 +30374,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -32067,7 +32067,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
@@ -32916,7 +32916,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
+                "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "generatedLabel": undefined,
                 "id": "MPSection:test",
