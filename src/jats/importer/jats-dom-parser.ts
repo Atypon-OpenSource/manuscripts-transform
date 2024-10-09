@@ -333,7 +333,7 @@ const nodes: NodeRule[] = [
         doi: doi?.textContent,
         articleType: element.getAttribute('article-type') ?? '',
         primaryLanguageCode: element.getAttribute('lang') ?? '',
-        dates,
+        ...dates,
       }
     },
   },

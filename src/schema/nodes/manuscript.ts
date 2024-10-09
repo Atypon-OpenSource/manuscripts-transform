@@ -28,14 +28,12 @@ export interface ManuscriptAttrs {
   articleType: string
   prototype: string
   primaryLanguageCode: string
-  dates: {
-    acceptanceDate?: number
-    correctionDate?: number
-    retractionDate?: number
-    revisionRequestDate?: number
-    revisionReceiveDate?: number
-    receiveDate?: number
-  }
+  acceptanceDate?: number
+  correctionDate?: number
+  retractionDate?: number
+  revisionRequestDate?: number
+  revisionReceiveDate?: number
+  receiveDate?: number
 }
 
 // The direct children of this node do not have a json-schema representation
@@ -50,16 +48,12 @@ export const manuscript: NodeSpec = {
     prototype: { default: '' },
     primaryLanguageCode: { default: '' },
     articleType: { default: '' },
-    dates: {
-      default: {
-        acceptanceDate: undefined,
-        correctionDate: undefined,
-        retractionDate: undefined,
-        revisionRequestDate: undefined,
-        revisionReceiveDate: undefined,
-        receiveDate: undefined,
-      },
-    },
+    acceptanceDate: { default: undefined },
+    correctionDate: { default: undefined },
+    retractionDate: { default: undefined },
+    revisionRequestDate: { default: undefined },
+    revisionReceiveDate: { default: undefined },
+    receiveDate: { default: undefined },
   },
   group: 'block',
   parseDOM: [

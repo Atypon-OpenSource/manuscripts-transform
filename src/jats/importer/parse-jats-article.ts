@@ -33,7 +33,6 @@ import {
   moveAwards,
   moveCaptionsToEnd,
   moveContributors,
-  moveHistoryToBody,
   moveReferencesToBackmatter,
   moveTitle,
   orderTableFootnote,
@@ -69,7 +68,7 @@ const processJATS = (doc: Document) => {
   createSupplementaryMaterialsSection(doc, body, createElement)
   createKeywordsSection(doc, body, createElement)
   fixTables(doc, body, createElement)
-  moveHistoryToBody(doc, body)
+  // moveHistoryToBody(doc, body)
   orderTableFootnote(doc, body)
 
   const back = doc.querySelector('back')
