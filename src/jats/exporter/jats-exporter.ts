@@ -459,6 +459,58 @@ export class JATSExporter {
       supplementaryMaterial.append(caption)
       articleMeta.append(supplementaryMaterial)
     })
+
+    const history =
+      articleMeta.querySelector('history') ||
+      this.document.createElement('history')
+
+    if (this.manuscriptNode.attrs.acceptanceDate) {
+      const date = this.buildDateElement(
+        this.manuscriptNode.attrs.acceptanceDate,
+        'accepted'
+      )
+      history.appendChild(date)
+    }
+    if (this.manuscriptNode.attrs.correctionDate) {
+      const date = this.buildDateElement(
+        this.manuscriptNode.attrs.correctionDate,
+        'corrected'
+      )
+      history.appendChild(date)
+    }
+    if (this.manuscriptNode.attrs.retractionDate) {
+      const date = this.buildDateElement(
+        this.manuscriptNode.attrs.retractionDate,
+        'retracted'
+      )
+      history.appendChild(date)
+    }
+    if (this.manuscriptNode.attrs.receiveDate) {
+      const date = this.buildDateElement(
+        this.manuscriptNode.attrs.receiveDate,
+        'received'
+      )
+      history.appendChild(date)
+    }
+    if (this.manuscriptNode.attrs.revisionReceiveDate) {
+      const date = this.buildDateElement(
+        this.manuscriptNode.attrs.revisionReceiveDate,
+        'rev-recd'
+      )
+      history.appendChild(date)
+    }
+    if (this.manuscriptNode.attrs.revisionRequestDate) {
+      const date = this.buildDateElement(
+        this.manuscriptNode.attrs.revisionRequestDate,
+        'rev-request'
+      )
+      history.appendChild(date)
+    }
+
+    if (history.childElementCount) {
+      articleMeta.appendChild(history)
+    }
+
     this.buildKeywords(articleMeta)
 
     let countingElements = []
