@@ -335,8 +335,7 @@ export const chooseSectionCategory = (
     return secCat
   } else if (parent !== 'body') {
     return 'MPSectionCategory:subsection'
-  }
-  else {
+  } else {
     const titleNode = section.firstElementChild
 
     if (titleNode && titleNode.nodeName === 'title' && titleNode.textContent) {
