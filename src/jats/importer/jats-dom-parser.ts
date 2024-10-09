@@ -335,6 +335,26 @@ const nodes: NodeRule[] = [
     },
   },
   {
+    tag: 'funding-group',
+    node: 'awards',
+  },
+  {
+    tag: 'award-group',
+    node: 'award',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+        recipient: element.querySelector('principal-award-recipient')
+          ?.textContent,
+        code: Array.from(element.querySelectorAll('award-id'))
+          .map((awardID) => awardID.textContent)
+          .reduce((acc, text) => (acc ? `${acc};${text}` : text), ''),
+        source: element.querySelector('funding-source')?.textContent,
+      }
+    },
+  },
+  {
     tag: 'fn:not([fn-type])',
     node: 'footnote',
     context: 'author_notes/',
@@ -939,8 +959,8 @@ const nodes: NodeRule[] = [
     node: 'table_cell',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const colspan = element.getAttribute('colspan')
-      const rowspan = element.getAttribute('rowspan')
+      const colspan = parseInt(element.getAttribute('colspan') || '1')
+      const rowspan = parseInt(element.getAttribute('rowspan') || '1')
       return {
         ...(colspan && { colspan }),
         ...(rowspan && { rowspan }),
@@ -956,8 +976,8 @@ const nodes: NodeRule[] = [
     node: 'table_header',
     getAttrs: (node) => {
       const element = node as HTMLElement
-      const colspan = element.getAttribute('colspan')
-      const rowspan = element.getAttribute('rowspan')
+      const colspan = parseInt(element.getAttribute('colspan') || '1')
+      const rowspan = parseInt(element.getAttribute('rowspan') || '1')
       return {
         ...(colspan && { colspan }),
         ...(rowspan && { rowspan }),

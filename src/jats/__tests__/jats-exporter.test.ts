@@ -263,7 +263,9 @@ describe('JATS exporter', () => {
     const resultDoc = parseXMLWithDTD(xml)
 
     for (const category of footnoteCategories) {
-      const fn = resultDoc.get(`/article/back/fn-group/fn[@fn-type="${category}"]`)
+      const fn = resultDoc.get(
+        `/article/back/fn-group/fn[@fn-type="${category}"]`
+      )
       expect(fn).not.toBeUndefined()
     }
   })
