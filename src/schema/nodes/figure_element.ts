@@ -20,22 +20,8 @@ import { ManuscriptNode } from '../types'
 import { AttributionNode } from './attribution'
 
 interface Attrs {
-  columns: number
-  figureLayout: string
-  figureStyle: string
   id: string
-  label: string
-  rows: number
-  alignment?: string
-  sizeFraction: number
-  suppressCaption: boolean
-  suppressTitle?: boolean
-  expandListing: boolean
   attribution?: AttributionNode
-  alternatives?: {
-    src: string
-    type?: string
-  }[]
 }
 
 export interface FigureElementNode extends ManuscriptNode {
@@ -46,16 +32,8 @@ export const figureElement: NodeSpec = {
   content:
     '(paragraph | figure | missing_figure | placeholder)+ attribution* figcaption (listing | placeholder)',
   attrs: {
-    figureLayout: { default: '' },
-    figureStyle: { default: '' },
     id: { default: '' },
-    label: { default: '' },
-    sizeFraction: { default: 0 },
-    alignment: { default: undefined },
-    suppressCaption: { default: false },
-    suppressTitle: { default: undefined },
     attribution: { default: undefined },
-    alternatives: { default: undefined },
     dataTracked: { default: null },
   },
   selectable: false,
@@ -68,10 +46,6 @@ export const figureElement: NodeSpec = {
 
         return {
           id: dom.getAttribute('id'),
-          figureStyle: dom.getAttribute('data-figure-style'),
-          figureLayout: dom.getAttribute('data-figure-layout'),
-          sizeFraction: Number(dom.getAttribute('data-size-fraction')) || 0,
-          alignment: dom.getAttribute('data-alignment') || undefined,
         }
       },
     },
@@ -79,36 +53,15 @@ export const figureElement: NodeSpec = {
   toDOM: (node) => {
     const figureElementNode = node as FigureElementNode
 
-    const { id, figureStyle, figureLayout, alignment, sizeFraction } =
-      figureElementNode.attrs
+    const { id } = figureElementNode.attrs
 
     const attrs: { [key: string]: string } = {}
 
     const classes: string[] = ['figure-group']
 
-    if (sizeFraction === 2) {
-      classes.push('figure-group--static')
-    }
-
     attrs.class = classes.join(' ')
 
     attrs.id = id
-
-    if (figureStyle) {
-      attrs['data-figure-style'] = figureStyle
-    }
-
-    if (figureLayout) {
-      attrs['data-figure-layout'] = figureLayout
-    }
-
-    if (sizeFraction) {
-      attrs['data-size-fraction'] = String(sizeFraction)
-    }
-
-    if (alignment) {
-      attrs['data-alignment'] = alignment
-    }
 
     return ['figure', attrs, 0]
   },

@@ -20,7 +20,6 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  label: string
 }
 
 export interface EquationElementNode extends ManuscriptNode {
@@ -31,7 +30,6 @@ export const equationElement: NodeSpec = {
   content: '(equation | placeholder)',
   attrs: {
     id: { default: '' },
-    label: { default: '' },
     dataTracked: { default: null },
   },
   selectable: false,
@@ -54,7 +52,7 @@ export const equationElement: NodeSpec = {
     return [
       'div',
       {
-        class: 'equation', // TODO: suppress-caption?
+        class: 'equation',
         id: equationElementNode.attrs.id,
       },
       0,

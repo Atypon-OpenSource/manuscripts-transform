@@ -30,7 +30,6 @@ export const graphicalAbstractSection: NodeSpec = {
   content: 'section_title (figure_element | placeholder)', // does it need perhaps a special view that limits the figure content? Ask Nick?
   attrs: {
     id: { default: '' },
-    category: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block sections',
