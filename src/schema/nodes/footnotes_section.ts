@@ -34,7 +34,7 @@ export const footnotesSection: NodeSpec = {
     id: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block sections',
+  group: 'block sections element',
   selectable: false,
   parseDOM: [
     {

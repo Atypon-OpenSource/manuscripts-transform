@@ -38,7 +38,7 @@ export interface FootnoteNode extends ManuscriptNode {
 
 export const footnote: NodeSpec = {
   group: 'block',
-  content: 'paragraph+',
+  content: '(text | highlight_marker)*',
   attrs: {
     id: { default: '' },
     kind: { default: 'footnote' },
