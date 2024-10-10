@@ -21,7 +21,6 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   id: string
   kind?: string
-  paragraphStyle?: string
 }
 
 export interface FootnotesElementNode extends ManuscriptNode {
@@ -32,7 +31,6 @@ export const footnotesElement: NodeSpec = {
   attrs: {
     id: { default: '' },
     kind: { default: 'footnote' },
-    paragraphStyle: { default: '' },
     dataTracked: { default: null },
   },
   content: 'footnote*',
@@ -46,7 +44,6 @@ export const footnotesElement: NodeSpec = {
 
         return {
           kind: dom.getAttribute('data-kind') || 'footnote',
-          // paragraphStyle: dom.getAttribute('data-paragraph-style'),
         }
       },
     },
@@ -54,16 +51,12 @@ export const footnotesElement: NodeSpec = {
   toDOM: (node) => {
     const footnotesElementNode = node as FootnotesElementNode
 
-    const { id, kind, paragraphStyle } = footnotesElementNode.attrs
+    const { id, kind } = footnotesElementNode.attrs
 
     const attrs: Record<string, string> = { class: 'footnotes', id }
 
     if (kind) {
       attrs['data-kind'] = kind
-    }
-
-    if (paragraphStyle) {
-      attrs['paragraphStyle'] = paragraphStyle
     }
 
     return ['div', attrs, 0]

@@ -27,7 +27,6 @@ export interface MissingFigureNode extends ManuscriptNode {
 export const missingFigure: NodeSpec = {
   attrs: {
     id: { default: '' },
-    position: { default: undefined },
     dataTracked: { default: null },
   },
   selectable: false,

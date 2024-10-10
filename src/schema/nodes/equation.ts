@@ -35,7 +35,6 @@ export const equation: NodeSpec = {
     contents: { default: '' },
     format: { default: '' },
     dataTracked: { default: null },
-    // placeholder: { default: 'Click to edit equation' },
   },
   group: 'block',
   parseDOM: [

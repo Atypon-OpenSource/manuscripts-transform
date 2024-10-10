@@ -170,7 +170,7 @@ export const buildCitations = (citations: CitationNode[]) =>
 export class JATSExporter {
   protected document: Document
   protected serializer: DOMSerializer
-  protected labelTargets?: Map<string, Target>
+  protected labelTargets: Map<string, Target>
   protected citationTexts: Map<string, string>
   protected citationProvider: CitationProvider
   protected manuscriptNode: ManuscriptNode
@@ -888,18 +888,19 @@ export class JATSExporter {
         const cross = node as CrossReferenceNode
         const rids = cross.attrs.rids
         if (!rids.length) {
-          return cross.attrs.label
+          return cross.attrs.label ?? ''
         }
 
-        const text = cross.attrs.customLabel || cross.attrs.label
+        const rid = rids[0]
+        const text = cross.attrs.label || this.labelTargets.get(rid)?.label
 
         const target = findChildrenByAttr(
           this.manuscriptNode,
-          (attrs) => attrs.id === rids[0]
+          (attrs) => attrs.id === rid
         )[0]?.node
         if (!target) {
           warn('')
-          return text
+          return text || ''
         }
 
         const xref = this.document.createElement('xref')
@@ -912,7 +913,7 @@ export class JATSExporter {
         }
 
         xref.setAttribute('rid', normalizeID(rids.join(' ')))
-        xref.textContent = text
+        xref.textContent = text ?? ''
 
         return xref
       },
@@ -1736,37 +1737,6 @@ export class JATSExporter {
   private fixBody = (body: Element) => {
     this.manuscriptNode.descendants((node) => {
       if (node.attrs.id) {
-        // remove suppressed titles
-        if (node.attrs.titleSuppressed) {
-          const title = body.querySelector(
-            `#${normalizeID(node.attrs.id)} > title`
-          )
-
-          if (title && title.parentNode) {
-            title.parentNode.removeChild(title)
-          }
-        }
-
-        // remove suppressed captions and labels
-        if (node.attrs.suppressCaption) {
-          // TODO: need to query deeper?
-          const caption = body.querySelector(
-            `#${normalizeID(node.attrs.id)} > caption`
-          )
-
-          if (caption) {
-            caption.remove()
-          }
-
-          const label = body.querySelector(
-            `#${normalizeID(node.attrs.id)} > label`
-          )
-
-          if (label) {
-            label.remove()
-          }
-        }
-
         if (
           isNodeType<TableElementFooterNode>(node, 'general_table_footnote')
         ) {
@@ -1790,16 +1760,12 @@ export class JATSExporter {
             for (const childNode of tableElement.childNodes) {
               switch (childNode.nodeName) {
                 case 'caption': {
-                  if (node.attrs.suppressCaption) {
-                    tableElement.removeChild(childNode)
-                  } else {
-                    const label = tableElement.querySelector('label')
+                  const label = tableElement.querySelector('label')
 
-                    tableElement.insertBefore(
-                      childNode,
-                      label ? label.nextSibling : tableElement.firstChild
-                    )
-                  }
+                  tableElement.insertBefore(
+                    childNode,
+                    label ? label.nextSibling : tableElement.firstChild
+                  )
                   break
                 }
 
@@ -1853,19 +1819,15 @@ export class JATSExporter {
         )
         if (i === 0 || headerCell) {
           tbody?.removeChild(row)
-          if (!node.attrs.suppressHeader) {
-            const tableCells = (row as Element).querySelectorAll('td')
-            for (const td of tableCells) {
-              // for backwards compatibility since older docs use tds for header cells
-              this.changeTag(td, 'th')
-            }
-            thead.appendChild(row)
+          const tableCells = (row as Element).querySelectorAll('td')
+          for (const td of tableCells) {
+            // for backwards compatibility since older docs use tds for header cells
+            this.changeTag(td, 'th')
           }
+          thead.appendChild(row)
         } else if (i === tbodyRows.length - 1) {
           tbody?.removeChild(row)
-          if (!node.attrs.suppressFooter) {
-            tfoot.appendChild(row)
-          }
+          tfoot.appendChild(row)
         }
       }
     })

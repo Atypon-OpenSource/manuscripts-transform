@@ -31,7 +31,6 @@ export const figure: NodeSpec = {
     id: { default: '' },
     src: { default: '' },
     contentType: { default: '' },
-    position: { default: undefined },
     dataTracked: { default: null },
   },
   selectable: false,
