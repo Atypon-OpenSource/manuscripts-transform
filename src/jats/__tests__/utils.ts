@@ -13,22 +13,108 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Model } from '@manuscripts/json-schema'
 
-import { Decoder } from '../../transformer'
-import { parseJATSArticle } from '../importer'
+import { Node, NodeType } from 'prosemirror-model'
+import { findChildrenByType } from 'prosemirror-utils'
+
+import { ManuscriptNode, schema } from '../../schema'
+import { parseJATSArticle } from '../importer/parse-jats-article'
 import { readAndParseFixture } from './files'
 
-export const getModelMapFromXML = async (fileName: string) => {
-  const models = await parseJATSArticle(await readAndParseFixture(fileName))
-  const modelMap: Map<string, Model> = new Map()
-  for (const model of models) {
-    modelMap.set(model._id, model)
-  }
-  return modelMap
+export const createNodeFromJATS = async (fileName: string) => {
+  const jats = await readAndParseFixture(fileName)
+  return parseJATSArticle(jats)
 }
 
-export const getDocFromModelMap = async (modelMap: Map<string, Model>) => {
-  const decoder = new Decoder(modelMap)
-  return decoder.createArticleNode()
+const uuidRegex =
+  /[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/g
+const replaceUUIDWithTest = (input: string) => input.replace(uuidRegex, 'test')
+
+const updateContributorNodeIDs = (node: ManuscriptNode) => {
+  if (node.type === schema.nodes.contributor) {
+    //@ts-ignore
+    node.attrs.footnote = node.attrs.footnote.map((fn) => {
+      return { ...fn, noteID: replaceUUIDWithTest(fn.noteID) }
+    })
+    //@ts-ignore
+    node.attrs.corresp = node.attrs.corresp.map((corresp) => {
+      return { ...corresp, correspID: replaceUUIDWithTest(corresp.correspID) }
+    })
+    //@ts-ignore
+    node.attrs.affiliations = node.attrs.affiliations.map((aff: string) =>
+      replaceUUIDWithTest(aff)
+    )
+    if (node.attrs.bibliographicName._id) {
+      node.attrs.bibliographicName._id = replaceUUIDWithTest(
+        node.attrs.bibliographicName._id
+      )
+    }
+  }
+}
+
+const updateCommentNodeIDs = (node: ManuscriptNode) => {
+  if (node.type === schema.nodes.comment) {
+    //@ts-ignore
+    node.attrs.target = replaceUUIDWithTest(node.attrs.target)
+    //@ts-ignore
+    node.attrs.contributions = node.attrs.contributions.map(
+      (contribution: any) => {
+        return {
+          ...contribution,
+          _id: replaceUUIDWithTest(contribution._id),
+          timestamp: 1234,
+        }
+      }
+    )
+  }
+}
+
+const updateBibliographyItemNodeIDs = (node: ManuscriptNode) => {
+  if (node.type === schema.nodes.bibliography_item) {
+    node.attrs.author?.forEach(
+      (author: any) => (author._id = replaceUUIDWithTest(author._id))
+    )
+    //@ts-ignore
+    if (node.attrs.issued) {
+      node.attrs.issued._id = replaceUUIDWithTest(node.attrs.issued._id)
+    }
+  }
+}
+
+const updateNodeRID = (node: ManuscriptNode) => {
+  if (node.attrs.rid) {
+    //@ts-ignore
+    node.attrs.rid = replaceUUIDWithTest(node.attrs.rid)
+  }
+}
+const updateNodeRIDs = (node: ManuscriptNode) => {
+  if (node.attrs.rids) {
+    //@ts-ignore
+    node.attrs.rids = node.attrs.rids.map((rid) => replaceUUIDWithTest(rid))
+  }
+}
+
+export const changeIDs = (node: ManuscriptNode) => {
+  updateNodeID(node)
+  node.descendants((child) => {
+    updateNodeID(child)
+    updateNodeRID(child)
+    updateNodeRIDs(child)
+    updateContributorNodeIDs(child)
+    updateCommentNodeIDs(child)
+    updateBibliographyItemNodeIDs(child)
+  })
+}
+
+export const findNodesByType = (node: Node, type: NodeType, descend = true) => {
+  return findChildrenByType(node, type, descend).map((n) => n.node)
+}
+export const findNodeByType = (node: Node, type: NodeType, descend = true) => {
+  return findNodesByType(node, type, descend)[0]
+}
+export const updateNodeID = (node: ManuscriptNode) => {
+  if (node.attrs.id) {
+    //@ts-ignore
+    node.attrs.id = replaceUUIDWithTest(node.attrs.id)
+  }
 }

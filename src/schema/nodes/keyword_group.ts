@@ -20,6 +20,7 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
+  type: string
 }
 
 export interface KeywordGroupNode extends ManuscriptNode {

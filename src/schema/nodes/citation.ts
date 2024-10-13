@@ -21,7 +21,6 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   id: string
   rids: string[]
-  contents: string
   selectedText: string
 }
 
@@ -37,7 +36,6 @@ export const citation: NodeSpec = {
   attrs: {
     id: { default: '' },
     rids: { default: [] },
-    contents: { default: '' },
     selectedText: { default: '' },
     dataTracked: { default: null },
   },
@@ -50,7 +48,6 @@ export const citation: NodeSpec = {
         return {
           id: dom.getAttribute('data-id'),
           rids: dom.getAttribute('data-reference-id')?.split(/\s+/) || [],
-          contents: dom.innerHTML,
         }
       },
     },

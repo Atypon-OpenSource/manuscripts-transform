@@ -20,8 +20,6 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  suppressCaption: boolean
-  suppressTitle?: boolean
 }
 
 export interface ListingElementNode extends ManuscriptNode {
@@ -32,8 +30,6 @@ export const listingElement: NodeSpec = {
   content: '(listing | placeholder) figcaption',
   attrs: {
     id: { default: '' },
-    suppressCaption: { default: true },
-    suppressTitle: { default: undefined },
     dataTracked: { default: null },
   },
   group: 'block element',

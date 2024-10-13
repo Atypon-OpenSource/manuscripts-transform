@@ -64,7 +64,6 @@ export const affiliation: NodeSpec = {
       tag: 'div.affiliation',
       getAttrs: (node) => {
         const dom = node as HTMLSpanElement
-
         return {
           id: dom.getAttribute('id'),
         }

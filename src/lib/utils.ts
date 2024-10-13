@@ -96,3 +96,5 @@ export const getTrimmedTextContent = (
   }
   return node.querySelector(querySelector)?.textContent?.trim()
 }
+
+export const timestamp = () => Math.floor(Date.now() / 1000)

@@ -13,11 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Model } from '@manuscripts/json-schema'
-
-export const normalizeIDs = (models: Model[]) => {
-  const json = JSON.stringify(models)
-  const normalizedJSON = json.replace(/(MP[A-Za-z]+):[A-Z0-9-]+/g, '$1:test')
-
-  return JSON.parse(normalizedJSON)
-}
+export type IDGenerator = (element: Element) => Promise<string | null>

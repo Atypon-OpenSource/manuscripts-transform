@@ -14,17 +14,19 @@
  * limitations under the License.
  */
 
-import { ObjectTypes } from '@manuscripts/json-schema'
 import { v4 as uuid } from 'uuid'
 
 import { ManuscriptNodeType } from '../schema'
 import { nodeTypesMap } from './node-types'
-import { ExtraObjectTypes } from './object-types'
 
 export const generateNodeID = (type: ManuscriptNodeType) => {
-  return nodeTypesMap.get(type) + ':' + uuid().toUpperCase()
-}
-
-export const generateID = (objectType: ObjectTypes | ExtraObjectTypes) => {
-  return objectType + ':' + uuid().toUpperCase()
+  const uniqueID = ':' + uuid().toUpperCase()
+  let name: string | undefined = nodeTypesMap.get(type)
+  if (name === undefined) {
+    name = type.name
+      .split('_')
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join('')
+  }
+  return name + uniqueID
 }

@@ -14,211 +14,100 @@
  * limitations under the License.
  */
 
-import { CommentAnnotation, Keyword, Model } from '@manuscripts/json-schema'
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuid } from 'uuid'
 
-import {
-  buildComment,
-  buildContribution,
-  highlightableFields,
-  HighlightableModel,
-  isHighlightableModel,
-  isKeyword,
-} from '../../transformer'
-import { References } from './jats-references'
+import { schema } from '../../schema'
+import { generateNodeID } from '../../transformer'
 
-export type JATSComment = {
-  id: string
-  text: string
-}
-
-export type JATSCommentMark = {
-  token: string
-  comment: JATSComment
-}
-
-const DEFAULT_PROFILE_ID =
+export const DEFAULT_PROFILE_ID =
   'MPUserProfile:0000000000000000000000000000000000000001'
 
-export const isJATSComment = (node: Node) => {
+const isJATSComment = (node: Node) => {
   return (
     node.nodeType === node.PROCESSING_INSTRUCTION_NODE &&
     node.nodeName === 'AuthorQuery'
   )
 }
 
-export const parseJATSComment = (node: Node): JATSComment | undefined => {
+const parseJATSComment = (node: Node): string | undefined => {
   const text = node.textContent
   if (text) {
-    const id = /id="(.+)"/.exec(text)
     const queryText = /queryText="(.+)"/.exec(text)
-    if (id && queryText) {
-      return {
-        id: id[1],
-        text: queryText[1],
-      }
-    }
+    return (queryText && queryText[1]) || undefined
   }
 }
 
-/**
- * Replaces processing instructions with tokens
- */
-export const markComments = (doc: Document): JATSCommentMark[] => {
-  const marks: JATSCommentMark[] = []
-  const root = doc.getRootNode()
-  const queue: Node[] = [root]
+const isHighlightable = (node: Element) => {
+  //todo find a better way to do this
+  return node.nodeName === 'p'
+}
+
+const findTarget = (node: Element) => {
+  const target = node.closest('ref, kwd-group')
+  if (target) {
+    return target
+  }
+  return node
+}
+
+export const markComments = (doc: Document) => {
+  const root = doc.getRootNode() as Element
+  const queue: Element[] = [root]
+  const comments = doc.createElement('comments')
   while (queue.length !== 0) {
     const node = queue.shift()
     if (node) {
       if (isJATSComment(node)) {
-        const comment = parseJATSComment(node)
-        if (comment) {
-          const token = addMark(doc, node)
-          if (token) {
-            const mark = {
-              token,
-              comment,
-            }
-            marks.push(mark)
+        const text = parseJATSComment(node)
+        if (text) {
+          const id = generateNodeID(schema.nodes.comment)
+          let target
+          const parent = node.parentNode as Element
+          if (isHighlightable(parent)) {
+            const marker = createHighlightMarkerElement(doc, id)
+            parent.insertBefore(marker, node)
+            target = parent
+          } else {
+            target = findTarget(parent)
           }
+          // if the target has no ID, generate one here and rely on
+          // updateDocumentIDs to fix it
+          if (!target.id) {
+            target.id = uuid()
+          }
+          const comment = createCommentElement(doc, id, target.id, text)
+          comments.appendChild(comment)
         }
       }
       node.childNodes.forEach((child) => {
-        queue.push(child)
+        queue.push(child as Element)
       })
     }
   }
-  return marks
-}
 
-const addMark = (doc: Document, node: Node) => {
-  const parent = node.parentElement
-  if (parent) {
-    const token = uuidv4()
-    const tokenNode = doc.createTextNode(token)
-    parent.insertBefore(tokenNode, node)
-    return token
+  if (comments.hasChildNodes()) {
+    doc.documentElement.appendChild(comments)
   }
 }
 
-export const createComments = (
-  models: Model[],
-  marks: JATSCommentMark[]
-): CommentAnnotation[] => {
-  const comments = []
-  for (const model of models) {
-    if (isHighlightableModel(model)) {
-      comments.push(...processModel(model, marks))
-    } else if (isKeyword(model)) {
-      comments.push(...processKeyword(model, marks))
-    }
-  }
-  return comments
+const createHighlightMarkerElement = (doc: Document, id: string) => {
+  const highlightMarker = doc.createElement('highlight-marker')
+  highlightMarker.setAttribute('id', id)
+  highlightMarker.setAttribute('position', 'point')
+  return highlightMarker
 }
 
-const getFieldMarks = (content: string, marks: JATSCommentMark[]) => {
-  return marks
-    .filter((m) => content.indexOf(m.token) >= 0)
-    .sort((a, b) => content.indexOf(a.token) - content.indexOf(b.token))
-}
-
-const processModel = (model: HighlightableModel, marks: JATSCommentMark[]) => {
-  const comments = []
-  for (const field of highlightableFields) {
-    const content = model[field]
-    if (!content) {
-      continue
-    }
-    const results = processContent(
-      model,
-      content,
-      getFieldMarks(content, marks)
-    )
-    model[field] = results.content
-    comments.push(...results.comments)
-  }
-  return comments
-}
-
-const processKeyword = (
-  model: Keyword,
-  marks: JATSCommentMark[]
-): CommentAnnotation[] => {
-  const comments = []
-  const name = model.name
-  let content = name
-  for (const mark of getFieldMarks(name, marks)) {
-    content = name.replace(mark.token, '')
-    const target = model.containedGroup
-    if (!target) {
-      continue
-    }
-    const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
-
-    const comment = buildComment(
-      target,
-      mark.comment.text,
-      undefined,
-      contributions
-    ) as CommentAnnotation
-    model.name = content
-    comments.push(comment)
-  }
-  return comments
-}
-
-/**
- * Creates CommentAnnotations from marked processing instructions in model
- */
-const processContent = (
-  model: HighlightableModel,
-  content: string,
-  marks: JATSCommentMark[]
+const createCommentElement = (
+  doc: Document,
+  id: string,
+  targetID: string | undefined,
+  text: string
 ) => {
-  const comments = []
-
-  let result = content
-  for (const mark of marks) {
-    const token = mark.token
-    const index = result.indexOf(token)
-
-    // Remove the token
-    result = result.replace(token, '')
-
-    const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
-    const selector = {
-      from: index,
-      to: index,
-    }
-    const comment = buildComment(
-      model._id,
-      mark.comment.text,
-      selector,
-      contributions
-    ) as CommentAnnotation
-    comments.push(comment)
+  const commentElement = doc.createElement('comment')
+  commentElement.setAttribute('id', id)
+  if (targetID) {
+    commentElement.setAttribute('target-id', targetID)
   }
-  return {
-    content: result,
-    comments,
-  }
-}
-
-export const createReferenceComments = (references: References) => {
-  const comments: CommentAnnotation[] = []
-  for (const item of references.getBibliographyItems()) {
-    const id = item._id
-    for (const comment of references.getComments(id)) {
-      const contributions = [buildContribution(DEFAULT_PROFILE_ID)]
-      const c = buildComment(
-        id,
-        comment.text,
-        undefined,
-        contributions
-      ) as CommentAnnotation
-      comments.push(c)
-    }
-  }
-  return comments
+  commentElement.textContent = text
+  return commentElement
 }

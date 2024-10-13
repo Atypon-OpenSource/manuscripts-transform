@@ -42,13 +42,9 @@ const versions: { [key in Version]: VersionIds } = {
   },
 }
 
-export const supportedVersions = (): Version[] =>
-  Object.keys(versions) as Version[]
-
 export const selectVersionIds = (version: Version): VersionIds => {
   if (!(version in versions)) {
     throw new Error(`Unknown version ${version}`)
   }
-
   return versions[version]
 }

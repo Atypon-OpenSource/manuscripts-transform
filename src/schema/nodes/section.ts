@@ -20,38 +20,11 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  category?: string
-  titleSuppressed: boolean
-  generatedLabel: boolean
-  pageBreakStyle?: number
+  category: string
 }
 
 export interface SectionNode extends ManuscriptNode {
   attrs: Attrs
-}
-
-export const PAGE_BREAK_NONE = 0
-export const PAGE_BREAK_BEFORE = 1
-export const PAGE_BREAK_AFTER = 2
-export const PAGE_BREAK_BEFORE_AND_AFTER = 4
-
-const choosePageBreakStyle = (element: HTMLElement): number => {
-  const pageBreakAfter = element.classList.contains('page-break-after')
-  const pageBreakBefore = element.classList.contains('page-break-before')
-
-  if (pageBreakBefore && pageBreakAfter) {
-    return PAGE_BREAK_BEFORE_AND_AFTER
-  }
-
-  if (pageBreakBefore) {
-    return PAGE_BREAK_BEFORE
-  }
-
-  if (pageBreakAfter) {
-    return PAGE_BREAK_AFTER
-  }
-
-  return PAGE_BREAK_NONE
 }
 
 export const section: NodeSpec = {
@@ -60,9 +33,6 @@ export const section: NodeSpec = {
   attrs: {
     id: { default: '' },
     category: { default: '' },
-    titleSuppressed: { default: false },
-    generatedLabel: { default: undefined },
-    pageBreakStyle: { default: undefined },
     dataTracked: { default: null },
   },
   group: 'block sections',
@@ -76,9 +46,6 @@ export const section: NodeSpec = {
         return {
           id: element.getAttribute('id') || '',
           category: element.getAttribute('data-category') || '',
-          titleSuppressed: element.classList.contains('title-suppressed'),
-          generatedLabel: element.classList.contains('generated-label'),
-          pageBreakStyle: choosePageBreakStyle(element) || undefined,
         }
       },
     },
@@ -86,38 +53,9 @@ export const section: NodeSpec = {
   toDOM: (node) => {
     const sectionNode = node as SectionNode
 
-    const { id, category, titleSuppressed, generatedLabel, pageBreakStyle } =
-      sectionNode.attrs
-
-    const classnames: string[] = []
-
-    if (titleSuppressed) {
-      classnames.push('title-suppressed')
-    }
-
-    if (typeof generatedLabel === 'undefined' || generatedLabel) {
-      classnames.push('generated-label')
-    }
-
-    if (
-      pageBreakStyle === PAGE_BREAK_BEFORE ||
-      pageBreakStyle === PAGE_BREAK_BEFORE_AND_AFTER
-    ) {
-      classnames.push('page-break-before')
-    }
-
-    if (
-      pageBreakStyle === PAGE_BREAK_AFTER ||
-      pageBreakStyle === PAGE_BREAK_BEFORE_AND_AFTER
-    ) {
-      classnames.push('page-break-after')
-    }
+    const { id, category } = sectionNode.attrs
 
     const attrs: { [key: string]: string } = { id }
-
-    if (classnames.length) {
-      attrs['class'] = classnames.join(' ')
-    }
 
     if (category) {
       attrs['data-category'] = node.attrs.category

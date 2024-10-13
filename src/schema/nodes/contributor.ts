@@ -18,9 +18,18 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
+export type ContributorCorresp = {
+  correspID: string
+  correspLabel: string
+}
+export type ContributorFootnote = {
+  noteID: string
+  noteLabel: string
+}
 interface Attrs {
   id: string
   role: string
+  corresp: ContributorCorresp[]
   affiliations: string[]
   bibliographicName: BibliographicName
   userID: string
@@ -30,6 +39,7 @@ interface Attrs {
   ORCIDIdentifier: string
   priority: number
   isJointContributor: boolean
+  footnote: ContributorFootnote[]
 }
 
 export interface ContributorNode extends ManuscriptNode {
