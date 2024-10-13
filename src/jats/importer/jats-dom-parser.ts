@@ -863,7 +863,13 @@ const nodes: NodeRule[] = [
     node: 'section',
     getAttrs: (node) => {
       const element = node as HTMLElement
-
+      const grandParentNodeName =  element.parentNode?.parentNode?.nodeName.toLowerCase()
+      if ( grandParentNodeName !== 'body' ) {
+        return {
+          id: element.getAttribute('id'),
+          category: 'MPSectionCategory:subsection',
+        }
+      }
       return {
         id: element.getAttribute('id'),
         category: chooseSectionCategory(element),

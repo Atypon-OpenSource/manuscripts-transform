@@ -320,6 +320,8 @@ export const chooseSectionCategoryByType = (
       return 'MPSectionCategory:ethics-statement'
     case 'box-element':
       return 'MPSectionCategory:box-element'
+    case 'subsection':
+      return 'MPSectionCategory:subsection'
     default:
       return undefined
   }
@@ -330,11 +332,8 @@ export const chooseSectionCategory = (
 ): SectionCategory | undefined => {
   const secType = section.getAttribute('sec-type') as SecType
   const secCat = chooseSectionCategoryByType(secType)
-  const parent = section.parentNode?.parentNode?.nodeName.toLowerCase()
   if (secCat) {
     return secCat
-  } else if (parent !== 'body') {
-    return 'MPSectionCategory:subsection'
   } else {
     const titleNode = section.firstElementChild
 
