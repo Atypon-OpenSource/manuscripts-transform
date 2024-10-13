@@ -23,7 +23,6 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   id: string
   contents: string
-  paragraphStyle: string
 }
 
 export interface TOCElementNode extends ManuscriptNode {
@@ -44,7 +43,6 @@ export const tocElement: NodeSpec = {
   attrs: {
     id: { default: '' },
     contents: { default: '' },
-    paragraphStyle: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',

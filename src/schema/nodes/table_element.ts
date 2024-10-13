@@ -20,14 +20,6 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
-  paragraphStyle: string
-  tableStyle: string
-  label: string
-  suppressCaption: boolean
-  suppressTitle?: boolean
-  suppressFooter: boolean
-  suppressHeader: boolean
-  expandListing: boolean
 }
 
 export interface TableElementNode extends ManuscriptNode {
@@ -39,14 +31,7 @@ export const tableElement: NodeSpec = {
     ' figcaption? (table | placeholder) table_colgroup? table_element_footer? (listing | placeholder)',
   attrs: {
     id: { default: '' },
-    paragraphStyle: { default: '' },
-    tableStyle: { default: '' },
     label: { default: '' },
-    suppressCaption: { default: false },
-    suppressTitle: { default: undefined },
-    suppressFooter: { default: false },
-    suppressHeader: { default: false },
-    expandListing: { default: false },
     dataTracked: { default: null },
   },
   selectable: false,
@@ -59,9 +44,6 @@ export const tableElement: NodeSpec = {
 
         return {
           id: element.getAttribute('id'),
-          paragraphStyle: element.getAttribute('data-paragraph-style') || '',
-          tableStyle: element.getAttribute('data-table-style') || '',
-          // table: table ? table.id : null,
         }
       },
     },
@@ -74,8 +56,6 @@ export const tableElement: NodeSpec = {
       {
         class: 'table', // TODO: suppress-header, suppress-footer?
         id: tableElementNode.attrs.id,
-        'data-paragraph-style': tableElementNode.attrs.paragraphStyle,
-        'data-table-style': tableElementNode.attrs.tableStyle,
       },
       0,
     ]

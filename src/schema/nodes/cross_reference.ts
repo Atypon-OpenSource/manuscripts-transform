@@ -21,7 +21,6 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   rids: string[]
   label: string
-  customLabel: string
 }
 
 export interface CrossReferenceNode extends ManuscriptNode {
@@ -36,7 +35,6 @@ export const crossReference: NodeSpec = {
   attrs: {
     rids: { default: [] },
     label: { default: '' },
-    customLabel: { default: '' },
     dataTracked: { default: null },
   },
   parseDOM: [
@@ -47,7 +45,6 @@ export const crossReference: NodeSpec = {
 
         return {
           rids: dom.getAttribute('data-reference-id')?.split(/\s+/) || [],
-          label: dom.textContent,
         }
       },
     },
@@ -61,17 +58,7 @@ export const crossReference: NodeSpec = {
         class: 'cross-reference',
         'data-reference-id': crossReferenceNode.attrs.rids.join(' '),
       },
-      [
-        'span',
-        {
-          class: 'kind elementIndex',
-        },
-        [
-          'b',
-          crossReferenceNode.attrs.customLabel ||
-            crossReferenceNode.attrs.label,
-        ],
-      ],
+      crossReferenceNode.attrs.label,
     ]
   },
 }

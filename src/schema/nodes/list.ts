@@ -16,7 +16,6 @@
 import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
-import { buildElementClass } from '../../lib/attributes'
 import { ManuscriptNode } from '../types'
 
 export type JatsStyleType =
@@ -56,7 +55,6 @@ export const getListType = (style: JatsStyleType): ListTypeInfo => {
 export interface ListNode extends ManuscriptNode {
   attrs: {
     id: string
-    paragraphStyle: string
     listStyleType: string
   }
 }
@@ -66,7 +64,6 @@ export const list: NodeSpec = {
   group: 'block list element',
   attrs: {
     id: { default: '' },
-    paragraphStyle: { default: '' },
     dataTracked: { default: null },
     listStyleType: { default: null },
   },
@@ -102,7 +99,6 @@ export const list: NodeSpec = {
       {
         id: list.attrs.id,
         'list-type': list.attrs.listStyleType,
-        class: buildElementClass(list.attrs),
         'data-object-type': ObjectTypes.ListElement,
       },
       0,
