@@ -401,11 +401,17 @@ Array [
 exports[`JATS importer parses JATS AuthorQueries example to Manuscripts document 1`] = `
 Object {
   "attrs": Object {
+    "acceptanceDate": 1599091200,
     "articleType": "other",
+    "correctionDate": undefined,
     "doi": "",
     "id": "MPManuscript:test",
     "primaryLanguageCode": "",
     "prototype": "",
+    "receiveDate": 1576195200,
+    "retractionDate": undefined,
+    "revisionReceiveDate": 1597276800,
+    "revisionRequestDate": undefined,
   },
   "content": Array [
     Object {
@@ -2449,11 +2455,17 @@ Object {
 exports[`JATS importer parses JATS article to Manuscripts document 1`] = `
 Object {
   "attrs": Object {
+    "acceptanceDate": undefined,
     "articleType": "",
+    "correctionDate": undefined,
     "doi": "",
     "id": "MPManuscript:test",
     "primaryLanguageCode": "",
     "prototype": "",
+    "receiveDate": undefined,
+    "retractionDate": undefined,
+    "revisionReceiveDate": undefined,
+    "revisionRequestDate": undefined,
   },
   "content": Array [
     Object {
@@ -3832,11 +3844,17 @@ Object {
 exports[`JATS importer parses JATS article with tables and table footnotes 1`] = `
 Object {
   "attrs": Object {
+    "acceptanceDate": 1599004800,
     "articleType": "other",
+    "correctionDate": undefined,
     "doi": "",
     "id": "MPManuscript:test",
     "primaryLanguageCode": "",
     "prototype": "",
+    "receiveDate": 1588550400,
+    "retractionDate": undefined,
+    "revisionReceiveDate": 1595721600,
+    "revisionRequestDate": undefined,
   },
   "content": Array [
     Object {
@@ -17035,11 +17053,17 @@ Object {
 exports[`JATS importer parses JATS article without references and doesn't create empty references section 1`] = `
 Object {
   "attrs": Object {
+    "acceptanceDate": 1590537600,
     "articleType": "other",
+    "correctionDate": undefined,
     "doi": "",
     "id": "MPManuscript:test",
     "primaryLanguageCode": "",
     "prototype": "",
+    "receiveDate": 1578528000,
+    "retractionDate": undefined,
+    "revisionReceiveDate": undefined,
+    "revisionRequestDate": undefined,
   },
   "content": Array [
     Object {
@@ -24010,11 +24034,17 @@ Object {
 exports[`JATS importer parses full JATS example to Manuscripts document 1`] = `
 Object {
   "attrs": Object {
+    "acceptanceDate": 899683200,
     "articleType": "research-article",
+    "correctionDate": undefined,
     "doi": "",
     "id": "MPManuscript:test",
     "primaryLanguageCode": "",
     "prototype": "",
+    "receiveDate": 886636800,
+    "retractionDate": undefined,
+    "revisionReceiveDate": 898646400,
+    "revisionRequestDate": 892512000,
   },
   "content": Array [
     Object {
