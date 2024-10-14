@@ -915,7 +915,11 @@ const nodes: NodeRule[] = [
     node: 'section',
     getAttrs: (node) => {
       const element = node as HTMLElement
-
+      const grandParentNodeName =
+        element.parentNode?.parentNode?.nodeName.toLowerCase()
+      if (grandParentNodeName && grandParentNodeName !== 'body') {
+        element.setAttribute('sec-type', 'subsection')
+      }
       return {
         id: element.getAttribute('id'),
         category: chooseSectionCategory(element),

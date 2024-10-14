@@ -112,6 +112,7 @@ export const findNodesByType = (node: Node, type: NodeType, descend = true) => {
 export const findNodeByType = (node: Node, type: NodeType, descend = true) => {
   return findNodesByType(node, type, descend)[0]
 }
+
 export const updateNodeID = (node: ManuscriptNode) => {
   if (node.attrs.id) {
     //@ts-ignore
