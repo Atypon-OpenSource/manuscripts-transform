@@ -24,7 +24,7 @@ import {
 import mime from 'mime'
 import { DOMParser, Fragment, ParseRule } from 'prosemirror-model'
 
-import { getTrimmedTextContent } from '../../lib/utils'
+import { dateToTimestamp, getTrimmedTextContent } from '../../lib/utils'
 import {
   BibliographyItemAttrs,
   ContributorCorresp,
@@ -85,6 +85,51 @@ const getEquationContent = (p: string | HTMLElement) => {
     }
   }
   return { id, format, contents }
+}
+
+const parseDates = (historyNode: Element | null) => {
+  if (!historyNode) {
+    return undefined
+  }
+  const history: {
+    acceptanceDate?: number
+    correctionDate?: number
+    retractionDate?: number
+    revisionRequestDate?: number
+    revisionReceiveDate?: number
+    receiveDate?: number
+  } = {}
+
+  for (const date of historyNode.children) {
+    const dateType = date.getAttribute('date-type')
+    switch (dateType) {
+      case 'received': {
+        history.receiveDate = dateToTimestamp(date)
+        break
+      }
+      case 'rev-recd': {
+        history.revisionReceiveDate = dateToTimestamp(date)
+        break
+      }
+      case 'accepted': {
+        history.acceptanceDate = dateToTimestamp(date)
+        break
+      }
+      case 'rev-request': {
+        history.revisionRequestDate = dateToTimestamp(date)
+        break
+      }
+      case 'retracted': {
+        history.retractionDate = dateToTimestamp(date)
+        break
+      }
+      case 'corrected': {
+        history.correctionDate = dateToTimestamp(date)
+        break
+      }
+    }
+  }
+  return history
 }
 
 const getEmail = (element: HTMLElement) => {
@@ -282,10 +327,13 @@ const nodes: NodeRule[] = [
       const doi = element.querySelector(
         'front > article-meta > article-id[pub-id-type="doi"]'
       )
+      const history = element.querySelector('history')
+      const dates = parseDates(history)
       return {
         doi: doi?.textContent,
         articleType: element.getAttribute('article-type') ?? '',
         primaryLanguageCode: element.getAttribute('lang') ?? '',
+        ...dates,
       }
     },
   },
@@ -482,6 +530,10 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'back',
+    ignore: true,
+  },
+  {
+    tag: 'history',
     ignore: true,
   },
   {
@@ -863,7 +915,11 @@ const nodes: NodeRule[] = [
     node: 'section',
     getAttrs: (node) => {
       const element = node as HTMLElement
-
+      const grandParentNodeName =
+        element.parentNode?.parentNode?.nodeName.toLowerCase()
+      if (grandParentNodeName && grandParentNodeName !== 'body') {
+        element.setAttribute('sec-type', 'subsection')
+      }
       return {
         id: element.getAttribute('id'),
         category: chooseSectionCategory(element),

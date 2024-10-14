@@ -64,6 +64,7 @@ export type SectionCategory =
   | 'MPSectionCategory:supported-by'
   | 'MPSectionCategory:ethics-statement'
   | 'MPSectionCategory:box-element'
+  | 'MPSectionCategory:subsection'
 
 export type SecType =
   | 'abstract'
@@ -96,6 +97,7 @@ export type SecType =
   | 'supported-by'
   | 'ethics-statement'
   | 'box-element'
+  | 'subsection'
 
 export const chooseSectionNodeType = (
   category?: SectionCategory
@@ -318,6 +320,8 @@ export const chooseSectionCategoryByType = (
       return 'MPSectionCategory:ethics-statement'
     case 'box-element':
       return 'MPSectionCategory:box-element'
+    case 'subsection':
+      return 'MPSectionCategory:subsection'
     default:
       return undefined
   }
