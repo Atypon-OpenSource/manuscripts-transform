@@ -42,6 +42,7 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.inline_footnote, 'Footnote Reference'],
   [schema.nodes.footnote, 'Footnote'],
   [schema.nodes.footnotes_element, 'Notes'],
+  [schema.nodes.footnotes_section, 'Footnotes Section'],
   [schema.nodes.list, 'List'],
   [schema.nodes.list_item, 'List Item'],
   [schema.nodes.manuscript, 'Manuscript'],
