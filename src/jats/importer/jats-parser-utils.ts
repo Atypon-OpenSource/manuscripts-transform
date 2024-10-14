@@ -258,5 +258,5 @@ export const htmlFromJatsNode = (
   // Interesting fact: template has special semantics that are not same as regular element's
   // In this case unlike normal div, template's HTML has to be accessed via content
   renameJatsNodesToHTML(element, temp, createElement)
-  return temp.innerHTML
+  return temp.innerHTML?.trim()
 }

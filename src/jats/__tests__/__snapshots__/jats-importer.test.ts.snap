@@ -17419,8 +17419,7 @@ Object {
             "id": "MPSupplement:test",
             "mimeSubType": "vnd.openxmlformats-officedocument.wordprocessingml.document",
             "mimeType": "application",
-            "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)
-          ",
+            "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
           },
           "type": "supplement",
         },
@@ -36682,8 +36681,7 @@ Object {
     "id": "MPSupplement:test",
     "mimeSubType": "vnd.openxmlformats-officedocument.wordprocessingml.document",
     "mimeType": "application",
-    "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)
-          ",
+    "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
   },
   "type": "supplement",
 }
