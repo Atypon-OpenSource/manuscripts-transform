@@ -22,7 +22,7 @@ interface Attrs {
   id: string
 }
 
-export interface GeneralTableFootnote extends ManuscriptNode {
+export interface GeneralTableFootnoteNode extends ManuscriptNode {
   attrs: Attrs
 }
 
@@ -35,3 +35,8 @@ export const generalTableFootnote: NodeSpec = {
   group: 'block',
   toDOM: () => ['div', { class: 'general-table-footnote' }, 0],
 }
+
+export const isGeneralTableFootnoteNode = (
+  node: ManuscriptNode
+): node is GeneralTableFootnoteNode =>
+  node.type === node.type.schema.nodes.general_table_footnote

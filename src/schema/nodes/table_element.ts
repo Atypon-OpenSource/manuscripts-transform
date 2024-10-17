@@ -61,3 +61,8 @@ export const tableElement: NodeSpec = {
     ]
   },
 }
+
+export const isTableElementNode = (
+  node: ManuscriptNode
+): node is TableElementNode =>
+  node.type === node.type.schema.nodes.table_element

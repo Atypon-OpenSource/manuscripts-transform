@@ -35,3 +35,8 @@ export const tableElementFooter: NodeSpec = {
   group: 'block element',
   toDOM: () => ['table-wrap-foot', 0],
 }
+
+export const isTableElementFooter = (
+  node: ManuscriptNode
+): node is TableElementFooterNode =>
+  node.type === node.type.schema.nodes.table_element_footer
