@@ -24389,7 +24389,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "1",
                     "dataTracked": null,
                     "rids": Array [
                       "MPFootnote:test",
@@ -24408,7 +24407,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "2",
                     "dataTracked": null,
                     "rids": Array [
                       "MPFootnote:test",
@@ -24422,7 +24420,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "3",
                     "dataTracked": null,
                     "rids": Array [
                       "MPFootnote:test",
@@ -24450,7 +24447,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "4",
                     "dataTracked": null,
                     "rids": Array [
                       "MPFootnote:test",
@@ -24813,7 +24809,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "5",
                     "dataTracked": null,
                     "rids": Array [
                       "MPFootnote:test",
@@ -24842,7 +24837,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "6",
                     "dataTracked": null,
                     "rids": Array [
                       "MPFootnote:test",
@@ -24866,7 +24860,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "7",
                     "dataTracked": null,
                     "rids": Array [
                       "MPFootnote:test",
@@ -24940,7 +24933,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "8",
                     "dataTracked": null,
                     "rids": Array [
                       "MPFootnote:test",
@@ -24959,7 +24951,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "9",
                     "dataTracked": null,
                     "rids": Array [
                       "MPFootnote:test",
@@ -24983,7 +24974,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "10",
                     "dataTracked": null,
                     "rids": Array [
                       "MPFootnote:test",
@@ -25070,7 +25060,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "11",
                     "dataTracked": null,
                     "rids": Array [
                       "MPFootnote:test",
@@ -25946,7 +25935,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "12",
                         "dataTracked": null,
                         "rids": Array [
                           "MPFootnote:test",
@@ -26053,7 +26041,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "13",
                         "dataTracked": null,
                         "rids": Array [
                           "MPFootnote:test",
@@ -26077,7 +26064,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "14",
                         "dataTracked": null,
                         "rids": Array [
                           "MPFootnote:test",
@@ -26115,7 +26101,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "15",
                         "dataTracked": null,
                         "rids": Array [
                           "MPFootnote:test",
@@ -29431,7 +29416,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "16",
                     "dataTracked": null,
                     "rids": Array [
                       "MPFootnote:test",
@@ -29627,7 +29611,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contents": "17",
                     "dataTracked": null,
                     "rids": Array [
                       "MPFootnote:test",
@@ -31325,7 +31308,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "18",
                         "dataTracked": null,
                         "rids": Array [
                           "MPFootnote:test",
@@ -32167,7 +32149,6 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contents": "19",
                         "dataTracked": null,
                         "rids": Array [
                           "MPFootnote:test",
