@@ -19,6 +19,7 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
+  id: string
   rids: string[]
 }
 
@@ -28,6 +29,7 @@ export interface InlineFootnoteNode extends ManuscriptNode {
 
 export const inlineFootnote: NodeSpec = {
   attrs: {
+    id: { default: '' },
     rids: { default: [] },
     dataTracked: { default: null },
   },
@@ -41,6 +43,7 @@ export const inlineFootnote: NodeSpec = {
       getAttrs: (p) => {
         const dom = p as HTMLSpanElement
         return {
+          id: dom.id,
           rids: dom.getAttribute('data-reference-id')?.split(/\s+/) || [],
         }
       },
@@ -49,6 +52,7 @@ export const inlineFootnote: NodeSpec = {
   toDOM: (node) => {
     const footnoteNode = node as InlineFootnoteNode
     const dom = document.createElement('span')
+    dom.id = footnoteNode.attrs.id
     dom.className = 'footnote-marker'
     dom.setAttribute('data-reference-id', footnoteNode.attrs.rids.join(' '))
 

@@ -134,14 +134,14 @@ exports[`JATS importer awards should correctly parse award nodes 1`] = `
 Object {
   "attrs": Object {
     "dataTracked": null,
-    "id": "Awards:test",
+    "id": "MPAwards:test",
   },
   "content": Array [
     Object {
       "attrs": Object {
         "code": "GM18458",
         "dataTracked": null,
-        "id": "Award:test",
+        "id": "MPAward:test",
         "recipient": "Berkeley",
         "source": "National Institutes of Health",
       },
@@ -151,7 +151,7 @@ Object {
       "attrs": Object {
         "code": "DMS-0204674;DMS-0244638",
         "dataTracked": null,
-        "id": "Award:test",
+        "id": "MPAward:test",
         "recipient": undefined,
         "source": "National Science Foundation",
       },
@@ -2384,7 +2384,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "Comments:test",
+        "id": "MPComments:test",
       },
       "content": Array [
         Object {
@@ -3269,7 +3269,7 @@ Object {
                     "contents": "2+3=5",
                     "dataTracked": null,
                     "format": "tex",
-                    "id": "InlineEquation:test",
+                    "id": "MPInlineEquation:test",
                   },
                   "type": "inline_equation",
                 },
@@ -3832,7 +3832,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "Comments:test",
+        "id": "MPComments:test",
       },
       "type": "comments",
     },
@@ -8872,7 +8872,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "GeneralTableFootnote:test",
+                            "id": "MPGeneralTableFootnote:test",
                           },
                           "content": Array [
                             Object {
@@ -11380,7 +11380,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "GeneralTableFootnote:test",
+                            "id": "MPGeneralTableFootnote:test",
                           },
                           "content": Array [
                             Object {
@@ -13768,7 +13768,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "GeneralTableFootnote:test",
+                            "id": "MPGeneralTableFootnote:test",
                           },
                           "content": Array [
                             Object {
@@ -16849,7 +16849,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "Comments:test",
+        "id": "MPComments:test",
       },
       "content": Array [
         Object {
@@ -17397,7 +17397,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "Supplements:test",
+        "id": "MPSupplements:test",
       },
       "content": Array [
         Object {
@@ -21094,7 +21094,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "GeneralTableFootnote:test",
+                        "id": "MPGeneralTableFootnote:test",
                       },
                       "content": Array [
                         Object {
@@ -23280,7 +23280,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "GeneralTableFootnote:test",
+                            "id": "MPGeneralTableFootnote:test",
                           },
                           "content": Array [
                             Object {
@@ -23963,7 +23963,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "Comments:test",
+        "id": "MPComments:test",
       },
       "content": Array [
         Object {
@@ -24390,6 +24390,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPInlineFootnote:test",
                     "rids": Array [
                       "MPFootnote:test",
                     ],
@@ -24408,6 +24409,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPInlineFootnote:test",
                     "rids": Array [
                       "MPFootnote:test",
                     ],
@@ -24421,6 +24423,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPInlineFootnote:test",
                     "rids": Array [
                       "MPFootnote:test",
                     ],
@@ -24448,6 +24451,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPInlineFootnote:test",
                     "rids": Array [
                       "MPFootnote:test",
                     ],
@@ -24810,6 +24814,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPInlineFootnote:test",
                     "rids": Array [
                       "MPFootnote:test",
                     ],
@@ -24838,6 +24843,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPInlineFootnote:test",
                     "rids": Array [
                       "MPFootnote:test",
                     ],
@@ -24861,6 +24867,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPInlineFootnote:test",
                     "rids": Array [
                       "MPFootnote:test",
                     ],
@@ -24934,6 +24941,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPInlineFootnote:test",
                     "rids": Array [
                       "MPFootnote:test",
                     ],
@@ -24952,6 +24960,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPInlineFootnote:test",
                     "rids": Array [
                       "MPFootnote:test",
                     ],
@@ -24975,6 +24984,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPInlineFootnote:test",
                     "rids": Array [
                       "MPFootnote:test",
                     ],
@@ -25061,6 +25071,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPInlineFootnote:test",
                     "rids": Array [
                       "MPFootnote:test",
                     ],
@@ -25313,7 +25324,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "InlineEquation:test",
+                        "id": "MPInlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -25520,7 +25531,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "InlineEquation:test",
+                        "id": "MPInlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -25560,7 +25571,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "InlineEquation:test",
+                        "id": "MPInlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -25620,7 +25631,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "InlineEquation:test",
+                        "id": "MPInlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -25640,7 +25651,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "InlineEquation:test",
+                        "id": "MPInlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -25660,7 +25671,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "InlineEquation:test",
+                        "id": "MPInlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -25680,7 +25691,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "InlineEquation:test",
+                        "id": "MPInlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -25700,7 +25711,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "InlineEquation:test",
+                        "id": "MPInlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -25720,7 +25731,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "InlineEquation:test",
+                        "id": "MPInlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -25832,7 +25843,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "InlineEquation:test",
+                        "id": "MPInlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -25866,7 +25877,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "InlineEquation:test",
+                        "id": "MPInlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -25899,7 +25910,7 @@ Object {
         </mml:math>",
                         "dataTracked": null,
                         "format": "mathml",
-                        "id": "InlineEquation:test",
+                        "id": "MPInlineEquation:test",
                       },
                       "type": "inline_equation",
                     },
@@ -25936,6 +25947,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "id": "MPInlineFootnote:test",
                         "rids": Array [
                           "MPFootnote:test",
                         ],
@@ -26042,6 +26054,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "id": "MPInlineFootnote:test",
                         "rids": Array [
                           "MPFootnote:test",
                         ],
@@ -26065,6 +26078,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "id": "MPInlineFootnote:test",
                         "rids": Array [
                           "MPFootnote:test",
                         ],
@@ -26102,6 +26116,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "id": "MPInlineFootnote:test",
                         "rids": Array [
                           "MPFootnote:test",
                         ],
@@ -28865,7 +28880,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "GeneralTableFootnote:test",
+                            "id": "MPGeneralTableFootnote:test",
                           },
                           "content": Array [
                             Object {
@@ -28918,7 +28933,7 @@ Object {
           </mml:math>",
                                     "dataTracked": null,
                                     "format": "mathml",
-                                    "id": "InlineEquation:test",
+                                    "id": "MPInlineEquation:test",
                                   },
                                   "type": "inline_equation",
                                 },
@@ -28969,7 +28984,7 @@ Object {
           </mml:math>",
                                     "dataTracked": null,
                                     "format": "mathml",
-                                    "id": "InlineEquation:test",
+                                    "id": "MPInlineEquation:test",
                                   },
                                   "type": "inline_equation",
                                 },
@@ -28989,7 +29004,7 @@ Object {
           </mml:math>",
                                     "dataTracked": null,
                                     "format": "mathml",
-                                    "id": "InlineEquation:test",
+                                    "id": "MPInlineEquation:test",
                                   },
                                   "type": "inline_equation",
                                 },
@@ -29082,7 +29097,7 @@ Object {
           </mml:math>",
                                     "dataTracked": null,
                                     "format": "mathml",
-                                    "id": "InlineEquation:test",
+                                    "id": "MPInlineEquation:test",
                                   },
                                   "type": "inline_equation",
                                 },
@@ -29103,7 +29118,7 @@ Object {
           </mml:math>",
                                     "dataTracked": null,
                                     "format": "mathml",
-                                    "id": "InlineEquation:test",
+                                    "id": "MPInlineEquation:test",
                                   },
                                   "type": "inline_equation",
                                 },
@@ -29417,6 +29432,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPInlineFootnote:test",
                     "rids": Array [
                       "MPFootnote:test",
                     ],
@@ -29581,7 +29597,7 @@ Object {
       </mml:math>",
                     "dataTracked": null,
                     "format": "mathml",
-                    "id": "InlineEquation:test",
+                    "id": "MPInlineEquation:test",
                   },
                   "type": "inline_equation",
                 },
@@ -29601,7 +29617,7 @@ Object {
       </mml:math>",
                     "dataTracked": null,
                     "format": "mathml",
-                    "id": "InlineEquation:test",
+                    "id": "MPInlineEquation:test",
                   },
                   "type": "inline_equation",
                 },
@@ -29612,6 +29628,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPInlineFootnote:test",
                     "rids": Array [
                       "MPFootnote:test",
                     ],
@@ -29839,7 +29856,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "InlineEquation:test",
+                                "id": "MPInlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -29860,7 +29877,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "InlineEquation:test",
+                                "id": "MPInlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -29921,7 +29938,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "InlineEquation:test",
+                                "id": "MPInlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -30325,7 +30342,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "InlineEquation:test",
+                                "id": "MPInlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -30346,7 +30363,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "InlineEquation:test",
+                                "id": "MPInlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -30407,7 +30424,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "InlineEquation:test",
+                                "id": "MPInlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -30874,7 +30891,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "InlineEquation:test",
+                                "id": "MPInlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -30895,7 +30912,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "InlineEquation:test",
+                                "id": "MPInlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -30956,7 +30973,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "InlineEquation:test",
+                                "id": "MPInlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -31309,6 +31326,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "id": "MPInlineFootnote:test",
                         "rids": Array [
                           "MPFootnote:test",
                         ],
@@ -31488,7 +31506,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "InlineEquation:test",
+                                "id": "MPInlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -31862,7 +31880,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "InlineEquation:test",
+                                "id": "MPInlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -32150,6 +32168,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "id": "MPInlineFootnote:test",
                         "rids": Array [
                           "MPFootnote:test",
                         ],
@@ -32329,7 +32348,7 @@ Object {
         </mml:math>",
                                 "dataTracked": null,
                                 "format": "mathml",
-                                "id": "InlineEquation:test",
+                                "id": "MPInlineEquation:test",
                               },
                               "type": "inline_equation",
                             },
@@ -32740,7 +32759,7 @@ Object {
       </mml:math>",
                             "dataTracked": null,
                             "format": "mathml",
-                            "id": "InlineEquation:test",
+                            "id": "MPInlineEquation:test",
                           },
                           "type": "inline_equation",
                         },
@@ -34967,7 +34986,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "GeneralTableFootnote:test",
+                        "id": "MPGeneralTableFootnote:test",
                       },
                       "content": Array [
                         Object {
@@ -36606,7 +36625,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "Comments:test",
+        "id": "MPComments:test",
       },
       "content": Array [
         Object {
