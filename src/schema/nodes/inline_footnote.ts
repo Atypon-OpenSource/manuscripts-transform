@@ -28,7 +28,6 @@ export interface InlineFootnoteNode extends ManuscriptNode {
 }
 
 export const inlineFootnote: NodeSpec = {
-  name: 'Footnote marker',
   attrs: {
     rids: { default: [] },
     contents: { default: '' },
