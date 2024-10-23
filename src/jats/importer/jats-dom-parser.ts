@@ -137,7 +137,7 @@ const getEmail = (element: HTMLElement) => {
   if (email) {
     return {
       href: email.getAttributeNS(XLINK_NAMESPACE, 'href') ?? '',
-      text: email.textContent?.trim() ?? '',
+      text: getTrimmedTextContent(email) ?? '',
     }
   }
 }
@@ -145,7 +145,7 @@ const getInstitutionDetails = (element: HTMLElement) => {
   let department = ''
   let institution = ''
   for (const node of element.querySelectorAll('institution')) {
-    const content = node.textContent?.trim()
+    const content = getTrimmedTextContent(node)
     if (!content) {
       continue
     }
@@ -203,7 +203,7 @@ const parseRef = (element: Element) => {
         item.nodeType === Node.TEXT_NODE &&
         item.textContent?.match(/[A-Za-z]+/g)
       ) {
-        attrs.literal = mixedCitation.textContent?.trim() ?? ''
+        attrs.literal = getTrimmedTextContent(mixedCitation) ?? ''
         return attrs
       }
     })
@@ -261,7 +261,7 @@ const parseRef = (element: Element) => {
     }
 
     if (authorNode.nodeName === 'collab') {
-      name.literal = authorNode.textContent?.trim()
+      name.literal = getTrimmedTextContent(authorNode)
     }
     authors.push(name)
   })
@@ -330,7 +330,7 @@ const nodes: NodeRule[] = [
       const history = element.querySelector('history')
       const dates = parseDates(history)
       return {
-        doi: doi?.textContent,
+        doi: getTrimmedTextContent(doi),
         articleType: element.getAttribute('article-type') ?? '',
         primaryLanguageCode: element.getAttribute('lang') ?? '',
         ...dates,
@@ -367,7 +367,7 @@ const nodes: NodeRule[] = [
       return {
         id: element.getAttribute('id'),
         target: element.getAttribute('target-id'),
-        contents: element.textContent,
+        contents: getTrimmedTextContent(element),
         contributions: [buildContribution(DEFAULT_PROFILE_ID)],
       }
     },
@@ -393,12 +393,11 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
       return {
         id: element.getAttribute('id'),
-        recipient: element.querySelector('principal-award-recipient')
-          ?.textContent,
+        recipient: getTrimmedTextContent(element, 'principal-award-recipient'),
         code: Array.from(element.querySelectorAll('award-id'))
-          .map((awardID) => awardID.textContent)
+          .map((awardID) => getTrimmedTextContent(awardID))
           .reduce((acc, text) => (acc ? `${acc};${text}` : text), ''),
-        source: element.querySelector('funding-source')?.textContent,
+        source: getTrimmedTextContent(element, 'funding-source'),
       }
     },
   },
@@ -425,12 +424,12 @@ const nodes: NodeRule[] = [
       }
       return {
         id: element.getAttribute('id'),
-        label: label?.textContent?.trim(),
+        label: getTrimmedTextContent(label),
       }
     },
     getContent: (node) => {
       const element = node as HTMLElement
-      return Fragment.from(schema.text(element.textContent?.trim() || ''))
+      return Fragment.from(schema.text(getTrimmedTextContent(element) || ''))
     },
   },
   {
@@ -453,13 +452,13 @@ const nodes: NodeRule[] = [
           case 'fn':
             footnote.push({
               noteID: rid,
-              noteLabel: xref.textContent?.trim() || '',
+              noteLabel: getTrimmedTextContent(xref) || '',
             })
             break
           case 'corresp':
             corresp.push({
               correspID: rid,
-              correspLabel: xref.textContent?.trim() || '',
+              correspLabel: getTrimmedTextContent(xref) || '',
             })
             break
           case 'aff':
@@ -591,14 +590,13 @@ const nodes: NodeRule[] = [
     tag: 'code',
     node: 'listing',
     context: 'listing_element/',
-    // preserveWhitespace: 'full',
     getAttrs: (node) => {
       const element = node as HTMLElement
 
       return {
         id: element.getAttribute('id'),
         language: element.getAttribute('language') ?? '',
-        contents: element.textContent?.trim() ?? '',
+        contents: getTrimmedTextContent(element),
       }
     },
   },
@@ -617,7 +615,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
       return {
         id: element.getAttribute('id'),
-        label: element.querySelector('label')?.textContent ?? '',
+        label: getTrimmedTextContent(element, 'label') ?? '',
       }
     },
     getContent: (node, schema) => {
@@ -729,13 +727,13 @@ const nodes: NodeRule[] = [
 
       const attribution = attrib
         ? {
-            literal: attrib.textContent?.trim() ?? '',
+            literal: getTrimmedTextContent(attrib) ?? '',
           }
         : undefined
 
       return {
         id: element.getAttribute('id'),
-        label: labelNode?.textContent?.trim() ?? '',
+        label: getTrimmedTextContent(labelNode) ?? '',
         attribution: attribution,
         position,
       }
@@ -867,7 +865,7 @@ const nodes: NodeRule[] = [
         href: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
         mimeType: element.getAttribute('mimetype'),
         mimeSubType: element.getAttribute('mime-subtype'),
-        title: element.querySelector('title')?.textContent,
+        title: getTrimmedTextContent(element, 'title'),
       }
     },
   },
@@ -891,7 +889,7 @@ const nodes: NodeRule[] = [
 
       return {
         id: element.getAttribute('id'),
-        label: element.querySelector('label')?.textContent,
+        label: getTrimmedTextContent(element, 'label'),
       }
     },
   },
@@ -1066,7 +1064,7 @@ const nodes: NodeRule[] = [
       const element = node as HTMLElement
       return {
         rids: element.getAttribute('rid')?.split(/\s+/) || [],
-        contents: element.textContent?.trim(), // TODO: innerHTML?
+        contents: getTrimmedTextContent(element),
       }
     },
   },
@@ -1088,7 +1086,7 @@ const nodes: NodeRule[] = [
 
       return {
         rids: element.getAttribute('rid')?.split(/\s+/) || [],
-        label: element.textContent?.trim(),
+        label: getTrimmedTextContent(element),
       }
     },
   },
