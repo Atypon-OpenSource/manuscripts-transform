@@ -1073,10 +1073,8 @@ const nodes: NodeRule[] = [
     node: 'inline_footnote',
     getAttrs: (node) => {
       const element = node as HTMLElement
-
       return {
         rids: element.getAttribute('rid')?.split(/\s+/) || [],
-        contents: getTrimmedTextContent(element),
       }
     },
   },
