@@ -28,14 +28,14 @@ export interface TableElementNode extends ManuscriptNode {
 
 export const tableElement: NodeSpec = {
   content:
-    ' figcaption? (table | placeholder) table_colgroup? table_element_footer? (listing | placeholder)',
+    ' figcaption? (table | placeholder) table_colgroup? table_element_footer? (listing? | placeholder)',
   attrs: {
     id: { default: '' },
     label: { default: '' },
     dataTracked: { default: null },
   },
   selectable: false,
-  group: 'block element executable',
+  group: 'block element',
   parseDOM: [
     {
       tag: 'figure.table',
