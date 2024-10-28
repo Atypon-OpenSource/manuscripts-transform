@@ -78,7 +78,7 @@ export class JATSDOMParser {
     if (this.isSubsection(section)) {
       return this.sectionCategories.find((category) =>
         category.synonyms.includes('subsection')
-      )?.id
+      )?._id
     }
 
     const secType = section.getAttribute('sec-type')
@@ -86,7 +86,7 @@ export class JATSDOMParser {
 
     for (const category of this.sectionCategories) {
       if (this.isMatchingCategory(secType, titleNode, category)) {
-        return category.id
+        return category._id
       }
     }
   }

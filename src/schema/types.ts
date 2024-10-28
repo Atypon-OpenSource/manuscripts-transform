@@ -150,13 +150,22 @@ export type DataTrackedAttrs = {
 }
 
 export type SectionCategory = {
-  id: string
+  _id: string
   name: string
   synonyms: string[]
   isEditable: boolean
   isDisabled?: boolean
   titles?: string[]
   groupIDs?: string[]
+}
+
+export type ManuscriptTemplate = {
+  _id: string
+  bundle: string
+  title: string
+  createdAt: number
+  updatedAt: number
+  sectionCategories: SectionCategory[]
 }
 
 export type MarkRule = ParseRule & { mark: Marks | null }
