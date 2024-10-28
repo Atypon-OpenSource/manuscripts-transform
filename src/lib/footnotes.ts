@@ -37,11 +37,13 @@ export const generateFootnoteLabels = (doc: ManuscriptNode) => {
 
 export const footnoteLabelGenerator = (parent: ManuscriptNode) => {
   if (isTableElementFooter(parent)) {
-    return (index: number) => String(index)
+    return generateNumericFootnoteLabel
   } else {
     return generateAlphaFootnoteLabel
   }
 }
+
+export const generateNumericFootnoteLabel = (index: number) => String(index + 1)
 
 export const generateAlphaFootnoteLabel = (index: number) => {
   const unicodeInterval = [97, 123]
