@@ -50,12 +50,7 @@ import {
   TableElementNode,
 } from '../../schema'
 import { AwardNode } from '../../schema/nodes/award'
-import {
-  chooseJatsFnType,
-  chooseSecType,
-  isExecutableNodeType,
-  isNodeType,
-} from '../../transformer'
+import { isExecutableNodeType, isNodeType } from '../../transformer'
 import { IDGenerator } from '../types'
 import { selectVersionIds, Version } from './jats-versions'
 import { buildTargets, Target } from './labels'
@@ -1106,7 +1101,8 @@ export class JATSExporter {
         }
 
         if (node.attrs.category) {
-          attrs['sec-type'] = chooseSecType(node.attrs.category)
+          const [, suffix] = node.attrs.category.split(':', 2)
+          attrs['sec-type'] = suffix
         }
 
         return ['sec', attrs, 0]
@@ -1951,7 +1947,7 @@ export class JATSExporter {
       back.insertBefore(availabilitySection, back.firstChild)
     }
 
-    const section = body.querySelector('sec[sec-type="acknowledgments"]')
+    const section = body.querySelector('sec[sec-type="acknowledgements"]')
 
     if (section) {
       const ack = this.document.createElement('ack')
@@ -2118,7 +2114,10 @@ export class JATSExporter {
     footnotes.forEach((fn) => {
       const fnType = fn.getAttribute('fn-type')
       if (fnType) {
-        fn.setAttribute('fn-type', chooseJatsFnType(fnType))
+        fn.setAttribute(
+          'fn-type',
+          fnType === 'competing-interests' ? 'coi-statement' : fnType
+        )
       }
     })
   }

@@ -21,7 +21,7 @@ import {
   bodyType,
   SectionGroupType,
 } from '../../lib/section-group-type'
-import { chooseSectionCategoryByType, chooseSecType } from '../../transformer'
+import { SectionCategory } from '../../schema'
 import { htmlFromJatsNode } from './jats-parser-utils'
 
 export type CreateElement = (tagName: string) => HTMLElement
@@ -192,12 +192,13 @@ export const createAbstracts = (
 export const createBackmatter = (
   doc: Document,
   body: Element,
+  sectionCategories: SectionCategory[],
   createElement: CreateElement
 ) => {
   const group = createSectionGroup(backmatterType, createElement)
   moveBackSections(doc, group)
   moveAppendices(doc, group, createElement)
-  moveSpecialFootnotes(doc, group, createElement)
+  moveSpecialFootnotes(doc, group, sectionCategories, createElement)
   moveFootnotes(doc, group, createElement)
   moveAcknowledgments(doc, group, createElement)
   body.append(group)
@@ -234,12 +235,15 @@ const moveFootnotes = (
 const moveSpecialFootnotes = (
   doc: Document,
   group: Element,
+  sectionCategories: SectionCategory[],
   createElement: CreateElement
 ) => {
   const fns = [...doc.querySelectorAll('fn[fn-type]')]
   for (const fn of fns) {
     const type = fn.getAttribute('fn-type') || '' //Cannot be null since it is queried above
-    const category = chooseSectionCategoryByType(type)
+    const category = sectionCategories.find((category) =>
+      category.synonyms.includes(type)
+    )
     if (category) {
       const section = createElement('sec')
       const fnTitle = fn.querySelector('p[content-type="fn-title"]')
@@ -254,13 +258,12 @@ const moveSpecialFootnotes = (
       }
       section.append(...fn.children)
       removeNodeFromParent(fn)
-
-      section.setAttribute('sec-type', chooseSecType(category))
+      const [, suffix] = category.id.split(':', 2)
+      section.setAttribute('sec-type', suffix)
       group.append(section)
     }
   }
 }
-
 // move captions to the end of their containers
 export const moveCaptionsToEnd = (body: Element) => {
   const captions = body.querySelectorAll('caption')

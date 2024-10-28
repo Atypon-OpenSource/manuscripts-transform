@@ -21,7 +21,7 @@ import { JATSExporter } from '../exporter/jats-exporter'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { DEFAULT_CSL_OPTIONS } from './citations'
 import { readFixture } from './files'
-
+import sectionCategories from './section-categories.json'
 const parseXMLWithDTD = (data: string) =>
   parseXml(data, {
     dtdload: true,
@@ -33,7 +33,7 @@ const roundtrip = async (filename: string) => {
   const input = await readFixture(filename)
   const doc = new DOMParser().parseFromString(input, 'application/xml')
 
-  const { node, journal } = parseJATSArticle(doc)
+  const { node, journal } = parseJATSArticle(doc, sectionCategories)
 
   const exporter = new JATSExporter()
   return await exporter.serializeToJATS(node, {

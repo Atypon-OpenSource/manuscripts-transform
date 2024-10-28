@@ -21,6 +21,7 @@ import {
   Node as ProsemirrorNode,
   NodeSpec,
   NodeType,
+  ParseRule,
   ResolvedPos,
   Schema,
   Slice,
@@ -147,3 +148,17 @@ export type DataTrackedAttrs = {
   userID: string
   createdAt: number
 }
+
+export type SectionCategory = {
+  id: string
+  name: string
+  synonyms: string[]
+  isEditable: boolean
+  isDisabled?: boolean
+  titles?: string[]
+  groupIDs?: string[]
+}
+
+export type MarkRule = ParseRule & { mark: Marks | null }
+
+export type NodeRule = ParseRule & { node?: Nodes | null }

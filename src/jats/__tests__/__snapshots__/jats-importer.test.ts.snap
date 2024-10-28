@@ -931,7 +931,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:introduction",
+            "category": "MPSectionCategory:intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -1284,7 +1284,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:materials-method",
+            "category": "MPSectionCategory:methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -2197,7 +2197,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:acknowledgement",
+            "category": "MPSectionCategory:acknowledgements",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4410,7 +4410,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:introduction",
+            "category": "MPSectionCategory:intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4675,7 +4675,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:materials-method",
+            "category": "MPSectionCategory:methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -15290,7 +15290,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:con",
+            "category": "MPSectionCategory:author-contributions",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -17633,7 +17633,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:introduction",
+            "category": "MPSectionCategory:intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -17942,7 +17942,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:materials-method",
+            "category": "MPSectionCategory:methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -23912,7 +23912,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:acknowledgement",
+            "category": "MPSectionCategory:acknowledgements",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -24332,7 +24332,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:introduction",
+            "category": "MPSectionCategory:intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -29302,7 +29302,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:materials-method",
+            "category": "MPSectionCategory:methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
