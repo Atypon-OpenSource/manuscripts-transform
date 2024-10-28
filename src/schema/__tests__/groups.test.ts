@@ -39,6 +39,7 @@ const elementNodeTypes: ManuscriptNodeType[] = [
 
 const executableNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.figure_element,
+  schema.nodes.table_element,
 ]
 
 describe('groups', () => {
