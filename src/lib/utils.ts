@@ -89,12 +89,14 @@ export const findParentNodeClosestToPos = (
 
 export const getTrimmedTextContent = (
   node: Element | Document | null,
-  querySelector: string
+  selector?: string
 ) => {
   if (!node) {
-    return null
+    return undefined
   }
-  return node.querySelector(querySelector)?.textContent?.trim()
+  return selector
+    ? node.querySelector(selector)?.textContent?.trim()
+    : node.textContent?.trim()
 }
 
 export const dateToTimestamp = (dateElement: Element) => {
