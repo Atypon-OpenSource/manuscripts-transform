@@ -163,8 +163,6 @@ export type ManuscriptTemplate = {
   _id: string
   bundle: string
   title: string
-  createdAt: number
-  updatedAt: number
   sectionCategories: SectionCategory[]
 }
 
