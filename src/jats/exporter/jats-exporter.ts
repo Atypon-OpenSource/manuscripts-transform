@@ -569,7 +569,7 @@ export class JATSExporter {
     const lookup = {
       year: date.getUTCFullYear().toString(),
       month: (date.getMonth() + 1).toString().padStart(2, '0'),
-      day: date.getUTCDate().toString(),
+      day: date.getUTCDate().toString().padStart(2, '0'),
     }
 
     for (const [key, value] of Object.entries(lookup).reverse()) {
