@@ -19,8 +19,8 @@ import { findChildrenByType } from 'prosemirror-utils'
 
 import { ManuscriptNode, schema } from '../../schema'
 import { parseJATSArticle } from '../importer/parse-jats-article'
+import { sectionCategories } from './data/sectionCategories'
 import { readAndParseFixture } from './files'
-import sectionCategories from './section-categories.json'
 export const createNodeFromJATS = async (fileName: string) => {
   const jats = await readAndParseFixture(fileName)
   return parseJATSArticle(jats, sectionCategories)

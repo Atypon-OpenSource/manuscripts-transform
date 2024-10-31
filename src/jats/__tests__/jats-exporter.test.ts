@@ -20,8 +20,8 @@ import { JATSExporter } from '../exporter/jats-exporter'
 import { Version } from '../exporter/jats-versions'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { DEFAULT_CSL_OPTIONS } from './citations'
+import { sectionCategories } from './data/sectionCategories'
 import { readAndParseFixture } from './files'
-import sectionCategories from './section-categories.json'
 
 const parseXMLWithDTD = (data: string) =>
   parseXml(data, {

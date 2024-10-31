@@ -16,8 +16,8 @@
 
 import { ContributorCorresp, ContributorFootnote, schema } from '../../schema'
 import { parseJATSArticle } from '../importer/parse-jats-article'
+import { sectionCategories } from './data/sectionCategories'
 import { readAndParseFixture } from './files'
-import sectionCategories from './section-categories.json'
 import {
   changeIDs,
   createNodeFromJATS,

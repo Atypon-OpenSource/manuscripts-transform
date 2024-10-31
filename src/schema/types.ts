@@ -149,16 +149,17 @@ export type DataTrackedAttrs = {
   createdAt: number
 }
 
+export enum SectionGroup {
+  Body = 'body',
+  Backmatter = 'backmatter',
+}
+
 export type SectionCategory = {
   id: string
   synonyms: string[]
   titles: [string, ...string[]]
   group: SectionGroup
-}
-
-export enum SectionGroup {
-  Body = 'body',
-  Backmatter = 'backmatter',
+  isUnique: boolean
 }
 
 export type ManuscriptTemplate = {
