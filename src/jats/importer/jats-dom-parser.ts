@@ -1087,7 +1087,6 @@ export class JATSDOMParser {
 
         return {
           rids: element.getAttribute('rid')?.split(/\s+/) || [],
-          contents: getTrimmedTextContent(element),
         }
       },
     },

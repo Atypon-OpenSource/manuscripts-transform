@@ -99,8 +99,6 @@ export const getTrimmedTextContent = (
     : node.textContent?.trim()
 }
 
-export const timestamp = () => Math.floor(Date.now() / 1000)
-
 export const dateToTimestamp = (dateElement: Element) => {
   const selectors = ['year', 'month', 'day']
   const values: Array<number> = []
@@ -113,5 +111,5 @@ export const dateToTimestamp = (dateElement: Element) => {
   }
 
   // timestamp stored in seconds in manuscript schema
-  return Date.UTC(values[0], values[1], values[2]) / 1000 // ms => s
+  return Date.UTC(values[0], values[1] - 1, values[2]) / 1000 // ms => s
 }

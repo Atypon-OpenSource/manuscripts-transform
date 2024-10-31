@@ -3,57 +3,43 @@
     "id": "abbreviations",
     "titles": ["Abbreviations"],
     "synonyms": ["list of abbreviations", "abbreviations"],
-    "isEditable": true
-  },
-  {
-    "id": "abstract",
-    "synonyms": ["abstract"],
-    "titles": ["Abstract"],
-    "groupIDs": ["abstracts"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "acknowledgements",
     "synonyms": ["acknowledgements", "acknowledgments"],
     "titles": ["Acknowledgements"],
-    "groupIDs": ["backmatter"],
-    "isEditable": true
-  },
-  {
-    "id": "affiliations",
-    "titles": ["Affiliations"],
-    "synonyms": [],
-    "isEditable": true
+    "group": "backmatter",
+    "isUnique": true
   },
   {
     "id": "appendices",
     "titles": ["Appendices"],
     "synonyms": ["appendices"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "author-contributions",
     "titles": ["Author contributions"],
     "synonyms": ["author contributions", "authorContributions"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "availability",
     "titles": ["Availability"],
     "synonyms": ["availability", "data-availability", "data availability"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "bibliography",
     "titles": ["Bibliography"],
     "synonyms": ["bibliography", "references"],
-    "isEditable": false
-  },
-  {
-    "id": "box-element",
-    "titles": ["Box Element"],
-    "synonyms": ["box-element"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "coi-statement",
@@ -65,188 +51,141 @@
       "competing interests"
     ],
     "titles": ["COI Statement", "Competing Interests"],
-    "isEditable": true,
-    "groupIDs": ["backmatter"]
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "con",
     "synonyms": ["con"],
     "titles": ["Contributed-by information"],
-    "groupIDs": ["backmatter"],
-    "isEditable": true
+    "group": "backmatter",
+    "isUnique": true
   },
   {
     "id": "conclusions",
     "synonyms": ["conclusions"],
     "titles": ["Conclusions"],
-    "groupIDs": ["body"],
-    "isEditable": true
-  },
-  {
-    "id": "contributors",
-    "titles": ["Contributors"],
-    "synonyms": [],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "deceased",
     "titles": ["Deceased"],
     "synonyms": ["deceased"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "discussion",
     "synonyms": ["discussion"],
     "titles": ["Discussion"],
-    "groupIDs": ["body"],
-    "isEditable": true
-  },
-  {
-    "id": "endnotes",
-    "titles": ["Endnotes"],
-    "synonyms": ["endnotes"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "equal",
     "titles": ["Equal"],
     "synonyms": ["equal"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "ethics-statement",
     "synonyms": ["ethics-statement"],
     "titles": ["Ethics Statement"],
     "groupIDs": ["backmatter"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "financial-disclosure",
     "synonyms": ["financial-disclosure", "funding information"],
     "titles": ["Financial Disclosure"],
-    "groupIDs": ["backmatter"],
-    "isEditable": true
-  },
-  {
-    "id": "abstract-graphical",
-    "synonyms": ["abstract-graphical"],
-    "titles": ["Graphical Abstract"],
-    "groupIDs": ["abstracts"],
-    "isEditable": true
+    "group": "backmatter",
+    "isUnique": true
   },
   {
     "id": "abstract-teaser",
     "titles": ["Abstract Teaser"],
     "synonyms": ["abstract-teaser"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "floating-element",
     "titles": ["Floating Element"],
     "synonyms": ["floating-element"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "intro",
     "synonyms": ["intro", "introduction"],
     "titles": ["Introduction"],
-    "groupIDs": ["body"],
-    "isEditable": true
-  },
-  {
-    "id": "keywords",
-    "titles": ["Keywords"],
-    "synonyms": ["keywords"],
-    "isEditable": false
-  },
-  {
-    "id": "list-of-figures",
-    "titles": ["List of Figures"],
-    "synonyms": [],
-    "isEditable": false
-  },
-  {
-    "id": "list-of-tables",
-    "titles": ["List of Tables"],
-    "synonyms": [],
-    "isEditable": false
-  },
-  {
-    "id": "methods",
-    "synonyms": [
-      "materials",
-      "methods",
-      "materials and methods",
-      "materials & methods"
-    ],
-    "titles": ["Materials & Methods"],
-    "groupIDs": ["body"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "present-address",
     "titles": ["Present Address"],
     "synonyms": ["present-address"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "presented-at",
     "titles": ["Presented at"],
     "synonyms": ["presented-at"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "previously-at",
     "titles": ["Previously at"],
     "synonyms": ["previously-at"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "results",
     "synonyms": ["results"],
     "titles": ["Results"],
-    "groupIDs": ["body"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "review",
     "titles": ["Review"],
     "synonyms": [],
-    "groupIDs": ["body"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "section",
     "titles": ["Section"],
     "synonyms": [],
-    "groupIDs": ["body"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "subsection",
     "titles": ["Subsection"],
     "synonyms": ["subsection"],
-    "groupIDs": ["body"],
-    "isEditable": true
+    "group": "body",
+    "isUnique": false
   },
   {
     "id": "supplementary-material",
     "synonyms": ["supplementary-material"],
     "titles": ["Supplementary Material"],
-    "groupIDs": ["backmatter"],
-    "isEditable": true
+    "group": "backmatter",
+    "isUnique": true
   },
   {
     "id": "supported-by",
     "synonyms": ["supported-by"],
     "titles": ["Supported By"],
-    "groupIDs": ["backmatter"],
-    "isEditable": true
-  },
-  {
-    "id": "toc",
-    "titles": ["Table of Contents"],
-    "synonyms": ["toc"],
-    "isEditable": false
+    "group": "backmatter",
+    "isUnique": true
   }
 ]
