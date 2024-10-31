@@ -258,8 +258,7 @@ const moveSpecialFootnotes = (
       }
       section.append(...fn.children)
       removeNodeFromParent(fn)
-      const [, suffix] = category._id.split(':', 2)
-      section.setAttribute('sec-type', suffix)
+      section.setAttribute('sec-type', category.id)
       group.append(section)
     }
   }

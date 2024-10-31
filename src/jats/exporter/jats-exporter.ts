@@ -1101,8 +1101,7 @@ export class JATSExporter {
         }
 
         if (node.attrs.category) {
-          const [, suffix] = node.attrs.category.split(':', 2)
-          attrs['sec-type'] = suffix
+          attrs['sec-type'] = node.attrs.category
         }
 
         return ['sec', attrs, 0]
@@ -1993,7 +1992,7 @@ export class JATSExporter {
       'supported-by',
       'financial-disclosure',
       'ethics-statement',
-      'competing-interests',
+      'coi-statement',
     ]
 
     const sections = body.querySelectorAll('sec')
@@ -2069,7 +2068,7 @@ export class JATSExporter {
     fnGroups.forEach((fnGroup) => {
       if (fnGroup) {
         const coiStatement = fnGroup.querySelector(
-          'fn[fn-type="competing-interests"]'
+          'fn[fn-type="coi-statement"]'
         )
         if (coiStatement) {
           const authorNotes = this.document.createElement('author-notes')
@@ -2116,7 +2115,7 @@ export class JATSExporter {
       if (fnType) {
         fn.setAttribute(
           'fn-type',
-          fnType === 'competing-interests' ? 'coi-statement' : fnType
+          fnType
         )
       }
     })

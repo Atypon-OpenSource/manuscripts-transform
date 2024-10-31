@@ -796,7 +796,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:abstract",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -931,7 +931,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:intro",
+            "category": "intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -1284,7 +1284,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:methods",
+            "category": "methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -1303,7 +1303,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -1353,7 +1353,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -1417,7 +1417,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -1466,7 +1466,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -1572,7 +1572,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:results",
+            "category": "results",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -1754,7 +1754,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:discussion",
+            "category": "discussion",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -2067,7 +2067,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:conclusions",
+            "category": "conclusions",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -2125,7 +2125,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:competing-interests",
+            "category": "coi-statement",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -2161,7 +2161,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:financial-disclosure",
+            "category": "financial-disclosure",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -2197,7 +2197,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:acknowledgements",
+            "category": "acknowledgements",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -3648,7 +3648,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:competing-interests",
+            "category": "coi-statement",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -3684,7 +3684,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:financial-disclosure",
+            "category": "financial-disclosure",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4340,7 +4340,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:abstract",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4410,7 +4410,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:intro",
+            "category": "intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4675,7 +4675,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:methods",
+            "category": "methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4694,7 +4694,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -4730,7 +4730,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -4777,7 +4777,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -4885,7 +4885,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -4924,7 +4924,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:results",
+            "category": "results",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4943,7 +4943,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -13811,7 +13811,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -13861,7 +13861,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14087,7 +14087,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14213,7 +14213,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14249,7 +14249,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14314,7 +14314,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14364,7 +14364,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14428,7 +14428,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14533,7 +14533,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14583,7 +14583,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14619,7 +14619,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14655,7 +14655,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14718,7 +14718,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14754,7 +14754,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14868,7 +14868,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:discussion",
+            "category": "discussion",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -15290,7 +15290,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:author-contributions",
+            "category": "author-contributions",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -15410,7 +15410,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:competing-interests",
+            "category": "coi-statement",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -17433,7 +17433,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:abstract",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -17452,7 +17452,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -17488,7 +17488,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -17524,7 +17524,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -17586,7 +17586,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -17633,7 +17633,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:intro",
+            "category": "intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -17845,7 +17845,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -17878,7 +17878,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "category": "MPSectionCategory:subsection",
+                    "category": "subsection",
                     "dataTracked": null,
                     "id": "MPSection:test",
                   },
@@ -17897,7 +17897,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "category": "MPSectionCategory:subsection",
+                        "category": "subsection",
                         "dataTracked": null,
                         "id": "MPSection:test",
                       },
@@ -17942,7 +17942,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:methods",
+            "category": "methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -18030,7 +18030,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -18092,7 +18092,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -18168,7 +18168,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -18255,7 +18255,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -18330,7 +18330,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:results",
+            "category": "results",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -21306,7 +21306,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -21446,7 +21446,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -23466,7 +23466,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:discussion",
+            "category": "discussion",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -23624,7 +23624,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -23704,7 +23704,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:conclusions",
+            "category": "conclusions",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -23761,7 +23761,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:availability",
+            "category": "availability",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -23797,7 +23797,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:con",
+            "category": "con",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -23876,7 +23876,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:competing-interests",
+            "category": "coi-statement",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -23912,7 +23912,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:acknowledgements",
+            "category": "acknowledgements",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -24288,7 +24288,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:abstract",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -24332,7 +24332,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:intro",
+            "category": "intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -25135,7 +25135,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -26007,7 +26007,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -29302,7 +29302,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:methods",
+            "category": "methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -29642,7 +29642,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:results",
+            "category": "results",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -29673,7 +29673,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -31294,7 +31294,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -32106,7 +32106,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -32971,7 +32971,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:conclusions",
+            "category": "conclusions",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -33979,7 +33979,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:appendices",
+            "category": "appendices",
             "dataTracked": null,
             "id": "MPSection:test",
           },

@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export * from './errors'
-export { getVersion } from './getVersion'
-export * from './jats'
-export * from './jats/types'
-export * from './lib/section-group-type'
-export * from './lib/utils'
-export * from './lib/sectionCategories'
-export * from './schema'
-export { JSONNode, migrateFor } from './schema/migration/migrate'
-export { isSectionLabelNode } from './schema/nodes/section_label'
-export * from './transformer'
+
+import { SectionCategory, SectionGroup } from '../schema'
+
+export const isSubsection = (categoryID: string) => categoryID === 'subsection'
+
+export const getGroupCateogries = (
+  sectionsMap: Map<string, SectionCategory>,
+  group: SectionGroup
+) =>
+  Array.from(sectionsMap.values()).filter((section) => section.group === group)

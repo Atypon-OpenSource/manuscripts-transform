@@ -393,7 +393,7 @@ describe('JATS importer', () => {
         backNode,
         schema.nodes.section,
         false
-      ).filter((node) => node.attrs.category === 'MPSectionCategory:appendices')
+      ).filter((node) => node.attrs.category === 'appendices')
       expect(appNode).toHaveLength(1)
     })
     it('should correctly add back sections to the backmatter', async () => {
@@ -408,9 +408,7 @@ describe('JATS importer', () => {
         backNode,
         schema.nodes.section,
         false
-      ).filter(
-        (node) => node.attrs.category === 'MPSectionCategory:availability'
-      )
+      ).filter((node) => node.attrs.category === 'availability')
       expect(availabilitySection).toHaveLength(1)
     })
     it('should create sections for special footnotes', async () => {
@@ -419,24 +417,18 @@ describe('JATS importer', () => {
       const backNode = findNodeByType(node, schema.nodes.backmatter)
 
       const con = findNodesByType(backNode, schema.nodes.section, false).filter(
-        (node) => node.attrs.category === 'MPSectionCategory:con'
+        (node) => node.attrs.category === 'con'
       )
       const financialDisclosure = findNodesByType(
         backNode,
         schema.nodes.section,
         false
-      ).filter(
-        (node) =>
-          node.attrs.category === 'MPSectionCategory:financial-disclosure'
-      )
+      ).filter((node) => node.attrs.category === 'financial-disclosure')
       const conflict = findNodesByType(
         backNode,
         schema.nodes.section,
         false
-      ).filter(
-        (node) =>
-          node.attrs.category === 'MPSectionCategory:competing-interests'
-      )
+      ).filter((node) => node.attrs.category === 'coi-statement')
       expect(con).toHaveLength(1)
       expect(financialDisclosure).toHaveLength(1)
       expect(conflict).toHaveLength(1)
@@ -479,9 +471,7 @@ describe('JATS importer', () => {
         backNode,
         schema.nodes.section,
         false
-      ).filter(
-        (node) => node.attrs.category === 'MPSectionCategory:acknowledgements'
-      )
+      ).filter((node) => node.attrs.category === 'acknowledgements')
 
       expect(ackSection).toHaveLength(1)
     })

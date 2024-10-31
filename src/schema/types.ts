@@ -150,13 +150,15 @@ export type DataTrackedAttrs = {
 }
 
 export type SectionCategory = {
-  _id: string
-  name: string
+  id: string
   synonyms: string[]
-  isEditable: boolean
-  isDisabled?: boolean
-  titles?: string[]
-  groupIDs?: string[]
+  titles: [string, ...string[]]
+  group: SectionGroup
+}
+
+export enum SectionGroup {
+  Body = 'body',
+  Backmatter = 'backmatter',
 }
 
 export type ManuscriptTemplate = {
