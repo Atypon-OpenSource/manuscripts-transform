@@ -2109,10 +2109,7 @@ export class JATSExporter {
     footnotes.forEach((fn) => {
       const fnType = fn.getAttribute('fn-type')
       if (fnType) {
-        fn.setAttribute(
-          'fn-type',
-          fnType
-        )
+        fn.setAttribute('fn-type', fnType)
       }
     })
   }

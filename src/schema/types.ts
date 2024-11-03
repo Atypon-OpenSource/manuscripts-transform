@@ -149,10 +149,7 @@ export type DataTrackedAttrs = {
   createdAt: number
 }
 
-export enum SectionGroup {
-  Body = 'body',
-  Backmatter = 'backmatter',
-}
+export type SectionGroup = 'body' | 'backmatter'
 
 export type SectionCategory = {
   id: string

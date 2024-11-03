@@ -16,7 +16,7 @@
 import { JSONNode } from '../migrate'
 import { MigrationScript } from '../migration-script'
 
-export class Migration3010 implements MigrationScript {
+export class Migration3012 implements MigrationScript {
   fromVersion = '3.0.11'
   toVersion = '3.0.12'
 
@@ -45,3 +45,5 @@ export class Migration3010 implements MigrationScript {
     return node
   }
 }
+
+export default Migration3012
