@@ -72,6 +72,7 @@ export class JATSDOMParser {
         return true
       }
     }
+    return false
   }
 
   private chooseSectionCategory(section: HTMLElement) {

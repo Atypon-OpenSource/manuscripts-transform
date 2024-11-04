@@ -66,6 +66,8 @@ describe('JATS exporter', () => {
     await expect(async () => {
       await transformer.serializeToJATS(node, {
         csl: DEFAULT_CSL_OPTIONS,
+        //@ts-ignore
+        journal,
         version: '1.0' as unknown as Version,
       })
     }).rejects.toThrow(Error)
