@@ -20,7 +20,7 @@ import { parseXml } from 'libxmljs2'
 import { JATSExporter } from '../exporter/jats-exporter'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { DEFAULT_CSL_OPTIONS } from './citations'
-import { sectionCategories } from './data/sectionCategories'
+import { sectionCategories } from './data/section-categories'
 import { readFixture } from './files'
 const parseXMLWithDTD = (data: string) =>
   parseXml(data, {

@@ -20,7 +20,7 @@ import { JATSExporter } from '../exporter/jats-exporter'
 import { Version } from '../exporter/jats-versions'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { DEFAULT_CSL_OPTIONS } from './citations'
-import { sectionCategories } from './data/sectionCategories'
+import { sectionCategories } from './data/section-categories'
 import { readAndParseFixture } from './files'
 
 const parseXMLWithDTD = (data: string) =>
@@ -66,8 +66,6 @@ describe('JATS exporter', () => {
     await expect(async () => {
       await transformer.serializeToJATS(node, {
         csl: DEFAULT_CSL_OPTIONS,
-        //@ts-ignore
-        journal,
         version: '1.0' as unknown as Version,
       })
     }).rejects.toThrow(Error)

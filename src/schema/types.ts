@@ -149,7 +149,7 @@ export type DataTrackedAttrs = {
   createdAt: number
 }
 
-export type SectionGroup = 'body' | 'backmatter'
+export type SectionGroup = 'abstracts' | 'body' | 'backmatter'
 
 export type SectionCategory = {
   id: string

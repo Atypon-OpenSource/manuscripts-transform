@@ -1761,7 +1761,7 @@ export class JATSExporter {
                 }
 
                 case 'table': {
-                  this.fixTable(childNode, node)
+                  this.fixTable(childNode)
                   break
                 }
               }
@@ -1784,7 +1784,7 @@ export class JATSExporter {
     return clone
   }
 
-  private fixTable = (table: ChildNode, node: ManuscriptNode) => {
+  private fixTable = (table: ChildNode) => {
     let tbody: Element | undefined
 
     Array.from(table.childNodes).forEach((child) => {

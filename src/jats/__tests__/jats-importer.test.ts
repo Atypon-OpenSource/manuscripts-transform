@@ -16,7 +16,7 @@
 
 import { ContributorCorresp, ContributorFootnote, schema } from '../../schema'
 import { parseJATSArticle } from '../importer/parse-jats-article'
-import { sectionCategories } from './data/sectionCategories'
+import { sectionCategories } from './data/section-categories'
 import { readAndParseFixture } from './files'
 import {
   changeIDs,

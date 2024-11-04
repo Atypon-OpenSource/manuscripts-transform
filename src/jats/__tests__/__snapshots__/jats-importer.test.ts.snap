@@ -796,7 +796,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -1284,7 +1284,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4340,7 +4340,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4675,7 +4675,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -17433,7 +17433,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -17942,7 +17942,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -24288,7 +24288,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -29302,7 +29302,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },

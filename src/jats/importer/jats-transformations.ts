@@ -15,13 +15,7 @@
  */
 
 import { defaultTitle } from '../../lib/deafults'
-import {
-  abstractsType,
-  backmatterType,
-  bodyType,
-  SectionGroupType,
-} from '../../lib/section-group-type'
-import { SectionCategory } from '../../schema'
+import { SectionCategory, SectionGroup } from '../../schema'
 import { htmlFromJatsNode } from './jats-parser-utils'
 
 export type CreateElement = (tagName: string) => HTMLElement
@@ -33,15 +27,11 @@ const capitalizeFirstLetter = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1)
 
 const createSectionGroup = (
-  type: SectionGroupType,
+  type: SectionGroup,
   createElement: CreateElement
 ) => {
   const sec = createElement('sec')
-  sec.setAttribute('sec-type', type._id)
-
-  const title = createElement('title')
-  title.textContent = type.title
-  sec.appendChild(title)
+  sec.setAttribute('sec-type', type)
   return sec
 }
 
@@ -167,7 +157,7 @@ export const createBody = (
   body: Element,
   createElement: CreateElement
 ) => {
-  const group = createSectionGroup(bodyType, createElement)
+  const group = createSectionGroup('body', createElement)
   const sections = doc.querySelectorAll(
     'body > sec:not([sec-type="backmatter"]), body > sec:not([sec-type])'
   )
@@ -184,7 +174,7 @@ export const createAbstracts = (
   body: Element,
   createElement: CreateElement
 ) => {
-  const group = createSectionGroup(abstractsType, createElement)
+  const group = createSectionGroup('abstracts', createElement)
   moveAbstracts(doc, group, createElement)
   body.insertBefore(group, body.lastElementChild)
 }
@@ -195,7 +185,7 @@ export const createBackmatter = (
   sectionCategories: SectionCategory[],
   createElement: CreateElement
 ) => {
-  const group = createSectionGroup(backmatterType, createElement)
+  const group = createSectionGroup('backmatter', createElement)
   moveBackSections(doc, group)
   moveAppendices(doc, group, createElement)
   moveSpecialFootnotes(doc, group, sectionCategories, createElement)

@@ -16,7 +16,7 @@
 import { JSONNode } from '../migrate'
 import { MigrationScript } from '../migration-script'
 
-export class Migration3012 implements MigrationScript {
+class Migration3012 implements MigrationScript {
   fromVersion = '3.0.11'
   toVersion = '3.0.12'
 
@@ -33,12 +33,12 @@ export class Migration3012 implements MigrationScript {
       node.attrs.category.startsWith('MPSectionCategory:')
     ) {
       const [, suffix] = node.attrs.category.split(':', 2)
-      const newName = this.suffixMap.get(suffix) || suffix
+      const newCategory = this.suffixMap.get(suffix) || suffix
       return {
         ...node,
         attrs: {
           ...node.attrs,
-          category: newName,
+          category: newCategory,
         },
       }
     }
