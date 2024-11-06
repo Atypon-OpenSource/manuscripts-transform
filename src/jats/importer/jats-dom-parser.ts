@@ -909,6 +909,10 @@ const nodes: NodeRule[] = [
     getAttrs: (node) => parseRef(node as Element),
   },
   {
+    tag: 'sec[sec-type="abstract-graphical"]',
+    node: 'graphical_abstract_section',
+  },
+  {
     tag: 'sec',
     node: 'section',
     getAttrs: (node) => {

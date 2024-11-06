@@ -24633,7 +24633,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:abstract-graphical",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -24642,12 +24641,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
               },
-              "content": Array [
-                Object {
-                  "text": "Graphical Abstract",
-                  "type": "text",
-                },
-              ],
               "type": "section_title",
             },
             Object {
@@ -24659,12 +24652,11 @@ Object {
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "contentType": "image/jpeg",
                     "dataTracked": null,
-                    "id": "MPFigure:test",
-                    "src": "demo.jpg",
+                    "id": "MPParagraphElement:test",
+                    "placeholder": "",
                   },
-                  "type": "figure",
+                  "type": "paragraph",
                 },
                 Object {
                   "attrs": Object {
@@ -24688,7 +24680,7 @@ Object {
               "type": "figure_element",
             },
           ],
-          "type": "section",
+          "type": "graphical_abstract_section",
         },
       ],
       "type": "abstracts",
