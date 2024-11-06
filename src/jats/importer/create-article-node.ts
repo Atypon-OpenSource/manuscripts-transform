@@ -22,8 +22,21 @@ export const createArticleNode = (attrs: Partial<ManuscriptAttrs>) => {
     id: generateNodeID(schema.nodes.title),
   })
 
+  const paragraph = schema.nodes.paragraph.createChecked({
+    id: generateNodeID(schema.nodes.paragraph),
+    placeholder: 'Empty paragraph',
+  })
+
+  const abstracts = schema.nodes.abstracts.createChecked()
+
+  const body = schema.nodes.body.createChecked(paragraph)
+
   if (!attrs.id) {
     throw new Error('Manuscript ID is missing')
   }
-  return schema.nodes.manuscript.createAndFill(attrs, title) as ManuscriptNode
+  return schema.nodes.manuscript.createAndFill(attrs, [
+    title,
+    abstracts,
+    body,
+  ]) as ManuscriptNode
 }
