@@ -154,7 +154,6 @@
       </abstract>
       <abstract abstract-type="graphical">
         <fig id="fig-1" position="anchor" fig-type="figure">
-          <label>Figure 1</label>
           <graphic xlink:href="demo.jpg" />
         </fig>
       </abstract>
