@@ -15,10 +15,12 @@
  */
 
 import { createArticleNode } from '../importer/create-article-node'
+import { changeIDs } from './utils'
 
 describe('Create empty document', () => {
   it('should create an empty document', () => {
     const doc = createArticleNode({ id: 'manuscript:123' })
+    changeIDs(doc)
     expect(doc).toMatchSnapshot()
   })
 })

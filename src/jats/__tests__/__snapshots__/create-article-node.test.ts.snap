@@ -19,7 +19,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:878A2D78-F2E8-43B9-B7BB-F67C5F3C29D9",
+        "id": "MPTitles:test",
         "placeholder": "Insert title here...",
       },
       "type": "title",
