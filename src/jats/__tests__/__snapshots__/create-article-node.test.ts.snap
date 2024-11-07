@@ -26,20 +26,20 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "",
+        "id": "MPSection:test",
       },
       "type": "abstracts",
     },
     Object {
       "attrs": Object {
-        "id": "",
+        "id": "MPSection:test",
       },
       "content": Array [
         Object {
           "attrs": Object {
             "dataTracked": null,
             "id": "MPParagraphElement:test",
-            "placeholder": "Empty paragraph",
+            "placeholder": "",
           },
           "type": "paragraph",
         },
@@ -48,14 +48,14 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "",
+        "id": "MPSection:test",
         "placeholder": " ",
       },
       "type": "backmatter",
     },
     Object {
       "attrs": Object {
-        "id": "",
+        "id": "MPComments:test",
       },
       "type": "comments",
     },

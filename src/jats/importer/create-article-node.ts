@@ -17,26 +17,36 @@
 import { ManuscriptAttrs, ManuscriptNode, schema } from '../../schema'
 import { generateNodeID } from '../../transformer'
 
-export const createArticleNode = (attrs: Partial<ManuscriptAttrs>) => {
+export const createArticleNode = (
+  attrs: Partial<ManuscriptAttrs> & { id: string }
+): ManuscriptNode => {
   const title = schema.nodes.title.createChecked({
     id: generateNodeID(schema.nodes.title),
   })
-
+  const abstracts = schema.nodes.abstracts.createChecked({
+    id: generateNodeID(schema.nodes.abstracts),
+  })
   const paragraph = schema.nodes.paragraph.createChecked({
     id: generateNodeID(schema.nodes.paragraph),
-    placeholder: 'Empty paragraph',
+  })
+  const body = schema.nodes.body.createChecked(
+    {
+      id: generateNodeID(schema.nodes.body),
+    },
+    paragraph
+  )
+  const backmatter = schema.nodes.backmatter.createChecked({
+    id: generateNodeID(schema.nodes.backmatter),
+  })
+  const comments = schema.nodes.comments.createChecked({
+    id: generateNodeID(schema.nodes.comments),
   })
 
-  const abstracts = schema.nodes.abstracts.createChecked()
-
-  const body = schema.nodes.body.create({}, paragraph)
-
-  if (!attrs.id) {
-    throw new Error('Manuscript ID is missing')
-  }
-  return schema.nodes.manuscript.createAndFill(attrs, [
+  return schema.nodes.manuscript.createChecked(attrs, [
     title,
     abstracts,
     body,
-  ]) as ManuscriptNode
+    backmatter,
+    comments,
+  ])
 }
