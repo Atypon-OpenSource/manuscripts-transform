@@ -16,9 +16,9 @@
 import { JSONNode } from '../migrate'
 import { MigrationScript } from '../migration-script'
 
-export class Migration3010 implements MigrationScript {
-  fromVersion = '3.0.9'
-  toVersion = '3.0.10'
+export class Migration3012 implements MigrationScript {
+  fromVersion = '3.0.12'
+  toVersion = '3.0.13'
 
   migrateNode(node: JSONNode): JSONNode {
     if (node.type === 'body') {
