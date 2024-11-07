@@ -34,6 +34,16 @@ Object {
       "attrs": Object {
         "id": "",
       },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPParagraphElement:test",
+            "placeholder": "Empty paragraph",
+          },
+          "type": "paragraph",
+        },
+      ],
       "type": "body",
     },
     Object {

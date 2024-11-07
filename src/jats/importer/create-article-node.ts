@@ -29,7 +29,7 @@ export const createArticleNode = (attrs: Partial<ManuscriptAttrs>) => {
 
   const abstracts = schema.nodes.abstracts.createChecked()
 
-  const body = schema.nodes.body.createChecked(paragraph)
+  const body = schema.nodes.body.create({}, paragraph)
 
   if (!attrs.id) {
     throw new Error('Manuscript ID is missing')
