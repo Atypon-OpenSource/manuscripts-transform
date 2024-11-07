@@ -30,6 +30,7 @@ import {
 import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
 
+import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML, textFromHTML } from '../../lib/html'
 import {
   AuthorNotesNode,
@@ -171,6 +172,7 @@ export class JATSExporter {
   protected document: Document
   protected serializer: DOMSerializer
   protected labelTargets: Map<string, Target>
+  protected footnoteLabels: Map<string, string>
   protected citationTexts: Map<string, string>
   protected citationProvider: CitationProvider
   protected manuscriptNode: ManuscriptNode
@@ -258,6 +260,7 @@ export class JATSExporter {
       manuscriptNode.attrs.articleType || 'other'
     )
     this.labelTargets = buildTargets(manuscriptNode)
+    this.footnoteLabels = generateFootnoteLabels(manuscriptNode)
     const body = this.buildBody()
     article.appendChild(body)
     const back = this.buildBack(body)
@@ -568,8 +571,8 @@ export class JATSExporter {
     const date = new Date(timestamp * 1000) // s => ms
     const lookup = {
       year: date.getUTCFullYear().toString(),
-      month: date.getUTCMonth().toString(),
-      day: date.getUTCDate().toString(),
+      month: (date.getMonth() + 1).toString().padStart(2, '0'),
+      day: date.getUTCDate().toString().padStart(2, '0'),
     }
 
     for (const [key, value] of Object.entries(lookup).reverse()) {
@@ -996,20 +999,13 @@ export class JATSExporter {
       hard_break: () => '',
       highlight_marker: () => '',
       inline_footnote: (node) => {
-        const rids = node.attrs.rids.filter(
-          (rid: string) =>
-            findChildrenByAttr(
-              this.manuscriptNode,
-              (attrs) => attrs.id === rid
-            )[0]?.node
-        )
-        if (rids.length == 0) {
-          return ''
-        }
+        const rids: string[] = node.attrs.rids
         const xref = this.document.createElement('xref')
         xref.setAttribute('ref-type', 'fn')
         xref.setAttribute('rid', normalizeID(rids.join(' ')))
-        xref.textContent = node.attrs.contents
+        xref.textContent = rids
+          .map((rid) => this.footnoteLabels.get(rid))
+          .join(', ')
         return xref
       },
       keyword: () => '',
