@@ -2936,7 +2936,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "position": null,
+                "position": undefined,
               },
               "content": Array [
                 Object {
