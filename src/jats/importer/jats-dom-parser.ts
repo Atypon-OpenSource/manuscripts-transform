@@ -723,8 +723,6 @@ const nodes: NodeRule[] = [
         element.removeChild(labelNode)
       }
       const attrib = element.querySelector('attrib')
-      const position = element.getAttribute('position')
-
       const attribution = attrib
         ? {
             literal: getTrimmedTextContent(attrib) ?? '',
@@ -734,8 +732,8 @@ const nodes: NodeRule[] = [
       return {
         id: element.getAttribute('id'),
         label: getTrimmedTextContent(labelNode) ?? '',
-        attribution: attribution,
-        position,
+        attribution,
+        position: element.getAttribute('position') ?? undefined,
       }
     },
   },

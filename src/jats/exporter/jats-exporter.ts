@@ -1291,7 +1291,10 @@ export class JATSExporter {
       if (isExecutableNodeType(node.type)) {
         processExecutableNode(node, element)
       }
-
+      const position = node.attrs.position
+      if (position) {
+        element.setAttribute('position', position)
+      }
       return element
     }
     const createTableElement = (node: ManuscriptNode) => {

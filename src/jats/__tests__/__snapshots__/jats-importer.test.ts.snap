@@ -2936,6 +2936,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "position": null,
               },
               "content": Array [
                 Object {
@@ -13937,6 +13938,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "position": "float",
                   },
                   "content": Array [
                     Object {
@@ -14152,6 +14154,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "position": "float",
                   },
                   "content": Array [
                     Object {
@@ -14804,6 +14807,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "position": "float",
                   },
                   "content": Array [
                     Object {
@@ -18406,6 +18410,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "position": "float",
               },
               "content": Array [
                 Object {
@@ -21257,6 +21262,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "position": "float",
               },
               "content": Array [
                 Object {
@@ -21394,6 +21400,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "position": "float",
                   },
                   "content": Array [
                     Object {
@@ -24469,6 +24476,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "position": "float",
               },
               "content": Array [
                 Object {
@@ -29751,6 +29759,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "position": "float",
                   },
                   "content": Array [
                     Object {
@@ -30237,6 +30246,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "position": "float",
                   },
                   "content": Array [
                     Object {
@@ -30768,6 +30778,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "position": "float",
                   },
                   "content": Array [
                     Object {
@@ -31386,6 +31397,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "position": "float",
                   },
                   "content": Array [
                     Object {
@@ -31760,6 +31772,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "position": "float",
                   },
                   "content": Array [
                     Object {
@@ -32228,6 +32241,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "position": "float",
                   },
                   "content": Array [
                     Object {
@@ -32639,6 +32653,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "position": "float",
               },
               "content": Array [
                 Object {
