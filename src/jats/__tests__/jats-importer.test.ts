@@ -515,6 +515,11 @@ describe('JATS importer', () => {
     })
   })
 
+  test('parses JATS to Manuscripts document', async () => {
+    const { node } = await createNodeFromJATS('jats-import.xml')
+    changeIDs(node)
+    expect(node).toMatchSnapshot()
+  })
   test('parses JATS AuthorQueries example to Manuscripts document', async () => {
     const { node } = await createNodeFromJATS('jats-document.xml')
     changeIDs(node)
