@@ -16,12 +16,12 @@
 
 import Migration125 from './1.2.5'
 import Migration2322 from './2.3.22'
-import Migration3012 from './3.0.12'
+import Migration3014 from './3.0.14'
 
 const migrations = [
   new Migration125(),
   new Migration2322(),
-  new Migration3012(),
+  new Migration3014(),
 ]
 
 export default migrations
