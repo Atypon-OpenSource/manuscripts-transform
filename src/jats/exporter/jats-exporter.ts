@@ -571,7 +571,7 @@ export class JATSExporter {
     const date = new Date(timestamp * 1000) // s => ms
     const lookup = {
       year: date.getUTCFullYear().toString(),
-      month: (date.getMonth() + 1).toString().padStart(2, '0'),
+      month: (date.getUTCMonth() + 1).toString().padStart(2, '0'),
       day: date.getUTCDate().toString().padStart(2, '0'),
     }
 
