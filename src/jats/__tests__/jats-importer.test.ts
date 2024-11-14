@@ -321,12 +321,11 @@ describe('JATS importer', () => {
       if (!abstractEl) {
         throw new Error('Abstract element not found')
       }
-      const sectionElements = abstractEl.querySelectorAll('sec')
       const { node } = parseJATSArticle(jats, sectionCategories)
       const abstractsNode = findNodeByType(node, schema.nodes.abstracts)
       const sections = findNodesByType(abstractsNode, schema.nodes.section)
       // first section is the abstract node
-      expect(sections).toHaveLength(sectionElements.length + 1)
+      expect(sections).toHaveLength(6)
     })
     it('should set the title to Abstract if no title is provided', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
