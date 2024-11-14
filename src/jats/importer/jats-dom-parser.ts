@@ -52,12 +52,6 @@ export class JATSDOMParser {
     return this.parser.parse(doc, options)
   }
 
-  private isSubsection = (section: HTMLElement) => {
-    const grandParentNodeName =
-      section.parentNode?.parentNode?.nodeName.toLowerCase()
-    return grandParentNodeName && grandParentNodeName !== 'body'
-  }
-
   private isMatchingCategory(
     secType: string | null,
     titleNode: Element | null,
@@ -76,12 +70,6 @@ export class JATSDOMParser {
   }
 
   private chooseSectionCategory(section: HTMLElement) {
-    if (this.isSubsection(section)) {
-      return this.sectionCategories.find((category) =>
-        category.synonyms.includes('subsection')
-      )?.id
-    }
-
     const secType = section.getAttribute('sec-type')
     const titleNode = section.firstElementChild
 

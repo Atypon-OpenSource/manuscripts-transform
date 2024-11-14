@@ -190,20 +190,6 @@ export const sectionCategories: SectionCategory[] = [
     isUnique: false,
   },
   {
-    id: 'section',
-    titles: ['Section'],
-    synonyms: [],
-    group: 'body',
-    isUnique: false,
-  },
-  {
-    id: 'subsection',
-    titles: ['Subsection'],
-    synonyms: ['subsection'],
-    group: 'body',
-    isUnique: false,
-  },
-  {
     id: 'supplementary-material',
     synonyms: ['supplementary-material'],
     titles: ['Supplementary Material'],

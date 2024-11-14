@@ -16,8 +16,6 @@
 
 import { SectionCategory, SectionGroup } from '../schema'
 
-export const isSubsection = (categoryID: string) => categoryID === 'subsection'
-
 export const getGroupCateogries = (
   sectionsMap: Map<string, SectionCategory>,
   group: SectionGroup

@@ -25,6 +25,7 @@ class Migration3012 implements MigrationScript {
     ['acknowledgement', 'acknowledgements'],
     ['introduction', 'intro'],
     ['materials-method', 'methods'],
+    ['subsection', ''],
   ])
 
   migrateNode(node: JSONNode): JSONNode {
