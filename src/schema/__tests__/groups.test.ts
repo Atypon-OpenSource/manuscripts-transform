@@ -20,7 +20,6 @@ import { GROUP_BLOCK, GROUP_ELEMENT, GROUP_SECTION, hasGroup } from '../groups'
 const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.section,
   schema.nodes.bibliography_section,
-  schema.nodes.toc_section,
 ]
 
 const elementNodeTypes: ManuscriptNodeType[] = [
@@ -34,7 +33,6 @@ const elementNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.paragraph,
   schema.nodes.pullquote_element,
   schema.nodes.table_element,
-  schema.nodes.toc_element,
 ]
 
 const executableNodeTypes: ManuscriptNodeType[] = [

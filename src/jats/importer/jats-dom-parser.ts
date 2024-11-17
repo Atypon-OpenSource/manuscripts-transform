@@ -907,6 +907,10 @@ const nodes: NodeRule[] = [
     getAttrs: (node) => parseRef(node as Element),
   },
   {
+    tag: 'sec[sec-type="abstract-graphical"]',
+    node: 'graphical_abstract_section',
+  },
+  {
     tag: 'sec',
     node: 'section',
     getAttrs: (node) => {
@@ -995,7 +999,7 @@ const nodes: NodeRule[] = [
     tag: 'title',
     node: 'section_title',
     context:
-      'section/|footnotes_section/|bibliography_section/|keywords/|supplements/|author_notes/',
+      'section/|footnotes_section/|bibliography_section/|keywords/|supplements/|author_notes/|graphical_abstract_section/',
   },
   {
     tag: 'title',

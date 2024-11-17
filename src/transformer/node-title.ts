@@ -61,7 +61,6 @@ export const nodeTitle = (node: ManuscriptNode) => {
     case nodes.bibliography_section:
     case nodes.footnotes_section:
     case nodes.keywords:
-    case nodes.toc_section:
     case nodes.graphical_abstract_section:
       return snippetOfNodeType(node, nodes.section_title)
 
