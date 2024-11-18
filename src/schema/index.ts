@@ -92,8 +92,6 @@ import { tableElement } from './nodes/table_element'
 import { tableElementFooter } from './nodes/table_element_footer'
 import { text } from './nodes/text'
 import { title } from './nodes/title'
-import { tocElement } from './nodes/toc_element'
-import { tocSection } from './nodes/toc_section'
 import { Marks, Nodes } from './types'
 
 export * from './groups'
@@ -145,8 +143,6 @@ export * from './nodes/table'
 export * from './nodes/table_col'
 export * from './nodes/table_element'
 export * from './nodes/text'
-export * from './nodes/toc_element'
-export * from './nodes/toc_section'
 export * from './nodes/affiliation'
 export * from './nodes/contributor'
 export * from './nodes/table_element_footer'
@@ -229,8 +225,6 @@ export const schema = new Schema<Nodes, Marks>({
     table_colgroup: tableColGroup,
     table_header: tableHeader,
     text,
-    toc_element: tocElement,
-    toc_section: tocSection,
     affiliation,
     contributor: contributor,
     table_element_footer: tableElementFooter,

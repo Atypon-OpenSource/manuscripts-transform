@@ -13,15 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { JSONNode } from '../migrate'
+import { MigrationScript } from '../migration-script'
 
-import Migration125 from './1.2.5'
-import Migration2322 from './2.3.22'
-import { Migration3012 } from './3.0.12'
+export class Migration3012 implements MigrationScript {
+  fromVersion = '3.0.12'
+  toVersion = '3.0.13'
 
-const migrations = [
-  new Migration125(),
-  new Migration2322(),
-  new Migration3012(),
-]
-
-export default migrations
+  migrateNode(node: JSONNode): JSONNode {
+    if (node.type === 'body') {
+      const content = node.content?.filter((n) => n.type !== 'toc_section')
+      return {
+        ...node,
+        content,
+      }
+    }
+    return node
+  }
+}
