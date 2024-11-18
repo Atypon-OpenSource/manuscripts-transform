@@ -104,8 +104,6 @@ export type Nodes =
   | 'table_col'
   | 'table_header'
   | 'text'
-  | 'toc_element'
-  | 'toc_section'
   | 'affiliation'
   | 'contributor'
   | 'table_element_footer'

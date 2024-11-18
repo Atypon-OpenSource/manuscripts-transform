@@ -1139,8 +1139,6 @@ export class JATSExporter {
       table_col: (node) => ['col', { width: node.attrs.width }],
       table_colgroup: () => ['colgroup', 0],
       text: (node) => node.text as string,
-      toc_element: () => '',
-      toc_section: () => '',
       comment: () => '',
     }
 
