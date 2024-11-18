@@ -733,7 +733,7 @@ const nodes: NodeRule[] = [
         id: element.getAttribute('id'),
         label: getTrimmedTextContent(labelNode) ?? '',
         attribution,
-        position: element.getAttribute('position') ?? undefined,
+        type: element.getAttribute('fig-type'),
       }
     },
   },

@@ -2936,7 +2936,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "position": undefined,
+                "type": null,
               },
               "content": Array [
                 Object {
@@ -13938,7 +13938,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "position": "float",
+                    "type": "figure",
                   },
                   "content": Array [
                     Object {
@@ -14154,7 +14154,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "position": "float",
+                    "type": "figure",
                   },
                   "content": Array [
                     Object {
@@ -14807,7 +14807,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "position": "float",
+                    "type": "figure",
                   },
                   "content": Array [
                     Object {
@@ -18410,7 +18410,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "position": "float",
+                "type": "figure",
               },
               "content": Array [
                 Object {
@@ -21262,7 +21262,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "position": "float",
+                "type": "figure",
               },
               "content": Array [
                 Object {
@@ -21400,7 +21400,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "position": "float",
+                    "type": "figure",
                   },
                   "content": Array [
                     Object {
@@ -24661,6 +24661,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "figure",
               },
               "content": Array [
                 Object {
@@ -25656,6 +25657,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "figure",
               },
               "content": Array [
                 Object {
@@ -28507,6 +28509,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "figure",
               },
               "content": Array [
                 Object {
@@ -28644,6 +28647,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "figure",
                   },
                   "content": Array [
                     Object {
@@ -33363,7 +33367,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "position": "float",
+                "type": "figure",
               },
               "content": Array [
                 Object {
@@ -38646,7 +38650,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "position": "float",
+                    "type": "figure",
                   },
                   "content": Array [
                     Object {
@@ -39133,7 +39137,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "position": "float",
+                    "type": "figure",
                   },
                   "content": Array [
                     Object {
@@ -39665,7 +39669,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "position": "float",
+                    "type": "figure",
                   },
                   "content": Array [
                     Object {
@@ -40284,7 +40288,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "position": "float",
+                    "type": "figure",
                   },
                   "content": Array [
                     Object {
@@ -40659,7 +40663,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "position": "float",
+                    "type": "figure",
                   },
                   "content": Array [
                     Object {
@@ -41128,7 +41132,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "position": "float",
+                    "type": "figure",
                   },
                   "content": Array [
                     Object {
@@ -41540,7 +41544,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "position": "float",
+                "type": "figure",
               },
               "content": Array [
                 Object {

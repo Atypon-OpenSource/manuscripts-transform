@@ -19,12 +19,10 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 import { AttributionNode } from './attribution'
 
-// these values are from https://jats.nlm.nih.gov/archiving/tag-library/1.1d1/n-44a2.html
-export type FigurePosition = 'anchor' | 'float' | 'background' | 'margin'
 interface Attrs {
   id: string
   attribution?: AttributionNode
-  position?: FigurePosition
+  type?: string
 }
 
 export interface FigureElementNode extends ManuscriptNode {
@@ -38,7 +36,7 @@ export const figureElement: NodeSpec = {
     id: { default: '' },
     attribution: { default: undefined },
     dataTracked: { default: null },
-    position: { default: undefined },
+    type: { default: undefined },
   },
   selectable: false,
   group: 'block element executable',
