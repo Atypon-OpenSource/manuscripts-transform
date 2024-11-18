@@ -16,9 +16,9 @@
 import { JSONNode } from '../migrate'
 import { MigrationScript } from '../migration-script'
 
-class Migration3014 implements MigrationScript {
-  fromVersion = '3.0.13'
-  toVersion = '3.0.14'
+class Migration3015 implements MigrationScript {
+  fromVersion = '3.0.14'
+  toVersion = '3.0.15'
 
   private suffixMap = new Map([
     ['competing-interests', 'coi-statement'],
@@ -47,4 +47,4 @@ class Migration3014 implements MigrationScript {
   }
 }
 
-export default Migration3014
+export default Migration3015
