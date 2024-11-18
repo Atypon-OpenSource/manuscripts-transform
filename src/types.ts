@@ -13,16 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export * from './errors'
-export { getVersion } from './getVersion'
-export * from './jats'
-export * from './jats/types'
-export * from './types'
-export * from './lib/section-group-type'
-export * from './lib/table-cell-styles'
-export * from './lib/footnotes'
-export * from './lib/utils'
-export * from './schema'
-export { migrateFor } from './schema/migration/migrate'
-export { isSectionLabelNode } from './schema/nodes/section_label'
-export * from './transformer'
+
+export type JSONNode = {
+  type: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  attrs: { [key: string]: any }
+  content?: JSONNode[]
+  text?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  marks?: Array<{ type: string; attrs?: Record<string, any> }>
+}
