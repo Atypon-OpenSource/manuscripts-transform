@@ -39,7 +39,6 @@ export const media: NodeSpec = {
     mimetype: { default: '' },
     mimeSubtype: { default: '' },
   },
-  selectable: false,
   group: 'block element',
   toDOM: (node) => {
     return [
