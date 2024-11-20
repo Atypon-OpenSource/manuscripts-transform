@@ -117,6 +117,8 @@ export type Nodes =
   | 'box_element'
   | 'awards'
   | 'award'
+  | 'media'
+
 export type ManuscriptSchema = Schema<Nodes, Marks>
 
 export type ManuscriptEditorState = EditorState

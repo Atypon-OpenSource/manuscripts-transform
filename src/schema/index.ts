@@ -76,6 +76,7 @@ import { list, listItem } from './nodes/list'
 import { listing } from './nodes/listing'
 import { listingElement } from './nodes/listing_element'
 import { manuscript } from './nodes/manuscript'
+import { media } from './nodes/media'
 import { missingFigure } from './nodes/missing_figure'
 import { paragraph } from './nodes/paragraph'
 import { placeholder } from './nodes/placeholder'
@@ -238,5 +239,6 @@ export const schema = new Schema<Nodes, Marks>({
     box_element,
     awards,
     award,
+    media,
   },
 })

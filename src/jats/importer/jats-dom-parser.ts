@@ -672,6 +672,21 @@ const nodes: NodeRule[] = [
     },
   },
   {
+    tag: 'media',
+    node: 'media',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+        href: element.getAttributeNS(XLINK_NAMESPACE, 'href') || '',
+        show: element.getAttributeNS(XLINK_NAMESPACE, 'show') || '',
+        mimetype: element.getAttribute('mimetype') || '',
+        mimeSubtype: element.getAttribute('mime-subtype') || '',
+      }
+    },
+  },
+
+  {
     tag: 'fig[fig-type=listing]',
     node: 'listing_element',
     getAttrs: (node) => {

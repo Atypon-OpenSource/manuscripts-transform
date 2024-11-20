@@ -24911,6 +24911,17 @@ Object {
             },
             Object {
               "attrs": Object {
+                "dataTracked": null,
+                "href": "example.mp4",
+                "id": "MPMedia:test",
+                "mimeSubtype": "mp4",
+                "mimetype": "video",
+                "show": "embed",
+              },
+              "type": "media",
+            },
+            Object {
+              "attrs": Object {
                 "category": "MPSectionCategory:subsection",
                 "dataTracked": null,
                 "id": "MPSection:test",
