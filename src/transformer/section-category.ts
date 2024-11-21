@@ -29,7 +29,6 @@ const sectionNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.footnotes_section,
   schema.nodes.keywords,
   schema.nodes.section,
-  schema.nodes.toc_section,
 ]
 
 export const isAnySectionNode = (node: ManuscriptNode): boolean =>
@@ -115,9 +114,6 @@ export const chooseSectionNodeType = (
     case 'MPSectionCategory:keywords':
       return schema.nodes.keywords
 
-    case 'MPSectionCategory:toc':
-      return schema.nodes.toc_section
-
     case 'MPSectionCategory:box-element':
       return schema.nodes.box_element
 
@@ -173,9 +169,6 @@ export const buildSectionCategory = (
 
     case schema.nodes.keywords:
       return 'MPSectionCategory:keywords'
-
-    case schema.nodes.toc_section:
-      return 'MPSectionCategory:toc'
 
     case schema.nodes.graphical_abstract_section:
       return 'MPSectionCategory:abstract-graphical'
