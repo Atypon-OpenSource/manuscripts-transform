@@ -809,15 +809,13 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
-      media: (node) => {
+      embed: (node) => {
         const mediaElement = this.document.createElement('media')
-        mediaElement.setAttribute('id', normalizeID(node.attrs.id))
-        const { href, show, mimetype, mimeSubtype } = node.attrs
+        const { id, href, mimetype, mimeSubtype } = node.attrs
+        mediaElement.setAttribute('id', normalizeID(id))
+        mediaElement.setAttributeNS(XLINK_NAMESPACE, 'show', 'embed')
         if (href) {
           mediaElement.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
-        }
-        if (show) {
-          mediaElement.setAttributeNS(XLINK_NAMESPACE, 'show', node.attrs.show)
         }
         if (mimetype) {
           mediaElement.setAttribute('mimetype', node.attrs.mimetype)

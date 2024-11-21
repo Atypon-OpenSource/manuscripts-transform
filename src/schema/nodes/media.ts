@@ -26,18 +26,17 @@ interface Attrs {
   mimeSubtype: string
 }
 
-export interface MediaNode extends ManuscriptNode {
+export interface EmbedNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const media: NodeSpec = {
+export const embed: NodeSpec = {
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
-    href: { default: '' },
-    show: { default: '' },
-    mimetype: { default: '' },
-    mimeSubtype: { default: '' },
+    href: { default: undefined },
+    mimetype: { default: undefined },
+    mimeSubtype: { default: undefined },
   },
   group: 'block element',
   toDOM: (node) => {
@@ -51,5 +50,5 @@ export const media: NodeSpec = {
   },
 }
 
-export const isMediaNode = (node: ManuscriptNode): node is MediaNode =>
-  node.type === node.type.schema.nodes.media
+export const isEmbedNode = (node: ManuscriptNode): node is EmbedNode =>
+  node.type === node.type.schema.nodes.embed

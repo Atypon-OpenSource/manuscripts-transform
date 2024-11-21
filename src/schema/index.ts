@@ -17,17 +17,17 @@
 import { Schema } from 'prosemirror-model'
 
 import {
-  bold,
-  code,
-  italic,
-  smallcaps,
-  strikethrough,
-  styled,
-  subscript,
-  superscript,
-  tracked_delete,
-  tracked_insert,
-  underline,
+    bold,
+    code,
+    italic,
+    smallcaps,
+    strikethrough,
+    styled,
+    subscript,
+    superscript,
+    tracked_delete,
+    tracked_insert,
+    underline,
 } from './marks'
 import { abstracts } from './nodes/abstracts'
 import { affiliation } from './nodes/affiliation'
@@ -76,7 +76,7 @@ import { list, listItem } from './nodes/list'
 import { listing } from './nodes/listing'
 import { listingElement } from './nodes/listing_element'
 import { manuscript } from './nodes/manuscript'
-import { media } from './nodes/media'
+import { embed } from './nodes/media'
 import { missingFigure } from './nodes/missing_figure'
 import { paragraph } from './nodes/paragraph'
 import { placeholder } from './nodes/placeholder'
@@ -96,18 +96,23 @@ import { title } from './nodes/title'
 import { Marks, Nodes } from './types'
 
 export * from './groups'
-export * from './types'
-export * from './nodes/comment'
-export * from './nodes/comments'
+export * from './nodes/affiliation'
+export * from './nodes/affiliations'
 export * from './nodes/attribution'
-export * from './nodes/bibliography_item'
+export * from './nodes/author_notes'
 export * from './nodes/bibliography_element'
+export * from './nodes/bibliography_item'
 export * from './nodes/bibliography_section'
 export * from './nodes/blockquote_element'
 export * from './nodes/box_element'
 export * from './nodes/caption'
 export * from './nodes/caption_title'
 export * from './nodes/citation'
+export * from './nodes/comment'
+export * from './nodes/comments'
+export * from './nodes/contributor'
+export * from './nodes/contributors'
+export * from './nodes/corresp'
 export * from './nodes/cross_reference'
 export * from './nodes/doc'
 export * from './nodes/equation'
@@ -115,19 +120,19 @@ export * from './nodes/equation_element'
 export * from './nodes/figcaption'
 export * from './nodes/figure'
 export * from './nodes/figure_element'
-export * from './nodes/general_table_footnote'
 export * from './nodes/footnote'
 export * from './nodes/footnotes_element'
 export * from './nodes/footnotes_section'
+export * from './nodes/general_table_footnote'
 export * from './nodes/graphical_abstract_section'
 export * from './nodes/hard_break'
 export * from './nodes/highlight_marker'
 export * from './nodes/inline_equation'
 export * from './nodes/inline_footnote'
-export * from './nodes/keyword_group'
 export * from './nodes/keyword'
-export * from './nodes/keywords_element'
+export * from './nodes/keyword_group'
 export * from './nodes/keywords'
+export * from './nodes/keywords_element'
 export * from './nodes/link'
 export * from './nodes/list'
 export * from './nodes/listing'
@@ -140,20 +145,15 @@ export * from './nodes/placeholder_element'
 export * from './nodes/pullquote_element'
 export * from './nodes/section'
 export * from './nodes/section_title'
+export * from './nodes/supplement'
+export * from './nodes/supplements'
 export * from './nodes/table'
 export * from './nodes/table_col'
 export * from './nodes/table_element'
-export * from './nodes/text'
-export * from './nodes/affiliation'
-export * from './nodes/contributor'
 export * from './nodes/table_element_footer'
+export * from './nodes/text'
 export * from './nodes/title'
-export * from './nodes/affiliations'
-export * from './nodes/contributors'
-export * from './nodes/supplement'
-export * from './nodes/supplements'
-export * from './nodes/corresp'
-export * from './nodes/author_notes'
+export * from './types'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -239,6 +239,6 @@ export const schema = new Schema<Nodes, Marks>({
     box_element,
     awards,
     award,
-    media,
+    embed,
   },
 })

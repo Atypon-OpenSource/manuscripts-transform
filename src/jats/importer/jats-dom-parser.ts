@@ -673,15 +673,14 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'media',
-    node: 'media',
+    node: 'embed',
     getAttrs: (node) => {
       const element = node as HTMLElement
       return {
         id: element.getAttribute('id'),
-        href: element.getAttributeNS(XLINK_NAMESPACE, 'href') || '',
-        show: element.getAttributeNS(XLINK_NAMESPACE, 'show') || '',
-        mimetype: element.getAttribute('mimetype') || '',
-        mimeSubtype: element.getAttribute('mime-subtype') || '',
+        href: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
+        mimetype: element.getAttribute('mimetype'),
+        mimeSubtype: element.getAttribute('mime-subtype'),
       }
     },
   },

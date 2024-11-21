@@ -24913,12 +24913,11 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "href": "example.mp4",
-                "id": "MPMedia:test",
+                "id": "MPEmbed:test",
                 "mimeSubtype": "mp4",
                 "mimetype": "video",
-                "show": "embed",
               },
-              "type": "media",
+              "type": "embed",
             },
             Object {
               "attrs": Object {
