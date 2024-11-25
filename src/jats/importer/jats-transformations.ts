@@ -530,3 +530,24 @@ export const fixTables = (
     }
   })
 }
+
+export const addCaptionsToFigures = (
+  doc: Document,
+  createElement: CreateElement
+) => {
+  const figs = doc.querySelectorAll('fig')
+  figs.forEach((fig) => {
+    const caption = fig.querySelector('caption')
+    if (!caption) {
+      const caption = createElement('caption')
+      const title = createElement('title')
+      caption.appendChild(title)
+      fig.appendChild(caption)
+    }
+    const title = fig.querySelector('caption > title')
+    if (!title) {
+      const title = createElement('title')
+      fig.querySelector('caption')?.appendChild(title)
+    }
+  })
+}

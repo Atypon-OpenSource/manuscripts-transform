@@ -20,6 +20,7 @@ import { jatsDOMParser } from './jats-dom-parser'
 import { parseJournal } from './jats-journal-meta-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
 import {
+  addCaptionsToFigures,
   createAbstracts,
   createBackmatter,
   createBody,
@@ -47,7 +48,7 @@ const processJATS = (doc: Document) => {
   if (!front) {
     return
   }
-
+  addCaptionsToFigures(doc, createElement)
   moveTitle(front, createElement)
   moveContributors(front, createElement)
   moveAffiliations(front, createElement)
