@@ -43,7 +43,7 @@ export const embed: NodeSpec = {
     return [
       'div',
       {
-        class: 'media',
+        class: 'embed',
         id: node.attrs.id,
       },
     ]

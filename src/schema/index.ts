@@ -17,17 +17,17 @@
 import { Schema } from 'prosemirror-model'
 
 import {
-    bold,
-    code,
-    italic,
-    smallcaps,
-    strikethrough,
-    styled,
-    subscript,
-    superscript,
-    tracked_delete,
-    tracked_insert,
-    underline,
+  bold,
+  code,
+  italic,
+  smallcaps,
+  strikethrough,
+  styled,
+  subscript,
+  superscript,
+  tracked_delete,
+  tracked_insert,
+  underline,
 } from './marks'
 import { abstracts } from './nodes/abstracts'
 import { affiliation } from './nodes/affiliation'
@@ -53,6 +53,7 @@ import { contributors } from './nodes/contributors'
 import { corresp } from './nodes/corresp'
 import { crossReference } from './nodes/cross_reference'
 import { doc } from './nodes/doc'
+import { embed } from './nodes/embed'
 import { equation } from './nodes/equation'
 import { equationElement } from './nodes/equation_element'
 import { figcaption } from './nodes/figcaption'
@@ -76,7 +77,6 @@ import { list, listItem } from './nodes/list'
 import { listing } from './nodes/listing'
 import { listingElement } from './nodes/listing_element'
 import { manuscript } from './nodes/manuscript'
-import { embed } from './nodes/media'
 import { missingFigure } from './nodes/missing_figure'
 import { paragraph } from './nodes/paragraph'
 import { placeholder } from './nodes/placeholder'
