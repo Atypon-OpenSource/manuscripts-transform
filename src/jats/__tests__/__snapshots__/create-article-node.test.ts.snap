@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create empty document should create an empty document 1`] = `
+Object {
+  "attrs": Object {
+    "acceptanceDate": undefined,
+    "articleType": "",
+    "correctionDate": undefined,
+    "doi": "",
+    "id": "manuscript:123",
+    "primaryLanguageCode": "",
+    "prototype": "",
+    "receiveDate": undefined,
+    "retractionDate": undefined,
+    "revisionReceiveDate": undefined,
+    "revisionRequestDate": undefined,
+  },
+  "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPTitles:test",
+        "placeholder": "Insert title here...",
+      },
+      "type": "title",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPSection:test",
+      },
+      "type": "abstracts",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPSection:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPParagraphElement:test",
+            "placeholder": "",
+          },
+          "type": "paragraph",
+        },
+      ],
+      "type": "body",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPSection:test",
+        "placeholder": " ",
+      },
+      "type": "backmatter",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPComments:test",
+      },
+      "type": "comments",
+    },
+  ],
+  "type": "manuscript",
+}
+`;
