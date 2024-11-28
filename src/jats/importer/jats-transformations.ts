@@ -536,19 +536,18 @@ export const addCaptionsToFigures = (
   createElement: CreateElement
 ) => {
   const figs = doc.querySelectorAll('fig')
-
   figs.forEach((fig) => {
-    // Ensure <caption> exists or create one
-    let caption = fig.querySelector('caption') as HTMLElement | null
+    const caption = fig.querySelector('caption')
     if (!caption) {
-      caption = createElement('caption')
-      fig.appendChild(caption)
-    }
-
-    // Ensure <title> exists within <caption>
-    if (!caption.querySelector('title')) {
+      const caption = createElement('caption')
       const title = createElement('title')
       caption.appendChild(title)
+      fig.appendChild(caption)
+    }
+    const title = fig.querySelector('caption > title')
+    if (!title) {
+      const title = createElement('title')
+      fig.querySelector('caption')?.appendChild(title)
     }
   })
 }
