@@ -24699,6 +24699,20 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
+            "dataTracked": null,
+            "id": "MPParagraphElement:test",
+            "placeholder": "",
+          },
+          "content": Array [
+            Object {
+              "text": "test paragraph",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+        Object {
+          "attrs": Object {
             "category": "MPSectionCategory:introduction",
             "dataTracked": null,
             "id": "MPSection:test",
