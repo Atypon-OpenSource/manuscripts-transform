@@ -962,12 +962,7 @@ export class JATSExporter {
         return graphic
       },
       figure_element: (node) =>
-        createFigureElement(
-          node,
-          'fig',
-          node.type.schema.nodes.figure,
-          'figure'
-        ),
+        createFigureElement(node, 'fig', node.type.schema.nodes.figure),
       footnote: (node) => {
         const attrs: Attrs = {}
 
@@ -1042,12 +1037,7 @@ export class JATSExporter {
         return code
       },
       listing_element: (node) =>
-        createFigureElement(
-          node,
-          'fig',
-          node.type.schema.nodes.listing,
-          'listing'
-        ),
+        createFigureElement(node, 'fig', node.type.schema.nodes.listing),
       manuscript: (node) => ['article', { id: normalizeID(node.attrs.id) }, 0],
       missing_figure: () => {
         const graphic = this.document.createElement('graphic')
@@ -1264,11 +1254,10 @@ export class JATSExporter {
     const createFigureElement = (
       node: ManuscriptNode,
       nodeName: string,
-      contentNodeType: ManuscriptNodeType,
-      figType?: string
+      contentNodeType: ManuscriptNodeType
     ) => {
       const element = createElement(node, nodeName)
-
+      const figType = node.attrs.type
       if (figType) {
         element.setAttribute('fig-type', figType)
       }
@@ -1284,7 +1273,6 @@ export class JATSExporter {
       if (isExecutableNodeType(node.type)) {
         processExecutableNode(node, element)
       }
-
       return element
     }
     const createTableElement = (node: ManuscriptNode) => {

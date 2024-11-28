@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,17 +14,13 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { createArticleNode } from '../importer/create-article-node'
+import { changeIDs } from './utils'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
-
-export const body: NodeSpec = {
-  content: 'element* sections*',
-  atom: true,
-  attrs: {
-    id: { default: '' },
-  },
-  group: 'block',
-  toDOM: () => ['div', { class: 'body' }, 0],
-}
+describe('Create empty document', () => {
+  it('should create an empty document', () => {
+    const doc = createArticleNode({ id: 'manuscript:123' })
+    changeIDs(doc)
+    expect(doc).toMatchSnapshot()
+  })
+})

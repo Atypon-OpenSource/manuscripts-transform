@@ -2936,6 +2936,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": null,
               },
               "content": Array [
                 Object {
@@ -13937,6 +13938,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-left",
                   },
                   "content": Array [
                     Object {
@@ -14152,6 +14154,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-left",
                   },
                   "content": Array [
                     Object {
@@ -14804,6 +14807,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-left",
                   },
                   "content": Array [
                     Object {
@@ -18406,6 +18410,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-right",
               },
               "content": Array [
                 Object {
@@ -21257,6 +21262,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-right",
               },
               "content": Array [
                 Object {
@@ -21394,6 +21400,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -24654,6 +24661,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-left",
               },
               "content": Array [
                 Object {
@@ -24699,7 +24707,21 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "intro",
+            "dataTracked": null,
+            "id": "MPParagraphElement:test",
+            "placeholder": "",
+          },
+          "content": Array [
+            Object {
+              "text": "test paragraph",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+        Object {
+          "attrs": Object {
+            "category": "MPSectionCategory:introduction",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -25649,6 +25671,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-left",
               },
               "content": Array [
                 Object {
@@ -28500,6 +28523,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-left",
               },
               "content": Array [
                 Object {
@@ -28637,6 +28661,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-left",
                   },
                   "content": Array [
                     Object {
@@ -33356,6 +33381,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-right",
               },
               "content": Array [
                 Object {
@@ -38638,6 +38664,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -39124,6 +39151,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -39655,6 +39683,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -40273,6 +40302,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -40647,6 +40677,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -41115,6 +41146,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -41526,6 +41558,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-right",
               },
               "content": Array [
                 Object {

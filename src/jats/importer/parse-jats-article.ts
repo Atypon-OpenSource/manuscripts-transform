@@ -26,7 +26,6 @@ import {
   createBoxedElementSection,
   createKeywordsSection,
   createSupplementaryMaterialsSection,
-  ensureSection,
   fixTables,
   moveAffiliations,
   moveAuthorNotes,
@@ -59,7 +58,6 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
     return
   }
 
-  ensureSection(body, createElement)
   moveCaptionsToEnd(body)
   createBoxedElementSection(body, createElement)
   createBody(doc, body, createElement)

@@ -35,31 +35,6 @@ const createSectionGroup = (
   return sec
 }
 
-// Create and add a section if there is no section the content can be appended into
-export const ensureSection = (body: Element, createElement: CreateElement) => {
-  let section: Element
-
-  const element = body.firstElementChild
-  if (element && element.tagName === 'sec') {
-    section = element
-  } else {
-    section = createElement('sec')
-    body.insertBefore(section, body.firstChild)
-  }
-
-  // Move any element without a section to the previous section
-  body.childNodes.forEach((child) => {
-    if (child.nodeType === Node.ELEMENT_NODE) {
-      const element = child as Element
-      if (element.tagName !== 'sec') {
-        section.appendChild(element)
-      } else {
-        section = element
-      }
-    }
-  })
-}
-
 export const moveTitle = (front: Element, createElement: CreateElement) => {
   let title = front.querySelector('article-meta > title-group > article-title')
   if (title) {
@@ -135,8 +110,12 @@ export const createBoxedElementSection = (
 ) => {
   const boxedTexts = body.querySelectorAll('boxed-text')
   for (const boxedText of boxedTexts) {
+    const boxElementId = boxedText.getAttribute('id')
     const boxElementSec = createElement('sec')
     boxElementSec.setAttribute('sec-type', 'box-element')
+    if (boxElementId) {
+      boxElementSec.setAttribute('id', boxElementId)
+    }
     const title = createElement('title')
     title.textContent = 'BoxElement'
     boxElementSec.append(title)
@@ -157,7 +136,7 @@ export const createBody = (
   body: Element,
   createElement: CreateElement
 ) => {
-  const group = createSectionGroup('body', createElement)
+  const group = createSectionGroup(bodyType, createElement)
   const sections = doc.querySelectorAll(
     'body > sec:not([sec-type="backmatter"]), body > sec:not([sec-type])'
   )

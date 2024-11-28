@@ -153,7 +153,7 @@
         </sec>
       </abstract>
       <abstract abstract-type="graphical">
-        <fig id="fig-1" position="anchor" fig-type="figure">
+        <fig id="fig-1" position="anchor" fig-type="half-left">
           <graphic xlink:href="demo.jpg" />
         </fig>
       </abstract>
@@ -188,6 +188,7 @@
     </article-meta>
   </front>
   <body>
+    <p>test paragraph</p>
     <sec id="BRB3-2019-12-0787-sec1" sec-type="intro">
       <label>1</label>
       <title>INTRODUCTION</title>
@@ -414,7 +415,7 @@
         was 4 days (IQR: 3&#x2013;6). As seen from <xref ref-type="table"
                                                          rid="BRB3-2019-12-0787-tbl-0001">Table 1</xref> most participants had no or
         slight disability.</p>
-      <fig id="BRB3-2019-12-0787-fig-0001" position="float" fig-type="figure">
+      <fig id="BRB3-2019-12-0787-fig-0001" position="float" fig-type="half-left">
         <label>FIGURE 1</label>
         <caption>
           <p>Flow chart of participants</p>
@@ -640,7 +641,7 @@
         group. At follow up patients in both groups reported a median of two visits
         including BP measurement at the general practitioner&#x00B4;s office since discharge
         from hospital.</p>
-      <fig id="BRB3-2019-12-0787-fig-0002" position="float" fig-type="figure">
+      <fig id="BRB3-2019-12-0787-fig-0002" position="float" fig-type="half-left">
         <label>FIGURE 2</label>
         <caption>
           <p>Blood pressure and treatment of hypertension at baseline in 73 patients
@@ -659,7 +660,7 @@
           (<italic>p</italic>&#x2009;&lt;&#x2009;0.0001) illustrated by the differences in
           BP treated to target as well as untreated hypertension in <xref ref-type="fig"
                                                                           rid="BRB3-2019-12-0787-fig-0003">Figure 3</xref>.</p>
-        <fig id="BRB3-2019-12-0787-fig-0003" position="float" fig-type="figure">
+        <fig id="BRB3-2019-12-0787-fig-0003" position="float" fig-type="half-left">
           <label>FIGURE 3</label>
           <caption>
             <p>Blood pressure and treatment of hypertension at follow up in 73 patients
