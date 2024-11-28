@@ -120,8 +120,12 @@ export const createBoxedElementSection = (
 ) => {
   const boxedTexts = body.querySelectorAll('boxed-text')
   for (const boxedText of boxedTexts) {
+    const boxElementId = boxedText.getAttribute('id')
     const boxElementSec = createElement('sec')
     boxElementSec.setAttribute('sec-type', 'box-element')
+    if (boxElementId) {
+      boxElementSec.setAttribute('id', boxElementId)
+    }
     const title = createElement('title')
     title.textContent = 'BoxElement'
     boxElementSec.append(title)
