@@ -136,7 +136,9 @@ export const createBody = (
   body: Element,
   createElement: CreateElement
 ) => {
-  const group = createSectionGroup(bodyType, createElement)
+  const group = createSectionGroup('body', createElement)
+  const paragraphs = doc.querySelectorAll('body > p')
+  group.append(...paragraphs)
   const sections = doc.querySelectorAll(
     'body > sec:not([sec-type="backmatter"]), body > sec:not([sec-type])'
   )

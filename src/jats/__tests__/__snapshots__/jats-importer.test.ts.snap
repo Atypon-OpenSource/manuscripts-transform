@@ -54,7 +54,7 @@ Object {
       "content": Array [
         Object {
           "text": "Corresponding author: Agnete Hviid
-          Hornnesagnete.hviid.hornnes@regionh.dkFAX: 0045 3868
+          Hornnes agnete.hviid.hornnes@regionh.dk FAX: 0045 3868
           4031",
           "type": "text",
         },
@@ -91,7 +91,7 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "Mai Bang Poulsen, MD, PhDDepartment of NeurologyNordsjællands HospitalDyrehavevej 293400 HillerødDenmark",
+              "text": "Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark",
               "type": "text",
             },
           ],
@@ -17217,8 +17217,8 @@ Object {
           "content": Array [
             Object {
               "text": "Corresponding author: Agnete Hviid
-          Hornnes
-          agnete.hviid.hornnes@regionh.dkFAX: 0045 3868
+          Hornnes 
+          agnete.hviid.hornnes@regionh.dk FAX: 0045 3868
           4031",
               "type": "text",
             },
@@ -17255,7 +17255,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Mai Bang Poulsen, MD, PhDDepartment of NeurologyNordsjællands HospitalDyrehavevej 293400 HillerødDenmark",
+                  "text": "Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark",
                   "type": "text",
                 },
               ],
@@ -23297,7 +23297,7 @@ Object {
                               },
                               "content": Array [
                                 Object {
-                                  "text": "Values are expressed as frequencies (%) or as mean ± standard deviations.Abbreviations: AHM, antihypertensive medication; CLM, cholesterol lowering medication.",
+                                  "text": "Values are expressed as frequencies (%) or as mean ± standard deviations. Abbreviations: AHM, antihypertensive medication; CLM, cholesterol lowering medication.",
                                   "type": "text",
                                 },
                               ],
@@ -23847,7 +23847,7 @@ Object {
                   "type": "link",
                 },
                 Object {
-                  "text": "Mai Bang Poulsen, Email: mai.bang.poulsen.02@regionh.dk",
+                  "text": " Mai Bang Poulsen, Email: mai.bang.poulsen.02@regionh.dk",
                   "type": "text",
                 },
               ],
@@ -24200,7 +24200,7 @@ Object {
           "content": Array [
             Object {
               "text": "Corresponding author: Agnete Hviid
-          Hornnesagnete.hviid.hornnes@regionh.dkFAX: 0045 3868
+          Hornnes agnete.hviid.hornnes@regionh.dk FAX: 0045 3868
           4031",
               "type": "text",
             },
@@ -24237,7 +24237,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Mai Bang Poulsen, MD, PhDDepartment of NeurologyNordsjællands HospitalDyrehavevej 293400 HillerødDenmark",
+                  "text": "Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark",
                   "type": "text",
                 },
               ],
@@ -24721,7 +24721,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:introduction",
+            "category": "intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -30558,7 +30558,7 @@ Object {
                               },
                               "content": Array [
                                 Object {
-                                  "text": "Values are expressed as frequencies (%) or as mean ± standard deviations.Abbreviations: AHM, antihypertensive medication; CLM, cholesterol lowering medication.",
+                                  "text": "Values are expressed as frequencies (%) or as mean ± standard deviations. Abbreviations: AHM, antihypertensive medication; CLM, cholesterol lowering medication.",
                                   "type": "text",
                                 },
                               ],
@@ -31108,7 +31108,7 @@ Object {
                   "type": "link",
                 },
                 Object {
-                  "text": "Mai Bang Poulsen, Email: mai.bang.poulsen.02@regionh.dk",
+                  "text": " Mai Bang Poulsen, Email: mai.bang.poulsen.02@regionh.dk",
                   "type": "text",
                 },
               ],
