@@ -153,7 +153,7 @@ export type SectionCategory = {
   id: string
   synonyms: string[]
   titles: [string, ...string[]]
-  group: SectionGroup
+  group?: SectionGroup
   isUnique: boolean
 }
 

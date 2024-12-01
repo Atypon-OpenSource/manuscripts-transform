@@ -18,13 +18,6 @@ import { SectionCategory } from '../../../schema'
 
 export const sectionCategories: SectionCategory[] = [
   {
-    id: 'abbreviations',
-    titles: ['Abbreviations'],
-    synonyms: ['list of abbreviations', 'abbreviations'],
-    group: 'body',
-    isUnique: false,
-  },
-  {
     id: 'abstract',
     titles: ['Abstract'],
     synonyms: ['abstract'],
@@ -42,7 +35,6 @@ export const sectionCategories: SectionCategory[] = [
     id: 'appendices',
     titles: ['Appendices'],
     synonyms: ['appendices'],
-    group: 'body',
     isUnique: false,
   },
   {
@@ -90,7 +82,6 @@ export const sectionCategories: SectionCategory[] = [
     id: 'deceased',
     titles: ['Deceased'],
     synonyms: ['deceased'],
-    group: 'body',
     isUnique: false,
   },
   {
@@ -104,7 +95,6 @@ export const sectionCategories: SectionCategory[] = [
     id: 'equal',
     titles: ['Equal'],
     synonyms: ['equal'],
-    group: 'body',
     isUnique: false,
   },
   {
@@ -125,14 +115,6 @@ export const sectionCategories: SectionCategory[] = [
     id: 'abstract-teaser',
     titles: ['Abstract Teaser'],
     synonyms: ['abstract-teaser'],
-    group: 'body',
-    isUnique: false,
-  },
-  {
-    id: 'floating-element',
-    titles: ['Floating Element'],
-    synonyms: ['floating-element'],
-    group: 'body',
     isUnique: false,
   },
   {
@@ -158,21 +140,18 @@ export const sectionCategories: SectionCategory[] = [
     id: 'present-address',
     titles: ['Present Address'],
     synonyms: ['present-address'],
-    group: 'body',
     isUnique: false,
   },
   {
     id: 'presented-at',
     titles: ['Presented at'],
     synonyms: ['presented-at'],
-    group: 'body',
     isUnique: false,
   },
   {
     id: 'previously-at',
     titles: ['Previously at'],
     synonyms: ['previously-at'],
-    group: 'body',
     isUnique: false,
   },
   {
