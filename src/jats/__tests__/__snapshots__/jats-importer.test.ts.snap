@@ -2936,6 +2936,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": null,
               },
               "content": Array [
                 Object {
@@ -13937,6 +13938,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-left",
                   },
                   "content": Array [
                     Object {
@@ -14152,6 +14154,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-left",
                   },
                   "content": Array [
                     Object {
@@ -14804,6 +14807,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-left",
                   },
                   "content": Array [
                     Object {
@@ -18406,6 +18410,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-right",
               },
               "content": Array [
                 Object {
@@ -21257,6 +21262,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-right",
               },
               "content": Array [
                 Object {
@@ -21394,6 +21400,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -24654,6 +24661,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-left",
               },
               "content": Array [
                 Object {
@@ -24697,6 +24705,20 @@ Object {
         "id": "MPSection:test",
       },
       "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPParagraphElement:test",
+            "placeholder": "",
+          },
+          "content": Array [
+            Object {
+              "text": "test paragraph",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
         Object {
           "attrs": Object {
             "category": "MPSectionCategory:introduction",
@@ -25659,6 +25681,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-left",
               },
               "content": Array [
                 Object {
@@ -28510,6 +28533,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-left",
               },
               "content": Array [
                 Object {
@@ -28647,6 +28671,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-left",
                   },
                   "content": Array [
                     Object {
@@ -33366,6 +33391,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-right",
               },
               "content": Array [
                 Object {
@@ -38648,6 +38674,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -39134,6 +39161,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -39665,6 +39693,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -40283,6 +40312,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -40657,6 +40687,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -41125,6 +41156,7 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
+                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
@@ -41536,6 +41568,7 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
+                "type": "half-right",
               },
               "content": Array [
                 Object {
