@@ -38,13 +38,6 @@ export const sectionCategories: SectionCategory[] = [
     isUnique: false,
   },
   {
-    id: 'author-contributions',
-    titles: ['Author contributions'],
-    synonyms: ['author contributions', 'authorContributions'],
-    group: 'backmatter',
-    isUnique: true,
-  },
-  {
     id: 'availability',
     titles: ['Availability'],
     synonyms: ['availability', 'data-availability', 'data availability'],

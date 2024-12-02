@@ -15294,7 +15294,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "author-contributions",
+            "category": "con",
             "dataTracked": null,
             "id": "MPSection:test",
           },
