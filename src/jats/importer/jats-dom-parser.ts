@@ -541,8 +541,19 @@ const nodes: NodeRule[] = [
   },
   {
     tag: 'caption',
+    consuming: false,
+    getAttrs(node) {
+      const element = node as HTMLElement
+      if (!element.querySelector('title')) {
+        element.appendChild(document.createElement('title'))
+      }
+      return false
+    },
+  },
+  {
+    tag: 'caption',
     node: 'figcaption',
-    context: 'figure/',
+    context: 'figure/|table_element/',
   },
   {
     tag: 'caption',
@@ -569,11 +580,6 @@ const nodes: NodeRule[] = [
 
       return Fragment.from(content) as Fragment
     },
-  },
-  {
-    tag: 'caption',
-    node: 'figcaption',
-    context: 'table_element/',
   },
   {
     tag: 'caption',
@@ -718,6 +724,9 @@ const nodes: NodeRule[] = [
     node: 'figure_element',
     getAttrs: (node) => {
       const element = node as HTMLElement
+      if (!element.querySelector('caption')) {
+        element.appendChild(document.createElement('caption'))
+      }
       const labelNode = element.querySelector('label')
       if (labelNode) {
         element.removeChild(labelNode)
@@ -989,7 +998,9 @@ const nodes: NodeRule[] = [
     node: 'table_element',
     getAttrs: (node) => {
       const element = node as HTMLElement
-
+      if (!element.querySelector('caption')) {
+        element.prepend(document.createElement('caption'))
+      }
       return {
         id: element.getAttribute('id'),
       }
