@@ -2956,13 +2956,6 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -14063,13 +14056,6 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
                             "placeholder": "Caption...",
                           },
                           "content": Array [
@@ -14185,13 +14171,6 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -14845,13 +14824,6 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -18458,13 +18430,6 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -21317,13 +21282,6 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -21459,13 +21417,6 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -24726,15 +24677,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                   },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                  ],
                   "type": "figcaption",
                 },
                 Object {
@@ -25746,13 +25688,6 @@ Object {
                     "dataTracked": null,
                   },
                   "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
@@ -28608,13 +28543,6 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -28750,13 +28678,6 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -33486,13 +33407,6 @@ Object {
                     "dataTracked": null,
                   },
                   "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
@@ -38797,13 +38711,6 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
                             "placeholder": "Caption...",
                           },
                           "content": Array [
@@ -39288,13 +39195,6 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -39845,13 +39745,6 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -40456,13 +40349,6 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
                             "placeholder": "Caption...",
                           },
                           "content": Array [
@@ -40835,13 +40721,6 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -41314,13 +41193,6 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
                             "placeholder": "Caption...",
                           },
                           "content": Array [
@@ -41730,13 +41602,6 @@ Object {
                     "dataTracked": null,
                   },
                   "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
