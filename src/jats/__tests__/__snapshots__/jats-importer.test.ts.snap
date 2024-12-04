@@ -2956,6 +2956,13 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -3018,6 +3025,13 @@ Object {
                     "dataTracked": null,
                   },
                   "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
@@ -5086,6 +5100,13 @@ Object {
                             },
                           ],
                           "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "type": "caption",
                         },
                       ],
                       "type": "figcaption",
@@ -8936,6 +8957,13 @@ Object {
                           ],
                           "type": "caption_title",
                         },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "type": "caption",
+                        },
                       ],
                       "type": "figcaption",
                     },
@@ -11443,6 +11471,13 @@ Object {
                             },
                           ],
                           "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "type": "caption",
                         },
                       ],
                       "type": "figcaption",
@@ -14056,6 +14091,13 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
                             "placeholder": "Caption...",
                           },
                           "content": Array [
@@ -14171,6 +14213,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -14824,6 +14873,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -18430,6 +18486,13 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -18482,6 +18545,13 @@ Object {
                         },
                       ],
                       "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "type": "caption",
                     },
                   ],
                   "type": "figcaption",
@@ -21282,6 +21352,13 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -21417,6 +21494,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -21681,6 +21765,13 @@ Object {
                             },
                           ],
                           "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "type": "caption",
                         },
                       ],
                       "type": "figcaption",
@@ -24715,6 +24806,13 @@ Object {
                                         Object {
                                           "attrs": Object {
                                             "dataTracked": null,
+                                            "placeholder": "Title...",
+                                          },
+                                          "type": "caption_title",
+                                        },
+                                        Object {
+                                          "attrs": Object {
+                                            "dataTracked": null,
                                             "placeholder": "Caption...",
                                           },
                                           "content": Array [
@@ -24804,6 +24902,13 @@ Object {
                                         "dataTracked": null,
                                       },
                                       "content": Array [
+                                        Object {
+                                          "attrs": Object {
+                                            "dataTracked": null,
+                                            "placeholder": "Title...",
+                                          },
+                                          "type": "caption_title",
+                                        },
                                         Object {
                                           "attrs": Object {
                                             "dataTracked": null,
@@ -26489,6 +26594,22 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                   },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "type": "caption",
+                    },
+                  ],
                   "type": "figcaption",
                 },
                 Object {
@@ -27503,6 +27624,13 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -27555,6 +27683,13 @@ Object {
                         },
                       ],
                       "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "type": "caption",
                     },
                   ],
                   "type": "figcaption",
@@ -30355,6 +30490,13 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -30490,6 +30632,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -30754,6 +30903,13 @@ Object {
                             },
                           ],
                           "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "type": "caption",
                         },
                       ],
                       "type": "figcaption",
@@ -35222,6 +35378,13 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -36893,6 +37056,13 @@ Object {
                             },
                           ],
                           "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "type": "caption",
                         },
                       ],
                       "type": "figcaption",
@@ -40523,6 +40693,13 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
                             "placeholder": "Caption...",
                           },
                           "content": Array [
@@ -41007,6 +41184,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -41557,6 +41741,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -42161,6 +42352,13 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
                             "placeholder": "Caption...",
                           },
                           "content": Array [
@@ -42533,6 +42731,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -43005,6 +43210,13 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
                             "placeholder": "Caption...",
                           },
                           "content": Array [
@@ -43414,6 +43626,13 @@ Object {
                     "dataTracked": null,
                   },
                   "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
@@ -44739,6 +44958,14 @@ Object {
                 },
               ],
               "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "type": "paragraph",
             },
             Object {
               "attrs": Object {
