@@ -45,6 +45,28 @@ const createSectionGroup = (
   return sec
 }
 
+export const addMissingCaptions = (
+  doc: Document,
+  createElement: CreateElement
+) => {
+  const elements = doc.querySelectorAll('fig, table-wrap')
+  for (const element of elements) {
+    let caption: Element | null = element.querySelector('caption')
+    if (!caption) {
+      caption = createElement('caption')
+      element.nodeName === 'fig'
+        ? element.appendChild(caption)
+        : element.prepend(caption)
+    }
+    if (!caption.querySelector('title')) {
+      caption.prepend(createElement('title'))
+    }
+    if (!caption.querySelector('p')) {
+      caption.appendChild(createElement('p'))
+    }
+  }
+}
+
 export const moveTitle = (front: Element, createElement: CreateElement) => {
   let title = front.querySelector('article-meta > title-group > article-title')
   if (title) {

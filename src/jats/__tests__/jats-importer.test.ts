@@ -561,4 +561,10 @@ describe('JATS importer', () => {
     changeIDs(node)
     expect(node).toMatchSnapshot()
   })
+
+  test('parses JATS example full', async () => {
+    const { node } = await createNodeFromJATS('jats-example-full.xml')
+    changeIDs(node)
+    expect(node).toMatchSnapshot()
+  })
 })

@@ -547,7 +547,7 @@ const nodes: NodeRule[] = [
   {
     tag: 'caption',
     node: 'figcaption',
-    context: 'figure_element/',
+    context: 'figure_element/|table_element/',
     getContent: (node, schema) => {
       const element = node as HTMLElement
 
@@ -569,11 +569,6 @@ const nodes: NodeRule[] = [
 
       return Fragment.from(content) as Fragment
     },
-  },
-  {
-    tag: 'caption',
-    node: 'figcaption',
-    context: 'table_element/',
   },
   {
     tag: 'caption',
