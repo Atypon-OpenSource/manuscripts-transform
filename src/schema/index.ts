@@ -154,6 +154,7 @@ export * from './nodes/table_element_footer'
 export * from './nodes/text'
 export * from './nodes/title'
 export * from './types'
+export * from './nodes/embed'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
