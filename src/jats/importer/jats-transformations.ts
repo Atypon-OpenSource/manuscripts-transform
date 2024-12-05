@@ -148,8 +148,11 @@ export const createBody = (
 ) => {
   const group = createSectionGroup(bodyType, createElement)
 
-  const paragraphs = doc.querySelectorAll('body > p')
-  group.append(...paragraphs)
+  const elements = body.querySelectorAll(':scope > *:not(sec)')
+  elements.forEach((element) => {
+    removeNodeFromParent(element)
+    group.appendChild(element)
+  })
   const sections = doc.querySelectorAll(
     'body > sec:not([sec-type="backmatter"]), body > sec:not([sec-type])'
   )
