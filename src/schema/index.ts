@@ -153,6 +153,8 @@ export * from './nodes/supplement'
 export * from './nodes/supplements'
 export * from './nodes/corresp'
 export * from './nodes/author_notes'
+export * from './nodes/award'
+export * from './nodes/awards'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
