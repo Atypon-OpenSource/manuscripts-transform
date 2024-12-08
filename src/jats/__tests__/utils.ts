@@ -19,11 +19,11 @@ import { findChildrenByType } from 'prosemirror-utils'
 
 import { ManuscriptNode, schema } from '../../schema'
 import { parseJATSArticle } from '../importer/parse-jats-article'
+import { sectionCategories } from './data/section-categories'
 import { readAndParseFixture } from './files'
-
 export const createNodeFromJATS = async (fileName: string) => {
   const jats = await readAndParseFixture(fileName)
-  return parseJATSArticle(jats)
+  return parseJATSArticle(jats, sectionCategories)
 }
 
 const uuidRegex =
