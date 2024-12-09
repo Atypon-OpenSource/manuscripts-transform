@@ -15,13 +15,7 @@
  */
 
 import { defaultTitle } from '../../lib/deafults'
-import {
-  abstractsType,
-  backmatterType,
-  bodyType,
-  SectionGroupType,
-} from '../../lib/section-group-type'
-import { chooseSectionCategoryByType, chooseSecType } from '../../transformer'
+import { SectionCategory, SectionGroup } from '../../schema'
 import { htmlFromJatsNode } from './jats-parser-utils'
 
 export type CreateElement = (tagName: string) => HTMLElement
@@ -33,15 +27,11 @@ const capitalizeFirstLetter = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1)
 
 const createSectionGroup = (
-  type: SectionGroupType,
+  type: SectionGroup,
   createElement: CreateElement
 ) => {
   const sec = createElement('sec')
-  sec.setAttribute('sec-type', type._id)
-
-  const title = createElement('title')
-  title.textContent = type.title
-  sec.appendChild(title)
+  sec.setAttribute('sec-type', type)
   return sec
 }
 
@@ -146,8 +136,7 @@ export const createBody = (
   body: Element,
   createElement: CreateElement
 ) => {
-  const group = createSectionGroup(bodyType, createElement)
-
+  const group = createSectionGroup('body', createElement)
   const paragraphs = doc.querySelectorAll('body > p')
   group.append(...paragraphs)
   const sections = doc.querySelectorAll(
@@ -166,7 +155,7 @@ export const createAbstracts = (
   body: Element,
   createElement: CreateElement
 ) => {
-  const group = createSectionGroup(abstractsType, createElement)
+  const group = createSectionGroup('abstracts', createElement)
   moveAbstracts(doc, group, createElement)
   body.insertBefore(group, body.lastElementChild)
 }
@@ -174,12 +163,13 @@ export const createAbstracts = (
 export const createBackmatter = (
   doc: Document,
   body: Element,
+  sectionCategories: SectionCategory[],
   createElement: CreateElement
 ) => {
-  const group = createSectionGroup(backmatterType, createElement)
+  const group = createSectionGroup('backmatter', createElement)
   moveBackSections(doc, group)
   moveAppendices(doc, group, createElement)
-  moveSpecialFootnotes(doc, group, createElement)
+  moveSpecialFootnotes(doc, group, sectionCategories, createElement)
   moveFootnotes(doc, group, createElement)
   moveAcknowledgments(doc, group, createElement)
   body.append(group)
@@ -216,12 +206,15 @@ const moveFootnotes = (
 const moveSpecialFootnotes = (
   doc: Document,
   group: Element,
+  sectionCategories: SectionCategory[],
   createElement: CreateElement
 ) => {
   const fns = [...doc.querySelectorAll('fn[fn-type]')]
   for (const fn of fns) {
     const type = fn.getAttribute('fn-type') || '' //Cannot be null since it is queried above
-    const category = chooseSectionCategoryByType(type)
+    const category = sectionCategories.find((category) =>
+      category.synonyms.includes(type)
+    )
     if (category) {
       const section = createElement('sec')
       const fnTitle = fn.querySelector('p[content-type="fn-title"]')
@@ -236,13 +229,11 @@ const moveSpecialFootnotes = (
       }
       section.append(...fn.children)
       removeNodeFromParent(fn)
-
-      section.setAttribute('sec-type', chooseSecType(category))
+      section.setAttribute('sec-type', category.id)
       group.append(section)
     }
   }
 }
-
 // move captions to the end of their containers
 export const moveCaptionsToEnd = (body: Element) => {
   const captions = body.querySelectorAll('caption')
