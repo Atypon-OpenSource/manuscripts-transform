@@ -51,12 +51,7 @@ import {
   TableElementNode,
 } from '../../schema'
 import { AwardNode } from '../../schema/nodes/award'
-import {
-  chooseJatsFnType,
-  chooseSecType,
-  isExecutableNodeType,
-  isNodeType,
-} from '../../transformer'
+import { isExecutableNodeType, isNodeType } from '../../transformer'
 import { IDGenerator } from '../types'
 import { selectVersionIds, Version } from './jats-versions'
 import { buildTargets, Target } from './labels'
@@ -1108,7 +1103,7 @@ export class JATSExporter {
         }
 
         if (node.attrs.category) {
-          attrs['sec-type'] = chooseSecType(node.attrs.category)
+          attrs['sec-type'] = node.attrs.category
         }
 
         return ['sec', attrs, 0]
@@ -1768,7 +1763,7 @@ export class JATSExporter {
                 }
 
                 case 'table': {
-                  this.fixTable(childNode, node)
+                  this.fixTable(childNode)
                   break
                 }
               }
@@ -1791,7 +1786,7 @@ export class JATSExporter {
     return clone
   }
 
-  private fixTable = (table: ChildNode, node: ManuscriptNode) => {
+  private fixTable = (table: ChildNode) => {
     let tbody: Element | undefined
 
     Array.from(table.childNodes).forEach((child) => {
@@ -1949,7 +1944,7 @@ export class JATSExporter {
       back.insertBefore(availabilitySection, back.firstChild)
     }
 
-    const section = body.querySelector('sec[sec-type="acknowledgments"]')
+    const section = body.querySelector('sec[sec-type="acknowledgements"]')
 
     if (section) {
       const ack = this.document.createElement('ack')
@@ -1995,7 +1990,7 @@ export class JATSExporter {
       'supported-by',
       'financial-disclosure',
       'ethics-statement',
-      'competing-interests',
+      'coi-statement',
     ]
 
     const sections = body.querySelectorAll('sec')
@@ -2071,7 +2066,7 @@ export class JATSExporter {
     fnGroups.forEach((fnGroup) => {
       if (fnGroup) {
         const coiStatement = fnGroup.querySelector(
-          'fn[fn-type="competing-interests"]'
+          'fn[fn-type="coi-statement"]'
         )
         if (coiStatement) {
           const authorNotes = this.document.createElement('author-notes')
@@ -2116,7 +2111,7 @@ export class JATSExporter {
     footnotes.forEach((fn) => {
       const fnType = fn.getAttribute('fn-type')
       if (fnType) {
-        fn.setAttribute('fn-type', chooseJatsFnType(fnType))
+        fn.setAttribute('fn-type', fnType)
       }
     })
   }
