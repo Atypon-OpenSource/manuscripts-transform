@@ -677,6 +677,19 @@ export class JATSDOMParser {
       },
     },
     {
+      tag: 'media',
+      node: 'embed',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          href: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
+          mimetype: element.getAttribute('mimetype'),
+          mimeSubtype: element.getAttribute('mime-subtype'),
+        }
+      },
+    },
+    {
       tag: 'fig[fig-type=listing]',
       node: 'listing_element',
       getAttrs: (node) => {

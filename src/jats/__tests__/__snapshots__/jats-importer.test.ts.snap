@@ -24933,6 +24933,16 @@ Object {
             },
             Object {
               "attrs": Object {
+                "dataTracked": null,
+                "href": "example.mp4",
+                "id": "MPEmbed:test",
+                "mimeSubtype": "mp4",
+                "mimetype": "video",
+              },
+              "type": "embed",
+            },
+            Object {
+              "attrs": Object {
                 "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
