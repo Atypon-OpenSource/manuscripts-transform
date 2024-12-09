@@ -77,20 +77,6 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "*",
-              "type": "text",
-            },
-          ],
-          "type": "paragraph",
-        },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "MPParagraphElement:test",
-            "placeholder": "",
-          },
-          "content": Array [
-            Object {
               "text": "Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark",
               "type": "text",
             },
@@ -17241,20 +17227,6 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "*",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
                   "text": "Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark",
                   "type": "text",
                 },
@@ -21141,25 +21113,6 @@ Object {
                               },
                               "content": Array [
                                 Object {
-                                  "marks": Array [
-                                    Object {
-                                      "type": "superscript",
-                                    },
-                                  ],
-                                  "text": "a",
-                                  "type": "text",
-                                },
-                              ],
-                              "type": "paragraph",
-                            },
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                                "id": "MPParagraphElement:test",
-                                "placeholder": "",
-                              },
-                              "content": Array [
-                                Object {
                                   "text": "Fisher’s exact test. ",
                                   "type": "text",
                                 },
@@ -23337,25 +23290,6 @@ Object {
                                   },
                                   "content": Array [
                                     Object {
-                                      "marks": Array [
-                                        Object {
-                                          "type": "superscript",
-                                        },
-                                      ],
-                                      "text": "a",
-                                      "type": "text",
-                                    },
-                                  ],
-                                  "type": "paragraph",
-                                },
-                                Object {
-                                  "attrs": Object {
-                                    "dataTracked": null,
-                                    "id": "MPParagraphElement:test",
-                                    "placeholder": "",
-                                  },
-                                  "content": Array [
-                                    Object {
                                       "text": "Fisher’s exact test. ",
                                       "type": "text",
                                     },
@@ -24223,20 +24157,6 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "*",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
                   "text": "Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark",
                   "type": "text",
                 },
@@ -25055,7 +24975,7 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPSection:test",
-                        "label": "BoxedTextLabel",
+                        "label": "",
                       },
                       "content": Array [
                         Object {
@@ -28412,25 +28332,6 @@ Object {
                               },
                               "content": Array [
                                 Object {
-                                  "marks": Array [
-                                    Object {
-                                      "type": "superscript",
-                                    },
-                                  ],
-                                  "text": "a",
-                                  "type": "text",
-                                },
-                              ],
-                              "type": "paragraph",
-                            },
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                                "id": "MPParagraphElement:test",
-                                "placeholder": "",
-                              },
-                              "content": Array [
-                                Object {
                                   "text": "Fisher’s exact test. ",
                                   "type": "text",
                                 },
@@ -30600,25 +30501,6 @@ Object {
                                 "placeholder": "",
                               },
                               "content": Array [
-                                Object {
-                                  "attrs": Object {
-                                    "dataTracked": null,
-                                    "id": "MPParagraphElement:test",
-                                    "placeholder": "",
-                                  },
-                                  "content": Array [
-                                    Object {
-                                      "marks": Array [
-                                        Object {
-                                          "type": "superscript",
-                                        },
-                                      ],
-                                      "text": "a",
-                                      "type": "text",
-                                    },
-                                  ],
-                                  "type": "paragraph",
-                                },
                                 Object {
                                   "attrs": Object {
                                     "dataTracked": null,

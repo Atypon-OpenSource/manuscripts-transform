@@ -620,7 +620,6 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
-          label: getTrimmedTextContent(element, 'label') ?? '',
         }
       },
       getContent: (node, schema) => {
@@ -736,10 +735,6 @@ export class JATSDOMParser {
       node: 'figure_element',
       getAttrs: (node) => {
         const element = node as HTMLElement
-        const labelNode = element.querySelector('label')
-        if (labelNode) {
-          element.removeChild(labelNode)
-        }
         const attrib = element.querySelector('attrib')
 
         const attribution = attrib
@@ -750,7 +745,6 @@ export class JATSDOMParser {
 
         return {
           id: element.getAttribute('id'),
-          label: getTrimmedTextContent(labelNode) ?? '',
           attribution,
           type: element.getAttribute('fig-type'),
         }
@@ -906,7 +900,6 @@ export class JATSDOMParser {
 
         return {
           id: element.getAttribute('id'),
-          label: getTrimmedTextContent(element, 'label'),
         }
       },
     },
@@ -963,11 +956,6 @@ export class JATSDOMParser {
       node: 'keyword',
     },
     {
-      tag: 'label',
-      context: 'box_element/',
-      ignore: true,
-    },
-    {
       tag: 'boxed-text',
       ignore: true,
     },
@@ -975,16 +963,6 @@ export class JATSDOMParser {
       tag: 'label',
       context: 'section/',
       node: 'section_label',
-    },
-    {
-      tag: 'label',
-      context: 'table_element/',
-      ignore: true, // TODO
-    },
-    {
-      tag: 'label',
-      context: 'figure/',
-      ignore: true, // TODO
     },
     {
       tag: 'table',
@@ -1100,12 +1078,15 @@ export class JATSDOMParser {
       node: 'cross_reference',
       getAttrs: (node) => {
         const element = node as HTMLElement
-
         return {
           rids: element.getAttribute('rid')?.split(/\s+/) || [],
           label: getTrimmedTextContent(element),
         }
       },
+    },
+    {
+      tag: 'label',
+      ignore: true,
     },
   ]
 
