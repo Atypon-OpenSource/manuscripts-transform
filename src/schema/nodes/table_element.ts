@@ -31,7 +31,6 @@ export const tableElement: NodeSpec = {
     ' figcaption? (table | placeholder) table_colgroup? table_element_footer? (listing | placeholder)',
   attrs: {
     id: { default: '' },
-    label: { default: '' },
     dataTracked: { default: null },
   },
   selectable: false,

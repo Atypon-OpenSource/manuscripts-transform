@@ -2996,7 +2996,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {
@@ -5052,7 +5051,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -8901,7 +8899,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -11409,7 +11406,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -18434,7 +18430,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {
@@ -21614,7 +21609,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -24975,7 +24969,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPSection:test",
-                        "label": "",
                       },
                       "content": Array [
                         Object {
@@ -25653,7 +25646,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {
@@ -28833,7 +28825,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -34953,7 +34944,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -42824,7 +42814,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {
