@@ -1080,7 +1080,6 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           rids: element.getAttribute('rid')?.split(/\s+/) || [],
-          label: getTrimmedTextContent(element),
         }
       },
     },
