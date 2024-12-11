@@ -902,11 +902,11 @@ export class JATSExporter {
         const cross = node as CrossReferenceNode
         const rids = cross.attrs.rids
         if (!rids.length) {
-          return cross.attrs.label ?? ''
+          return ''
         }
 
         const rid = rids[0]
-        const text = cross.attrs.label || this.labelTargets.get(rid)?.label
+        const text = this.labelTargets.get(rid)?.label
 
         const target = findChildrenByAttr(
           this.manuscriptNode,

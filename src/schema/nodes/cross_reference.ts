@@ -20,7 +20,6 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   rids: string[]
-  label: string
 }
 
 export interface CrossReferenceNode extends ManuscriptNode {
@@ -34,7 +33,6 @@ export const crossReference: NodeSpec = {
   atom: true,
   attrs: {
     rids: { default: [] },
-    label: { default: '' },
     dataTracked: { default: null },
   },
   parseDOM: [
@@ -58,7 +56,6 @@ export const crossReference: NodeSpec = {
         class: 'cross-reference',
         'data-reference-id': crossReferenceNode.attrs.rids.join(' '),
       },
-      crossReferenceNode.attrs.label,
     ]
   },
 }
