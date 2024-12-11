@@ -137,14 +137,12 @@ export const createBody = (
   createElement: CreateElement
 ) => {
   const group = createSectionGroup('body', createElement)
-  const paragraphs = doc.querySelectorAll('body > p')
-  group.append(...paragraphs)
-  const sections = doc.querySelectorAll(
-    'body > sec:not([sec-type="backmatter"]), body > sec:not([sec-type])'
+  const elements = body.querySelectorAll(
+    ':scope > *:not(sec), :scope > sec:not([sec-type="backmatter"]), :scope > sec:not([sec-type])'
   )
-  sections.forEach((section) => {
-    removeNodeFromParent(section)
-    group.appendChild(section)
+  elements.forEach((element) => {
+    removeNodeFromParent(element)
+    group.appendChild(element)
   })
   moveFloatsGroupToBody(doc, group, createElement)
   body.append(group)

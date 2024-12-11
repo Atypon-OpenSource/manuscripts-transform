@@ -804,6 +804,22 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
+      embed: (node) => {
+        const mediaElement = this.document.createElement('media')
+        const { id, href, mimetype, mimeSubtype } = node.attrs
+        mediaElement.setAttribute('id', normalizeID(id))
+        mediaElement.setAttributeNS(XLINK_NAMESPACE, 'show', 'embed')
+        if (href) {
+          mediaElement.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
+        }
+        if (mimetype) {
+          mediaElement.setAttribute('mimetype', node.attrs.mimetype)
+        }
+        if (mimeSubtype) {
+          mediaElement.setAttribute('mime-subtype', node.attrs.mimeSubtype)
+        }
+        return mediaElement
+      },
       awards: () => ['funding-group', 0],
       award: (node) => {
         const awardGroup = node as AwardNode
