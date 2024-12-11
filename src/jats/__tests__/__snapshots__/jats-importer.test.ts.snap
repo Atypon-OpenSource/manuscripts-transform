@@ -4973,6 +4973,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Table 1",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -4999,6 +5000,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Table 2",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -5012,6 +5014,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Table 3",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -13822,6 +13825,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Table 3",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -13897,6 +13901,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure 1 A–D",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14097,6 +14102,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure 2",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14274,6 +14280,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Table 1",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14323,6 +14330,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Table 1",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14372,6 +14380,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Table 2",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14385,6 +14394,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Table 3",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14460,6 +14470,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure 1 E–G",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14473,6 +14484,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure 1 G",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14537,6 +14549,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure 2",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14658,6 +14671,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Table 2",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14756,6 +14770,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure 3 A-C",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -18330,6 +18345,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "label": "Figure 1",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -18343,6 +18359,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "label": "Table 1",
                     "rids": Array [
                       "MPTableElement:test",
                     ],
@@ -21174,6 +21191,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "label": "Figure 2",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -21311,6 +21329,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure 3",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -21572,6 +21591,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Table 2",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -25541,6 +25561,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "label": "Figure 1",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -25554,6 +25575,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "label": "Table 1",
                     "rids": Array [
                       "MPTableElement:test",
                     ],
@@ -28385,6 +28407,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "label": "Figure 2",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -28522,6 +28545,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure 3",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -28783,6 +28807,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Table 2",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -33206,6 +33231,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "label": "Figure I",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -34871,6 +34897,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Table 1",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -38048,6 +38075,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Table 1",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -38212,6 +38240,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "label": "equation (4)",
                     "rids": Array [
                       "MPEquationElement:test",
                     ],
@@ -38470,6 +38499,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "equations (4)",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -38483,6 +38513,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "(5)",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -38496,6 +38527,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure II",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -38747,6 +38779,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
+                                "label": "Table 1",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -38896,6 +38929,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure II",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -38909,6 +38943,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure II",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -38936,6 +38971,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "equations (4)",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -38949,6 +38985,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "(5)",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -38977,6 +39014,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure III",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -39243,6 +39281,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
+                                "label": "Table 1",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -39407,6 +39446,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure III",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -39420,6 +39460,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure III",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -39477,6 +39518,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "equations (4)",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -39490,6 +39532,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "(5)",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -39503,6 +39546,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure IV",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -39785,6 +39829,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
+                                "label": "Table 1",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -39986,6 +40031,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure IV",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -40013,6 +40059,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure IV",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -40026,6 +40073,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure IV",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -40103,6 +40151,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "equation (5)",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -40116,6 +40165,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure V",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -40326,6 +40376,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
+                                "label": "Table 1",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -40475,6 +40526,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "equation (5)",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -40488,6 +40540,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure VI",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -40698,6 +40751,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
+                                "label": "Table 1",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -40941,6 +40995,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "equation (5)",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -40954,6 +41009,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "label": "Figure VII",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -41164,6 +41220,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
+                                "label": "Table 1",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -41364,6 +41421,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "label": "Figure VIII",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -41574,6 +41632,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
+                            "label": "Table 1",
                             "rids": Array [
                               "MPTableElement:test",
                             ],
