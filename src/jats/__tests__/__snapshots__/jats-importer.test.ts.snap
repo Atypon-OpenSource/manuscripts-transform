@@ -77,20 +77,6 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "*",
-              "type": "text",
-            },
-          ],
-          "type": "paragraph",
-        },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "MPParagraphElement:test",
-            "placeholder": "",
-          },
-          "content": Array [
-            Object {
               "text": "Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark",
               "type": "text",
             },
@@ -796,7 +782,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:abstract",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -931,7 +917,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:introduction",
+            "category": "intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -1284,7 +1270,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:materials-method",
+            "category": "methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -1303,7 +1289,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -1353,7 +1339,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -1417,7 +1403,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -1466,7 +1452,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -1572,7 +1558,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:results",
+            "category": "results",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -1754,7 +1740,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:discussion",
+            "category": "discussion",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -2067,7 +2053,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:conclusions",
+            "category": "conclusions",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -2125,7 +2111,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:competing-interests",
+            "category": "coi-statement",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -2161,7 +2147,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:financial-disclosure",
+            "category": "financial-disclosure",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -2197,7 +2183,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:acknowledgement",
+            "category": "acknowledgements",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -3017,7 +3003,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {
@@ -3663,7 +3648,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:competing-interests",
+            "category": "coi-statement",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -3699,7 +3684,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:financial-disclosure",
+            "category": "financial-disclosure",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4355,7 +4340,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:abstract",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4425,7 +4410,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:introduction",
+            "category": "intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4690,7 +4675,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:materials-method",
+            "category": "methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4709,7 +4694,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -4745,7 +4730,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -4792,7 +4777,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -4900,7 +4885,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -4939,7 +4924,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:results",
+            "category": "results",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -4958,7 +4943,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -5002,7 +4987,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 1",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -5029,7 +5014,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 2",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -5043,7 +5028,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 3",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -5080,7 +5065,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -8936,7 +8920,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -11451,7 +11434,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -13847,7 +13829,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -13878,7 +13860,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 3",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -13897,7 +13879,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -13954,7 +13936,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 1 A–D",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14131,7 +14113,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14162,7 +14144,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 2",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14265,7 +14247,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14301,7 +14283,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14347,7 +14329,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 1",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14366,7 +14348,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14397,7 +14379,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 1",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14416,7 +14398,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14447,7 +14429,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 2",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14461,7 +14443,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 3",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14480,7 +14462,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14537,7 +14519,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 1 E–G",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14551,7 +14533,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 1 G",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14585,7 +14567,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14616,7 +14598,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 2",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14635,7 +14617,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14671,7 +14653,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14707,7 +14689,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14738,7 +14720,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 2",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14770,7 +14752,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14806,7 +14788,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -14837,7 +14819,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 3 A-C",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14928,7 +14910,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:discussion",
+            "category": "discussion",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -15350,7 +15332,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:con",
+            "category": "con",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -15470,7 +15452,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:competing-interests",
+            "category": "coi-statement",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -17297,20 +17279,6 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "*",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
                   "text": "Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark",
                   "type": "text",
                 },
@@ -17493,7 +17461,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:abstract",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -17512,7 +17480,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -17548,7 +17516,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "methods",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -17584,7 +17552,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "results",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -17646,7 +17614,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "conclusions",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -17693,7 +17661,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:introduction",
+            "category": "intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -17905,7 +17873,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -17938,7 +17906,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "category": "MPSectionCategory:subsection",
+                    "category": "",
                     "dataTracked": null,
                     "id": "MPSection:test",
                   },
@@ -17957,7 +17925,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "category": "MPSectionCategory:subsection",
+                        "category": "",
                         "dataTracked": null,
                         "id": "MPSection:test",
                       },
@@ -18002,7 +17970,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:materials-method",
+            "category": "methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -18090,7 +18058,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -18152,7 +18120,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -18228,7 +18196,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -18315,7 +18283,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -18390,7 +18358,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:results",
+            "category": "results",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -18433,7 +18401,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Figure 1",
+                    "label": "",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -18447,7 +18415,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Table 1",
+                    "label": "",
                     "rids": Array [
                       "MPTableElement:test",
                     ],
@@ -18525,7 +18493,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {
@@ -21211,25 +21178,6 @@ Object {
                               },
                               "content": Array [
                                 Object {
-                                  "marks": Array [
-                                    Object {
-                                      "type": "superscript",
-                                    },
-                                  ],
-                                  "text": "a",
-                                  "type": "text",
-                                },
-                              ],
-                              "type": "paragraph",
-                            },
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                                "id": "MPParagraphElement:test",
-                                "placeholder": "",
-                              },
-                              "content": Array [
-                                Object {
                                   "text": "Fisher’s exact test. ",
                                   "type": "text",
                                 },
@@ -21313,7 +21261,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Figure 2",
+                    "label": "",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -21389,7 +21337,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -21458,7 +21406,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 3",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -21537,7 +21485,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -21727,7 +21675,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 2",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -21745,7 +21693,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -23428,25 +23375,6 @@ Object {
                                   },
                                   "content": Array [
                                     Object {
-                                      "marks": Array [
-                                        Object {
-                                          "type": "superscript",
-                                        },
-                                      ],
-                                      "text": "a",
-                                      "type": "text",
-                                    },
-                                  ],
-                                  "type": "paragraph",
-                                },
-                                Object {
-                                  "attrs": Object {
-                                    "dataTracked": null,
-                                    "id": "MPParagraphElement:test",
-                                    "placeholder": "",
-                                  },
-                                  "content": Array [
-                                    Object {
                                       "text": "Fisher’s exact test. ",
                                       "type": "text",
                                     },
@@ -23564,7 +23492,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:discussion",
+            "category": "discussion",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -23722,7 +23650,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -23802,7 +23730,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:conclusions",
+            "category": "conclusions",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -23859,7 +23787,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:availability",
+            "category": "availability",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -23895,7 +23823,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:con",
+            "category": "con",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -23974,7 +23902,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:competing-interests",
+            "category": "coi-statement",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -24010,7 +23938,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:acknowledgement",
+            "category": "acknowledgements",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -26140,20 +26068,6 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "*",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
                   "text": "Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark",
                   "type": "text",
                 },
@@ -26365,7 +26279,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:abstract",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -26384,7 +26298,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -26420,7 +26334,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "methods",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -26456,7 +26370,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "results",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -26518,7 +26432,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "conclusions",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -26654,7 +26568,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:introduction",
+            "category": "intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -26866,7 +26780,17 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "dataTracked": null,
+                "href": "example.mp4",
+                "id": "MPEmbed:test",
+                "mimeSubtype": "mp4",
+                "mimetype": "video",
+              },
+              "type": "embed",
+            },
+            Object {
+              "attrs": Object {
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -26899,7 +26823,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "category": "MPSectionCategory:subsection",
+                    "category": "",
                     "dataTracked": null,
                     "id": "MPSection:test",
                   },
@@ -26918,7 +26842,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "category": "MPSectionCategory:subsection",
+                        "category": "",
                         "dataTracked": null,
                         "id": "MPSection:test",
                       },
@@ -26957,7 +26881,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "category": "MPSectionCategory:subsection",
+                    "category": "",
                     "dataTracked": null,
                     "id": "MPSection:test",
                   },
@@ -26978,7 +26902,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPSection:test",
-                        "label": "BoxedTextLabel",
                       },
                       "content": Array [
                         Object {
@@ -27004,7 +26927,7 @@ Object {
                         },
                         Object {
                           "attrs": Object {
-                            "category": "MPSectionCategory:subsection",
+                            "category": "",
                             "dataTracked": null,
                             "id": "MPSection:test",
                           },
@@ -27140,7 +27063,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:materials-method",
+            "category": "methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -27228,7 +27151,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -27290,7 +27213,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -27366,7 +27289,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -27453,7 +27376,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -27528,7 +27451,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:results",
+            "category": "results",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -27571,7 +27494,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Figure 1",
+                    "label": "",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -27585,7 +27508,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Table 1",
+                    "label": "",
                     "rids": Array [
                       "MPTableElement:test",
                     ],
@@ -27663,7 +27586,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {
@@ -30349,25 +30271,6 @@ Object {
                               },
                               "content": Array [
                                 Object {
-                                  "marks": Array [
-                                    Object {
-                                      "type": "superscript",
-                                    },
-                                  ],
-                                  "text": "a",
-                                  "type": "text",
-                                },
-                              ],
-                              "type": "paragraph",
-                            },
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                                "id": "MPParagraphElement:test",
-                                "placeholder": "",
-                              },
-                              "content": Array [
-                                Object {
                                   "text": "Fisher’s exact test. ",
                                   "type": "text",
                                 },
@@ -30451,7 +30354,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Figure 2",
+                    "label": "",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -30527,7 +30430,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -30596,7 +30499,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 3",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -30675,7 +30578,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -30865,7 +30768,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 2",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -30883,7 +30786,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -32566,25 +32468,6 @@ Object {
                                   },
                                   "content": Array [
                                     Object {
-                                      "marks": Array [
-                                        Object {
-                                          "type": "superscript",
-                                        },
-                                      ],
-                                      "text": "a",
-                                      "type": "text",
-                                    },
-                                  ],
-                                  "type": "paragraph",
-                                },
-                                Object {
-                                  "attrs": Object {
-                                    "dataTracked": null,
-                                    "id": "MPParagraphElement:test",
-                                    "placeholder": "",
-                                  },
-                                  "content": Array [
-                                    Object {
                                       "text": "Fisher’s exact test. ",
                                       "type": "text",
                                     },
@@ -32702,7 +32585,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:discussion",
+            "category": "discussion",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -32860,7 +32743,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -32940,7 +32823,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:conclusions",
+            "category": "conclusions",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -32997,7 +32880,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:availability",
+            "category": "availability",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -33033,7 +32916,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:con",
+            "category": "con",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -33112,7 +32995,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:competing-interests",
+            "category": "coi-statement",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -33148,7 +33031,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:acknowledgement",
+            "category": "acknowledgements",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -35168,7 +35051,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:abstract",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -35212,7 +35095,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:introduction",
+            "category": "intro",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -35316,7 +35199,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Figure I",
+                    "label": "",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -36023,7 +35906,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -36895,7 +36778,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -36989,7 +36872,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 1",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -37036,7 +36919,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -40175,7 +40057,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 1",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -40197,7 +40079,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:materials-method",
+            "category": "methods",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -40340,7 +40222,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "equation (4)",
+                    "label": "",
                     "rids": Array [
                       "MPEquationElement:test",
                     ],
@@ -40537,7 +40419,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:results",
+            "category": "results",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -40568,7 +40450,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -40599,7 +40481,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "equations (4)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -40613,7 +40495,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "(5)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -40627,7 +40509,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure II",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -40886,7 +40768,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "label": "Table 1",
+                                "label": "",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -41036,7 +40918,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure II",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -41050,7 +40932,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure II",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -41078,7 +40960,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "equations (4)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -41092,7 +40974,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "(5)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -41121,7 +41003,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure III",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -41395,7 +41277,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "label": "Table 1",
+                                "label": "",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -41560,7 +41442,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure III",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -41574,7 +41456,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure III",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -41632,7 +41514,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "equations (4)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -41646,7 +41528,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "(5)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -41660,7 +41542,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure IV",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -41950,7 +41832,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "label": "Table 1",
+                                "label": "",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -42152,7 +42034,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure IV",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -42180,7 +42062,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure IV",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -42194,7 +42076,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure IV",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -42213,7 +42095,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -42272,7 +42154,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "equation (5)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -42286,7 +42168,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure V",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -42504,7 +42386,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "label": "Table 1",
+                                "label": "",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -42654,7 +42536,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "equation (5)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -42668,7 +42550,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure VI",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -42886,7 +42768,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "label": "Table 1",
+                                "label": "",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -43041,7 +42923,7 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "MPSectionCategory:subsection",
+                "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",
               },
@@ -43130,7 +43012,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "equation (5)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -43144,7 +43026,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure VII",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -43362,7 +43244,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "label": "Table 1",
+                                "label": "",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -43563,7 +43445,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Figure VIII",
+                    "label": "",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -43781,7 +43663,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "label": "Table 1",
+                            "label": "",
                             "rids": Array [
                               "MPTableElement:test",
                             ],
@@ -43922,7 +43804,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:conclusions",
+            "category": "conclusions",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -44930,7 +44812,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "MPSectionCategory:appendices",
+            "category": "appendices",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -44971,7 +44853,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {

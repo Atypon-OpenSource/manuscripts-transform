@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,48 +20,35 @@ import { ManuscriptNode } from '../types'
 
 interface Attrs {
   id: string
+  href: string
+  show: string
+  mimetype: string
+  mimeSubtype: string
 }
 
-export interface TableElementNode extends ManuscriptNode {
+export interface EmbedNode extends ManuscriptNode {
   attrs: Attrs
 }
 
-export const tableElement: NodeSpec = {
-  content:
-    ' figcaption? (table | placeholder) table_colgroup? table_element_footer? (listing | placeholder)',
+export const embed: NodeSpec = {
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
+    href: { default: undefined },
+    mimetype: { default: undefined },
+    mimeSubtype: { default: undefined },
   },
-  selectable: false,
-  group: 'block element executable',
-  parseDOM: [
-    {
-      tag: 'figure.table',
-      getAttrs: (dom) => {
-        const element = dom as HTMLTableElement
-
-        return {
-          id: element.getAttribute('id'),
-        }
-      },
-    },
-  ],
+  group: 'block element',
   toDOM: (node) => {
-    const tableElementNode = node as TableElementNode
-
     return [
-      'figure',
+      'div',
       {
-        class: 'table', // TODO: suppress-header, suppress-footer?
-        id: tableElementNode.attrs.id,
+        class: 'embed',
+        id: node.attrs.id,
       },
-      0,
     ]
   },
 }
 
-export const isTableElementNode = (
-  node: ManuscriptNode
-): node is TableElementNode =>
-  node.type === node.type.schema.nodes.table_element
+export const isEmbedNode = (node: ManuscriptNode): node is EmbedNode =>
+  node.type === node.type.schema.nodes.embed

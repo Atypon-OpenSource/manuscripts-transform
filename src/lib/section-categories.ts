@@ -1,5 +1,5 @@
 /*!
- * © 2023 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,24 +14,10 @@
  * limitations under the License.
  */
 
-export type SectionGroupTypeID = 'abstracts' | 'body' | 'backmatter'
+import { SectionCategory, SectionGroup } from '../schema'
 
-export type SectionGroupType = {
-  _id: SectionGroupTypeID
-  title: string
-}
-
-export const abstractsType: SectionGroupType = {
-  _id: 'abstracts',
-  title: 'Abstracts',
-}
-
-export const bodyType: SectionGroupType = {
-  _id: 'body',
-  title: 'Body',
-}
-
-export const backmatterType: SectionGroupType = {
-  _id: 'backmatter',
-  title: 'Backmatter',
-}
+export const getGroupCateogries = (
+  sectionsMap: Map<string, SectionCategory>,
+  group: SectionGroup
+) =>
+  Array.from(sectionsMap.values()).filter((section) => section.group === group)

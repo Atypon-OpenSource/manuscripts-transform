@@ -21,6 +21,7 @@ import {
   Node as ProsemirrorNode,
   NodeSpec,
   NodeType,
+  ParseRule,
   ResolvedPos,
   Schema,
   Slice,
@@ -117,6 +118,8 @@ export type Nodes =
   | 'box_element'
   | 'awards'
   | 'award'
+  | 'embed'
+
 export type ManuscriptSchema = Schema<Nodes, Marks>
 
 export type ManuscriptEditorState = EditorState
@@ -145,3 +148,24 @@ export type DataTrackedAttrs = {
   userID: string
   createdAt: number
 }
+
+export type SectionGroup = 'abstracts' | 'body' | 'backmatter'
+
+export type SectionCategory = {
+  id: string
+  synonyms: string[]
+  titles: [string, ...string[]]
+  group?: SectionGroup
+  isUnique: boolean
+}
+
+export type ManuscriptTemplate = {
+  _id: string
+  bundle: string
+  title: string
+  sectionCategories: SectionCategory[]
+}
+
+export type MarkRule = ParseRule & { mark: Marks | null }
+
+export type NodeRule = ParseRule & { node?: Nodes | null }
