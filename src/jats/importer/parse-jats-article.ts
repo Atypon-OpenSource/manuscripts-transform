@@ -20,6 +20,7 @@ import { JATSDOMParser } from './jats-dom-parser'
 import { parseJournal } from './jats-journal-meta-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
 import {
+  addMissingCaptions,
   createAbstracts,
   createBackmatter,
   createBody,
@@ -46,7 +47,7 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   if (!front) {
     return
   }
-
+  addMissingCaptions(doc, createElement)
   moveTitle(front, createElement)
   moveContributors(front, createElement)
   moveAffiliations(front, createElement)
