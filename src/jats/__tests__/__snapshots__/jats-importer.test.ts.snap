@@ -77,20 +77,6 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "*",
-              "type": "text",
-            },
-          ],
-          "type": "paragraph",
-        },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "MPParagraphElement:test",
-            "placeholder": "",
-          },
-          "content": Array [
-            Object {
               "text": "Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark",
               "type": "text",
             },
@@ -2956,6 +2942,13 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -3010,7 +3003,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {
@@ -3018,6 +3010,13 @@ Object {
                     "dataTracked": null,
                   },
                   "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
@@ -4988,7 +4987,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 1",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -5015,7 +5014,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 2",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -5029,7 +5028,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 3",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -5066,7 +5065,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -5086,6 +5084,13 @@ Object {
                             },
                           ],
                           "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "type": "caption",
                         },
                       ],
                       "type": "figcaption",
@@ -8915,7 +8920,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -8935,6 +8939,13 @@ Object {
                             },
                           ],
                           "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "type": "caption",
                         },
                       ],
                       "type": "figcaption",
@@ -11423,7 +11434,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -11443,6 +11453,13 @@ Object {
                             },
                           ],
                           "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "type": "caption",
                         },
                       ],
                       "type": "figcaption",
@@ -13843,7 +13860,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 3",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -13919,7 +13936,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 1 A–D",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14056,6 +14073,13 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
                             "placeholder": "Caption...",
                           },
                           "content": Array [
@@ -14120,7 +14144,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 2",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14171,6 +14195,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -14298,7 +14329,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 1",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14348,7 +14379,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 1",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14398,7 +14429,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 2",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14412,7 +14443,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 3",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14488,7 +14519,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 1 E–G",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14502,7 +14533,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 1 G",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14567,7 +14598,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 2",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14689,7 +14720,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 2",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -14788,7 +14819,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 3 A-C",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -14824,6 +14855,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -17241,20 +17279,6 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "*",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
                   "text": "Mai Bang Poulsen, MD, PhD Department of Neurology Nordsjællands Hospital Dyrehavevej 29 3400 Hillerød Denmark",
                   "type": "text",
                 },
@@ -18377,7 +18401,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Figure 1",
+                    "label": "",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -18391,7 +18415,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Table 1",
+                    "label": "",
                     "rids": Array [
                       "MPTableElement:test",
                     ],
@@ -18430,6 +18454,13 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -18462,7 +18493,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {
@@ -18482,6 +18512,13 @@ Object {
                         },
                       ],
                       "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "type": "caption",
                     },
                   ],
                   "type": "figcaption",
@@ -21141,25 +21178,6 @@ Object {
                               },
                               "content": Array [
                                 Object {
-                                  "marks": Array [
-                                    Object {
-                                      "type": "superscript",
-                                    },
-                                  ],
-                                  "text": "a",
-                                  "type": "text",
-                                },
-                              ],
-                              "type": "paragraph",
-                            },
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                                "id": "MPParagraphElement:test",
-                                "placeholder": "",
-                              },
-                              "content": Array [
-                                Object {
                                   "text": "Fisher’s exact test. ",
                                   "type": "text",
                                 },
@@ -21243,7 +21261,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Figure 2",
+                    "label": "",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -21279,6 +21297,13 @@ Object {
                     "dataTracked": null,
                   },
                   "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
@@ -21381,7 +21406,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 3",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -21417,6 +21442,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -21643,7 +21675,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 2",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -21661,7 +21693,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -21681,6 +21712,13 @@ Object {
                             },
                           ],
                           "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "type": "caption",
                         },
                       ],
                       "type": "figcaption",
@@ -23337,25 +23375,6 @@ Object {
                                   },
                                   "content": Array [
                                     Object {
-                                      "marks": Array [
-                                        Object {
-                                          "type": "superscript",
-                                        },
-                                      ],
-                                      "text": "a",
-                                      "type": "text",
-                                    },
-                                  ],
-                                  "type": "paragraph",
-                                },
-                                Object {
-                                  "attrs": Object {
-                                    "dataTracked": null,
-                                    "id": "MPParagraphElement:test",
-                                    "placeholder": "",
-                                  },
-                                  "content": Array [
-                                    Object {
                                       "text": "Fisher’s exact test. ",
                                       "type": "text",
                                     },
@@ -24037,6 +24056,1817 @@ Object {
 }
 `;
 
+exports[`JATS importer parses JATS example full 1`] = `
+Object {
+  "attrs": Object {
+    "acceptanceDate": 1242086400,
+    "articleType": "research-article",
+    "correctionDate": undefined,
+    "doi": "",
+    "id": "MPManuscript:test",
+    "primaryLanguageCode": "",
+    "prototype": "",
+    "receiveDate": 1238544000,
+    "retractionDate": undefined,
+    "revisionReceiveDate": 1241222400,
+    "revisionRequestDate": undefined,
+  },
+  "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPTitles:test",
+        "placeholder": "Insert title here...",
+      },
+      "content": Array [
+        Object {
+          "text": "This is the Article Title",
+          "type": "text",
+        },
+      ],
+      "type": "title",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPSection:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "ORCIDIdentifier": undefined,
+            "affiliations": Array [
+              "MPAffiliation:test",
+            ],
+            "bibliographicName": Object {
+              "ObjectType": "MPBibliographicName",
+              "family": "Day",
+              "given": "Nathan",
+            },
+            "contents": "",
+            "corresp": Array [
+              Object {
+                "correspID": "MPCorresponding:test",
+                "correspLabel": "*",
+              },
+            ],
+            "dataTracked": null,
+            "email": "",
+            "footnote": Array [
+              Object {
+                "noteID": "MPFootnote:test",
+                "noteLabel": "1",
+              },
+            ],
+            "id": "MPContributor:test",
+            "invitationID": undefined,
+            "isCorresponding": true,
+            "isJointContributor": undefined,
+            "priority": undefined,
+            "role": "author",
+            "userID": undefined,
+          },
+          "content": Array [
+            Object {
+              "text": "_",
+              "type": "text",
+            },
+          ],
+          "type": "contributor",
+        },
+      ],
+      "type": "contributors",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPSection:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "addressLine1": "Houston, TX",
+            "addressLine2": "",
+            "addressLine3": "",
+            "city": "",
+            "country": "USA",
+            "county": "",
+            "dataTracked": null,
+            "department": "",
+            "email": undefined,
+            "id": "MPAffiliation:test",
+            "institution": "University of Life",
+            "postCode": "",
+            "priority": undefined,
+          },
+          "content": Array [
+            Object {
+              "text": "_",
+              "type": "text",
+            },
+          ],
+          "type": "affiliation",
+        },
+      ],
+      "type": "affiliations",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPAuthorNotes:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPCorresponding:test",
+            "label": "*",
+          },
+          "content": Array [
+            Object {
+              "text": "Correspondence: nday@inera.com.",
+              "type": "text",
+            },
+          ],
+          "type": "corresp",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPFootnote:test",
+            "kind": "footnote",
+            "placeholder": "",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Author_Footnote.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "footnote",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPFootnote:test",
+            "kind": "footnote",
+            "placeholder": "",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Disclaimer",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "This is an unlabelled author footnote with a separate title.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "footnote",
+        },
+      ],
+      "type": "author_notes",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPSection:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "Keywords",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "contents": "",
+            "dataTracked": null,
+            "id": "MPKeywordsElement:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPKeywordGroup:test",
+                "type": "author",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPKeyword:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Paragraphs",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "keyword",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPKeyword:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "exporting",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "keyword",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPKeyword:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "testing",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "keyword",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPKeyword:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "NLM DTD",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "keyword",
+                },
+              ],
+              "type": "keyword_group",
+            },
+          ],
+          "type": "keywords_element",
+        },
+      ],
+      "type": "keywords",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPSection:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "category": "abstract-teaser",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Teaser: Heads up!",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "The direct interaction of phenobarbital with the epidermal growth factor receptor reveals a new network interface in nuclear receptor signaling.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "abstract",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Abstract",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "category": "intro",
+                "dataTracked": null,
+                "id": "MPSection:test",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Introduction",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "section_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPParagraphElement:test",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "This is a sectionalized abstract.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "section",
+            },
+            Object {
+              "attrs": Object {
+                "category": "results",
+                "dataTracked": null,
+                "id": "MPSection:test",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Results",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "section_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPParagraphElement:test",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "These are the results of the experiment.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "section",
+            },
+          ],
+          "type": "section",
+        },
+      ],
+      "type": "abstracts",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPSection:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "category": "intro",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Introduction",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "category": "",
+                "dataTracked": null,
+                "id": "MPSection:test",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A level 2 subhead",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "section_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "category": "",
+                    "dataTracked": null,
+                    "id": "MPSection:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A level 3 subhead",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "section_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "category": "",
+                        "dataTracked": null,
+                        "id": "MPSection:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "A level 4 subhead",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "section_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "category": "",
+                            "dataTracked": null,
+                            "id": "MPSection:test",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "A level 5 subhead",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "section_title",
+                            },
+                            Object {
+                              "attrs": Object {
+                                "category": "ethics-statement",
+                                "dataTracked": null,
+                                "id": "MPSection:test",
+                              },
+                              "content": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "text": "Ethics statement",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "type": "section_title",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "id": "MPParagraphElement:test",
+                                    "placeholder": "",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "text": "Paragraph, see",
+                                      "type": "text",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "id": "MPInlineFootnote:test",
+                                        "rids": Array [
+                                          "MPFootnote:test",
+                                        ],
+                                      },
+                                      "type": "inline_footnote",
+                                    },
+                                    Object {
+                                      "text": " ",
+                                      "type": "text",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "label": "",
+                                        "rids": Array [
+                                          "eq1",
+                                        ],
+                                      },
+                                      "type": "cross_reference",
+                                    },
+                                    Object {
+                                      "text": " and ",
+                                      "type": "text",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "label": "",
+                                        "rids": Array [
+                                          "MPFigureElement:test",
+                                        ],
+                                      },
+                                      "type": "cross_reference",
+                                    },
+                                    Object {
+                                      "text": ".",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "type": "paragraph",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "attribution": Object {
+                                      "literal": "Source: Wikipedia.",
+                                    },
+                                    "dataTracked": null,
+                                    "id": "MPFigureElement:test",
+                                    "type": "half-right",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "id": "MPParagraphElement:test",
+                                        "placeholder": "",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "test paragraph",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "paragraph",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "contentType": "",
+                                        "dataTracked": null,
+                                        "id": "MPFigure:test",
+                                        "src": "123412341234.fig1",
+                                      },
+                                      "type": "figure",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "Source: Wikipedia.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "attribution",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "attrs": Object {
+                                            "dataTracked": null,
+                                            "placeholder": "Title...",
+                                          },
+                                          "type": "caption_title",
+                                        },
+                                        Object {
+                                          "attrs": Object {
+                                            "dataTracked": null,
+                                            "placeholder": "Caption...",
+                                          },
+                                          "content": Array [
+                                            Object {
+                                              "text": "A picture on the kinds of figures.",
+                                              "type": "text",
+                                            },
+                                          ],
+                                          "type": "caption",
+                                        },
+                                        Object {
+                                          "attrs": Object {
+                                            "dataTracked": null,
+                                            "placeholder": "Caption...",
+                                          },
+                                          "content": Array [
+                                            Object {
+                                              "text": "The Fig Caption continues.",
+                                              "type": "text",
+                                            },
+                                          ],
+                                          "type": "caption",
+                                        },
+                                      ],
+                                      "type": "figcaption",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "contents": "",
+                                        "dataTracked": null,
+                                        "id": "MPListing:test",
+                                        "isExecuting": false,
+                                        "isExpanded": false,
+                                        "language": "",
+                                        "languageKey": "null",
+                                      },
+                                      "type": "listing",
+                                    },
+                                  ],
+                                  "type": "figure_element",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "attribution": Object {
+                                      "literal": "Source: Wikipedia.",
+                                    },
+                                    "dataTracked": null,
+                                    "id": "fig1",
+                                    "type": "half-right",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "id": "MPParagraphElement:test",
+                                        "placeholder": "",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "test paragraph",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "paragraph",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "id": "MPMissingFigure:test",
+                                      },
+                                      "type": "missing_figure",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "Source: Wikipedia.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "attribution",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "attrs": Object {
+                                            "dataTracked": null,
+                                            "placeholder": "Title...",
+                                          },
+                                          "type": "caption_title",
+                                        },
+                                        Object {
+                                          "attrs": Object {
+                                            "dataTracked": null,
+                                            "placeholder": "Caption...",
+                                          },
+                                          "content": Array [
+                                            Object {
+                                              "text": "A missing picture on the kinds of figures.",
+                                              "type": "text",
+                                            },
+                                          ],
+                                          "type": "caption",
+                                        },
+                                        Object {
+                                          "attrs": Object {
+                                            "dataTracked": null,
+                                            "placeholder": "Caption...",
+                                          },
+                                          "content": Array [
+                                            Object {
+                                              "text": "The Fig Caption continues.",
+                                              "type": "text",
+                                            },
+                                          ],
+                                          "type": "caption",
+                                        },
+                                      ],
+                                      "type": "figcaption",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "contents": "",
+                                        "dataTracked": null,
+                                        "id": "MPListing:test",
+                                        "isExecuting": false,
+                                        "isExpanded": false,
+                                        "language": "",
+                                        "languageKey": "null",
+                                      },
+                                      "type": "listing",
+                                    },
+                                  ],
+                                  "type": "figure_element",
+                                },
+                              ],
+                              "type": "section",
+                            },
+                          ],
+                          "type": "section",
+                        },
+                      ],
+                      "type": "section",
+                    },
+                  ],
+                  "type": "section",
+                },
+              ],
+              "type": "section",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "methods",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Materials and Methods",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Some more text",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "results",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Results",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Some text that introduces a poem:",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Poetry Source: Wikipedia",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "You might1 peruse, e.g., ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "label": "",
+                    "rids": Array [
+                      "MPSection:test",
+                    ],
+                  },
+                  "type": "cross_reference",
+                },
+                Object {
+                  "text": ". See also ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "label": "",
+                    "rids": Array [
+                      "appA",
+                    ],
+                  },
+                  "type": "cross_reference",
+                },
+                Object {
+                  "text": ".",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPSection:test",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Boxed boxes.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption_title",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "category": "",
+                    "dataTracked": null,
+                    "id": "MPSection:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Box_Head_1",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "section_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "category": "",
+                        "dataTracked": null,
+                        "id": "MPSection:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Box_Head_2",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "section_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPParagraphElement:test",
+                            "placeholder": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Box_Text",
+                              "type": "text",
+                            },
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                                "id": "MPInlineFootnote:test",
+                                "rids": Array [
+                                  "MPFootnote:test",
+                                ],
+                              },
+                              "type": "inline_footnote",
+                            },
+                          ],
+                          "type": "paragraph",
+                        },
+                      ],
+                      "type": "section",
+                    },
+                  ],
+                  "type": "section",
+                },
+              ],
+              "type": "box_element",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "See also, ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPCitation:test",
+                    "rids": Array [
+                      "MPBibliographyItem:test",
+                    ],
+                    "selectedText": "",
+                  },
+                  "type": "citation",
+                },
+                Object {
+                  "text": " and ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "label": "",
+                    "rids": Array [
+                      "tbl1",
+                    ],
+                  },
+                  "type": "cross_reference",
+                },
+                Object {
+                  "text": ". This is a table title continued paragraph Table_Head Table_Body* * Table_Footnote Block_Quote Source: Wikipedia Paragraph_Continued with a graphic in the middlewhere the paragraph continues.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "category": "",
+                "dataTracked": null,
+                "id": "MPSection:test",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "H",
+                      "type": "text",
+                    },
+                    Object {
+                      "marks": Array [
+                        Object {
+                          "type": "subscript",
+                        },
+                      ],
+                      "text": "1",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "section_label",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "This is a hypothesis.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "section_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPListElement:test",
+                    "listStyleType": "bullet",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "List item",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPParagraphElement:test",
+                            "placeholder": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Num_Bul_List_1",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "paragraph",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPParagraphElement:test",
+                            "placeholder": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "List_1_Continued",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "paragraph",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPListElement:test",
+                            "listStyleType": "bullet",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                                "placeholder": "List item",
+                              },
+                              "content": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "id": "MPParagraphElement:test",
+                                    "placeholder": "",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "text": "Num_Bul_List_2",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "type": "paragraph",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "id": "MPParagraphElement:test",
+                                    "placeholder": "",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "text": "List_2_Continued",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "type": "paragraph",
+                                },
+                              ],
+                              "type": "list_item",
+                            },
+                          ],
+                          "type": "list",
+                        },
+                      ],
+                      "type": "list_item",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "List item",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPParagraphElement:test",
+                            "placeholder": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "level 1, bullet 2",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "paragraph",
+                        },
+                      ],
+                      "type": "list_item",
+                    },
+                  ],
+                  "type": "list",
+                },
+              ],
+              "type": "section",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "discussion",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Discussion",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "ParagraphUnnumbered_List_1 Another unnumbered itemwith another paragraph that continues after a list.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "conclusions",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Conclusions",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Paragraph",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Supplementary_Material_Head",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+          ],
+          "type": "section",
+        },
+      ],
+      "type": "body",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPSection:test",
+        "placeholder": " ",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "category": "availability",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Data availability",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "This is some information about data availability.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Footnotes",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPFootnotesElement:test",
+                "kind": "footnote",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Box Note",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "This is a footnote.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Footnote called out in a box",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+              ],
+              "type": "footnotes_element",
+            },
+          ],
+          "type": "footnotes_section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "appendices",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Appendix A",
+                  "type": "text",
+                },
+              ],
+              "type": "section_label",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "This is an appendix",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "category": "",
+                "dataTracked": null,
+                "id": "MPSection:test",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Appendix_Head_1",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "section_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "category": "",
+                    "dataTracked": null,
+                    "id": "MPSection:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Appendix_Head_2",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "section_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Appendix_Text",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "section",
+                },
+              ],
+              "type": "section",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "con",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Author Contributions",
+                  "type": "text",
+                },
+              ],
+              "type": "section_label",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Author Contibutions are described here.",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "coi-statement",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Competing Interests",
+                  "type": "text",
+                },
+              ],
+              "type": "section_label",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "This is information about Competing Interests.",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "financial-disclosure",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Financial Disclosure",
+                  "type": "text",
+                },
+              ],
+              "type": "section_label",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "This is a Financial Disclosure.",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "acknowledgements",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Acknowledgements",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Acknowledgement",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "References",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "contents": "",
+                "dataTracked": null,
+                "id": "MPBibliographyElement:test",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Day",
+                        "given": "R.N.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "EDCC",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": "2",
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2008",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "123-134",
+                    "supplement": undefined,
+                    "title": "This is the article title.",
+                    "type": "article-journal",
+                    "volume": "3",
+                  },
+                  "type": "bibliography_item",
+                },
+              ],
+              "type": "bibliography_element",
+            },
+          ],
+          "type": "bibliography_section",
+        },
+      ],
+      "type": "backmatter",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPComments:test",
+      },
+      "type": "comments",
+    },
+  ],
+  "type": "manuscript",
+}
+`;
+
 exports[`JATS importer parses JATS to Manuscripts document 1`] = `
 Object {
   "attrs": Object {
@@ -24215,20 +26045,6 @@ Object {
             "placeholder": "",
           },
           "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "*",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
             Object {
               "attrs": Object {
                 "dataTracked": null,
@@ -24677,6 +26493,22 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                   },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "type": "caption",
+                    },
+                  ],
                   "type": "figcaption",
                 },
                 Object {
@@ -25055,7 +26887,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPSection:test",
-                        "label": "BoxedTextLabel",
                       },
                       "content": Array [
                         Object {
@@ -25648,7 +27479,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Figure 1",
+                    "label": "",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -25662,7 +27493,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Table 1",
+                    "label": "",
                     "rids": Array [
                       "MPTableElement:test",
                     ],
@@ -25701,6 +27532,13 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
                       "content": Array [
@@ -25733,7 +27571,6 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {
@@ -25753,6 +27590,13 @@ Object {
                         },
                       ],
                       "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "type": "caption",
                     },
                   ],
                   "type": "figcaption",
@@ -28412,25 +30256,6 @@ Object {
                               },
                               "content": Array [
                                 Object {
-                                  "marks": Array [
-                                    Object {
-                                      "type": "superscript",
-                                    },
-                                  ],
-                                  "text": "a",
-                                  "type": "text",
-                                },
-                              ],
-                              "type": "paragraph",
-                            },
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                                "id": "MPParagraphElement:test",
-                                "placeholder": "",
-                              },
-                              "content": Array [
-                                Object {
                                   "text": "Fisher’s exact test. ",
                                   "type": "text",
                                 },
@@ -28514,7 +30339,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Figure 2",
+                    "label": "",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -28550,6 +30375,13 @@ Object {
                     "dataTracked": null,
                   },
                   "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
@@ -28652,7 +30484,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure 3",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -28688,6 +30520,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -28914,7 +30753,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 2",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -28932,7 +30771,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -28952,6 +30790,13 @@ Object {
                             },
                           ],
                           "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "type": "caption",
                         },
                       ],
                       "type": "figcaption",
@@ -30600,25 +32445,6 @@ Object {
                                 "placeholder": "",
                               },
                               "content": Array [
-                                Object {
-                                  "attrs": Object {
-                                    "dataTracked": null,
-                                    "id": "MPParagraphElement:test",
-                                    "placeholder": "",
-                                  },
-                                  "content": Array [
-                                    Object {
-                                      "marks": Array [
-                                        Object {
-                                          "type": "superscript",
-                                        },
-                                      ],
-                                      "text": "a",
-                                      "type": "text",
-                                    },
-                                  ],
-                                  "type": "paragraph",
-                                },
                                 Object {
                                   "attrs": Object {
                                     "dataTracked": null,
@@ -33358,7 +35184,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Figure I",
+                    "label": "",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -33417,6 +35243,13 @@ Object {
                     "dataTracked": null,
                   },
                   "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
@@ -35024,7 +36857,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 1",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -35071,7 +36904,6 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "label": "",
                   },
                   "content": Array [
                     Object {
@@ -35091,6 +36923,13 @@ Object {
                             },
                           ],
                           "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "type": "caption",
                         },
                       ],
                       "type": "figcaption",
@@ -38203,7 +40042,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Table 1",
+                        "label": "",
                         "rids": Array [
                           "MPTableElement:test",
                         ],
@@ -38368,7 +40207,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "equation (4)",
+                    "label": "",
                     "rids": Array [
                       "MPEquationElement:test",
                     ],
@@ -38627,7 +40466,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "equations (4)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -38641,7 +40480,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "(5)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -38655,7 +40494,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure II",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -38718,6 +40557,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -38907,7 +40753,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "label": "Table 1",
+                                "label": "",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -39057,7 +40903,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure II",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -39071,7 +40917,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure II",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -39099,7 +40945,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "equations (4)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -39113,7 +40959,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "(5)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -39142,7 +40988,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure III",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -39205,6 +41051,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -39409,7 +41262,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "label": "Table 1",
+                                "label": "",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -39574,7 +41427,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure III",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -39588,7 +41441,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure III",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -39646,7 +41499,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "equations (4)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -39660,7 +41513,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "(5)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -39674,7 +41527,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure IV",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -39755,6 +41608,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -39957,7 +41817,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "label": "Table 1",
+                                "label": "",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -40159,7 +42019,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure IV",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -40187,7 +42047,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure IV",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -40201,7 +42061,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure IV",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -40279,7 +42139,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "equation (5)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -40293,7 +42153,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure V",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -40356,6 +42216,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -40504,7 +42371,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "label": "Table 1",
+                                "label": "",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -40654,7 +42521,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "equation (5)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -40668,7 +42535,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure VI",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -40731,6 +42598,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -40879,7 +42753,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "label": "Table 1",
+                                "label": "",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -41123,7 +42997,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "equation (5)",
+                        "label": "",
                         "rids": Array [
                           "MPEquationElement:test",
                         ],
@@ -41137,7 +43011,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "Figure VII",
+                        "label": "",
                         "rids": Array [
                           "MPFigureElement:test",
                         ],
@@ -41200,6 +43074,13 @@ Object {
                         "dataTracked": null,
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "type": "caption_title",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
@@ -41348,7 +43229,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "label": "Table 1",
+                                "label": "",
                                 "rids": Array [
                                   "MPTableElement:test",
                                 ],
@@ -41549,7 +43430,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "label": "Figure VIII",
+                    "label": "",
                     "rids": Array [
                       "MPFigureElement:test",
                     ],
@@ -41612,6 +43493,13 @@ Object {
                     "dataTracked": null,
                   },
                   "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
@@ -41760,7 +43648,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "label": "Table 1",
+                            "label": "",
                             "rids": Array [
                               "MPTableElement:test",
                             ],
@@ -42941,8 +44829,15 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
                 "id": "MPTableElement:test",
-                "label": "",
               },
               "content": Array [
                 Object {
