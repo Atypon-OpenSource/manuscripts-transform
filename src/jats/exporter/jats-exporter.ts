@@ -1200,11 +1200,7 @@ export class JATSExporter {
     }
 
     const appendLabels = (element: HTMLElement, node: ManuscriptNode) => {
-      if (node.attrs.label) {
-        const label = this.document.createElement('label')
-        label.textContent = node.attrs.label
-        element.appendChild(label)
-      } else if (this.labelTargets) {
+       if (this.labelTargets) {
         const target = this.labelTargets.get(node.attrs.id)
 
         if (target) {
