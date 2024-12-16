@@ -28,8 +28,8 @@ class Migration3021 implements MigrationScript {
           {
             type: 'paragraph',
             attrs: {},
-            content: node.content
-          }
+            content: node.content,
+          },
         ],
       }
     }
