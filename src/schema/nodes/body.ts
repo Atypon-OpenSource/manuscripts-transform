@@ -21,7 +21,6 @@ import { NodeSpec } from 'prosemirror-model'
 
 export const body: NodeSpec = {
   content: 'element* sections*',
-  atom: true,
   attrs: {
     id: { default: '' },
   },

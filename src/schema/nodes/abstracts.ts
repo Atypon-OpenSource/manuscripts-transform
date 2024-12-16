@@ -21,7 +21,6 @@ import { NodeSpec } from 'prosemirror-model'
 
 export const abstracts: NodeSpec = {
   content: 'sections*',
-  atom: true,
   attrs: {
     id: { default: '' },
   },
