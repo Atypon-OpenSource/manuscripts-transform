@@ -51,7 +51,7 @@ function createCellAttribute(
 }
 
 const tableOptions: TableNodesOptions = {
-  cellContent: 'inline*',
+  cellContent: 'paragraph+',
   cellAttributes: {
     placeholder: createCellAttribute(
       'data-placeholder-text',
