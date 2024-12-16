@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { schema } from '../../index'
 import { JSONNode } from '../migrate'
 import { MigrationScript } from '../migration-script'
 
@@ -26,9 +25,11 @@ class Migration3021 implements MigrationScript {
       return {
         ...node,
         content: [
-          schema.nodes.paragraph
-            .create(null, schema.nodeFromJSON(node.content))
-            .toJSON(),
+          {
+            type: 'paragraph',
+            attrs: {},
+            content: node.content
+          }
         ],
       }
     }
