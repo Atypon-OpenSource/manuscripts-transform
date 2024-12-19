@@ -20,21 +20,20 @@ class Migration3021 implements MigrationScript {
   fromVersion = '3.0.20'
   toVersion = '3.0.21'
 
-  private suffixMap = new Map([
-    ['competing-interests', 'coi-statement'],
-    ['acknowledgement', 'acknowledgements'],
-    ['introduction', 'intro'],
-    ['materials-method', 'methods'],
-    ['subsection', ''],
-  ])
-
   migrateNode(node: JSONNode): JSONNode {
+    const suffixMap = new Map([
+      ['competing-interests', 'coi-statement'],
+      ['acknowledgement', 'acknowledgements'],
+      ['introduction', 'intro'],
+      ['materials-method', 'methods'],
+      ['subsection', ''],
+    ])
     if (
       node.type === 'section' &&
       node.attrs.category.startsWith('MPSectionCategory:')
     ) {
       const [, suffix] = node.attrs.category.split(':', 2)
-      const newCategory = this.suffixMap.get(suffix) || suffix
+      const newCategory = suffixMap.get(suffix) || suffix
       return {
         ...node,
         attrs: {
