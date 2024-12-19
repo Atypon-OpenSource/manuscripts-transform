@@ -28,7 +28,7 @@ class Migration3021 implements MigrationScript {
     ['subsection', ''],
   ])
 
-  migrateNode = (node: JSONNode): JSONNode => {
+  migrateNode(node: JSONNode): JSONNode {
     if (
       node.type === 'section' &&
       node.attrs.category.startsWith('MPSectionCategory:')
