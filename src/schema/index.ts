@@ -66,6 +66,7 @@ import { generalTableFootnote } from './nodes/general_table_footnote'
 import { graphicalAbstractSection } from './nodes/graphical_abstract_section'
 import { hardBreak } from './nodes/hard_break'
 import { highlightMarker } from './nodes/highlight_marker'
+import { image } from './nodes/image'
 import { inlineEquation } from './nodes/inline_equation'
 import { inlineFootnote } from './nodes/inline_footnote'
 import { keyword } from './nodes/keyword'
@@ -157,6 +158,7 @@ export * from './nodes/text'
 export * from './nodes/title'
 export * from './types'
 export * from './nodes/embed'
+export * from './nodes/image'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -243,5 +245,6 @@ export const schema = new Schema<Nodes, Marks>({
     awards,
     award,
     embed,
+    image,
   },
 })

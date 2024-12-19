@@ -712,16 +712,22 @@ export class JATSDOMParser {
       context: 'figure_element/',
       getAttrs: (node) => {
         const element = node as HTMLElement
-
-        const position = element.getAttribute('position')
-
-        const src = element.getAttributeNS(this.XLINK_NAMESPACE, 'href')
-
         return {
           id: element.getAttribute('id'),
           contentType: this.chooseContentType(element || undefined) || '',
-          src,
-          position,
+          src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
+        }
+      },
+    },
+    {
+      tag: 'graphic',
+      node: 'image',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          contentType: this.chooseContentType(element || undefined) || '',
+          src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
         }
       },
     },

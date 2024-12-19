@@ -26539,6 +26539,15 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
+            "contentType": "image/jpeg",
+            "dataTracked": null,
+            "id": "MPImage:test",
+            "src": "prodbe.int.aip.org:8080/journal/journal_fs/ 1.2983775.1373315697!/images/1460725790.jpg",
+          },
+          "type": "image",
+        },
+        Object {
+          "attrs": Object {
             "dataTracked": null,
             "id": "MPParagraphElement:test",
             "placeholder": "",
@@ -27506,6 +27515,15 @@ Object {
                 },
               ],
               "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "contentType": "image/jpeg",
+                "dataTracked": null,
+                "id": "MPImage:test",
+                "src": "prodbe.int.aip.org:8080/journal/journal_fs/ 1.2983775.1373315697!/images/1460725790.jpg",
+              },
+              "type": "image",
             },
             Object {
               "attrs": Object {
@@ -30352,6 +30370,15 @@ Object {
                 },
               ],
               "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "contentType": "image/jpeg",
+                "dataTracked": null,
+                "id": "MPImage:test",
+                "src": "prodbe.int.aip.org:8080/journal/journal_fs/ 1.2983775.1373315697!/images/1460725790.jpg",
+              },
+              "type": "image",
             },
             Object {
               "attrs": Object {
