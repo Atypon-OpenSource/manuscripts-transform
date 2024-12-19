@@ -119,7 +119,6 @@ Object {
 exports[`JATS importer awards should correctly parse award nodes 1`] = `
 Object {
   "attrs": Object {
-    "dataTracked": null,
     "id": "MPAwards:test",
   },
   "content": Array [
@@ -26092,7 +26091,6 @@ Object {
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
         "id": "MPAwards:test",
       },
       "content": Array [
