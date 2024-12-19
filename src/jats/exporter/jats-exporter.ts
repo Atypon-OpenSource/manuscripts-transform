@@ -959,24 +959,8 @@ export class JATSExporter {
         }
         return ['caption', 0]
       },
-      figure: (node) => {
-        const graphic = this.document.createElement('graphic')
-        graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
-
-        if (node.attrs.contentType) {
-          const [mimeType, mimeSubType] = node.attrs.contentType.split('/')
-
-          if (mimeType) {
-            graphic.setAttribute('mimetype', mimeType)
-
-            if (mimeSubType) {
-              graphic.setAttribute('mime-subtype', mimeSubType)
-            }
-          }
-        }
-
-        return graphic
-      },
+      figure: (node) => createGraphic(node),
+      image: (node) => createGraphic(node),
       figure_element: (node) =>
         createFigureElement(node, 'fig', node.type.schema.nodes.figure),
       footnote: (node) => {
@@ -1200,7 +1184,7 @@ export class JATSExporter {
     }
 
     const appendLabels = (element: HTMLElement, node: ManuscriptNode) => {
-       if (this.labelTargets) {
+      if (this.labelTargets) {
         const target = this.labelTargets.get(node.attrs.id)
 
         if (target) {
@@ -1262,6 +1246,20 @@ export class JATSExporter {
       appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
       processChildNodes(element, node, node.type.schema.nodes.section)
       return element
+    }
+    const createGraphic = (node: ManuscriptNode) => {
+      const graphic = this.document.createElement('graphic')
+      graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
+      if (node.attrs.contentType) {
+        const [mimeType, mimeSubType] = node.attrs.contentType.split('/')
+        if (mimeType) {
+          graphic.setAttribute('mimetype', mimeType)
+          if (mimeSubType) {
+            graphic.setAttribute('mime-subtype', mimeSubType)
+          }
+        }
+      }
+      return graphic
     }
     const createFigureElement = (
       node: ManuscriptNode,
