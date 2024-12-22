@@ -804,6 +804,12 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
+      image_element: (node) => {
+        if (node.content.firstChild) {
+          return createGraphic(node.content.firstChild)
+        }
+        return ''
+      },
       embed: (node) => {
         const mediaElement = this.document.createElement('media')
         const { id, href, mimetype, mimeSubtype } = node.attrs
@@ -960,9 +966,8 @@ export class JATSExporter {
         return ['caption', 0]
       },
       figure: (node) => createGraphic(node),
-      image: (node) => createGraphic(node),
       figure_element: (node) =>
-        createFigureElement(node, 'fig', node.type.schema.nodes.figure),
+        createFigureElement(node, node.type.schema.nodes.figure),
       footnote: (node) => {
         const attrs: Attrs = {}
 
@@ -1037,7 +1042,7 @@ export class JATSExporter {
         return code
       },
       listing_element: (node) =>
-        createFigureElement(node, 'fig', node.type.schema.nodes.listing),
+        createFigureElement(node, node.type.schema.nodes.listing),
       manuscript: (node) => ['article', { id: normalizeID(node.attrs.id) }, 0],
       missing_figure: () => {
         const graphic = this.document.createElement('graphic')
@@ -1263,10 +1268,9 @@ export class JATSExporter {
     }
     const createFigureElement = (
       node: ManuscriptNode,
-      nodeName: string,
       contentNodeType: ManuscriptNodeType
     ) => {
-      const element = createElement(node, nodeName)
+      const element = createElement(node, 'fig')
       const figType = node.attrs.type
       if (figType) {
         element.setAttribute('fig-type', figType)

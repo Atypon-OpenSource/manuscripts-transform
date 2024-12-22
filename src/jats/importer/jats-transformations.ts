@@ -487,6 +487,21 @@ export const orderTableFootnote = (doc: Document, body: Element) => {
   })
 }
 
+export const moveGraphicsIntoImages = (
+  doc: Document,
+  createElement: CreateElement
+) => {
+  const graphics = doc.querySelectorAll(':not(fig) > graphic')
+  graphics.forEach((graphic) => {
+    const parent = graphic.parentNode
+    if (parent) {
+      const img = createElement('image')
+      parent.replaceChild(img, graphic)
+      img.appendChild(graphic)
+    }
+  })
+}
+
 export const fixTables = (
   doc: Document,
   body: Element,

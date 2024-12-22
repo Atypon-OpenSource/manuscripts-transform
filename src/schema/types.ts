@@ -119,7 +119,7 @@ export type Nodes =
   | 'awards'
   | 'award'
   | 'embed'
-  | 'image'
+  | 'image_element'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

@@ -33,6 +33,7 @@ import {
   moveAwards,
   moveCaptionsToEnd,
   moveContributors,
+  moveGraphicsIntoImages,
   moveReferencesToBackmatter,
   moveTitle,
   orderTableFootnote,
@@ -68,6 +69,7 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   createKeywordsSection(doc, body, createElement)
   fixTables(doc, body, createElement)
   orderTableFootnote(doc, body)
+  moveGraphicsIntoImages(doc, createElement)
 
   const back = doc.querySelector('back')
   if (!back) {

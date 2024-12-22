@@ -66,7 +66,7 @@ import { generalTableFootnote } from './nodes/general_table_footnote'
 import { graphicalAbstractSection } from './nodes/graphical_abstract_section'
 import { hardBreak } from './nodes/hard_break'
 import { highlightMarker } from './nodes/highlight_marker'
-import { image } from './nodes/image'
+import { imageElement } from './nodes/image_element'
 import { inlineEquation } from './nodes/inline_equation'
 import { inlineFootnote } from './nodes/inline_footnote'
 import { keyword } from './nodes/keyword'
@@ -118,6 +118,7 @@ export * from './nodes/contributors'
 export * from './nodes/corresp'
 export * from './nodes/cross_reference'
 export * from './nodes/doc'
+export * from './nodes/embed'
 export * from './nodes/equation'
 export * from './nodes/equation_element'
 export * from './nodes/figcaption'
@@ -130,6 +131,7 @@ export * from './nodes/general_table_footnote'
 export * from './nodes/graphical_abstract_section'
 export * from './nodes/hard_break'
 export * from './nodes/highlight_marker'
+export * from './nodes/image_element'
 export * from './nodes/inline_equation'
 export * from './nodes/inline_footnote'
 export * from './nodes/keyword'
@@ -157,8 +159,6 @@ export * from './nodes/table_element_footer'
 export * from './nodes/text'
 export * from './nodes/title'
 export * from './types'
-export * from './nodes/embed'
-export * from './nodes/image'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -245,6 +245,6 @@ export const schema = new Schema<Nodes, Marks>({
     awards,
     award,
     embed,
-    image,
+    image_element: imageElement,
   },
 })

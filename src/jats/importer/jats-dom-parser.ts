@@ -709,7 +709,6 @@ export class JATSDOMParser {
     {
       tag: 'graphic',
       node: 'figure',
-      context: 'figure_element/',
       getAttrs: (node) => {
         const element = node as HTMLElement
         return {
@@ -720,16 +719,8 @@ export class JATSDOMParser {
       },
     },
     {
-      tag: 'graphic',
-      node: 'image',
-      getAttrs: (node) => {
-        const element = node as HTMLElement
-        return {
-          id: element.getAttribute('id'),
-          contentType: this.chooseContentType(element || undefined) || '',
-          src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
-        }
-      },
+      tag: 'image',
+      node: 'image_element',
     },
     {
       tag: 'fig',

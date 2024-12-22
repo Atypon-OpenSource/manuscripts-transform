@@ -26539,12 +26539,21 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "contentType": "image/jpeg",
             "dataTracked": null,
-            "id": "MPImage:test",
-            "src": "prodbe.int.aip.org:8080/journal/journal_fs/ 1.2983775.1373315697!/images/1460725790.jpg",
+            "id": "MPImageElement:test",
           },
-          "type": "image",
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "contentType": "image/jpeg",
+                "dataTracked": null,
+                "id": "MPFigure:test",
+                "src": "prodbe.int.aip.org:8080/journal/journal_fs/ 1.2983775.1373315697!/images/1460725790.jpg",
+              },
+              "type": "figure",
+            },
+          ],
+          "type": "image_element",
         },
         Object {
           "attrs": Object {

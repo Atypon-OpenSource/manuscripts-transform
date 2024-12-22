@@ -17,19 +17,16 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export interface ImageNode extends ManuscriptNode {
+export interface ImageElementNode extends ManuscriptNode {
   attrs: {
     id: string
-    src: string
-    contentType: string
   }
 }
 
-export const image: NodeSpec = {
+export const imageElement: NodeSpec = {
+  content: 'figure+',
   attrs: {
     id: { default: '' },
-    src: { default: '' },
-    contentType: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',
@@ -37,12 +34,14 @@ export const image: NodeSpec = {
     return [
       'div',
       {
-        class: 'image',
+        class: 'image_element',
         id: node.attrs.id,
       },
     ]
   },
 }
 
-export const isImageNode = (node: ManuscriptNode): node is ImageNode =>
-  node.type === node.type.schema.nodes.image
+export const isImageElementNode = (
+  node: ManuscriptNode
+): node is ImageElementNode =>
+  node.type === node.type.schema.nodes.image_element
