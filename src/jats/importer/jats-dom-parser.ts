@@ -697,7 +697,6 @@ export class JATSDOMParser {
     {
       tag: 'graphic[specific-use=MISSING]',
       node: 'missing_figure',
-      context: 'figure_element/',
       getAttrs: (node) => {
         const element = node as HTMLElement
 

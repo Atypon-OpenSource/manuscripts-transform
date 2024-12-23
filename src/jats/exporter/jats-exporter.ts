@@ -804,12 +804,10 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
-      image_element: (node) => {
-        if (node.content.firstChild) {
-          return createGraphic(node.content.firstChild)
-        }
-        return ''
-      },
+      image_element: (node) =>
+        node.content.firstChild
+          ? this.serializeNode(node.content.firstChild)
+          : '',
       embed: (node) => {
         const mediaElement = this.document.createElement('media')
         const { id, href, mimetype, mimeSubtype } = node.attrs
