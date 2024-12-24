@@ -69,7 +69,6 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   createKeywordsSection(doc, body, createElement)
   fixTables(doc, body, createElement)
   orderTableFootnote(doc, body)
-  createImages(doc, createElement)
 
   const back = doc.querySelector('back')
   if (!back) {

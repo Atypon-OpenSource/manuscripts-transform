@@ -182,6 +182,15 @@ export class JATSDOMParser {
     }
   }
 
+  private getFigureAttrs = (node: HTMLElement | string | Node) => {
+    const element = node as HTMLElement
+    return {
+      id: element.getAttribute('id'),
+      contentType: this.chooseContentType(element || undefined) || '',
+      src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
+    }
+  }
+
   private getInstitutionDetails = (element: HTMLElement) => {
     let department = ''
     let institution = ''
@@ -708,18 +717,18 @@ export class JATSDOMParser {
     {
       tag: 'graphic',
       node: 'figure',
-      getAttrs: (node) => {
-        const element = node as HTMLElement
-        return {
-          id: element.getAttribute('id'),
-          contentType: this.chooseContentType(element || undefined) || '',
-          src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
-        }
-      },
+      context: 'figure_element/',
+      getAttrs: this.getFigureAttrs,
     },
     {
-      tag: 'image',
+      tag: 'graphic',
       node: 'image_element',
+      getContent: (node) => {
+        const figure = this.schema.nodes.figure.create(
+          this.getFigureAttrs(node)
+        )
+        return Fragment.from(figure)
+      },
     },
     {
       tag: 'fig',
