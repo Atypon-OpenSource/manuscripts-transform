@@ -25,7 +25,6 @@ import {
   createBackmatter,
   createBody,
   createBoxedElementSection,
-  createImages,
   createKeywordsSection,
   createSupplementaryMaterialsSection,
   fixTables,
