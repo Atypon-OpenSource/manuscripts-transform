@@ -26771,6 +26771,14 @@ Object {
                 "mimeSubtype": "mp4",
                 "mimetype": "video",
               },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "type": "figcaption",
+                },
+              ],
               "type": "embed",
             },
             Object {
