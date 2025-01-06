@@ -55,7 +55,9 @@ export function migrateFor(oldDoc: JSONNode, baseVersion: string) {
       continue
     }
     console.log('Migrating doc with script to version ' + script.toVersion)
-    migratedDoc = migrate(migratedDoc, script.migrateNode)
+    migratedDoc = migrate(migratedDoc, (node, oldDoc) =>
+      script.migrateNode(node, oldDoc)
+    )
   }
 
   return testDoc(migratedDoc, baseVersion)
