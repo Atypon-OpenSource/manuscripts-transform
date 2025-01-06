@@ -847,6 +847,7 @@ export class JATSExporter {
       author_notes: () => '',
       corresp: () => '',
       title: () => '',
+      text_block: (node) => nodes.paragraph(node),
       affiliations: () => '',
       contributors: () => '',
       table_element_footer: (node) =>

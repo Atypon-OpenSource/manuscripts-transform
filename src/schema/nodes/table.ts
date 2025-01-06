@@ -51,7 +51,7 @@ function createCellAttribute(
 }
 
 const tableOptions: TableNodesOptions = {
-  cellContent: 'paragraph+',
+  cellContent: 'text_block+',
   cellAttributes: {
     placeholder: createCellAttribute(
       'data-placeholder-text',

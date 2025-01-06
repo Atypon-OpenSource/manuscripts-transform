@@ -16,6 +16,16 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
+import { paragraph } from './paragraph'
+
 export const text: NodeSpec = {
   group: 'inline',
+}
+
+export const textBlock: NodeSpec = {
+  ...paragraph,
+  attrs: {
+    dataTracked: { default: null },
+  },
+  group: 'block',
 }

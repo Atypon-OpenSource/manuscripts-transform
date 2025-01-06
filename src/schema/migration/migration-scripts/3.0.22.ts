@@ -26,7 +26,7 @@ class Migration3021 implements MigrationScript {
         ...node,
         content: [
           {
-            type: 'paragraph',
+            type: 'text_block',
             attrs: {},
             content: node.content,
           },
