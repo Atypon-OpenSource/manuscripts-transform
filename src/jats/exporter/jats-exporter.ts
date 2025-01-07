@@ -1254,13 +1254,7 @@ export class JATSExporter {
       const graphic = this.document.createElement('graphic')
       graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
       if (node.attrs.contentType) {
-        const [mimeType, mimeSubType] = node.attrs.contentType.split('/')
-        if (mimeType) {
-          graphic.setAttribute('mimetype', mimeType)
-          if (mimeSubType) {
-            graphic.setAttribute('mime-subtype', mimeSubType)
-          }
-        }
+        graphic.setAttribute('content-type', node.attrs.contentType)
       }
       return graphic
     }

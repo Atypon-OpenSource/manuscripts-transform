@@ -21,7 +21,6 @@ import {
   buildContribution,
   ObjectTypes,
 } from '@manuscripts/json-schema'
-import mime from 'mime'
 import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
 import { dateToTimestamp, getTrimmedTextContent } from '../../lib/utils'
@@ -76,23 +75,6 @@ export class JATSDOMParser {
     for (const category of this.sectionCategories) {
       if (this.isMatchingCategory(secType, titleNode, category)) {
         return category.id
-      }
-    }
-  }
-
-  private chooseContentType = (graphicNode?: Element): string | undefined => {
-    if (graphicNode) {
-      const mimetype = graphicNode.getAttribute('mimetype')
-      const subtype = graphicNode.getAttribute('mime-subtype')
-
-      if (mimetype && subtype) {
-        return [mimetype, subtype].join('/')
-      }
-
-      const href = graphicNode.getAttributeNS(this.XLINK_NAMESPACE, 'href')
-
-      if (href) {
-        return mime.getType(href) || undefined
       }
     }
   }
@@ -186,7 +168,7 @@ export class JATSDOMParser {
     const element = node as HTMLElement
     return {
       id: element.getAttribute('id'),
-      contentType: this.chooseContentType(element || undefined) || '',
+      contentType: element.getAttribute('content-type'),
       src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
     }
   }
