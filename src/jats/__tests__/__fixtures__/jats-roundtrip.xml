@@ -32,9 +32,9 @@
           <p>Test2</p>
         </caption>
         <p>A paragraph</p>
-        <graphic xlink:href="graphic/111111.jpeg" content-type="half-right"/>
+        <graphic xlink:href="graphic/111111.jpeg"/>
         <graphic xlink:href="graphic/222222.jpeg" specific-use="MISSING" />
-        <graphic xlink:href="graphic/333333.jpeg" content-type="half-right" />
+        <graphic xlink:href="graphic/333333.jpeg"/>
         <attrib>Source: Wikipedia.</attrib>
       </fig>
     </sec>
