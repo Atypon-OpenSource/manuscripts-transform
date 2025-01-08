@@ -1250,10 +1250,10 @@ export class JATSExporter {
       processChildNodes(element, node, node.type.schema.nodes.section)
       return element
     }
-    const createGraphic = (node: ManuscriptNode, hasParent = true) => {
+    const createGraphic = (node: ManuscriptNode, isChildOfFigure = true) => {
       const graphic = this.document.createElement('graphic')
       graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
-      if (!hasParent && node.attrs.type) {
+      if (!isChildOfFigure && node.attrs.type) {
         graphic.setAttribute('content-type', node.attrs.type)
       }
       return graphic
