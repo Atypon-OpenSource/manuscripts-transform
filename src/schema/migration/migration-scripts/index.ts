@@ -19,6 +19,7 @@ import Migration2322 from './2.3.22'
 import { Migration3012 } from './3.0.12'
 import Migration3021 from './3.0.21'
 import Migration3022 from './3.0.22'
+import Migration3030 from './3.0.30'
 
 const migrations = [
   new Migration125(),
@@ -26,6 +27,7 @@ const migrations = [
   new Migration3012(),
   new Migration3021(),
   new Migration3022(),
+  new Migration3030(),
 ]
 
 export default migrations
