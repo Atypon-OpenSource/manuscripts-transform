@@ -21,7 +21,6 @@ import {
   buildContribution,
   ObjectTypes,
 } from '@manuscripts/json-schema'
-import mime from 'mime'
 import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
 import { dateToTimestamp, getTrimmedTextContent } from '../../lib/utils'
@@ -76,23 +75,6 @@ export class JATSDOMParser {
     for (const category of this.sectionCategories) {
       if (this.isMatchingCategory(secType, titleNode, category)) {
         return category.id
-      }
-    }
-  }
-
-  private chooseContentType = (graphicNode?: Element): string | undefined => {
-    if (graphicNode) {
-      const mimetype = graphicNode.getAttribute('mimetype')
-      const subtype = graphicNode.getAttribute('mime-subtype')
-
-      if (mimetype && subtype) {
-        return [mimetype, subtype].join('/')
-      }
-
-      const href = graphicNode.getAttributeNS(this.XLINK_NAMESPACE, 'href')
-
-      if (href) {
-        return mime.getType(href) || undefined
       }
     }
   }
@@ -179,6 +161,19 @@ export class JATSDOMParser {
         href: email.getAttributeNS(this.XLINK_NAMESPACE, 'href') ?? '',
         text: getTrimmedTextContent(email) ?? '',
       }
+    }
+  }
+
+  private getFigureAttrs = (node: HTMLElement | string | Node) => {
+    const element = node as HTMLElement
+    const parentElement = element.parentElement
+    return {
+      id: element.getAttribute('id'),
+      type:
+        parentElement?.getAttribute('fig-type') ??
+        element.getAttribute('content-type') ??
+        '',
+      src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
     }
   }
 
@@ -697,7 +692,6 @@ export class JATSDOMParser {
     {
       tag: 'graphic[specific-use=MISSING]',
       node: 'missing_figure',
-      context: 'figure_element/',
       getAttrs: (node) => {
         const element = node as HTMLElement
 
@@ -710,19 +704,16 @@ export class JATSDOMParser {
       tag: 'graphic',
       node: 'figure',
       context: 'figure_element/',
-      getAttrs: (node) => {
-        const element = node as HTMLElement
-
-        const position = element.getAttribute('position')
-
-        const src = element.getAttributeNS(this.XLINK_NAMESPACE, 'href')
-
-        return {
-          id: element.getAttribute('id'),
-          contentType: this.chooseContentType(element || undefined) || '',
-          src,
-          position,
-        }
+      getAttrs: this.getFigureAttrs,
+    },
+    {
+      tag: 'graphic',
+      node: 'image_element',
+      getContent: (node) => {
+        const figure = this.schema.nodes.figure.create(
+          this.getFigureAttrs(node)
+        )
+        return Fragment.from(figure)
       },
     },
     {
@@ -741,7 +732,6 @@ export class JATSDOMParser {
         return {
           id: element.getAttribute('id'),
           attribution,
-          type: element.getAttribute('fig-type'),
         }
       },
     },

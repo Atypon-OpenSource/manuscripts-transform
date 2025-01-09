@@ -2922,15 +2922,14 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "type": null,
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "contentType": "image/jpeg",
                     "dataTracked": null,
                     "id": "MPFigure:test",
                     "src": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
+                    "type": "half-right",
                   },
                   "type": "figure",
                 },
@@ -13955,7 +13954,6 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "type": "half-left",
                   },
                   "content": Array [
                     Object {
@@ -14058,10 +14056,10 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "image/tiff",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&name=figure+1+revised.tif",
+                        "type": "half-left",
                       },
                       "type": "figure",
                     },
@@ -14178,15 +14176,14 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "type": "half-left",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "contentType": "image/jpeg",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&name=figure+2.jpg",
+                        "type": "half-left",
                       },
                       "type": "figure",
                     },
@@ -14838,15 +14835,14 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "type": "half-left",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "contentType": "image/jpeg",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&name=figure+3.jpg",
+                        "type": "half-left",
                       },
                       "type": "figure",
                     },
@@ -18434,15 +18430,14 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "type": "half-right",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "contentType": "image/png",
                     "dataTracked": null,
                     "id": "MPFigure:test",
                     "src": "BRB3-2019-12-0787-fig-0001.PNG",
+                    "type": "half-right",
                   },
                   "type": "figure",
                 },
@@ -21280,15 +21275,14 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "type": "half-right",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "contentType": "image/png",
                     "dataTracked": null,
                     "id": "MPFigure:test",
                     "src": "BRB3-2019-12-0787-fig-0002.PNG",
+                    "type": "half-right",
                   },
                   "type": "figure",
                 },
@@ -21425,15 +21419,14 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "contentType": "image/png",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "BRB3-2019-12-0787-fig-0003.PNG",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
@@ -24674,7 +24667,6 @@ Object {
                                     },
                                     "dataTracked": null,
                                     "id": "MPFigureElement:test",
-                                    "type": "half-right",
                                   },
                                   "content": Array [
                                     Object {
@@ -24693,10 +24685,10 @@ Object {
                                     },
                                     Object {
                                       "attrs": Object {
-                                        "contentType": "",
                                         "dataTracked": null,
                                         "id": "MPFigure:test",
                                         "src": "123412341234.fig1",
+                                        "type": "half-right",
                                       },
                                       "type": "figure",
                                     },
@@ -24775,7 +24767,6 @@ Object {
                                     },
                                     "dataTracked": null,
                                     "id": "fig1",
-                                    "type": "half-right",
                                   },
                                   "content": Array [
                                     Object {
@@ -26477,15 +26468,14 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "type": "half-left",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "contentType": "image/jpeg",
                     "dataTracked": null,
                     "id": "MPFigure:test",
                     "src": "demo.jpg",
+                    "type": "half-left",
                   },
                   "type": "figure",
                 },
@@ -26537,6 +26527,24 @@ Object {
         "id": "MPSection:test",
       },
       "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPImageElement:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPFigure:test",
+                "src": "prodbe.int.aip.org:8080/journal/journal_fs/ 1.2983775.1373315697!/images/1460725790.jpg",
+                "type": "",
+              },
+              "type": "figure",
+            },
+          ],
+          "type": "image_element",
+        },
         Object {
           "attrs": Object {
             "dataTracked": null,
@@ -27529,15 +27537,14 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "type": "half-left",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "contentType": "image/png",
                     "dataTracked": null,
                     "id": "MPFigure:test",
                     "src": "BRB3-2019-12-0787-fig-0001.png",
+                    "type": "half-left",
                   },
                   "type": "figure",
                 },
@@ -30375,15 +30382,14 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "type": "half-left",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "contentType": "image/png",
                     "dataTracked": null,
                     "id": "MPFigure:test",
                     "src": "BRB3-2019-12-0787-fig-0002.png",
+                    "type": "half-left",
                   },
                   "type": "figure",
                 },
@@ -30520,15 +30526,14 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "type": "half-left",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "contentType": "image/png",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "BRB3-2019-12-0787-fig-0003.png",
+                        "type": "half-left",
                       },
                       "type": "figure",
                     },
@@ -35234,24 +35239,23 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "type": "half-right",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
                     "src": "Wiley-JFR-Final Manuscript-MT-Image001",
+                    "type": "half-right",
                   },
                   "type": "figure",
                 },
                 Object {
                   "attrs": Object {
-                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
                     "src": "Wiley-JFR-Final Manuscript-MT-Image002",
+                    "type": "half-right",
                   },
                   "type": "figure",
                 },
@@ -40530,42 +40534,41 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image003",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image004",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image005",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image006",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
@@ -41024,42 +41027,41 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image007",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image008",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image009",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image010",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
@@ -41563,60 +41565,59 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image011",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image012",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image013",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image014",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image015",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image016",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
@@ -42189,42 +42190,41 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image017",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image018",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image019",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image020",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
@@ -42571,42 +42571,41 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image021",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image022",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image023",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image024",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
@@ -43047,42 +43046,41 @@ Object {
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "type": "half-right",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image025",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image026",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image027",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image028",
+                        "type": "half-right",
                       },
                       "type": "figure",
                     },
@@ -43466,42 +43464,41 @@ Object {
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "type": "half-right",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
                     "src": "Wiley-JFR-Final Manuscript-MT-Image029",
+                    "type": "half-right",
                   },
                   "type": "figure",
                 },
                 Object {
                   "attrs": Object {
-                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
                     "src": "Wiley-JFR-Final Manuscript-MT-Image030",
+                    "type": "half-right",
                   },
                   "type": "figure",
                 },
                 Object {
                   "attrs": Object {
-                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
                     "src": "Wiley-JFR-Final Manuscript-MT-Image031",
+                    "type": "half-right",
                   },
                   "type": "figure",
                 },
                 Object {
                   "attrs": Object {
-                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
                     "src": "Wiley-JFR-Final Manuscript-MT-Image032",
+                    "type": "half-right",
                   },
                   "type": "figure",
                 },
