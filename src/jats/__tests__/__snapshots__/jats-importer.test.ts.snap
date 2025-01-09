@@ -26776,6 +26776,15 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                   },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                  ],
                   "type": "figcaption",
                 },
               ],
