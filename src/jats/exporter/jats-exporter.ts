@@ -806,7 +806,7 @@ export class JATSExporter {
     const nodes: NodeSpecs = {
       image_element: (node) =>
         node.content.firstChild
-          ? this.serializeNode(node.content.firstChild)
+          ? createGraphic(node.content.firstChild, false)
           : '',
       embed: (node) => {
         const mediaElement = this.document.createElement('media')
@@ -1250,11 +1250,11 @@ export class JATSExporter {
       processChildNodes(element, node, node.type.schema.nodes.section)
       return element
     }
-    const createGraphic = (node: ManuscriptNode) => {
+    const createGraphic = (node: ManuscriptNode, isChildOfFigure = true) => {
       const graphic = this.document.createElement('graphic')
       graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
-      if (node.attrs.contentType) {
-        graphic.setAttribute('content-type', node.attrs.contentType)
+      if (!isChildOfFigure && node.attrs.type) {
+        graphic.setAttribute('content-type', node.attrs.type)
       }
       return graphic
     }
@@ -1263,7 +1263,8 @@ export class JATSExporter {
       contentNodeType: ManuscriptNodeType
     ) => {
       const element = createElement(node, 'fig')
-      const figType = node.attrs.type
+      const figNode = findChildrenByType(node, node.type.schema.nodes.figure)[0]
+      const figType = figNode?.node.attrs.type
       if (figType) {
         element.setAttribute('fig-type', figType)
       }

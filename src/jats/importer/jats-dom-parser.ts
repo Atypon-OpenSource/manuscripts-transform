@@ -166,9 +166,13 @@ export class JATSDOMParser {
 
   private getFigureAttrs = (node: HTMLElement | string | Node) => {
     const element = node as HTMLElement
+    const parentElement = element.parentElement
     return {
       id: element.getAttribute('id'),
-      contentType: element.getAttribute('content-type'),
+      type:
+        parentElement?.getAttribute('fig-type') ??
+        element.getAttribute('content-type') ??
+        '',
       src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
     }
   }
@@ -728,7 +732,6 @@ export class JATSDOMParser {
         return {
           id: element.getAttribute('id'),
           attribution,
-          type: element.getAttribute('fig-type'),
         }
       },
     },
