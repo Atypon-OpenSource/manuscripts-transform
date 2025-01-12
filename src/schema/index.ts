@@ -92,7 +92,7 @@ import { table, tableCell, tableHeader, tableRow } from './nodes/table'
 import { tableCol, tableColGroup } from './nodes/table_col'
 import { tableElement } from './nodes/table_element'
 import { tableElementFooter } from './nodes/table_element_footer'
-import { text } from './nodes/text'
+import { text, textBlock } from './nodes/text'
 import { title } from './nodes/title'
 import { Marks, Nodes } from './types'
 
@@ -231,6 +231,7 @@ export const schema = new Schema<Nodes, Marks>({
     table_colgroup: tableColGroup,
     table_header: tableHeader,
     text,
+    text_block: textBlock,
     affiliation,
     contributor: contributor,
     table_element_footer: tableElementFooter,

@@ -48,6 +48,7 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.list_item, 'List Item'],
   [schema.nodes.manuscript, 'Manuscript'],
   [schema.nodes.paragraph, 'Paragraph'],
+  [schema.nodes.text_block, 'Paragraph'],
   [schema.nodes.section, 'Section'],
   [schema.nodes.section_title, 'Section Title'],
   [schema.nodes.section_title_plain, 'Section Title'],
