@@ -22,7 +22,6 @@ import { AttributionNode } from './attribution'
 interface Attrs {
   id: string
   attribution?: AttributionNode
-  type?: string
 }
 
 export interface FigureElementNode extends ManuscriptNode {
@@ -36,7 +35,6 @@ export const figureElement: NodeSpec = {
     id: { default: '' },
     attribution: { default: undefined },
     dataTracked: { default: null },
-    type: { default: undefined },
   },
   selectable: false,
   group: 'block element executable',

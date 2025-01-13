@@ -104,6 +104,7 @@ export type Nodes =
   | 'table_col'
   | 'table_header'
   | 'text'
+  | 'text_block'
   | 'affiliation'
   | 'contributor'
   | 'table_element_footer'
@@ -119,6 +120,7 @@ export type Nodes =
   | 'awards'
   | 'award'
   | 'embed'
+  | 'image_element'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

@@ -22,7 +22,7 @@ export interface FigureNode extends ManuscriptNode {
   attrs: {
     id: string
     src: string
-    contentType: string
+    type: string
   }
 }
 
@@ -30,7 +30,7 @@ export const figure: NodeSpec = {
   attrs: {
     id: { default: '' },
     src: { default: '' },
-    contentType: { default: '' },
+    type: { default: '' },
     dataTracked: { default: null },
   },
   selectable: false,
