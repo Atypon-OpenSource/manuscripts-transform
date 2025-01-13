@@ -26792,6 +26792,13 @@ Object {
                       },
                       "type": "caption_title",
                     },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "type": "caption",
+                    },
                   ],
                   "type": "figcaption",
                 },

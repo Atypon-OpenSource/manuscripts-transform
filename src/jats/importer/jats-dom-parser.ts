@@ -542,12 +542,12 @@ export class JATSDOMParser {
     {
       tag: 'caption',
       node: 'figcaption',
-      context: 'figure/|embed/',
+      context: 'figure/',
     },
     {
       tag: 'caption',
       node: 'figcaption',
-      context: 'figure_element/|table_element/',
+      context: 'figure_element/|table_element/|embed/',
       getContent: (node, schema) => {
         const element = node as HTMLElement
 
