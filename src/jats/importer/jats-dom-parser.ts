@@ -486,6 +486,7 @@ export class JATSDOMParser {
             'contrib-id[contrib-id-type="orcid"]'
           ),
           priority: this.parsePriority(element.getAttribute('priority')),
+          email: getTrimmedTextContent(element, 'email') || '',
         }
       },
       getContent: () => {
