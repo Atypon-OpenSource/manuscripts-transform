@@ -13,21 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { JSONNode } from '../migrate'
+import { MigrationScript } from '../migration-script'
 
-import Migration125 from './1.2.5'
-import Migration2322 from './2.3.22'
-import { Migration3012 } from './3.0.12'
-import Migration3021 from './3.0.21'
-import Migration3030 from './3.0.30'
-import Migration3031 from './3.0.31'
+class Migration3031 implements MigrationScript {
+  fromVersion = '3.0.30'
+  toVersion = '3.0.31'
 
-const migrations = [
-  new Migration125(),
-  new Migration2322(),
-  new Migration3012(),
-  new Migration3021(),
-  new Migration3030(),
-  new Migration3031(),
-]
+  migrateNode(node: JSONNode): JSONNode {
+    if (node.type === 'table_header' || node.type === 'table_cell') {
+      return {
+        ...node,
+        content: [
+          {
+            type: 'text_block',
+            attrs: {},
+            content: node.content,
+          },
+        ],
+      }
+    }
+    return node
+  }
+}
 
-export default migrations
+export default Migration3031

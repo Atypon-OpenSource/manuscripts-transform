@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,19 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { NodeSpec } from 'prosemirror-model'
 
-import { paragraph } from './paragraph'
+import { ManuscriptNode } from '../types'
 
-export const text: NodeSpec = {
-  group: 'inline',
+export interface ImageElementNode extends ManuscriptNode {
+  attrs: {
+    id: string
+  }
 }
 
-export const textBlock: NodeSpec = {
-  ...paragraph,
+export const imageElement: NodeSpec = {
+  content: 'figure?',
   attrs: {
+    id: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block',
+  group: 'block element',
+  toDOM: (node) => {
+    return [
+      'div',
+      {
+        class: 'image_element',
+        id: node.attrs.id,
+      },
+    ]
+  },
 }
+
+export const isImageElementNode = (
+  node: ManuscriptNode
+): node is ImageElementNode =>
+  node.type === node.type.schema.nodes.image_element
