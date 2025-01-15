@@ -822,6 +822,8 @@ export class JATSExporter {
         if (mimeSubtype) {
           mediaElement.setAttribute('mime-subtype', node.attrs.mimeSubtype)
         }
+        appendLabels(mediaElement, node)
+        appendChildNodeOfType(mediaElement, node, node.type.schema.nodes.figcaption)
         return mediaElement
       },
       awards: () => ['funding-group', 0],

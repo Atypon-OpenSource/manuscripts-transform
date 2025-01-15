@@ -31307,6 +31307,30 @@ Object {
                 "mimeSubtype": "mp4",
                 "mimetype": "video",
               },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
+              ],
               "type": "embed",
             },
             Object {
