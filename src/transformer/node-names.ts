@@ -37,6 +37,7 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.table_header, 'Table Header'],
   [schema.nodes.general_table_footnote, 'General Table note'],
   [schema.nodes.table_element_footer, 'Table Footer'],
+  [schema.nodes.embed, 'Media'],
   [schema.nodes.equation, 'Equation'],
   [schema.nodes.inline_equation, 'Inline Equation'],
   [schema.nodes.inline_footnote, 'Footnote Reference'],
