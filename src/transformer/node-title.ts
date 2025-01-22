@@ -79,6 +79,7 @@ export const nodeTitle = (node: ManuscriptNode) => {
     case nodes.equation_element:
     case nodes.listing_element:
     case nodes.multi_graphic_figure_element:
+    case nodes.image_element:
       return ''
 
     default:
