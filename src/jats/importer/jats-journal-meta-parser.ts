@@ -16,7 +16,7 @@
 
 import { ObjectTypes } from '@manuscripts/json-schema'
 
-import { getTrimmedTextContent } from '../../lib/utils'
+import { trimTextContent } from '../../lib/utils'
 
 export type ISSN = {
   ISSN: string
@@ -118,9 +118,9 @@ export const parseJournalMeta = (element: Element | null) => {
     journalIdentifiers: parseJournalIdentifiers(element),
     ISSNs: parseJournalISSNs(element),
     publisherName:
-      getTrimmedTextContent(element, 'publisher > publisher-name') ?? undefined,
+      trimTextContent(element, 'publisher > publisher-name') ?? undefined,
     title:
-      getTrimmedTextContent(element, 'journal-title-group > journal-title') ??
+      trimTextContent(element, 'journal-title-group > journal-title') ??
       undefined,
   }
 }

@@ -14,67 +14,39 @@
  * limitations under the License.
  */
 
-import { ActualManuscriptNode, schema, SectionCategory } from '../../schema'
+import { schema, SectionCategory } from '../../schema'
+import { ParserFactory } from '../parsers/ParserFactory'
 import { markComments } from './jats-comments'
-import { JATSDOMParser } from './jats-dom-parser'
 import { parseJournal } from './jats-journal-meta-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
 import {
   addMissingCaptions,
-  createAbstracts,
-  createBackmatter,
-  createBody,
   createBoxedElementSection,
-  createKeywordsSection,
-  createSupplementaryMaterialsSection,
   fixTables,
-  moveAffiliations,
-  moveAuthorNotes,
-  moveAwards,
+  moveAcknowledgments,
+  moveBackSectionsToStart,
   moveCaptionsToEnd,
-  moveContributors,
+  moveFloatsGroupToBody,
+  moveFootnotes,
   moveReferencesToBackmatter,
-  moveTitle,
+  moveSpecialFootnotes,
   orderTableFootnote,
 } from './jats-transformations'
 
 const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   const createElement = createElementFn(doc)
-
   markComments(doc)
-
-  const front = doc.querySelector('front')
-  if (!front) {
-    return
-  }
   addMissingCaptions(doc, createElement)
-  moveTitle(front, createElement)
-  moveContributors(front, createElement)
-  moveAffiliations(front, createElement)
-  moveAuthorNotes(front, createElement)
-  moveAwards(front)
-
-  const body = doc.querySelector('body')
-  if (!body) {
-    return
-  }
-
-  moveCaptionsToEnd(body)
-  createBoxedElementSection(body, createElement)
-  createBody(doc, body, createElement)
-  createAbstracts(doc, body, createElement)
-  createBackmatter(doc, body, sectionCategories, createElement)
-  createSupplementaryMaterialsSection(doc, body, createElement)
-  createKeywordsSection(doc, body, createElement)
-  fixTables(doc, body, createElement)
-  orderTableFootnote(doc, body)
-
-  const back = doc.querySelector('back')
-  if (!back) {
-    return
-  }
-
-  moveReferencesToBackmatter(body, back, createElement)
+  moveCaptionsToEnd(doc)
+  createBoxedElementSection(doc, createElement)
+  moveFloatsGroupToBody(doc, createElement)
+  moveBackSectionsToStart(doc)
+  moveSpecialFootnotes(doc, sectionCategories, createElement)
+  moveFootnotes(doc, createElement)
+  moveAcknowledgments(doc, createElement)
+  fixTables(doc, createElement)
+  orderTableFootnote(doc)
+  moveReferencesToBackmatter(doc, createElement)
 }
 
 const createElementFn = (doc: Document) => (tagName: string) =>
@@ -87,15 +59,67 @@ export const parseJATSArticle = (
 ) => {
   const journal = parseJournal(doc)
   processJATS(doc, sectionCategories)
-  const node = new JATSDOMParser(sectionCategories, schema).parse(doc)
-    .firstChild as ActualManuscriptNode
-  if (!node) {
-    throw new Error('No content was parsed from the JATS article body')
-  }
+
+  const factory = new ParserFactory(doc, sectionCategories)
+
+  const titleNode = factory.createTitleParser().parse()
+  const contributorsNode = factory
+    .createContributorsParser()
+    .parse(
+      Array.from(
+        doc.querySelectorAll('contrib-group > contrib[contrib-type="author"]')
+      )
+    )
+
+  const affiliationsNode = factory
+    .createAffiliationsParser()
+    .parse(
+      Array.from(doc.querySelectorAll('article-meta > contrib-group > aff'))
+    )
+
+  const authorNotesNode = factory
+    .createAuthorNotesParser()
+    .parse(doc.querySelector('article-meta > author-notes'))
+  const awardsNode = factory
+    .createAwardsParser()
+    .parse(doc.querySelector('article-meta > funding-group'))
+
+  const keywordsNode = factory
+    .createKeywordsParser()
+    .parse(doc.querySelector('kwd-group'))
+
+  const supplementsNode = factory
+    .createSupplementsParser()
+    .parse(
+      Array.from(doc.querySelectorAll('article-meta > supplementary-material'))
+    )
+
+  const abstractsNode = factory
+    .createAbstractsParser()
+    .parse(Array.from(doc.querySelectorAll('front > article-meta > abstract')))
+
+  const bodyNode = factory.createBodyParser().parse(doc.querySelector('body'))
+
+  const backmatterNode = factory
+    .createBackmatterParser()
+    .parse(doc.querySelector('back'))
+
+  const content = [
+    titleNode,
+    contributorsNode,
+    affiliationsNode,
+    authorNotesNode,
+    awardsNode,
+    keywordsNode,
+    supplementsNode,
+    abstractsNode,
+    bodyNode,
+    backmatterNode,
+  ].filter((node) => node !== undefined)
+
+  const node = schema.nodes.manuscript.create({}, content)
   updateDocumentIDs(node)
-  if (template) {
-    node.attrs.prototype = template
-  }
+
   return {
     node,
     journal,

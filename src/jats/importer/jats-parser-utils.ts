@@ -260,3 +260,6 @@ export const htmlFromJatsNode = (
   renameJatsNodesToHTML(element, temp, createElement)
   return temp.innerHTML?.trim()
 }
+
+export const capitalizeFirstLetter = (str: string) =>
+  str.charAt(0).toUpperCase() + str.slice(1)

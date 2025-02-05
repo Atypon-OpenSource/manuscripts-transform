@@ -14,26 +14,12 @@
  * limitations under the License.
  */
 
-import { defaultTitle } from '../../lib/deafults'
-import { SectionCategory, SectionGroup } from '../../schema'
-import { htmlFromJatsNode } from './jats-parser-utils'
+import { SectionCategory } from '../../schema'
 
 export type CreateElement = (tagName: string) => HTMLElement
 
 const removeNodeFromParent = (node: Element) =>
   node.parentNode && node.parentNode.removeChild(node)
-
-const capitalizeFirstLetter = (str: string) =>
-  str.charAt(0).toUpperCase() + str.slice(1)
-
-const createSectionGroup = (
-  type: SectionGroup,
-  createElement: CreateElement
-) => {
-  const sec = createElement('sec')
-  sec.setAttribute('sec-type', type)
-  return sec
-}
 
 export const addMissingCaptions = (
   doc: Document,
@@ -56,81 +42,12 @@ export const addMissingCaptions = (
     }
   }
 }
-
-export const moveTitle = (front: Element, createElement: CreateElement) => {
-  let title = front.querySelector('article-meta > title-group > article-title')
-  if (title) {
-    title.innerHTML = htmlFromJatsNode(title, createElement) ?? defaultTitle
-  } else {
-    title = createElement('article-title')
-    title.innerHTML = defaultTitle
-  }
-  front.parentNode?.insertBefore(title, front)
-}
-
-export const moveAuthorNotes = (
-  front: Element,
-  createElement: CreateElement
-) => {
-  const authorNotes = front.querySelector('article-meta > author-notes')
-  if (authorNotes) {
-    const sectionTitle = createElement('title')
-    authorNotes.prepend(sectionTitle)
-    front.parentNode?.insertBefore(authorNotes, front)
-  }
-}
-export const moveAwards = (front: Element) => {
-  const awards = front.querySelector('article-meta > funding-group')
-  if (awards) {
-    front.parentNode?.insertBefore(awards, front)
-  }
-}
-
-export const moveContributors = (
-  front: Element,
-  createElement: CreateElement
-) => {
-  const contribs = front.querySelectorAll(
-    'contrib-group > contrib[contrib-type="author"]'
-  )
-
-  if (contribs.length) {
-    const contributors = createElement('contributors')
-    contribs.forEach((c) => contributors.appendChild(c))
-    front.parentNode?.insertBefore(contributors, front)
-  }
-}
-
-export const moveAffiliations = (
-  front: Element,
-  createElement: CreateElement
-) => {
-  const affs = front.querySelectorAll('article-meta > contrib-group > aff')
-  if (affs.length) {
-    const affiliations = createElement('affiliations')
-    affs.forEach((a) => affiliations.appendChild(a))
-    front.parentNode?.insertBefore(affiliations, front)
-  }
-}
-
-export const moveAbstracts = (
-  doc: Document,
-  group: Element,
-  createElement: CreateElement
-) => {
-  const abstracts = doc.querySelectorAll('front > article-meta > abstract')
-  abstracts.forEach((abstract) => {
-    const sec = createAbstractSection(abstract, createElement)
-    removeNodeFromParent(abstract)
-    group.appendChild(sec)
-  })
-}
-
 export const createBoxedElementSection = (
-  body: Element,
+  doc: Document,
   createElement: (tagName: string) => HTMLElement
 ) => {
-  const boxedTexts = body.querySelectorAll('boxed-text')
+  const body = doc.querySelector('body')
+  const boxedTexts = body?.querySelectorAll('boxed-text') || []
   for (const boxedText of boxedTexts) {
     const boxElementId = boxedText.getAttribute('id')
     const boxElementSec = createElement('sec')
@@ -153,53 +70,11 @@ export const createBoxedElementSection = (
   }
 }
 
-export const createBody = (
-  doc: Document,
-  body: Element,
-  createElement: CreateElement
-) => {
-  const group = createSectionGroup('body', createElement)
-  const elements = body.querySelectorAll(
-    ':scope > *:not(sec), :scope > sec:not([sec-type="backmatter"]), :scope > sec:not([sec-type])'
-  )
-  elements.forEach((element) => {
-    removeNodeFromParent(element)
-    group.appendChild(element)
-  })
-  moveFloatsGroupToBody(doc, group, createElement)
-  body.append(group)
-}
-
-export const createAbstracts = (
-  doc: Document,
-  body: Element,
-  createElement: CreateElement
-) => {
-  const group = createSectionGroup('abstracts', createElement)
-  moveAbstracts(doc, group, createElement)
-  body.insertBefore(group, body.lastElementChild)
-}
-
-export const createBackmatter = (
-  doc: Document,
-  body: Element,
-  sectionCategories: SectionCategory[],
-  createElement: CreateElement
-) => {
-  const group = createSectionGroup('backmatter', createElement)
-  moveBackSections(doc, group)
-  moveAppendices(doc, group, createElement)
-  moveSpecialFootnotes(doc, group, sectionCategories, createElement)
-  moveFootnotes(doc, group, createElement)
-  moveAcknowledgments(doc, group, createElement)
-  body.append(group)
-}
-
-const moveFootnotes = (
-  doc: Document,
-  group: Element,
-  createElement: CreateElement
-) => {
+export const moveFootnotes = (doc: Document, createElement: CreateElement) => {
+  const group = doc.querySelector('back')
+  if (!group) {
+    return
+  }
   const fns = [
     ...doc.querySelectorAll('fn:not(table-wrap-foot fn, author-notes fn)'),
   ]
@@ -223,13 +98,16 @@ const moveFootnotes = (
 }
 
 // process footnotes with special meaning to
-const moveSpecialFootnotes = (
+export const moveSpecialFootnotes = (
   doc: Document,
-  group: Element,
   sectionCategories: SectionCategory[],
   createElement: CreateElement
 ) => {
   const fns = [...doc.querySelectorAll('fn[fn-type]')]
+  const group = doc.querySelector('back')
+  if (!group) {
+    return
+  }
   for (const fn of fns) {
     const type = fn.getAttribute('fn-type') || '' //Cannot be null since it is queried above
     const category = sectionCategories.find((category) =>
@@ -255,8 +133,8 @@ const moveSpecialFootnotes = (
   }
 }
 // move captions to the end of their containers
-export const moveCaptionsToEnd = (body: Element) => {
-  const captions = body.querySelectorAll('caption')
+export const moveCaptionsToEnd = (doc: Document) => {
+  const captions = doc.querySelectorAll('caption')
 
   for (const caption of captions) {
     if (
@@ -267,30 +145,6 @@ export const moveCaptionsToEnd = (body: Element) => {
       caption.parentNode.appendChild(caption)
     }
   }
-}
-
-const createAbstractSection = (
-  abstract: Element,
-  createElement: CreateElement
-) => {
-  const abstractType = abstract.getAttribute('abstract-type')
-
-  const section = createElement('sec')
-  const sectionType = abstractType ? `abstract-${abstractType}` : 'abstract'
-  section.setAttribute('sec-type', sectionType)
-
-  if (!abstract.querySelector(':scope > title')) {
-    const title = createElement('title')
-    title.textContent = abstractType
-      ? `${capitalizeFirstLetter(abstractType)} Abstract`
-      : 'Abstract'
-    section.appendChild(title)
-  }
-
-  while (abstract.firstChild) {
-    section.appendChild(abstract.firstChild)
-  }
-  return section
 }
 
 const createAcknowledgmentsSection = (
@@ -338,16 +192,6 @@ const createFootnotesSection = (
   return section
 }
 
-const createAppendicesSection = (
-  app: Element,
-  createElement: CreateElement
-) => {
-  const section = createElement('sec')
-  section.setAttribute('sec-type', 'appendices')
-  section.append(...app.children)
-  return section
-}
-
 const createFloatsGroupSection = (
   floatsGroup: Element,
   createElement: CreateElement
@@ -363,18 +207,25 @@ const createFloatsGroupSection = (
   return section
 }
 
-const moveBackSections = (doc: Document, group: Element) => {
-  for (const section of doc.querySelectorAll('back > sec')) {
-    removeNodeFromParent(section)
-    group.appendChild(section)
+export const moveBackSectionsToStart = (doc: Document) => {
+  const back = doc.querySelector('back')
+  if (!back) {
+    return
+  }
+  const sections = Array.from(back.querySelectorAll(':scope > sec'))
+  for (const section of sections.reverse()) {
+    back.insertBefore(section, back.firstChild)
   }
 }
 
-const moveAcknowledgments = (
+export const moveAcknowledgments = (
   doc: Document,
-  group: Element,
   createElement: CreateElement
 ) => {
+  const group = doc.querySelector('back')
+  if (!group) {
+    return
+  }
   const ack = doc.querySelector('back > ack')
   if (ack) {
     const section = createAcknowledgmentsSection(ack, createElement)
@@ -382,78 +233,26 @@ const moveAcknowledgments = (
     group.appendChild(section)
   }
 }
-const moveAppendices = (
-  doc: Document,
-  group: Element,
-  createElement: CreateElement
-) => {
-  const apps = doc.querySelectorAll('back > app-group > app')
-  for (const app of apps) {
-    const section = createAppendicesSection(app, createElement)
-    removeNodeFromParent(app)
-    group.appendChild(section)
-  }
-}
 
-const moveFloatsGroupToBody = (
+export const moveFloatsGroupToBody = (
   doc: Document,
-  body: Element,
   createElement: CreateElement
 ) => {
+  const body = doc.querySelector('body')
   const floatsGroup = doc.querySelector('floats-group')
   if (floatsGroup) {
     const sec = createFloatsGroupSection(floatsGroup, createElement)
     removeNodeFromParent(floatsGroup)
-    body.appendChild(sec)
-  }
-}
-
-export const createKeywordsSection = (
-  document: Document,
-  body: Element,
-  createElement: CreateElement
-) => {
-  const kwdGroups = [...document.querySelectorAll('kwd-group')]
-  if (kwdGroups.length > 0) {
-    const section = createElement('sec')
-    section.setAttribute('sec-type', 'keywords')
-    const title = createElement('title')
-    title.textContent = 'Keywords'
-    section.append(title)
-    const kwdGroupList = createElement('kwd-group-list')
-    // Using the first kwd-group since for the moment we only support single kwd-group
-    kwdGroupList.append(kwdGroups[0])
-    section.append(kwdGroupList)
-    body.prepend(section)
-  }
-}
-
-export const createSupplementaryMaterialsSection = (
-  document: Document,
-  body: Element,
-  createElement: CreateElement
-) => {
-  const suppls = [
-    ...document.querySelectorAll('article-meta > supplementary-material'),
-  ]
-  if (suppls.length) {
-    const section = createElement('sec')
-    section.setAttribute('sec-type', 'supplementary-material')
-    const title = createElement('title')
-    title.textContent = 'Supplementary Material'
-    section.append(title)
-    section.append(...suppls)
-    body.prepend(section)
+    body?.appendChild(sec)
   }
 }
 
 export const moveReferencesToBackmatter = (
-  body: Element,
-  back: Element,
+  doc: Document,
   createElement: CreateElement
 ) => {
-  const backmatter = body.querySelector('sec[sec-type="backmatter"]')
-  const refList = back.querySelector('ref-list')
+  const backmatter = doc.querySelector('back')
+  const refList = backmatter?.querySelector('ref-list')
   if (!backmatter || !refList) {
     return
   }
@@ -470,9 +269,9 @@ export const moveReferencesToBackmatter = (
   backmatter.appendChild(section)
 }
 
-export const orderTableFootnote = (doc: Document, body: Element) => {
+export const orderTableFootnote = (doc: Document) => {
   const rids = new Set(
-    [...body.querySelectorAll('tbody > xref[ref-type="fn"]')].map((xref) =>
+    [...doc.querySelectorAll('tbody > xref[ref-type="fn"]')].map((xref) =>
       xref.getAttribute('rid')
     )
   )
@@ -487,12 +286,8 @@ export const orderTableFootnote = (doc: Document, body: Element) => {
   })
 }
 
-export const fixTables = (
-  doc: Document,
-  body: Element,
-  createElement: CreateElement
-) => {
-  const tableWraps = body.querySelectorAll('table-wrap')
+export const fixTables = (doc: Document, createElement: CreateElement) => {
+  const tableWraps = doc.querySelectorAll('table-wrap')
   tableWraps.forEach((tableWrap) => {
     // Move cols into a colgroup if they are not already
     // This more closely maps how they exist in HTML and, subsequently, in ManuscriptJSON
