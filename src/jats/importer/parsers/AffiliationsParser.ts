@@ -14,20 +14,17 @@
  * limitations under the License.
  */
 
-import { DOMParser, Fragment } from 'prosemirror-model'
+import { Fragment } from 'prosemirror-model'
 
-import { trimTextContent } from '../../lib/utils'
-import { ManuscriptNode, NodeRule } from '../../schema'
+import { trimTextContent } from '../../../lib/utils'
+import { ManuscriptNode, NodeRule } from '../../../schema'
 import { JatsParser } from './JatsParser'
 
 export class AffiliationsParser extends JatsParser {
-  parser: DOMParser
+  private readonly tag = 'article-meta > contrib-group > aff'
 
-  constructor(doc: Document) {
-    super(doc)
-    this.parser = new DOMParser(this.schema, [...this.marks, ...this.nodes])
-  }
-  parse(elements: Element[]): ManuscriptNode | undefined {
+  parse(): ManuscriptNode | undefined {
+    const elements = this.doc.querySelectorAll(this.tag)
     if (!elements.length) {
       return
     }
@@ -39,47 +36,49 @@ export class AffiliationsParser extends JatsParser {
       topNode: this.schema.nodes.affiliations.create(),
     })
   }
-  nodes: NodeRule[] = [
-    {
-      tag: 'aff',
-      node: 'affiliation',
-      context: 'affiliations/',
-      getAttrs: (node) => {
-        const element = node as HTMLElement
-
-        const { department, institution } = this.getInstitutionDetails(element)
-
-        return {
-          id: element.getAttribute('id'),
-          institution: institution ?? '',
-          department: department ?? '',
-          addressLine1: this.getAddressLine(element, 1),
-          addressLine2: this.getAddressLine(element, 2),
-          addressLine3: this.getAddressLine(element, 3),
-          postCode: trimTextContent(element, 'postal-code') ?? '',
-          country: trimTextContent(element, 'country') ?? '',
-          email: this.getEmail(element),
-          priority: this.parsePriority(element.getAttribute('priority')),
-        }
+  protected get nodes(): NodeRule[] {
+    return [
+      {
+        tag: 'aff',
+        node: 'affiliation',
+        getAttrs: (node) => {
+          const element = node as HTMLElement
+          const { department, institution } =
+            this.getInstitutionDetails(element)
+          return {
+            id: element.getAttribute('id'),
+            institution: institution ?? '',
+            department: department ?? '',
+            addressLine1: this.getAddressLine(element, 1),
+            addressLine2: this.getAddressLine(element, 2),
+            addressLine3: this.getAddressLine(element, 3),
+            postCode: trimTextContent(element, 'postal-code') ?? '',
+            country: trimTextContent(element, 'country') ?? '',
+            email: this.getEmail(element),
+            priority: JatsParser.parsePriority(
+              element.getAttribute('priority')
+            ),
+          }
+        },
+        getContent: () => {
+          return Fragment.from(this.schema.text('_'))
+        },
       },
-      getContent: () => {
-        return Fragment.from(this.schema.text('_'))
-      },
-    },
-  ]
+    ]
+  }
   private getAddressLine = (element: HTMLElement, index: number) => {
     return trimTextContent(element, `addr-line:nth-of-type(${index})`) || ''
   }
-  protected getEmail = (element: HTMLElement) => {
+  private getEmail = (element: HTMLElement) => {
     const email = element.querySelector('email')
     if (email) {
       return {
-        href: email.getAttributeNS(this.XLINK_NAMESPACE, 'href') ?? '',
+        href: email.getAttributeNS(JatsParser.XLINK_NAMESPACE, 'href') ?? '',
         text: trimTextContent(email) ?? '',
       }
     }
   }
-  protected getInstitutionDetails = (element: HTMLElement) => {
+  private getInstitutionDetails = (element: HTMLElement) => {
     let department = ''
     let institution = ''
     for (const node of element.querySelectorAll('institution')) {

@@ -15,18 +15,17 @@
  */
 import { DOMParser } from 'prosemirror-model'
 
-import { NodeRule, SectionCategory } from '../../schema'
+import { NodeRule } from '../../../schema'
 import { JatsParser } from './JatsParser'
 
 export class BackmatterParser extends JatsParser {
-  parser: DOMParser
-
-  constructor(doc: Document, sectionCategories: SectionCategory[]) {
-    super(doc, sectionCategories)
+  private readonly tag = 'back'
+  protected initParser(): void {
     this.parser = new DOMParser(this.schema, [...this.marks, ...this.allNodes])
   }
 
-  parse(element: Element | null) {
+  parse() {
+    const element = this.doc.querySelector(this.tag)
     if (!element) {
       return this.schema.nodes.backmatter.create()
     }
@@ -34,29 +33,30 @@ export class BackmatterParser extends JatsParser {
       topNode: this.schema.nodes.backmatter.create(),
     })
   }
-  nodes: NodeRule[] = [
-    {
-      tag: 'app-group > app',
-      node: 'section',
-      getAttrs: (node) => {
-        const element = node as HTMLElement
-        element.setAttribute('sec-type', 'appendices')
-        return {
-          id: element.getAttribute('id'),
-          category: this.chooseSectionCategory(element),
-        }
+  protected get nodes(): NodeRule[] {
+    return [
+      { tag: 'bio', ignore: true },
+      {
+        tag: 'app-group > app',
+        node: 'section',
+        getAttrs: (node) => {
+          const element = node as HTMLElement
+          element.setAttribute('sec-type', 'appendices')
+          return {
+            category: this.chooseSectionCategory(element),
+          }
+        },
       },
-    },
-    {
-      tag: 'sec[sec-type="endnotes"]',
-      node: 'footnotes_section',
-      getAttrs: (node) => {
-        const element = node as HTMLElement
-
-        return {
-          id: element.getAttribute('id'),
-        }
+      {
+        tag: 'sec[sec-type="endnotes"]',
+        node: 'footnotes_section',
+        getAttrs: (node) => {
+          const element = node as HTMLElement
+          return {
+            id: element.getAttribute('id'),
+          }
+        },
       },
-    },
-  ]
+    ]
+  }
 }

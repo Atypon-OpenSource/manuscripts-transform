@@ -263,3 +263,7 @@ export const htmlFromJatsNode = (
 
 export const capitalizeFirstLetter = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1)
+
+export const getHTMLContent = (node: Element, querySelector: string) => {
+  return htmlFromJatsNode(node.querySelector(querySelector))
+}

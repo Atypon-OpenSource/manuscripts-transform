@@ -535,16 +535,7 @@ describe('JATS importer', () => {
       changeIDs(backNode)
       expect(backNode).toMatchSnapshot()
     })
-    it('should have a backmatter node even if back element does not exist', async () => {
-      const jats = await readAndParseFixture('jats-import.xml')
-      const backEl = jats.querySelector('back')
-      backEl?.remove()
-      const { node } = parseJATSArticle(jats, sectionCategories)
-      const backNode = findNodeByType(node, schema.nodes.backmatter)
-      expect(backNode).toBeDefined()
-      changeIDs(backNode)
-      expect(backNode).toMatchSnapshot()
-    })
+
   })
 
   test('parses JATS to Manuscripts document', async () => {

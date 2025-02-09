@@ -14,21 +14,16 @@
  * limitations under the License.
  */
 
-import { DOMParser } from 'prosemirror-model'
 
-import { trimTextContent } from '../../lib/utils'
-import { NodeRule } from '../../schema'
+import { trimTextContent } from '../../../lib/utils'
+import { NodeRule } from '../../../schema'
 import { JatsParser } from './JatsParser'
 
 export class SupplementsParser extends JatsParser {
-  parser: DOMParser
+  private readonly tag = 'article-meta > supplementary-material'
 
-  constructor(doc: Document) {
-    super(doc)
-    this.parser = new DOMParser(this.schema, [...this.marks, ...this.nodes])
-  }
-
-  parse(elements: Element[]) {
+  parse() {
+    const elements = Array.from(this.doc.querySelectorAll(this.tag))
     if (!elements.length) {
       return
     }
@@ -41,29 +36,32 @@ export class SupplementsParser extends JatsParser {
       topNode: this.schema.nodes.supplements.create(),
     })
   }
-  nodes: NodeRule[] = [
-    {
-      tag: 'supplements',
-      node: 'supplements',
-    },
-    {
-      tag: 'title',
-      node: 'section_title',
-    },
-    {
-      tag: 'supplementary-material',
-      node: 'supplement',
-      getAttrs: (node) => {
-        const element = node as HTMLElement
-
-        return {
-          id: element.getAttribute('id'),
-          href: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
-          mimeType: element.getAttribute('mimetype'),
-          mimeSubType: element.getAttribute('mime-subtype'),
-          title: trimTextContent(element, 'title'),
-        }
+  protected get nodes(): NodeRule[] {
+    return [
+      {
+        tag: 'supplements',
+        node: 'supplements',
       },
-    },
-  ]
+
+      {
+        tag: 'title',
+        node: 'section_title',
+      },
+      {
+        tag: 'supplementary-material',
+        node: 'supplement',
+        getAttrs: (node) => {
+          const element = node as HTMLElement
+
+          return {
+            id: element.getAttribute('id'),
+            href: element.getAttributeNS(JatsParser.XLINK_NAMESPACE, 'href'),
+            mimeType: element.getAttribute('mimetype'),
+            mimeSubType: element.getAttribute('mime-subtype'),
+            title: trimTextContent(element, 'title'),
+          }
+        },
+      },
+    ]
+  }
 }

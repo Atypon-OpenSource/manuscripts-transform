@@ -16,15 +16,14 @@
 
 import { DOMParser } from 'prosemirror-model'
 
-import { NodeRule, SectionCategory } from '../../schema'
-import { capitalizeFirstLetter } from '../importer/jats-parser-utils'
+import { NodeRule } from '../../../schema'
+import { capitalizeFirstLetter } from '../jats-parser-utils'
 import { JatsParser } from './JatsParser'
 
 export class AbstractsParser extends JatsParser {
-  parser: DOMParser
+  private readonly tag = 'front > article-meta > abstract'
 
-  constructor(doc: Document, sectionCategories: SectionCategory[]) {
-    super(doc, sectionCategories)
+  protected initParser(): void {
     this.parser = new DOMParser(this.schema, [...this.marks, ...this.allNodes])
   }
 
@@ -49,7 +48,8 @@ export class AbstractsParser extends JatsParser {
     return section
   }
 
-  parse(elements: Element[]) {
+  parse() {
+    const elements = Array.from(this.doc.querySelectorAll(this.tag))
     const abstracts = this.createElement('abstracts')
     for (const element of elements) {
       abstracts.appendChild(this.createAbstractSection(element))
@@ -59,10 +59,12 @@ export class AbstractsParser extends JatsParser {
       topNode: this.schema.nodes.abstracts.create(),
     })
   }
-  nodes: NodeRule[] = [
-    {
-      tag: 'sec[sec-type="abstract-graphical"]',
-      node: 'graphical_abstract_section',
-    },
-  ]
+  protected get nodes(): NodeRule[] {
+    return [
+      {
+        tag: 'sec[sec-type="abstract-graphical"]',
+        node: 'graphical_abstract_section',
+      },
+    ]
+  }
 }
