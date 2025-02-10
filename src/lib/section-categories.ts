@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-import { schema } from 'migration-base'
 import { NodeType } from 'prosemirror-model'
 
-import { SectionCategory, SectionGroup } from '../schema'
+import { schema, SectionCategory, SectionGroup } from '../schema'
 
 export const getGroupCateogries = (
   sectionsMap: Map<string, SectionCategory>,
