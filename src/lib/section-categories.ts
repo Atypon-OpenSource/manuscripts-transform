@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+import { schema } from 'migration-base'
+import { NodeType } from 'prosemirror-model'
+
 import { SectionCategory, SectionGroup } from '../schema'
 
 export const getGroupCateogries = (
@@ -21,3 +24,14 @@ export const getGroupCateogries = (
   group: SectionGroup
 ) =>
   Array.from(sectionsMap.values()).filter((section) => section.group === group)
+
+export const getAbstractNodeType = (id: string): NodeType | undefined => {
+  switch (id) {
+    case 'abstract':
+      return schema.nodes.abstracts
+    case 'abstract-graphical':
+      return schema.nodes.graphical_abstract_section
+    default:
+      return undefined
+  }
+}
