@@ -22,6 +22,7 @@ import { updateDocumentIDs } from './jats-parser-utils'
 import {
   addMissingCaptions,
   createAbstracts,
+  createAttachments,
   createBackmatter,
   createBody,
   createBoxedElementSection,
@@ -68,7 +69,7 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   createKeywordsSection(doc, body, createElement)
   fixTables(doc, body, createElement)
   orderTableFootnote(doc, body)
-
+  createAttachments(doc, createElement)
   const back = doc.querySelector('back')
   if (!back) {
     return

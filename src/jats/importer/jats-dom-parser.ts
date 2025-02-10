@@ -25,6 +25,7 @@ import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
 import { dateToTimestamp, getTrimmedTextContent } from '../../lib/utils'
 import {
+  attachment,
   BibliographyItemAttrs,
   ContributorCorresp,
   ContributorFootnote,
@@ -314,6 +315,18 @@ export class JATSDOMParser {
   }
 
   private nodes: NodeRule[] = [
+    {
+      tag: 'attachments > self-uri',
+      node: 'attachment',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          href: element.getAttributeNS(this.XLINK_NAMESPACE, 'href') || '',
+          type: element.getAttribute('content-type') || '',
+        }
+      },
+    },
     {
       tag: 'article',
       node: 'manuscript',
