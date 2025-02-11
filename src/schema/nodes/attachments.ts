@@ -17,12 +17,12 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
-interface Attrs {
+export interface AttachmentsAttrs {
   id: string
 }
 
 export interface AttachmentsNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: AttachmentsAttrs
 }
 export const attachments: NodeSpec = {
   content: 'attachment*',
