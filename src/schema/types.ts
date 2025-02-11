@@ -121,6 +121,7 @@ export type Nodes =
   | 'award'
   | 'embed'
   | 'image_element'
+  | 'key_image_section'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 
@@ -151,7 +152,11 @@ export type DataTrackedAttrs = {
   createdAt: number
 }
 
-export type SectionGroup = 'abstracts' | 'body' | 'backmatter'
+export type SectionGroup =
+  | 'abstracts'
+  | 'body'
+  | 'backmatter'
+  | 'abstracts-graphic'
 
 export type SectionCategory = {
   id: string

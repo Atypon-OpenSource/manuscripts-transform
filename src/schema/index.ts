@@ -69,6 +69,7 @@ import { highlightMarker } from './nodes/highlight_marker'
 import { imageElement } from './nodes/image_element'
 import { inlineEquation } from './nodes/inline_equation'
 import { inlineFootnote } from './nodes/inline_footnote'
+import { keyImageSection } from './nodes/key_image_section'
 import { keyword } from './nodes/keyword'
 import { keywordGroup } from './nodes/keyword_group'
 import { keywords } from './nodes/keywords'
@@ -159,6 +160,7 @@ export * from './nodes/table_element_footer'
 export * from './nodes/text'
 export * from './nodes/title'
 export * from './types'
+export * from './nodes/key_image_section'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -247,5 +249,6 @@ export const schema = new Schema<Nodes, Marks>({
     award,
     embed,
     image_element: imageElement,
+    key_image_section: keyImageSection,
   },
 })

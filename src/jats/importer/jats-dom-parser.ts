@@ -909,6 +909,10 @@ export class JATSDOMParser {
       node: 'graphical_abstract_section',
     },
     {
+      tag: 'sec[sec-type="abstract-key-image"]',
+      node: 'key_image_section',
+    },
+    {
       tag: 'sec',
       node: 'section',
       getAttrs: (node) => {

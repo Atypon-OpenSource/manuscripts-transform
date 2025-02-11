@@ -22,6 +22,7 @@ import {
 } from '@manuscripts/json-schema'
 import { CitationProvider } from '@manuscripts/library'
 import debug from 'debug'
+import { get } from 'lodash'
 import {
   DOMOutputSpec,
   DOMParser as ProsemirrorDOMParser,
@@ -32,6 +33,10 @@ import serializeToXML from 'w3c-xmlserializer'
 
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML, textFromHTML } from '../../lib/html'
+import {
+  getGroupCategories,
+  getSectionCategoryFromSynonym,
+} from '../../lib/section-categories'
 import {
   AuthorNotesNode,
   CitationNode,
@@ -47,6 +52,7 @@ import {
   Nodes,
   ParagraphNode,
   schema,
+  SectionCategory,
   TableElementFooterNode,
   TableElementNode,
 } from '../../schema'
@@ -152,6 +158,7 @@ export type ExportOptions = {
   version?: Version
   journal?: Journal
   csl: CSLOptions
+  sectionCategories: SectionCategory[]
 }
 export const buildCitations = (citations: CitationNode[]) =>
   citations.map((citation) => ({
@@ -171,6 +178,7 @@ export class JATSExporter {
   protected citationTexts: Map<string, string>
   protected citationProvider: CitationProvider
   protected manuscriptNode: ManuscriptNode
+  protected sectionCategories: SectionCategory[]
 
   protected generateCitations() {
     const nodes: CitationNode[] = []
@@ -229,6 +237,7 @@ export class JATSExporter {
     this.manuscriptNode = manuscriptNode
     this.generateCitationTexts(options.csl, manuscriptNode.attrs.id)
     this.createSerializer()
+    this.sectionCategories = options.sectionCategories
     const versionIds = selectVersionIds(options.version ?? '1.2')
 
     this.document = document.implementation.createDocument(
@@ -823,7 +832,11 @@ export class JATSExporter {
           mediaElement.setAttribute('mime-subtype', node.attrs.mimeSubtype)
         }
         appendLabels(mediaElement, node)
-        appendChildNodeOfType(mediaElement, node, node.type.schema.nodes.figcaption)
+        appendChildNodeOfType(
+          mediaElement,
+          node,
+          node.type.schema.nodes.figcaption
+        )
         return mediaElement
       },
       awards: () => ['funding-group', 0],
@@ -1084,6 +1097,14 @@ export class JATSExporter {
           id: normalizeID(node.attrs.id),
         }
         attrs['sec-type'] = 'abstract-graphical'
+
+        return ['sec', attrs, 0]
+      },
+      key_image_section: (node) => {
+        const attrs: { [key: string]: string } = {
+          id: normalizeID(node.attrs.id),
+        }
+        attrs['sec-type'] = 'key-image'
 
         return ['sec', attrs, 0]
       },
@@ -1871,61 +1892,91 @@ export class JATSExporter {
   }
   private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
     const container = body.querySelector(':scope > sec[sec-type="abstracts"]')
-    let abstractSections
-    if (container) {
-      abstractSections = Array.from(container.querySelectorAll(':scope > sec'))
-    } else {
-      abstractSections = Array.from(
-        body.querySelectorAll(':scope > sec')
-      ).filter((section) => {
-        const sectionType = section.getAttribute('sec-type')
+    const abstractSectionCategories = this.getAbstractSectionCategories()
+    const abstractSections = this.getAbstractSections(
+      container,
+      body,
+      abstractSectionCategories
+    )
 
-        if (
-          sectionType === 'abstract' ||
-          sectionType === 'abstract-teaser' ||
-          sectionType === 'abstract-graphical'
-        ) {
-          return true
-        }
-
-        const sectionTitle = section.querySelector(':scope > title')
-
-        if (!sectionTitle) {
-          return false
-        }
-
-        return sectionTitle.textContent === 'Abstract'
-      })
-    }
     if (abstractSections.length) {
-      for (const abstractSection of abstractSections) {
-        const abstractNode = this.document.createElement('abstract')
-
-        // TODO: ensure that abstract section schema is valid
-        for (const node of abstractSection.childNodes) {
-          if (node.nodeName !== 'title') {
-            abstractNode.appendChild(node.cloneNode(true))
-          }
-        }
-
-        const sectionType = abstractSection.getAttribute('sec-type')
-
-        if (sectionType && sectionType !== 'abstract') {
-          const [, abstractType] = sectionType.split('-', 2)
-          abstractNode.setAttribute('abstract-type', abstractType)
-        }
-
-        abstractSection.remove()
-
-        const articleMeta = front.querySelector(':scope > article-meta')
-
-        if (articleMeta) {
-          insertAbstractNode(articleMeta, abstractNode)
-        }
-      }
+      this.processAbstractSections(abstractSections, front)
     }
+
     if (container) {
       body.removeChild(container)
+    }
+  }
+
+  private getAbstractSectionCategories(): SectionCategory[] {
+    return getGroupCategories(this.sectionCategories, 'abstracts').concat(
+      getGroupCategories(this.sectionCategories, 'abstracts-graphic')
+    )
+  }
+
+  private getAbstractSections(
+    container: Element | null,
+    body: HTMLElement,
+    abstractSectionCategories: SectionCategory[]
+  ): Element[] {
+    if (container) {
+      return Array.from(container.querySelectorAll(':scope > sec'))
+    } else {
+      const abstractSections = Array.from(body.querySelectorAll(':scope > sec'))
+      return abstractSections.filter((section) =>
+        this.isAbstractSection(section, abstractSectionCategories)
+      )
+    }
+  }
+
+  private isAbstractSection(
+    section: Element,
+    abstractSectionCategories: SectionCategory[]
+  ): boolean {
+    const sectionType = section.getAttribute('sec-type')
+    if (
+      sectionType &&
+      abstractSectionCategories.some((category) => category.id === sectionType)
+    ) {
+      return true
+    }
+    const sectionTitle = section.querySelector(':scope > title')
+    return sectionTitle ? sectionTitle.textContent === 'Abstract' : false
+  }
+
+  private processAbstractSections(
+    abstractSections: Element[],
+    front: HTMLElement
+  ) {
+    for (const abstractSection of abstractSections) {
+      const abstractNode = this.createAbstractNode(abstractSection)
+      abstractSection.remove()
+      const articleMeta = front.querySelector(':scope > article-meta')
+      if (articleMeta) {
+        insertAbstractNode(articleMeta, abstractNode)
+      }
+    }
+  }
+
+  private createAbstractNode(abstractSection: Element): Element {
+    const abstractNode = this.document.createElement('abstract')
+    for (const node of abstractSection.childNodes) {
+      if (node.nodeName !== 'title') {
+        abstractNode.appendChild(node.cloneNode(true))
+      }
+    }
+    this.setAbstractType(abstractNode, abstractSection)
+    return abstractNode
+  }
+
+  private setAbstractType(abstractNode: Element, abstractSection: Element) {
+    const sectionType = abstractSection.getAttribute('sec-type')
+    if (sectionType && sectionType !== 'abstract') {
+      const [prefix, abstractType] = sectionType.split('-', 2)
+      abstractNode.setAttribute(
+        'abstract-type',
+        prefix === 'abstract' ? abstractType : sectionType
+      )
     }
   }
 

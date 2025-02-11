@@ -31000,7 +31000,7 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "src": "demo.jpg",
+                    "src": "demo1.jpg",
                     "type": "half-left",
                   },
                   "type": "figure",
@@ -31044,6 +31044,93 @@ Object {
             },
           ],
           "type": "graphical_abstract_section",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPKeyImageSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "attribution": undefined,
+                "dataTracked": null,
+                "id": "MPFigureElement:test",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPParagraphElement:test",
+                    "placeholder": "",
+                  },
+                  "type": "paragraph",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "contents": "",
+                    "dataTracked": null,
+                    "id": "MPListing:test",
+                    "isExecuting": false,
+                    "isExpanded": false,
+                    "language": "",
+                    "languageKey": "null",
+                  },
+                  "type": "listing",
+                },
+              ],
+              "type": "figure_element",
+            },
+          ],
+          "type": "key_image_section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "short",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Short Abstract",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "The is the third and last part of the volume devoted to solubility data of rare earth metal chlorides in water and in ternary and quaternary aqueous systems. Compilations of all available experimental data are introduced for each rare earth metal chloride with a corresponding critical evaluation. This part covers chlorides of Gd, Tb, Dy, Ho, Er, Tm, Yb, and Lu, with coverage of the literature through the middle of 2008.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
         },
       ],
       "type": "abstracts",
@@ -38873,7 +38960,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Both authors have made substantial contributions to conception and design and acquisitions and analyses",
+                  "text": "Both authors have made substantial contributions to conception and design and acquisitions and analyses ",
                   "type": "text",
                 },
                 Object {

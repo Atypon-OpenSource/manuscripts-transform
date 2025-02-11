@@ -18,19 +18,24 @@ import { NodeType } from 'prosemirror-model'
 
 import { schema, SectionCategory, SectionGroup } from '../schema'
 
-export const getGroupCateogries = (
-  sectionsMap: Map<string, SectionCategory>,
+export const getGroupCategories = (
+  sections: Map<string, SectionCategory> | SectionCategory[],
   group: SectionGroup
-) =>
-  Array.from(sectionsMap.values()).filter((section) => section.group === group)
-
+): SectionCategory[] => {
+  const sectionsArray = Array.isArray(sections)
+    ? sections
+    : Array.from(sections.values())
+  return sectionsArray.filter((section) => section.group === group)
+}
 export const getAbstractNodeType = (id: string): NodeType | undefined => {
   switch (id) {
     case 'abstract':
       return schema.nodes.abstracts
     case 'abstract-graphical':
       return schema.nodes.graphical_abstract_section
+    case 'key-image':
+      return schema.nodes.key_image_section
     default:
-      return undefined
+      return schema.nodes.section
   }
 }
