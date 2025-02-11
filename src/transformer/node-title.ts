@@ -100,6 +100,9 @@ export const nodeTitlePlaceholder = (nodeType: NodeType) => {
     case nodes.bibliography_section:
       return 'Bibliography'
 
+    case nodes.box_element:
+      return 'Boxed Text'
+
     default:
       return nodeNames.get(nodeType) || ''
   }

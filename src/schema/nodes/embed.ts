@@ -31,7 +31,7 @@ export interface EmbedNode extends ManuscriptNode {
 }
 
 export const embed: NodeSpec = {
-  content: "figcaption",
+  content: 'figcaption',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
