@@ -306,6 +306,8 @@ describe('JATS importer', () => {
       const { node } = parseJATSArticle(jats, sectionCategories)
       const abstractsNode = findNodeByType(node, schema.nodes.abstracts)
       expect(abstractsNode).toBeDefined()
+      changeIDs(abstractsNode)
+      expect(abstractsNode).toMatchSnapshot()
     })
     it("should have an abstracts even if abstarcts element doesn't exist", async () => {
       const jats = await readAndParseFixture('jats-import.xml')
@@ -314,6 +316,8 @@ describe('JATS importer', () => {
       const { node } = parseJATSArticle(jats, sectionCategories)
       const abstractsNode = findNodeByType(node, schema.nodes.abstracts)
       expect(abstractsNode).toBeDefined()
+      changeIDs(abstractsNode)
+      expect(abstractsNode).toMatchSnapshot()
     })
     it('should have the correct number of sections', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
@@ -326,6 +330,8 @@ describe('JATS importer', () => {
       const sections = findNodesByType(abstractsNode, schema.nodes.section)
       // first section is the abstract node
       expect(sections).toHaveLength(5)
+      changeIDs(abstractsNode)
+      expect(abstractsNode).toMatchSnapshot()
     })
     it('should set the title to Abstract if no title is provided', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
@@ -352,6 +358,8 @@ describe('JATS importer', () => {
       const { node } = parseJATSArticle(jats, sectionCategories)
       const bodyNode = findNodeByType(node, schema.nodes.body)
       expect(bodyNode).toBeDefined()
+      changeIDs(bodyNode)
+      expect(bodyNode).toMatchSnapshot()
     })
     it('should have the correct number of sections', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
@@ -359,6 +367,8 @@ describe('JATS importer', () => {
       const bodyNode = findNodeByType(node, schema.nodes.body)
       const sections = findNodesByType(bodyNode, schema.nodes.section, false)
       expect(sections).toHaveLength(5)
+      changeIDs(bodyNode)
+      expect(bodyNode).toMatchSnapshot()
     })
     it('should have a body node even if body element does not exist', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
@@ -367,6 +377,8 @@ describe('JATS importer', () => {
       const { node } = parseJATSArticle(jats, sectionCategories)
       const bodyNode = findNodeByType(node, schema.nodes.body)
       expect(bodyNode).toBeDefined()
+      changeIDs(bodyNode)
+      expect(bodyNode).toMatchSnapshot()
     })
   })
   describe('backmatter', () => {
@@ -379,6 +391,8 @@ describe('JATS importer', () => {
       const { node } = parseJATSArticle(jats, sectionCategories)
       const backNode = findNodeByType(node, schema.nodes.backmatter)
       expect(backNode).toBeDefined()
+      changeIDs(backNode)
+      expect(backNode).toMatchSnapshot()
     })
     it('should have appendices section if app-group element exists', async () => {
       const jats = await readAndParseFixture('jats-example-full.xml')
@@ -394,6 +408,8 @@ describe('JATS importer', () => {
         false
       ).filter((node) => node.attrs.category === 'appendices')
       expect(appNode).toHaveLength(1)
+      changeIDs(backNode)
+      expect(backNode).toMatchSnapshot()
     })
     it('should correctly add back sections to the backmatter', async () => {
       const jats = await readAndParseFixture('jats-example-full.xml')
@@ -409,6 +425,8 @@ describe('JATS importer', () => {
         false
       ).filter((node) => node.attrs.category === 'availability')
       expect(availabilitySection).toHaveLength(1)
+      changeIDs(backNode)
+      expect(backNode).toMatchSnapshot()
     })
     it('should create sections for special footnotes', async () => {
       const jats = await readAndParseFixture('jats-example-full.xml')
@@ -431,6 +449,8 @@ describe('JATS importer', () => {
       expect(con).toHaveLength(1)
       expect(financialDisclosure).toHaveLength(1)
       expect(conflict).toHaveLength(1)
+      changeIDs(backNode)
+      expect(backNode).toMatchSnapshot()
     })
     it('should have an endnotes section if either an endnotes section exists or there are footnotes', async () => {
       const jats = await readAndParseFixture('jats-example-full.xml')
@@ -442,6 +462,8 @@ describe('JATS importer', () => {
         false
       )
       expect(endNotesSection).toHaveLength(1)
+      changeIDs(backNode)
+      expect(backNode).toMatchSnapshot()
     })
     it('should have a references section if ref-list element exists', async () => {
       const jats = await readAndParseFixture('jats-example-full.xml')
@@ -457,6 +479,8 @@ describe('JATS importer', () => {
         false
       )
       expect(refSection).toHaveLength(1)
+      changeIDs(backNode)
+      expect(backNode).toMatchSnapshot()
     })
     it('should have an acknowledgements section if ack element exists', async () => {
       const jats = await readAndParseFixture('jats-example-full.xml')
@@ -473,6 +497,8 @@ describe('JATS importer', () => {
       ).filter((node) => node.attrs.category === 'acknowledgements')
 
       expect(ackSection).toHaveLength(1)
+      changeIDs(backNode)
+      expect(backNode).toMatchSnapshot()
     })
     it('should parse references correctly', async () => {
       const jats = await readAndParseFixture('jats-example-full.xml')
@@ -497,20 +523,16 @@ describe('JATS importer', () => {
       bibliographyItems[0].attrs.author[0]._id = 'MPBibliographicName:test'
       bibliographyItems[0].attrs.issued._id = 'MPBibliographicDate:test'
       expect(bibliographyItems[0]).toMatchSnapshot()
+      changeIDs(backNode)
+      expect(backNode).toMatchSnapshot()
     })
     it('should have the correct number of sections', async () => {
       const jats = await readAndParseFixture('jats-example-full.xml')
       const { node } = parseJATSArticle(jats, sectionCategories)
       const backNode = findNodeByType(node, schema.nodes.backmatter)
       expect(backNode.childCount).toBe(8)
-    })
-    it('should have a backmatter node even if back element does not exist', async () => {
-      const jats = await readAndParseFixture('jats-import.xml')
-      const backEl = jats.querySelector('back')
-      backEl?.remove()
-      const { node } = parseJATSArticle(jats, sectionCategories)
-      const backNode = findNodeByType(node, schema.nodes.backmatter)
-      expect(backNode).toBeDefined()
+      changeIDs(backNode)
+      expect(backNode).toMatchSnapshot()
     })
   })
 

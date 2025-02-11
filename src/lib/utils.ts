@@ -87,7 +87,7 @@ export const findParentNodeClosestToPos = (
   }
 }
 
-export const getTrimmedTextContent = (
+export const trimTextContent = (
   node: Element | Document | null,
   selector?: string
 ) => {
@@ -103,7 +103,7 @@ export const dateToTimestamp = (dateElement: Element) => {
   const selectors = ['year', 'month', 'day']
   const values: Array<number> = []
   for (const selector of selectors) {
-    const value = getTrimmedTextContent(dateElement, selector)
+    const value = trimTextContent(dateElement, selector)
     if (!value || isNaN(+value)) {
       return
     }

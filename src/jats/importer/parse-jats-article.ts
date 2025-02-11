@@ -14,90 +14,28 @@
  * limitations under the License.
  */
 
-import { ActualManuscriptNode, schema, SectionCategory } from '../../schema'
-import { markComments } from './jats-comments'
-import { JATSDOMParser } from './jats-dom-parser'
-import { parseJournal } from './jats-journal-meta-parser'
-import { updateDocumentIDs } from './jats-parser-utils'
-import {
-  addMissingCaptions,
-  createAbstracts,
-  createBackmatter,
-  createBody,
-  createBoxedElementSection,
-  createKeywordsSection,
-  createSupplementaryMaterialsSection,
-  fixTables,
-  moveAffiliations,
-  moveAuthorNotes,
-  moveAwards,
-  moveCaptionsToEnd,
-  moveContributors,
-  moveReferencesToBackmatter,
-  moveTitle,
-  orderTableFootnote,
-} from './jats-transformations'
-
-const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
-  const createElement = createElementFn(doc)
-
-  markComments(doc)
-
-  const front = doc.querySelector('front')
-  if (!front) {
-    return
-  }
-  addMissingCaptions(doc, createElement)
-  moveTitle(front, createElement)
-  moveContributors(front, createElement)
-  moveAffiliations(front, createElement)
-  moveAuthorNotes(front, createElement)
-  moveAwards(front)
-
-  const body = doc.querySelector('body')
-  if (!body) {
-    return
-  }
-
-  moveCaptionsToEnd(body)
-  createBoxedElementSection(body, createElement)
-  createBody(doc, body, createElement)
-  createAbstracts(doc, body, createElement)
-  createBackmatter(doc, body, sectionCategories, createElement)
-  createSupplementaryMaterialsSection(doc, body, createElement)
-  createKeywordsSection(doc, body, createElement)
-  fixTables(doc, body, createElement)
-  orderTableFootnote(doc, body)
-
-  const back = doc.querySelector('back')
-  if (!back) {
-    return
-  }
-
-  moveReferencesToBackmatter(body, back, createElement)
-}
-
-const createElementFn = (doc: Document) => (tagName: string) =>
-  doc.createElement(tagName)
+import { SectionCategory } from '../../schema'
+import { JATSArticleBuilder } from './JatsArticleBuilder'
 
 export const parseJATSArticle = (
   doc: Document,
   sectionCategories: SectionCategory[],
-  template?: string
+  prototype?: string
 ) => {
-  const journal = parseJournal(doc)
-  processJATS(doc, sectionCategories)
-  const node = new JATSDOMParser(sectionCategories, schema).parse(doc)
-    .firstChild as ActualManuscriptNode
-  if (!node) {
-    throw new Error('No content was parsed from the JATS article body')
-  }
-  updateDocumentIDs(node)
-  if (template) {
-    node.attrs.prototype = template
-  }
-  return {
-    node,
-    journal,
-  }
+  const builder = new JATSArticleBuilder(doc, sectionCategories, prototype)
+  const parsers = [
+    'title',
+    'contributors',
+    'affiliations',
+    'authorNotes',
+    'awards',
+    'keywords',
+    'supplements',
+    'abstracts',
+    'body',
+    'backmatter',
+    'comments',
+  ]
+  parsers.forEach((type) => builder.addParser(type))
+  return builder.build()
 }
