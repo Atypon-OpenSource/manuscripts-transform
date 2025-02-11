@@ -83,7 +83,7 @@ export const nodeTitle = (node: ManuscriptNode) => {
       return ''
 
     case nodes.box_element:
-      return snippetOfNodeType(node, nodes.box_element)
+      return ''
 
     default:
       return textSnippet(node)
