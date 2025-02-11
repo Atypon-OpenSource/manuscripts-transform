@@ -27,7 +27,7 @@ export const getGroupCategories = (
     : Array.from(sections.values())
   return sectionsArray.filter((section) => section.group === group)
 }
-export const getAbstractNodeType = (id: string): NodeType | undefined => {
+export const getAbstractNodeType = (id: string): NodeType => {
   switch (id) {
     case 'abstract':
       return schema.nodes.abstracts
