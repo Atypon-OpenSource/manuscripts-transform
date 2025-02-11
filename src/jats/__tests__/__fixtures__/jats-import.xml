@@ -115,8 +115,7 @@
         </date>
       </history>
       <permissions> </permissions>
-      <self-uri content-type = "document" xlink:href="http://www.harmreductionjournal.com/content/1/1/5">This
-        article is available from http://www.harmreductionjournal.com/content/1/1/5</self-uri>
+      <self-uri content-type = "document" xlink:href="http://www.harmreductionjournal.com/content/1/1/5"/>
       <abstract>
         <sec>
           <title>Objectives</title>

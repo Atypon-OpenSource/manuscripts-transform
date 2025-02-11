@@ -16,22 +16,20 @@
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
-interface Attrs {
+export interface AttachmentAttrs {
   id: string
   href: string
   type: string
 }
 
 export interface AttachmentNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: AttachmentAttrs
 }
 export const attachment: NodeSpec = {
-  content: 'inline*',
   attrs: {
     id: { default: '' },
     type: { default: '' },
     href: { default: '' },
-    dataTracked: { default: null },
   },
 }
 export const isAttachmentNode = (

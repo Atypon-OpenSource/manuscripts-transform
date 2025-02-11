@@ -36,17 +36,10 @@ exports[`JATS importer attachments should correctly parse self-uri element 1`] =
 Array [
   Object {
     "attrs": Object {
-      "dataTracked": null,
       "href": "http://www.harmreductionjournal.com/content/1/1/5",
       "id": "MPAttachment:test",
       "type": "document",
     },
-    "content": Array [
-      Object {
-        "text": "This article is available from http://www.harmreductionjournal.com/content/1/1/5",
-        "type": "text",
-      },
-    ],
     "type": "attachment",
   },
 ]
@@ -40715,17 +40708,10 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "dataTracked": null,
             "href": "http://www.harmreductionjournal.com/content/1/1/5",
             "id": "MPAttachment:test",
             "type": "document",
           },
-          "content": Array [
-            Object {
-              "text": "This article is available from http://www.harmreductionjournal.com/content/1/1/5",
-              "type": "text",
-            },
-          ],
           "type": "attachment",
         },
       ],
