@@ -54,7 +54,7 @@ describe('JATS exporter', () => {
       //@ts-ignore
       journal,
       version: '1.1',
-      sectionCategories
+      sectionCategories,
     })
 
     expect(result).toMatchSnapshot('jats-export-1.1')
@@ -71,7 +71,7 @@ describe('JATS exporter', () => {
         //@ts-ignore
         journal,
         version: '1.0' as unknown as Version,
-        sectionCategories
+        sectionCategories,
       })
     }).rejects.toThrow(Error)
   })

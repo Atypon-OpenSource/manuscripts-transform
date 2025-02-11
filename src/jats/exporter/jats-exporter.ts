@@ -22,7 +22,6 @@ import {
 } from '@manuscripts/json-schema'
 import { CitationProvider } from '@manuscripts/library'
 import debug from 'debug'
-import { get } from 'lodash'
 import {
   DOMOutputSpec,
   DOMParser as ProsemirrorDOMParser,
@@ -33,10 +32,7 @@ import serializeToXML from 'w3c-xmlserializer'
 
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML, textFromHTML } from '../../lib/html'
-import {
-  getGroupCategories,
-  getSectionCategoryFromSynonym,
-} from '../../lib/section-categories'
+import { getGroupCategories } from '../../lib/section-categories'
 import {
   AuthorNotesNode,
   CitationNode,
