@@ -82,6 +82,9 @@ export const nodeTitle = (node: ManuscriptNode) => {
     case nodes.image_element:
       return ''
 
+    case nodes.box_element:
+      return snippetOfNodeType(node, nodes.box_element)
+
     default:
       return textSnippet(node)
   }
