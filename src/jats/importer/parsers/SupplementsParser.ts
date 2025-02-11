@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 import { trimTextContent } from '../../../lib/utils'
 import { NodeRule } from '../../../schema'
 import { JatsParser } from './JatsParser'

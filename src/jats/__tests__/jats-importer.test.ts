@@ -308,7 +308,6 @@ describe('JATS importer', () => {
       expect(abstractsNode).toBeDefined()
       changeIDs(abstractsNode)
       expect(abstractsNode).toMatchSnapshot()
-
     })
     it("should have an abstracts even if abstarcts element doesn't exist", async () => {
       const jats = await readAndParseFixture('jats-import.xml')
@@ -535,7 +534,6 @@ describe('JATS importer', () => {
       changeIDs(backNode)
       expect(backNode).toMatchSnapshot()
     })
-
   })
 
   test('parses JATS to Manuscripts document', async () => {

@@ -27,7 +27,7 @@ import {
   ManuscriptNode,
   MarkRule,
   NodeRule,
-  schema, 
+  schema,
   SectionCategory,
 } from '../../../schema'
 import { getHTMLContent } from '../jats-parser-utils'

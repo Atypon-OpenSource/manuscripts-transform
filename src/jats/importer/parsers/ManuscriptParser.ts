@@ -22,7 +22,7 @@ import { JatsParser } from './JatsParser'
 export class ManuscriptParser extends JatsParser {
   private readonly parsers: JatsParser[]
   private readonly protoype?: string
-  private readonly jatsTransformer: JatsProcessor
+  private readonly jatsProcessor: JatsProcessor
   constructor(
     doc: Document,
     parsers: JatsParser[],
@@ -32,7 +32,7 @@ export class ManuscriptParser extends JatsParser {
     super(doc)
     this.parsers = parsers
     this.protoype = protoype
-    this.jatsTransformer = new JatsProcessor(this.doc, sectionCategories)
+    this.jatsProcessor = new JatsProcessor(this.doc, sectionCategories)
   }
 
   private static parseDates = (historyNode: Element | null | undefined) => {
@@ -97,15 +97,13 @@ export class ManuscriptParser extends JatsParser {
   }
 
   parse() {
-    this.jatsTransformer.process()
+    this.jatsProcessor.process()
     const content = this.parsers
       .map((parser) => parser.parse())
       .filter((node) => node !== undefined)
 
-    const manuscript = this.schema.nodes.manuscript.create(
-      this.getManuscriptAttrs(),
-      content
-    )
+    const attrs = this.getManuscriptAttrs()
+    const manuscript = this.schema.nodes.manuscript.create(attrs, content)
     updateDocumentIDs(manuscript)
     return manuscript
   }

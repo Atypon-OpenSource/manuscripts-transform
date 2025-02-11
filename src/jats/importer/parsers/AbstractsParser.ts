@@ -54,11 +54,11 @@ export class AbstractsParser extends JatsParser {
     for (const element of elements) {
       abstracts.appendChild(this.createAbstractSection(element))
     }
-
     return this.parser.parse(abstracts, {
       topNode: this.schema.nodes.abstracts.create(),
     })
   }
+
   protected get nodes(): NodeRule[] {
     return [
       {

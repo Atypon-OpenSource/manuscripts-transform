@@ -33,6 +33,7 @@ export class BackmatterParser extends JatsParser {
       topNode: this.schema.nodes.backmatter.create(),
     })
   }
+
   protected get nodes(): NodeRule[] {
     return [
       { tag: 'bio', ignore: true },
