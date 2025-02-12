@@ -25,14 +25,13 @@ import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
 import { dateToTimestamp, getTrimmedTextContent } from '../../lib/utils'
 import {
-  attachment,
   BibliographyItemAttrs,
   ContributorCorresp,
   ContributorFootnote,
   ManuscriptNode,
   MarkRule,
   NodeRule,
-  SectionCategory,
+  SectionCategory
 } from '../../schema'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
 import { htmlFromJatsNode } from './jats-parser-utils'
