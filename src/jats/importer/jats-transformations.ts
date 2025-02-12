@@ -492,12 +492,9 @@ export const createAttachments = (
   createElement: CreateElement
 ) => {
   const attachments = createElement('attachments')
-  const attachmentsQueries = ['self-uri']
-  attachmentsQueries.forEach((query) =>
-    doc
-      .querySelectorAll(query)
-      .forEach((attachment) => attachments.appendChild(attachment))
-  )
+  doc
+    .querySelectorAll('self-uri')
+    .forEach((attachment) => attachments.appendChild(attachment))
   if (attachments.children.length > 0) {
     doc.documentElement.appendChild(attachments)
   }
