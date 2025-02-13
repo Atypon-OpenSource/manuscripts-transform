@@ -30973,6 +30973,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "category": "abstract-graphical",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -31047,14 +31048,21 @@ Object {
         },
         Object {
           "attrs": Object {
+            "category": "abstract-key-image",
             "dataTracked": null,
-            "id": "MPKeyImageSection:test",
+            "id": "MPSection:test",
           },
           "content": Array [
             Object {
               "attrs": Object {
                 "dataTracked": null,
               },
+              "content": Array [
+                Object {
+                  "text": "Key image Abstract",
+                  "type": "text",
+                },
+              ],
               "type": "section_title",
             },
             Object {
@@ -31067,15 +31075,32 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
-                    "placeholder": "",
+                    "id": "MPFigure:test",
+                    "src": "demo2.jpg",
+                    "type": "half-left",
                   },
-                  "type": "paragraph",
+                  "type": "figure",
                 },
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
                   },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "type": "caption",
+                    },
+                  ],
                   "type": "figcaption",
                 },
                 Object {
@@ -31094,11 +31119,11 @@ Object {
               "type": "figure_element",
             },
           ],
-          "type": "key_image_section",
+          "type": "graphical_abstract_section",
         },
         Object {
           "attrs": Object {
-            "category": "short",
+            "category": "abstract-short",
             "dataTracked": null,
             "id": "MPSection:test",
           },

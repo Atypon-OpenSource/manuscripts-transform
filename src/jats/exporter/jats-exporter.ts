@@ -154,7 +154,6 @@ export type ExportOptions = {
   version?: Version
   journal?: Journal
   csl: CSLOptions
-  sectionCategories: SectionCategory[]
 }
 export const buildCitations = (citations: CitationNode[]) =>
   citations.map((citation) => ({
@@ -174,7 +173,6 @@ export class JATSExporter {
   protected citationTexts: Map<string, string>
   protected citationProvider: CitationProvider
   protected manuscriptNode: ManuscriptNode
-  protected sectionCategories: SectionCategory[]
 
   protected generateCitations() {
     const nodes: CitationNode[] = []
@@ -233,7 +231,6 @@ export class JATSExporter {
     this.manuscriptNode = manuscriptNode
     this.generateCitationTexts(options.csl, manuscriptNode.attrs.id)
     this.createSerializer()
-    this.sectionCategories = options.sectionCategories
     const versionIds = selectVersionIds(options.version ?? '1.2')
 
     this.document = document.implementation.createDocument(
@@ -1092,16 +1089,9 @@ export class JATSExporter {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
         }
-        attrs['sec-type'] = 'abstract-graphical'
-
-        return ['sec', attrs, 0]
-      },
-      key_image_section: (node) => {
-        const attrs: { [key: string]: string } = {
-          id: normalizeID(node.attrs.id),
+        if (node.attrs.category) {
+          attrs['sec-type'] = node.attrs.category
         }
-        attrs['sec-type'] = 'key-image'
-
         return ['sec', attrs, 0]
       },
       section: (node) => {
@@ -1888,11 +1878,16 @@ export class JATSExporter {
   }
   private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
     const container = body.querySelector(':scope > sec[sec-type="abstracts"]')
-    const abstractSectionCategories = this.getAbstractSectionCategories()
+    const abstractsNode = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.abstracts
+    )[0]?.node
+    const abstractCategories = this.getAbstractCategories(abstractsNode)
+
     const abstractSections = this.getAbstractSections(
       container,
       body,
-      abstractSectionCategories
+      abstractCategories
     )
 
     if (abstractSections.length) {
@@ -1904,40 +1899,38 @@ export class JATSExporter {
     }
   }
 
-  private getAbstractSectionCategories(): SectionCategory[] {
-    return getGroupCategories(this.sectionCategories, 'abstracts').concat(
-      getGroupCategories(this.sectionCategories, 'abstracts-graphic')
-    )
+  private getAbstractCategories(
+    abstractsNode: ManuscriptNode | undefined
+  ): string[] {
+    const categories: string[] = []
+    abstractsNode?.content.descendants((node) => {
+      categories.push(node.attrs.category)
+      return false
+    })
+    return categories
   }
 
   private getAbstractSections(
     container: Element | null,
     body: HTMLElement,
-    abstractSectionCategories: SectionCategory[]
+    abstractCategories: string[]
   ): Element[] {
     if (container) {
       return Array.from(container.querySelectorAll(':scope > sec'))
     } else {
-      const abstractSections = Array.from(body.querySelectorAll(':scope > sec'))
-      return abstractSections.filter((section) =>
-        this.isAbstractSection(section, abstractSectionCategories)
+      const sections = Array.from(body.querySelectorAll(':scope > sec'))
+      return sections.filter((section) =>
+        this.isAbstractSection(section, abstractCategories)
       )
     }
   }
 
   private isAbstractSection(
     section: Element,
-    abstractSectionCategories: SectionCategory[]
+    abstractCategories: string[]
   ): boolean {
     const sectionType = section.getAttribute('sec-type')
-    if (
-      sectionType &&
-      abstractSectionCategories.some((category) => category.id === sectionType)
-    ) {
-      return true
-    }
-    const sectionTitle = section.querySelector(':scope > title')
-    return sectionTitle ? sectionTitle.textContent === 'Abstract' : false
+    return sectionType ? abstractCategories.includes(sectionType) : false
   }
 
   private processAbstractSections(
@@ -1968,11 +1961,8 @@ export class JATSExporter {
   private setAbstractType(abstractNode: Element, abstractSection: Element) {
     const sectionType = abstractSection.getAttribute('sec-type')
     if (sectionType && sectionType !== 'abstract') {
-      const [prefix, abstractType] = sectionType.split('-', 2)
-      abstractNode.setAttribute(
-        'abstract-type',
-        prefix === 'abstract' ? abstractType : sectionType
-      )
+      const abstractType = sectionType.replace('abstract-', '')
+      abstractNode.setAttribute('abstract-type', abstractType)
     }
   }
 

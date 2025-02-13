@@ -121,7 +121,6 @@ export type Nodes =
   | 'award'
   | 'embed'
   | 'image_element'
-  | 'key_image_section'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

@@ -39,7 +39,6 @@ const roundtrip = async (filename: string) => {
   return await exporter.serializeToJATS(node, {
     journal: journal as Journal,
     csl: DEFAULT_CSL_OPTIONS,
-    sectionCategories,
   })
 }
 

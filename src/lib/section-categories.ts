@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-import { NodeType } from 'prosemirror-model'
-
-import { schema, SectionCategory, SectionGroup } from '../schema'
+import { SectionCategory, SectionGroup } from '../schema'
 
 export const getGroupCategories = (
   sections: Map<string, SectionCategory> | SectionCategory[],
@@ -26,16 +24,4 @@ export const getGroupCategories = (
     ? sections
     : Array.from(sections.values())
   return sectionsArray.filter((section) => section.group === group)
-}
-export const getAbstractNodeType = (id: string): NodeType => {
-  switch (id) {
-    case 'abstract':
-      return schema.nodes.abstracts
-    case 'abstract-graphical':
-      return schema.nodes.graphical_abstract_section
-    case 'key-image':
-      return schema.nodes.key_image_section
-    default:
-      return schema.nodes.section
-  }
 }

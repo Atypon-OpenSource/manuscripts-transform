@@ -39,7 +39,6 @@ describe('JATS exporter', () => {
       csl: DEFAULT_CSL_OPTIONS,
       //@ts-ignore
       journal,
-      sectionCategories,
     })
 
     expect(result).toMatchSnapshot('jats-export')
@@ -54,7 +53,6 @@ describe('JATS exporter', () => {
       //@ts-ignore
       journal,
       version: '1.1',
-      sectionCategories,
     })
 
     expect(result).toMatchSnapshot('jats-export-1.1')
@@ -71,7 +69,6 @@ describe('JATS exporter', () => {
         //@ts-ignore
         journal,
         version: '1.0' as unknown as Version,
-        sectionCategories,
       })
     }).rejects.toThrow(Error)
   })
@@ -83,7 +80,6 @@ describe('JATS exporter', () => {
       csl: DEFAULT_CSL_OPTIONS,
       //@ts-ignore
       journal,
-      sectionCategories,
     })
 
     const resultDoc = parseXMLWithDTD(xml)
@@ -101,7 +97,6 @@ describe('JATS exporter', () => {
       csl: DEFAULT_CSL_OPTIONS,
       //@ts-ignore
       journal,
-      sectionCategories,
     })
     expect(xml).toMatchSnapshot('jats-export-submitted')
   })
@@ -114,7 +109,6 @@ describe('JATS exporter', () => {
       csl: DEFAULT_CSL_OPTIONS,
       //@ts-ignore
       journal,
-      sectionCategories,
     })
 
     const output = parseXMLWithDTD(xml)
@@ -133,7 +127,6 @@ describe('JATS exporter', () => {
       csl: DEFAULT_CSL_OPTIONS,
       //@ts-ignore
       journal,
-      sectionCategories,
     })
 
     const { errors } = parseXMLWithDTD(xml)
@@ -149,7 +142,6 @@ describe('JATS exporter', () => {
       csl: DEFAULT_CSL_OPTIONS,
       //@ts-ignore
       journal,
-      sectionCategories,
     })
     const { errors } = parseXMLWithDTD(xml)
 
@@ -164,7 +156,6 @@ describe('JATS exporter', () => {
       csl: DEFAULT_CSL_OPTIONS,
       //@ts-ignore
       journal,
-      sectionCategories,
     })
 
     const output = parseXMLWithDTD(xml)
@@ -191,7 +182,6 @@ describe('JATS exporter', () => {
       csl: DEFAULT_CSL_OPTIONS,
       //@ts-ignore
       journal,
-      sectionCategories,
     })
 
     const output = parseXMLWithDTD(xml)
@@ -213,7 +203,6 @@ describe('JATS exporter', () => {
       csl: DEFAULT_CSL_OPTIONS,
       //@ts-ignore
       journal,
-      sectionCategories,
     })
 
     const { errors } = parseXMLWithDTD(xml)
@@ -229,7 +218,6 @@ describe('JATS exporter', () => {
       csl: DEFAULT_CSL_OPTIONS,
       //@ts-ignore
       journal,
-      sectionCategories,
     })
     const resultDoc = parseXMLWithDTD(xml)
     const supplementaryMaterial = resultDoc.get('//supplementary-material')
@@ -265,7 +253,6 @@ describe('JATS exporter', () => {
       csl: DEFAULT_CSL_OPTIONS,
       //@ts-ignore
       journal,
-      sectionCategories,
     })
     const footnoteCategories = [
       'con',

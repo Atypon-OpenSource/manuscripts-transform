@@ -160,7 +160,6 @@ export * from './nodes/table_element_footer'
 export * from './nodes/text'
 export * from './nodes/title'
 export * from './types'
-export * from './nodes/key_image_section'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -249,6 +248,5 @@ export const schema = new Schema<Nodes, Marks>({
     award,
     embed,
     image_element: imageElement,
-    key_image_section: keyImageSection,
   },
 })
