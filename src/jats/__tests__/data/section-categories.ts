@@ -49,8 +49,8 @@ export const sectionCategories: SectionCategory[] = [
     id: 'abstract-teaser',
     titles: ['Abstract Teaser'],
     synonyms: [''],
-    isUnique: false,
-    group: 'true',
+    isUnique: true,
+    group: 'abstracts',
   },
   {
     id: 'abstract-toc',
