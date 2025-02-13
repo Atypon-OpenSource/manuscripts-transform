@@ -32,7 +32,6 @@ import serializeToXML from 'w3c-xmlserializer'
 
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML, textFromHTML } from '../../lib/html'
-import { getGroupCategories } from '../../lib/section-categories'
 import {
   AuthorNotesNode,
   CitationNode,
@@ -48,7 +47,6 @@ import {
   Nodes,
   ParagraphNode,
   schema,
-  SectionCategory,
   TableElementFooterNode,
   TableElementNode,
 } from '../../schema'
