@@ -29,6 +29,15 @@ export const attachments: NodeSpec = {
   attrs: {
     id: { default: '' },
   },
+  toDOM: (node) => {
+    return [
+      'div',
+      {
+        class: 'attachments',
+        id: node.attrs.id,
+      },
+    ]
+  },
 }
 
 export const isAttachmentsNode = (

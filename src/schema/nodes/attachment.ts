@@ -31,6 +31,15 @@ export const attachment: NodeSpec = {
     type: { default: '' },
     href: { default: '' },
   },
+  toDOM: (node) => {
+    return [
+      'div',
+      {
+        class: 'attachment',
+        id: node.attrs.id,
+      },
+    ]
+  },
 }
 export const isAttachmentNode = (
   node: ManuscriptNode
