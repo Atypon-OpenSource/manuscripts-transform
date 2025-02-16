@@ -31,7 +31,7 @@ import {
   ManuscriptNode,
   MarkRule,
   NodeRule,
-  SectionCategory
+  SectionCategory,
 } from '../../schema'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
 import { htmlFromJatsNode } from './jats-parser-utils'
@@ -365,6 +365,10 @@ export class JATSDOMParser {
           position: element.getAttribute('position'),
         }
       },
+    },
+    {
+      tag: 'comments',
+      node: 'comments',
     },
     {
       tag: 'comment',
