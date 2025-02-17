@@ -295,7 +295,32 @@ describe('JATS importer', () => {
       expect(comment.attrs.contents).toBe('Ref comment')
     })
   })
-
+  describe('attachments', () => {
+    it('should have attachment node if attachment exists', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const { node } = parseJATSArticle(jats, sectionCategories)
+      const attachmentsNode = findNodeByType(node, schema.nodes.attachments)
+      expect(attachmentsNode).toBeDefined()
+      expect(
+        findNodesByType(attachmentsNode, schema.nodes.attachment).length
+      ).toBeGreaterThan(0)
+    })
+    it('should correctly parse self-uri element', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const { node } = parseJATSArticle(jats, sectionCategories)
+      const attachmentNodes = findNodesByType(node, schema.nodes.attachment)
+      expect(attachmentNodes.length).toBe(1)
+      changeIDs(attachmentNodes[0])
+      expect(attachmentNodes[0].attrs.type).toBe('document')
+      expect(attachmentNodes).toMatchSnapshot()
+    })
+    it('should not have attachments node if no attachment element does not exist', async () => {
+      const jats = await readAndParseFixture('jats-example.xml')
+      const { node } = parseJATSArticle(jats, sectionCategories)
+      const attachmentsNode = findNodeByType(node, schema.nodes.attachments)
+      expect(attachmentsNode).toBeUndefined()
+    })
+  })
   describe('abstracts', () => {
     it('should have abstract node if abstract element exists', async () => {
       const jats = await readAndParseFixture('jats-import.xml')

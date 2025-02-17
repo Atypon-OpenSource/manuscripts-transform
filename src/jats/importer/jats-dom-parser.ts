@@ -315,6 +315,18 @@ export class JATSDOMParser {
 
   private nodes: NodeRule[] = [
     {
+      tag: 'attachments > self-uri',
+      node: 'attachment',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          href: element.getAttributeNS(this.XLINK_NAMESPACE, 'href') || '',
+          type: element.getAttribute('content-type') || '',
+        }
+      },
+    },
+    {
       tag: 'article',
       node: 'manuscript',
       getAttrs: (node) => {
@@ -353,6 +365,10 @@ export class JATSDOMParser {
           position: element.getAttribute('position'),
         }
       },
+    },
+    {
+      tag: 'comments',
+      node: 'comments',
     },
     {
       tag: 'comment',
