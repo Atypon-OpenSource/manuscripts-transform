@@ -311,7 +311,7 @@ describe('JATS importer', () => {
       const attachmentNodes = findNodesByType(node, schema.nodes.attachment)
       changeIDs(attachmentNodes[0])
       expect(attachmentNodes[0].attrs.type).toBe('document')
-      expect(attachmentNodes).toMatchSnapshot()
+      expect(attachmentNodes[0]).toMatchSnapshot()
     })
     it('should correctly parse multiple self-uri element', async () => {
       const jats = await readAndParseFixture('jats-import.xml')

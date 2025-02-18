@@ -558,9 +558,7 @@ export class JATSExporter {
     const selfUriAttachments = findChildrenByType(
       this.manuscriptNode,
       schema.nodes.attachment
-    )
-      .filter((result) => result.node.attrs.type === 'document')
-      .map((r) => r.node)
+    ).map((r) => r.node)
 
     selfUriAttachments.forEach((attachment) => {
       const selfUriElement = this.document.createElement('self-uri')

@@ -54,24 +54,14 @@ Array [
 `;
 
 exports[`JATS importer attachments should correctly parse self-uri element 1`] = `
-Array [
-  Object {
-    "attrs": Object {
-      "href": "http://www.harmreductionjournal.com/content/1/1/5",
-      "id": "MPAttachment:test",
-      "type": "document",
-    },
-    "type": "attachment",
+Object {
+  "attrs": Object {
+    "href": "http://www.harmreductionjournal.com/content/1/1/5",
+    "id": "MPAttachment:test",
+    "type": "document",
   },
-  Object {
-    "attrs": Object {
-      "href": "http://www.harmreductionjournal.com/content/1/1/2",
-      "id": "MPAttachment:2BCBF9D7-9B90-4F89-A71A-C7D7290BCBF3",
-      "type": "document",
-    },
-    "type": "attachment",
-  },
-]
+  "type": "attachment",
+}
 `;
 
 exports[`JATS importer author-notes should have author notes node with content if author notes element exists 1`] = `
