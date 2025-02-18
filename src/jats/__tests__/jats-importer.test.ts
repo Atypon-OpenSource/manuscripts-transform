@@ -309,9 +309,21 @@ describe('JATS importer', () => {
       const jats = await readAndParseFixture('jats-import.xml')
       const { node } = parseJATSArticle(jats, sectionCategories)
       const attachmentNodes = findNodesByType(node, schema.nodes.attachment)
-      expect(attachmentNodes.length).toBe(1)
       changeIDs(attachmentNodes[0])
       expect(attachmentNodes[0].attrs.type).toBe('document')
+      expect(attachmentNodes).toMatchSnapshot()
+    })
+    it('should correctly parse multiple self-uri element', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const { node } = parseJATSArticle(jats, sectionCategories)
+      const attachmentNodes = findNodesByType(node, schema.nodes.attachment)
+      expect(attachmentNodes.length).toBe(2)
+      changeIDs(attachmentNodes[0])
+      changeIDs(attachmentNodes[1])
+
+      expect(attachmentNodes[0].attrs.type).toBe('document')
+      expect(attachmentNodes[1].attrs.type).toBe('document')
+
       expect(attachmentNodes).toMatchSnapshot()
     })
     it('should not have attachments node if no attachment element does not exist', async () => {
