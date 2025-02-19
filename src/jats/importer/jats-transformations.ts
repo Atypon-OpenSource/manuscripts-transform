@@ -487,6 +487,19 @@ export const orderTableFootnote = (doc: Document, body: Element) => {
   })
 }
 
+export const createAttachments = (
+  doc: Document,
+  createElement: CreateElement
+) => {
+  const attachments = createElement('attachments')
+  doc
+    .querySelectorAll('self-uri')
+    .forEach((attachment) => attachments.appendChild(attachment))
+  if (attachments.children.length > 0) {
+    doc.documentElement.appendChild(attachments)
+  }
+}
+
 export const fixTables = (
   doc: Document,
   body: Element,

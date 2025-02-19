@@ -85,9 +85,7 @@ export const markComments = (doc: Document) => {
     }
   }
 
-  if (comments.hasChildNodes()) {
-    doc.documentElement.appendChild(comments)
-  }
+  doc.documentElement.appendChild(comments)
 }
 
 const createHighlightMarkerElement = (doc: Document, id: string) => {

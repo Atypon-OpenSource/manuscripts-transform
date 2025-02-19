@@ -32,6 +32,8 @@ import {
 import { abstracts } from './nodes/abstracts'
 import { affiliation } from './nodes/affiliation'
 import { affiliations } from './nodes/affiliations'
+import { attachment } from './nodes/attachment'
+import { attachments } from './nodes/attachments'
 import { attribution } from './nodes/attribution'
 import { authorNotes } from './nodes/author_notes'
 import { award } from './nodes/award'
@@ -159,6 +161,8 @@ export * from './nodes/table_element_footer'
 export * from './nodes/text'
 export * from './nodes/title'
 export * from './types'
+export * from './nodes/attachment'
+export * from './nodes/attachments'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -247,5 +251,7 @@ export const schema = new Schema<Nodes, Marks>({
     award,
     embed,
     image_element: imageElement,
+    attachment,
+    attachments,
   },
 })

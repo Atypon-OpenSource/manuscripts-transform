@@ -555,6 +555,26 @@ export class JATSExporter {
       journalMeta.remove()
     }
 
+    const selfUri = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.attachment
+    ).find((result) => result.node.attrs.type === 'document')
+
+    if (selfUri) {
+      const selfUriElement = this.document.createElement('self-uri')
+      selfUriElement.setAttribute('content-type', selfUri.node.attrs.type)
+      selfUriElement.setAttributeNS(
+        XLINK_NAMESPACE,
+        'href',
+        selfUri.node.attrs.href
+      )
+      const insertBeforeElements = articleMeta.querySelector(
+        'related-article, related-object, abstract, trans-abstract, kwd-group, funding-group, support-group, conference, counts, custom-meta-group'
+      )
+      insertBeforeElements
+        ? articleMeta.insertBefore(selfUriElement, insertBeforeElements)
+        : articleMeta.appendChild(selfUriElement)
+    }
     return front
   }
 
@@ -804,6 +824,8 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
+      attachment: () => '',
+      attachments: () => '',
       image_element: (node) =>
         node.content.firstChild
           ? createGraphic(node.content.firstChild, false)
