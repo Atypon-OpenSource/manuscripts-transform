@@ -116,7 +116,11 @@
         </date>
       </history>
       <permissions> </permissions>
-      <self-uri content-type = "document" xlink:href="http://www.harmreductionjournal.com/content/1/1/5"/>
+      <self-uri content-type="document"
+        xlink:href="http://www.harmreductionjournal.com/content/1/1/5" />
+      <self-uri content-type="document"
+        xlink:href="http://www.harmreductionjournal.com/content/1/1/2" />
+
       <abstract>
         <sec>
           <title>Objectives</title>

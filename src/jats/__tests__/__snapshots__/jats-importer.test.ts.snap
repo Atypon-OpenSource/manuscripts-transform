@@ -32,7 +32,7 @@ Array [
 ]
 `;
 
-exports[`JATS importer attachments should correctly parse self-uri element 1`] = `
+exports[`JATS importer attachments should correctly parse multiple self-uri element 1`] = `
 Array [
   Object {
     "attrs": Object {
@@ -42,7 +42,26 @@ Array [
     },
     "type": "attachment",
   },
+  Object {
+    "attrs": Object {
+      "href": "http://www.harmreductionjournal.com/content/1/1/2",
+      "id": "MPAttachment:test",
+      "type": "document",
+    },
+    "type": "attachment",
+  },
 ]
+`;
+
+exports[`JATS importer attachments should correctly parse self-uri element 1`] = `
+Object {
+  "attrs": Object {
+    "href": "http://www.harmreductionjournal.com/content/1/1/5",
+    "id": "MPAttachment:test",
+    "type": "document",
+  },
+  "type": "attachment",
+}
 `;
 
 exports[`JATS importer author-notes should have author notes node with content if author notes element exists 1`] = `
@@ -40821,6 +40840,14 @@ Object {
         Object {
           "attrs": Object {
             "href": "http://www.harmreductionjournal.com/content/1/1/5",
+            "id": "MPAttachment:test",
+            "type": "document",
+          },
+          "type": "attachment",
+        },
+        Object {
+          "attrs": Object {
+            "href": "http://www.harmreductionjournal.com/content/1/1/2",
             "id": "MPAttachment:test",
             "type": "document",
           },

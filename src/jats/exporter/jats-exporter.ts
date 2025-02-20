@@ -555,18 +555,18 @@ export class JATSExporter {
       journalMeta.remove()
     }
 
-    const selfUri = findChildrenByType(
+    const selfUriAttachments = findChildrenByType(
       this.manuscriptNode,
       schema.nodes.attachment
-    ).find((result) => result.node.attrs.type === 'document')
+    ).map((r) => r.node)
 
-    if (selfUri) {
+    selfUriAttachments.forEach((attachment) => {
       const selfUriElement = this.document.createElement('self-uri')
-      selfUriElement.setAttribute('content-type', selfUri.node.attrs.type)
+      selfUriElement.setAttribute('content-type', attachment.attrs.type)
       selfUriElement.setAttributeNS(
         XLINK_NAMESPACE,
         'href',
-        selfUri.node.attrs.href
+        attachment.attrs.href
       )
       const insertBeforeElements = articleMeta.querySelector(
         'related-article, related-object, abstract, trans-abstract, kwd-group, funding-group, support-group, conference, counts, custom-meta-group'
@@ -574,7 +574,8 @@ export class JATSExporter {
       insertBeforeElements
         ? articleMeta.insertBefore(selfUriElement, insertBeforeElements)
         : articleMeta.appendChild(selfUriElement)
-    }
+    })
+
     return front
   }
 

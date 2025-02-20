@@ -16,9 +16,9 @@
 import { JSONNode } from '../migrate'
 import { MigrationScript } from '../migration-script'
 
-class Migration3038 implements MigrationScript {
-  fromVersion = '3.0.37'
-  toVersion = '3.0.38'
+class Migration3041 implements MigrationScript {
+  fromVersion = '3.0.40'
+  toVersion = '3.0.41'
 
   migrateNode(node: JSONNode): JSONNode {
     if (node.type === 'graphical_abstract_section') {
@@ -34,4 +34,4 @@ class Migration3038 implements MigrationScript {
   }
 }
 
-export default Migration3038
+export default Migration3041
