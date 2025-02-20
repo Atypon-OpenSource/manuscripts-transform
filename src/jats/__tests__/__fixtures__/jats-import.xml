@@ -38,7 +38,7 @@
           <degrees>RN</degrees>
           <degrees>MPH</degrees>
           <degrees>PhD</degrees>
-          <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1"/>
+          <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1" />
         </contrib>
         <contrib contrib-type="author">
           <name>
@@ -48,7 +48,7 @@
           <degrees>MD</degrees>
           <degrees>PhD</degrees>
           <xref ref-type="fn" rid="BRB3-2019-12-0787-afn-0001">*</xref>
-          <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1"/>
+          <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1" />
         </contrib>
         <aff id="BRB3-2019-12-0787-aff1"><institution content-type="dept">Department of
           Neurology</institution>, <institution>Herlev og Gentofte
@@ -78,7 +78,8 @@
             Poulsen, Email: mai.bang.poulsen.02@regionh.dk</p>
           <p>Both authors have made substantial contributions to conception and design and
             acquisitions and
-            analyses<?AuthorQuery id="Q3" queryText="Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;"?>
+            analyses
+            <?AuthorQuery id="Q3" queryText="Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;"?>
             and interpretation of data and have; and been involved in writing the
             manuscript and given final approval of the version to be published. Both
             authors have participated sufficiently in the work to take public
@@ -88,9 +89,9 @@
         </fn>
       </author-notes>
       <pub-date pub-type="ppub">
-        <year/>
+        <year />
       </pub-date>
-      <volume/>
+      <volume />
       <supplementary-material id="S1" xlink:href="attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312" mimetype="application" mime-subtype="vnd.openxmlformats-officedocument.wordprocessingml.document">
         <caption>
           <title>final manuscript-hum-huili-dbh-suicide-20200707_figures (9)
@@ -104,9 +105,9 @@
           <year>2019</year>
         </date>
         <date date-type="rev-recd">
-          <day/>
-          <month/>
-          <year/>
+          <day />
+          <month />
+          <year />
         </date>
         <date date-type="accepted">
           <day>27</day>
@@ -155,8 +156,21 @@
       </abstract>
       <abstract abstract-type="graphical">
         <fig id="fig-1" position="anchor" fig-type="half-left">
-          <graphic xlink:href="demo.jpg" />
+          <graphic xlink:href="demo1.jpg" />
         </fig>
+      </abstract>
+      <abstract abstract-type="key-image">
+        <fig id="fig-2" position="anchor" fig-type="half-left">
+          <graphic xlink:href="demo2.jpg" />
+        </fig>
+      </abstract>
+      <abstract abstract-type="short">
+        <p>The is the third and last part of the volume devoted to solubility data of rare
+          earth metal chlorides in water and in ternary and quaternary aqueous systems.
+          Compilations of all available experimental data are introduced for each rare earth
+          metal chloride with a corresponding critical evaluation. This part covers chlorides
+          of Gd, Tb, Dy, Ho, Er, Tm, Yb, and Lu, with coverage of the literature through the
+          middle of 2008.</p>
       </abstract>
       <kwd-group kwd-group-type="author">
         <title>KEYWORDS &#x2028;</title>

@@ -56,7 +56,10 @@ export class JATSDOMParser {
     titleNode: Element | null,
     category: SectionCategory
   ) {
-    if (secType && category.synonyms.includes(secType)) {
+    if (
+      (secType && category.synonyms.includes(secType)) ||
+      category.id === secType
+    ) {
       return true
     }
     if (titleNode && titleNode.nodeName === 'title' && titleNode.textContent) {
@@ -923,6 +926,22 @@ export class JATSDOMParser {
     {
       tag: 'sec[sec-type="abstract-graphical"]',
       node: 'graphical_abstract_section',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          category: this.chooseSectionCategory(element),
+        }
+      },
+    },
+    {
+      tag: 'sec[sec-type="abstract-key-image"]',
+      node: 'graphical_abstract_section',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          category: this.chooseSectionCategory(element),
+        }
+      },
     },
     {
       tag: 'sec',

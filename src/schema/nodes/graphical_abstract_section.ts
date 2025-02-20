@@ -18,12 +18,13 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface GraphicalAbstractSectionAttrs {
   id: string
+  category: string
 }
 
 export interface GraphicalAbstractSectionNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: GraphicalAbstractSectionAttrs
 }
 
 export const graphicalAbstractSection: NodeSpec = {
@@ -31,6 +32,7 @@ export const graphicalAbstractSection: NodeSpec = {
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
+    category: { default: '' },
   },
   group: 'block sections',
   selectable: false,

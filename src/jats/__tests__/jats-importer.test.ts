@@ -350,7 +350,7 @@ describe('JATS importer', () => {
       const abstractsNode = findNodeByType(node, schema.nodes.abstracts)
       const sections = findNodesByType(abstractsNode, schema.nodes.section)
       // first section is the abstract node
-      expect(sections).toHaveLength(5)
+      expect(sections).toHaveLength(6)
     })
     it('should set the title to Abstract if no title is provided', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
