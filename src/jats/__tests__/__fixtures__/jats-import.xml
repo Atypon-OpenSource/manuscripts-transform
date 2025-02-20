@@ -160,8 +160,21 @@
       </abstract>
       <abstract abstract-type="graphical">
         <fig id="fig-1" position="anchor" fig-type="half-left">
-          <graphic xlink:href="demo.jpg" />
+          <graphic xlink:href="demo1.jpg" />
         </fig>
+      </abstract>
+      <abstract abstract-type="key-image">
+        <fig id="fig-2" position="anchor" fig-type="half-left">
+          <graphic xlink:href="demo2.jpg" />
+        </fig>
+      </abstract>
+      <abstract abstract-type="short">
+        <p>The is the third and last part of the volume devoted to solubility data of rare
+          earth metal chlorides in water and in ternary and quaternary aqueous systems.
+          Compilations of all available experimental data are introduced for each rare earth
+          metal chloride with a corresponding critical evaluation. This part covers chlorides
+          of Gd, Tb, Dy, Ho, Er, Tm, Yb, and Lu, with coverage of the literature through the
+          middle of 2008.</p>
       </abstract>
       <kwd-group kwd-group-type="author">
         <title>KEYWORDS &#x2028;</title>

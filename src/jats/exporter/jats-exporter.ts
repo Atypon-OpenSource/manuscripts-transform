@@ -1110,8 +1110,9 @@ export class JATSExporter {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
         }
-        attrs['sec-type'] = 'abstract-graphical'
-
+        if (node.attrs.category) {
+          attrs['sec-type'] = node.attrs.category
+        }
         return ['sec', attrs, 0]
       },
       section: (node) => {
@@ -1898,61 +1899,91 @@ export class JATSExporter {
   }
   private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
     const container = body.querySelector(':scope > sec[sec-type="abstracts"]')
-    let abstractSections
-    if (container) {
-      abstractSections = Array.from(container.querySelectorAll(':scope > sec'))
-    } else {
-      abstractSections = Array.from(
-        body.querySelectorAll(':scope > sec')
-      ).filter((section) => {
-        const sectionType = section.getAttribute('sec-type')
+    const abstractsNode = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.abstracts
+    )[0]?.node
+    const abstractCategories = this.getAbstractCategories(abstractsNode)
 
-        if (
-          sectionType === 'abstract' ||
-          sectionType === 'abstract-teaser' ||
-          sectionType === 'abstract-graphical'
-        ) {
-          return true
-        }
+    const abstractSections = this.getAbstractSections(
+      container,
+      body,
+      abstractCategories
+    )
 
-        const sectionTitle = section.querySelector(':scope > title')
-
-        if (!sectionTitle) {
-          return false
-        }
-
-        return sectionTitle.textContent === 'Abstract'
-      })
-    }
     if (abstractSections.length) {
-      for (const abstractSection of abstractSections) {
-        const abstractNode = this.document.createElement('abstract')
-
-        // TODO: ensure that abstract section schema is valid
-        for (const node of abstractSection.childNodes) {
-          if (node.nodeName !== 'title') {
-            abstractNode.appendChild(node.cloneNode(true))
-          }
-        }
-
-        const sectionType = abstractSection.getAttribute('sec-type')
-
-        if (sectionType && sectionType !== 'abstract') {
-          const [, abstractType] = sectionType.split('-', 2)
-          abstractNode.setAttribute('abstract-type', abstractType)
-        }
-
-        abstractSection.remove()
-
-        const articleMeta = front.querySelector(':scope > article-meta')
-
-        if (articleMeta) {
-          insertAbstractNode(articleMeta, abstractNode)
-        }
-      }
+      this.processAbstractSections(abstractSections, front)
     }
+
     if (container) {
       body.removeChild(container)
+    }
+  }
+
+  private getAbstractCategories(
+    abstractsNode: ManuscriptNode | undefined
+  ): string[] {
+    const categories: string[] = []
+    abstractsNode?.content.descendants((node) => {
+      categories.push(node.attrs.category)
+      return false
+    })
+    return categories
+  }
+
+  private getAbstractSections(
+    container: Element | null,
+    body: HTMLElement,
+    abstractCategories: string[]
+  ): Element[] {
+    if (container) {
+      return Array.from(container.querySelectorAll(':scope > sec'))
+    } else {
+      const sections = Array.from(body.querySelectorAll(':scope > sec'))
+      return sections.filter((section) =>
+        this.isAbstractSection(section, abstractCategories)
+      )
+    }
+  }
+
+  private isAbstractSection(
+    section: Element,
+    abstractCategories: string[]
+  ): boolean {
+    const sectionType = section.getAttribute('sec-type')
+    return sectionType ? abstractCategories.includes(sectionType) : false
+  }
+
+  private processAbstractSections(
+    abstractSections: Element[],
+    front: HTMLElement
+  ) {
+    for (const abstractSection of abstractSections) {
+      const abstractNode = this.createAbstractNode(abstractSection)
+      abstractSection.remove()
+      const articleMeta = front.querySelector(':scope > article-meta')
+      if (articleMeta) {
+        insertAbstractNode(articleMeta, abstractNode)
+      }
+    }
+  }
+
+  private createAbstractNode(abstractSection: Element): Element {
+    const abstractNode = this.document.createElement('abstract')
+    for (const node of abstractSection.childNodes) {
+      if (node.nodeName !== 'title') {
+        abstractNode.appendChild(node.cloneNode(true))
+      }
+    }
+    this.setAbstractType(abstractNode, abstractSection)
+    return abstractNode
+  }
+
+  private setAbstractType(abstractNode: Element, abstractSection: Element) {
+    const sectionType = abstractSection.getAttribute('sec-type')
+    if (sectionType && sectionType !== 'abstract') {
+      const abstractType = sectionType.replace('abstract-', '')
+      abstractNode.setAttribute('abstract-type', abstractType)
     }
   }
 

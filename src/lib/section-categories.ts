@@ -16,8 +16,12 @@
 
 import { SectionCategory, SectionGroup } from '../schema'
 
-export const getGroupCateogries = (
-  sectionsMap: Map<string, SectionCategory>,
+export const getGroupCategories = (
+  sections: Map<string, SectionCategory> | SectionCategory[],
   group: SectionGroup
-) =>
-  Array.from(sectionsMap.values()).filter((section) => section.group === group)
+): SectionCategory[] => {
+  const sectionsArray = Array.isArray(sections)
+    ? sections
+    : Array.from(sections.values())
+  return sectionsArray.filter((section) => section.group === group)
+}
