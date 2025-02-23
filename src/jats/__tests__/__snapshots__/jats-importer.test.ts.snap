@@ -32,7 +32,7 @@ Array [
 ]
 `;
 
-exports[`JATS importer attachments should correctly parse self-uri element 1`] = `
+exports[`JATS importer attachments should correctly parse multiple self-uri element 1`] = `
 Array [
   Object {
     "attrs": Object {
@@ -42,7 +42,26 @@ Array [
     },
     "type": "attachment",
   },
+  Object {
+    "attrs": Object {
+      "href": "http://www.harmreductionjournal.com/content/1/1/2",
+      "id": "MPAttachment:test",
+      "type": "document",
+    },
+    "type": "attachment",
+  },
 ]
+`;
+
+exports[`JATS importer attachments should correctly parse self-uri element 1`] = `
+Object {
+  "attrs": Object {
+    "href": "http://www.harmreductionjournal.com/content/1/1/5",
+    "id": "MPAttachment:test",
+    "type": "document",
+  },
+  "type": "attachment",
+}
 `;
 
 exports[`JATS importer author-notes should have author notes node with content if author notes element exists 1`] = `
@@ -30986,6 +31005,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "category": "abstract-graphical",
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -31013,7 +31033,7 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "src": "demo.jpg",
+                    "src": "demo1.jpg",
                     "type": "half-left",
                   },
                   "type": "figure",
@@ -31057,6 +31077,117 @@ Object {
             },
           ],
           "type": "graphical_abstract_section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "abstract-key-image",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Key image Abstract",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "attribution": undefined,
+                "dataTracked": null,
+                "id": "MPFigureElement:test",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFigure:test",
+                    "src": "demo2.jpg",
+                    "type": "half-left",
+                  },
+                  "type": "figure",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "contents": "",
+                    "dataTracked": null,
+                    "id": "MPListing:test",
+                    "isExecuting": false,
+                    "isExpanded": false,
+                    "language": "",
+                    "languageKey": "null",
+                  },
+                  "type": "listing",
+                },
+              ],
+              "type": "figure_element",
+            },
+          ],
+          "type": "graphical_abstract_section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "abstract-short",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Short Abstract",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "The is the third and last part of the volume devoted to solubility data of rare earth metal chlorides in water and in ternary and quaternary aqueous systems. Compilations of all available experimental data are introduced for each rare earth metal chloride with a corresponding critical evaluation. This part covers chlorides of Gd, Tb, Dy, Ho, Er, Tm, Yb, and Lu, with coverage of the literature through the middle of 2008.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
         },
       ],
       "type": "abstracts",
@@ -38886,7 +39017,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Both authors have made substantial contributions to conception and design and acquisitions and analyses",
+                  "text": "Both authors have made substantial contributions to conception and design and acquisitions and analyses ",
                   "type": "text",
                 },
                 Object {
@@ -40709,6 +40840,14 @@ Object {
         Object {
           "attrs": Object {
             "href": "http://www.harmreductionjournal.com/content/1/1/5",
+            "id": "MPAttachment:test",
+            "type": "document",
+          },
+          "type": "attachment",
+        },
+        Object {
+          "attrs": Object {
+            "href": "http://www.harmreductionjournal.com/content/1/1/2",
             "id": "MPAttachment:test",
             "type": "document",
           },

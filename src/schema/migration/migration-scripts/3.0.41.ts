@@ -13,15 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { JSONNode } from '../migrate'
+import { MigrationScript } from '../migration-script'
 
-import { SectionCategory, SectionGroup } from '../schema'
+class Migration3041 implements MigrationScript {
+  fromVersion = '3.0.40'
+  toVersion = '3.0.41'
 
-export const getGroupCategories = (
-  sections: Map<string, SectionCategory> | SectionCategory[],
-  group: SectionGroup
-): SectionCategory[] => {
-  const sectionsArray = Array.isArray(sections)
-    ? sections
-    : Array.from(sections.values())
-  return sectionsArray.filter((section) => section.group === group)
+  migrateNode(node: JSONNode): JSONNode {
+    if (node.type === 'graphical_abstract_section') {
+      return {
+        ...node,
+        attrs: {
+          ...node.attrs,
+          category: 'abstract-graphical',
+        },
+      }
+    }
+    return node
+  }
 }
+
+export default Migration3041

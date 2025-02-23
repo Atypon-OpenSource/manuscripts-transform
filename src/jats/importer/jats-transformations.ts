@@ -282,7 +282,7 @@ const createAbstractSection = (
   if (!abstract.querySelector(':scope > title')) {
     const title = createElement('title')
     title.textContent = abstractType
-      ? `${capitalizeFirstLetter(abstractType)} Abstract`
+      ? `${capitalizeFirstLetter(abstractType.split('-').join(' '))} Abstract`
       : 'Abstract'
     section.appendChild(title)
   }
