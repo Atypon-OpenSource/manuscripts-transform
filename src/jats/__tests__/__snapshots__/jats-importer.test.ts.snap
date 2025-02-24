@@ -436,8 +436,7 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "runningTitle": "",
-        "shortTitle": "",
+        "type": "main",
       },
       "content": Array [
         Object {
@@ -2492,8 +2491,7 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "runningTitle": "",
-        "shortTitle": "",
+        "type": "main",
       },
       "content": Array [
         Object {
@@ -3960,8 +3958,7 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "runningTitle": "",
-        "shortTitle": "",
+        "type": "main",
       },
       "content": Array [
         Object {
@@ -20314,8 +20311,7 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "runningTitle": "",
-        "shortTitle": "",
+        "type": "main",
       },
       "content": Array [
         Object {
@@ -28637,8 +28633,7 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "runningTitle": "",
-        "shortTitle": "",
+        "type": "main",
       },
       "content": Array [
         Object {
@@ -30448,12 +30443,41 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "runningTitle": "Running title example",
-        "shortTitle": "Short title example",
+        "type": "main",
       },
       "content": Array [
         Object {
           "text": "Blood pressure after follow up in a stroke prevention clinic",
+          "type": "text",
+        },
+      ],
+      "type": "title",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPTitles:test",
+        "placeholder": "Insert title here...",
+        "type": "running",
+      },
+      "content": Array [
+        Object {
+          "text": "Running title example",
+          "type": "text",
+        },
+      ],
+      "type": "title",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPTitles:test",
+        "placeholder": "Insert title here...",
+        "type": "short",
+      },
+      "content": Array [
+        Object {
+          "text": "Short title example",
           "type": "text",
         },
       ],
@@ -40894,8 +40918,7 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "runningTitle": "",
-        "shortTitle": "",
+        "type": "main",
       },
       "content": Array [
         Object {
@@ -54847,8 +54870,7 @@ Object {
     "dataTracked": null,
     "id": "MPTitles:test",
     "placeholder": "Insert title here...",
-    "runningTitle": "Running title example",
-    "shortTitle": "Short title example",
+    "type": "main",
   },
   "content": Array [
     Object {
@@ -54866,8 +54888,7 @@ Object {
     "dataTracked": null,
     "id": "MPTitles:test",
     "placeholder": "Insert title here...",
-    "runningTitle": "Running title example",
-    "shortTitle": "Short title example",
+    "type": "main",
   },
   "content": Array [
     Object {

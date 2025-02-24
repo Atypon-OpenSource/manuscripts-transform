@@ -355,8 +355,7 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
-          runningTitle: element.getAttribute('running-title') || '',
-          shortTitle: element.getAttribute('short-title') || '',
+          type: element.getAttribute('type') || '',
         }
       },
     },

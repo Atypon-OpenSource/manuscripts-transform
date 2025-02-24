@@ -343,10 +343,10 @@ export class JATSExporter {
   }
 
   protected buildFront = (journal?: Journal) => {
-    const titleNode = findChildrenByType(
+    const titleNodes = findChildrenByType(
       this.manuscriptNode,
       schema.nodes.title
-    )[0]?.node
+    ).map((result) => result.node)
 
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/front.html
     const front = this.document.createElement('front')
@@ -422,27 +422,19 @@ export class JATSExporter {
 
     const titleGroup = this.document.createElement('title-group')
     articleMeta.appendChild(titleGroup)
-
     this.buildContributors(articleMeta)
-    if (titleNode) {
-      const element = this.document.createElement('article-title')
+
+    titleNodes.forEach((titleNode) => {
+      let element
+      if (titleNode.attrs.type === 'main') {
+        element = this.document.createElement('article-title')
+      } else {
+        element = this.document.createElement('alt-title')
+        element.setAttribute('alt-title-type', titleNode.attrs.type)
+      }
       this.setTitleContent(element, titleNode.textContent)
       titleGroup.appendChild(element)
-      const runningTitle = titleNode.attrs.runningTitle
-      if (runningTitle) {
-        const runningTitleElement = this.document.createElement('alt-title')
-        runningTitleElement.setAttribute('alt-title-type', 'running')
-        runningTitleElement.textContent = runningTitle
-        titleGroup.appendChild(runningTitleElement)
-      }
-      const shortTitle = titleNode.attrs.shortTitle
-      if(shortTitle) {
-        const shortTitleElement = this.document.createElement('alt-title')
-        shortTitleElement.setAttribute('alt-title-type', 'short')
-        shortTitleElement.textContent = shortTitle
-        titleGroup.appendChild(shortTitleElement)
-      }
-    }
+    })
 
     const supplementsNodes = findChildrenByType(
       this.manuscriptNode,

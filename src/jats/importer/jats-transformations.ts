@@ -57,27 +57,32 @@ export const addMissingCaptions = (
   }
 }
 
-export const moveTitle = (front: Element, createElement: CreateElement) => {
-  let title = front.querySelector('article-meta > title-group > article-title')
-  if (title) {
-    title.innerHTML = htmlFromJatsNode(title, createElement) ?? defaultTitle
-  } else {
-    title = createElement('article-title')
-    title.innerHTML = defaultTitle
+export const createTitles = (front: Element, createElement: CreateElement) => {
+  const insertTitle = (selector: string, type: string, defaultContent = '') => {
+    const existingTitle = front.querySelector(selector)
+    const titleEl = createElement('article-title')
+    titleEl.innerHTML =
+      htmlFromJatsNode(existingTitle, createElement) ?? defaultContent
+    titleEl.setAttribute('type', type)
+
+    if (type === 'main' || existingTitle) {
+      front.parentElement?.insertBefore(titleEl, front)
+    }
   }
-  const shortTitle = front.querySelector(
-    'article-meta > title-group > alt-title[alt-title-type="short"]'
+  insertTitle(
+    'article-meta > title-group > article-title',
+    'main',
+    defaultTitle
   )
-  if (shortTitle) {
-    title.setAttribute('short-title', shortTitle.textContent || '')
-  }
-  const runningTitle = front.querySelector(
-    'article-meta > title-group > alt-title[alt-title-type="running"]'
+  insertTitle(
+    'article-meta > title-group > alt-title[alt-title-type="running"]',
+    'running'
   )
-  if (runningTitle) {
-    title.setAttribute('running-title', runningTitle.textContent || '')
-  }
-  front.parentNode?.insertBefore(title, front)
+  insertTitle(
+    'article-meta > title-group > alt-title[alt-title-type="short"]',
+    'short'
+  )
+
 }
 
 export const moveAuthorNotes = (

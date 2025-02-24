@@ -20,9 +20,7 @@ import { ManuscriptNode } from '../types'
 
 export interface TitleAttrs {
   id: string
-  runningTitle: string
-  shortTitle: string
-  placeholder: string
+  type: string
 }
 
 export interface TitleNode extends ManuscriptNode {
@@ -33,8 +31,7 @@ export const title: NodeSpec = {
   content: '(text | highlight_marker)*',
   attrs: {
     id: { default: '' },
-    runningTitle: { default: '' },
-    shortTitle: { default: '' },
+    type: { default: 'main' },
     placeholder: { default: 'Insert title here...' },
     dataTracked: { default: null },
   },

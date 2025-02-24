@@ -35,7 +35,7 @@ import {
   moveCaptionsToEnd,
   moveContributors,
   moveReferencesToBackmatter,
-  moveTitle,
+  createTitles,
   orderTableFootnote,
 } from './jats-transformations'
 
@@ -49,7 +49,7 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
     return
   }
   addMissingCaptions(doc, createElement)
-  moveTitle(front, createElement)
+  createTitles(front, createElement)
   moveContributors(front, createElement)
   moveAffiliations(front, createElement)
   moveAuthorNotes(front, createElement)
