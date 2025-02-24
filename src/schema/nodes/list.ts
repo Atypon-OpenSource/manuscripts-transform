@@ -31,6 +31,27 @@ interface ListTypeInfo {
   style: string
 }
 
+export const getJatsListType = (cssStyle: string | null) => {
+  switch (cssStyle) {
+    case 'disc':
+      return 'bullet'
+    case 'decimal':
+      return 'order'
+    case 'lower-alpha':
+      return 'alpha-lower'
+    case 'upper-alpha':
+      return 'alpha-upper'
+    case 'lower-roman':
+      return 'roman-lower'
+    case 'upper-roman':
+      return 'roman-upper'
+    case 'simple':
+      return 'none'
+    default:
+      return 'none'
+  }
+}
+
 export const getListType = (style: JatsStyleType): ListTypeInfo => {
   switch (style) {
     case 'bullet':
