@@ -21,6 +21,7 @@ import { ManuscriptNode } from '../types'
 export interface TitleAttrs {
   id: string
   type: string
+  placeholder: string
 }
 
 export interface TitleNode extends ManuscriptNode {
