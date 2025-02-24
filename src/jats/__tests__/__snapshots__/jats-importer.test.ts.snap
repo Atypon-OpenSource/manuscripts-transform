@@ -436,6 +436,8 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
+        "runningTitle": "",
+        "shortTitle": "",
       },
       "content": Array [
         Object {
@@ -2490,6 +2492,8 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
+        "runningTitle": "",
+        "shortTitle": "",
       },
       "content": Array [
         Object {
@@ -3956,6 +3960,8 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
+        "runningTitle": "",
+        "shortTitle": "",
       },
       "content": Array [
         Object {
@@ -20308,6 +20314,8 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
+        "runningTitle": "",
+        "shortTitle": "",
       },
       "content": Array [
         Object {
@@ -28629,6 +28637,8 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
+        "runningTitle": "",
+        "shortTitle": "",
       },
       "content": Array [
         Object {
@@ -30438,6 +30448,8 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
+        "runningTitle": "Running title example",
+        "shortTitle": "Short title example",
       },
       "content": Array [
         Object {
@@ -40882,6 +40894,8 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
+        "runningTitle": "",
+        "shortTitle": "",
       },
       "content": Array [
         Object {
@@ -54833,6 +54847,8 @@ Object {
     "dataTracked": null,
     "id": "MPTitles:test",
     "placeholder": "Insert title here...",
+    "runningTitle": "Running title example",
+    "shortTitle": "Short title example",
   },
   "content": Array [
     Object {
@@ -54850,6 +54866,8 @@ Object {
     "dataTracked": null,
     "id": "MPTitles:test",
     "placeholder": "Insert title here...",
+    "runningTitle": "Running title example",
+    "shortTitle": "Short title example",
   },
   "content": Array [
     Object {

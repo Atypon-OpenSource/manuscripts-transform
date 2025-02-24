@@ -65,6 +65,18 @@ export const moveTitle = (front: Element, createElement: CreateElement) => {
     title = createElement('article-title')
     title.innerHTML = defaultTitle
   }
+  const shortTitle = front.querySelector(
+    'article-meta > title-group > alt-title[alt-title-type="short"]'
+  )
+  if (shortTitle) {
+    title.setAttribute('short-title', shortTitle.textContent || '')
+  }
+  const runningTitle = front.querySelector(
+    'article-meta > title-group > alt-title[alt-title-type="running"]'
+  )
+  if (runningTitle) {
+    title.setAttribute('running-title', runningTitle.textContent || '')
+  }
   front.parentNode?.insertBefore(title, front)
 }
 

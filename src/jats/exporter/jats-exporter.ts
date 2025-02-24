@@ -428,6 +428,20 @@ export class JATSExporter {
       const element = this.document.createElement('article-title')
       this.setTitleContent(element, titleNode.textContent)
       titleGroup.appendChild(element)
+      const runningTitle = titleNode.attrs.runningTitle
+      if (runningTitle) {
+        const runningTitleElement = this.document.createElement('alt-title')
+        runningTitleElement.setAttribute('alt-title-type', 'running')
+        runningTitleElement.textContent = runningTitle
+        titleGroup.appendChild(runningTitleElement)
+      }
+      const shortTitle = titleNode.attrs.shortTitle
+      if(shortTitle) {
+        const shortTitleElement = this.document.createElement('alt-title')
+        shortTitleElement.setAttribute('alt-title-type', 'short')
+        shortTitleElement.textContent = shortTitle
+        titleGroup.appendChild(shortTitleElement)
+      }
     }
 
     const supplementsNodes = findChildrenByType(

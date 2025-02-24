@@ -18,19 +18,23 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface TitleAttrs {
   id: string
+  runningTitle: string
+  shortTitle: string
   placeholder: string
 }
 
 export interface TitleNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: TitleAttrs
 }
 
 export const title: NodeSpec = {
   content: '(text | highlight_marker)*',
   attrs: {
     id: { default: '' },
+    runningTitle: { default: '' },
+    shortTitle: { default: '' },
     placeholder: { default: 'Insert title here...' },
     dataTracked: { default: null },
   },
