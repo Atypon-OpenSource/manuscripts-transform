@@ -28,6 +28,7 @@ import {
   createBoxedElementSection,
   createKeywordsSection,
   createSupplementaryMaterialsSection,
+  createTitles,
   fixTables,
   moveAffiliations,
   moveAuthorNotes,
@@ -35,7 +36,6 @@ import {
   moveCaptionsToEnd,
   moveContributors,
   moveReferencesToBackmatter,
-  createTitles,
   orderTableFootnote,
 } from './jats-transformations'
 

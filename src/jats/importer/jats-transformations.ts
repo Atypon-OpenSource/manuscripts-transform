@@ -82,7 +82,6 @@ export const createTitles = (front: Element, createElement: CreateElement) => {
     'article-meta > title-group > alt-title[alt-title-type="short"]',
     'short'
   )
-
 }
 
 export const moveAuthorNotes = (
