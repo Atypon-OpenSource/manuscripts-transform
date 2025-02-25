@@ -32,7 +32,7 @@ export const title: NodeSpec = {
   content: '(text | highlight_marker)*',
   attrs: {
     id: { default: '' },
-    type: { default: 'main' },
+    type: { default: 'primary' },
     placeholder: { default: 'Insert title here...' },
     dataTracked: { default: null },
   },

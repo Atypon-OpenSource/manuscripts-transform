@@ -65,13 +65,13 @@ export const createTitles = (front: Element, createElement: CreateElement) => {
       htmlFromJatsNode(existingTitle, createElement) ?? defaultContent
     titleEl.setAttribute('type', type)
 
-    if (type === 'main' || existingTitle) {
+    if (type === 'primary' || existingTitle) {
       front.parentElement?.insertBefore(titleEl, front)
     }
   }
   insertTitle(
     'article-meta > title-group > article-title',
-    'main',
+    'primary',
     defaultTitle
   )
   insertTitle(

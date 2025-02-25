@@ -426,7 +426,7 @@ export class JATSExporter {
 
     titleNodes.forEach((titleNode) => {
       let element
-      if (titleNode.attrs.type === 'main') {
+      if (titleNode.attrs.type === 'primary') {
         element = this.document.createElement('article-title')
       } else {
         element = this.document.createElement('alt-title')

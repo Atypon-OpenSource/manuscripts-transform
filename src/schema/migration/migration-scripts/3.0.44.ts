@@ -26,7 +26,7 @@ class Migration3044 implements MigrationScript {
         ...node,
         attrs: {
           ...node.attrs,
-          type: 'main',
+          type: 'primary',
         },
       }
     }
