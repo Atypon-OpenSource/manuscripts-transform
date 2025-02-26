@@ -28,7 +28,7 @@ export interface GraphicalAbstractSectionNode extends ManuscriptNode {
 }
 
 export const graphicalAbstractSection: NodeSpec = {
-  content: 'section_title (figure_element | image_element | placeholder)', // does it need perhaps a special view that limits the figure content? Ask Nick?
+  content: 'section_title (figure_element | placeholder)', // does it need perhaps a special view that limits the figure content? Ask Nick?
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
