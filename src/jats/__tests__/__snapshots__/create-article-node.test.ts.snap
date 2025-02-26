@@ -21,7 +21,6 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "type": "primary",
       },
       "type": "title",
     },

@@ -1,5 +1,5 @@
 /*!
- * © 2024 Atypon Systems LLC
+ * © 2025 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,25 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { JSONNode } from '../migrate'
-import { MigrationScript } from '../migration-script'
 
-class Migration3044 implements MigrationScript {
-  fromVersion = '3.0.43'
-  toVersion = '3.0.44'
+import { NodeSpec } from 'prosemirror-model'
 
-  migrateNode(node: JSONNode): JSONNode {
-    if (node.type === 'title') {
-      return {
-        ...node,
-        attrs: {
-          ...node.attrs,
-          type: 'primary',
-        },
-      }
-    }
-    return node
-  }
+import { ManuscriptNode } from '../types'
+
+export interface AltTitleAttrs {
+  id: string
+  type: string
 }
 
-export default Migration3044
+export interface AltTitleNode extends ManuscriptNode {
+  attrs: AltTitleAttrs
+}
+
+export const altTitle: NodeSpec = {
+  content: '(text | highlight_marker)*',
+  attrs: {
+    id: { default: '' },
+    type: { default: '' },
+    dataTracked: { default: null },
+  },
+  group: 'block element',
+  parseDOM: [{ tag: 'div' }],
+  toDOM: () => ['div', 0],
+}

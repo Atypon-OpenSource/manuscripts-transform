@@ -123,6 +123,7 @@ export type Nodes =
   | 'image_element'
   | 'attachment'
   | 'attachments'
+  | 'alt_title'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

@@ -436,7 +436,6 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "type": "primary",
       },
       "content": Array [
         Object {
@@ -2491,7 +2490,6 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "type": "primary",
       },
       "content": Array [
         Object {
@@ -3958,7 +3956,6 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "type": "primary",
       },
       "content": Array [
         Object {
@@ -20311,7 +20308,6 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "type": "primary",
       },
       "content": Array [
         Object {
@@ -28633,7 +28629,6 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "type": "primary",
       },
       "content": Array [
         Object {
@@ -30443,7 +30438,6 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "type": "primary",
       },
       "content": Array [
         Object {
@@ -30456,8 +30450,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:test",
-        "placeholder": "Insert title here...",
+        "id": "MPAltTitle:test",
         "type": "running",
       },
       "content": Array [
@@ -30466,13 +30459,12 @@ Object {
           "type": "text",
         },
       ],
-      "type": "title",
+      "type": "alt_title",
     },
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:test",
-        "placeholder": "Insert title here...",
+        "id": "MPAltTitle:test",
         "type": "short",
       },
       "content": Array [
@@ -30481,7 +30473,7 @@ Object {
           "type": "text",
         },
       ],
-      "type": "title",
+      "type": "alt_title",
     },
     Object {
       "attrs": Object {
@@ -40918,7 +40910,6 @@ Object {
         "dataTracked": null,
         "id": "MPTitles:test",
         "placeholder": "Insert title here...",
-        "type": "primary",
       },
       "content": Array [
         Object {
@@ -54870,7 +54861,6 @@ Object {
     "dataTracked": null,
     "id": "MPTitles:test",
     "placeholder": "Insert title here...",
-    "type": "primary",
   },
   "content": Array [
     Object {
@@ -54888,7 +54878,6 @@ Object {
     "dataTracked": null,
     "id": "MPTitles:test",
     "placeholder": "Insert title here...",
-    "type": "primary",
   },
   "content": Array [
     Object {
