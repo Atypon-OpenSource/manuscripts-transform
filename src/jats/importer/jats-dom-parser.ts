@@ -348,7 +348,7 @@ export class JATSDOMParser {
       },
     },
     {
-      tag: 'titles > alt-title[alt-title-type]',
+      tag: 'alt-title[alt-title-type]',
       node: 'alt_title',
       getAttrs: (node) => {
         const element = node as HTMLElement
@@ -359,7 +359,7 @@ export class JATSDOMParser {
       },
     },
     {
-      tag: 'titles > article-title',
+      tag: 'article-title',
       node: 'title',
       getAttrs: (node) => {
         const element = node as HTMLElement

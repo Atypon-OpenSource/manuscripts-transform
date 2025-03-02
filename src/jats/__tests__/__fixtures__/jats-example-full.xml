@@ -17,7 +17,6 @@
       <title-group>
         <article-title>This is the Article Title</article-title>
         <subtitle>Which has a Subtitle</subtitle>
-        <alt-title alt-title-type="right-running">This is a right running head</alt-title>
       </title-group>
       <contrib-group>
         <contrib contrib-type="author" corresp="yes"><name><surname>Day</surname><given-names>Nathan</given-names></name><role>Member, IEEE</role><xref ref-type="fn" rid="afn1"><sup>1</sup></xref><xref ref-type="corresp" rid="cor1"><sup>*</sup></xref><xref ref-type="aff" rid="aff1"></xref></contrib>

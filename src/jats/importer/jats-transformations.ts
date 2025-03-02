@@ -67,20 +67,14 @@ export const createTitles = (front: Element, createElement: CreateElement) => {
     title.innerHTML = defaultTitle
   }
   titles.appendChild(title)
-  const runningTitle = front.querySelector(
-    'article-meta > title-group > alt-title[alt-title-type="running"]'
+
+  const altTitles = front.querySelectorAll(
+    'article-meta > title-group > alt-title'
   )
-  if (runningTitle) {
-    runningTitle.innerHTML = htmlFromJatsNode(runningTitle, createElement) ?? ''
-    titles.appendChild(runningTitle)
-  }
-  const shortTitle = front.querySelector(
-    'article-meta > title-group > alt-title[alt-title-type="short"]'
-  )
-  if (shortTitle) {
-    shortTitle.innerHTML = htmlFromJatsNode(shortTitle, createElement) ?? ''
-    titles.appendChild(shortTitle)
-  }
+  altTitles.forEach((altTitle) => {
+    altTitle.innerHTML = htmlFromJatsNode(altTitle, createElement) ?? ''
+    titles.appendChild(altTitle)
+  })
   front.parentNode?.insertBefore(titles, front)
 }
 
