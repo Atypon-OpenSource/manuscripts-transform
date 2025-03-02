@@ -347,7 +347,17 @@ export class JATSDOMParser {
         }
       },
     },
-
+    {
+      tag: 'alt-title[alt-title-type]',
+      node: 'alt_title',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          type: element.getAttribute('alt-title-type'),
+        }
+      },
+    },
     {
       tag: 'article-title',
       node: 'title',
@@ -355,9 +365,11 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
+          type: element.getAttribute('type') || '',
         }
       },
     },
+
     {
       tag: 'highlight-marker',
       node: 'highlight_marker',

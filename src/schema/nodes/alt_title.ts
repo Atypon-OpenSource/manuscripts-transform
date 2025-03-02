@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2025 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,20 +18,20 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export interface TitleAttrs {
+export interface AltTitleAttrs {
   id: string
-  placeholder: string
+  type: string
 }
 
-export interface TitleNode extends ManuscriptNode {
-  attrs: TitleAttrs
+export interface AltTitleNode extends ManuscriptNode {
+  attrs: AltTitleAttrs
 }
 
-export const title: NodeSpec = {
+export const altTitle: NodeSpec = {
   content: '(text | highlight_marker)*',
   attrs: {
     id: { default: '' },
-    placeholder: { default: 'Insert title here...' },
+    type: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',

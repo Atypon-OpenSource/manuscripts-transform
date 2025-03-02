@@ -21,6 +21,7 @@ import Migration3021 from './3.0.21'
 import Migration3030 from './3.0.30'
 import Migration3031 from './3.0.31'
 import Migration3041 from './3.0.41'
+
 const migrations = [
   new Migration125(),
   new Migration2322(),

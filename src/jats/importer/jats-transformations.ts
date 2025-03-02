@@ -57,7 +57,8 @@ export const addMissingCaptions = (
   }
 }
 
-export const moveTitle = (front: Element, createElement: CreateElement) => {
+export const createTitles = (front: Element, createElement: CreateElement) => {
+  const titles = createElement('titles')
   let title = front.querySelector('article-meta > title-group > article-title')
   if (title) {
     title.innerHTML = htmlFromJatsNode(title, createElement) ?? defaultTitle
@@ -65,7 +66,16 @@ export const moveTitle = (front: Element, createElement: CreateElement) => {
     title = createElement('article-title')
     title.innerHTML = defaultTitle
   }
-  front.parentNode?.insertBefore(title, front)
+  titles.appendChild(title)
+
+  const altTitles = front.querySelectorAll(
+    'article-meta > title-group > alt-title'
+  )
+  altTitles.forEach((altTitle) => {
+    altTitle.innerHTML = htmlFromJatsNode(altTitle, createElement) ?? ''
+    titles.appendChild(altTitle)
+  })
+  front.parentNode?.insertBefore(titles, front)
 }
 
 export const moveAuthorNotes = (
