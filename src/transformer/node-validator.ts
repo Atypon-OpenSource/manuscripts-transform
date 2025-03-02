@@ -16,83 +16,74 @@
 import { Node, NodeType } from 'prosemirror-model'
 import { findChildrenByType } from 'prosemirror-utils'
 
+export interface ValidationError {
+  code: string
+  nodeType?: string
+}
+
 export interface ValidationResult {
   isValid: boolean
-  errors: string[]
+  errors: ValidationError[]
 }
 
-interface Validator {
-  validate(): ValidationResult
+export const VALIDATION_ERROR_CODES = {
+  MISSING_TITLE: 'MISSING_TITLE',
+  EMPTY_TITLE: 'EMPTY_TITLE',
 }
 
-class TitleValidator implements Validator {
-  constructor(private nodes: Node[]) {}
-
-  validate(): ValidationResult {
-    const errors: string[] = []
-    if (!this.nodes.length) {
-      errors.push('Title node is missing')
-    }
-    this.nodes.forEach((node) => {
-      if (!node.textContent) {
-        errors.push('Title node must have content')
-      }
+const validateTitleNode = (nodes: Node[]): ValidationResult => {
+  const errors: ValidationError[] = []
+  if (!nodes.length) {
+    errors.push({
+      code: VALIDATION_ERROR_CODES.MISSING_TITLE,
     })
-    return {
-      isValid: errors.length === 0,
-      errors,
+  }
+  nodes.forEach((node) => {
+    if (!node.textContent) {
+      errors.push({
+        code: VALIDATION_ERROR_CODES.EMPTY_TITLE,
+        nodeType: node.type.name,
+      })
     }
+  })
+  return {
+    isValid: errors.length === 0,
+    errors,
   }
 }
 
-class ValidatorFactory {
-  static createValidator(nodeType: NodeType, nodes: Node[]): Validator | null {
-    switch (nodeType.name) {
-      case 'title':
-        return new TitleValidator(nodes)
-      default:
-        return null
-    }
-  }
-}
-
-class NodeValidator {
-  private validators: Validator[] = []
-
-  constructor(node: Node) {
-    const schema = node.type.schema
-    const validatableTypes = ['title']
-
-    validatableTypes.forEach((typeName) => {
-      const nodeType = schema.nodes[typeName]
-      if (nodeType) {
-        const nodes = findChildrenByType(node, nodeType).map(
-          (result) => result.node
-        )
-        const validator = ValidatorFactory.createValidator(nodeType, nodes)
-        if (validator) {
-          this.validators.push(validator)
-        }
-      }
-    })
-  }
-
-  validate(): ValidationResult {
-    const errors: string[] = []
-    this.validators.forEach((validator) => {
-      const result = validator.validate()
-      if (!result.isValid) {
-        errors.push(...result.errors)
-      }
-    })
-    return {
-      isValid: errors.length === 0,
-      errors,
-    }
+const validate = (
+  nodeType: NodeType,
+  nodes: Node[]
+): ValidationResult | null => {
+  switch (nodeType.name) {
+    case 'title':
+      return validateTitleNode(nodes)
+    default:
+      return null
   }
 }
 
 export const validateManuscriptNode = (node: Node): ValidationResult => {
-  const nodeValidator = new NodeValidator(node)
-  return nodeValidator.validate()
+  const schema = node.type.schema
+  const validatableTypes = ['title']
+  const errors: ValidationError[] = []
+
+  validatableTypes.forEach((typeName) => {
+    const nodeType = schema.nodes[typeName]
+    if (nodeType) {
+      const nodes = findChildrenByType(node, nodeType).map(
+        (result) => result.node
+      )
+      const validationResult = validate(nodeType, nodes)
+      if (validationResult && !validationResult.isValid) {
+        errors.push(...validationResult.errors)
+      }
+    }
+  })
+
+  return {
+    isValid: errors.length === 0,
+    errors,
+  }
 }
