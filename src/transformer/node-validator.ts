@@ -16,7 +16,7 @@
 import { Node, NodeType } from 'prosemirror-model'
 import { findChildrenByType } from 'prosemirror-utils'
 
-import { isTitleNode, TitleNode } from '../schema'
+import { TitleNode } from '../schema'
 
 export interface ValidationError {
   code: string
@@ -51,7 +51,7 @@ const validateNode = (
 ): ValidationError[] => {
   switch (nodeType.name) {
     case 'title':
-      return isTitleNode(node) ? validateTitleNode(node) : []
+      return validateTitleNode(node as TitleNode)
     default:
       return []
   }
