@@ -38,3 +38,6 @@ export const title: NodeSpec = {
   parseDOM: [{ tag: 'div' }],
   toDOM: () => ['div', 0],
 }
+
+export const isTitleNode = (node: ManuscriptNode): node is TitleNode =>
+  node.type === node.type.schema.nodes.title

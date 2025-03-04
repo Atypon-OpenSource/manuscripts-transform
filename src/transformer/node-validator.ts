@@ -16,9 +16,11 @@
 import { Node, NodeType } from 'prosemirror-model'
 import { findChildrenByType } from 'prosemirror-utils'
 
+import { isTitleNode, TitleNode } from '../schema'
+
 export interface ValidationError {
   code: string
-  nodeType?: string
+  id?: string
 }
 
 export interface ValidationResult {
@@ -27,58 +29,49 @@ export interface ValidationResult {
 }
 
 export const VALIDATION_ERROR_CODES = {
-  MISSING_TITLE: 'MISSING_TITLE',
   EMPTY_TITLE: 'EMPTY_TITLE',
-}
+} as const
 
-const validateTitleNode = (nodes: Node[]): ValidationResult => {
+const validateTitleNode = (node: TitleNode): ValidationError[] => {
   const errors: ValidationError[] = []
-  if (!nodes.length) {
+  if (!node.textContent) {
     errors.push({
-      code: VALIDATION_ERROR_CODES.MISSING_TITLE,
+      code: VALIDATION_ERROR_CODES.EMPTY_TITLE,
+      id: node.attrs.id,
     })
   }
-  nodes.forEach((node) => {
-    if (!node.textContent) {
-      errors.push({
-        code: VALIDATION_ERROR_CODES.EMPTY_TITLE,
-        nodeType: node.type.name,
-      })
-    }
-  })
-  return {
-    isValid: errors.length === 0,
-    errors,
-  }
+  return errors
 }
 
-const validate = (
+const validateNode = (
   nodeType: NodeType,
-  nodes: Node[]
-): ValidationResult | null => {
+  node: Node,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  doc: Node
+): ValidationError[] => {
   switch (nodeType.name) {
     case 'title':
-      return validateTitleNode(nodes)
+      return isTitleNode(node) ? validateTitleNode(node) : []
     default:
-      return null
+      return []
   }
 }
 
-export const validateManuscriptNode = (node: Node): ValidationResult => {
-  const schema = node.type.schema
+export const validateManuscriptNode = (doc: Node): ValidationResult => {
+  const schema = doc.type.schema
   const validatableTypes = ['title']
   const errors: ValidationError[] = []
 
   validatableTypes.forEach((typeName) => {
     const nodeType = schema.nodes[typeName]
     if (nodeType) {
-      const nodes = findChildrenByType(node, nodeType).map(
+      const nodes = findChildrenByType(doc, nodeType).map(
         (result) => result.node
       )
-      const validationResult = validate(nodeType, nodes)
-      if (validationResult && !validationResult.isValid) {
-        errors.push(...validationResult.errors)
-      }
+      nodes.forEach((node) => {
+        const nodeErrors = validateNode(nodeType, node, doc)
+        errors.push(...nodeErrors)
+      })
     }
   })
 
