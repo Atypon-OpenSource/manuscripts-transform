@@ -29,6 +29,7 @@ import {
   tracked_insert,
   underline,
 } from './marks'
+import { altTitlesSection } from './nodes/alt_titles_section'
 import { abstracts } from './nodes/abstracts'
 import { affiliation } from './nodes/affiliation'
 import { affiliations } from './nodes/affiliations'
@@ -256,5 +257,6 @@ export const schema = new Schema<Nodes, Marks>({
     attachment,
     attachments,
     alt_title: altTitle,
+    alt_titles_section: altTitlesSection,
   },
 })
