@@ -343,11 +343,6 @@ export class JATSExporter {
   }
 
   protected buildFront = (journal?: Journal) => {
-    const titleNode = findChildrenByType(
-      this.manuscriptNode,
-      schema.nodes.title
-    )[0]?.node
-
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/front.html
     const front = this.document.createElement('front')
 
@@ -421,14 +416,32 @@ export class JATSExporter {
     }
 
     const titleGroup = this.document.createElement('title-group')
-    articleMeta.appendChild(titleGroup)
 
-    this.buildContributors(articleMeta)
+    const titleNode = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.title
+    ).map((r) => r.node)[0]
+
     if (titleNode) {
       const element = this.document.createElement('article-title')
       this.setTitleContent(element, titleNode.textContent)
       titleGroup.appendChild(element)
     }
+
+    const altTitlesNodes = findChildrenByType(
+      this.manuscriptNode,
+      schema.nodes.alt_title
+    ).map((r) => r.node)
+
+    altTitlesNodes.forEach((titleNode) => {
+      const element = this.document.createElement('alt-title')
+      element.setAttribute('alt-title-type', titleNode.attrs.type)
+      this.setTitleContent(element, titleNode.textContent)
+      titleGroup.appendChild(element)
+    })
+
+    articleMeta.appendChild(titleGroup)
+    this.buildContributors(articleMeta)
 
     const supplementsNodes = findChildrenByType(
       this.manuscriptNode,
@@ -880,6 +893,7 @@ export class JATSExporter {
       author_notes: () => '',
       corresp: () => '',
       title: () => '',
+      alt_title: () => '',
       text_block: (node) => nodes.paragraph(node),
       affiliations: () => '',
       contributors: () => '',

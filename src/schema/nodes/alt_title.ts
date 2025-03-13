@@ -1,5 +1,5 @@
 /*!
- * © 2024 Atypon Systems LLC
+ * © 2025 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,22 +14,27 @@
  * limitations under the License.
  */
 
-import Migration125 from './1.2.5'
-import Migration2322 from './2.3.22'
-import { Migration3012 } from './3.0.12'
-import Migration3021 from './3.0.21'
-import Migration3030 from './3.0.30'
-import Migration3031 from './3.0.31'
-import Migration3041 from './3.0.41'
+import { NodeSpec } from 'prosemirror-model'
 
-const migrations = [
-  new Migration125(),
-  new Migration2322(),
-  new Migration3012(),
-  new Migration3021(),
-  new Migration3030(),
-  new Migration3031(),
-  new Migration3041(),
-]
+import { ManuscriptNode } from '../types'
 
-export default migrations
+export interface AltTitleAttrs {
+  id: string
+  type: string
+}
+
+export interface AltTitleNode extends ManuscriptNode {
+  attrs: AltTitleAttrs
+}
+
+export const altTitle: NodeSpec = {
+  content: '(text | highlight_marker)*',
+  attrs: {
+    id: { default: '' },
+    type: { default: '' },
+    dataTracked: { default: null },
+  },
+  group: 'block element',
+  parseDOM: [{ tag: 'div' }],
+  toDOM: () => ['div', 0],
+}

@@ -18,13 +18,13 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface TitleAttrs {
   id: string
   placeholder: string
 }
 
 export interface TitleNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: TitleAttrs
 }
 
 export const title: NodeSpec = {
