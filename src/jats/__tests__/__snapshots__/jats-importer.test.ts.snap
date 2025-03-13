@@ -447,14 +447,37 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPAltTitlesSection:test",
+        "id": "MPSection:test",
       },
       "content": Array [
         Object {
           "attrs": Object {
+            "ORCIDIdentifier": "https://orcid.org/0000-0001-6162-1335",
+            "affiliations": Array [
+              "MPAffiliation:test",
+            ],
+            "bibliographicName": Object {
+              "ObjectType": "MPBibliographicName",
+              "family": "Hui",
+              "given": "Li",
+            },
+            "contents": "",
+            "corresp": Array [
+              Object {
+                "correspID": "MPCorresponding:test",
+                "correspLabel": "*",
+              },
+            ],
             "dataTracked": null,
-            "id": "MPAltTitle:test",
-            "type": "",
+            "email": "ntaylor+Author7@atypon.com",
+            "footnote": Array [],
+            "id": "MPContributor:test",
+            "invitationID": undefined,
+            "isCorresponding": true,
+            "isJointContributor": undefined,
+            "priority": undefined,
+            "role": "author",
+            "userID": undefined,
           },
           "content": Array [
             Object {
@@ -462,16 +485,8 @@ Object {
               "type": "text",
             },
           ],
-          "type": "alt_title",
+          "type": "contributor",
         },
-      ],
-      "type": "alt_titles_section",
-    },
-    Object {
-      "attrs": Object {
-        "id": "MPSection:test",
-      },
-      "content": Array [
         Object {
           "attrs": Object {
             "ORCIDIdentifier": undefined,
@@ -2486,14 +2501,30 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPAltTitlesSection:test",
+        "id": "MPSection:test",
       },
       "content": Array [
         Object {
           "attrs": Object {
+            "ORCIDIdentifier": undefined,
+            "affiliations": Array [],
+            "bibliographicName": Object {
+              "ObjectType": "MPBibliographicName",
+              "family": "User",
+              "given": "Developer",
+            },
+            "contents": "",
+            "corresp": Array [],
             "dataTracked": null,
-            "id": "MPAltTitle:test",
-            "type": "",
+            "email": "",
+            "footnote": Array [],
+            "id": "MPContributor:test",
+            "invitationID": undefined,
+            "isCorresponding": undefined,
+            "isJointContributor": undefined,
+            "priority": undefined,
+            "role": "author",
+            "userID": undefined,
           },
           "content": Array [
             Object {
@@ -2501,10 +2532,10 @@ Object {
               "type": "text",
             },
           ],
-          "type": "alt_title",
+          "type": "contributor",
         },
       ],
-      "type": "alt_titles_section",
+      "type": "contributors",
     },
     Object {
       "attrs": Object {
@@ -3936,14 +3967,32 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPAltTitlesSection:test",
+        "id": "MPSection:test",
       },
       "content": Array [
         Object {
           "attrs": Object {
+            "ORCIDIdentifier": undefined,
+            "affiliations": Array [
+              "MPAffiliation:test",
+            ],
+            "bibliographicName": Object {
+              "ObjectType": "MPBibliographicName",
+              "family": "Chan",
+              "given": "Thomas S.Y.",
+            },
+            "contents": "",
+            "corresp": Array [],
             "dataTracked": null,
-            "id": "MPAltTitle:test",
-            "type": "",
+            "email": "thomas28@netvigator.com",
+            "footnote": Array [],
+            "id": "MPContributor:test",
+            "invitationID": undefined,
+            "isCorresponding": undefined,
+            "isJointContributor": undefined,
+            "priority": undefined,
+            "role": "author",
+            "userID": undefined,
           },
           "content": Array [
             Object {
@@ -3951,16 +4000,8 @@ Object {
               "type": "text",
             },
           ],
-          "type": "alt_title",
+          "type": "contributor",
         },
-      ],
-      "type": "alt_titles_section",
-    },
-    Object {
-      "attrs": Object {
-        "id": "MPSection:test",
-      },
-      "content": Array [
         Object {
           "attrs": Object {
             "ORCIDIdentifier": undefined,
@@ -20278,14 +20319,32 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPAltTitlesSection:test",
+        "id": "MPSection:test",
       },
       "content": Array [
         Object {
           "attrs": Object {
+            "ORCIDIdentifier": "https://orcid.org/0000-0003-2217-5904",
+            "affiliations": Array [
+              "MPAffiliation:test",
+            ],
+            "bibliographicName": Object {
+              "ObjectType": "MPBibliographicName",
+              "family": "Hornnes",
+              "given": "Agnete Hviid",
+            },
+            "contents": "",
+            "corresp": Array [],
             "dataTracked": null,
-            "id": "MPAltTitle:test",
-            "type": "",
+            "email": "",
+            "footnote": Array [],
+            "id": "MPContributor:test",
+            "invitationID": undefined,
+            "isCorresponding": true,
+            "isJointContributor": undefined,
+            "priority": undefined,
+            "role": "author",
+            "userID": undefined,
           },
           "content": Array [
             Object {
@@ -20293,16 +20352,8 @@ Object {
               "type": "text",
             },
           ],
-          "type": "alt_title",
+          "type": "contributor",
         },
-      ],
-      "type": "alt_titles_section",
-    },
-    Object {
-      "attrs": Object {
-        "id": "MPSection:test",
-      },
-      "content": Array [
         Object {
           "attrs": Object {
             "ORCIDIdentifier": undefined,
@@ -28589,14 +28640,42 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPAltTitlesSection:test",
+        "id": "MPSection:test",
       },
       "content": Array [
         Object {
           "attrs": Object {
+            "ORCIDIdentifier": undefined,
+            "affiliations": Array [
+              "MPAffiliation:test",
+            ],
+            "bibliographicName": Object {
+              "ObjectType": "MPBibliographicName",
+              "family": "Day",
+              "given": "Nathan",
+            },
+            "contents": "",
+            "corresp": Array [
+              Object {
+                "correspID": "MPCorresponding:test",
+                "correspLabel": "*",
+              },
+            ],
             "dataTracked": null,
-            "id": "MPAltTitle:test",
-            "type": "",
+            "email": "",
+            "footnote": Array [
+              Object {
+                "noteID": "MPFootnote:test",
+                "noteLabel": "1",
+              },
+            ],
+            "id": "MPContributor:test",
+            "invitationID": undefined,
+            "isCorresponding": true,
+            "isJointContributor": undefined,
+            "priority": undefined,
+            "role": "author",
+            "userID": undefined,
           },
           "content": Array [
             Object {
@@ -28604,10 +28683,10 @@ Object {
               "type": "text",
             },
           ],
-          "type": "alt_title",
+          "type": "contributor",
         },
       ],
-      "type": "alt_titles_section",
+      "type": "contributors",
     },
     Object {
       "attrs": Object {
@@ -40850,14 +40929,32 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPAltTitlesSection:test",
+        "id": "MPSection:test",
       },
       "content": Array [
         Object {
           "attrs": Object {
+            "ORCIDIdentifier": undefined,
+            "affiliations": Array [
+              "MPAffiliation:test",
+            ],
+            "bibliographicName": Object {
+              "ObjectType": "MPBibliographicName",
+              "family": "Cox",
+              "given": "Justin",
+            },
+            "contents": "",
+            "corresp": Array [],
             "dataTracked": null,
-            "id": "MPAltTitle:test",
-            "type": "",
+            "email": "",
+            "footnote": Array [],
+            "id": "MPContributor:test",
+            "invitationID": undefined,
+            "isCorresponding": undefined,
+            "isJointContributor": undefined,
+            "priority": undefined,
+            "role": "author",
+            "userID": undefined,
           },
           "content": Array [
             Object {
@@ -40865,16 +40962,8 @@ Object {
               "type": "text",
             },
           ],
-          "type": "alt_title",
+          "type": "contributor",
         },
-      ],
-      "type": "alt_titles_section",
-    },
-    Object {
-      "attrs": Object {
-        "id": "MPSection:test",
-      },
-      "content": Array [
         Object {
           "attrs": Object {
             "ORCIDIdentifier": undefined,

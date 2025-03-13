@@ -107,9 +107,15 @@ export const changeIDs = (node: ManuscriptNode) => {
 }
 
 export const findNodesByType = (node: Node, type: NodeType, descend = true) => {
-  return findChildrenByType(node, type, descend).map((n) => n.node)
+  try {
+    return findChildrenByType(node, type, descend).map((n) => n.node)
+  } catch (e) {
+    console.log(e)
+    console.log(node)
+  }
 }
 export const findNodeByType = (node: Node, type: NodeType, descend = true) => {
+  // @ts-ignore
   return findNodesByType(node, type, descend)[0]
 }
 
