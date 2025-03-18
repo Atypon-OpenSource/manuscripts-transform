@@ -15,7 +15,6 @@
  */
 
 import {
-  BibliographicName,
   buildBibliographicDate,
   buildBibliographicName,
   buildContribution,
@@ -208,31 +207,24 @@ export class JATSDOMParser {
     return htmlFromJatsNode(node.querySelector(querySelector))
   }
 
-  private chooseBibliographyItemType = (publicationType: string | null) => {
-    switch (publicationType) {
-      case 'book':
-      case 'thesis':
-        return publicationType
-      case 'journal':
-      default:
-        return 'article-journal'
-    }
-  }
-
   private parseRef = (element: Element) => {
-    const publicationType = element.getAttribute('publication-type')
-
+    const elementCitation = element.querySelector('element-citation')
+    const type = elementCitation?.getAttribute('publication-type') ?? 'jounral'
     const authorNodes = [
       ...element.querySelectorAll(
         'person-group[person-group-type="author"] > *'
       ),
     ]
-
+    const editorNodes = [
+      ...element.querySelectorAll(
+        'person-group[person-group-type="editor"] > *'
+      ),
+    ]
     const id = element.id
 
     const attrs: BibliographyItemAttrs = {
       id,
-      type: this.chooseBibliographyItemType(publicationType),
+      type,
     }
     const title = this.getHTMLContent(element, 'article-title')
     if (title) {
@@ -280,39 +272,132 @@ export class JATSDOMParser {
     }
 
     const year = getTrimmedTextContent(element, 'year')
+    const month = getTrimmedTextContent(element, 'month')
+    const day = getTrimmedTextContent(element, 'day')
     if (year) {
       attrs.issued = buildBibliographicDate({
-        'date-parts': [[year]],
+        'date-parts': [[year, month || '', day || '']],
       })
     }
 
-    const doi = getTrimmedTextContent(element, 'pub-id[pub-id-type="doi"]')
-    if (doi) {
-      attrs.doi = doi
+    const pubIDs = Array.from(element.querySelectorAll('pub-id')).map(
+      (node) => {
+        return {
+          content: getTrimmedTextContent(node),
+          type: node.getAttribute('pub-id-type') || '',
+        }
+      }
+    )
+    if (pubIDs.length) {
+      attrs.pubIDs = pubIDs
     }
 
-    const authors: BibliographicName[] = []
-    authorNodes.forEach((authorNode) => {
+    const buildName = (node: Element) => {
       const name = buildBibliographicName({})
-      const given = getTrimmedTextContent(authorNode, 'given-names')
+      const given = getTrimmedTextContent(node, 'given-names')
       if (given) {
         name.given = given
       }
-      const family = getTrimmedTextContent(authorNode, 'surname')
-
+      const family = getTrimmedTextContent(node, 'surname')
       if (family) {
         name.family = family
       }
-
-      if (authorNode.nodeName === 'collab') {
-        name.literal = getTrimmedTextContent(authorNode)
+      if (node.nodeName === 'collab') {
+        name.literal = getTrimmedTextContent(node)
       }
-      authors.push(name)
-    })
-
-    if (authors.length) {
-      attrs.author = authors
+      return name
     }
+
+    const authors = authorNodes.map(buildName)
+    if (authorNodes.length) {
+      attrs.authors = authors
+    }
+    const editors = editorNodes.map(buildName)
+    if (editors.length) {
+      attrs.editors = editors
+    }
+
+    const dataTitle = getTrimmedTextContent(element, 'data-title')
+    if (dataTitle) {
+      attrs.dataTitle = dataTitle
+    }
+
+    const std = getTrimmedTextContent(element, 'std')
+    if (std) {
+      attrs.std = std
+    }
+
+    const series = getTrimmedTextContent(element, 'series')
+    if (series) {
+      attrs.series = series
+    }
+
+    const edition = getTrimmedTextContent(element, 'edition')
+    if (edition) {
+      attrs.edition = edition
+    }
+
+    const publisherName = getTrimmedTextContent(element, 'publisher-name')
+    if (publisherName) {
+      attrs.publisherName = publisherName
+    }
+
+    const publisherLoc = getTrimmedTextContent(element, 'publisher-loc')
+    if (publisherLoc) {
+      attrs.publisherLoc = publisherLoc
+    }
+
+    const confName = getTrimmedTextContent(element, 'conf-name')
+    if (confName) {
+      attrs.confName = confName
+    }
+
+    const confLoc = getTrimmedTextContent(element, 'conf-loc')
+    if (confLoc) {
+      attrs.confLoc = confLoc
+    }
+
+    const links = Array.from(element.querySelectorAll('ext-link')).map(
+      (node) => {
+        return {
+          content: getTrimmedTextContent(node),
+          type: node.getAttribute('ext-link-type') || '',
+        }
+      }
+    )
+    if (links.length) {
+      attrs.links = links
+    }
+
+    const size = getTrimmedTextContent(element, 'size[units="pages"]')
+    if (size) {
+      attrs.size = size
+    }
+
+    const institution = getTrimmedTextContent(element, 'institution')
+    if (institution) {
+      attrs.institution = institution
+    }
+
+    const elocationID = getTrimmedTextContent(element, 'elocation-id')
+    if (elocationID) {
+      attrs.elocationID = elocationID
+    }
+
+    const dateInCitation = element
+      .querySelector('date-in-citation')
+      ?.getAttribute('iso-8601-date')
+    if (dateInCitation) {
+      attrs.dateInCitation = dateInCitation
+    }
+    ;``
+    const confDate = element
+      .querySelector('conf-date')
+      ?.getAttribute('iso-8601-date')
+    if (confDate) {
+      attrs.confDate = confDate
+    }
+
     return attrs
   }
 

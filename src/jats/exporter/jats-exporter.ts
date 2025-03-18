@@ -193,20 +193,12 @@ export class JATSExporter {
       }
       return {
         _id: node.attrs.id,
-        issued: node.attrs.issued,
         DOI: node.attrs.doi,
         manuscriptID,
         objectType: ObjectTypes.BibliographyItem,
         author: node.attrs.author,
         'container-title': node.attrs.containerTitle,
-        volume: node.attrs.volume,
-        issue: node.attrs.issue,
-        supplement: node.attrs.supplement,
-        page: node.attrs.page,
-        title: node.attrs.title,
-        literal: node.attrs.literal,
-        //@ts-ignore
-        type: node.attrs.type,
+        ...node.attrs,
       } as BibliographyItem
     }
   }
@@ -681,64 +673,76 @@ export class JATSExporter {
       const ref = this.document.createElement('ref')
       ref.setAttribute('id', normalizeID(id))
 
-      // TODO: add option for mixed-citation; format citations using template
-      // TODO: add citation elements depending on publication type
-      const updateCitationPubType = (
-        citationEl: HTMLElement,
-        pubType: string
-      ) => {
-        if (pubType) {
-          switch (pubType) {
-            case 'article':
-            case 'article-journal':
-              citationEl.setAttribute('publication-type', 'journal')
-              break
-            default:
-              citationEl.setAttribute('publication-type', pubType)
-              break
-          }
-        } else {
-          citationEl.setAttribute('publication-type', 'journal')
-        }
-      }
       // in case a literal was found in a bibItem the rest of the attributes are ignored
       // since the literal att should only be populated when the mixed-citation fails to parse
       if (bibliographyItem.attrs.literal) {
         const mixedCitation = this.document.createElement('mixed-citation')
-        updateCitationPubType(mixedCitation, bibliographyItem.attrs.type)
+        mixedCitation.setAttribute(
+          'publication-type',
+          bibliographyItem.attrs.type || 'journal'
+        )
         mixedCitation.textContent = bibliographyItem.attrs.literal
         ref.appendChild(mixedCitation)
         refList.appendChild(ref)
       } else {
         const citation = this.document.createElement('element-citation')
-        updateCitationPubType(citation, bibliographyItem.attrs.type)
-        if (bibliographyItem.attrs.author) {
+        citation.setAttribute(
+          'publication-type',
+          bibliographyItem.attrs.type || 'journal'
+        )
+        const appendPersonGroup = (
+          type: string,
+          people: BibliographicName[]
+        ) => {
           const personGroupNode = this.document.createElement('person-group')
-          personGroupNode.setAttribute('person-group-type', 'author')
+          personGroupNode.setAttribute('person-group-type', type)
           citation.appendChild(personGroupNode)
 
-          bibliographyItem.attrs.author.forEach((author: BibliographicName) => {
+          people.forEach((person) => {
             const name = this.document.createElement('string-name')
 
-            if (author.family) {
-              const node = this.document.createElement('surname')
-              node.textContent = author.family
-              name.appendChild(node)
+            if (person.family) {
+              const surname = this.document.createElement('surname')
+              surname.textContent = person.family
+              name.appendChild(surname)
             }
-            if (author.given) {
-              const node = this.document.createElement('given-names')
-              node.textContent = author.given
-              name.appendChild(node)
+            if (person.given) {
+              const givenNames = this.document.createElement('given-names')
+              givenNames.textContent = person.given
+              name.appendChild(givenNames)
             }
             if (name.hasChildNodes()) {
               personGroupNode.appendChild(name)
             }
-            if (author.literal) {
+            if (person.literal) {
               const collab = this.document.createElement('collab')
-              collab.textContent = author.literal
+              collab.textContent = person.literal
               personGroupNode.appendChild(collab)
             }
           })
+        }
+
+        if (bibliographyItem.attrs.editors) {
+          appendPersonGroup('editor', bibliographyItem.attrs.editors)
+        }
+        if (bibliographyItem.attrs.authors) {
+          appendPersonGroup('author', bibliographyItem.attrs.authors)
+        }
+        if (bibliographyItem.attrs.title) {
+          const node = this.document.createElement('article-title')
+          this.setTitleContent(node, bibliographyItem.attrs.title)
+          citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.containerTitle) {
+          const node = this.document.createElement('source')
+          this.setTitleContent(node, bibliographyItem.attrs.containerTitle)
+          citation.appendChild(node)
+        }
+        if (bibliographyItem.attrs.dataTitle) {
+          const node = this.document.createElement('data-title')
+          node.textContent = String(bibliographyItem.attrs.dataTitle)
+          citation.appendChild(node)
         }
 
         if (bibliographyItem.attrs.issued) {
@@ -765,18 +769,6 @@ export class JATSExporter {
               citation.appendChild(node)
             }
           }
-        }
-
-        if (bibliographyItem.attrs.title) {
-          const node = this.document.createElement('article-title')
-          this.setTitleContent(node, bibliographyItem.attrs.title)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.containerTitle) {
-          const node = this.document.createElement('source')
-          this.setTitleContent(node, bibliographyItem.attrs.containerTitle)
-          citation.appendChild(node)
         }
 
         if (bibliographyItem.attrs.volume) {
@@ -821,11 +813,112 @@ export class JATSExporter {
             citation.appendChild(node)
           }
         }
-        if (bibliographyItem.attrs.doi) {
-          const node = this.document.createElement('pub-id')
-          node.setAttribute('pub-id-type', 'doi')
-          node.textContent = String(bibliographyItem.attrs.doi)
+
+        if (bibliographyItem.attrs.pubIDs) {
+          for (const pubID of bibliographyItem.attrs.pubIDs) {
+            const node = this.document.createElement('pub-id')
+            node.setAttribute('pub-id-type', pubID.type)
+            node.textContent = pubID.content
+            citation.appendChild(node)
+          }
+        }
+
+        if (bibliographyItem.attrs.std) {
+          const node = this.document.createElement('std')
+          node.textContent = String(bibliographyItem.attrs.std)
           citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.series) {
+          const node = this.document.createElement('series')
+          node.textContent = String(bibliographyItem.attrs.series)
+          citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.edition) {
+          const node = this.document.createElement('edition')
+          node.textContent = String(bibliographyItem.attrs.edition)
+          citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.publisherLoc) {
+          const node = this.document.createElement('publisher-loc')
+          node.textContent = String(bibliographyItem.attrs.publisherLoc)
+          citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.publisherName) {
+          const node = this.document.createElement('publisher-name')
+          node.textContent = String(bibliographyItem.attrs.publisherName)
+          citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.confName) {
+          const node = this.document.createElement('conf-name')
+          node.textContent = String(bibliographyItem.attrs.confName)
+          citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.confLoc) {
+          const node = this.document.createElement('conf-loc')
+          node.textContent = String(bibliographyItem.attrs.confLoc)
+          citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.confDate) {
+          const node = this.document.createElement('conf-date')
+          const date = new Date(bibliographyItem.attrs.confDate)
+          node.textContent = date.toDateString()
+          node.setAttribute(
+            'iso-8601-date',
+            String(bibliographyItem.attrs.confDate)
+          )
+          citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.size) {
+          const node = this.document.createElement('size')
+          node.textContent = String(bibliographyItem.attrs.size)
+          node.setAttribute('units', 'pages')
+          citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.volume) {
+          const node = this.document.createElement('volume')
+          node.textContent = String(bibliographyItem.attrs.volume)
+          citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.dateInCitation) {
+          const node = this.document.createElement('date-in-citation')
+          const date = new Date(bibliographyItem.attrs.dateInCitation)
+          node.textContent = date.toDateString()
+          node.setAttribute(
+            'iso-8601-date',
+            String(bibliographyItem.attrs.dateInCitation)
+          )
+          citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.institution) {
+          const node = this.document.createElement('institution')
+          node.textContent = String(bibliographyItem.attrs.institution)
+          citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.elocationID) {
+          const node = this.document.createElement('elocation-id')
+          node.textContent = String(bibliographyItem.attrs.elocationID)
+          citation.appendChild(node)
+        }
+
+        if (bibliographyItem.attrs.links) {
+          for (const link of bibliographyItem.attrs.links) {
+            const node = this.document.createElement('ext-link')
+            node.setAttribute('ext-link-type', link.type)
+            node.textContent = link.content
+            citation.appendChild(node)
+          }
         }
 
         ref.appendChild(citation)
