@@ -209,7 +209,7 @@ export class JATSDOMParser {
 
   private parseRef = (element: Element) => {
     const elementCitation = element.querySelector('element-citation')
-    const type = elementCitation?.getAttribute('publication-type') ?? 'jounral'
+    const type = elementCitation?.getAttribute('publication-type') ?? 'journal'
     const authorNodes = [
       ...element.querySelectorAll(
         'person-group[person-group-type="author"] > *'
