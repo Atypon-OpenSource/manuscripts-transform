@@ -477,7 +477,7 @@ export const moveReferencesToBackmatter = (
   section.appendChild(title)
   section.appendChild(refList)
 
-  backmatter.prepend(section)
+  backmatter.appendChild(section)
 }
 
 export const orderTableFootnote = (doc: Document, body: Element) => {
