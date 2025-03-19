@@ -1115,11 +1115,13 @@ export class JATSExporter {
       placeholder_element: () => {
         return this.document.createElement('boxed-text')
       },
-      pullquote_element: () => [
-        'disp-quote',
-        { 'content-type': 'pullquote' },
-        0,
-      ],
+      pullquote_element: (node) => {
+        let type = 'pullquote'
+        if (node.firstChild?.type === schema.nodes.figure) {
+          type = 'quote-with-image'
+        }
+        return ['disp-quote', { 'content-type': type }, 0]
+      },
       graphical_abstract_section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
