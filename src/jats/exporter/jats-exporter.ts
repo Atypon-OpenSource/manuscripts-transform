@@ -2010,6 +2010,11 @@ export class JATSExporter {
       back.insertBefore(availabilitySection, back.firstChild)
     }
 
+    const ethicsSection = body.querySelector('sec[sec-type="ethics-statement"]')
+    if (ethicsSection) {
+      back.appendChild(ethicsSection)
+    }
+
     const section = body.querySelector('sec[sec-type="acknowledgements"]')
 
     if (section) {
