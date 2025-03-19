@@ -2055,7 +2055,6 @@ export class JATSExporter {
       'supplementary-material',
       'supported-by',
       'financial-disclosure',
-      'ethics-statement',
       'coi-statement',
     ]
 
