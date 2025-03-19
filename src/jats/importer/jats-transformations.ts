@@ -216,19 +216,22 @@ const moveFootnotes = (
   let section = doc.querySelector('sec[sec-type="endnotes"]')
   const fnGroup =
     section?.querySelector('fn-group') || createElement('fn-group')
-
   fns.forEach((fn) => {
     if (!fn.getAttribute('fn-type')) {
       fnGroup.appendChild(fn)
     }
   })
-
   if (!section && fnGroup.innerHTML) {
     section = createFootnotesSection([fnGroup], createElement)
   }
-
   if (section) {
-    group.appendChild(section) // Appending footnotes section at the end
+    // Move the section before the last child of the group
+    const lastChild = group.lastChild
+    if (lastChild) {
+      group.insertBefore(section, lastChild)
+    } else {
+      group.appendChild(section)
+    }
   }
 }
 

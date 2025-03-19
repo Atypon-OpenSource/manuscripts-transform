@@ -30165,40 +30165,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "financial-disclosure",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "Financial Disclosure",
-                  "type": "text",
-                },
-              ],
-              "type": "section_label",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "This is a Financial Disclosure.",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-          ],
-          "type": "section",
-        },
-        Object {
-          "attrs": Object {
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -30302,6 +30268,40 @@ Object {
             },
           ],
           "type": "footnotes_section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "financial-disclosure",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Financial Disclosure",
+                  "type": "text",
+                },
+              ],
+              "type": "section_label",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "This is a Financial Disclosure.",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+          ],
+          "type": "section",
         },
         Object {
           "attrs": Object {
@@ -50947,6 +50947,943 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Footnotes",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPFootnotesElement:test",
+                "kind": "footnote",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "See Matt Egan, “Wall Street Welcomes Trump with a Bang” CNN Money (November 9, 2016), available at ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "href": "http://money.cnn.com/2016/11/09/investing/dow-jones-trump-wins-election/index.html",
+                            "title": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "http://money.cnn.com/2016/11/09/investing/dow-jones-trump-wins-election/index.html",
+                              "type": "text",
+                            },
+                          ],
+                          "marks": Array [
+                            Object {
+                              "type": "underline",
+                            },
+                          ],
+                          "type": "link",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Overseas markets also experienced dramatic swings following initial selloffs around the Trump election (see Jethro Mullen and Matt Egan, “Global Markets Drop as U.S. Election Results Shock Investors” CNN Money (November 9, 2016), available at ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "href": "http://money.cnn.com/2016/11/08/investing/global-markets-stocks-trump-clinton-us-presidential-election/index.html",
+                            "title": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "http://money.cnn.com/2016/11/08/investing/global-markets-stocks-trump-clinton-us-presidential-election/index.html",
+                              "type": "text",
+                            },
+                          ],
+                          "marks": Array [
+                            Object {
+                              "type": "underline",
+                            },
+                          ],
+                          "type": "link",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "As an alternative benchmark, we use the 2004 U.S. presidential election.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Full results are available at ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "href": "https://iemweb.biz.uiowa.edu/closed/",
+                            "title": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "https://iemweb.biz.uiowa.edu/closed/",
+                              "type": "text",
+                            },
+                          ],
+                          "marks": Array [
+                            Object {
+                              "type": "underline",
+                            },
+                          ],
+                          "type": "link",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": " argue that ambiguous information results in potential market illiquidity because it reduces market arbitrage opportunities.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": " argue that this may not hold when informed participants are reluctant to reveal information via transacting, resulting in lower trading activity before the election outcome.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "According to FiveThirtyEight’s election forecasts, the probability of the Republican candidate, Donald Trump, winning was 28.16% on election day. These election forecasts are available at ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "href": "https://projects.fivethirtyeight.com/2016-election-forecast/",
+                            "title": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "https://projects.fivethirtyeight.com/2016-election-forecast/",
+                              "type": "text",
+                            },
+                          ],
+                          "marks": Array [
+                            Object {
+                              "type": "underline",
+                            },
+                          ],
+                          "type": "link",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": ", ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": ", ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": ", ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": ", ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": ", and ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": " all provide evidence that increased political uncertainty is associated with increased return volatility in the equity markets. ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": " show that political uncertainty is priced into the option markets as it pertains to implied volatility.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": " provide evidence that both the magnitude of a political shock and the state of the economy help determine the risk premium required by investors.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "We also compare the 2004 and 2016 U.S. presidential elections in a difference-in-difference setting and show that liquidity deteriorates for the 30 trading days following the 2016 election.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": ", ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": ", ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": "), ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": ", ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": ", ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": ", ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": ", ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": ", ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": ", and ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": " all examine the effects of political ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": "uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "We also estimate price impact based on shorter windows such as one minute and 30 seconds, and our results are robust.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": " show that the NBBO file is incomplete by itself, but the complete official NBBO can be constructed using the NBBO file and the quote file.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Because our analysis uses liquidity metrics such as bid–ask spreads that are directly influenced by the minimum tick size, we remove stocks that are included in the U.S. Securities and Exchange Commission (SEC) 2016 Tick Size Pilot Program, and our results are robust.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "We rerun the entire analysis enforcing a balanced panel and our results are identical.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "To test for robustness, we include firm-specific control variables such as price, volume, market capitalization, and turnover in each of our regression equations, and our results are robust.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "We also bootstrap the standard errors and our results are robust.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": " documents that smaller, illiquid stocks are associated with greater adverse selection costs. Similarly, ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPCitation:test",
+                            "rids": Array [
+                              "MPBibliographyItem:test",
+                            ],
+                            "selectedText": "",
+                          },
+                          "type": "citation",
+                        },
+                        Object {
+                          "text": " document that investors command higher returns on small stocks as compensation for having less available information.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "“Trump vs. Clinton: The Destiny of These 4 Major Stock Industries Is at Stake,” IHODL (August 31, 2016), available at: ",
+                          "type": "text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "href": "https://en.insider.pro/economics/2016-08-31/trump-vs-clinton-destiny-these-4-major-stock-industries-stake/",
+                            "title": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "https://en.insider.pro/economics/2016-08-31/trump-vs-clinton-destiny-these-4-major-stock-industries-stake/",
+                              "type": "text",
+                            },
+                          ],
+                          "marks": Array [
+                            Object {
+                              "type": "underline",
+                            },
+                          ],
+                          "type": "link",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+              ],
+              "type": "footnotes_element",
+            },
+          ],
+          "type": "footnotes_section",
+        },
+        Object {
+          "attrs": Object {
             "category": "appendices",
             "dataTracked": null,
             "id": "MPSection:test",
@@ -52270,943 +53207,6 @@ Object {
             },
           ],
           "type": "section",
-        },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "Footnotes",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPFootnotesElement:test",
-                "kind": "footnote",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "See Matt Egan, “Wall Street Welcomes Trump with a Bang” CNN Money (November 9, 2016), available at ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "href": "http://money.cnn.com/2016/11/09/investing/dow-jones-trump-wins-election/index.html",
-                            "title": "",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "http://money.cnn.com/2016/11/09/investing/dow-jones-trump-wins-election/index.html",
-                              "type": "text",
-                            },
-                          ],
-                          "marks": Array [
-                            Object {
-                              "type": "underline",
-                            },
-                          ],
-                          "type": "link",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Overseas markets also experienced dramatic swings following initial selloffs around the Trump election (see Jethro Mullen and Matt Egan, “Global Markets Drop as U.S. Election Results Shock Investors” CNN Money (November 9, 2016), available at ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "href": "http://money.cnn.com/2016/11/08/investing/global-markets-stocks-trump-clinton-us-presidential-election/index.html",
-                            "title": "",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "http://money.cnn.com/2016/11/08/investing/global-markets-stocks-trump-clinton-us-presidential-election/index.html",
-                              "type": "text",
-                            },
-                          ],
-                          "marks": Array [
-                            Object {
-                              "type": "underline",
-                            },
-                          ],
-                          "type": "link",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "As an alternative benchmark, we use the 2004 U.S. presidential election.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Full results are available at ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "href": "https://iemweb.biz.uiowa.edu/closed/",
-                            "title": "",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "https://iemweb.biz.uiowa.edu/closed/",
-                              "type": "text",
-                            },
-                          ],
-                          "marks": Array [
-                            Object {
-                              "type": "underline",
-                            },
-                          ],
-                          "type": "link",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": " argue that ambiguous information results in potential market illiquidity because it reduces market arbitrage opportunities.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": " argue that this may not hold when informed participants are reluctant to reveal information via transacting, resulting in lower trading activity before the election outcome.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "According to FiveThirtyEight’s election forecasts, the probability of the Republican candidate, Donald Trump, winning was 28.16% on election day. These election forecasts are available at ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "href": "https://projects.fivethirtyeight.com/2016-election-forecast/",
-                            "title": "",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "https://projects.fivethirtyeight.com/2016-election-forecast/",
-                              "type": "text",
-                            },
-                          ],
-                          "marks": Array [
-                            Object {
-                              "type": "underline",
-                            },
-                          ],
-                          "type": "link",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": ", and ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": " all provide evidence that increased political uncertainty is associated with increased return volatility in the equity markets. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": " show that political uncertainty is priced into the option markets as it pertains to implied volatility.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": " provide evidence that both the magnitude of a political shock and the state of the economy help determine the risk premium required by investors.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "We also compare the 2004 and 2016 U.S. presidential elections in a difference-in-difference setting and show that liquidity deteriorates for the 30 trading days following the 2016 election.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "This study is related to the growing literature surrounding the role of political uncertainty in financial markets surrounding political event outcomes. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": "), ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": ", and ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": " all examine the effects of political ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": "uncertainty of financial markets as it relates to prices, volatility, risk premia, politically sensitive industries, financial intermediation, innovation activity, investment decisions, and corporate governance.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "We also estimate price impact based on shorter windows such as one minute and 30 seconds, and our results are robust.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": " show that the NBBO file is incomplete by itself, but the complete official NBBO can be constructed using the NBBO file and the quote file.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Because our analysis uses liquidity metrics such as bid–ask spreads that are directly influenced by the minimum tick size, we remove stocks that are included in the U.S. Securities and Exchange Commission (SEC) 2016 Tick Size Pilot Program, and our results are robust.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "We rerun the entire analysis enforcing a balanced panel and our results are identical.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "To test for robustness, we include firm-specific control variables such as price, volume, market capitalization, and turnover in each of our regression equations, and our results are robust.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "We also bootstrap the standard errors and our results are robust.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": " documents that smaller, illiquid stocks are associated with greater adverse selection costs. Similarly, ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
-                          },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": " document that investors command higher returns on small stocks as compensation for having less available information.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "“Trump vs. Clinton: The Destiny of These 4 Major Stock Industries Is at Stake,” IHODL (August 31, 2016), available at: ",
-                          "type": "text",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "href": "https://en.insider.pro/economics/2016-08-31/trump-vs-clinton-destiny-these-4-major-stock-industries-stake/",
-                            "title": "",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "https://en.insider.pro/economics/2016-08-31/trump-vs-clinton-destiny-these-4-major-stock-industries-stake/",
-                              "type": "text",
-                            },
-                          ],
-                          "marks": Array [
-                            Object {
-                              "type": "underline",
-                            },
-                          ],
-                          "type": "link",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-              ],
-              "type": "footnotes_element",
-            },
-          ],
-          "type": "footnotes_section",
         },
         Object {
           "attrs": Object {
