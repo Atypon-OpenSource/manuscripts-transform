@@ -30069,6 +30069,112 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Footnotes",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPFootnotesElement:test",
+                "kind": "footnote",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Box Note",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "This is a footnote.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPFootnote:test",
+                    "kind": "footnote",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraphElement:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Footnote called out in a box",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "footnote",
+                },
+              ],
+              "type": "footnotes_element",
+            },
+          ],
+          "type": "footnotes_section",
+        },
+        Object {
+          "attrs": Object {
             "category": "appendices",
             "dataTracked": null,
             "id": "MPSection:test",
@@ -30226,112 +30332,6 @@ Object {
             },
           ],
           "type": "section",
-        },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "Footnotes",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPFootnotesElement:test",
-                "kind": "footnote",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Box Note",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "This is a footnote.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPFootnote:test",
-                    "kind": "footnote",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Footnote called out in a box",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "paragraph",
-                    },
-                  ],
-                  "type": "footnote",
-                },
-              ],
-              "type": "footnotes_element",
-            },
-          ],
-          "type": "footnotes_section",
         },
         Object {
           "attrs": Object {
