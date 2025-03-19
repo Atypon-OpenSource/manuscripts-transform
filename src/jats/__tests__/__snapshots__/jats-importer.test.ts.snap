@@ -31268,7 +31268,7 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPFigure:test",
-                "src": "headshot.jpg",
+                "src": "demo1.jpg",
                 "type": "headshot",
               },
               "type": "figure",

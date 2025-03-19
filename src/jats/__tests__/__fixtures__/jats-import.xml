@@ -213,7 +213,7 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
 1.2983775.1373315697!/images/1460725790.jpg"/>
     <p>test paragraph</p>
     <disp-quote content-type="quote-with-image">
-    <graphic content-type="headshot" xlink:href="headshot.jpg"/>
+    <graphic content-type="headshot" xlink:href="demo1.jpg"/>
     <p>It is a far, far better thing that I do now than I have ever done.</p>
     <attrib>Charles Dickens</attrib>
 </disp-quote>
