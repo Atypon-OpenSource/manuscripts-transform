@@ -225,10 +225,12 @@ const moveFootnotes = (
     section = createFootnotesSection([fnGroup], createElement)
   }
   if (section) {
-    group.insertBefore(
-      section,
-      group.firstChild?.nextSibling || group.firstChild
-    )
+    // Insert the footnotes section before the last child of the group
+    if (group.lastChild) {
+      group.insertBefore(section, group.lastChild)
+    } else {
+      group.appendChild(section)
+    }
   }
 }
 
