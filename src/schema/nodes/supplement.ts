@@ -18,16 +18,18 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface SupplementAttrs {
   id: string
   href: string
   mimeType: string
   mimeSubType: string
   title: string
+  altText: string
+  longDesc: string
 }
 
 export interface SupplementNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: SupplementAttrs
 }
 
 export const supplement: NodeSpec = {
@@ -37,6 +39,8 @@ export const supplement: NodeSpec = {
     mimeType: { default: '' },
     mimeSubType: { default: '' },
     title: { default: '' },
+    altText: { default: '' },
+    longDesc: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block',

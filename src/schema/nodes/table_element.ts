@@ -18,12 +18,14 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface TableAttrs {
   id: string
+  altText: string
+  longDesc: string
 }
 
 export interface TableElementNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: TableAttrs
 }
 
 export const tableElement: NodeSpec = {
@@ -32,6 +34,8 @@ export const tableElement: NodeSpec = {
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
+    altText: { default: '' },
+    longDesc: { default: '' },
   },
   selectable: false,
   group: 'block element executable',

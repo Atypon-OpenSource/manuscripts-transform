@@ -16,10 +16,10 @@
 
 import {
   BibliographicName,
+  ObjectTypes,
   buildBibliographicDate,
   buildBibliographicName,
   buildContribution,
-  ObjectTypes,
 } from '@manuscripts/json-schema'
 import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
@@ -40,7 +40,7 @@ export class JATSDOMParser {
   private XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
   private parser: DOMParser
 
-  constructor(
+  constructor (
     private sectionCategories: SectionCategory[],
     private schema: Schema
   ) {
@@ -177,6 +177,8 @@ export class JATSDOMParser {
         element.getAttribute('content-type') ??
         '',
       src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
+      altText: getTrimmedTextContent(element, 'alt-text'),
+      longDesc: getTrimmedTextContent(element, 'long-desc'),
     }
   }
 
@@ -707,6 +709,8 @@ export class JATSDOMParser {
           href: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
           mimetype: element.getAttribute('mimetype'),
           mimeSubtype: element.getAttribute('mime-subtype'),
+          altText: getTrimmedTextContent(element, 'alt-text'),
+          longDesc: getTrimmedTextContent(element, 'long-desc'),
         }
       },
     },
@@ -757,13 +761,15 @@ export class JATSDOMParser {
 
         const attribution = attrib
           ? {
-              literal: getTrimmedTextContent(attrib) ?? '',
-            }
+            literal: getTrimmedTextContent(attrib) ?? '',
+          }
           : undefined
 
         return {
           id: element.getAttribute('id'),
           attribution,
+          altText: getTrimmedTextContent(element, 'alt-text'),
+          longDesc: getTrimmedTextContent(element, 'long-desc'),
         }
       },
     },
@@ -894,6 +900,8 @@ export class JATSDOMParser {
           mimeType: element.getAttribute('mimetype'),
           mimeSubType: element.getAttribute('mime-subtype'),
           title: getTrimmedTextContent(element, 'title'),
+          altText: getTrimmedTextContent(element, 'alt-text'),
+          longDesc: getTrimmedTextContent(element, 'long-desc'),
         }
       },
     },
@@ -1014,9 +1022,10 @@ export class JATSDOMParser {
       node: 'table_element',
       getAttrs: (node) => {
         const element = node as HTMLElement
-
         return {
           id: element.getAttribute('id'),
+          altText: getTrimmedTextContent(element, 'alt-text'),
+          longDesc: getTrimmedTextContent(element, 'long-desc'),
         }
       },
     },
