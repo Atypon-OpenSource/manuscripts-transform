@@ -2142,114 +2142,6 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "coi-statement",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "Conflict of Interest",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "No conflicts of interest have been declared.",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-          ],
-          "type": "section",
-        },
-        Object {
-          "attrs": Object {
-            "category": "financial-disclosure",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "Sources of Funding",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-          ],
-          "type": "section",
-        },
-        Object {
-          "attrs": Object {
-            "category": "acknowledgements",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "Acknowledgments",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "We should like to thank Dr. Da Chun Chen, Zhi Ren Wang, Jia Li, Song Chen, and Gui Gang Yang for all of their hark work and significant contributions toward this work.",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-          ],
-          "type": "section",
-        },
-        Object {
-          "attrs": Object {
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -2395,6 +2287,114 @@ Object {
             },
           ],
           "type": "bibliography_section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "coi-statement",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Conflict of Interest",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "No conflicts of interest have been declared.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "financial-disclosure",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Sources of Funding",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "acknowledgements",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Acknowledgments",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "We should like to thank Dr. Da Chun Chen, Zhi Ren Wang, Jia Li, Song Chen, and Gui Gang Yang for all of their hark work and significant contributions toward this work.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
         },
       ],
       "type": "backmatter",
@@ -3742,78 +3742,6 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "coi-statement",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "CONFLICT OF INTEREST",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "No conflicts of interest have been declared.",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-          ],
-          "type": "section",
-        },
-        Object {
-          "attrs": Object {
-            "category": "financial-disclosure",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "FUNDING INFORMATION",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-          ],
-          "type": "section",
-        },
-        Object {
-          "attrs": Object {
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -3920,6 +3848,78 @@ Object {
             },
           ],
           "type": "bibliography_section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "coi-statement",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "CONFLICT OF INTEREST",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "No conflicts of interest have been declared.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "financial-disclosure",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "FUNDING INFORMATION",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
         },
       ],
       "type": "backmatter",
@@ -18527,162 +18527,6 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "con",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "AUTHOR CONTRIBUTIONS",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "Thomas S.Y. Chan: treated the patients, wrote and approved the manuscript",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "Yu-Yan Hwang: treated the patients, wrote and approved the manuscript",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "Pek-Lan Khong: performed the radiologic diagnosis, and approved the manuscript",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "Anskar Y.H. Leung: treated the patients, and approved the manuscript",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "Chor-Sang Chim: treated the patients, and approved the manuscript",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "Eric Tse: treated the patients, and approved the manuscript",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "Yok-Lam Kwong: treated the patients, wrote and approved the manuscript",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-          ],
-          "type": "section",
-        },
-        Object {
-          "attrs": Object {
-            "category": "coi-statement",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "Acknowledgment and conflicts of interests",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "The authors have no acknowledgment to make and no conflicts of interests to declare.",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-          ],
-          "type": "section",
-        },
-        Object {
-          "attrs": Object {
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -20080,6 +19924,162 @@ Object {
             },
           ],
           "type": "bibliography_section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "con",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "AUTHOR CONTRIBUTIONS",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Thomas S.Y. Chan: treated the patients, wrote and approved the manuscript",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Yu-Yan Hwang: treated the patients, wrote and approved the manuscript",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Pek-Lan Khong: performed the radiologic diagnosis, and approved the manuscript",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Anskar Y.H. Leung: treated the patients, and approved the manuscript",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Chor-Sang Chim: treated the patients, and approved the manuscript",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Eric Tse: treated the patients, and approved the manuscript",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Yok-Lam Kwong: treated the patients, wrote and approved the manuscript",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "coi-statement",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Acknowledgment and conflicts of interests",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "The authors have no acknowledgment to make and no conflicts of interests to declare.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
         },
       ],
       "type": "backmatter",
@@ -29969,6 +29969,70 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "References",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "contents": "",
+                "dataTracked": null,
+                "id": "MPBibliographyElement:test",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Day",
+                        "given": "R.N.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "EDCC",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": "2",
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2008",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "123-134",
+                    "supplement": undefined,
+                    "title": "This is the article title.",
+                    "type": "article-journal",
+                    "volume": "3",
+                  },
+                  "type": "bibliography_item",
+                },
+              ],
+              "type": "bibliography_element",
+            },
+          ],
+          "type": "bibliography_section",
+        },
+        Object {
+          "attrs": Object {
             "category": "availability",
             "dataTracked": null,
             "id": "MPSection:test",
@@ -30338,70 +30402,6 @@ Object {
             },
           ],
           "type": "section",
-        },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "References",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "contents": "",
-                "dataTracked": null,
-                "id": "MPBibliographyElement:test",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Day",
-                        "given": "R.N.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "EDCC",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": "2",
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2008",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "123-134",
-                    "supplement": undefined,
-                    "title": "This is the article title.",
-                    "type": "article-journal",
-                    "volume": "3",
-                  },
-                  "type": "bibliography_item",
-                },
-              ],
-              "type": "bibliography_element",
-            },
-          ],
-          "type": "bibliography_section",
         },
       ],
       "type": "backmatter",
@@ -38952,204 +38952,6 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "availability",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "DATA AVAILABILITY",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "The data that support the findings of this study are not available due to national privacy or ethical restrictions.",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-          ],
-          "type": "section",
-        },
-        Object {
-          "attrs": Object {
-            "category": "con",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "Contributor Information",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "Agnete Hviid Hornnes, Email: agnete.hviid.hornnes@regionh.dk ",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "href": "https://orcid.org/0000-0003-2217-5904",
-                    "title": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "https//orcid.org/0000-0003-2217-5904",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "link",
-                },
-                Object {
-                  "text": " Mai Bang Poulsen, Email: mai.bang.poulsen.02@regionh.dk",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "Both authors have made substantial contributions to conception and design and acquisitions and analyses ",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "id": "MPCommentAnnotation:test",
-                    "position": "point",
-                  },
-                  "type": "highlight_marker",
-                },
-                Object {
-                  "text": " and interpretation of data and have; and been involved in writing the manuscript and given final approval of the version to be published. Both authors have participated sufficiently in the work to take public responsibility for the content; and agree to be accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity of any part of the work are appropriately investigated and resolved.",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-          ],
-          "type": "section",
-        },
-        Object {
-          "attrs": Object {
-            "category": "coi-statement",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "CONFLICT OF INTEREST",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "None.",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-          ],
-          "type": "section",
-        },
-        Object {
-          "attrs": Object {
-            "category": "acknowledgements",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "ACKNOWLEDGMENTS",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "None.",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPCitation:test",
-                    "rids": Array [
-                      "MPBibliographyItem:test",
-                    ],
-                    "selectedText": "",
-                  },
-                  "type": "citation",
-                },
-              ],
-              "type": "paragraph",
-            },
-          ],
-          "type": "section",
-        },
-        Object {
-          "attrs": Object {
             "dataTracked": null,
             "id": "MPSection:test",
           },
@@ -40620,6 +40422,204 @@ Object {
             },
           ],
           "type": "bibliography_section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "availability",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "DATA AVAILABILITY",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "The data that support the findings of this study are not available due to national privacy or ethical restrictions.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "con",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Contributor Information",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Agnete Hviid Hornnes, Email: agnete.hviid.hornnes@regionh.dk ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "href": "https://orcid.org/0000-0003-2217-5904",
+                    "title": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "https//orcid.org/0000-0003-2217-5904",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "link",
+                },
+                Object {
+                  "text": " Mai Bang Poulsen, Email: mai.bang.poulsen.02@regionh.dk",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "Both authors have made substantial contributions to conception and design and acquisitions and analyses ",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPCommentAnnotation:test",
+                    "position": "point",
+                  },
+                  "type": "highlight_marker",
+                },
+                Object {
+                  "text": " and interpretation of data and have; and been involved in writing the manuscript and given final approval of the version to be published. Both authors have participated sufficiently in the work to take public responsibility for the content; and agree to be accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity of any part of the work are appropriately investigated and resolved.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "coi-statement",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "CONFLICT OF INTEREST",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "None.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "acknowledgements",
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "ACKNOWLEDGMENTS",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "None.",
+                  "type": "text",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPCitation:test",
+                    "rids": Array [
+                      "MPBibliographyItem:test",
+                    ],
+                    "selectedText": "",
+                  },
+                  "type": "citation",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "section",
         },
       ],
       "type": "backmatter",
@@ -50957,6 +50957,1585 @@ Object {
               },
               "content": Array [
                 Object {
+                  "text": "References",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "contents": "",
+                "dataTracked": null,
+                "id": "MPBibliographyElement:test",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Amihud",
+                        "given": "Y.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial Markets",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2002",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "31-56",
+                    "supplement": undefined,
+                    "title": "Illiquidity and stock returns: Cross-section and time-series effects",
+                    "type": "article-journal",
+                    "volume": "5",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Amihud",
+                        "given": "Y.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Mendelson",
+                        "given": "H.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial Economics",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "1986",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "223-49",
+                    "supplement": undefined,
+                    "title": "Asset pricing and the bid-ask spread",
+                    "type": "article-journal",
+                    "volume": "17",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Baker",
+                        "given": "S. R.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Bloom",
+                        "given": "N.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Davis",
+                        "given": "S. J.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Quarterly Journal of Economics",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2016",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1593-1636",
+                    "supplement": undefined,
+                    "title": "Measuring economic policy uncertainty",
+                    "type": "article-journal",
+                    "volume": "131",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Barry",
+                        "given": "C. B.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Brown",
+                        "given": "S. J.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial Economics",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "1984",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "283-94",
+                    "supplement": undefined,
+                    "title": "Differential information and the small firm effect",
+                    "type": "article-journal",
+                    "volume": "13",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Bhattacharya",
+                        "given": "U.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Hsu",
+                        "given": "P. H.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Tian",
+                        "given": "X.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Xu",
+                        "given": "Y.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial and Quantitative Analysis",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2017",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1869-1901",
+                    "supplement": undefined,
+                    "title": "What affects innovation more: Policy or policy uncertainty?",
+                    "type": "article-journal",
+                    "volume": "52",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Białkowski",
+                        "given": "J.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Gottschalk",
+                        "given": "K.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Wisniewski",
+                        "given": "T. P.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Banking &amp; Finance",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2008",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1941-53",
+                    "supplement": undefined,
+                    "title": "Stock market volatility around national elections",
+                    "type": "article-journal",
+                    "volume": "32",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Bonaparte",
+                        "given": "Y.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Kumar",
+                        "given": "A.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Page",
+                        "given": "J. K.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial Markets",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2017",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "69-94",
+                    "supplement": undefined,
+                    "title": "Political climate, optimism, and investment decisions",
+                    "type": "article-journal",
+                    "volume": "34",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Boutchkova",
+                        "given": "M.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Doshi",
+                        "given": "H.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Durnev",
+                        "given": "A.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Molchanov",
+                        "given": "A.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Review of Financial Studies",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2011",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1111-1154",
+                    "supplement": undefined,
+                    "title": "Precarious politics and return volatility.",
+                    "type": "article-journal",
+                    "volume": "25",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Boutchkova",
+                        "given": "M.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Doshi",
+                        "given": "H.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Durnev",
+                        "given": "A.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Molchanov",
+                        "given": "A.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Review of Financial Studies",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2012",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1111-54",
+                    "supplement": undefined,
+                    "title": "Precarious politics and return volatility",
+                    "type": "article-journal",
+                    "volume": "25",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Brogaard",
+                        "given": "J.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Detzel",
+                        "given": "A.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Management Science",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2015",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "3-18",
+                    "supplement": undefined,
+                    "title": "The asset-pricing implications of government economic policy uncertainty",
+                    "type": "article-journal",
+                    "volume": "61",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Brown",
+                        "given": "K. C.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Harlow",
+                        "given": "W. V.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Tinic",
+                        "given": "S. M.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial Economics",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "1988",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "355-85",
+                    "supplement": undefined,
+                    "title": "Risk aversion, uncertain information, and market efficiency",
+                    "type": "article-journal",
+                    "volume": "22",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Easley",
+                        "given": "D.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "O’Hara",
+                        "given": "M.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial Economics",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "1987",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "69-90",
+                    "supplement": undefined,
+                    "title": "Price, trade size, and information in securities markets",
+                    "type": "article-journal",
+                    "volume": "19",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Gemmill",
+                        "given": "G.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Banking &amp; Finance",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "1992",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "211-31",
+                    "supplement": undefined,
+                    "title": "Political risk and market efficiency: Tests based in British stock and options markets in the 1987 election",
+                    "type": "article-journal",
+                    "volume": "16",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Goodell",
+                        "given": "J. W.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Vähämaa",
+                        "given": "S.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Banking &amp; Finance",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2013",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1108-17",
+                    "supplement": undefined,
+                    "title": "US presidential elections and implied volatility: The role of political uncertainty",
+                    "type": "article-journal",
+                    "volume": "37",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Gungoraydinoglu",
+                        "given": "A.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Çolak",
+                        "given": "G.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Öztekin",
+                        "given": "Ö.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Corporate Finance",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2017",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "167-92",
+                    "supplement": undefined,
+                    "title": "Political environment, financial intermediation costs, and financing patterns",
+                    "type": "article-journal",
+                    "volume": "44",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "He",
+                        "given": "Y.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Lin",
+                        "given": "H.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Wu",
+                        "given": "C.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Dufrene",
+                        "given": "U. B.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial Markets",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2009",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "54-86",
+                    "supplement": undefined,
+                    "title": "The 2000 presidential election and the information cost of sensitive versus non-sensitive S&amp;P 500 stocks",
+                    "type": "article-journal",
+                    "volume": "12",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Ho",
+                        "given": "T.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Stoll",
+                        "given": "H. R.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial Economics",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "1981",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "47-73",
+                    "supplement": undefined,
+                    "title": "Optimal dealer pricing under transactions and return uncertainty",
+                    "type": "article-journal",
+                    "volume": "9",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Holden",
+                        "given": "C. W.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Jacobsen",
+                        "given": "S.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Finance",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2014",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1747-85",
+                    "supplement": undefined,
+                    "title": "Liquidity measurement problems in fast, competitive markets: Expensive and cheap solutions",
+                    "type": "article-journal",
+                    "volume": "69",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Hong",
+                        "given": "H.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Kostovetsky",
+                        "given": "L.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial Economics",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2012",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1-19",
+                    "supplement": undefined,
+                    "title": "Red and blue investing: Values and finance",
+                    "type": "article-journal",
+                    "volume": "103",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Julio",
+                        "given": "B.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Yook",
+                        "given": "Y.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Finance",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2012",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "45-83",
+                    "supplement": undefined,
+                    "title": "Political uncertainty and corporate investment cycles",
+                    "type": "article-journal",
+                    "volume": "67",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Kelly",
+                        "given": "B.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Pástor",
+                        "given": "L.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Veronesi",
+                        "given": "P.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Finance",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2016",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "2417-79",
+                    "supplement": undefined,
+                    "title": "The price of political uncertainty: Theory and evidence from the option market",
+                    "type": "article-journal",
+                    "volume": "71",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Kyle",
+                        "given": "A. S.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Econometrica",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "1985",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1315-35",
+                    "supplement": undefined,
+                    "title": "Continuous auctions and insider trading",
+                    "type": "article-journal",
+                    "volume": "53",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Lee",
+                        "given": "C.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Ready",
+                        "given": "M. J.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Finance",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "1991",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "733-46",
+                    "supplement": undefined,
+                    "title": "Inferring trade direction from intraday data",
+                    "type": "article-journal",
+                    "volume": "46",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Li",
+                        "given": "J.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Born",
+                        "given": "J. A.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial Research",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2006",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "609-22",
+                    "supplement": undefined,
+                    "title": "Presidential election uncertainty and common stock returns in the United States",
+                    "type": "article-journal",
+                    "volume": "29",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Liu",
+                        "given": "L. X.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Shu",
+                        "given": "H.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Wei",
+                        "given": "K. J.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial Economics",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2017",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "286-310",
+                    "supplement": undefined,
+                    "title": "The impacts of political uncertainty on asset prices: Evidence from the Bo scandal in China",
+                    "type": "article-journal",
+                    "volume": "125",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Marshall",
+                        "given": "B. R.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Nguyen",
+                        "given": "H. T.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Nguyen",
+                        "given": "N. H.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Visaltanachoti",
+                        "given": "N.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial Markets",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2017",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1-13",
+                    "supplement": undefined,
+                    "title": "Politics and liquidity",
+                    "type": "article-journal",
+                    "volume": "38",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Mei",
+                        "given": "J.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Guo",
+                        "given": "L.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "European Financial Management",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2004",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "639-57",
+                    "supplement": undefined,
+                    "title": "Political uncertainty, financial crisis and market volatility",
+                    "type": "article-journal",
+                    "volume": "10",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Nippani",
+                        "given": "S.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Arize",
+                        "given": "A. C.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Economics and Finance",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2005",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "271-79",
+                    "supplement": undefined,
+                    "title": "US presidential election impact on Canadian and Mexican stock markets",
+                    "type": "article-journal",
+                    "volume": "29",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Nippani",
+                        "given": "S.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Medlin",
+                        "given": "W. B.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Economics and Finance",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2002",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "162-69",
+                    "supplement": undefined,
+                    "title": "The 2000 presidential election and the stock market",
+                    "type": "article-journal",
+                    "volume": "26",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Ozsoylev",
+                        "given": "H.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Werner",
+                        "given": "J.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Economic Theory",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2011",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "469-91",
+                    "supplement": undefined,
+                    "title": "Liquidity and asset prices in rational expectations equilibrium with ambiguous information",
+                    "type": "article-journal",
+                    "volume": "48",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Pantzalis",
+                        "given": "C.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Stangeland",
+                        "given": "D. A.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Turtle",
+                        "given": "H. J.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Banking &amp; Finance",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2000",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1575-1604",
+                    "supplement": undefined,
+                    "title": "Political elections and the resolution of uncertainty: The international evidence",
+                    "type": "article-journal",
+                    "volume": "24",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": undefined,
+                    "containerTitle": undefined,
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": undefined,
+                    "literal": "Pasquariello, P., and C. Zafeiridou, 2014, Political uncertainty and financial market liquidity, Working Paper, University of Michigan.",
+                    "page": undefined,
+                    "supplement": undefined,
+                    "title": undefined,
+                    "type": "article-journal",
+                    "volume": undefined,
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Pástor",
+                        "given": "L.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Stambaugh",
+                        "given": "R.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Political Economy",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2003",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "642-85",
+                    "supplement": undefined,
+                    "title": "Liquidity risk and expected stock returns",
+                    "type": "article-journal",
+                    "volume": "111",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Pástor",
+                        "given": "L.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Veronesi",
+                        "given": "P.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Finance",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2012",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1219-64",
+                    "supplement": undefined,
+                    "title": "Uncertainty about government policy and stock prices",
+                    "type": "article-journal",
+                    "volume": "67",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Pástor",
+                        "given": "L.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Veronesi",
+                        "given": "P.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Financial Economics",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2013",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "520-45",
+                    "supplement": undefined,
+                    "title": "Political uncertainty and risk premia",
+                    "type": "article-journal",
+                    "volume": "110",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Pérignon",
+                        "given": "C.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Vallée",
+                        "given": "B.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Review of Financial Studies",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2017",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1903-34",
+                    "supplement": undefined,
+                    "title": "The political economy of financial innovation: Evidence from local governments",
+                    "type": "article-journal",
+                    "volume": "30",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": Array [
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Santa‐Clara",
+                        "given": "P.",
+                        "objectType": "MPBibliographicName",
+                      },
+                      Object {
+                        "_id": "MPBibliographicName:test",
+                        "family": "Valkanov",
+                        "given": "R.",
+                        "objectType": "MPBibliographicName",
+                      },
+                    ],
+                    "containerTitle": "Journal of Finance",
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": Object {
+                      "_id": "MPBibliographicDate:test",
+                      "date-parts": Array [
+                        Array [
+                          "2003",
+                        ],
+                      ],
+                      "objectType": "MPBibliographicDate",
+                    },
+                    "literal": undefined,
+                    "page": "1841-72",
+                    "supplement": undefined,
+                    "title": "The presidential puzzle: Political cycles and the stock market",
+                    "type": "article-journal",
+                    "volume": "58",
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": undefined,
+                    "containerTitle": undefined,
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": undefined,
+                    "literal": "Voth, H. J., 2002, Stock price volatility and political uncertainty: Evidence from the interwar period, Working Paper, University of Zurich.",
+                    "page": undefined,
+                    "supplement": undefined,
+                    "title": undefined,
+                    "type": "article-journal",
+                    "volume": undefined,
+                  },
+                  "type": "bibliography_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "author": undefined,
+                    "containerTitle": undefined,
+                    "dataTracked": null,
+                    "doi": undefined,
+                    "id": "MPBibliographyItem:test",
+                    "issue": undefined,
+                    "issued": undefined,
+                    "literal": "test-authorJintest reference which contains unparsed text",
+                    "page": undefined,
+                    "supplement": undefined,
+                    "title": undefined,
+                    "type": "article-journal",
+                    "volume": undefined,
+                  },
+                  "type": "bibliography_item",
+                },
+              ],
+              "type": "bibliography_element",
+            },
+          ],
+          "type": "bibliography_section",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPSection:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
                   "text": "Footnotes",
                   "type": "text",
                 },
@@ -53207,1585 +54786,6 @@ Object {
             },
           ],
           "type": "section",
-        },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "References",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "contents": "",
-                "dataTracked": null,
-                "id": "MPBibliographyElement:test",
-              },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Amihud",
-                        "given": "Y.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial Markets",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2002",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "31-56",
-                    "supplement": undefined,
-                    "title": "Illiquidity and stock returns: Cross-section and time-series effects",
-                    "type": "article-journal",
-                    "volume": "5",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Amihud",
-                        "given": "Y.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Mendelson",
-                        "given": "H.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial Economics",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "1986",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "223-49",
-                    "supplement": undefined,
-                    "title": "Asset pricing and the bid-ask spread",
-                    "type": "article-journal",
-                    "volume": "17",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Baker",
-                        "given": "S. R.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Bloom",
-                        "given": "N.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Davis",
-                        "given": "S. J.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Quarterly Journal of Economics",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2016",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1593-1636",
-                    "supplement": undefined,
-                    "title": "Measuring economic policy uncertainty",
-                    "type": "article-journal",
-                    "volume": "131",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Barry",
-                        "given": "C. B.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Brown",
-                        "given": "S. J.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial Economics",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "1984",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "283-94",
-                    "supplement": undefined,
-                    "title": "Differential information and the small firm effect",
-                    "type": "article-journal",
-                    "volume": "13",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Bhattacharya",
-                        "given": "U.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Hsu",
-                        "given": "P. H.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Tian",
-                        "given": "X.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Xu",
-                        "given": "Y.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial and Quantitative Analysis",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2017",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1869-1901",
-                    "supplement": undefined,
-                    "title": "What affects innovation more: Policy or policy uncertainty?",
-                    "type": "article-journal",
-                    "volume": "52",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Białkowski",
-                        "given": "J.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Gottschalk",
-                        "given": "K.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Wisniewski",
-                        "given": "T. P.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Banking &amp; Finance",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2008",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1941-53",
-                    "supplement": undefined,
-                    "title": "Stock market volatility around national elections",
-                    "type": "article-journal",
-                    "volume": "32",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Bonaparte",
-                        "given": "Y.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Kumar",
-                        "given": "A.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Page",
-                        "given": "J. K.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial Markets",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2017",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "69-94",
-                    "supplement": undefined,
-                    "title": "Political climate, optimism, and investment decisions",
-                    "type": "article-journal",
-                    "volume": "34",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Boutchkova",
-                        "given": "M.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Doshi",
-                        "given": "H.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Durnev",
-                        "given": "A.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Molchanov",
-                        "given": "A.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Review of Financial Studies",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2011",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1111-1154",
-                    "supplement": undefined,
-                    "title": "Precarious politics and return volatility.",
-                    "type": "article-journal",
-                    "volume": "25",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Boutchkova",
-                        "given": "M.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Doshi",
-                        "given": "H.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Durnev",
-                        "given": "A.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Molchanov",
-                        "given": "A.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Review of Financial Studies",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2012",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1111-54",
-                    "supplement": undefined,
-                    "title": "Precarious politics and return volatility",
-                    "type": "article-journal",
-                    "volume": "25",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Brogaard",
-                        "given": "J.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Detzel",
-                        "given": "A.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Management Science",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2015",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "3-18",
-                    "supplement": undefined,
-                    "title": "The asset-pricing implications of government economic policy uncertainty",
-                    "type": "article-journal",
-                    "volume": "61",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Brown",
-                        "given": "K. C.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Harlow",
-                        "given": "W. V.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Tinic",
-                        "given": "S. M.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial Economics",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "1988",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "355-85",
-                    "supplement": undefined,
-                    "title": "Risk aversion, uncertain information, and market efficiency",
-                    "type": "article-journal",
-                    "volume": "22",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Easley",
-                        "given": "D.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "O’Hara",
-                        "given": "M.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial Economics",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "1987",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "69-90",
-                    "supplement": undefined,
-                    "title": "Price, trade size, and information in securities markets",
-                    "type": "article-journal",
-                    "volume": "19",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Gemmill",
-                        "given": "G.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Banking &amp; Finance",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "1992",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "211-31",
-                    "supplement": undefined,
-                    "title": "Political risk and market efficiency: Tests based in British stock and options markets in the 1987 election",
-                    "type": "article-journal",
-                    "volume": "16",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Goodell",
-                        "given": "J. W.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Vähämaa",
-                        "given": "S.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Banking &amp; Finance",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2013",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1108-17",
-                    "supplement": undefined,
-                    "title": "US presidential elections and implied volatility: The role of political uncertainty",
-                    "type": "article-journal",
-                    "volume": "37",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Gungoraydinoglu",
-                        "given": "A.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Çolak",
-                        "given": "G.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Öztekin",
-                        "given": "Ö.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Corporate Finance",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2017",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "167-92",
-                    "supplement": undefined,
-                    "title": "Political environment, financial intermediation costs, and financing patterns",
-                    "type": "article-journal",
-                    "volume": "44",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "He",
-                        "given": "Y.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Lin",
-                        "given": "H.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Wu",
-                        "given": "C.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Dufrene",
-                        "given": "U. B.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial Markets",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2009",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "54-86",
-                    "supplement": undefined,
-                    "title": "The 2000 presidential election and the information cost of sensitive versus non-sensitive S&amp;P 500 stocks",
-                    "type": "article-journal",
-                    "volume": "12",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Ho",
-                        "given": "T.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Stoll",
-                        "given": "H. R.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial Economics",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "1981",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "47-73",
-                    "supplement": undefined,
-                    "title": "Optimal dealer pricing under transactions and return uncertainty",
-                    "type": "article-journal",
-                    "volume": "9",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Holden",
-                        "given": "C. W.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Jacobsen",
-                        "given": "S.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Finance",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2014",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1747-85",
-                    "supplement": undefined,
-                    "title": "Liquidity measurement problems in fast, competitive markets: Expensive and cheap solutions",
-                    "type": "article-journal",
-                    "volume": "69",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Hong",
-                        "given": "H.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Kostovetsky",
-                        "given": "L.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial Economics",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2012",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1-19",
-                    "supplement": undefined,
-                    "title": "Red and blue investing: Values and finance",
-                    "type": "article-journal",
-                    "volume": "103",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Julio",
-                        "given": "B.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Yook",
-                        "given": "Y.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Finance",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2012",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "45-83",
-                    "supplement": undefined,
-                    "title": "Political uncertainty and corporate investment cycles",
-                    "type": "article-journal",
-                    "volume": "67",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Kelly",
-                        "given": "B.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Pástor",
-                        "given": "L.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Veronesi",
-                        "given": "P.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Finance",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2016",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "2417-79",
-                    "supplement": undefined,
-                    "title": "The price of political uncertainty: Theory and evidence from the option market",
-                    "type": "article-journal",
-                    "volume": "71",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Kyle",
-                        "given": "A. S.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Econometrica",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "1985",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1315-35",
-                    "supplement": undefined,
-                    "title": "Continuous auctions and insider trading",
-                    "type": "article-journal",
-                    "volume": "53",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Lee",
-                        "given": "C.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Ready",
-                        "given": "M. J.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Finance",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "1991",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "733-46",
-                    "supplement": undefined,
-                    "title": "Inferring trade direction from intraday data",
-                    "type": "article-journal",
-                    "volume": "46",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Li",
-                        "given": "J.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Born",
-                        "given": "J. A.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial Research",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2006",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "609-22",
-                    "supplement": undefined,
-                    "title": "Presidential election uncertainty and common stock returns in the United States",
-                    "type": "article-journal",
-                    "volume": "29",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Liu",
-                        "given": "L. X.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Shu",
-                        "given": "H.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Wei",
-                        "given": "K. J.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial Economics",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2017",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "286-310",
-                    "supplement": undefined,
-                    "title": "The impacts of political uncertainty on asset prices: Evidence from the Bo scandal in China",
-                    "type": "article-journal",
-                    "volume": "125",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Marshall",
-                        "given": "B. R.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Nguyen",
-                        "given": "H. T.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Nguyen",
-                        "given": "N. H.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Visaltanachoti",
-                        "given": "N.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial Markets",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2017",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1-13",
-                    "supplement": undefined,
-                    "title": "Politics and liquidity",
-                    "type": "article-journal",
-                    "volume": "38",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Mei",
-                        "given": "J.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Guo",
-                        "given": "L.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "European Financial Management",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2004",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "639-57",
-                    "supplement": undefined,
-                    "title": "Political uncertainty, financial crisis and market volatility",
-                    "type": "article-journal",
-                    "volume": "10",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Nippani",
-                        "given": "S.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Arize",
-                        "given": "A. C.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Economics and Finance",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2005",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "271-79",
-                    "supplement": undefined,
-                    "title": "US presidential election impact on Canadian and Mexican stock markets",
-                    "type": "article-journal",
-                    "volume": "29",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Nippani",
-                        "given": "S.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Medlin",
-                        "given": "W. B.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Economics and Finance",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2002",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "162-69",
-                    "supplement": undefined,
-                    "title": "The 2000 presidential election and the stock market",
-                    "type": "article-journal",
-                    "volume": "26",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Ozsoylev",
-                        "given": "H.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Werner",
-                        "given": "J.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Economic Theory",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2011",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "469-91",
-                    "supplement": undefined,
-                    "title": "Liquidity and asset prices in rational expectations equilibrium with ambiguous information",
-                    "type": "article-journal",
-                    "volume": "48",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Pantzalis",
-                        "given": "C.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Stangeland",
-                        "given": "D. A.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Turtle",
-                        "given": "H. J.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Banking &amp; Finance",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2000",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1575-1604",
-                    "supplement": undefined,
-                    "title": "Political elections and the resolution of uncertainty: The international evidence",
-                    "type": "article-journal",
-                    "volume": "24",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": undefined,
-                    "containerTitle": undefined,
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": undefined,
-                    "literal": "Pasquariello, P., and C. Zafeiridou, 2014, Political uncertainty and financial market liquidity, Working Paper, University of Michigan.",
-                    "page": undefined,
-                    "supplement": undefined,
-                    "title": undefined,
-                    "type": "article-journal",
-                    "volume": undefined,
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Pástor",
-                        "given": "L.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Stambaugh",
-                        "given": "R.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Political Economy",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2003",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "642-85",
-                    "supplement": undefined,
-                    "title": "Liquidity risk and expected stock returns",
-                    "type": "article-journal",
-                    "volume": "111",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Pástor",
-                        "given": "L.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Veronesi",
-                        "given": "P.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Finance",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2012",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1219-64",
-                    "supplement": undefined,
-                    "title": "Uncertainty about government policy and stock prices",
-                    "type": "article-journal",
-                    "volume": "67",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Pástor",
-                        "given": "L.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Veronesi",
-                        "given": "P.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Financial Economics",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2013",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "520-45",
-                    "supplement": undefined,
-                    "title": "Political uncertainty and risk premia",
-                    "type": "article-journal",
-                    "volume": "110",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Pérignon",
-                        "given": "C.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Vallée",
-                        "given": "B.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Review of Financial Studies",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2017",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1903-34",
-                    "supplement": undefined,
-                    "title": "The political economy of financial innovation: Evidence from local governments",
-                    "type": "article-journal",
-                    "volume": "30",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": Array [
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Santa‐Clara",
-                        "given": "P.",
-                        "objectType": "MPBibliographicName",
-                      },
-                      Object {
-                        "_id": "MPBibliographicName:test",
-                        "family": "Valkanov",
-                        "given": "R.",
-                        "objectType": "MPBibliographicName",
-                      },
-                    ],
-                    "containerTitle": "Journal of Finance",
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": Object {
-                      "_id": "MPBibliographicDate:test",
-                      "date-parts": Array [
-                        Array [
-                          "2003",
-                        ],
-                      ],
-                      "objectType": "MPBibliographicDate",
-                    },
-                    "literal": undefined,
-                    "page": "1841-72",
-                    "supplement": undefined,
-                    "title": "The presidential puzzle: Political cycles and the stock market",
-                    "type": "article-journal",
-                    "volume": "58",
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": undefined,
-                    "containerTitle": undefined,
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": undefined,
-                    "literal": "Voth, H. J., 2002, Stock price volatility and political uncertainty: Evidence from the interwar period, Working Paper, University of Zurich.",
-                    "page": undefined,
-                    "supplement": undefined,
-                    "title": undefined,
-                    "type": "article-journal",
-                    "volume": undefined,
-                  },
-                  "type": "bibliography_item",
-                },
-                Object {
-                  "attrs": Object {
-                    "author": undefined,
-                    "containerTitle": undefined,
-                    "dataTracked": null,
-                    "doi": undefined,
-                    "id": "MPBibliographyItem:test",
-                    "issue": undefined,
-                    "issued": undefined,
-                    "literal": "test-authorJintest reference which contains unparsed text",
-                    "page": undefined,
-                    "supplement": undefined,
-                    "title": undefined,
-                    "type": "article-journal",
-                    "volume": undefined,
-                  },
-                  "type": "bibliography_item",
-                },
-              ],
-              "type": "bibliography_element",
-            },
-          ],
-          "type": "bibliography_section",
         },
       ],
       "type": "backmatter",
