@@ -200,8 +200,8 @@ export const createBackmatter = (
   moveBackSections(doc, group)
   moveAppendices(doc, group, createElement)
   moveSpecialFootnotes(doc, group, sectionCategories, createElement)
-  moveFootnotes(doc, group, createElement)
   moveAcknowledgments(doc, group, createElement)
+  moveFootnotes(doc, group, createElement)
   body.append(group)
 }
 
@@ -225,10 +225,7 @@ const moveFootnotes = (
     section = createFootnotesSection([fnGroup], createElement)
   }
   if (section) {
-    group.insertBefore(
-      section,
-      group.firstChild?.nextSibling || group.firstChild
-    )
+    group.appendChild(section)
   }
 }
 
