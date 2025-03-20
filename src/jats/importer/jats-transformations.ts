@@ -225,14 +225,7 @@ const moveFootnotes = (
     section = createFootnotesSection([fnGroup], createElement)
   }
   if (section) {
-    const lastChild = group.lastElementChild
-
-    // Insert the footnotes section before the last child of type bibliography
-    if (lastChild?.getAttribute('sec-type') === 'bibliography') {
-      group.insertBefore(section, lastChild)
-    } else {
-      group.appendChild(section)
-    }
+    group.appendChild(section)
   }
 }
 
