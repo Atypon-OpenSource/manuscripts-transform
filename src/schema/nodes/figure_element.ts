@@ -19,13 +19,15 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 import { AttributionNode } from './attribution'
 
-interface Attrs {
+export interface FigureElementAttrs {
   id: string
   attribution?: AttributionNode
+  altText: string
+  longDesc: string
 }
 
 export interface FigureElementNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: FigureElementAttrs
 }
 
 export const figureElement: NodeSpec = {
@@ -35,6 +37,8 @@ export const figureElement: NodeSpec = {
     id: { default: '' },
     attribution: { default: undefined },
     dataTracked: { default: null },
+    altText: { default: '' },
+    longDesc: { default: '' },
   },
   selectable: false,
   group: 'block element executable',

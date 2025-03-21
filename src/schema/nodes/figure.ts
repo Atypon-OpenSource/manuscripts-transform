@@ -18,12 +18,16 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
+export interface FigureAttrs {
+  id: string
+  src: string
+  type: string
+  altText: string
+  longDesc: string
+}
+
 export interface FigureNode extends ManuscriptNode {
-  attrs: {
-    id: string
-    src: string
-    type: string
-  }
+  attrs: FigureAttrs
 }
 
 export const figure: NodeSpec = {
@@ -31,6 +35,8 @@ export const figure: NodeSpec = {
     id: { default: '' },
     src: { default: '' },
     type: { default: '' },
+    altText: { default: '' },
+    longDesc: { default: '' },
     dataTracked: { default: null },
   },
   selectable: false,
