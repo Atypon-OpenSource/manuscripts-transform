@@ -16,10 +16,10 @@
 
 import {
   BibliographicName,
-  ObjectTypes,
   buildBibliographicDate,
   buildBibliographicName,
   buildContribution,
+  ObjectTypes,
 } from '@manuscripts/json-schema'
 import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
@@ -40,7 +40,7 @@ export class JATSDOMParser {
   private XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
   private parser: DOMParser
 
-  constructor (
+  constructor(
     private sectionCategories: SectionCategory[],
     private schema: Schema
   ) {
@@ -761,8 +761,8 @@ export class JATSDOMParser {
 
         const attribution = attrib
           ? {
-            literal: getTrimmedTextContent(attrib) ?? '',
-          }
+              literal: getTrimmedTextContent(attrib) ?? '',
+            }
           : undefined
 
         return {
