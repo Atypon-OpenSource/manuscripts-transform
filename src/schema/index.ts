@@ -29,11 +29,11 @@ import {
   tracked_insert,
   underline,
 } from './marks'
-import { altTitlesSection } from './nodes/alt_titles_section'
 import { abstracts } from './nodes/abstracts'
 import { affiliation } from './nodes/affiliation'
 import { affiliations } from './nodes/affiliations'
 import { altTitle } from './nodes/alt_title'
+import { altTitlesSection } from './nodes/alt_titles_section'
 import { attachment } from './nodes/attachment'
 import { attachments } from './nodes/attachments'
 import { attribution } from './nodes/attribution'
