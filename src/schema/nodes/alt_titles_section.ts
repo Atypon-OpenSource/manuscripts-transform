@@ -54,7 +54,7 @@ export const altTitlesSection: NodeSpec = {
   },
 }
 
-export const isFootnotesSectionNode = (
+export const isAltTitlesSectionNode = (
   node: ManuscriptNode
 ): node is AltTitlesSectionNode =>
   node.type === node.type.schema.nodes.footnotes_section

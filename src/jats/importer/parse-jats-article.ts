@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import fs from 'fs'
-
 import { ActualManuscriptNode, schema, SectionCategory } from '../../schema'
 import { markComments } from './jats-comments'
 import { JATSDOMParser } from './jats-dom-parser'

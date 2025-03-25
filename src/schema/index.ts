@@ -166,6 +166,7 @@ export * from './types'
 export * from './nodes/attachment'
 export * from './nodes/attachments'
 export * from './nodes/alt_title'
+export * from './nodes/alt_titles_section'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
