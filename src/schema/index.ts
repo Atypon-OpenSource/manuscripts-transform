@@ -258,6 +258,6 @@ export const schema = new Schema<Nodes, Marks>({
     attachment,
     attachments,
     alt_title: altTitle,
-    alt_titles_section: altTitlesSection,
+    alt_titles: altTitlesSection,
   },
 })

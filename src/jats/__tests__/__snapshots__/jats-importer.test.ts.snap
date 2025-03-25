@@ -30449,7 +30449,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPAltTitlesSection:test",
+        "id": "MPAltTitles:test",
       },
       "content": Array [
         Object {
@@ -30481,7 +30481,7 @@ Object {
           "type": "alt_title",
         },
       ],
-      "type": "alt_titles_section",
+      "type": "alt_titles",
     },
     Object {
       "attrs": Object {
