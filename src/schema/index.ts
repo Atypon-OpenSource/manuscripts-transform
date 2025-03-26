@@ -33,6 +33,7 @@ import { abstracts } from './nodes/abstracts'
 import { affiliation } from './nodes/affiliation'
 import { affiliations } from './nodes/affiliations'
 import { altTitle } from './nodes/alt_title'
+import { altTitlesSection } from './nodes/alt_titles_section'
 import { attachment } from './nodes/attachment'
 import { attachments } from './nodes/attachments'
 import { attribution } from './nodes/attribution'
@@ -165,6 +166,7 @@ export * from './types'
 export * from './nodes/attachment'
 export * from './nodes/attachments'
 export * from './nodes/alt_title'
+export * from './nodes/alt_titles_section'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -256,5 +258,6 @@ export const schema = new Schema<Nodes, Marks>({
     attachment,
     attachments,
     alt_title: altTitle,
+    alt_titles: altTitlesSection,
   },
 })
