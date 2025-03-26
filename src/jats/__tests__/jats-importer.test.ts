@@ -529,9 +529,9 @@ describe('JATS importer', () => {
       )
       expect(bibliographyItems).toHaveLength(1)
       expect(bibliographyItems[0].attrs.id).toBeDefined()
-      expect(bibliographyItems[0].attrs.author).toHaveLength(1)
+      expect(bibliographyItems[0].attrs.authors).toHaveLength(1)
       updateNodeID(bibliographyItems[0])
-      bibliographyItems[0].attrs.author[0]._id = 'MPBibliographicName:test'
+      bibliographyItems[0].attrs.authors[0]._id = 'MPBibliographicName:test'
       bibliographyItems[0].attrs.issued._id = 'MPBibliographicDate:test'
       expect(bibliographyItems[0]).toMatchSnapshot()
     })
