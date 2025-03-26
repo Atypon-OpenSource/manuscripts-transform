@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2025 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,8 +21,6 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   id: string
 }
-
-// TODO: endnotes section?
 
 export interface AltTitlesSectionNode extends ManuscriptNode {
   attrs: Attrs
@@ -57,4 +55,4 @@ export const altTitlesSection: NodeSpec = {
 export const isAltTitlesSectionNode = (
   node: ManuscriptNode
 ): node is AltTitlesSectionNode =>
-  node.type === node.type.schema.nodes.footnotes_section
+  node.type === node.type.schema.nodes.alt_titles_section
