@@ -2950,19 +2950,15 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "",
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "longDesc": "",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "longDesc": "",
                     "src": "graphic/MPFigure_035B52CA-C486-4AC1-B44E-40F36F422686.jpeg",
                     "type": "half-right",
                   },
@@ -3035,10 +3031,8 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "",
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "longDesc": "",
               },
               "content": Array [
                 Object {
@@ -5163,10 +5157,8 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
@@ -10428,10 +10420,8 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
@@ -13824,10 +13814,8 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
@@ -17162,11 +17150,9 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
@@ -17269,10 +17255,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&name=figure+1+revised.tif",
                         "type": "half-left",
                       },
@@ -17388,19 +17372,15 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&name=figure+2.jpg",
                         "type": "half-left",
                       },
@@ -18051,19 +18031,15 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "https://siam-x5432.ciplit.com/action/leanworkflowDownloadAttachment?id=e6585ce0-2402-4ca8-9c60-5ac6d40e6872&name=figure+3.jpg",
                         "type": "half-left",
                       },
@@ -20661,11 +20637,9 @@ Object {
         },
         Object {
           "attrs": Object {
-            "altText": "",
             "dataTracked": null,
             "href": "attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312",
             "id": "MPSupplement:test",
-            "longDesc": "",
             "mimeSubType": "vnd.openxmlformats-officedocument.wordprocessingml.document",
             "mimeType": "application",
             "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
@@ -21652,19 +21626,15 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "",
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "longDesc": "",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "longDesc": "",
                     "src": "BRB3-2019-12-0787-fig-0001.PNG",
                     "type": "half-right",
                   },
@@ -21715,10 +21685,8 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "",
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "longDesc": "",
               },
               "content": Array [
                 Object {
@@ -25343,19 +25311,15 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "",
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "longDesc": "",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "longDesc": "",
                     "src": "BRB3-2019-12-0787-fig-0002.PNG",
                     "type": "half-right",
                   },
@@ -25491,19 +25455,15 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "BRB3-2019-12-0787-fig-0003.PNG",
                         "type": "half-right",
                       },
@@ -25763,10 +25723,8 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
@@ -29263,13 +29221,11 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
-                                    "altText": "",
                                     "attribution": Object {
                                       "literal": "Source: Wikipedia.",
                                     },
                                     "dataTracked": null,
                                     "id": "MPFigureElement:test",
-                                    "longDesc": "",
                                   },
                                   "content": Array [
                                     Object {
@@ -29288,10 +29244,8 @@ Object {
                                     },
                                     Object {
                                       "attrs": Object {
-                                        "altText": "",
                                         "dataTracked": null,
                                         "id": "MPFigure:test",
-                                        "longDesc": "",
                                         "src": "123412341234.fig1",
                                         "type": "half-right",
                                       },
@@ -29367,13 +29321,11 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
-                                    "altText": "",
                                     "attribution": Object {
                                       "literal": "Source: Wikipedia.",
                                     },
                                     "dataTracked": null,
                                     "id": "fig1",
-                                    "longDesc": "",
                                   },
                                   "content": Array [
                                     Object {
@@ -30870,11 +30822,9 @@ Object {
         },
         Object {
           "attrs": Object {
-            "altText": "example of alt text for supplements",
             "dataTracked": null,
             "href": "attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312",
             "id": "MPSupplement:test",
-            "longDesc": "example of long desc for supplements",
             "mimeSubType": "vnd.openxmlformats-officedocument.wordprocessingml.document",
             "mimeType": "application",
             "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
@@ -31102,19 +31052,15 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "",
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "longDesc": "",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "longDesc": "",
                     "src": "demo1.jpg",
                     "type": "half-left",
                   },
@@ -31181,19 +31127,15 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "",
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "longDesc": "",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "longDesc": "",
                     "src": "demo2.jpg",
                     "type": "half-left",
                   },
@@ -31291,14 +31233,36 @@ Object {
           "content": Array [
             Object {
               "attrs": Object {
-                "altText": "example of alt text for graphics",
                 "dataTracked": null,
                 "id": "MPFigure:test",
-                "longDesc": "example of long desc",
                 "src": "prodbe.int.aip.org:8080/journal/journal_fs/ 1.2983775.1373315697!/images/1460725790.jpg",
                 "type": "",
               },
               "type": "figure",
+            },
+            Object {
+              "attrs": Object {
+                "id": "MPAltText:test",
+              },
+              "content": Array [
+                Object {
+                  "text": "example of alt text for graphics",
+                  "type": "text",
+                },
+              ],
+              "type": "alt_text",
+            },
+            Object {
+              "attrs": Object {
+                "id": "MPLongDesc:test",
+              },
+              "content": Array [
+                Object {
+                  "text": "example of long desc",
+                  "type": "text",
+                },
+              ],
+              "type": "long_desc",
             },
           ],
           "type": "image_element",
@@ -31531,11 +31495,10 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "example of alt text for media",
                 "dataTracked": null,
                 "href": "example.mp4",
                 "id": "MPEmbed:test",
-                "longDesc": "example of long desc",
+                "longDesc": "",
                 "mimeSubtype": "mp4",
                 "mimetype": "video",
               },
@@ -31548,18 +31511,43 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
                         "placeholder": "Caption...",
                       },
-                      "content": Array [
-                        Object {
-                          "text": "example of alt text for media example of long desc",
-                          "type": "text",
-                        },
-                      ],
                       "type": "caption",
                     },
                   ],
                   "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of alt text for media",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of long desc",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "long_desc",
                 },
               ],
               "type": "embed",
@@ -32300,33 +32288,15 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "example of alt text for figs",
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "longDesc": "example of long desc",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
-                    "placeholder": "",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "example of alt text for figs example of long desc",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "paragraph",
-                },
-                Object {
-                  "attrs": Object {
-                    "altText": "",
-                    "dataTracked": null,
                     "id": "MPFigure:test",
-                    "longDesc": "",
                     "src": "BRB3-2019-12-0787-fig-0001.png",
                     "type": "half-left",
                   },
@@ -32362,6 +32332,30 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of alt text for figs",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of long desc",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "long_desc",
+                },
+                Object {
+                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "MPListing:test",
@@ -32377,10 +32371,8 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "example of alt text for tables",
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "longDesc": "example of long desc",
               },
               "content": Array [
                 Object {
@@ -32417,42 +32409,6 @@ Object {
                     "id": "MPTable:test",
                   },
                   "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                      },
-                      "content": Array [
-                        Object {
-                          "attrs": Object {
-                            "align": null,
-                            "colspan": 1,
-                            "colwidth": null,
-                            "dataTracked": null,
-                            "placeholder": "Data",
-                            "rowspan": 1,
-                            "scope": null,
-                            "style": null,
-                            "valign": null,
-                          },
-                          "content": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "content": Array [
-                                Object {
-                                  "text": "example of alt text for tables example of long desc",
-                                  "type": "text",
-                                },
-                              ],
-                              "type": "text_block",
-                            },
-                          ],
-                          "type": "table_cell",
-                        },
-                      ],
-                      "type": "table_row",
-                    },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
@@ -35998,6 +35954,30 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of alt text for tables",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of long desc",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "long_desc",
+                },
+                Object {
+                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "MPListing:test",
@@ -36041,19 +36021,15 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "",
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "longDesc": "",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "longDesc": "",
                     "src": "BRB3-2019-12-0787-fig-0002.png",
                     "type": "half-left",
                   },
@@ -36189,19 +36165,15 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "BRB3-2019-12-0787-fig-0003.png",
                         "type": "half-left",
                       },
@@ -36461,10 +36433,8 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
@@ -41452,19 +41422,15 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "",
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "longDesc": "",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "longDesc": "",
                     "src": "Wiley-JFR-Final Manuscript-MT-Image001",
                     "type": "half-right",
                   },
@@ -41472,10 +41438,8 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "longDesc": "",
                     "src": "Wiley-JFR-Final Manuscript-MT-Image002",
                     "type": "half-right",
                   },
@@ -43145,10 +43109,8 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
@@ -47739,19 +47701,15 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image003",
                         "type": "half-right",
                       },
@@ -47759,10 +47717,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image004",
                         "type": "half-right",
                       },
@@ -47770,10 +47726,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image005",
                         "type": "half-right",
                       },
@@ -47781,10 +47735,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image006",
                         "type": "half-right",
                       },
@@ -48242,19 +48194,15 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image007",
                         "type": "half-right",
                       },
@@ -48262,10 +48210,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image008",
                         "type": "half-right",
                       },
@@ -48273,10 +48219,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image009",
                         "type": "half-right",
                       },
@@ -48284,10 +48228,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image010",
                         "type": "half-right",
                       },
@@ -48790,19 +48732,15 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image011",
                         "type": "half-right",
                       },
@@ -48810,10 +48748,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image012",
                         "type": "half-right",
                       },
@@ -48821,10 +48757,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image013",
                         "type": "half-right",
                       },
@@ -48832,10 +48766,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image014",
                         "type": "half-right",
                       },
@@ -48843,10 +48775,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image015",
                         "type": "half-right",
                       },
@@ -48854,10 +48784,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image016",
                         "type": "half-right",
                       },
@@ -49429,19 +49357,15 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image017",
                         "type": "half-right",
                       },
@@ -49449,10 +49373,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image018",
                         "type": "half-right",
                       },
@@ -49460,10 +49382,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image019",
                         "type": "half-right",
                       },
@@ -49471,10 +49391,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image020",
                         "type": "half-right",
                       },
@@ -49820,19 +49738,15 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image021",
                         "type": "half-right",
                       },
@@ -49840,10 +49754,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image022",
                         "type": "half-right",
                       },
@@ -49851,10 +49763,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image023",
                         "type": "half-right",
                       },
@@ -49862,10 +49772,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image024",
                         "type": "half-right",
                       },
@@ -50305,19 +50213,15 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
-                    "longDesc": "",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image025",
                         "type": "half-right",
                       },
@@ -50325,10 +50229,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image026",
                         "type": "half-right",
                       },
@@ -50336,10 +50238,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image027",
                         "type": "half-right",
                       },
@@ -50347,10 +50247,8 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "altText": "",
                         "dataTracked": null,
                         "id": "MPFigure:test",
-                        "longDesc": "",
                         "src": "Wiley-JFR-Final Manuscript-MT-Image028",
                         "type": "half-right",
                       },
@@ -50733,19 +50631,15 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "",
                 "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
-                "longDesc": "",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "longDesc": "",
                     "src": "Wiley-JFR-Final Manuscript-MT-Image029",
                     "type": "half-right",
                   },
@@ -50753,10 +50647,8 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "longDesc": "",
                     "src": "Wiley-JFR-Final Manuscript-MT-Image030",
                     "type": "half-right",
                   },
@@ -50764,10 +50656,8 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "longDesc": "",
                     "src": "Wiley-JFR-Final Manuscript-MT-Image031",
                     "type": "half-right",
                   },
@@ -50775,10 +50665,8 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "altText": "",
                     "dataTracked": null,
                     "id": "MPFigure:test",
-                    "longDesc": "",
                     "src": "Wiley-JFR-Final Manuscript-MT-Image032",
                     "type": "half-right",
                   },
@@ -52132,10 +52020,8 @@ Object {
             },
             Object {
               "attrs": Object {
-                "altText": "",
                 "dataTracked": null,
                 "id": "MPTableElement:test",
-                "longDesc": "",
               },
               "content": Array [
                 Object {
@@ -55055,11 +54941,9 @@ Object {
 exports[`JATS importer supplements should have supplements node with content if supplementary-material elements exist 1`] = `
 Object {
   "attrs": Object {
-    "altText": "example of alt text for supplements",
     "dataTracked": null,
     "href": "attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312",
     "id": "MPSupplement:test",
-    "longDesc": "example of long desc for supplements",
     "mimeSubType": "vnd.openxmlformats-officedocument.wordprocessingml.document",
     "mimeType": "application",
     "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",

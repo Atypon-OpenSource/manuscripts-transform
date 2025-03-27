@@ -23,8 +23,6 @@ export interface EmbedAttrs {
   href: string
   mimetype: string
   mimeSubtype: string
-  altText: string
-  longDesc: string
 }
 
 export interface EmbedNode extends ManuscriptNode {
@@ -32,14 +30,13 @@ export interface EmbedNode extends ManuscriptNode {
 }
 
 export const embed: NodeSpec = {
-  content: 'figcaption',
+  content: 'figcaption alt_text? long_desc?',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
     href: { default: undefined },
     mimetype: { default: undefined },
     mimeSubtype: { default: undefined },
-    altText: { default: '' },
     longDesc: { default: '' },
   },
   group: 'block element',

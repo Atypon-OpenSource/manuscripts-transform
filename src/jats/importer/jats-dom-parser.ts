@@ -177,8 +177,6 @@ export class JATSDOMParser {
         element.getAttribute('content-type') ??
         '',
       src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
-      altText: getTrimmedTextContent(element, 'alt-text'),
-      longDesc: getTrimmedTextContent(element, 'long-desc'),
     }
   }
 
@@ -319,6 +317,14 @@ export class JATSDOMParser {
   }
 
   private nodes: NodeRule[] = [
+    {
+      tag: 'long-desc',
+      node: 'long_desc',
+    },
+    {
+      tag: 'alt-text',
+      node: 'alt_text',
+    },
     {
       tag: 'attachments > self-uri',
       node: 'attachment',
@@ -709,8 +715,6 @@ export class JATSDOMParser {
           href: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
           mimetype: element.getAttribute('mimetype'),
           mimeSubtype: element.getAttribute('mime-subtype'),
-          altText: getTrimmedTextContent(element, 'alt-text'),
-          longDesc: getTrimmedTextContent(element, 'long-desc'),
         }
       },
     },
@@ -739,18 +743,11 @@ export class JATSDOMParser {
     {
       tag: 'graphic',
       node: 'figure',
-      context: 'figure_element/',
       getAttrs: this.getFigureAttrs,
     },
     {
-      tag: 'graphic',
+      tag: 'image',
       node: 'image_element',
-      getContent: (node) => {
-        const figure = this.schema.nodes.figure.create(
-          this.getFigureAttrs(node)
-        )
-        return Fragment.from(figure)
-      },
     },
     {
       tag: 'fig',
@@ -758,18 +755,14 @@ export class JATSDOMParser {
       getAttrs: (node) => {
         const element = node as HTMLElement
         const attrib = element.querySelector('attrib')
-
         const attribution = attrib
           ? {
               literal: getTrimmedTextContent(attrib) ?? '',
             }
           : undefined
-
         return {
           id: element.getAttribute('id'),
           attribution,
-          altText: getTrimmedTextContent(element, 'alt-text'),
-          longDesc: getTrimmedTextContent(element, 'long-desc'),
         }
       },
     },
@@ -900,8 +893,6 @@ export class JATSDOMParser {
           mimeType: element.getAttribute('mimetype'),
           mimeSubType: element.getAttribute('mime-subtype'),
           title: getTrimmedTextContent(element, 'title'),
-          altText: getTrimmedTextContent(element, 'alt-text'),
-          longDesc: getTrimmedTextContent(element, 'long-desc'),
         }
       },
     },
@@ -1024,8 +1015,6 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
-          altText: getTrimmedTextContent(element, 'alt-text'),
-          longDesc: getTrimmedTextContent(element, 'long-desc'),
         }
       },
     },

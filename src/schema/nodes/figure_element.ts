@@ -22,8 +22,6 @@ import { AttributionNode } from './attribution'
 export interface FigureElementAttrs {
   id: string
   attribution?: AttributionNode
-  altText: string
-  longDesc: string
 }
 
 export interface FigureElementNode extends ManuscriptNode {
@@ -32,13 +30,11 @@ export interface FigureElementNode extends ManuscriptNode {
 
 export const figureElement: NodeSpec = {
   content:
-    '(paragraph | figure | missing_figure | placeholder)+ attribution* figcaption (listing | placeholder)',
+    '(paragraph | figure | missing_figure | placeholder)+ attribution*  figcaption alt_text? long_desc? (listing | placeholder)',
   attrs: {
     id: { default: '' },
     attribution: { default: undefined },
     dataTracked: { default: null },
-    altText: { default: '' },
-    longDesc: { default: '' },
   },
   selectable: false,
   group: 'block element executable',

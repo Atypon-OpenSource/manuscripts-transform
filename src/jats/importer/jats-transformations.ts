@@ -457,6 +457,25 @@ export const createSupplementaryMaterialsSection = (
   }
 }
 
+export const moveAccessibilityItems = (doc: Document) => {
+  const items = doc.querySelectorAll('alt-text, long-desc')
+  items.forEach((item) => {
+    item.parentNode?.appendChild(item)
+  })
+}
+
+export const createImages = (doc: Document, createElement: CreateElement) => {
+  const graphics = doc.querySelectorAll('graphic:not(fig graphic)')
+  graphics.forEach((graphic) => {
+    const image = createElement('image')
+    graphic.parentNode?.insertBefore(image, graphic)
+    image.appendChild(graphic)
+    while (graphic.firstChild) {
+      image.appendChild(graphic.firstChild)
+    }
+  })
+}
+
 export const moveReferencesToBackmatter = (
   body: Element,
   back: Element,

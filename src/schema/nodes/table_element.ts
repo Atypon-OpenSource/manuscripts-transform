@@ -20,8 +20,6 @@ import { ManuscriptNode } from '../types'
 
 export interface TableAttrs {
   id: string
-  altText: string
-  longDesc: string
 }
 
 export interface TableElementNode extends ManuscriptNode {
@@ -30,12 +28,10 @@ export interface TableElementNode extends ManuscriptNode {
 
 export const tableElement: NodeSpec = {
   content:
-    ' figcaption? (table | placeholder) table_colgroup? table_element_footer? (listing | placeholder)',
+    'figcaption?  (table | placeholder) table_colgroup? table_element_footer? alt_text? long_desc? (listing | placeholder)',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
-    altText: { default: '' },
-    longDesc: { default: '' },
   },
   selectable: false,
   group: 'block element executable',

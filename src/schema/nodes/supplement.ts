@@ -24,8 +24,6 @@ export interface SupplementAttrs {
   mimeType: string
   mimeSubType: string
   title: string
-  altText: string
-  longDesc: string
 }
 
 export interface SupplementNode extends ManuscriptNode {
@@ -39,8 +37,6 @@ export const supplement: NodeSpec = {
     mimeType: { default: '' },
     mimeSubType: { default: '' },
     title: { default: '' },
-    altText: { default: '' },
-    longDesc: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block',

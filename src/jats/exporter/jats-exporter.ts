@@ -468,8 +468,6 @@ export class JATSExporter {
       title.textContent = node.attrs.title ?? ''
       caption.append(title)
       supplementaryMaterial.append(caption)
-      this.appendAltTextElement(supplementaryMaterial, node)
-      this.appendLongDescElement(supplementaryMaterial, node)
       articleMeta.append(supplementaryMaterial)
     })
 
@@ -838,38 +836,21 @@ export class JATSExporter {
     return back
   }
 
-  private appendAltTextElement = (
-    parent: HTMLElement,
-    node: ManuscriptNode
-  ) => {
-    const altText = node.attrs.altText
-    if (altText) {
-      const altTextElement = this.document.createElement('alt-text')
-      altTextElement.textContent = altText
-      parent.appendChild(altTextElement)
-    }
-  }
-
-  private appendLongDescElement = (
-    parent: HTMLElement,
-    node: ManuscriptNode
-  ) => {
-    const longDesc = node.attrs.longDesc
-    if (longDesc) {
-      const longDescElement = this.document.createElement('long-desc')
-      longDescElement.textContent = longDesc
-      parent.appendChild(longDescElement)
-    }
-  }
-
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
+      alt_text: (node) => {
+        const altText = this.document.createElement('alt-text')
+        altText.textContent = node.textContent
+        return altText
+      },
+      long_desc: (node) => {
+        const longDesc = this.document.createElement('long-desc')
+        longDesc.textContent = node.textContent
+        return longDesc
+      },
       attachment: () => '',
       attachments: () => '',
-      image_element: (node) =>
-        node.content.firstChild
-          ? createGraphic(node.content.firstChild, false)
-          : '',
+      image_element: (node) => createImage(node),
       embed: (node) => {
         const mediaElement = this.document.createElement('media')
         const { id, href, mimetype, mimeSubtype } = node.attrs
@@ -884,14 +865,10 @@ export class JATSExporter {
         if (mimeSubtype) {
           mediaElement.setAttribute('mime-subtype', node.attrs.mimeSubtype)
         }
-        this.appendAltTextElement(mediaElement, node)
-        this.appendLongDescElement(mediaElement, node)
         appendLabels(mediaElement, node)
-        appendChildNodeOfType(
-          mediaElement,
-          node,
-          node.type.schema.nodes.figcaption
-        )
+        appendChildNodeOfType(mediaElement, node, schema.nodes.alt_text)
+        appendChildNodeOfType(mediaElement, node, schema.nodes.long_desc)
+        appendChildNodeOfType(mediaElement, node, schema.nodes.figcaption)
         return mediaElement
       },
       awards: () => ['funding-group', 0],
@@ -1323,14 +1300,25 @@ export class JATSExporter {
       processChildNodes(element, node, node.type.schema.nodes.section)
       return element
     }
+
+    const createImage = (node: ManuscriptNode) => {
+      const graphicNode = node.content.firstChild
+      if (graphicNode) {
+        const graphicElement = createGraphic(graphicNode)
+        appendChildNodeOfType(graphicElement, node, schema.nodes.alt_text)
+        appendChildNodeOfType(graphicElement, node, schema.nodes.long_desc)
+        return graphicElement
+      }
+      return ''
+    }
+
     const createGraphic = (node: ManuscriptNode, isChildOfFigure = true) => {
       const graphic = this.document.createElement('graphic')
       graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
       if (!isChildOfFigure && node.attrs.type) {
         graphic.setAttribute('content-type', node.attrs.type)
       }
-      this.appendAltTextElement(graphic, node)
-      this.appendLongDescElement(graphic, node)
+
       return graphic
     }
     const createFigureElement = (
@@ -1345,8 +1333,8 @@ export class JATSExporter {
       }
       appendLabels(element, node)
       appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
-      this.appendAltTextElement(element, node)
-      this.appendLongDescElement(element, node)
+      appendChildNodeOfType(element, node, schema.nodes.alt_text)
+      appendChildNodeOfType(element, node, schema.nodes.long_desc)
       appendChildNodeOfType(
         element,
         node,
@@ -1364,9 +1352,9 @@ export class JATSExporter {
       const nodeName = 'table-wrap'
       const element = createElement(node, nodeName)
       appendLabels(element, node)
-      appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
-      this.appendAltTextElement(element, node)
-      this.appendLongDescElement(element, node)
+      appendChildNodeOfType(element, node, schema.nodes.figcaption)
+      appendChildNodeOfType(element, node, schema.nodes.alt_text)
+      appendChildNodeOfType(element, node, schema.nodes.long_desc)
       appendTable(element, node)
       appendChildNodeOfType(
         element,
