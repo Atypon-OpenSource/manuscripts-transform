@@ -743,11 +743,29 @@ export class JATSDOMParser {
     {
       tag: 'graphic',
       node: 'figure',
+      context: 'figure_element/',
       getAttrs: this.getFigureAttrs,
     },
     {
-      tag: 'image',
+      tag: 'graphic',
       node: 'image_element',
+      getContent: (node) => {
+        const element = node as HTMLElement
+        const content = [
+          this.schema.nodes.figure.create(this.getFigureAttrs(element)),
+        ]
+        const altText = element.querySelector('alt-text')
+        if (altText) {
+          const altTextNode = this.schema.nodes.alt_text.create()
+          content.push(this.parse(altText, { topNode: altTextNode }))
+        }
+        const longDesc = element.querySelector('long-desc')
+        if (longDesc) {
+          const longDescNode = this.schema.nodes.long_desc.create()
+          content.push(this.parse(longDesc, { topNode: longDescNode }))
+        }
+        return Fragment.from(content)
+      },
     },
     {
       tag: 'fig',

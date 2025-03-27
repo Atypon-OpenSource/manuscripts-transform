@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 import type { NodeSpec } from 'prosemirror-model'
 
 import type { ManuscriptNode } from '../types'

@@ -26,7 +26,6 @@ import {
   createBackmatter,
   createBody,
   createBoxedElementSection,
-  createImages,
   createKeywordsSection,
   createSupplementaryMaterialsSection,
   createTitles,
@@ -78,7 +77,6 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   }
   moveReferencesToBackmatter(body, back, createElement)
   moveAccessibilityItems(doc)
-  createImages(doc, createElement)
 }
 
 const createElementFn = (doc: Document) => (tagName: string) =>
