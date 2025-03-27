@@ -1634,10 +1634,10 @@
     citeproc "^2.4.62"
     fontoxpath "^3.28.2"
 
-"@manuscripts/library@1.3.12-LEAN-4411.0":
-  version "1.3.12-LEAN-4411.0"
-  resolved "https://registry.yarnpkg.com/@manuscripts/library/-/library-1.3.12-LEAN-4411.0.tgz#62cfbf65781f438975768bd06940ad33a67fd0e0"
-  integrity sha512-UXpGMEGjtkWjrnPirf7g0CHtbFN5gl1PXfOZL+14sKAf6a79zUA5JNNL4oURH88jZXvDc69x8fKsUpZzz0seLQ==
+"@manuscripts/library@1.3.12":
+  version "1.3.12"
+  resolved "https://registry.yarnpkg.com/@manuscripts/library/-/library-1.3.12.tgz#c4ded98fe1847a3742ad885753b6265111bad061"
+  integrity sha512-1DihbNtCQrkG+clJJ0hS9FIG8w03XOYjNJsDVE+9zg2YyoEClhUSmj7UxyLcaawpZr5IxuDC1CeyG46jPnsHCg==
   dependencies:
     "@citation-js/core" "^0.7.18"
     "@citation-js/plugin-bibtex" "^0.7.18"
