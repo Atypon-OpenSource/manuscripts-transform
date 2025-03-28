@@ -98,6 +98,8 @@
           <title>final manuscript-hum-huili-dbh-suicide-20200707_figures (9)
           </title>
         </caption>
+         <alt-text>example of alt text for supplements</alt-text>
+        <long-desc>example of long desc for supplements</long-desc>
       </supplementary-material>
       <history>
         <date date-type="received">
@@ -210,7 +212,10 @@
   <body>
   <graphic 
 xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
-1.2983775.1373315697!/images/1460725790.jpg"/>
+1.2983775.1373315697!/images/1460725790.jpg">
+ <alt-text>example of alt text for graphics</alt-text>
+        <long-desc>example of long desc</long-desc>
+</graphic>
     <p>test paragraph</p>
     <sec id="BRB3-2019-12-0787-sec1" sec-type="intro">
       <label>1</label>
@@ -252,7 +257,10 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
         xlink:href="example.mp4"
         xlink:show="embed"
         mimetype="video"
-        mime-subtype="mp4" />
+        mime-subtype="mp4" >
+         <alt-text>example of alt text for media</alt-text>
+        <long-desc>example of long desc</long-desc>
+        </media>
       <sec>
         <title>Aims and hypotheses</title>
         <p>The aim of the present study was to test the hypotheses that follow up after
@@ -449,6 +457,8 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
         <caption>
           <p>Flow chart of participants</p>
         </caption>
+        <alt-text>example of alt text for figs</alt-text>
+        <long-desc>example of long desc</long-desc>
         <graphic xlink:href="BRB3-2019-12-0787-fig-0001.png"/>
       </fig>
       <table-wrap id="BRB3-2019-12-0787-tbl-0001" position="float">
@@ -456,6 +466,8 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
         <caption>
           <title>Baseline characteristics of 73 patients</title>
         </caption>
+         <alt-text>example of alt text for tables</alt-text>
+        <long-desc>example of long desc</long-desc>
         <table frame="hsides" rules="groups">
           <col width="52.14%"/>
           <col width="11.92%"/>

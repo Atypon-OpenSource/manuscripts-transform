@@ -30,6 +30,7 @@ import {
   createSupplementaryMaterialsSection,
   createTitles,
   fixTables,
+  moveAccessibilityItems,
   moveAffiliations,
   moveAuthorNotes,
   moveAwards,
@@ -74,8 +75,8 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   if (!back) {
     return
   }
-
   moveReferencesToBackmatter(body, back, createElement)
+  moveAccessibilityItems(doc)
 }
 
 const createElementFn = (doc: Document) => (tagName: string) =>
