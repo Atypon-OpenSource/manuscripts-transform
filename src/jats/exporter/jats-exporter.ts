@@ -828,6 +828,16 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
+      alt_text: (node) => {
+        const altText = this.document.createElement('alt-text')
+        altText.textContent = node.textContent
+        return altText
+      },
+      long_desc: (node) => {
+        const longDesc = this.document.createElement('long-desc')
+        longDesc.textContent = node.textContent
+        return longDesc
+      },
       attachment: () => '',
       attachments: () => '',
       image_element: (node) =>
@@ -847,11 +857,9 @@ export class JATSExporter {
           mediaElement.setAttribute('mime-subtype', node.attrs.mimeSubtype)
         }
         appendLabels(mediaElement, node)
-        appendChildNodeOfType(
-          mediaElement,
-          node,
-          node.type.schema.nodes.figcaption
-        )
+        appendChildNodeOfType(mediaElement, node, schema.nodes.alt_text)
+        appendChildNodeOfType(mediaElement, node, schema.nodes.long_desc)
+        appendChildNodeOfType(mediaElement, node, schema.nodes.figcaption)
         return mediaElement
       },
       awards: () => ['funding-group', 0],
@@ -1311,6 +1319,7 @@ export class JATSExporter {
       ) {
         graphic.setAttribute('content-type', node.attrs.type)
       }
+
       return graphic
     }
     const createFigureElement = (
@@ -1325,6 +1334,8 @@ export class JATSExporter {
       }
       appendLabels(element, node)
       appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
+      appendChildNodeOfType(element, node, schema.nodes.alt_text)
+      appendChildNodeOfType(element, node, schema.nodes.long_desc)
       appendChildNodeOfType(
         element,
         node,
@@ -1337,11 +1348,14 @@ export class JATSExporter {
       }
       return element
     }
+
     const createTableElement = (node: ManuscriptNode) => {
       const nodeName = 'table-wrap'
       const element = createElement(node, nodeName)
       appendLabels(element, node)
-      appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
+      appendChildNodeOfType(element, node, schema.nodes.figcaption)
+      appendChildNodeOfType(element, node, schema.nodes.alt_text)
+      appendChildNodeOfType(element, node, schema.nodes.long_desc)
       appendTable(element, node)
       appendChildNodeOfType(
         element,
@@ -2004,6 +2018,11 @@ export class JATSExporter {
       back.insertBefore(availabilitySection, back.firstChild)
     }
 
+    const ethicsSection = body.querySelector('sec[sec-type="ethics-statement"]')
+    if (ethicsSection) {
+      back.appendChild(ethicsSection)
+    }
+
     const section = body.querySelector('sec[sec-type="acknowledgements"]')
 
     if (section) {
@@ -2049,7 +2068,6 @@ export class JATSExporter {
       'supplementary-material',
       'supported-by',
       'financial-disclosure',
-      'ethics-statement',
       'coi-statement',
     ]
 
