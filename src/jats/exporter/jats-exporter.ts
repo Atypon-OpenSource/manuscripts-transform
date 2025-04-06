@@ -1286,14 +1286,18 @@ export class JATSExporter {
       return element
     }
 
-    const isChildOfNodeType = (targetID: string, type: NodeType): boolean => {
+    const isChildOfNodeType = (
+      targetID: string,
+      type: NodeType,
+      descend = false
+    ): boolean => {
       const nodes = this.nodesMap.get(type) ?? []
       return nodes.some((node) => {
         const result = findChildrenByAttr(
           node,
           (attrs) => attrs.id === targetID,
-          false
-        )[0]?.node
+          descend
+        )[0]
         return !!result
       })
     }
