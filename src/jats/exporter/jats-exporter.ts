@@ -840,8 +840,7 @@ export class JATSExporter {
       },
       attachment: () => '',
       attachments: () => '',
-      image_element: (node) =>
-        node.content.firstChild ? createGraphic(node.content.firstChild) : '',
+      image_element: (node) => createImage(node),
       embed: (node) => {
         const mediaElement = this.document.createElement('media')
         const { id, href, mimetype, mimeSubtype } = node.attrs
@@ -1308,6 +1307,17 @@ export class JATSExporter {
         )[0]
         return !!result
       })
+    }
+
+    const createImage = (node: ManuscriptNode) => {
+      const graphicNode = node.content.firstChild
+      if (graphicNode) {
+        const graphicElement = createGraphic(graphicNode)
+        appendChildNodeOfType(graphicElement, node, schema.nodes.alt_text)
+        appendChildNodeOfType(graphicElement, node, schema.nodes.long_desc)
+        return graphicElement
+      }
+      return ''
     }
 
     const createGraphic = (node: ManuscriptNode) => {
