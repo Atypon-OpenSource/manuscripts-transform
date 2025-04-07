@@ -180,3 +180,10 @@ export type ManuscriptTemplate = {
 export type MarkRule = ParseRule & { mark: Marks | null }
 
 export type NodeRule = ParseRule & { node?: Nodes | null }
+
+export function isNodeOfType<T extends ManuscriptNode>(
+  node: ManuscriptNode,
+  type: NodeType
+): node is T {
+  return node.type === type
+}

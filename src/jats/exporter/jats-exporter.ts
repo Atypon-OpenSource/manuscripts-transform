@@ -41,6 +41,7 @@ import {
   CrossReferenceNode,
   FootnoteNode,
   isCitationNode,
+  isNodeOfType,
   ManuscriptMark,
   ManuscriptNode,
   ManuscriptNodeType,
@@ -233,6 +234,22 @@ export class JATSExporter {
       nodes.push(node)
       this.nodesMap.set(type, nodes)
     })
+  }
+
+  protected getFirstChildOfType<T extends ManuscriptNode>(
+    type: NodeType,
+    node?: ManuscriptNode
+  ): T | undefined {
+    return this.getChildrenOfType<T>(type, node)[0]
+  }
+  protected getChildrenOfType<T extends ManuscriptNode>(
+    type: NodeType,
+    node?: ManuscriptNode
+  ): T[] {
+    const nodes = node
+      ? findChildrenByType(node, type).map(({ node }) => node)
+      : this.nodesMap.get(type)
+    return (nodes ?? []).filter((n): n is T => isNodeOfType<T>(n, type))
   }
 
   public serializeToJATS = async (
@@ -1251,21 +1268,18 @@ export class JATSExporter {
       node: ManuscriptNode,
       type: ManuscriptNodeType
     ) => {
-      const childNode = findChildrenByType(node, type)[0]?.node
+      const childNode = this.getFirstChildOfType(type, node)
       if (childNode) {
         element.appendChild(this.serializeNode(childNode))
       }
     }
 
     const appendTable = (element: HTMLElement, node: ManuscriptNode) => {
-      const tableNode = findChildrenByType(
-        node,
-        node.type.schema.nodes.table
-      )[0]?.node
-      const colGroupNode = findChildrenByType(
-        node,
-        node.type.schema.nodes.table_colgroup
-      )[0]?.node
+      const tableNode = this.getFirstChildOfType(schema.nodes.table, node)
+      const colGroupNode = this.getFirstChildOfType(
+        schema.nodes.table_colgroup,
+        node
+      )
       if (!tableNode) {
         return
       }
@@ -1337,8 +1351,8 @@ export class JATSExporter {
       contentNodeType: ManuscriptNodeType
     ) => {
       const element = createElement(node, 'fig')
-      const figNode = findChildrenByType(node, node.type.schema.nodes.figure)[0]
-      const figType = figNode?.node.attrs.type
+      const figNode = this.getFirstChildOfType(schema.nodes.figure, node)
+      const figType = figNode?.attrs.type
       if (figType) {
         element.setAttribute('fig-type', figType)
       }
@@ -1378,10 +1392,7 @@ export class JATSExporter {
       return element
     }
     const processExecutableNode = (node: ManuscriptNode, element: Element) => {
-      const listingNode = findChildrenByType(
-        node,
-        node.type.schema.nodes.listing
-      )[0]?.node
+      const listingNode = this.getFirstChildOfType(schema.nodes.listing, node)
 
       if (listingNode) {
         const { contents, languageKey } = listingNode.attrs
@@ -1442,8 +1453,9 @@ export class JATSExporter {
   }
 
   private buildContributors = (articleMeta: Node) => {
-    const contributorNodes = (this.nodesMap.get(schema.nodes.contributor) ??
-      []) as ContributorNode[]
+    const contributorNodes = this.getChildrenOfType<ContributorNode>(
+      schema.nodes.contributor
+    )
     const authorContributorNodes = contributorNodes
       .filter((n) => n.attrs.role === 'author')
       .sort(sortContributors)
@@ -1669,12 +1681,11 @@ export class JATSExporter {
   }
   private createAuthorNotesElement = () => {
     const authorNotesEl = this.document.createElement('author-notes')
-    const authorNotesNode = this.nodesMap.get(schema.nodes.author_notes)?.[0]
+    const authorNotesNode = this.getFirstChildOfType<AuthorNotesNode>(
+      schema.nodes.author_notes
+    )
     if (authorNotesNode) {
-      this.appendModelsToAuthorNotes(
-        authorNotesEl,
-        authorNotesNode as AuthorNotesNode
-      )
+      this.appendModelsToAuthorNotes(authorNotesEl, authorNotesNode)
     }
     return authorNotesEl
   }
@@ -1682,8 +1693,9 @@ export class JATSExporter {
     authorNotesEl: HTMLElement,
     authorNotesNode: AuthorNotesNode
   ) {
-    const contributorsNodes = (this.nodesMap.get(schema.nodes.contributor) ??
-      []) as ContributorNode[]
+    const contributorsNodes = this.getChildrenOfType<ContributorNode>(
+      schema.nodes.contributor
+    )
     const usedCorrespondings = this.getUsedCorrespondings(contributorsNodes)
     authorNotesNode.descendants((node) => {
       switch (node.type) {
