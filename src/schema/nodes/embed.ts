@@ -18,26 +18,26 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface EmbedAttrs {
   id: string
   href: string
-  show: string
   mimetype: string
   mimeSubtype: string
 }
 
 export interface EmbedNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: EmbedAttrs
 }
 
 export const embed: NodeSpec = {
-  content: 'figcaption',
+  content: 'figcaption alt_text? long_desc?',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
     href: { default: undefined },
     mimetype: { default: undefined },
     mimeSubtype: { default: undefined },
+    longDesc: { default: '' },
   },
   group: 'block element',
   toDOM: (node) => {

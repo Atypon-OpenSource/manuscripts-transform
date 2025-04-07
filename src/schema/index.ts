@@ -32,6 +32,7 @@ import {
 import { abstracts } from './nodes/abstracts'
 import { affiliation } from './nodes/affiliation'
 import { affiliations } from './nodes/affiliations'
+import { altText } from './nodes/alt_text'
 import { altTitle } from './nodes/alt_title'
 import { altTitlesSection } from './nodes/alt_titles_section'
 import { attachment } from './nodes/attachment'
@@ -81,6 +82,7 @@ import { link } from './nodes/link'
 import { list, listItem } from './nodes/list'
 import { listing } from './nodes/listing'
 import { listingElement } from './nodes/listing_element'
+import { longDesc } from './nodes/long_desc'
 import { manuscript } from './nodes/manuscript'
 import { missingFigure } from './nodes/missing_figure'
 import { paragraph } from './nodes/paragraph'
@@ -167,6 +169,8 @@ export * from './nodes/attachment'
 export * from './nodes/attachments'
 export * from './nodes/alt_title'
 export * from './nodes/alt_titles_section'
+export * from './nodes/alt_text'
+export * from './nodes/long_desc'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -259,5 +263,7 @@ export const schema = new Schema<Nodes, Marks>({
     attachments,
     alt_title: altTitle,
     alt_titles: altTitlesSection,
+    alt_text: altText,
+    long_desc: longDesc,
   },
 })

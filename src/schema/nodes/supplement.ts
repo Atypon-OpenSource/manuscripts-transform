@@ -18,7 +18,7 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface SupplementAttrs {
   id: string
   href: string
   mimeType: string
@@ -27,7 +27,7 @@ interface Attrs {
 }
 
 export interface SupplementNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: SupplementAttrs
 }
 
 export const supplement: NodeSpec = {

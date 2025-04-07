@@ -124,7 +124,9 @@ export type Nodes =
   | 'attachment'
   | 'attachments'
   | 'alt_title'
+  | 'alt_text'
   | 'alt_titles'
+  | 'long_desc'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

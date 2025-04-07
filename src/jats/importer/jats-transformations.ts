@@ -454,6 +454,13 @@ export const createSupplementaryMaterialsSection = (
   }
 }
 
+export const moveAccessibilityItems = (doc: Document) => {
+  const items = doc.querySelectorAll('alt-text, long-desc')
+  items.forEach((item) => {
+    item.parentNode?.appendChild(item)
+  })
+}
+
 export const moveReferencesToBackmatter = (
   body: Element,
   back: Element,

@@ -31248,6 +31248,30 @@ Object {
               },
               "type": "figure",
             },
+            Object {
+              "attrs": Object {
+                "id": "MPAltText:test",
+              },
+              "content": Array [
+                Object {
+                  "text": "example of alt text for graphics",
+                  "type": "text",
+                },
+              ],
+              "type": "alt_text",
+            },
+            Object {
+              "attrs": Object {
+                "id": "MPLongDesc:test",
+              },
+              "content": Array [
+                Object {
+                  "text": "example of long desc",
+                  "type": "text",
+                },
+              ],
+              "type": "long_desc",
+            },
           ],
           "type": "image_element",
         },
@@ -31482,6 +31506,7 @@ Object {
                 "dataTracked": null,
                 "href": "example.mp4",
                 "id": "MPEmbed:test",
+                "longDesc": "",
                 "mimeSubtype": "mp4",
                 "mimetype": "video",
               },
@@ -31507,6 +31532,30 @@ Object {
                     },
                   ],
                   "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of alt text for media",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of long desc",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "long_desc",
                 },
               ],
               "type": "embed",
@@ -32288,6 +32337,30 @@ Object {
                     },
                   ],
                   "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of alt text for figs",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of long desc",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "long_desc",
                 },
                 Object {
                   "attrs": Object {
@@ -35886,6 +35959,30 @@ Object {
                     },
                   ],
                   "type": "table_element_footer",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of alt text for tables",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of long desc",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "long_desc",
                 },
                 Object {
                   "attrs": Object {
