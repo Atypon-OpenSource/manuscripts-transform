@@ -207,9 +207,44 @@ export class JATSDOMParser {
     return htmlFromJatsNode(node.querySelector(querySelector))
   }
 
+  private chooseBibliographyItemType = (publicationType: string | null) =>
+    publicationType === 'journal'
+      ? 'article-journal'
+      : publicationType ?? 'article-journal'
+
   private parseRef = (element: Element) => {
     const elementCitation = element.querySelector('element-citation')
-    const type = elementCitation?.getAttribute('publication-type') ?? 'journal'
+    const mixedCitation = element.querySelector('mixed-citation')
+    const id = element.id
+
+    const attrs: BibliographyItemAttrs = {
+      id,
+      type: this.chooseBibliographyItemType(
+        elementCitation?.getAttribute('publication-type') || null
+      ),
+    }
+
+    if (mixedCitation?.getAttribute('publication-type')) {
+      attrs.type = this.chooseBibliographyItemType(
+        mixedCitation.getAttribute('publication-type')
+      )
+    }
+
+    const title = this.getHTMLContent(element, 'article-title')
+    if (title) {
+      attrs.title = title
+    }
+
+    const containerTitle = this.getHTMLContent(element, 'source')
+    if (this.getHTMLContent(element, 'source')) {
+      attrs.containerTitle = containerTitle
+    }
+
+    const dataTitle = this.getHTMLContent(element, 'data-title')
+    if (dataTitle) {
+      attrs.dataTitle = dataTitle
+    }
+
     const authorNodes = [
       ...element.querySelectorAll(
         'person-group[person-group-type="author"] > *'
@@ -220,85 +255,37 @@ export class JATSDOMParser {
         'person-group[person-group-type="editor"] > *'
       ),
     ]
-    const id = element.id
 
-    const attrs: BibliographyItemAttrs = {
-      id,
-      type,
-    }
-    const title = this.getHTMLContent(element, 'article-title')
-    if (title) {
-      attrs.title = title
-    }
-
-    const mixedCitation = element.querySelector('mixed-citation')
-
-    if (authorNodes.length <= 0) {
+    if (authorNodes.length === 0) {
       mixedCitation?.childNodes.forEach((item) => {
         if (
           item.nodeType === Node.TEXT_NODE &&
           item.textContent?.match(/[A-Za-z]+/g)
         ) {
           attrs.literal = getTrimmedTextContent(mixedCitation) ?? ''
-          return attrs
         }
       })
     }
-
-    const source = this.getHTMLContent(element, 'source')
-    if (source) {
-      attrs.containerTitle = source
-    }
-
-    const volume = getTrimmedTextContent(element, 'volume')
-    if (volume) {
-      attrs.volume = volume
-    }
-
-    const issue = getTrimmedTextContent(element, 'issue')
-    if (issue) {
-      attrs.issue = issue
-    }
-
-    const supplement = getTrimmedTextContent(element, 'supplement')
-    if (supplement) {
-      attrs.supplement = supplement
-    }
-
-    const fpage = getTrimmedTextContent(element, 'fpage')
-    const lpage = getTrimmedTextContent(element, 'lpage')
-    if (fpage) {
-      attrs.page = lpage ? `${fpage}-${lpage}` : fpage
-    }
-
-    const year = getTrimmedTextContent(element, 'year')
-    const month = getTrimmedTextContent(element, 'month')
-    const day = getTrimmedTextContent(element, 'day')
-    if (year) {
-      attrs.issued = buildBibliographicDate({
-        'date-parts': [[year, month || '', day || '']],
+    const buildDate = (element: Element) => {
+      const isoDate = element.getAttribute('iso-8601-date')
+      const isoDateParts = isoDate?.split('-')
+      return buildBibliographicDate({
+        'date-parts': [
+          [
+            isoDateParts?.[0] ?? '',
+            isoDateParts?.[1] ?? '',
+            isoDateParts?.[2] ?? '',
+          ],
+        ],
       })
     }
-
-    const pubIDs = Array.from(element.querySelectorAll('pub-id')).map(
-      (node) => {
-        return {
-          content: getTrimmedTextContent(node),
-          type: node.getAttribute('pub-id-type') || '',
-        }
-      }
-    )
-    if (pubIDs.length) {
-      attrs.pubIDs = pubIDs
-    }
-
     const buildName = (node: Element) => {
       const name = buildBibliographicName({})
       const given = getTrimmedTextContent(node, 'given-names')
+      const family = getTrimmedTextContent(node, 'surname')
       if (given) {
         name.given = given
       }
-      const family = getTrimmedTextContent(node, 'surname')
       if (family) {
         name.family = family
       }
@@ -308,96 +295,106 @@ export class JATSDOMParser {
       return name
     }
 
-    const authors = authorNodes.map(buildName)
     if (authorNodes.length) {
-      attrs.authors = authors
+      attrs.author = authorNodes.map(buildName)
     }
-    const editors = editorNodes.map(buildName)
-    if (editors.length) {
-      attrs.editors = editors
-    }
-
-    const dataTitle = getTrimmedTextContent(element, 'data-title')
-    if (dataTitle) {
-      attrs.dataTitle = dataTitle
+    if (editorNodes.length) {
+      attrs.editor = editorNodes.map(buildName)
     }
 
-    const std = getTrimmedTextContent(element, 'std')
-    if (std) {
-      attrs.std = std
+    const getText = (selector: string) =>
+      getTrimmedTextContent(element, selector)
+
+    if (getText('volume')) {
+      attrs.volume = getText('volume')
+    }
+    if (getText('issue')) {
+      attrs.issue = getText('issue')
+    }
+    if (getText('supplement')) {
+      attrs.supplement = getText('supplement')
+    }
+    if (getText('pub-id[pub-id-type="doi"]')) {
+      attrs.doi = getText('pub-id[pub-id-type="doi"]')
+    }
+    if (getText('std')) {
+      attrs.std = getText('std')
+    }
+    if (getText('series')) {
+      attrs.series = getText('series')
+    }
+    if (getText('edition')) {
+      attrs.edition = getText('edition')
+    }
+    if (getText('publisher-name')) {
+      attrs.publisher = getText('publisher-name')
+    }
+    if (getText('publisher-loc')) {
+      attrs['publisher-place'] = getText('publisher-loc')
+    }
+    if (getText('conf-name')) {
+      attrs['event'] = getText('conf-name')
+    }
+    if (getText('conf-loc')) {
+      attrs['event-place'] = getText('conf-loc')
+    }
+    if (getText('size[units="pages"]')) {
+      attrs['number-of-pages'] = getText('size[units="pages"]')
+    }
+    if (getText('institution')) {
+      attrs.institution = getText('institution')
+    }
+    if (getText('elocation-id')) {
+      attrs.elocationID = getText('elocation-id')
     }
 
-    const series = getTrimmedTextContent(element, 'series')
-    if (series) {
-      attrs.series = series
+    const fpage = getText('fpage')
+    const lpage = getText('lpage')
+    if (fpage) {
+      attrs.page = lpage ? `${fpage}-${lpage}` : fpage
     }
 
-    const edition = getTrimmedTextContent(element, 'edition')
-    if (edition) {
-      attrs.edition = edition
+    const year = getText('year')
+    if (year) {
+      attrs.issued = buildBibliographicDate({
+        'date-parts': [[year, getText('month') || '', getText('day') || '']],
+      })
     }
 
-    const publisherName = getTrimmedTextContent(element, 'publisher-name')
-    if (publisherName) {
-      attrs.publisherName = publisherName
-    }
-
-    const publisherLoc = getTrimmedTextContent(element, 'publisher-loc')
-    if (publisherLoc) {
-      attrs.publisherLoc = publisherLoc
-    }
-
-    const confName = getTrimmedTextContent(element, 'conf-name')
-    if (confName) {
-      attrs.confName = confName
-    }
-
-    const confLoc = getTrimmedTextContent(element, 'conf-loc')
-    if (confLoc) {
-      attrs.confLoc = confLoc
+    const pubIDs = Array.from(
+      element.querySelectorAll('pub-id:not([pub-id-type="doi"])')
+    ).map((node) => ({
+      content: getTrimmedTextContent(node),
+      type: node.getAttribute('pub-id-type') || '',
+    }))
+    if (pubIDs.length) {
+      attrs.pubIDs = pubIDs
     }
 
     const links = Array.from(element.querySelectorAll('ext-link')).map(
-      (node) => {
-        return {
-          content: getTrimmedTextContent(node),
-          type: node.getAttribute('ext-link-type') || '',
-        }
-      }
+      (node) => ({
+        content: getTrimmedTextContent(node),
+        type: node.getAttribute('ext-link-type') || '',
+      })
     )
     if (links.length) {
       attrs.links = links
     }
 
-    const size = getTrimmedTextContent(element, 'size[units="pages"]')
-    if (size) {
-      attrs.size = size
-    }
-
-    const institution = getTrimmedTextContent(element, 'institution')
-    if (institution) {
-      attrs.institution = institution
-    }
-
-    const elocationID = getTrimmedTextContent(element, 'elocation-id')
-    if (elocationID) {
-      attrs.elocationID = elocationID
-    }
-
-    const dateInCitation = element
-      .querySelector('date-in-citation')
-      ?.getAttribute('iso-8601-date')
+    const dateInCitation = element.querySelector('date-in-citation')
     if (dateInCitation) {
-      attrs.dateInCitation = dateInCitation
+      const date = buildDate(dateInCitation)
+      if (date) {
+        attrs['date-in-citation'] = date
+      }
     }
-    ;``
-    const confDate = element
-      .querySelector('conf-date')
-      ?.getAttribute('iso-8601-date')
-    if (confDate) {
-      attrs.confDate = confDate
+    const eventDate = element.querySelector('conf-date')
+    if (eventDate) {
+      const date = buildDate(eventDate)
+      if (date) {
+        attrs['event-date'] = date
+      }
     }
-
     return attrs
   }
 

@@ -71,10 +71,10 @@ const updateCommentNodeIDs = (node: ManuscriptNode) => {
 
 const updateBibliographyItemNodeIDs = (node: ManuscriptNode) => {
   if (node.type === schema.nodes.bibliography_item) {
-    node.attrs.authors?.forEach(
+    node.attrs.author?.forEach(
       (author: any) => (author._id = replaceUUIDWithTest(author._id))
     )
-    node.attrs.editors?.forEach(
+    node.attrs.editor?.forEach(
       (author: any) => (author._id = replaceUUIDWithTest(author._id))
     )
     //@ts-ignore

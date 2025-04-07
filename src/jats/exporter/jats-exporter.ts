@@ -15,6 +15,7 @@
  */
 
 import {
+  type BibliographicDate,
   BibliographicName,
   BibliographyItem,
   Journal,
@@ -33,6 +34,7 @@ import serializeToXML from 'w3c-xmlserializer'
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML, textFromHTML } from '../../lib/html'
 import {
+  type BibliographyItemAttrs,
   AuthorNotesNode,
   CitationNode,
   ContributorNode,
@@ -192,13 +194,12 @@ export class JATSExporter {
         return undefined
       }
       return {
+        ...node.attrs,
         _id: node.attrs.id,
         DOI: node.attrs.doi,
         manuscriptID,
         objectType: ObjectTypes.BibliographyItem,
-        author: node.attrs.author,
         'container-title': node.attrs.containerTitle,
-        ...node.attrs,
       } as BibliographyItem
     }
   }
@@ -672,24 +673,33 @@ export class JATSExporter {
       }
       const ref = this.document.createElement('ref')
       ref.setAttribute('id', normalizeID(id))
+      const updateCitationPubType = (
+        citationEl: HTMLElement,
+        pubType: string
+      ) => {
+        switch (pubType) {
+          case 'article':
+          case 'article-journal':
+            citationEl.setAttribute('publication-type', 'journal')
+            break
+          default:
+            citationEl.setAttribute('publication-type', pubType)
+            break
+        }
+      }
 
       // in case a literal was found in a bibItem the rest of the attributes are ignored
       // since the literal att should only be populated when the mixed-citation fails to parse
+
       if (bibliographyItem.attrs.literal) {
         const mixedCitation = this.document.createElement('mixed-citation')
-        mixedCitation.setAttribute(
-          'publication-type',
-          bibliographyItem.attrs.type || 'journal'
-        )
+        updateCitationPubType(mixedCitation, bibliographyItem.attrs.type)
         mixedCitation.textContent = bibliographyItem.attrs.literal
         ref.appendChild(mixedCitation)
         refList.appendChild(ref)
       } else {
         const citation = this.document.createElement('element-citation')
-        citation.setAttribute(
-          'publication-type',
-          bibliographyItem.attrs.type || 'journal'
-        )
+        updateCitationPubType(citation, bibliographyItem.attrs.type)
         const appendPersonGroup = (
           type: string,
           people: BibliographicName[]
@@ -722,12 +732,14 @@ export class JATSExporter {
           })
         }
 
-        if (bibliographyItem.attrs.editors) {
-          appendPersonGroup('editor', bibliographyItem.attrs.editors)
+        if (bibliographyItem.attrs.author) {
+          appendPersonGroup('author', bibliographyItem.attrs.author)
         }
-        if (bibliographyItem.attrs.authors) {
-          appendPersonGroup('author', bibliographyItem.attrs.authors)
+
+        if (bibliographyItem.attrs.editor) {
+          appendPersonGroup('editor', bibliographyItem.attrs.editor)
         }
+
         if (bibliographyItem.attrs.title) {
           const node = this.document.createElement('article-title')
           this.setTitleContent(node, bibliographyItem.attrs.title)
@@ -739,9 +751,10 @@ export class JATSExporter {
           this.setTitleContent(node, bibliographyItem.attrs.containerTitle)
           citation.appendChild(node)
         }
-        if (bibliographyItem.attrs.dataTitle) {
+
+        if (bibliographyItem.attrs['data-title']) {
           const node = this.document.createElement('data-title')
-          node.textContent = String(bibliographyItem.attrs.dataTitle)
+          this.setTitleContent(node, bibliographyItem.attrs['data-title'])
           citation.appendChild(node)
         }
 
@@ -814,6 +827,13 @@ export class JATSExporter {
           }
         }
 
+        if (bibliographyItem.attrs.doi) {
+          const node = this.document.createElement('pub-id')
+          node.setAttribute('pub-id-type', 'doi')
+          node.textContent = String(bibliographyItem.attrs.doi)
+          citation.appendChild(node)
+        }
+
         if (bibliographyItem.attrs.pubIDs) {
           for (const pubID of bibliographyItem.attrs.pubIDs) {
             const node = this.document.createElement('pub-id')
@@ -841,44 +861,56 @@ export class JATSExporter {
           citation.appendChild(node)
         }
 
-        if (bibliographyItem.attrs.publisherLoc) {
+        if (bibliographyItem.attrs['publisher-place']) {
           const node = this.document.createElement('publisher-loc')
-          node.textContent = String(bibliographyItem.attrs.publisherLoc)
+          node.textContent = String(bibliographyItem.attrs['publisher-place'])
           citation.appendChild(node)
         }
 
-        if (bibliographyItem.attrs.publisherName) {
+        if (bibliographyItem.attrs.publisher) {
           const node = this.document.createElement('publisher-name')
-          node.textContent = String(bibliographyItem.attrs.publisherName)
+          node.textContent = String(bibliographyItem.attrs.publisher)
           citation.appendChild(node)
         }
 
-        if (bibliographyItem.attrs.confName) {
+        if (bibliographyItem.attrs.event) {
           const node = this.document.createElement('conf-name')
-          node.textContent = String(bibliographyItem.attrs.confName)
+          node.textContent = String(bibliographyItem.attrs.event)
           citation.appendChild(node)
         }
 
-        if (bibliographyItem.attrs.confLoc) {
+        if (bibliographyItem.attrs['event-place']) {
           const node = this.document.createElement('conf-loc')
-          node.textContent = String(bibliographyItem.attrs.confLoc)
+          node.textContent = String(bibliographyItem.attrs['event-place'])
           citation.appendChild(node)
         }
 
-        if (bibliographyItem.attrs.confDate) {
-          const node = this.document.createElement('conf-date')
-          const date = new Date(bibliographyItem.attrs.confDate)
-          node.textContent = date.toDateString()
-          node.setAttribute(
-            'iso-8601-date',
-            String(bibliographyItem.attrs.confDate)
-          )
-          citation.appendChild(node)
+        const buildISODate = (date: BibliographicDate) => {
+          const dateParts = date['date-parts']
+          if (dateParts && dateParts.length) {
+            const [[year, month, day]] = dateParts
+            if (year && month && day) {
+              return new Date(
+                Date.UTC(Number(year), Number(month) - 1, Number(day))
+              )
+            }
+          }
         }
 
-        if (bibliographyItem.attrs.size) {
+        const eventDate = bibliographyItem.attrs['event-date']
+        if (eventDate) {
+          const isoDate = buildISODate(eventDate)
+          if (isoDate) {
+            const node = this.document.createElement('conf-date')
+            node.setAttribute('iso-8601-date', isoDate.toISOString())
+            node.textContent = isoDate.toDateString()
+            citation.appendChild(node)
+          }
+        }
+
+        if (bibliographyItem.attrs['number-of-pages']) {
           const node = this.document.createElement('size')
-          node.textContent = String(bibliographyItem.attrs.size)
+          node.textContent = String(bibliographyItem.attrs['number-of-pages'])
           node.setAttribute('units', 'pages')
           citation.appendChild(node)
         }
@@ -889,15 +921,15 @@ export class JATSExporter {
           citation.appendChild(node)
         }
 
-        if (bibliographyItem.attrs.dateInCitation) {
-          const node = this.document.createElement('date-in-citation')
-          const date = new Date(bibliographyItem.attrs.dateInCitation)
-          node.textContent = date.toDateString()
-          node.setAttribute(
-            'iso-8601-date',
-            String(bibliographyItem.attrs.dateInCitation)
-          )
-          citation.appendChild(node)
+        const dateInCitation = bibliographyItem.attrs['date-in-citation']
+        if (dateInCitation) {
+          const isoDate = buildISODate(dateInCitation)
+          if (isoDate) {
+            const node = this.document.createElement('date-in-citation')
+            node.setAttribute('iso-8601-date', isoDate.toISOString())
+            node.textContent = isoDate.toDateString()
+            citation.appendChild(node)
+          }
         }
 
         if (bibliographyItem.attrs.institution) {
