@@ -18,17 +18,17 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface TableAttrs {
   id: string
 }
 
 export interface TableElementNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: TableAttrs
 }
 
 export const tableElement: NodeSpec = {
   content:
-    ' figcaption? (table | placeholder) table_colgroup? table_element_footer? (listing | placeholder)',
+    'figcaption?  (table | placeholder) table_colgroup? table_element_footer? alt_text? long_desc? (listing | placeholder)',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },

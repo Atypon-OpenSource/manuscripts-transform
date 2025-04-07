@@ -400,6 +400,14 @@ export class JATSDOMParser {
 
   private nodes: NodeRule[] = [
     {
+      tag: 'long-desc',
+      node: 'long_desc',
+    },
+    {
+      tag: 'alt-text',
+      node: 'alt_text',
+    },
+    {
       tag: 'attachments > self-uri',
       node: 'attachment',
       getAttrs: (node) => {
@@ -824,10 +832,21 @@ export class JATSDOMParser {
       tag: 'graphic',
       node: 'image_element',
       getContent: (node) => {
-        const figure = this.schema.nodes.figure.create(
-          this.getFigureAttrs(node)
-        )
-        return Fragment.from(figure)
+        const element = node as HTMLElement
+        const content = [
+          this.schema.nodes.figure.create(this.getFigureAttrs(element)),
+        ]
+        const altText = element.querySelector('alt-text')
+        if (altText) {
+          const altTextNode = this.schema.nodes.alt_text.create()
+          content.push(this.parse(altText, { topNode: altTextNode }))
+        }
+        const longDesc = element.querySelector('long-desc')
+        if (longDesc) {
+          const longDescNode = this.schema.nodes.long_desc.create()
+          content.push(this.parse(longDesc, { topNode: longDescNode }))
+        }
+        return Fragment.from(content)
       },
     },
     {
@@ -836,13 +855,11 @@ export class JATSDOMParser {
       getAttrs: (node) => {
         const element = node as HTMLElement
         const attrib = element.querySelector('attrib')
-
         const attribution = attrib
           ? {
               literal: getTrimmedTextContent(attrib) ?? '',
             }
           : undefined
-
         return {
           id: element.getAttribute('id'),
           attribution,
@@ -1096,7 +1113,6 @@ export class JATSDOMParser {
       node: 'table_element',
       getAttrs: (node) => {
         const element = node as HTMLElement
-
         return {
           id: element.getAttribute('id'),
         }
