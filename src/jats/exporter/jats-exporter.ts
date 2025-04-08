@@ -34,7 +34,6 @@ import serializeToXML from 'w3c-xmlserializer'
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML, textFromHTML } from '../../lib/html'
 import {
-  type BibliographyItemAttrs,
   AuthorNotesNode,
   CitationNode,
   ContributorNode,
