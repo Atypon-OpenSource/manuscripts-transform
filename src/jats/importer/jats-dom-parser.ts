@@ -207,27 +207,20 @@ export class JATSDOMParser {
     return htmlFromJatsNode(node.querySelector(querySelector))
   }
 
-  private chooseBibliographyItemType = (publicationType: string | null) =>
-    publicationType === 'journal'
-      ? 'article-journal'
-      : publicationType ?? 'article-journal'
-
   private parseRef = (element: Element) => {
-    const elementCitation = element.querySelector('element-citation')
     const mixedCitation = element.querySelector('mixed-citation')
+    const elementCitation = element.querySelector('element-citation')
     const id = element.id
+    const publicationType =
+      elementCitation?.getAttribute('publication-type') ??
+      mixedCitation?.getAttribute('publication-type')
 
     const attrs: BibliographyItemAttrs = {
       id,
-      type: this.chooseBibliographyItemType(
-        elementCitation?.getAttribute('publication-type') || null
-      ),
-    }
-
-    if (mixedCitation?.getAttribute('publication-type')) {
-      attrs.type = this.chooseBibliographyItemType(
-        mixedCitation.getAttribute('publication-type')
-      )
+      type:
+        publicationType === 'journal'
+          ? 'article-journal'
+          : publicationType ?? 'article-journal',
     }
 
     const title = this.getHTMLContent(element, 'article-title')
@@ -242,7 +235,7 @@ export class JATSDOMParser {
 
     const dataTitle = this.getHTMLContent(element, 'data-title')
     if (dataTitle) {
-      attrs.dataTitle = dataTitle
+      attrs['data-title'] = dataTitle
     }
 
     const authorNodes = [

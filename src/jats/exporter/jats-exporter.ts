@@ -680,6 +680,7 @@ export class JATSExporter {
         switch (pubType) {
           case 'article':
           case 'article-journal':
+          case undefined:
             citationEl.setAttribute('publication-type', 'journal')
             break
           default:
