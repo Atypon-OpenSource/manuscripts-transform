@@ -682,7 +682,7 @@ export class JATSDOMParser {
       },
     },
     {
-      tag: 'disp-quote[content-type=pullquote]',
+      tag: 'disp-quote',
       node: 'pullquote_element',
       getAttrs: (node) => {
         const element = node as HTMLElement
