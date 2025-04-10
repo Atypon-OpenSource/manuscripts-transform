@@ -74,6 +74,9 @@ const updateBibliographyItemNodeIDs = (node: ManuscriptNode) => {
     node.attrs.author?.forEach(
       (author: any) => (author._id = replaceUUIDWithTest(author._id))
     )
+    node.attrs.editor?.forEach(
+      (author: any) => (author._id = replaceUUIDWithTest(author._id))
+    )
     //@ts-ignore
     if (node.attrs.issued) {
       node.attrs.issued._id = replaceUUIDWithTest(node.attrs.issued._id)

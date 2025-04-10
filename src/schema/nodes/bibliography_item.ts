@@ -19,20 +19,52 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
+export type BibliographyItemAttr = {
+  type?: string
+  content?: string
+}
+
 export interface BibliographyItemAttrs {
   id: string
   type: string
   author?: BibliographicName[]
   issued?: BibliographicDate
   containerTitle?: string
-  doi?: string
   volume?: string
   issue?: string
   supplement?: string
   page?: string
   title?: string
   literal?: string
+  'data-title'?: string
+  std?: string
+  series?: string
+  edition?: string
+  'publisher-place'?: string
+  publisher?: string
+  event?: string
+  'event-place'?: string
+  'event-date'?: BibliographicDate
+  institution?: string
+  editor?: BibliographicName[]
+  elocationID?: string
+  links?: BibliographyItemAttr[]
+  'number-of-pages'?: string
+  'date-in-citation'?: BibliographicDate
+  pubIDs?: BibliographyItemAttr[]
+  doi?: string
 }
+export type BibliographyItemType =
+  | 'article-journal' //journal
+  | 'book'
+  | 'chapter'
+  | 'paper-conference' //conf-proc
+  | 'thesis'
+  | 'webpage' //web
+  | 'other' // no match
+  | 'standard' // no match
+  | 'dataset' // data
+  | 'preprint' // no match
 
 export interface BibliographyItemNode extends ManuscriptNode {
   attrs: BibliographyItemAttrs
@@ -45,15 +77,31 @@ export const bibliographyItem: NodeSpec = {
     id: { default: '' },
     type: { default: undefined },
     author: { default: undefined },
+    doi: { default: undefined },
     issued: { default: undefined },
     containerTitle: { default: undefined },
-    doi: { default: undefined },
     volume: { default: undefined },
     issue: { default: undefined },
     supplement: { default: undefined },
     page: { default: undefined },
     title: { default: undefined },
     literal: { default: undefined },
+    'data-title': { default: undefined },
+    std: { default: undefined },
+    series: { default: undefined },
+    edition: { default: undefined },
+    publisher: { default: undefined }, //publisher-name
+    'publisher-place': { default: undefined }, //publisher-loc
+    event: { default: undefined }, //conf-name
+    'event-place': { default: undefined }, //conf-loc
+    'event-date': { default: undefined }, //conf-date
+    institution: { default: undefined },
+    editor: { default: undefined },
+    elocationID: { default: undefined },
+    links: { default: undefined },
+    'number-of-pages': { default: undefined }, //size @unit=pages
+    pubIDs: { default: undefined },
+    'date-in-citation': { default: undefined },
     dataTracked: { default: null },
   },
   selectable: false,
