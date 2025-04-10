@@ -909,6 +909,7 @@ export class JATSExporter {
       corresp: () => '',
       title: () => '',
       alt_title: () => '',
+      alt_titles: () => '',
       text_block: (node) => nodes.paragraph(node),
       affiliations: () => '',
       contributors: () => '',

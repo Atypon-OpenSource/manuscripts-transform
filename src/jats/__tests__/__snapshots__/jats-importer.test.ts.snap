@@ -30449,31 +30449,39 @@ Object {
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
-        "id": "MPAltTitle:test",
-        "type": "running",
+        "id": "MPAltTitles:test",
       },
       "content": Array [
         Object {
-          "text": "Running title example",
-          "type": "text",
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPAltTitle:test",
+            "type": "running",
+          },
+          "content": Array [
+            Object {
+              "text": "Running title example",
+              "type": "text",
+            },
+          ],
+          "type": "alt_title",
         },
-      ],
-      "type": "alt_title",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "MPAltTitle:test",
-        "type": "short",
-      },
-      "content": Array [
         Object {
-          "text": "Short title example",
-          "type": "text",
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPAltTitle:test",
+            "type": "short",
+          },
+          "content": Array [
+            Object {
+              "text": "Short title example",
+              "type": "text",
+            },
+          ],
+          "type": "alt_title",
         },
       ],
-      "type": "alt_title",
+      "type": "alt_titles",
     },
     Object {
       "attrs": Object {
