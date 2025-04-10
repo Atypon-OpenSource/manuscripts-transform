@@ -74,3 +74,6 @@ export const link: NodeSpec = {
     return ['a', attrs, 0]
   },
 }
+
+export const isLinkNode = (node: ManuscriptNode): node is LinkNode =>
+  node.type === node.type.schema.nodes.link
