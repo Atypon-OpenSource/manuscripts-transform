@@ -35,6 +35,7 @@ import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML, textFromHTML } from '../../lib/html'
 import {
   AuthorNotesNode,
+  AwardNode,
   CitationNode,
   ContributorNode,
   CorrespNode,
@@ -52,7 +53,6 @@ import {
   TableElementFooterNode,
   TableElementNode,
 } from '../../schema'
-import { AwardNode } from '../../schema/nodes/award'
 import { isExecutableNodeType, isNodeType } from '../../transformer'
 import { IDGenerator } from '../types'
 import { selectVersionIds, Version } from './jats-versions'
@@ -448,7 +448,7 @@ export class JATSExporter {
 
     const titleGroup = this.document.createElement('title-group')
 
-    const titleNode = this.nodesMap.get(schema.nodes.title)?.[0]
+    const titleNode = this.getFirstChildOfType(schema.nodes.title)
 
     if (titleNode) {
       const element = this.document.createElement('article-title')
@@ -456,7 +456,7 @@ export class JATSExporter {
       titleGroup.appendChild(element)
     }
 
-    const altTitlesNodes = this.nodesMap.get(schema.nodes.alt_title) ?? []
+    const altTitlesNodes = this.getChildrenOfType(schema.nodes.alt_title)
 
     altTitlesNodes.forEach((titleNode) => {
       const element = this.document.createElement('alt-title')
@@ -468,7 +468,7 @@ export class JATSExporter {
     articleMeta.appendChild(titleGroup)
     this.buildContributors(articleMeta)
 
-    const supplementsNodes = this.nodesMap.get(schema.nodes.supplement) ?? []
+    const supplementsNodes = this.getChildrenOfType(schema.nodes.supplement)
     supplementsNodes.forEach((node) => {
       const supplementaryMaterial = this.document.createElement(
         'supplementary-material'
@@ -547,20 +547,22 @@ export class JATSExporter {
     this.buildKeywords(articleMeta)
 
     let countingElements = []
-    const figureCount = this.nodesMap.get(schema.nodes.figure)?.length ?? 0
+    const figureCount = this.getChildrenOfType(schema.nodes.figure).length
     countingElements.push(this.buildCountingElement('fig-count', figureCount))
 
-    const tableCount = this.nodesMap.get(schema.nodes.table)?.length ?? 0
+    const tableCount = this.getChildrenOfType(schema.nodes.table).length
     countingElements.push(this.buildCountingElement('table-count', tableCount))
 
-    const equationCount =
-      this.nodesMap.get(schema.nodes.equation_element)?.length ?? 0
+    const equationCount = this.getChildrenOfType(
+      schema.nodes.equation_element
+    ).length
     countingElements.push(
       this.buildCountingElement('equation-count', equationCount)
     )
 
-    const referencesCount =
-      this.nodesMap.get(schema.nodes.bibliography_item)?.length ?? 0
+    const referencesCount = this.getChildrenOfType(
+      schema.nodes.bibliography_item
+    ).length
     countingElements.push(
       this.buildCountingElement('ref-count', referencesCount)
     )
@@ -580,7 +582,7 @@ export class JATSExporter {
       journalMeta.remove()
     }
 
-    const selfUriAttachments = this.nodesMap.get(schema.nodes.attachment) ?? []
+    const selfUriAttachments = this.getChildrenOfType(schema.nodes.attachment)
 
     selfUriAttachments.forEach((attachment) => {
       const selfUriElement = this.document.createElement('self-uri')
@@ -677,8 +679,9 @@ export class JATSExporter {
     // move ref-list from body to back
     back.appendChild(refList)
 
-    const bibliographyItems =
-      this.nodesMap.get(schema.nodes.bibliography_item) ?? []
+    const bibliographyItems = this.getChildrenOfType(
+      schema.nodes.bibliography_item
+    )
     const [meta] = this.citationProvider.makeBibliography()
     for (const [id] of meta.entry_ids) {
       const bibliographyItem = bibliographyItems.find((n) => n.attrs.id === id)
@@ -1312,7 +1315,7 @@ export class JATSExporter {
       type: NodeType,
       descend = false
     ): boolean => {
-      const nodes = this.nodesMap.get(type) ?? []
+      const nodes = this.getChildrenOfType(type)
       return nodes.some((node) => {
         const result = findChildrenByAttr(
           node,
@@ -1597,9 +1600,9 @@ export class JATSExporter {
         }
       }
 
-      const affiliations = this.nodesMap.get(schema.nodes.affiliation)
+      const affiliations = this.getChildrenOfType(schema.nodes.affiliation)
 
-      if (affiliations) {
+      if (affiliations.length) {
         const usedAffiliations = affiliations.filter((affiliation) =>
           affiliationRIDs.includes(affiliation.attrs.id)
         )
@@ -1779,7 +1782,7 @@ export class JATSExporter {
     element.appendChild(footnoteEl)
   }
   private buildKeywords(articleMeta: Node) {
-    const keywordGroups = this.nodesMap.get(schema.nodes.keyword_group) ?? []
+    const keywordGroups = this.getChildrenOfType(schema.nodes.keyword_group)
 
     keywordGroups.forEach((group) => {
       const kwdGroup = this.document.createElement('kwd-group')
@@ -1946,7 +1949,7 @@ export class JATSExporter {
   }
   private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
     const container = body.querySelector(':scope > sec[sec-type="abstracts"]')
-    const abstractsNode = this.nodesMap.get(schema.nodes.abstracts)?.[0]
+    const abstractsNode = this.getFirstChildOfType(schema.nodes.abstracts)
     const abstractCategories = this.getAbstractCategories(abstractsNode)
 
     const abstractSections = this.getAbstractSections(
