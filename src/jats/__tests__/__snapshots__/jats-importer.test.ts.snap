@@ -31925,6 +31925,51 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
+            "id": "MPQuoteElement:test",
+            "placeholder": "",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPFigure:test",
+                "src": "demo1.jpg",
+                "type": "headshot",
+              },
+              "type": "figure",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "It is a far, far better thing that I do now than I have ever done.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Charles Dickens",
+                  "type": "text",
+                },
+              ],
+              "type": "attribution",
+            },
+          ],
+          "type": "pullquote_element",
+        },
+        Object {
+          "attrs": Object {
             "category": "intro",
             "dataTracked": null,
             "id": "MPSection:test",
