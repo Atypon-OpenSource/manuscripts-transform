@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-export type JSONNode = {
+export type JSONProsemirrorNode = {
   type: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   attrs: { [key: string]: any }
-  content?: JSONNode[]
+  content?: JSONProsemirrorNode[]
   text?: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   marks?: Array<{ type: string; attrs?: Record<string, any> }>

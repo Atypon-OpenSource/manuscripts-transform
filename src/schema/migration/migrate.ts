@@ -16,15 +16,16 @@
 import { cloneDeep } from 'lodash'
 import semver from 'semver'
 
+import { JSONProsemirrorNode } from '../../types'
 import { schema } from '..'
 import { MigrationScript } from './migration-script'
 import migrationScripts from './migration-scripts'
 
 export default function migrate(
-  oldDoc: JSONNode,
+  oldDoc: JSONProsemirrorNode,
   migrationScript: MigrationScript['migrateNode']
 ) {
-  function migrateNode(node: JSONNode) {
+  function migrateNode(node: JSONProsemirrorNode) {
     const migrated = migrationScript(node, oldDoc)
     if (migrated.content) {
       migrated.content = migrated.content.map((m) => migrateNode(m))
@@ -35,7 +36,7 @@ export default function migrate(
   return migrateNode(oldDoc)
 }
 
-export function migrateFor(oldDoc: JSONNode, baseVersion: string) {
+export function migrateFor(oldDoc: JSONProsemirrorNode, baseVersion: string) {
   const migrationScripts = ensureVersionAscOrder()
   let migratedDoc = cloneDeep(oldDoc)
 
@@ -57,7 +58,7 @@ export function migrateFor(oldDoc: JSONNode, baseVersion: string) {
 const ensureVersionAscOrder = () =>
   migrationScripts.sort((a, b) => semver.compare(a.toVersion, b.toVersion))
 
-function testDoc(doc: JSONNode, fromVersion: string) {
+function testDoc(doc: JSONProsemirrorNode, fromVersion: string) {
   try {
     // not that even if the doc doesn't really require a migration but the schema changed it still needs to go through migration process
     // this is needed to make sure that DB version of it is in sync with FE so the updates can be correctly exchanged

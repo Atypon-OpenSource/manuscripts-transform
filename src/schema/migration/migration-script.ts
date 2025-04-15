@@ -14,10 +14,13 @@
  * limitations under the License.
  */
 
-import { JSONNode } from './migrate'
+import { JSONProsemirrorNode } from '../../types'
 
 export interface MigrationScript {
   fromVersion: string
   toVersion: string
-  migrateNode: (node: JSONNode, doc: JSONNode) => JSONNode
+  migrateNode: (
+    node: JSONProsemirrorNode,
+    doc: JSONProsemirrorNode
+  ) => JSONProsemirrorNode
 }
