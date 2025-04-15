@@ -25,7 +25,8 @@
       <title-group>
         <article-title>Blood <bold>pressure</bold> after follow up in a stroke prevention
           clinic</article-title>
-        <alt-title alt-title-type="right-running">Blood pressure after stroke</alt-title>
+        <alt-title alt-title-type="running">Running title example</alt-title>
+        <alt-title alt-title-type="short">Short title example</alt-title>
       </title-group>
       <contrib-group>
         <contrib contrib-type="author" corresp="yes">
@@ -38,7 +39,7 @@
           <degrees>RN</degrees>
           <degrees>MPH</degrees>
           <degrees>PhD</degrees>
-          <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1"/>
+          <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1" />
         </contrib>
         <contrib contrib-type="author">
           <name>
@@ -48,7 +49,7 @@
           <degrees>MD</degrees>
           <degrees>PhD</degrees>
           <xref ref-type="fn" rid="BRB3-2019-12-0787-afn-0001">*</xref>
-          <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1"/>
+          <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1" />
         </contrib>
         <aff id="BRB3-2019-12-0787-aff1"><institution content-type="dept">Department of
           Neurology</institution>, <institution>Herlev og Gentofte
@@ -78,7 +79,8 @@
             Poulsen, Email: mai.bang.poulsen.02@regionh.dk</p>
           <p>Both authors have made substantial contributions to conception and design and
             acquisitions and
-            analyses<?AuthorQuery id="Q3" queryText="Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;"?>
+            analyses
+            <?AuthorQuery id="Q3" queryText="Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;"?>
             and interpretation of data and have; and been involved in writing the
             manuscript and given final approval of the version to be published. Both
             authors have participated sufficiently in the work to take public
@@ -88,14 +90,16 @@
         </fn>
       </author-notes>
       <pub-date pub-type="ppub">
-        <year/>
+        <year />
       </pub-date>
-      <volume/>
+      <volume />
       <supplementary-material id="S1" xlink:href="attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312" mimetype="application" mime-subtype="vnd.openxmlformats-officedocument.wordprocessingml.document">
         <caption>
           <title>final manuscript-hum-huili-dbh-suicide-20200707_figures (9)
           </title>
         </caption>
+         <alt-text>example of alt text for supplements</alt-text>
+        <long-desc>example of long desc for supplements</long-desc>
       </supplementary-material>
       <history>
         <date date-type="received">
@@ -104,9 +108,9 @@
           <year>2019</year>
         </date>
         <date date-type="rev-recd">
-          <day/>
-          <month/>
-          <year/>
+          <day />
+          <month />
+          <year />
         </date>
         <date date-type="accepted">
           <day>27</day>
@@ -115,6 +119,11 @@
         </date>
       </history>
       <permissions> </permissions>
+      <self-uri content-type="document"
+        xlink:href="http://www.harmreductionjournal.com/content/1/1/5" />
+      <self-uri content-type="document"
+        xlink:href="http://www.harmreductionjournal.com/content/1/1/2" />
+
       <abstract>
         <sec>
           <title>Objectives</title>
@@ -153,9 +162,22 @@
         </sec>
       </abstract>
       <abstract abstract-type="graphical">
-        <fig id="fig-1" position="anchor" fig-type="figure">
-          <graphic xlink:href="demo.jpg" />
+        <fig id="fig-1" position="anchor" fig-type="half-left">
+          <graphic xlink:href="demo1.jpg" />
         </fig>
+      </abstract>
+      <abstract abstract-type="key-image">
+        <fig id="fig-2" position="anchor" fig-type="half-left">
+          <graphic xlink:href="demo2.jpg" />
+        </fig>
+      </abstract>
+      <abstract abstract-type="short">
+        <p>The is the third and last part of the volume devoted to solubility data of rare
+          earth metal chlorides in water and in ternary and quaternary aqueous systems.
+          Compilations of all available experimental data are introduced for each rare earth
+          metal chloride with a corresponding critical evaluation. This part covers chlorides
+          of Gd, Tb, Dy, Ho, Er, Tm, Yb, and Lu, with coverage of the literature through the
+          middle of 2008.</p>
       </abstract>
       <kwd-group kwd-group-type="author">
         <title>KEYWORDS &#x2028;</title>
@@ -188,6 +210,18 @@
     </article-meta>
   </front>
   <body>
+  <graphic 
+xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
+1.2983775.1373315697!/images/1460725790.jpg">
+ <alt-text>example of alt text for graphics</alt-text>
+        <long-desc>example of long desc</long-desc>
+</graphic>
+    <p>test paragraph</p>
+    <disp-quote content-type="quote-with-image">
+    <graphic content-type="headshot" xlink:href="demo1.jpg"/>
+    <p>It is a far, far better thing that I do now than I have ever done.</p>
+    <attrib>Charles Dickens</attrib>
+</disp-quote>
     <sec id="BRB3-2019-12-0787-sec1" sec-type="intro">
       <label>1</label>
       <title>INTRODUCTION</title>
@@ -223,6 +257,15 @@
         treatment until target was reached. <xref ref-type="bibr"
                                                   rid="BRB3-2019-12-0787-bib-0020"><sup>20</sup></xref> Other methods had variable
         or no effect, only nurse or pharmacist led care seemed promising.</p>
+        <media
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="example.mp4"
+        xlink:show="embed"
+        mimetype="video"
+        mime-subtype="mp4" >
+         <alt-text>example of alt text for media</alt-text>
+        <long-desc>example of long desc</long-desc>
+        </media>
       <sec>
         <title>Aims and hypotheses</title>
         <p>The aim of the present study was to test the hypotheses that follow up after
@@ -414,11 +457,13 @@
         was 4 days (IQR: 3&#x2013;6). As seen from <xref ref-type="table"
                                                          rid="BRB3-2019-12-0787-tbl-0001">Table 1</xref> most participants had no or
         slight disability.</p>
-      <fig id="BRB3-2019-12-0787-fig-0001" position="float" fig-type="figure">
+      <fig id="BRB3-2019-12-0787-fig-0001" position="float" fig-type="half-left">
         <label>FIGURE 1</label>
         <caption>
           <p>Flow chart of participants</p>
         </caption>
+        <alt-text>example of alt text for figs</alt-text>
+        <long-desc>example of long desc</long-desc>
         <graphic xlink:href="BRB3-2019-12-0787-fig-0001.png"/>
       </fig>
       <table-wrap id="BRB3-2019-12-0787-tbl-0001" position="float">
@@ -426,6 +471,8 @@
         <caption>
           <title>Baseline characteristics of 73 patients</title>
         </caption>
+         <alt-text>example of alt text for tables</alt-text>
+        <long-desc>example of long desc</long-desc>
         <table frame="hsides" rules="groups">
           <col width="52.14%"/>
           <col width="11.92%"/>
@@ -640,7 +687,7 @@
         group. At follow up patients in both groups reported a median of two visits
         including BP measurement at the general practitioner&#x00B4;s office since discharge
         from hospital.</p>
-      <fig id="BRB3-2019-12-0787-fig-0002" position="float" fig-type="figure">
+      <fig id="BRB3-2019-12-0787-fig-0002" position="float" fig-type="half-left">
         <label>FIGURE 2</label>
         <caption>
           <p>Blood pressure and treatment of hypertension at baseline in 73 patients
@@ -659,7 +706,7 @@
           (<italic>p</italic>&#x2009;&lt;&#x2009;0.0001) illustrated by the differences in
           BP treated to target as well as untreated hypertension in <xref ref-type="fig"
                                                                           rid="BRB3-2019-12-0787-fig-0003">Figure 3</xref>.</p>
-        <fig id="BRB3-2019-12-0787-fig-0003" position="float" fig-type="figure">
+        <fig id="BRB3-2019-12-0787-fig-0003" position="float" fig-type="half-left">
           <label>FIGURE 3</label>
           <caption>
             <p>Blood pressure and treatment of hypertension at follow up in 73 patients

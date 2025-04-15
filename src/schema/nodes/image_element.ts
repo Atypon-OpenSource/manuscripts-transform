@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { NodeSpec } from 'prosemirror-model'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
+import { ManuscriptNode } from '../types'
 
-export const abstracts: NodeSpec = {
-  content: 'sections*',
+export interface ImageElementNode extends ManuscriptNode {
+  attrs: {
+    id: string
+  }
+}
+
+export const imageElement: NodeSpec = {
+  content: 'figure? alt_text? long_desc?',
   attrs: {
     id: { default: '' },
+    dataTracked: { default: null },
   },
-  group: 'block',
-  toDOM: () => ['div', { class: 'abstracts' }, 0],
+  group: 'block element',
+  toDOM: (node) => {
+    return [
+      'div',
+      {
+        class: 'image_element',
+        id: node.attrs.id,
+      },
+    ]
+  },
 }
+
+export const isImageElementNode = (
+  node: ManuscriptNode
+): node is ImageElementNode =>
+  node.type === node.type.schema.nodes.image_element

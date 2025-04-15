@@ -73,11 +73,16 @@ export const nodeTitle = (node: ManuscriptNode) => {
     case nodes.pullquote_element:
       return snippetOfNodeType(node, nodes.paragraph)
 
+    case nodes.embed:
     case nodes.figure_element:
     case nodes.table_element:
     case nodes.equation_element:
     case nodes.listing_element:
     case nodes.multi_graphic_figure_element:
+    case nodes.image_element:
+      return ''
+
+    case nodes.box_element:
       return ''
 
     default:

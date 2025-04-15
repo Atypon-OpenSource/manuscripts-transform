@@ -61,8 +61,6 @@ export const captionTitle: NodeSpec = {
       attrs.class = `${attrs.class} placeholder`
     }
 
-    attrs.contenteditable = 'true'
-
     return ['label', attrs, 0]
   },
 }

@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,48 +18,38 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export interface FigureAttrs {
+export interface EmbedAttrs {
   id: string
-  src: string
-  type: string
+  href: string
+  mimetype: string
+  mimeSubtype: string
 }
 
-export interface FigureNode extends ManuscriptNode {
-  attrs: FigureAttrs
+export interface EmbedNode extends ManuscriptNode {
+  attrs: EmbedAttrs
 }
 
-export const figure: NodeSpec = {
+export const embed: NodeSpec = {
+  content: 'figcaption alt_text? long_desc?',
   attrs: {
     id: { default: '' },
-    src: { default: '' },
-    type: { default: '' },
     dataTracked: { default: null },
+    href: { default: undefined },
+    mimetype: { default: undefined },
+    mimeSubtype: { default: undefined },
+    longDesc: { default: '' },
   },
-  selectable: false,
-  group: 'block',
-  parseDOM: [
-    {
-      tag: 'figure',
-      context: 'figure_element/',
-      getAttrs: (dom) => {
-        const element = dom as HTMLElement
-
-        return {
-          id: element.getAttribute('id'),
-          src: element.getAttribute('src'),
-        }
-      },
-    },
-  ],
+  group: 'block element',
   toDOM: (node) => {
-    const figureNode = node as FigureNode
-
     return [
-      'figure',
+      'div',
       {
-        class: 'figure',
-        id: figureNode.attrs.id,
+        class: 'embed',
+        id: node.attrs.id,
       },
     ]
   },
 }
+
+export const isEmbedNode = (node: ManuscriptNode): node is EmbedNode =>
+  node.type === node.type.schema.nodes.embed

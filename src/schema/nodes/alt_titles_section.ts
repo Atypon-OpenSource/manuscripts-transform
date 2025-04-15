@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2025 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,45 +18,41 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export interface GraphicalAbstractSectionAttrs {
+interface Attrs {
   id: string
-  category: string
 }
 
-export interface GraphicalAbstractSectionNode extends ManuscriptNode {
-  attrs: GraphicalAbstractSectionAttrs
+export interface AltTitlesSectionNode extends ManuscriptNode {
+  attrs: Attrs
 }
 
-export const graphicalAbstractSection: NodeSpec = {
-  content: 'section_title (figure_element | placeholder)', // does it need perhaps a special view that limits the figure content? Ask Nick?
+export const altTitlesSection: NodeSpec = {
+  content: 'alt_title*',
   attrs: {
     id: { default: '' },
-    dataTracked: { default: null },
-    category: { default: '' },
   },
   group: 'block sections',
   selectable: false,
   parseDOM: [
     {
-      tag: 'section.graphical-abstract',
+      tag: 'section.alt-titles',
     },
   ],
   toDOM: (node) => {
-    const graphicalAbstractSectionNode = node as GraphicalAbstractSectionNode
+    const altTitlesSectionNode = node as AltTitlesSectionNode
 
     return [
       'section',
       {
-        id: graphicalAbstractSectionNode.attrs.id,
-        class: 'graphical-abstract',
-        spellcheck: 'false',
+        id: altTitlesSectionNode.attrs.id,
+        class: 'alt-titles',
       },
       0,
     ]
   },
 }
 
-export const isGraphicalAbstractSectionNode = (
+export const isAltTitlesSectionNode = (
   node: ManuscriptNode
-): node is GraphicalAbstractSectionNode =>
-  node.type === node.type.schema.nodes.graphical_abstract_section
+): node is AltTitlesSectionNode =>
+  node.type === node.type.schema.nodes.alt_titles_section

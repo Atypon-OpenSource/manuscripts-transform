@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2025 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,23 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import type { NodeSpec } from 'prosemirror-model'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
+import type { ManuscriptNode } from '../types'
 
-export const abstracts: NodeSpec = {
-  content: 'sections*',
+export interface AltTextAttrs {
+  id: string
+}
+
+export interface AltTextNode extends ManuscriptNode {
+  attrs: AltTextAttrs
+}
+
+export const altText: NodeSpec = {
+  content: 'text*',
   attrs: {
     id: { default: '' },
   },
-  group: 'block',
-  toDOM: () => ['div', { class: 'abstracts' }, 0],
+  parseDOM: [{ tag: 'div' }],
+  toDOM: () => ['div', 0],
 }

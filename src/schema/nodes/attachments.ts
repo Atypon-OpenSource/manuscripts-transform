@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2025 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,14 +16,30 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
+import { ManuscriptNode } from '../types'
+export interface AttachmentsAttrs {
+  id: string
+}
 
-export const abstracts: NodeSpec = {
-  content: 'sections*',
+export interface AttachmentsNode extends ManuscriptNode {
+  attrs: AttachmentsAttrs
+}
+export const attachments: NodeSpec = {
+  content: 'attachment*',
   attrs: {
     id: { default: '' },
   },
-  group: 'block',
-  toDOM: () => ['div', { class: 'abstracts' }, 0],
+  toDOM: (node) => {
+    return [
+      'div',
+      {
+        class: 'attachments',
+        id: node.attrs.id,
+      },
+    ]
+  },
 }
+
+export const isAttachmentsNode = (
+  node: ManuscriptNode
+): node is AttachmentsNode => node.type === node.type.schema.nodes.attachments

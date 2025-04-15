@@ -29,7 +29,6 @@ export const awards: NodeSpec = {
   content: 'award*',
   attrs: {
     id: { default: '' },
-    dataTracked: { default: null },
   },
   toDOM: (node) => {
     return [

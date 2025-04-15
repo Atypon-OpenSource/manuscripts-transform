@@ -41,7 +41,7 @@ export interface ManuscriptAttrs {
 
 export const manuscript: NodeSpec = {
   content:
-    'title? contributors? affiliations? author_notes? awards? keywords? supplements? abstracts body backmatter comments',
+    'title alt_titles? contributors? affiliations? author_notes? awards? keywords? supplements? abstracts body backmatter comments attachments?',
   attrs: {
     id: { default: '' },
     doi: { default: '' },

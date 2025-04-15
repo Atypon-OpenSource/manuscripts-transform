@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { SectionCategory, SectionGroup } from '../schema'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
-
-export const abstracts: NodeSpec = {
-  content: 'sections*',
-  attrs: {
-    id: { default: '' },
-  },
-  group: 'block',
-  toDOM: () => ['div', { class: 'abstracts' }, 0],
+export const getGroupCategories = (
+  sections: Map<string, SectionCategory> | SectionCategory[],
+  group: SectionGroup
+): SectionCategory[] => {
+  const sectionsArray = Array.isArray(sections)
+    ? sections
+    : Array.from(sections.values())
+  return sectionsArray.filter((section) => section.group === group)
 }

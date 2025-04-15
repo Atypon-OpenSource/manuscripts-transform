@@ -14,31 +14,33 @@
  * limitations under the License.
  */
 
-import { ActualManuscriptNode } from '../../schema'
+import { ActualManuscriptNode, schema, SectionCategory } from '../../schema'
 import { markComments } from './jats-comments'
-import { jatsDOMParser } from './jats-dom-parser'
+import { JATSDOMParser } from './jats-dom-parser'
 import { parseJournal } from './jats-journal-meta-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
 import {
+  addMissingCaptions,
   createAbstracts,
+  createAttachments,
   createBackmatter,
   createBody,
   createBoxedElementSection,
   createKeywordsSection,
   createSupplementaryMaterialsSection,
-  ensureSection,
+  createTitles,
   fixTables,
+  moveAccessibilityItems,
   moveAffiliations,
   moveAuthorNotes,
   moveAwards,
   moveCaptionsToEnd,
   moveContributors,
   moveReferencesToBackmatter,
-  moveTitle,
   orderTableFootnote,
 } from './jats-transformations'
 
-const processJATS = (doc: Document) => {
+const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   const createElement = createElementFn(doc)
 
   markComments(doc)
@@ -47,8 +49,8 @@ const processJATS = (doc: Document) => {
   if (!front) {
     return
   }
-
-  moveTitle(front, createElement)
+  addMissingCaptions(doc, createElement)
+  createTitles(front, createElement)
   moveContributors(front, createElement)
   moveAffiliations(front, createElement)
   moveAuthorNotes(front, createElement)
@@ -59,32 +61,37 @@ const processJATS = (doc: Document) => {
     return
   }
 
-  ensureSection(body, createElement)
   moveCaptionsToEnd(body)
   createBoxedElementSection(body, createElement)
   createBody(doc, body, createElement)
   createAbstracts(doc, body, createElement)
-  createBackmatter(doc, body, createElement)
+  createBackmatter(doc, body, sectionCategories, createElement)
   createSupplementaryMaterialsSection(doc, body, createElement)
   createKeywordsSection(doc, body, createElement)
   fixTables(doc, body, createElement)
   orderTableFootnote(doc, body)
-
+  createAttachments(doc, createElement)
   const back = doc.querySelector('back')
   if (!back) {
     return
   }
-
   moveReferencesToBackmatter(body, back, createElement)
+  moveAccessibilityItems(doc)
 }
 
 const createElementFn = (doc: Document) => (tagName: string) =>
   doc.createElement(tagName)
 
-export const parseJATSArticle = (doc: Document, template?: string) => {
+export const parseJATSArticle = (
+  doc: Document,
+  sectionCategories: SectionCategory[],
+  template?: string
+) => {
   const journal = parseJournal(doc)
-  processJATS(doc)
-  const node = jatsDOMParser.parse(doc).firstChild as ActualManuscriptNode
+  processJATS(doc, sectionCategories)
+
+  const node = new JATSDOMParser(sectionCategories, schema).parse(doc)
+    .firstChild as ActualManuscriptNode
   if (!node) {
     throw new Error('No content was parsed from the JATS article body')
   }

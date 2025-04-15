@@ -18,13 +18,13 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface TitleAttrs {
   id: string
   placeholder: string
 }
 
 export interface TitleNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: TitleAttrs
 }
 
 export const title: NodeSpec = {
@@ -38,3 +38,6 @@ export const title: NodeSpec = {
   parseDOM: [{ tag: 'div' }],
   toDOM: () => ['div', 0],
 }
+
+export const isTitleNode = (node: ManuscriptNode): node is TitleNode =>
+  node.type === node.type.schema.nodes.title

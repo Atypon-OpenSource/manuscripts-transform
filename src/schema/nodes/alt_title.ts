@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2025 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,14 +16,25 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
+import { ManuscriptNode } from '../types'
 
-export const abstracts: NodeSpec = {
-  content: 'sections*',
+export interface AltTitleAttrs {
+  id: string
+  type: string
+}
+
+export interface AltTitleNode extends ManuscriptNode {
+  attrs: AltTitleAttrs
+}
+
+export const altTitle: NodeSpec = {
+  content: '(text | highlight_marker)*',
   attrs: {
     id: { default: '' },
+    type: { default: '' },
+    dataTracked: { default: null },
   },
-  group: 'block',
-  toDOM: () => ['div', { class: 'abstracts' }, 0],
+  group: 'block element',
+  parseDOM: [{ tag: 'div' }],
+  toDOM: () => ['div', 0],
 }

@@ -19,18 +19,18 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 import { AttributionNode } from './attribution'
 
-interface Attrs {
+export interface FigureElementAttrs {
   id: string
   attribution?: AttributionNode
 }
 
 export interface FigureElementNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: FigureElementAttrs
 }
 
 export const figureElement: NodeSpec = {
   content:
-    '(paragraph | figure | missing_figure | placeholder)+ attribution* figcaption (listing | placeholder)',
+    '(paragraph | figure | missing_figure | placeholder)+ attribution*  figcaption alt_text? long_desc? (listing | placeholder)',
   attrs: {
     id: { default: '' },
     attribution: { default: undefined },

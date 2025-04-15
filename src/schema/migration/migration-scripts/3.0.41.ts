@@ -1,5 +1,5 @@
 /*!
- * © 2023 Atypon Systems LLC
+ * © 2024 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,25 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { JSONNode } from '../migrate'
+import { MigrationScript } from '../migration-script'
 
-export type SectionGroupTypeID = 'abstracts' | 'body' | 'backmatter'
+class Migration3041 implements MigrationScript {
+  fromVersion = '3.0.40'
+  toVersion = '3.0.41'
 
-export type SectionGroupType = {
-  _id: SectionGroupTypeID
-  title: string
+  migrateNode(node: JSONNode): JSONNode {
+    if (node.type === 'graphical_abstract_section') {
+      return {
+        ...node,
+        attrs: {
+          ...node.attrs,
+          category: 'abstract-graphical',
+        },
+      }
+    }
+    return node
+  }
 }
 
-export const abstractsType: SectionGroupType = {
-  _id: 'abstracts',
-  title: 'Abstracts',
-}
-
-export const bodyType: SectionGroupType = {
-  _id: 'body',
-  title: 'Body',
-}
-
-export const backmatterType: SectionGroupType = {
-  _id: 'backmatter',
-  title: 'Backmatter',
-}
+export default Migration3041

@@ -21,6 +21,7 @@ import {
   Node as ProsemirrorNode,
   NodeSpec,
   NodeType,
+  ParseRule,
   ResolvedPos,
   Schema,
   Slice,
@@ -103,6 +104,7 @@ export type Nodes =
   | 'table_col'
   | 'table_header'
   | 'text'
+  | 'text_block'
   | 'affiliation'
   | 'contributor'
   | 'table_element_footer'
@@ -117,6 +119,15 @@ export type Nodes =
   | 'box_element'
   | 'awards'
   | 'award'
+  | 'embed'
+  | 'image_element'
+  | 'attachment'
+  | 'attachments'
+  | 'alt_title'
+  | 'alt_text'
+  | 'alt_titles'
+  | 'long_desc'
+
 export type ManuscriptSchema = Schema<Nodes, Marks>
 
 export type ManuscriptEditorState = EditorState
@@ -144,4 +155,36 @@ export type DataTrackedAttrs = {
   operation: string
   userID: string
   createdAt: number
+}
+
+export type SectionGroup =
+  | 'abstracts'
+  | 'body'
+  | 'backmatter'
+  | 'abstracts-graphic'
+
+export type SectionCategory = {
+  id: string
+  synonyms: string[]
+  titles: [string, ...string[]]
+  group?: SectionGroup
+  isUnique: boolean
+}
+
+export type ManuscriptTemplate = {
+  _id: string
+  bundle: string
+  title: string
+  sectionCategories: SectionCategory[]
+}
+
+export type MarkRule = ParseRule & { mark: Marks | null }
+
+export type NodeRule = ParseRule & { node?: Nodes | null }
+
+export function isNodeOfType<T extends ManuscriptNode>(
+  node: ManuscriptNode,
+  type: NodeType
+): node is T {
+  return node.type === type
 }
