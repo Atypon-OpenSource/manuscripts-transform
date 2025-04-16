@@ -113,6 +113,7 @@ export const findNodesByType = (node: Node, type: NodeType, descend = true) => {
   return findChildrenByType(node, type, descend).map((n) => n.node)
 }
 export const findNodeByType = (node: Node, type: NodeType, descend = true) => {
+  // @ts-ignore
   return findNodesByType(node, type, descend)[0]
 }
 

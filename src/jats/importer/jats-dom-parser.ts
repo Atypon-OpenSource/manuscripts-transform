@@ -391,6 +391,16 @@ export class JATSDOMParser {
       },
     },
     {
+      tag: 'titles',
+      node: 'alt_titles',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+        }
+      },
+    },
+    {
       tag: 'alt-title[alt-title-type]',
       node: 'alt_title',
       getAttrs: (node) => {
