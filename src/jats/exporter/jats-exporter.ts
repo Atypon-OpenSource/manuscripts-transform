@@ -50,6 +50,7 @@ import {
   Marks,
   Nodes,
   ParagraphNode,
+  publicationTypeToJats,
   schema,
   TableElementFooterNode,
   TableElementNode,
@@ -197,10 +198,8 @@ export class JATSExporter {
       return {
         ...node.attrs,
         _id: node.attrs.id,
-        DOI: node.attrs.doi,
         manuscriptID,
         objectType: ObjectTypes.BibliographyItem,
-        'container-title': node.attrs.containerTitle,
       } as BibliographyItem
     }
   }
@@ -304,7 +303,7 @@ export class JATSExporter {
       return null
     }
 
-    const template = this.document.createElement('template')
+    const template = this.createElement('template')
 
     template.innerHTML = JATSFragment
 
@@ -367,20 +366,20 @@ export class JATSExporter {
 
   protected buildFront = (journal?: Journal) => {
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/front.html
-    const front = this.document.createElement('front')
+    const front = this.createElement('front')
 
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/journal-meta.html
-    const journalMeta = this.document.createElement('journal-meta')
+    const journalMeta = this.createElement('journal-meta')
     front.appendChild(journalMeta)
 
     // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/article-meta.html
-    const articleMeta = this.document.createElement('article-meta')
+    const articleMeta = this.createElement('article-meta')
     front.appendChild(articleMeta)
 
     if (journal) {
       if (journal.journalIdentifiers) {
         for (const item of journal.journalIdentifiers) {
-          const element = this.document.createElement('journal-id')
+          const element = this.createElement('journal-id')
           if (item.journalIDType) {
             element.setAttribute('journal-id-type', item.journalIDType)
           }
@@ -390,18 +389,18 @@ export class JATSExporter {
       }
 
       if (journal.title || journal.abbreviatedTitles) {
-        const parentElement = this.document.createElement('journal-title-group')
+        const parentElement = this.createElement('journal-title-group')
         journalMeta.appendChild(parentElement)
 
         if (journal.title) {
-          const element = this.document.createElement('journal-title')
+          const element = this.createElement('journal-title')
           element.textContent = journal.title
           parentElement.appendChild(element)
         }
 
         if (journal.abbreviatedTitles) {
           for (const item of journal.abbreviatedTitles) {
-            const element = this.document.createElement('abbrev-journal-title')
+            const element = this.createElement('abbrev-journal-title')
             if (item.abbrevType) {
               element.setAttribute('abbrev-type', item.abbrevType)
             }
@@ -413,7 +412,7 @@ export class JATSExporter {
 
       if (journal.ISSNs) {
         for (const item of journal.ISSNs) {
-          const element = this.document.createElement('issn')
+          const element = this.createElement('issn')
           if (item.publicationType) {
             element.setAttribute('pub-type', item.publicationType)
           }
@@ -423,27 +422,27 @@ export class JATSExporter {
       }
 
       if (journal.publisherName) {
-        const publisher = this.document.createElement('publisher')
-        const publisherName = this.document.createElement('publisher-name')
+        const publisher = this.createElement('publisher')
+        const publisherName = this.createElement('publisher-name')
         publisherName.textContent = journal.publisherName
         publisher.appendChild(publisherName)
         journalMeta.appendChild(publisher)
       }
     }
     if (this.manuscriptNode.attrs.doi) {
-      const articleID = this.document.createElement('article-id')
+      const articleID = this.createElement('article-id')
       articleID.setAttribute('pub-id-type', 'doi')
       // @ts-ignore
       articleID.textContent = this.manuscriptNode.attrs.doi
       articleMeta.appendChild(articleID)
     }
 
-    const titleGroup = this.document.createElement('title-group')
+    const titleGroup = this.createElement('title-group')
 
     const titleNode = this.getFirstChildOfType(schema.nodes.title)
 
     if (titleNode) {
-      const element = this.document.createElement('article-title')
+      const element = this.createElement('article-title')
       this.setTitleContent(element, titleNode.textContent)
       titleGroup.appendChild(element)
     }
@@ -451,7 +450,7 @@ export class JATSExporter {
     const altTitlesNodes = this.getChildrenOfType(schema.nodes.alt_title)
 
     altTitlesNodes.forEach((titleNode) => {
-      const element = this.document.createElement('alt-title')
+      const element = this.createElement('alt-title')
       element.setAttribute('alt-title-type', titleNode.attrs.type)
       this.setTitleContent(element, titleNode.textContent)
       titleGroup.appendChild(element)
@@ -462,9 +461,7 @@ export class JATSExporter {
 
     const supplementsNodes = this.getChildrenOfType(schema.nodes.supplement)
     supplementsNodes.forEach((node) => {
-      const supplementaryMaterial = this.document.createElement(
-        'supplementary-material'
-      )
+      const supplementaryMaterial = this.createElement('supplementary-material')
       supplementaryMaterial.setAttribute('id', normalizeID(node.attrs.id))
       supplementaryMaterial.setAttributeNS(
         XLINK_NAMESPACE,
@@ -476,9 +473,9 @@ export class JATSExporter {
         'mime-subtype',
         node.attrs.mimeSubType ?? ''
       )
-      const caption = this.document.createElement('caption')
+      const caption = this.createElement('caption')
 
-      const title = this.document.createElement('title')
+      const title = this.createElement('title')
       title.textContent = node.attrs.title ?? ''
       caption.append(title)
       supplementaryMaterial.append(caption)
@@ -486,8 +483,7 @@ export class JATSExporter {
     })
 
     const history =
-      articleMeta.querySelector('history') ||
-      this.document.createElement('history')
+      articleMeta.querySelector('history') || this.createElement('history')
 
     if (this.manuscriptNode.attrs.acceptanceDate) {
       const date = this.buildDateElement(
@@ -565,7 +561,7 @@ export class JATSExporter {
 
     countingElements = countingElements.filter((el) => el) as Array<HTMLElement>
     if (countingElements.length > 0) {
-      const counts = this.document.createElement('counts')
+      const counts = this.createElement('counts')
       counts.append(...countingElements)
       articleMeta.append(counts)
     }
@@ -577,7 +573,7 @@ export class JATSExporter {
     const selfUriAttachments = this.getChildrenOfType(schema.nodes.attachment)
 
     selfUriAttachments.forEach((attachment) => {
-      const selfUriElement = this.document.createElement('self-uri')
+      const selfUriElement = this.createElement('self-uri')
       selfUriElement.setAttribute('content-type', attachment.attrs.type)
       selfUriElement.setAttributeNS(
         XLINK_NAMESPACE,
@@ -596,7 +592,7 @@ export class JATSExporter {
   }
 
   protected buildDateElement = (timestamp: number, type: string) => {
-    const dateElement = this.document.createElement('date')
+    const dateElement = this.createElement('date')
 
     dateElement.setAttribute('date-type', type)
 
@@ -608,7 +604,7 @@ export class JATSExporter {
     }
 
     for (const [key, value] of Object.entries(lookup).reverse()) {
-      const el = this.document.createElement(key)
+      const el = this.createElement(key)
       el.textContent = value
       dateElement.appendChild(el)
     }
@@ -620,13 +616,13 @@ export class JATSExporter {
     count: number | undefined
   ) => {
     if (count) {
-      const wordCount = this.document.createElement(tagName)
+      const wordCount = this.createElement(tagName)
       wordCount.setAttribute('count', String(count))
       return wordCount
     }
   }
   protected buildBody = () => {
-    const body = this.document.createElement('body')
+    const body = this.createElement('body')
     this.manuscriptNode.forEach((cFragment) => {
       const serializedNode = this.serializeNode(cFragment)
       body.append(...serializedNode.childNodes)
@@ -637,7 +633,7 @@ export class JATSExporter {
   }
 
   protected buildBack = (body: HTMLElement) => {
-    const back = this.document.createElement('back')
+    const back = this.createElement('back')
     this.moveSectionsToBack(back, body)
 
     // footnotes elements in footnotes section (i.e. not in table footer)
@@ -665,7 +661,7 @@ export class JATSExporter {
     let refList = this.document.querySelector('ref-list')
     if (!refList) {
       warn('No bibliography element, creating a ref-list anyway')
-      refList = this.document.createElement('ref-list')
+      refList = this.createElement('ref-list')
     }
 
     // move ref-list from body to back
@@ -680,306 +676,219 @@ export class JATSExporter {
       if (!bibliographyItem) {
         continue
       }
-      const ref = this.document.createElement('ref')
+      const ref = this.createElement('ref')
       ref.setAttribute('id', normalizeID(id))
-      const updateCitationPubType = (
-        citationEl: HTMLElement,
-        pubType: string
-      ) => {
-        switch (pubType) {
-          case 'article':
-          case 'article-journal':
-          case undefined:
-            citationEl.setAttribute('publication-type', 'journal')
-            break
-          default:
-            citationEl.setAttribute('publication-type', pubType)
-            break
-        }
-      }
+      const getPublicationType = (pubType?: string) =>
+        publicationTypeToJats[pubType ?? ''] || pubType || 'journal'
 
       // in case a literal was found in a bibItem the rest of the attributes are ignored
       // since the literal att should only be populated when the mixed-citation fails to parse
 
       if (bibliographyItem.attrs.literal) {
-        const mixedCitation = this.document.createElement('mixed-citation')
-        updateCitationPubType(mixedCitation, bibliographyItem.attrs.type)
-        mixedCitation.textContent = bibliographyItem.attrs.literal
-        ref.appendChild(mixedCitation)
-        refList.appendChild(ref)
+        this.appendElement(
+          ref,
+          'mixed-citation',
+          bibliographyItem.attrs.literal,
+          {
+            'publication-type': getPublicationType(bibliographyItem.attrs.type),
+          }
+        )
       } else {
-        const citation = this.document.createElement('element-citation')
-        updateCitationPubType(citation, bibliographyItem.attrs.type)
-        const appendPersonGroup = (
-          type: string,
-          people: BibliographicName[]
-        ) => {
-          const personGroupNode = this.document.createElement('person-group')
-          personGroupNode.setAttribute('person-group-type', type)
-          citation.appendChild(personGroupNode)
-
-          people.forEach((person) => {
-            const name = this.document.createElement('string-name')
-
-            if (person.family) {
-              const surname = this.document.createElement('surname')
-              surname.textContent = person.family
-              name.appendChild(surname)
-            }
-            if (person.given) {
-              const givenNames = this.document.createElement('given-names')
-              givenNames.textContent = person.given
-              name.appendChild(givenNames)
-            }
-            if (name.hasChildNodes()) {
-              personGroupNode.appendChild(name)
-            }
-            if (person.literal) {
-              const collab = this.document.createElement('collab')
-              collab.textContent = person.literal
-              personGroupNode.appendChild(collab)
-            }
-          })
-        }
-
-        if (bibliographyItem.attrs.author) {
-          appendPersonGroup('author', bibliographyItem.attrs.author)
-        }
-
-        if (bibliographyItem.attrs.editor) {
-          appendPersonGroup('editor', bibliographyItem.attrs.editor)
-        }
-
-        if (bibliographyItem.attrs.title) {
-          const node = this.document.createElement('article-title')
-          this.setTitleContent(node, bibliographyItem.attrs.title)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.containerTitle) {
-          const node = this.document.createElement('source')
-          this.setTitleContent(node, bibliographyItem.attrs.containerTitle)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs['data-title']) {
-          const node = this.document.createElement('data-title')
-          this.setTitleContent(node, bibliographyItem.attrs['data-title'])
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.issued) {
-          const dateParts = bibliographyItem.attrs.issued['date-parts']
-
-          if (dateParts && dateParts.length) {
-            const [[year, month, day]] = dateParts
-
-            if (year) {
-              const node = this.document.createElement('year')
-              node.textContent = String(year)
-              citation.appendChild(node)
-            }
-
-            if (month) {
-              const node = this.document.createElement('month')
-              node.textContent = String(month)
-              citation.appendChild(node)
-            }
-
-            if (day) {
-              const node = this.document.createElement('day')
-              node.textContent = String(day)
-              citation.appendChild(node)
-            }
+        const citation = this.appendElement(
+          ref,
+          'element-citation',
+          undefined,
+          {
+            'publication-type': getPublicationType(bibliographyItem.attrs.type),
           }
+        )
+
+        const attributeHandlers = {
+          author: (v: BibliographicName[]) =>
+            this.processPeople(citation, 'author', v),
+          editor: (v: BibliographicName[]) =>
+            this.processPeople(citation, 'editor', v),
+          title: (v: string) =>
+            this.setTitleContent(
+              this.appendElement(citation, 'article-title'),
+              v
+            ),
+          'container-title': (v: string) =>
+            this.setTitleContent(this.appendElement(citation, 'source'), v),
+          issued: ({ 'date-parts': parts }: { 'date-parts': number[][] }) =>
+            this.processDateParts(citation, parts),
+          volume: (v: string) => this.appendElement(citation, 'volume', v),
+          issue: (v: string) => this.appendElement(citation, 'issue', v),
+          supplement: (v: string) =>
+            this.appendElement(citation, 'supplement', v),
+          page: (v: string) => this.processPageString(citation, String(v)),
+          DOI: (v: string) =>
+            this.appendElement(citation, 'pub-id', v, { 'pub-id-type': 'doi' }),
+          std: (v: string) =>
+            this.appendElement(citation, 'pub-id', v, {
+              'pub-id-type': 'std-designation',
+            }),
+          'collection-title': (v: string) =>
+            this.appendElement(citation, 'series', v),
+          edition: (v: string) => this.appendElement(citation, 'edition', v),
+          'publisher-place': (v: string) =>
+            this.appendElement(citation, 'publisher-loc', v),
+          publisher: (v: string) =>
+            this.appendElement(citation, 'publisher-name', v),
+          event: (v: string) => this.appendElement(citation, 'conf-name', v),
+          'event-place': (v: string) =>
+            this.appendElement(citation, 'conf-loc', v),
+          'number-of-pages': (v: string) =>
+            this.appendElement(citation, 'size', v, { units: 'pages' }),
+          institution: (v: string) =>
+            this.appendElement(citation, 'institution', v),
+          elocationID: (v: string) =>
+            this.appendElement(citation, 'elocation-id', v),
+          URL: (v: string) =>
+            this.appendElement(citation, 'ext-link', v, {
+              'ext-link-type': 'uri',
+            }),
+          'event-date': (v: BibliographicDate) =>
+            this.processDate(citation, 'conf-date', v),
+          accessed: (v: BibliographicDate) =>
+            this.processDate(citation, 'date-in-citation', v),
         }
 
-        if (bibliographyItem.attrs.volume) {
-          const node = this.document.createElement('volume')
-          node.textContent = String(bibliographyItem.attrs.volume)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.issue) {
-          const node = this.document.createElement('issue')
-          node.textContent = String(bibliographyItem.attrs.issue)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.supplement) {
-          const node = this.document.createElement('supplement')
-          node.textContent = bibliographyItem.attrs.supplement
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.page) {
-          const pageString = String(bibliographyItem.attrs.page)
-
-          if (/^\d+$/.test(pageString)) {
-            const node = this.document.createElement('fpage')
-            node.textContent = pageString
-            citation.appendChild(node)
-          } else if (/^\d+-\d+$/.test(pageString)) {
-            const [fpage, lpage] = pageString.split('-')
-
-            const fpageNode = this.document.createElement('fpage')
-            fpageNode.textContent = fpage
-            citation.appendChild(fpageNode)
-
-            const lpageNode = this.document.createElement('lpage')
-            lpageNode.textContent = lpage
-            citation.appendChild(lpageNode)
-          } else {
-            // TODO: check page-range contents?
-            const node = this.document.createElement('page-range')
-            node.textContent = pageString
-            citation.appendChild(node)
+        Object.entries(attributeHandlers).forEach(([key, handler]) => {
+          const value = bibliographyItem.attrs[key]
+          if (value) {
+            handler(value)
           }
-        }
-
-        if (bibliographyItem.attrs.doi) {
-          const node = this.document.createElement('pub-id')
-          node.setAttribute('pub-id-type', 'doi')
-          node.textContent = String(bibliographyItem.attrs.doi)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.pubIDs) {
-          for (const pubID of bibliographyItem.attrs.pubIDs) {
-            const node = this.document.createElement('pub-id')
-            node.setAttribute('pub-id-type', pubID.type)
-            node.textContent = pubID.content
-            citation.appendChild(node)
-          }
-        }
-
-        if (bibliographyItem.attrs.std) {
-          const node = this.document.createElement('std')
-          node.textContent = String(bibliographyItem.attrs.std)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.series) {
-          const node = this.document.createElement('series')
-          node.textContent = String(bibliographyItem.attrs.series)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.edition) {
-          const node = this.document.createElement('edition')
-          node.textContent = String(bibliographyItem.attrs.edition)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs['publisher-place']) {
-          const node = this.document.createElement('publisher-loc')
-          node.textContent = String(bibliographyItem.attrs['publisher-place'])
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.publisher) {
-          const node = this.document.createElement('publisher-name')
-          node.textContent = String(bibliographyItem.attrs.publisher)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.event) {
-          const node = this.document.createElement('conf-name')
-          node.textContent = String(bibliographyItem.attrs.event)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs['event-place']) {
-          const node = this.document.createElement('conf-loc')
-          node.textContent = String(bibliographyItem.attrs['event-place'])
-          citation.appendChild(node)
-        }
-
-        const buildISODate = (date: BibliographicDate) => {
-          const dateParts = date['date-parts']
-          if (dateParts && dateParts.length) {
-            const [[year, month, day]] = dateParts
-            if (year && month && day) {
-              return new Date(
-                Date.UTC(Number(year), Number(month) - 1, Number(day))
-              )
-            }
-          }
-        }
-
-        const eventDate = bibliographyItem.attrs['event-date']
-        if (eventDate) {
-          const isoDate = buildISODate(eventDate)
-          if (isoDate) {
-            const node = this.document.createElement('conf-date')
-            node.setAttribute('iso-8601-date', isoDate.toISOString())
-            node.textContent = isoDate.toDateString()
-            citation.appendChild(node)
-          }
-        }
-
-        if (bibliographyItem.attrs['number-of-pages']) {
-          const node = this.document.createElement('size')
-          node.textContent = String(bibliographyItem.attrs['number-of-pages'])
-          node.setAttribute('units', 'pages')
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.volume) {
-          const node = this.document.createElement('volume')
-          node.textContent = String(bibliographyItem.attrs.volume)
-          citation.appendChild(node)
-        }
-
-        const dateInCitation = bibliographyItem.attrs['date-in-citation']
-        if (dateInCitation) {
-          const isoDate = buildISODate(dateInCitation)
-          if (isoDate) {
-            const node = this.document.createElement('date-in-citation')
-            node.setAttribute('iso-8601-date', isoDate.toISOString())
-            node.textContent = isoDate.toDateString()
-            citation.appendChild(node)
-          }
-        }
-
-        if (bibliographyItem.attrs.institution) {
-          const node = this.document.createElement('institution')
-          node.textContent = String(bibliographyItem.attrs.institution)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.elocationID) {
-          const node = this.document.createElement('elocation-id')
-          node.textContent = String(bibliographyItem.attrs.elocationID)
-          citation.appendChild(node)
-        }
-
-        if (bibliographyItem.attrs.links) {
-          for (const link of bibliographyItem.attrs.links) {
-            const node = this.document.createElement('ext-link')
-            node.setAttribute('ext-link-type', link.type)
-            node.textContent = link.content
-            citation.appendChild(node)
-          }
-        }
-
-        ref.appendChild(citation)
-        refList.appendChild(ref)
+        })
       }
+
+      refList.appendChild(ref)
     }
 
     return back
   }
 
+  private processDateParts = (parent: HTMLElement, dateParts: number[][]) => {
+    const [[year, month, day]] = dateParts
+    if (year) {
+      this.appendElement(parent, 'year', String(year))
+    }
+    if (month) {
+      this.appendElement(parent, 'month', String(month))
+    }
+    if (day) {
+      this.appendElement(parent, 'day', String(day))
+    }
+  }
+
+  private processPageString = (parent: HTMLElement, page: string) => {
+    const numPattern = /^\d+$/
+    const rangePattern = /^(\d+)-(\d+)$/
+
+    if (numPattern.test(page)) {
+      this.appendElement(parent, 'fpage', page)
+    } else if (rangePattern.test(page)) {
+      const [fpage, lpage] = page.split('-')
+      this.appendElement(parent, 'fpage', fpage)
+      this.appendElement(parent, 'lpage', lpage)
+    } else {
+      this.appendElement(parent, 'page-range', page)
+    }
+  }
+
+  private processDate = (
+    parent: HTMLElement,
+    tag: string,
+    date: BibliographicDate
+  ) => {
+    const buildISODate = (date: BibliographicDate) => {
+      const dateParts = date['date-parts']
+      if (dateParts && dateParts.length) {
+        const [[year, month, day]] = dateParts
+        if (year && month && day) {
+          return new Date(
+            Date.UTC(Number(year), Number(month) - 1, Number(day))
+          )
+        }
+      }
+    }
+
+    const isoDate = buildISODate(date)
+    if (!isoDate) {
+      return
+    }
+    return this.appendElement(parent, tag, isoDate.toDateString(), {
+      'iso-8601-date': isoDate.toISOString(),
+    })
+  }
+
+  private processPeople = (
+    citation: HTMLElement,
+    type: string,
+    people?: BibliographicName[]
+  ) => {
+    if (!people?.length) {
+      return
+    }
+    const group = this.appendElement(citation, 'person-group', undefined, {
+      'person-group-type': type,
+    })
+
+    people.forEach((person) => {
+      if (person.literal) {
+        this.appendElement(group, 'collab', person.literal)
+        return
+      }
+
+      const name = this.createElement('string-name')
+      if (person.family) {
+        this.appendElement(name, 'surname', person.family)
+      }
+      if (person.given) {
+        this.appendElement(name, 'given-names', person.given)
+      }
+
+      if (name.childNodes.length) {
+        group.appendChild(name)
+      }
+    })
+  }
+  //@TODO: part of the export cleanup: check if we can use this elsewhere, maybe we can use strategy pattern for each element to have its own creator.
+  private createElement = (
+    tag: string,
+    content?: string,
+    attrs?: Record<string, string>
+  ) => {
+    const el = this.document.createElement(tag)
+    if (content) {
+      el.textContent = content
+    }
+    if (attrs) {
+      Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v))
+    }
+    return el
+  }
+
+  private appendElement = (
+    parent: HTMLElement,
+    tag: string,
+    content?: string,
+    attrs?: Record<string, string>
+  ) => {
+    const el = this.createElement(tag, content, attrs)
+    parent.appendChild(el)
+    return el
+  }
+
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
       alt_text: (node) => {
-        const altText = this.document.createElement('alt-text')
+        const altText = this.createElement('alt-text')
         altText.textContent = node.textContent
         return altText
       },
       long_desc: (node) => {
-        const longDesc = this.document.createElement('long-desc')
+        const longDesc = this.createElement('long-desc')
         longDesc.textContent = node.textContent
         return longDesc
       },
@@ -987,7 +896,7 @@ export class JATSExporter {
       attachments: () => '',
       image_element: (node) => createImage(node),
       embed: (node) => {
-        const mediaElement = this.document.createElement('media')
+        const mediaElement = this.createElement('media')
         const { id, href, mimetype, mimeSubtype } = node.attrs
         mediaElement.setAttribute('id', normalizeID(id))
         mediaElement.setAttributeNS(XLINK_NAMESPACE, 'show', 'embed')
@@ -1009,7 +918,7 @@ export class JATSExporter {
       awards: () => ['funding-group', 0],
       award: (node) => {
         const awardGroup = node as AwardNode
-        const awardGroupElement = this.document.createElement('award-group')
+        const awardGroupElement = this.createElement('award-group')
         awardGroupElement.setAttribute('id', normalizeID(awardGroup.attrs.id))
         appendChildIfPresent(
           awardGroupElement,
@@ -1076,7 +985,7 @@ export class JATSExporter {
           return ''
         }
 
-        const xref = this.document.createElement('xref')
+        const xref = this.createElement('xref')
         xref.setAttribute('ref-type', 'bibr')
         xref.setAttribute('rid', normalizeID(rids.join(' ')))
         const citationTextContent = this.citationTexts.get(node.attrs.id)
@@ -1105,7 +1014,7 @@ export class JATSExporter {
           return text || ''
         }
 
-        const xref = this.document.createElement('xref')
+        const xref = this.createElement('xref')
 
         const type = chooseRefType(target.type)
         if (type) {
@@ -1124,19 +1033,19 @@ export class JATSExporter {
         return this.createEquation(node)
       },
       general_table_footnote: (node) => {
-        const el = this.document.createElement('general-table-footnote')
+        const el = this.createElement('general-table-footnote')
         el.setAttribute('id', normalizeID(node.attrs.id))
         processChildNodes(el, node, schema.nodes.general_table_footnote)
         return el
       },
       inline_equation: (node) => {
-        const eqElement = this.document.createElement('inline-formula')
+        const eqElement = this.createElement('inline-formula')
         const equation = this.createEquation(node, true)
         eqElement.append(equation)
         return eqElement
       },
       equation_element: (node) => {
-        const eqElement = this.document.createElement('disp-formula')
+        const eqElement = this.createElement('disp-formula')
         eqElement.setAttribute('id', normalizeID(node.attrs.id))
         processChildNodes(eqElement, node, schema.nodes.equation)
         return eqElement
@@ -1177,7 +1086,7 @@ export class JATSExporter {
       highlight_marker: () => '',
       inline_footnote: (node) => {
         const rids: string[] = node.attrs.rids
-        const xref = this.document.createElement('xref')
+        const xref = this.createElement('xref')
         xref.setAttribute('ref-type', 'fn')
         xref.setAttribute('rid', normalizeID(rids.join(' ')))
         xref.textContent = rids
@@ -1199,7 +1108,7 @@ export class JATSExporter {
           return text
         }
 
-        const linkNode = this.document.createElement('ext-link')
+        const linkNode = this.createElement('ext-link')
         linkNode.setAttribute('ext-link-type', 'uri')
         linkNode.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
         linkNode.textContent = text
@@ -1216,7 +1125,7 @@ export class JATSExporter {
       },
       list_item: () => ['list-item', 0],
       listing: (node) => {
-        const code = this.document.createElement('code')
+        const code = this.createElement('code')
         code.setAttribute('id', normalizeID(node.attrs.id))
         code.setAttribute('language', node.attrs.languageKey)
         code.textContent = node.attrs.contents
@@ -1227,7 +1136,7 @@ export class JATSExporter {
         createFigureElement(node, node.type.schema.nodes.listing),
       manuscript: (node) => ['article', { id: normalizeID(node.attrs.id) }, 0],
       missing_figure: () => {
-        const graphic = this.document.createElement('graphic')
+        const graphic = this.createElement('graphic')
         graphic.setAttribute('specific-use', 'MISSING')
         graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', '')
         return graphic
@@ -1250,10 +1159,10 @@ export class JATSExporter {
         return ['p', attrs, 0]
       },
       placeholder: () => {
-        return this.document.createElement('boxed-text')
+        return this.createElement('boxed-text')
       },
       placeholder_element: () => {
-        return this.document.createElement('boxed-text')
+        return this.createElement('boxed-text')
       },
       pullquote_element: (node) => {
         let type = 'pullquote'
@@ -1346,7 +1255,7 @@ export class JATSExporter {
       if (!textContent) {
         return
       }
-      const element = this.document.createElement(tagName)
+      const element = this.createElement(tagName)
       element.textContent = textContent
       parent.appendChild(element)
     }
@@ -1368,7 +1277,7 @@ export class JATSExporter {
       })
     }
     const createElement = (node: ManuscriptNode, nodeName: string) => {
-      const element = this.document.createElement(nodeName)
+      const element = this.createElement(nodeName)
       element.setAttribute('id', normalizeID(node.attrs.id))
       return element
     }
@@ -1378,7 +1287,7 @@ export class JATSExporter {
         const target = this.labelTargets.get(node.attrs.id)
 
         if (target) {
-          const label = this.document.createElement('label')
+          const label = this.createElement('label')
           label.textContent = target.label
           element.appendChild(label)
         }
@@ -1386,7 +1295,7 @@ export class JATSExporter {
     }
     const appendAttributions = (element: HTMLElement, node: ManuscriptNode) => {
       if (node.attrs.attribution) {
-        const attribution = this.document.createElement('attrib')
+        const attribution = this.createElement('attrib')
         attribution.textContent = node.attrs.attribution.literal
         element.appendChild(attribution)
       }
@@ -1412,7 +1321,7 @@ export class JATSExporter {
         return
       }
       const table = this.serializeNode(tableNode)
-      const tbodyElement = this.document.createElement('tbody')
+      const tbodyElement = this.createElement('tbody')
 
       while (table.firstChild) {
         const child = table.firstChild
@@ -1463,7 +1372,7 @@ export class JATSExporter {
     }
 
     const createGraphic = (node: ManuscriptNode) => {
-      const graphic = this.document.createElement('graphic')
+      const graphic = this.createElement('graphic')
       graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
       if (
         !isChildOfNodeType(node.attrs.id, schema.nodes.figure_element) &&
@@ -1526,11 +1435,11 @@ export class JATSExporter {
         const { contents, languageKey } = listingNode.attrs
 
         if (contents && languageKey) {
-          const listing = this.document.createElement('fig')
+          const listing = this.createElement('fig')
           listing.setAttribute('specific-use', 'source')
           element.appendChild(listing)
 
-          const code = this.document.createElement('code')
+          const code = this.createElement('code')
           code.setAttribute('executable', 'true')
           code.setAttribute('language', languageKey)
           code.textContent = contents
@@ -1542,7 +1451,7 @@ export class JATSExporter {
 
   private createEquation(node: ManuscriptNode, isInline = false) {
     if (node.attrs.format === 'tex') {
-      const texMath = this.document.createElement('tex-math')
+      const texMath = this.createElement('tex-math')
       texMath.setAttribute('notation', 'LaTeX')
       texMath.setAttribute('version', 'MathJax')
       if (node.attrs.contents.includes('<![CDATA[')) {
@@ -1598,17 +1507,17 @@ export class JATSExporter {
         label = affiliationLabels.size + 1
         affiliationLabels.set(rid, label)
       }
-      const sup = this.document.createElement('sup')
+      const sup = this.createElement('sup')
       sup.textContent = String(label)
       return sup
     }
     const createFootNotesLabels = (content: string) => {
-      const sup = this.document.createElement('sup')
+      const sup = this.createElement('sup')
       sup.textContent = String(content)
       return sup
     }
     if (authorContributorNodes.length) {
-      const contribGroup = this.document.createElement('contrib-group')
+      const contribGroup = this.createElement('contrib-group')
       contribGroup.setAttribute('content-type', 'authors')
       articleMeta.appendChild(contribGroup)
       authorContributorNodes.forEach((contributor) => {
@@ -1618,7 +1527,7 @@ export class JATSExporter {
           warn(error.message)
           return
         }
-        const contrib = this.document.createElement('contrib')
+        const contrib = this.createElement('contrib')
         contrib.setAttribute('contrib-type', 'author')
         contrib.setAttribute('id', normalizeID(contributor.attrs.id))
 
@@ -1627,7 +1536,7 @@ export class JATSExporter {
         }
 
         if (contributor.attrs.ORCIDIdentifier) {
-          const identifier = this.document.createElement('contrib-id')
+          const identifier = this.createElement('contrib-id')
           identifier.setAttribute('contrib-id-type', 'orcid')
           identifier.textContent = contributor.attrs.ORCIDIdentifier
           contrib.appendChild(identifier)
@@ -1637,13 +1546,13 @@ export class JATSExporter {
         contrib.appendChild(name)
 
         if (contributor.attrs.email) {
-          const email = this.document.createElement('email')
+          const email = this.createElement('email')
           email.textContent = contributor.attrs.email
           contrib.appendChild(email)
         }
         if (contributor.attrs.affiliations) {
           contributor.attrs.affiliations.forEach((rid) => {
-            const xref = this.document.createElement('xref')
+            const xref = this.createElement('xref')
             xref.setAttribute('ref-type', 'aff')
             xref.setAttribute('rid', normalizeID(rid))
             xref.appendChild(creatAffiliationLabel(rid))
@@ -1653,7 +1562,7 @@ export class JATSExporter {
 
         if (contributor.attrs.footnote) {
           contributor.attrs.footnote.map((note) => {
-            const xref = this.document.createElement('xref')
+            const xref = this.createElement('xref')
             xref.setAttribute('ref-type', 'fn')
             xref.setAttribute('rid', normalizeID(note.noteID))
             xref.appendChild(createFootNotesLabels(note.noteLabel))
@@ -1662,7 +1571,7 @@ export class JATSExporter {
         }
         if (contributor.attrs.corresp) {
           contributor.attrs.corresp.map((corresp) => {
-            const xref = this.document.createElement('xref')
+            const xref = this.createElement('xref')
             xref.setAttribute('ref-type', 'corresp')
             xref.setAttribute('rid', normalizeID(corresp.correspID))
             xref.appendChild(createFootNotesLabels(corresp.correspLabel))
@@ -1672,7 +1581,7 @@ export class JATSExporter {
         contribGroup.appendChild(contrib)
       })
       if (otherContributorsNodes.length) {
-        const contribGroup = this.document.createElement('contrib-group')
+        const contribGroup = this.createElement('contrib-group')
         articleMeta.appendChild(contribGroup)
         otherContributorsNodes.forEach((contributor) => {
           try {
@@ -1681,20 +1590,20 @@ export class JATSExporter {
             warn(error.message)
             return
           }
-          const contrib = this.document.createElement('contrib')
+          const contrib = this.createElement('contrib')
           contrib.setAttribute('id', normalizeID(contributor.attrs.id))
 
           const name = this.buildContributorName(contributor)
           contrib.appendChild(name)
 
           if (contributor.attrs.email) {
-            const email = this.document.createElement('email')
+            const email = this.createElement('email')
             email.textContent = contributor.attrs.email
             contrib.appendChild(email)
           }
           if (contributor.attrs.affiliations) {
             contributor.attrs.affiliations.forEach((rid) => {
-              const xref = this.document.createElement('xref')
+              const xref = this.createElement('xref')
               xref.setAttribute('ref-type', 'aff')
               xref.setAttribute('rid', normalizeID(rid))
               xref.appendChild(creatAffiliationLabel(rid))
@@ -1703,7 +1612,7 @@ export class JATSExporter {
           }
           if (contributor.attrs.footnote) {
             contributor.attrs.footnote.map((note) => {
-              const xref = this.document.createElement('xref')
+              const xref = this.createElement('xref')
               xref.setAttribute('ref-type', 'fn')
               xref.setAttribute('rid', normalizeID(note.noteID))
               xref.appendChild(createFootNotesLabels(note.noteLabel))
@@ -1737,54 +1646,54 @@ export class JATSExporter {
             affiliationRIDs.indexOf(b.attrs.id)
         )
         usedAffiliations.forEach((affiliation) => {
-          const aff = this.document.createElement('aff')
+          const aff = this.createElement('aff')
           aff.setAttribute('id', normalizeID(affiliation.attrs.id))
           contribGroup.appendChild(aff)
           if (affiliation.attrs.department) {
-            const department = this.document.createElement('institution')
+            const department = this.createElement('institution')
             department.setAttribute('content-type', 'dept')
             department.textContent = affiliation.attrs.department
             aff.appendChild(department)
           }
 
           if (affiliation.attrs.institution) {
-            const institution = this.document.createElement('institution')
+            const institution = this.createElement('institution')
             institution.textContent = affiliation.attrs.institution
             aff.appendChild(institution)
           }
 
           if (affiliation.attrs.addressLine1) {
-            const addressLine = this.document.createElement('addr-line')
+            const addressLine = this.createElement('addr-line')
             addressLine.textContent = affiliation.attrs.addressLine1
             aff.appendChild(addressLine)
           }
 
           if (affiliation.attrs.addressLine2) {
-            const addressLine = this.document.createElement('addr-line')
+            const addressLine = this.createElement('addr-line')
             addressLine.textContent = affiliation.attrs.addressLine2
             aff.appendChild(addressLine)
           }
 
           if (affiliation.attrs.addressLine3) {
-            const addressLine = this.document.createElement('addr-line')
+            const addressLine = this.createElement('addr-line')
             addressLine.textContent = affiliation.attrs.addressLine3
             aff.appendChild(addressLine)
           }
 
           if (affiliation.attrs.city) {
-            const city = this.document.createElement('city')
+            const city = this.createElement('city')
             city.textContent = affiliation.attrs.city
             aff.appendChild(city)
           }
 
           if (affiliation.attrs.country) {
-            const country = this.document.createElement('country')
+            const country = this.createElement('country')
             country.textContent = affiliation.attrs.country
             aff.appendChild(country)
           }
 
           if (affiliation.attrs.email) {
-            const email = this.document.createElement('email')
+            const email = this.createElement('email')
             email.setAttributeNS(
               XLINK_NAMESPACE,
               'href',
@@ -1795,7 +1704,7 @@ export class JATSExporter {
           }
           const labelNumber = affiliationLabels.get(affiliation.attrs.id)
           if (labelNumber) {
-            const label = this.document.createElement('label')
+            const label = this.createElement('label')
             label.textContent = String(labelNumber)
             aff.appendChild(label)
           }
@@ -1808,7 +1717,7 @@ export class JATSExporter {
     }
   }
   private createAuthorNotesElement = () => {
-    const authorNotesEl = this.document.createElement('author-notes')
+    const authorNotesEl = this.createElement('author-notes')
     const authorNotesNode = this.getFirstChildOfType<AuthorNotesNode>(
       schema.nodes.author_notes
     )
@@ -1849,10 +1758,10 @@ export class JATSExporter {
     corresponding: CorrespNode,
     element: HTMLElement
   ) => {
-    const correspondingEl = this.document.createElement('corresp')
+    const correspondingEl = this.createElement('corresp')
     correspondingEl.setAttribute('id', normalizeID(corresponding.attrs.id))
     if (corresponding.attrs.label) {
-      const labelEl = this.document.createElement('label')
+      const labelEl = this.createElement('label')
       labelEl.textContent = corresponding.attrs.label
       correspondingEl.appendChild(labelEl)
     }
@@ -1885,7 +1794,7 @@ export class JATSExporter {
     )
     const parsedParagraph = parsedDoc.body.querySelector('p')
     if (parsedParagraph) {
-      const paragraphEl = this.document.createElement('p')
+      const paragraphEl = this.createElement('p')
       paragraphEl.innerHTML = parsedParagraph.innerHTML
       paragraphEl.setAttribute('id', normalizeID(paragraph.attrs.id))
       element.appendChild(paragraphEl)
@@ -1895,10 +1804,10 @@ export class JATSExporter {
     footnote: FootnoteNode,
     element: HTMLElement
   ) => {
-    const footnoteEl = this.document.createElement('fn')
+    const footnoteEl = this.createElement('fn')
     footnoteEl.setAttribute('id', normalizeID(footnote.attrs.id))
     if (!footnote.textContent.includes('<p>')) {
-      const p = this.document.createElement('p')
+      const p = this.createElement('p')
       p.innerHTML = footnote.textContent
       footnoteEl.appendChild(p)
     } else {
@@ -1910,13 +1819,13 @@ export class JATSExporter {
     const keywordGroups = this.getChildrenOfType(schema.nodes.keyword_group)
 
     keywordGroups.forEach((group) => {
-      const kwdGroup = this.document.createElement('kwd-group')
+      const kwdGroup = this.createElement('kwd-group')
       if (group.attrs.type) {
         kwdGroup.setAttribute('kwd-group-type', group.attrs.type)
       }
       articleMeta.appendChild(kwdGroup)
       group.content.forEach((keyword) => {
-        const kwd = this.document.createElement('kwd')
+        const kwd = this.createElement('kwd')
         kwd.textContent = keyword.textContent
         kwdGroup.appendChild(kwd)
       })
@@ -1972,7 +1881,7 @@ export class JATSExporter {
   }
 
   private changeTag = (node: Element, tag: string) => {
-    const clone = this.document.createElement(tag)
+    const clone = this.createElement(tag)
     for (const attr of node.attributes) {
       clone.setAttributeNS(null, attr.name, attr.value)
     }
@@ -1997,8 +1906,8 @@ export class JATSExporter {
     }
 
     const tbodyRows = Array.from(tbody.childNodes)
-    const thead = this.document.createElement('thead')
-    const tfoot = this.document.createElement('tfoot')
+    const thead = this.createElement('thead')
+    const tfoot = this.createElement('tfoot')
 
     tbodyRows.forEach((row, i) => {
       const isRow = row instanceof Element && row.tagName.toLowerCase() === 'tr'
@@ -2057,7 +1966,7 @@ export class JATSExporter {
     if (!awardGroups.length) {
       return
     }
-    const fundingGroup = this.document.createElement('funding-group')
+    const fundingGroup = this.createElement('funding-group')
     awardGroups.forEach((award) => {
       fundingGroup.appendChild(award)
     })
@@ -2141,7 +2050,7 @@ export class JATSExporter {
   }
 
   private createAbstractNode(abstractSection: Element): Element {
-    const abstractNode = this.document.createElement('abstract')
+    const abstractNode = this.createElement('abstract')
     for (const node of abstractSection.childNodes) {
       if (node.nodeName !== 'title') {
         abstractNode.appendChild(node.cloneNode(true))
@@ -2176,7 +2085,7 @@ export class JATSExporter {
     const section = body.querySelector('sec[sec-type="acknowledgements"]')
 
     if (section) {
-      const ack = this.document.createElement('ack')
+      const ack = this.createElement('ack')
 
       while (section.firstChild) {
         ack.appendChild(section.firstChild)
@@ -2193,12 +2102,12 @@ export class JATSExporter {
     )
 
     if (appendicesSections) {
-      const appGroup = this.document.createElement('app-group')
+      const appGroup = this.createElement('app-group')
       appendicesSections.forEach((section) => {
         if (section.parentNode) {
           section.parentNode.removeChild(section)
         }
-        const app = this.document.createElement('app')
+        const app = this.createElement('app')
         app.appendChild(section)
         appGroup.appendChild(app)
       })
@@ -2235,18 +2144,18 @@ export class JATSExporter {
     }
 
     if (footNotes.length > 0) {
-      const fnGroup = this.document.createElement('fn-group')
+      const fnGroup = this.createElement('fn-group')
       fnGroup.append(...footNotes)
       back.append(fnGroup)
     }
   }
 
   sectionToFootnote = (section: Element, fnType: string) => {
-    const footNote = this.document.createElement('fn')
+    const footNote = this.createElement('fn')
     footNote.setAttribute('fn-type', fnType)
     const title = section.querySelector('title')
     if (title) {
-      const footNoteTitle = this.document.createElement('p')
+      const footNoteTitle = this.createElement('p')
       footNoteTitle.setAttribute('content-type', 'fn-title')
       footNoteTitle.textContent = title.textContent
       section.removeChild(title)
@@ -2259,7 +2168,7 @@ export class JATSExporter {
     return footNote
   }
   private moveFloatsGroup = (body: HTMLElement, article: HTMLElement) => {
-    const floatsGroup = this.document.createElement('floats-group')
+    const floatsGroup = this.createElement('floats-group')
     const section = body.querySelector('sec[sec-type="floating-element"]')
     if (section) {
       floatsGroup.append(...section.children)
@@ -2272,16 +2181,16 @@ export class JATSExporter {
   }
 
   private buildContributorName = (contributor: ContributorNode) => {
-    const name = this.document.createElement('name')
+    const name = this.createElement('name')
 
     if (contributor.attrs.bibliographicName.family) {
-      const surname = this.document.createElement('surname')
+      const surname = this.createElement('surname')
       surname.textContent = contributor.attrs.bibliographicName.family
       name.appendChild(surname)
     }
 
     if (contributor.attrs.bibliographicName.given) {
-      const givenNames = this.document.createElement('given-names')
+      const givenNames = this.createElement('given-names')
       givenNames.textContent = contributor.attrs.bibliographicName.given
       name.appendChild(givenNames)
     }
@@ -2297,7 +2206,7 @@ export class JATSExporter {
           'fn[fn-type="coi-statement"]'
         )
         if (coiStatement) {
-          const authorNotes = this.document.createElement('author-notes')
+          const authorNotes = this.createElement('author-notes')
           authorNotes.append(coiStatement)
           const articleMeta = front.querySelector('article-meta')
           if (articleMeta) {
@@ -2352,7 +2261,7 @@ export class JATSExporter {
       articleElement.querySelectorAll(selector)
     ).filter((element) => !element.innerHTML)
     emptyElements.forEach((element) =>
-      element.appendChild(this.document.createElement(tagName))
+      element.appendChild(this.createElement(tagName))
     )
   }
 

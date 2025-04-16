@@ -19,26 +19,20 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export type BibliographyItemAttr = {
-  type?: string
-  content?: string
-}
-
 export interface BibliographyItemAttrs {
   id: string
   type: string
   author?: BibliographicName[]
   issued?: BibliographicDate
-  containerTitle?: string
+  'container-title'?: string
   volume?: string
   issue?: string
   supplement?: string
   page?: string
   title?: string
   literal?: string
-  'data-title'?: string
   std?: string
-  series?: string
+  'collection-title'?: string
   edition?: string
   'publisher-place'?: string
   publisher?: string
@@ -48,17 +42,16 @@ export interface BibliographyItemAttrs {
   institution?: string
   editor?: BibliographicName[]
   elocationID?: string
-  links?: BibliographyItemAttr[]
+  URL?: string
   'number-of-pages'?: string
-  'date-in-citation'?: BibliographicDate
-  pubIDs?: BibliographyItemAttr[]
-  doi?: string
+  accessed?: BibliographicDate // date-in-citation
+  DOI?: string
 }
 export type BibliographyItemType =
   | 'article-journal' //journal
   | 'book'
   | 'chapter'
-  | 'paper-conference' //conf-proc
+  | 'paper-conference' //conf-proc --> I don't think this is right
   | 'thesis'
   | 'webpage' //web
   | 'other' // no match
@@ -66,6 +59,19 @@ export type BibliographyItemType =
   | 'dataset' // data
   | 'preprint' // no match
 
+export const publicationTypeToPM: Record<string, string> = {
+  journal: 'article-journal',
+  web: 'webpage',
+  data: 'dataset',
+  preprint: 'article-journal',
+}
+
+export const publicationTypeToJats: Record<string, string> = {
+  article: 'journal',
+  'article-journal': 'journal',
+  webpage: 'web',
+  dataset: 'data',
+}
 export interface BibliographyItemNode extends ManuscriptNode {
   attrs: BibliographyItemAttrs
 }
@@ -77,18 +83,17 @@ export const bibliographyItem: NodeSpec = {
     id: { default: '' },
     type: { default: undefined },
     author: { default: undefined },
-    doi: { default: undefined },
+    DOI: { default: undefined },
     issued: { default: undefined },
-    containerTitle: { default: undefined },
+    'container-title': { default: undefined },
     volume: { default: undefined },
     issue: { default: undefined },
     supplement: { default: undefined },
     page: { default: undefined },
     title: { default: undefined },
     literal: { default: undefined },
-    'data-title': { default: undefined },
     std: { default: undefined },
-    series: { default: undefined },
+    'collection-title': { default: undefined },
     edition: { default: undefined },
     publisher: { default: undefined }, //publisher-name
     'publisher-place': { default: undefined }, //publisher-loc
@@ -98,10 +103,10 @@ export const bibliographyItem: NodeSpec = {
     institution: { default: undefined },
     editor: { default: undefined },
     elocationID: { default: undefined },
-    links: { default: undefined },
     'number-of-pages': { default: undefined }, //size @unit=pages
     pubIDs: { default: undefined },
-    'date-in-citation': { default: undefined },
+    accessed: { default: undefined },
+    URL: { default: undefined },
     dataTracked: { default: null },
   },
   selectable: false,
