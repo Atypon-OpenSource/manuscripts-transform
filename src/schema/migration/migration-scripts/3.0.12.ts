@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { JSONNode } from '../migrate'
+import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
 
 export class Migration3012 implements MigrationScript {
   fromVersion = '3.0.12'
   toVersion = '3.0.13'
 
-  migrateNode(node: JSONNode): JSONNode {
+  migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     if (node.type === 'body') {
       const content = node.content?.filter((n) => n.type !== 'toc_section')
       return {
