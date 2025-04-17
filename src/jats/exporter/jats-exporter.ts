@@ -50,7 +50,6 @@ import {
   Marks,
   Nodes,
   ParagraphNode,
-  publicationTypeToJats,
   schema,
   TableElementFooterNode,
   TableElementNode,
@@ -68,6 +67,13 @@ type NodeSpecs = { [key in Nodes]: (node: ManuscriptNode) => DOMOutputSpec }
 
 type MarkSpecs = {
   [key in Marks]: (mark: ManuscriptMark, inline: boolean) => DOMOutputSpec
+}
+
+const publicationTypeToJats: Record<string, string> = {
+  article: 'journal',
+  'article-journal': 'journal',
+  webpage: 'web',
+  dataset: 'data',
 }
 
 const warn = debug('manuscripts-transform')

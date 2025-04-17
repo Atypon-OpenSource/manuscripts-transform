@@ -51,7 +51,7 @@ export type BibliographyItemType =
   | 'article-journal' //journal
   | 'book'
   | 'chapter'
-  | 'paper-conference' //conf-proc --> I don't think this is right
+  | 'conf-proc'
   | 'thesis'
   | 'webpage' //web
   | 'other' // no match
@@ -66,12 +66,6 @@ export const publicationTypeToPM: Record<string, string> = {
   preprint: 'article-journal',
 }
 
-export const publicationTypeToJats: Record<string, string> = {
-  article: 'journal',
-  'article-journal': 'journal',
-  webpage: 'web',
-  dataset: 'data',
-}
 export interface BibliographyItemNode extends ManuscriptNode {
   attrs: BibliographyItemAttrs
 }

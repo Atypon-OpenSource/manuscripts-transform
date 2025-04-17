@@ -28,7 +28,6 @@ import {
   getTrimmedTextContent,
 } from '../../lib/utils'
 import {
-  BibliographyItemAttrs,
   ContributorCorresp,
   ContributorFootnote,
   ManuscriptNode,
@@ -215,7 +214,7 @@ export class JATSDOMParser {
     return type ? publicationTypeToPM[type] ?? type : 'article-journal'
   }
 
-  private parseRefPersonGroup(element: Element, attrs: BibliographyItemAttrs) {
+  private getNameContent(element: Element, query: string) {
     const buildName = (node: Element) => {
       const name = buildBibliographicName({})
       const given = getTrimmedTextContent(node, 'given-names')
@@ -230,43 +229,15 @@ export class JATSDOMParser {
       if (node.nodeName === 'collab') {
         name.literal = getTrimmedTextContent(node)
       }
-
       return name
     }
-
-    const mixedCitation = element.querySelector('mixed-citation')
-
-    const authorNodes = [
-      ...element.querySelectorAll(
-        'person-group[person-group-type="author"] > *'
-      ),
-    ]
-    const editorNodes = [
-      ...element.querySelectorAll(
-        'person-group[person-group-type="editor"] > *'
-      ),
-    ]
-
-    if (authorNodes.length === 0) {
-      mixedCitation?.childNodes.forEach((item) => {
-        if (
-          item.nodeType === Node.TEXT_NODE &&
-          item.textContent?.match(/[A-Za-z]+/g)
-        ) {
-          attrs.literal = getTrimmedTextContent(mixedCitation) ?? ''
-        }
-      })
-    }
-
-    if (authorNodes.length) {
-      attrs.author = authorNodes.map(buildName)
-    }
-    if (editorNodes.length) {
-      attrs.editor = editorNodes.map(buildName)
+    const personNodes = element.querySelectorAll(query)
+    if (personNodes.length) {
+      return Array.from(personNodes).map(buildName)
     }
   }
 
-  private parseRefDates(element: Element, attrs: BibliographyItemAttrs) {
+  private parseRefDates(element: Element, query: string) {
     const buildDate = (element: Element) => {
       const isoDate = element.getAttribute('iso-8601-date')
       if (!isoDate) {
@@ -279,38 +250,34 @@ export class JATSDOMParser {
         'date-parts': [parts].filter((arr) => arr.every((n) => !isNaN(n))),
       })
     }
-    const year = getTrimmedTextContent(element, 'year')
-    if (year) {
-      attrs.issued = buildBibliographicDate({
-        'date-parts': [
-          [
-            year,
-            getTrimmedTextContent(element, 'month') || '',
-            getTrimmedTextContent(element, 'day') || '',
-          ],
-        ],
-      })
+    const dateElement = element.querySelector(query)
+    if (dateElement) {
+      return buildDate(dateElement)
     }
+  }
 
-    const eventDate = element.querySelector('conf-date')
-    if (eventDate) {
-      const date = buildDate(eventDate)
-      if (date) {
-        attrs['event-date'] = date
-      }
-    }
-
-    const accessed = element.querySelector('date-in-citation')
-    if (accessed) {
-      const date = buildDate(accessed)
-      if (date) {
-        attrs.accessed = date
+  private parseRefLiteral = (element: Element) => {
+    const mixedCitation = element.querySelector('mixed-citation')
+    for (const item of mixedCitation?.childNodes ?? []) {
+      if (
+        item.nodeType === Node.TEXT_NODE &&
+        item.textContent?.match(/[A-Za-z]+/g)
+      ) {
+        return getTrimmedTextContent(mixedCitation) ?? ''
       }
     }
   }
 
+  private parseRefPages = (element: Element) => {
+    const fpage = getTrimmedTextContent(element, 'fpage')
+    const lpage = getTrimmedTextContent(element, 'lpage')
+    if (fpage) {
+      return lpage ? `${fpage}-${lpage}` : fpage
+    }
+  }
+
   private parseRef = (element: Element) => {
-    const attrs: BibliographyItemAttrs = {
+    return {
       id: element.id,
       type: this.choosePublicationType(element),
       volume: getTrimmedTextContent(element, 'volume'),
@@ -336,16 +303,30 @@ export class JATSDOMParser {
         getHTMLContent(element, 'article-title') ??
         getHTMLContent(element, 'data-title') ??
         getHTMLContent(element, 'part-title'),
+      author: this.getNameContent(
+        element,
+        'person-group[person-group-type="author"] > *'
+      ),
+      editor: this.getNameContent(
+        element,
+        'person-group[person-group-type="editor"] > *'
+      ),
+      literal: this.parseRefLiteral(element),
+      accessed: this.parseRefDates(element, 'date-in-citation'),
+      'event-date': this.parseRefDates(element, 'conf-date'),
+      issued: getTrimmedTextContent(element, 'year')
+        ? buildBibliographicDate({
+            'date-parts': [
+              [
+                getTrimmedTextContent(element, 'year') || '',
+                getTrimmedTextContent(element, 'month') || '',
+                getTrimmedTextContent(element, 'day') || '',
+              ],
+            ],
+          })
+        : undefined,
+      page: this.parseRefPages(element),
     }
-    const fpage = getTrimmedTextContent(element, 'fpage')
-    const lpage = getTrimmedTextContent(element, 'lpage')
-    if (fpage) {
-      attrs.page = lpage ? `${fpage}-${lpage}` : fpage
-    }
-    this.parseRefPersonGroup(element, attrs)
-    this.parseRefDates(element, attrs)
-
-    return attrs
   }
 
   private nodes: NodeRule[] = [
