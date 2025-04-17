@@ -51,13 +51,13 @@ export type BibliographyItemType =
   | 'article-journal' //journal
   | 'book'
   | 'chapter'
-  | 'conf-proc'
+  | 'confproc'
   | 'thesis'
-  | 'webpage' //web
-  | 'other' // no match
-  | 'standard' // no match
-  | 'dataset' // data
-  | 'preprint' // no match
+  | 'webpage'
+  | 'other'
+  | 'standard'
+  | 'dataset'
+  | 'preprint'
 
 export const publicationTypeToPM: Record<string, string> = {
   journal: 'article-journal',
