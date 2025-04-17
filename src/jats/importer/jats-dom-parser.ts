@@ -237,19 +237,26 @@ export class JATSDOMParser {
     }
   }
 
-  private parseRefDates(element: Element, query: string) {
+  private getDateContent(element: Element, query: string) {
     const buildDate = (element: Element) => {
       const isoDate = element.getAttribute('iso-8601-date')
       if (!isoDate) {
         return
       }
-      const [datePart] = isoDate.split('T')
-      const parts = datePart.split('-').map((part) => parseInt(part, 10))
+
+      const parsedDate = new Date(Date.parse(isoDate))
+
+      const parts: [number, number, number] = [
+        parsedDate.getFullYear(),
+        parsedDate.getMonth() + 1, //month is 0 indexed.
+        parsedDate.getDate(),
+      ]
+
       return buildBibliographicDate({
-        //@ts-ignore
-        'date-parts': [parts].filter((arr) => arr.every((n) => !isNaN(n))),
+        'date-parts': [parts],
       })
     }
+
     const dateElement = element.querySelector(query)
     if (dateElement) {
       return buildDate(dateElement)
@@ -258,16 +265,18 @@ export class JATSDOMParser {
 
   private parseRefLiteral = (element: Element) => {
     const mixedCitation = element.querySelector('mixed-citation')
-    for (const item of mixedCitation?.childNodes ?? []) {
-      if (
-        item.nodeType === Node.TEXT_NODE &&
-        item.textContent?.match(/[A-Za-z]+/g)
-      ) {
-        return getTrimmedTextContent(mixedCitation) ?? ''
-      }
+    const hasDirectTextNodeWithLetters = Array.from(
+      mixedCitation?.childNodes ?? []
+    ).some(
+      (node) =>
+        node.nodeType === Node.TEXT_NODE &&
+        node.textContent?.match(/[A-Za-z]+/g)
+    )
+
+    if (hasDirectTextNodeWithLetters) {
+      return getTrimmedTextContent(mixedCitation)
     }
   }
-
   private parseRefPages = (element: Element) => {
     const fpage = getTrimmedTextContent(element, 'fpage')
     const lpage = getTrimmedTextContent(element, 'lpage')
@@ -312,15 +321,27 @@ export class JATSDOMParser {
         'person-group[person-group-type="editor"] > *'
       ),
       literal: this.parseRefLiteral(element),
-      accessed: this.parseRefDates(element, 'date-in-citation'),
-      'event-date': this.parseRefDates(element, 'conf-date'),
-      issued: getTrimmedTextContent(element, 'year')
+      accessed: this.getDateContent(element, 'date-in-citation'),
+      'event-date': this.getDateContent(element, 'conf-date'),
+      issued: getTrimmedTextContent(
+        element.querySelector('element-citation, mixed-citation'),
+        ':scope > year'
+      )
         ? buildBibliographicDate({
             'date-parts': [
               [
-                getTrimmedTextContent(element, 'year') || '',
-                getTrimmedTextContent(element, 'month') || '',
-                getTrimmedTextContent(element, 'day') || '',
+                getTrimmedTextContent(
+                  element.querySelector('element-citation, mixed-citation'),
+                  ':scope > year'
+                ) || '',
+                getTrimmedTextContent(
+                  element.querySelector('element-citation, mixed-citation'),
+                  ':scope > month'
+                ) || '',
+                getTrimmedTextContent(
+                  element.querySelector('element-citation, mixed-citation'),
+                  ':scope > day'
+                ) || '',
               ],
             ],
           })
