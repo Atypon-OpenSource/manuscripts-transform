@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { JSONNode } from '../migrate'
+import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
 
 // @NOTE - this is an example migration
@@ -22,7 +22,7 @@ class Migration125 implements MigrationScript {
   fromVersion = '1.2.3'
   toVersion = '1.2.5'
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  migrateNode(node: JSONNode, doc: JSONNode) {
+  migrateNode(node: JSONProsemirrorNode, doc: JSONProsemirrorNode) {
     /*
       NOTE - if schema is used in this function, it is imported from the current version of the package
       in pratical terms it means that it's always the latest schema and you can't rely on that it will correspond the version in

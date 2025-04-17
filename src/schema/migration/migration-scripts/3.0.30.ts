@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-import { JSONNode } from '../migrate'
+import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
 
 class Migration3030 implements MigrationScript {
   fromVersion = '3.0.29'
   toVersion = '3.0.30'
 
-  private addTypeToFigures(node: JSONNode, type: string) {
+  private addTypeToFigures(node: JSONProsemirrorNode, type: string) {
     if (!Array.isArray(node.content)) {
       return node.content
     }
@@ -33,7 +33,7 @@ class Migration3030 implements MigrationScript {
     )
   }
 
-  private migrateFigure(node: JSONNode): JSONNode {
+  private migrateFigure(node: JSONProsemirrorNode): JSONProsemirrorNode {
     const type = node.attrs.contentType || node.attrs.type || ''
     if (node.attrs.contentType) {
       delete node.attrs.contentType
@@ -41,7 +41,7 @@ class Migration3030 implements MigrationScript {
     return { ...node, attrs: { ...node.attrs, type } }
   }
 
-  private migrateFigureElement(node: JSONNode): JSONNode {
+  private migrateFigureElement(node: JSONProsemirrorNode): JSONProsemirrorNode {
     const newContent = this.addTypeToFigures(node, node.attrs.type || '')
     if (node.attrs.type) {
       delete node.attrs.type
@@ -49,7 +49,7 @@ class Migration3030 implements MigrationScript {
     return { ...node, content: newContent, attrs: { ...node.attrs } }
   }
 
-  migrateNode(node: JSONNode): JSONNode {
+  migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     if (node.type === 'figure') {
       return this.migrateFigure(node)
     }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { JSONNode } from '../migrate'
+import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
 
 class Migration3021 implements MigrationScript {
@@ -28,7 +28,7 @@ class Migration3021 implements MigrationScript {
     ['subsection', ''],
   ])
 
-  migrateNode(node: JSONNode): JSONNode {
+  migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     if (
       node.type === 'section' &&
       node.attrs.category.startsWith('MPSectionCategory:')

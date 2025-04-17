@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { JSONNode } from '../migrate'
+import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
 
 class Migration3031 implements MigrationScript {
   fromVersion = '3.0.30'
   toVersion = '3.0.31'
 
-  migrateNode(node: JSONNode): JSONNode {
+  migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     if (node.type === 'table_header' || node.type === 'table_cell') {
       return {
         ...node,
