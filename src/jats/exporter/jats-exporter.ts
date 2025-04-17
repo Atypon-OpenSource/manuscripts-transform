@@ -705,9 +705,9 @@ export class JATSExporter {
 
         const attributeHandlers = {
           author: (v: BibliographicName[]) =>
-            this.processPeople(citation, 'author', v),
+            this.processRefPersonGroup(citation, 'author', v),
           editor: (v: BibliographicName[]) =>
-            this.processPeople(citation, 'editor', v),
+            this.processRefPersonGroup(citation, 'editor', v),
           title: (v: string) =>
             this.setTitleContent(
               this.appendElement(citation, 'article-title'),
@@ -822,7 +822,7 @@ export class JATSExporter {
     })
   }
 
-  private processPeople = (
+  private processRefPersonGroup = (
     citation: HTMLElement,
     type: string,
     people?: BibliographicName[]

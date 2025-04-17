@@ -215,10 +215,7 @@ export class JATSDOMParser {
     return type ? publicationTypeToPM[type] ?? type : 'article-journal'
   }
 
-  private parseRefAuthorsAndEditors(
-    element: Element,
-    attrs: BibliographyItemAttrs
-  ) {
+  private parseRefPersonGroup(element: Element, attrs: BibliographyItemAttrs) {
     const buildName = (node: Element) => {
       const name = buildBibliographicName({})
       const given = getTrimmedTextContent(node, 'given-names')
@@ -345,7 +342,7 @@ export class JATSDOMParser {
     if (fpage) {
       attrs.page = lpage ? `${fpage}-${lpage}` : fpage
     }
-    this.parseRefAuthorsAndEditors(element, attrs)
+    this.parseRefPersonGroup(element, attrs)
     this.parseRefDates(element, attrs)
 
     return attrs
