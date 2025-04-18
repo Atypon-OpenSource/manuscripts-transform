@@ -306,7 +306,7 @@ export class JATSDOMParser {
       'event-place': getTrimmedTextContent(element, 'conf-loc'),
       'number-of-pages': getTrimmedTextContent(element, 'size[units="pages"]'),
       institution: getTrimmedTextContent(element, 'institution'),
-      elocationID: getTrimmedTextContent(element, 'elocation-id'),
+      locator: getTrimmedTextContent(element, 'elocation-id'),
       'container-title': getHTMLContent(element, 'source'),
       title:
         getHTMLContent(element, 'article-title') ??

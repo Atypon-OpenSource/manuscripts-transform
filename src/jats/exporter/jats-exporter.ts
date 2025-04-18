@@ -748,7 +748,7 @@ export class JATSExporter {
             this.appendElement(citation, 'size', v, { units: 'pages' }),
           institution: (v: string) =>
             this.appendElement(citation, 'institution', v),
-          elocationID: (v: string) =>
+          locator: (v: string) =>
             this.appendElement(citation, 'elocation-id', v),
           URL: (v: string) =>
             this.appendElement(citation, 'ext-link', v, {

@@ -41,7 +41,7 @@ export interface BibliographyItemAttrs {
   'event-date'?: BibliographicDate
   institution?: string
   editor?: BibliographicName[]
-  elocationID?: string
+  locator?: string
   URL?: string
   'number-of-pages'?: string
   accessed?: BibliographicDate // date-in-citation
@@ -96,7 +96,7 @@ export const bibliographyItem: NodeSpec = {
     'event-date': { default: undefined }, //conf-date
     institution: { default: undefined },
     editor: { default: undefined },
-    elocationID: { default: undefined },
+    locator: { default: undefined },
     'number-of-pages': { default: undefined }, //size @unit=pages
     pubIDs: { default: undefined },
     accessed: { default: undefined },
