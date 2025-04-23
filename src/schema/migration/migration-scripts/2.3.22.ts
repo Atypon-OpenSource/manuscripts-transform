@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { JSONNode } from '../migrate'
+import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
 
 class Migration2322 implements MigrationScript {
   fromVersion = '2.3.21'
   toVersion = '2.3.22'
 
-  migrateNode(node: JSONNode): JSONNode {
+  migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     if (node.type === 'table_element' && Array.isArray(node.content)) {
       let figcaptionNode = null
       const remainingContent = []
