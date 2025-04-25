@@ -54,6 +54,7 @@ export type Nodes =
   | 'bibliography_element'
   | 'bibliography_section'
   | 'blockquote_element'
+  | 'quote_image'
   | 'list'
   | 'caption'
   | 'caption_title'

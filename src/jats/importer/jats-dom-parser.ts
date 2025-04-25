@@ -693,6 +693,12 @@ export class JATSDOMParser {
       },
     },
     {
+      tag: 'graphic',
+      node: 'quote_image',
+      context: 'pullquote_element/',
+      getAttrs: this.getFigureAttrs,
+    },
+    {
       tag: 'ext-link',
       node: 'link',
       getAttrs: (node) => {

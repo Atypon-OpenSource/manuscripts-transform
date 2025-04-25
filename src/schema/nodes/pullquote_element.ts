@@ -29,7 +29,7 @@ export interface PullquoteElementNode extends ManuscriptNode {
 }
 
 export const pullquoteElement: NodeSpec = {
-  content: 'figure? paragraph+ attribution',
+  content: 'quote_image? paragraph+ attribution',
   attrs: {
     id: { default: '' },
     placeholder: { default: '' },

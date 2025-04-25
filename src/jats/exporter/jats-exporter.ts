@@ -1133,7 +1133,7 @@ export class JATSExporter {
       },
       pullquote_element: (node) => {
         let type = 'pullquote'
-        if (node.firstChild?.type === schema.nodes.figure) {
+        if (node.firstChild?.type === schema.nodes.quote_image) {
           type = 'quote-with-image'
         }
         return ['disp-quote', { 'content-type': type }, 0]

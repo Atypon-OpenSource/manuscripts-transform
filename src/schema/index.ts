@@ -101,6 +101,7 @@ import { tableElementFooter } from './nodes/table_element_footer'
 import { text, textBlock } from './nodes/text'
 import { title } from './nodes/title'
 import { Marks, Nodes } from './types'
+import { quoteImage } from './nodes/quote_image'
 
 export * from './groups'
 export * from './nodes/affiliation'
@@ -171,6 +172,7 @@ export * from './nodes/alt_title'
 export * from './nodes/alt_titles_section'
 export * from './nodes/alt_text'
 export * from './nodes/long_desc'
+export * from './nodes/quote_image'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -265,5 +267,6 @@ export const schema = new Schema<Nodes, Marks>({
     alt_titles: altTitlesSection,
     alt_text: altText,
     long_desc: longDesc,
+    quote_image: quoteImage,
   },
 })
