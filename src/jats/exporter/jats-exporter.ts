@@ -1138,6 +1138,7 @@ export class JATSExporter {
         }
         return ['disp-quote', { 'content-type': type }, 0]
       },
+      quote_image: (node) => createGraphic(node),
       graphical_abstract_section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
