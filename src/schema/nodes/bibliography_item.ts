@@ -46,7 +46,7 @@ export interface BibliographyItemAttrs {
   'number-of-pages'?: string
   accessed?: BibliographicDate // date-in-citation
   DOI?: string
-  comment: string
+  comment?: string
 }
 export type BibliographyItemType =
   | 'article-journal' //journal
