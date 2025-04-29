@@ -3066,6 +3066,18 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "type": "long_desc",
+                },
+                Object {
+                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "MPListing:test",
@@ -3381,6 +3393,18 @@ Object {
                     },
                   ],
                   "type": "table",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "type": "long_desc",
                 },
                 Object {
                   "attrs": Object {
@@ -10531,6 +10555,18 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
+                    },
+                    Object {
+                      "attrs": Object {
                         "contents": "",
                         "dataTracked": null,
                         "id": "MPListing:test",
@@ -13925,6 +13961,18 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
+                    },
+                    Object {
+                      "attrs": Object {
                         "contents": "",
                         "dataTracked": null,
                         "id": "MPListing:test",
@@ -17135,6 +17183,18 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
+                    },
+                    Object {
+                      "attrs": Object {
                         "contents": "",
                         "dataTracked": null,
                         "id": "MPListing:test",
@@ -17418,6 +17478,18 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
+                    },
+                    Object {
+                      "attrs": Object {
                         "contents": "",
                         "dataTracked": null,
                         "id": "MPListing:test",
@@ -17548,6 +17620,18 @@ Object {
                         },
                       ],
                       "type": "figcaption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
                     },
                     Object {
                       "attrs": Object {
@@ -18207,6 +18291,18 @@ Object {
                         },
                       ],
                       "type": "figcaption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
                     },
                     Object {
                       "attrs": Object {
@@ -22174,6 +22270,18 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "type": "long_desc",
+                },
+                Object {
+                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "MPListing:test",
@@ -25772,6 +25880,18 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "type": "long_desc",
+                },
+                Object {
+                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "MPListing:test",
@@ -25856,6 +25976,18 @@ Object {
                     },
                   ],
                   "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "type": "long_desc",
                 },
                 Object {
                   "attrs": Object {
@@ -26000,6 +26132,18 @@ Object {
                         },
                       ],
                       "type": "figcaption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
                     },
                     Object {
                       "attrs": Object {
@@ -28487,6 +28631,18 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
+                    },
+                    Object {
+                      "attrs": Object {
                         "contents": "",
                         "dataTracked": null,
                         "id": "MPListing:test",
@@ -29810,6 +29966,18 @@ Object {
                                     },
                                     Object {
                                       "attrs": Object {
+                                        "id": "MPAltText:test",
+                                      },
+                                      "type": "alt_text",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "id": "MPLongDesc:test",
+                                      },
+                                      "type": "long_desc",
+                                    },
+                                    Object {
+                                      "attrs": Object {
                                         "contents": "",
                                         "dataTracked": null,
                                         "id": "MPListing:test",
@@ -29905,6 +30073,18 @@ Object {
                                         },
                                       ],
                                       "type": "figcaption",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "id": "MPAltText:test",
+                                      },
+                                      "type": "alt_text",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "id": "MPLongDesc:test",
+                                      },
+                                      "type": "long_desc",
                                     },
                                     Object {
                                       "attrs": Object {
@@ -31620,6 +31800,18 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "type": "long_desc",
+                },
+                Object {
+                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "MPListing:test",
@@ -31692,6 +31884,18 @@ Object {
                     },
                   ],
                   "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "type": "long_desc",
                 },
                 Object {
                   "attrs": Object {
@@ -36640,6 +36844,18 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "type": "long_desc",
+                },
+                Object {
+                  "attrs": Object {
                     "contents": "",
                     "dataTracked": null,
                     "id": "MPListing:test",
@@ -36781,6 +36997,18 @@ Object {
                         },
                       ],
                       "type": "figcaption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
                     },
                     Object {
                       "attrs": Object {
@@ -39265,6 +39493,18 @@ Object {
                         },
                       ],
                       "type": "table_element_footer",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
                     },
                     Object {
                       "attrs": Object {
@@ -42562,6 +42802,18 @@ Object {
                     },
                   ],
                   "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "type": "long_desc",
                 },
                 Object {
                   "attrs": Object {
@@ -48229,6 +48481,18 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
+                    },
+                    Object {
+                      "attrs": Object {
                         "contents": "",
                         "dataTracked": null,
                         "id": "MPListing:test",
@@ -49089,6 +49353,18 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
+                    },
+                    Object {
+                      "attrs": Object {
                         "contents": "",
                         "dataTracked": null,
                         "id": "MPListing:test",
@@ -49594,6 +49870,18 @@ Object {
                         },
                       ],
                       "type": "figcaption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
                     },
                     Object {
                       "attrs": Object {
@@ -50203,6 +50491,18 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
+                    },
+                    Object {
+                      "attrs": Object {
                         "contents": "",
                         "dataTracked": null,
                         "id": "MPListing:test",
@@ -50704,6 +51004,18 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
+                    },
+                    Object {
+                      "attrs": Object {
                         "contents": "",
                         "dataTracked": null,
                         "id": "MPListing:test",
@@ -51082,6 +51394,18 @@ Object {
                         },
                       ],
                       "type": "figcaption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
                     },
                     Object {
                       "attrs": Object {
@@ -51560,6 +51884,18 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
+                    },
+                    Object {
+                      "attrs": Object {
                         "contents": "",
                         "dataTracked": null,
                         "id": "MPListing:test",
@@ -51975,6 +52311,18 @@ Object {
                     },
                   ],
                   "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "type": "long_desc",
                 },
                 Object {
                   "attrs": Object {
@@ -53372,6 +53720,18 @@ Object {
                     },
                   ],
                   "type": "table_element_footer",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "type": "long_desc",
                 },
                 Object {
                   "attrs": Object {
