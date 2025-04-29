@@ -289,6 +289,7 @@ export class JATSDOMParser {
     return {
       id: element.id,
       type: this.choosePublicationType(element),
+      comment: getTrimmedTextContent(element, 'comment'),
       volume: getTrimmedTextContent(element, 'volume'),
       issue: getTrimmedTextContent(element, 'issue'),
       supplement: getTrimmedTextContent(element, 'supplement'),
