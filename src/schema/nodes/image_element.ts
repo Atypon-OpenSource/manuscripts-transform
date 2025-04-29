@@ -24,7 +24,7 @@ export interface ImageElementNode extends ManuscriptNode {
 }
 
 export const imageElement: NodeSpec = {
-  content: 'figure? alt_text? long_desc?',
+  content: 'figure? alt_text long_desc',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
