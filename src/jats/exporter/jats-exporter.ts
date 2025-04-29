@@ -890,14 +890,20 @@ export class JATSExporter {
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
       alt_text: (node) => {
-        const altText = this.createElement('alt-text')
-        altText.textContent = node.textContent
-        return altText
+        if (node.textContent) {
+          const altText = this.createElement('alt-text')
+          altText.textContent = node.textContent
+          return altText
+        }
+        return ''
       },
       long_desc: (node) => {
-        const longDesc = this.createElement('long-desc')
-        longDesc.textContent = node.textContent
-        return longDesc
+        if (node.textContent) {
+          const longDesc = this.createElement('long-desc')
+          longDesc.textContent = node.textContent
+          return longDesc
+        }
+        return ''
       },
       attachment: () => '',
       attachments: () => '',

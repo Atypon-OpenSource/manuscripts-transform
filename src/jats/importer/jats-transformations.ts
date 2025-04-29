@@ -454,11 +454,20 @@ export const createSupplementaryMaterialsSection = (
   }
 }
 
-export const moveAccessibilityItems = (doc: Document) => {
-  const items = doc.querySelectorAll('alt-text, long-desc')
-  items.forEach((item) => {
-    item.parentNode?.appendChild(item)
-  })
+export const createAccessibilityItems = (
+  doc: Document,
+  createElement: CreateElement
+) => {
+  doc
+    .querySelectorAll('media, fig, table-wrap, graphic:not(fig graphic)')
+    .forEach((item) => {
+      const altText =
+        item.querySelector('alt-text') || createElement('alt-text')
+      const longDesc =
+        item.querySelector('long-desc') || createElement('long-desc')
+      item?.appendChild(altText)
+      item?.appendChild(longDesc)
+    })
 }
 
 export const moveReferencesToBackmatter = (

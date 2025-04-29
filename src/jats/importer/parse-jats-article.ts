@@ -22,6 +22,7 @@ import { updateDocumentIDs } from './jats-parser-utils'
 import {
   addMissingCaptions,
   createAbstracts,
+  createAccessibilityItems,
   createAttachments,
   createBackmatter,
   createBody,
@@ -30,7 +31,6 @@ import {
   createSupplementaryMaterialsSection,
   createTitles,
   fixTables,
-  moveAccessibilityItems,
   moveAffiliations,
   moveAuthorNotes,
   moveAwards,
@@ -76,7 +76,7 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
     return
   }
   moveReferencesToBackmatter(body, back, createElement)
-  moveAccessibilityItems(doc)
+  createAccessibilityItems(doc, createElement)
 }
 
 const createElementFn = (doc: Document) => (tagName: string) =>
