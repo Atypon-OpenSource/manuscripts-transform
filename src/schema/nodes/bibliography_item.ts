@@ -46,6 +46,7 @@ export interface BibliographyItemAttrs {
   'number-of-pages'?: string
   accessed?: BibliographicDate // date-in-citation
   DOI?: string
+  comment?: string
 }
 export type BibliographyItemType =
   | 'article-journal' //journal
@@ -101,6 +102,7 @@ export const bibliographyItem: NodeSpec = {
     pubIDs: { default: undefined },
     accessed: { default: undefined },
     URL: { default: undefined },
+    comment: { default: undefined },
     dataTracked: { default: null },
   },
   selectable: false,
