@@ -32025,11 +32025,10 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPFigure:test",
+                "id": "MPQuoteImage:test",
                 "src": "demo1.jpg",
-                "type": "headshot",
               },
-              "type": "figure",
+              "type": "quote_image",
             },
             Object {
               "attrs": Object {

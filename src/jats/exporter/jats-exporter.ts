@@ -1180,11 +1180,12 @@ export class JATSExporter {
       },
       pullquote_element: (node) => {
         let type = 'pullquote'
-        if (node.firstChild?.type === schema.nodes.figure) {
+        if (node.firstChild?.type === schema.nodes.quote_image) {
           type = 'quote-with-image'
         }
         return ['disp-quote', { 'content-type': type }, 0]
       },
+      quote_image: (node) => createGraphic(node),
       graphical_abstract_section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
