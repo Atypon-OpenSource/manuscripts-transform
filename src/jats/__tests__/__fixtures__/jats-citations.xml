@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <article article-type="other" dtd-version="1.1" xml:lang="en"
-    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
     <front>
         <journal-meta>
             <journal-id journal-id-type="publisher-id">APA6</journal-id>
@@ -24,14 +24,16 @@
             </article-categories>
             <title-group>
                 <article-title>Blood <bold>pressure</bold> after follow up in a stroke prevention
-                    clinic</article-title>
+                    clinic
+                </article-title>
                 <alt-title alt-title-type="right-running">Blood pressure after stroke</alt-title>
             </title-group>
             <contrib-group>
                 <contrib contrib-type="author" corresp="yes">
                     <contrib-id contrib-id-type="orcid" authenticated="true"
                     >
-                        https://orcid.org/0000-0003-2217-5904</contrib-id>
+                        https://orcid.org/0000-0003-2217-5904
+                    </contrib-id>
                     <name>
                         <surname>Hornnes</surname>
                         <given-names>Agnete Hviid</given-names>
@@ -39,7 +41,7 @@
                     <degrees>RN</degrees>
                     <degrees>MPH</degrees>
                     <degrees>PhD</degrees>
-                    <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1" />
+                    <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1"/>
                 </contrib>
                 <contrib contrib-type="author">
                     <name>
@@ -49,25 +51,31 @@
                     <degrees>MD</degrees>
                     <degrees>PhD</degrees>
                     <xref ref-type="fn" rid="BRB3-2019-12-0787-afn-0001">*</xref>
-                    <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1" />
+                    <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1"/>
                 </contrib>
                 <aff id="BRB3-2019-12-0787-aff1"><institution content-type="dept">Department of
                     Neurology</institution>, <institution>Herlev og Gentofte
-                        Hospital</institution>, <addr-line>Borgmester Ib Juuls Vej 1</addr-line>, <addr-line>
+                    Hospital</institution>, <addr-line>Borgmester Ib Juuls Vej 1</addr-line>,
+                    <addr-line>
                         <postal-code>2730</postal-code>
                         <city>Herlev</city>
-                    </addr-line>, <country>Denmark</country></aff>
+                    </addr-line>
+                    ,
+                    <country>Denmark</country>
+                </aff>
             </contrib-group>
             <author-notes>
                 <corresp id="BRB3-2019-12-0787-cor1">Corresponding author: Agnete Hviid
                     Hornnes&#x2028;<email xlink:href="agnete.hviid.hornnes@regionh.dk"
                     >
-                    agnete.hviid.hornnes@regionh.dk</email>&#x2028;FAX: 0045 3868 4031</corresp>
+                        agnete.hviid.hornnes@regionh.dk</email>&#x2028;FAX: 0045 3868 4031
+                </corresp>
                 <fn id="BRB3-2019-12-0787-afn-0001">
                     <label>*</label>
                     <p>Mai Bang Poulsen, MD, PhD&#x2028;Department of
                         Neurology&#x2028;Nordsj&#x00E6;llands Hospital&#x2028;Dyrehavevej
-                        29&#x2028;3400 Hiller&#x00F8;d&#x2028;Denmark</p>
+                        29&#x2028;3400 Hiller&#x00F8;d&#x2028;Denmark
+                    </p>
                 </fn>
                 <fn id="BRB3-2019-12-0787-afn-0002">
                     <p>ClinicalTrials.gov NCT03782857.</p>
@@ -76,27 +84,31 @@
                     <p content-type="fn-title">Contributor Information</p>
                     <p>Agnete Hviid Hornnes, Email: agnete.hviid.hornnes@regionh.dk <ext-link
                             ext-link-type="uri" xlink:href="https://orcid.org/0000-0003-2217-5904"
-                        >
+                    >
                         https//orcid.org/0000-0003-2217-5904</ext-link>&#x2028;Mai Bang Poulsen,
-                        Email: mai.bang.poulsen.02@regionh.dk</p>
+                        Email: mai.bang.poulsen.02@regionh.dk
+                    </p>
                     <p>Both authors have made substantial contributions to conception and design and
                         acquisitions and analyses
-            <?AuthorQuery id="Q3" queryText="Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;"?> and interpretation of data and have; and been
+                        <?AuthorQuery id="Q3" queryText="Check meaning - US English uses different spellings for the noun
+                        &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;"?> and
+                        interpretation of data and have; and been
                         involved in writing the manuscript and given final approval of the version
                         to be published. Both authors have participated sufficiently in the work to
                         take public responsibility for the content; and agree to be accountable for
                         all aspects of the work in ensuring that questions related to the accuracy
                         or integrity of any part of the work are appropriately investigated and
-                        resolved.</p>
+                        resolved.
+                    </p>
                 </fn>
             </author-notes>
             <pub-date pub-type="ppub">
-                <year />
+                <year/>
             </pub-date>
-            <volume />
+            <volume/>
             <supplementary-material id="S1"
-                xlink:href="attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312" mimetype="application"
-                mime-subtype="vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                    xlink:href="attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312" mimetype="application"
+                                    mime-subtype="vnd.openxmlformats-officedocument.wordprocessingml.document">
                 <caption>
                     <title>final manuscript-hum-huili-dbh-suicide-20200707_figures (9)
                     </title>
@@ -109,9 +121,9 @@
                     <year>2019</year>
                 </date>
                 <date date-type="rev-recd">
-                    <day />
-                    <month />
-                    <year />
+                    <day/>
+                    <month/>
+                    <year/>
                 </date>
                 <date date-type="accepted">
                     <day>27</day>
@@ -119,11 +131,11 @@
                     <year>2020</year>
                 </date>
             </history>
-            <permissions> </permissions>
+            <permissions></permissions>
             <self-uri content-type="document"
-                xlink:href="http://www.harmreductionjournal.com/content/1/1/5" />
+                      xlink:href="http://www.harmreductionjournal.com/content/1/1/5"/>
             <self-uri content-type="document"
-                xlink:href="http://www.harmreductionjournal.com/content/1/1/2" />
+                      xlink:href="http://www.harmreductionjournal.com/content/1/1/2"/>
 
             <abstract>
                 <sec>
@@ -135,7 +147,8 @@
                         the hypotheses that early follow up in a preventive clinic would result in
                         1) A higher proportion of patients with blood pressure at target, 2) Time to
                         stroke recurrence, myocardial infarction and death would be longer in the
-                        intervention group compared to controls.</p>
+                        intervention group compared to controls.
+                    </p>
                 </sec>
                 <sec>
                     <title>Materials and Methods</title>
@@ -146,30 +159,34 @@
                         within one week. In case of hypertension treatment was initiated or supplied
                         with a new drug. We used individual targets for blood pressure according to
                         diagnosis of stroke and patients&#x2019; comorbidity. Patients in the
-                        intervention group had a median of five visits to the preventive clinic.</p>
+                        intervention group had a median of five visits to the preventive clinic.
+                    </p>
                 </sec>
                 <sec>
                     <title>Results</title>
                     <p>In the intervention group blood pressure was treated to target in 25 patients
                         (69%) versus 14 (38%) in the control group (<italic>p</italic>&#x2009;=&#x2009;0.007).
                         Median time to first event was 44 months (4&#x2013;49) in the intervention
-                        group and 19 months (4&#x2013;37) in controls (<italic>p</italic>
-                        &#x2009;=&#x2009;0.316).</p>
+                        group and 19 months (4&#x2013;37) in controls (
+                        <italic>p</italic>
+                        &#x2009;=&#x2009;0.316).
+                    </p>
                 </sec>
                 <sec>
                     <title>Conclusions</title>
                     <p>Treatment of hypertension to individual targets after stroke is feasible. It
-                        may postpone recurrent stroke and death in stroke survivors.</p>
+                        may postpone recurrent stroke and death in stroke survivors.
+                    </p>
                 </sec>
             </abstract>
             <abstract abstract-type="graphical">
                 <fig id="fig-1" position="anchor" fig-type="half-left">
-                    <graphic xlink:href="demo1.jpg" />
+                    <graphic xlink:href="demo1.jpg"/>
                 </fig>
             </abstract>
             <abstract abstract-type="key-image">
                 <fig id="fig-2" position="anchor" fig-type="half-left">
-                    <graphic xlink:href="demo2.jpg" />
+                    <graphic xlink:href="demo2.jpg"/>
                 </fig>
             </abstract>
             <abstract abstract-type="short">
@@ -181,7 +198,8 @@
                     chlorides
                     of Gd, Tb, Dy, Ho, Er, Tm, Yb, and Lu, with coverage of the literature through
                     the
-                    middle of 2008.</p>
+                    middle of 2008.
+                </p>
             </abstract>
             <kwd-group kwd-group-type="author">
                 <title>KEYWORDS &#x2028;</title>
@@ -204,12 +222,12 @@
                 </award-group>
             </funding-group>
             <counts>
-                <count count-type="box" count="0" />
-                <fig-count count="3" />
-                <table-count count="2" />
-                <equation-count count="0" />
-                <ref-count count="25" />
-                <word-count count="4484" />
+                <count count-type="box" count="0"/>
+                <fig-count count="3"/>
+                <table-count count="2"/>
+                <equation-count count="0"/>
+                <ref-count count="25"/>
+                <word-count count="4484"/>
             </counts>
         </article-meta>
     </front>
@@ -224,7 +242,8 @@
                 Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048
                 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706,
                 SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of
-                Psychology (KLMH2019K03).</p>
+                Psychology (KLMH2019K03).
+            </p>
             <p>This work was supported by the National Natural Science Foundation of China
                 (81771439), Jiangsu Provincial Key <xref ref-type="bibr" rid="ref2">
                     1</xref>Research and Development Program (BE2020661 and BE2018662), Jiangsu
@@ -233,7 +252,8 @@
                 Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048
                 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706,
                 SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of
-                Psychology (KLMH2019K03).</p>
+                Psychology (KLMH2019K03).
+            </p>
             <p>This work was supported by the National Natural Science Foundation of China
                 (81771439), Jiangsu Provincial Key <xref ref-type="bibr" rid="ref3">
                     1</xref>Research and Development Program (BE2020661 and BE2018662), Jiangsu
@@ -242,7 +262,8 @@
                 Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048
                 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706,
                 SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of
-                Psychology (KLMH2019K03).</p>
+                Psychology (KLMH2019K03).
+            </p>
             <p>This work was supported by the National Natural Science Foundation of China
                 (81771439), Jiangsu Provincial Key <xref ref-type="bibr" rid="ref4">
                     1</xref>Research and Development Program (BE2020661 and BE2018662), Jiangsu
@@ -251,7 +272,8 @@
                 Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048
                 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706,
                 SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of
-                Psychology (KLMH2019K03).</p>
+                Psychology (KLMH2019K03).
+            </p>
             <p>This work was supported by the National Natural Science Foundation of China
                 (81771439), Jiangsu Provincial Key <xref ref-type="bibr" rid="ref5">
                     1</xref>Research and Development Program (BE2020661 and BE2018662), Jiangsu
@@ -260,7 +282,8 @@
                 Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048
                 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706,
                 SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of
-                Psychology (KLMH2019K03).</p>
+                Psychology (KLMH2019K03).
+            </p>
             <p>This work was supported by the National Natural Science Foundation of China
                 (81771439), Jiangsu Provincial Key <xref ref-type="bibr" rid="ref6">
                     1</xref>Research and Development Program (BE2020661 and BE2018662), Jiangsu
@@ -269,7 +292,8 @@
                 Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048
                 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706,
                 SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of
-                Psychology (KLMH2019K03).</p>
+                Psychology (KLMH2019K03).
+            </p>
             <p>This work was supported by the National Natural Science Foundation of China
                 (81771439), Jiangsu Provincial Key <xref ref-type="bibr" rid="ref7">
                     1</xref>Research and Development Program (BE2020661 and BE2018662), Jiangsu
@@ -278,7 +302,8 @@
                 Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048
                 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706,
                 SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of
-                Psychology (KLMH2019K03).</p>
+                Psychology (KLMH2019K03).
+            </p>
 
 
         </sec>
@@ -294,7 +319,7 @@
             <title>References</title>
             <ref id="ref1">
                 <element-citation publication-type="journal" publication-format="print"
-                    specific-use="archival">
+                                  specific-use="archival">
                     <person-group person-group-type="author">
                         <name>
                             <surname>Doe</surname>
@@ -407,6 +432,10 @@
                     <institution>University of California, Berkeley</institution>
                     <size units="pages">350</size>
                     <pub-id pub-id-type="doi">10.1234/thesis2021</pub-id>
+                    <comment>Located at: Modern Manuscripts Collection,
+                        History of Medicine Division, National Library of
+                        Medicine, Bethesda, MD; MS F 179
+                    </comment>
                 </element-citation>
             </ref>
             <ref id="ref6">

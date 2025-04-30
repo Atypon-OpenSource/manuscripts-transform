@@ -719,6 +719,7 @@ export class JATSExporter {
               this.appendElement(citation, 'article-title'),
               v
             ),
+          comment: (v: string) => this.appendElement(citation, 'comment', v),
           'container-title': (v: string) =>
             this.setTitleContent(this.appendElement(citation, 'source'), v),
           issued: ({ 'date-parts': parts }: { 'date-parts': number[][] }) =>
