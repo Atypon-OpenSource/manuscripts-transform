@@ -23,3 +23,4 @@ export type JSONProsemirrorNode = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   marks?: Array<{ type: string; attrs?: Record<string, any> }>
 }
+
