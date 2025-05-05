@@ -50,6 +50,7 @@ import {
   Marks,
   Nodes,
   ParagraphNode,
+  QuoteImageNode,
   schema,
   TableElementFooterNode,
   TableElementNode,
@@ -1185,7 +1186,13 @@ export class JATSExporter {
         }
         return ['disp-quote', { 'content-type': type }, 0]
       },
-      quote_image: (node) => createGraphic(node),
+      quote_image: (node) => {
+        const img = node as QuoteImageNode
+        if (img.attrs.src) {
+          return createGraphic(node)
+        }
+        return ''
+      },
       graphical_abstract_section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
