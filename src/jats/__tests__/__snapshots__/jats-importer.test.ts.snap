@@ -41985,6 +41985,48 @@ Object {
     },
     Object {
       "attrs": Object {
+        "dataTracked": null,
+        "id": "MPHeroImage:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPFigure:test",
+            "src": "fig1.png",
+            "type": "leading",
+          },
+          "type": "figure",
+        },
+        Object {
+          "attrs": Object {
+            "id": "MPAltText:test",
+          },
+          "content": Array [
+            Object {
+              "text": "example of alt text for hero-image",
+              "type": "text",
+            },
+          ],
+          "type": "alt_text",
+        },
+        Object {
+          "attrs": Object {
+            "id": "MPLongDesc:test",
+          },
+          "content": Array [
+            Object {
+              "text": "example of long desc for hero image",
+              "type": "text",
+            },
+          ],
+          "type": "long_desc",
+        },
+      ],
+      "type": "hero_image",
+    },
+    Object {
+      "attrs": Object {
         "id": "MPComments:test",
       },
       "content": Array [

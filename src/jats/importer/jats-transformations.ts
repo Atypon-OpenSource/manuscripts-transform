@@ -136,6 +136,19 @@ export const moveAbstracts = (
   })
 }
 
+export const moveHeroImage = (doc: Document) => {
+  const heroImage = doc.querySelector('graphic[content-type="leading"]')
+  if (!heroImage) {
+    return
+  }
+  const back = doc.querySelector('back')
+  if (back) {
+    back.parentNode?.insertBefore(heroImage, back)
+  } else {
+    doc.documentElement.appendChild(heroImage)
+  }
+}
+
 export const createBoxedElementSection = (
   body: Element,
   createElement: (tagName: string) => HTMLElement
@@ -176,7 +189,6 @@ export const createBody = (
     removeNodeFromParent(element)
     group.appendChild(element)
   })
-  moveFloatsGroupToBody(doc, group, createElement)
   body.append(group)
 }
 
@@ -355,21 +367,6 @@ const createAppendicesSection = (
   return section
 }
 
-const createFloatsGroupSection = (
-  floatsGroup: Element,
-  createElement: CreateElement
-) => {
-  const section = createElement('sec')
-  section.setAttribute('sec-type', 'floating-element')
-
-  const title = createElement('title')
-  title.textContent = 'Floating Group'
-  section.appendChild(title)
-
-  section.append(...floatsGroup.children)
-  return section
-}
-
 const moveBackSections = (doc: Document, group: Element) => {
   for (const section of doc.querySelectorAll('back > sec')) {
     removeNodeFromParent(section)
@@ -399,19 +396,6 @@ const moveAppendices = (
     const section = createAppendicesSection(app, createElement)
     removeNodeFromParent(app)
     group.appendChild(section)
-  }
-}
-
-const moveFloatsGroupToBody = (
-  doc: Document,
-  body: Element,
-  createElement: CreateElement
-) => {
-  const floatsGroup = doc.querySelector('floats-group')
-  if (floatsGroup) {
-    const sec = createFloatsGroupSection(floatsGroup, createElement)
-    removeNodeFromParent(floatsGroup)
-    body.appendChild(sec)
   }
 }
 
