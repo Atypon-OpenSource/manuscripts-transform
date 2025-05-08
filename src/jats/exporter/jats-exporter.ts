@@ -1507,13 +1507,7 @@ export class JATSExporter {
   private buildContributors = (articleMeta: Node) => {
     const contributorNodes = this.getChildrenOfType<ContributorNode>(
       schema.nodes.contributor
-    )
-    const authorContributorNodes = contributorNodes
-      .filter((n) => n.attrs.role === 'author')
-      .sort(sortContributors)
-    const otherContributorsNodes = contributorNodes
-      .filter((n) => n.attrs.role !== 'author')
-      .sort(sortContributors)
+    ).sort(sortContributors)
 
     const affiliationLabels = new Map<string, number>()
     const creatAffiliationLabel = (rid: string) => {
@@ -1531,11 +1525,11 @@ export class JATSExporter {
       sup.textContent = String(content)
       return sup
     }
-    if (authorContributorNodes.length) {
+    if (contributorNodes.length) {
       const contribGroup = this.createElement('contrib-group')
       contribGroup.setAttribute('content-type', 'authors')
       articleMeta.appendChild(contribGroup)
-      authorContributorNodes.forEach((contributor) => {
+      contributorNodes.forEach((contributor) => {
         try {
           this.validateContributor(contributor)
         } catch (error: any) {
@@ -1595,55 +1589,10 @@ export class JATSExporter {
         }
         contribGroup.appendChild(contrib)
       })
-      if (otherContributorsNodes.length) {
-        const contribGroup = this.createElement('contrib-group')
-        articleMeta.appendChild(contribGroup)
-        otherContributorsNodes.forEach((contributor) => {
-          try {
-            this.validateContributor(contributor)
-          } catch (error: any) {
-            warn(error.message)
-            return
-          }
-          const contrib = this.createElement('contrib')
-          contrib.setAttribute('id', normalizeID(contributor.attrs.id))
 
-          const name = this.buildContributorName(contributor)
-          contrib.appendChild(name)
-
-          if (contributor.attrs.email) {
-            const email = this.createElement('email')
-            email.textContent = contributor.attrs.email
-            contrib.appendChild(email)
-          }
-          if (contributor.attrs.affiliations) {
-            contributor.attrs.affiliations.forEach((rid) => {
-              const xref = this.createElement('xref')
-              xref.setAttribute('ref-type', 'aff')
-              xref.setAttribute('rid', normalizeID(rid))
-              xref.appendChild(creatAffiliationLabel(rid))
-              contrib.appendChild(xref)
-            })
-          }
-          if (contributor.attrs.footnote) {
-            contributor.attrs.footnote.map((note) => {
-              const xref = this.createElement('xref')
-              xref.setAttribute('ref-type', 'fn')
-              xref.setAttribute('rid', normalizeID(note.noteID))
-              xref.appendChild(createFootNotesLabels(note.noteLabel))
-              contrib.appendChild(xref)
-            })
-          }
-
-          contribGroup.appendChild(contrib)
-        })
-      }
       const affiliationRIDs: string[] = []
-      const sortedContributors = [
-        ...authorContributorNodes,
-        ...otherContributorsNodes,
-      ]
-      for (const contributor of sortedContributors) {
+
+      for (const contributor of contributorNodes) {
         if (contributor.attrs.affiliations) {
           affiliationRIDs.push(...contributor.attrs.affiliations)
         }

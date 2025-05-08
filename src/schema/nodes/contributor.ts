@@ -40,6 +40,7 @@ interface Attrs {
   priority: number
   isJointContributor: boolean
   footnote: ContributorFootnote[]
+  prefix: string
 }
 
 export interface ContributorNode extends ManuscriptNode {
@@ -64,6 +65,7 @@ export const contributor: NodeSpec = {
     priority: { default: undefined },
     dataTracked: { default: null },
     contents: { default: '' },
+    prefix: { default: '' },
   },
   group: 'block',
   toDOM: (node) => {
