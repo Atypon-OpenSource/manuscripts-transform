@@ -143,7 +143,7 @@ export const moveHeroImage = (doc: Document) => {
   }
   const back = doc.querySelector('back')
   if (back) {
-    back.parentNode?.insertBefore(heroImage, back)
+    back.parentNode?.insertBefore(heroImage, back.nextSibling)
   } else {
     doc.documentElement.appendChild(heroImage)
   }
