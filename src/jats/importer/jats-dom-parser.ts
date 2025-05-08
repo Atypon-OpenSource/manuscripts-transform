@@ -1062,7 +1062,7 @@ export class JATSDOMParser {
     },
     {
       tag: 'label',
-      context: 'section/',
+      context: 'section/|box_element/',
       node: 'section_label',
     },
     {

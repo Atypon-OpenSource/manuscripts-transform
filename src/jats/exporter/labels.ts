@@ -43,7 +43,6 @@ const labelledNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.table_element,
   schema.nodes.equation_element,
   schema.nodes.listing_element,
-  schema.nodes.box_element,
   schema.nodes.embed,
   schema.nodes.image_element,
 ]

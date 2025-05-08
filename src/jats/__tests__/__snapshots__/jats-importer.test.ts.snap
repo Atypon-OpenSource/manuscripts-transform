@@ -30256,6 +30256,18 @@ Object {
                   },
                   "content": Array [
                     Object {
+                      "text": "Box 1",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "section_label",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "placeholder": "Title...",
@@ -32446,6 +32458,18 @@ Object {
                         "id": "MPSection:test",
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "BoxedTextLabel",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "section_label",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
