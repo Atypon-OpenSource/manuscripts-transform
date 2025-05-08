@@ -210,7 +210,7 @@
     </article-meta>
   </front>
   <body>
-  <graphic 
+  <graphic
 xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
 1.2983775.1373315697!/images/1460725790.jpg">
  <alt-text>example of alt text for graphics</alt-text>
@@ -1487,4 +1487,10 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
       </ref>
     </ref-list>
   </back>
+  <floats-group>
+    <graphic content-type="leading" xlink:href="fig1.png">
+      <alt-text>example of alt text for hero-image</alt-text>
+      <long-desc>example of long desc for hero image</long-desc>  
+    </graphic>
+  </floats-group>
 </article>

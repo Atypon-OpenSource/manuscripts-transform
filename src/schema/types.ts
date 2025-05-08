@@ -128,6 +128,7 @@ export type Nodes =
   | 'alt_text'
   | 'alt_titles'
   | 'long_desc'
+  | 'hero_image'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 
