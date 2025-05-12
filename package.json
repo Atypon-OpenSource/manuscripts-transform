@@ -27,7 +27,7 @@
     "test": "jest --runInBand",
     "test:debug": "DEBUG=manuscripts-transform pnpm test",
     "typecheck": "tsc --noEmit",
-    "version": "yarpnpmn build"
+    "version": "pnpm build"
   },
   "dependencies": {
     "@manuscripts/json-schema": "2.2.11",
