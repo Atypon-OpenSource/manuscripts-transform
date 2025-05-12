@@ -40,6 +40,12 @@
           <degrees>MPH</degrees>
           <degrees>PhD</degrees>
           <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1" />
+          <role vocab="CRediT"
+            vocab-identifier="http://credit.niso.org/"
+            vocab-term="Writing – original draft"
+            vocab-term-identifier=
+            "http://credit.niso.org/contributor-roles/writing-original-draft/"
+            degree-contribution="lead">writer</role>
         </contrib>
         <contrib contrib-type="author">
           <name>

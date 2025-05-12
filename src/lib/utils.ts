@@ -18,6 +18,9 @@ import { Node as ProsemirrorNode, ResolvedPos } from 'prosemirror-model'
 
 import { htmlFromJatsNode } from '../jats/importer/jats-parser-utils'
 import {
+  CRediTRole,
+  CRediTRoleUrls,
+  CreditVocabTerm,
   isBibliographySectionNode,
   isGraphicalAbstractSectionNode,
   ManuscriptEditorState,
@@ -120,4 +123,28 @@ export const dateToTimestamp = (dateElement: Element) => {
 
   // timestamp stored in seconds in manuscript schema
   return Date.UTC(values[0], values[1] - 1, values[2]) / 1000 // ms => s
+}
+
+export function getCRediTRoleRole(elem: Element) {
+  const sources = elem.querySelectorAll(
+    'role[vocab="CRediT"][vocab-identifier="http://credit.niso.org/"][vocab-term][vocab-term-identifier]'
+  )
+  const results: CRediTRole[] = []
+  sources.forEach((source) => {
+    if (
+      source &&
+      CRediTRoleUrls.has(source.getAttribute('vocab-term') as CreditVocabTerm)
+    ) {
+      const result: CRediTRole = {
+        vocabTerm: source.getAttribute('vocab-term') as CreditVocabTerm,
+      }
+      if (source.getAttribute('degree-contribution')) {
+        result.degreeContribution =
+          source.getAttribute('degree-contribution') || undefined
+      }
+      results.push(result)
+    }
+  })
+
+  return results
 }

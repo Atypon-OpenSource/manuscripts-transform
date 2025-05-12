@@ -40,6 +40,8 @@ import {
   CitationNode,
   ContributorNode,
   CorrespNode,
+  CRediTRole,
+  CRediTRoleUrls,
   CrossReferenceNode,
   FootnoteNode,
   isCitationNode,
@@ -1595,6 +1597,23 @@ export class JATSExporter {
             xref.setAttribute('rid', normalizeID(corresp.correspID))
             xref.appendChild(createFootNotesLabels(corresp.correspLabel))
             contrib.appendChild(xref)
+          })
+        }
+
+        if (contributor.attrs.CRediTRoles) {
+          contributor.attrs.CRediTRoles.forEach((cr) => {
+            const role = this.createElement('role')
+            const creditUrl = CRediTRoleUrls.get(cr.vocabTerm)
+            if (creditUrl) {
+              role.setAttribute('vocab-identifier', 'http://credit.niso.org/')
+              role.setAttribute('vocab', 'CRediT')
+              role.setAttribute('vocab-term', cr.vocabTerm)
+              role.setAttribute('vocab-term-identifier', creditUrl)
+            }
+            if (cr.degreeContribution) {
+              role.setAttribute('degree-contribution', cr.degreeContribution)
+            }
+            contrib.appendChild(role)
           })
         }
         contribGroup.appendChild(contrib)

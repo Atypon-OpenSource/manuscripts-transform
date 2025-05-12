@@ -24,12 +24,14 @@ import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
 import {
   dateToTimestamp,
+  getCRediTRoleRole,
   getHTMLContent,
   getTrimmedTextContent,
 } from '../../lib/utils'
 import {
   ContributorCorresp,
   ContributorFootnote,
+  ContributorNode,
   ManuscriptNode,
   MarkRule,
   NodeRule,
@@ -537,7 +539,7 @@ export class JATSDOMParser {
     {
       tag: 'contrib[contrib-type="author"]',
       node: 'contributor',
-      getAttrs: (node) => {
+      getAttrs: (node): Partial<ContributorNode['attrs']> => {
         const element = node as HTMLElement
         const footnote: ContributorFootnote[] = []
         const affiliations: string[] = []
@@ -570,7 +572,7 @@ export class JATSDOMParser {
         }
 
         return {
-          id: element.getAttribute('id'),
+          id: element.getAttribute('id') || undefined,
           role: 'author',
           affiliations,
           corresp,
@@ -587,6 +589,7 @@ export class JATSDOMParser {
             element,
             'contrib-id[contrib-id-type="orcid"]'
           ),
+          CRediTRoles: getCRediTRoleRole(element),
           priority: this.parsePriority(element.getAttribute('priority')),
           email: getTrimmedTextContent(element, 'email') || '',
         }
