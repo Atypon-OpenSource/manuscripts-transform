@@ -293,7 +293,12 @@ exports[`JATS importer contributors node should correctly parse contributor node
 Array [
   Object {
     "attrs": Object {
-      "CRediTRole": undefined,
+      "CRediTRoles": Array [
+        Object {
+          "degreeContribution": "lead",
+          "vocabTerm": "Writing – original draft",
+        },
+      ],
       "ORCIDIdentifier": "https://orcid.org/0000-0003-2217-5904",
       "affiliations": Array [
         "MPAffiliation:test",
@@ -326,7 +331,7 @@ Array [
   },
   Object {
     "attrs": Object {
-      "CRediTRole": undefined,
+      "CRediTRoles": Array [],
       "ORCIDIdentifier": undefined,
       "affiliations": Array [
         "MPAffiliation:test",
@@ -472,7 +477,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": "https://orcid.org/0000-0001-6162-1335",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -510,7 +515,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -543,7 +548,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -576,7 +581,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -2584,7 +2589,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [],
             "bibliographicName": Object {
@@ -4129,7 +4134,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4162,7 +4167,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4195,7 +4200,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4228,7 +4233,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4261,7 +4266,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": "https://orcid.org/0000-0003-2427-915X",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4294,7 +4299,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4327,7 +4332,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": "https://orcid.org/0000-0001-8156-6978",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -20938,7 +20943,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": "https://orcid.org/0000-0003-2217-5904",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -20971,7 +20976,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -29321,7 +29326,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -31209,7 +31214,12 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [
+              Object {
+                "degreeContribution": "lead",
+                "vocabTerm": "Writing – original draft",
+              },
+            ],
             "ORCIDIdentifier": "https://orcid.org/0000-0003-2217-5904",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -31242,7 +31252,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -42346,7 +42356,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -42379,7 +42389,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRole": undefined,
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
