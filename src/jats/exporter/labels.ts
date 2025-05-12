@@ -79,6 +79,9 @@ export const buildTargets = (
       if (parent && excludedTypes.includes(parent.type)) {
         return
       }
+      if (node.attrs.labelToggle === false) {
+        return
+      }
       const label = buildLabel(node.type)
 
       targets.set(node.attrs.id, {

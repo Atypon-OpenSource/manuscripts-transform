@@ -30248,6 +30248,7 @@ Object {
               "attrs": Object {
                 "dataTracked": null,
                 "id": "MPSection:test",
+                "labelToggle": true,
               },
               "content": Array [
                 Object {
@@ -32444,6 +32445,7 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPSection:test",
+                        "labelToggle": true,
                       },
                       "content": Array [
                         Object {
