@@ -16,8 +16,8 @@
 import { BibliographicName } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
 import { CreditVocabTerm } from '../../lib/credit-roles'
+import { ManuscriptNode } from '../types'
 
 export type ContributorCorresp = {
   correspID: string

@@ -32,6 +32,7 @@ import {
 import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
 
+import { CRediTRoleUrls } from '../../lib/credit-roles'
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML, textFromHTML } from '../../lib/html'
 import {
@@ -58,7 +59,6 @@ import { isExecutableNodeType, isNodeType } from '../../transformer'
 import { IDGenerator } from '../types'
 import { selectVersionIds, Version } from './jats-versions'
 import { buildTargets, Target } from './labels'
-import { CRediTRoleUrls } from '../../lib/credit-roles'
 
 interface Attrs {
   [key: string]: string
