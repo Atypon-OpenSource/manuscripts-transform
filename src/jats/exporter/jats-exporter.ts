@@ -40,8 +40,6 @@ import {
   CitationNode,
   ContributorNode,
   CorrespNode,
-  CRediTRole,
-  CRediTRoleUrls,
   CrossReferenceNode,
   FootnoteNode,
   isCitationNode,
@@ -60,6 +58,7 @@ import { isExecutableNodeType, isNodeType } from '../../transformer'
 import { IDGenerator } from '../types'
 import { selectVersionIds, Version } from './jats-versions'
 import { buildTargets, Target } from './labels'
+import { CRediTRoleUrls } from '../../lib/credit-roles'
 
 interface Attrs {
   [key: string]: string

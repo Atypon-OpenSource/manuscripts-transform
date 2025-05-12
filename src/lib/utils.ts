@@ -19,13 +19,12 @@ import { Node as ProsemirrorNode, ResolvedPos } from 'prosemirror-model'
 import { htmlFromJatsNode } from '../jats/importer/jats-parser-utils'
 import {
   CRediTRole,
-  CRediTRoleUrls,
-  CreditVocabTerm,
   isBibliographySectionNode,
   isGraphicalAbstractSectionNode,
   ManuscriptEditorState,
   ManuscriptNode,
 } from '../schema'
+import { CRediTRoleUrls, CreditVocabTerm } from './credit-roles'
 
 export function* iterateChildren(
   node: ManuscriptNode,
