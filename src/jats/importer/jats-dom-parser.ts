@@ -571,7 +571,7 @@ export class JATSDOMParser {
 
         return {
           id: element.getAttribute('id'),
-          role: 'author',
+          role: getTrimmedTextContent(element, 'role'),
           affiliations,
           corresp,
           footnote,
@@ -589,6 +589,7 @@ export class JATSDOMParser {
           ),
           priority: this.parsePriority(element.getAttribute('priority')),
           email: getTrimmedTextContent(element, 'email') || '',
+          prefix: getTrimmedTextContent(element, 'prefix'),
         }
       },
       getContent: () => {
