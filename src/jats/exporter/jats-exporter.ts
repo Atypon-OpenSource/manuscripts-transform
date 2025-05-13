@@ -173,6 +173,7 @@ export const buildCitations = (citations: CitationNode[]) =>
       noteIndex: 0,
     },
   }))
+
 export class JATSExporter {
   protected document: Document
   protected serializer: DOMSerializer
@@ -209,6 +210,7 @@ export class JATSExporter {
       } as BibliographyItem
     }
   }
+
   protected generateCitationTexts(csl: CSLOptions, manuscriptID: string) {
     this.citationTexts = new Map<string, string>()
     this.citationProvider = new CitationProvider({
@@ -239,6 +241,7 @@ export class JATSExporter {
   ): T | undefined {
     return this.getChildrenOfType<T>(type, node)[0]
   }
+
   protected getChildrenOfType<T extends ManuscriptNode>(
     type: NodeType,
     node?: ManuscriptNode
@@ -291,12 +294,12 @@ export class JATSExporter {
     article.appendChild(back)
     this.unwrapBody(body)
     this.moveAbstracts(front, body)
-    this.moveFloatsGroup(body, article)
     this.removeBackContainer(body)
     this.updateFootnoteTypes(front, back)
     this.fillEmptyTableFooters(article)
     this.fillEmptyFootnotes(article)
     this.moveAwards(front, body)
+    this.moveFloatsGroup(article)
     await this.rewriteIDs()
     return serializeToXML(this.document)
   }
@@ -889,6 +892,7 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
+      hero_image: () => '',
       alt_text: (node) => {
         if (node.textContent) {
           const altText = this.createElement('alt-text')
@@ -1696,6 +1700,7 @@ export class JATSExporter {
     }
     return authorNotesEl
   }
+
   private appendModelsToAuthorNotes(
     authorNotesEl: HTMLElement,
     authorNotesNode: AuthorNotesNode
@@ -1724,6 +1729,7 @@ export class JATSExporter {
       return false
     })
   }
+
   private appendCorrespondingToElement = (
     corresponding: CorrespNode,
     element: HTMLElement
@@ -1785,6 +1791,7 @@ export class JATSExporter {
     }
     element.appendChild(footnoteEl)
   }
+
   private buildKeywords(articleMeta: Node) {
     const keywordGroups = this.getChildrenOfType(schema.nodes.keyword_group)
 
@@ -2137,15 +2144,25 @@ export class JATSExporter {
     }
     return footNote
   }
-  private moveFloatsGroup = (body: HTMLElement, article: HTMLElement) => {
+  private moveFloatsGroup = (article: HTMLElement) => {
+    const heroImage = this.getFirstChildOfType(schema.nodes.hero_image)
+    if (!heroImage) {
+      return
+    }
     const floatsGroup = this.createElement('floats-group')
-    const section = body.querySelector('sec[sec-type="floating-element"]')
-    if (section) {
-      floatsGroup.append(...section.children)
-
-      if (section?.parentNode) {
-        section.parentNode.removeChild(section)
+    let figure: HTMLElement | null = null
+    heroImage.descendants((node) => {
+      if (node.type === schema.nodes.figure) {
+        figure = this.serializeNode(node) as HTMLElement
+        floatsGroup.appendChild(figure)
+      } else {
+        const serializedNode = this.serializeNode(node)
+        figure?.appendChild(serializedNode)
       }
+      return false
+    })
+
+    if (floatsGroup.children.length > 0) {
       article.appendChild(floatsGroup)
     }
   }
@@ -2230,6 +2247,7 @@ export class JATSExporter {
       }
     })
   }
+
   private fillEmptyElements(
     articleElement: Element,
     selector: string,
