@@ -79,7 +79,7 @@ export const buildTargets = (
       if (parent && excludedTypes.includes(parent.type)) {
         return
       }
-      if (node.attrs.labelToggle === false) {
+      if (node.attrs.captionToggle === false) {
         return
       }
       const label = buildLabel(node.type)

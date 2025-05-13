@@ -20,7 +20,7 @@ import { ManuscriptNode } from '../types'
 
 export interface BoxElementAttrs {
   id: string
-  labelToggle: boolean
+  captionToggle: boolean
 }
 
 export interface BoxElementNode extends ManuscriptNode {
@@ -32,7 +32,7 @@ export const box_element: NodeSpec = {
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
-    labelToggle: { default: false },
+    captionToggle: { default: false },
   },
   group: 'block element',
   selectable: false,

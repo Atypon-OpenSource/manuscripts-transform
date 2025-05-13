@@ -985,7 +985,7 @@ export class JATSDOMParser {
 
         return {
           id: element.getAttribute('id'),
-          labelToggle: !!element.querySelector('label'),
+          captionToggle: !!element.querySelector('caption'),
         }
       },
     },

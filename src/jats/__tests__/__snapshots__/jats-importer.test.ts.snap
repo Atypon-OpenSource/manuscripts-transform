@@ -30246,9 +30246,9 @@ Object {
             },
             Object {
               "attrs": Object {
+                "captionToggle": true,
                 "dataTracked": null,
                 "id": "MPSection:test",
-                "labelToggle": true,
               },
               "content": Array [
                 Object {
@@ -32443,9 +32443,9 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "captionToggle": true,
                         "dataTracked": null,
                         "id": "MPSection:test",
-                        "labelToggle": true,
                       },
                       "content": Array [
                         Object {
@@ -32469,6 +32469,140 @@ Object {
                           ],
                           "type": "figcaption",
                         },
+                        Object {
+                          "attrs": Object {
+                            "category": "",
+                            "dataTracked": null,
+                            "id": "MPSection:test",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "Key messages",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "section_title",
+                            },
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                                "id": "MPListElement:test",
+                                "listStyleType": "bullet",
+                              },
+                              "content": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "placeholder": "List item",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "id": "MPParagraphElement:test",
+                                        "placeholder": "",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "The benefits of geriatric day hospital care have been controversial for many years.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "paragraph",
+                                    },
+                                  ],
+                                  "type": "list_item",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "placeholder": "List item",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "id": "MPParagraphElement:test",
+                                        "placeholder": "",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "This systematic review of 12 randomised trials comparing a variety of day hospitals with a range of alternative services found no overall advantage for day hospital care.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "paragraph",
+                                    },
+                                  ],
+                                  "type": "list_item",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "placeholder": "List item",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "id": "MPParagraphElement:test",
+                                        "placeholder": "",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "Day hospitals had a possible advantage over no comprehensive care in terms of death or poor outcome, disability, and use of resources.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "paragraph",
+                                    },
+                                  ],
+                                  "type": "list_item",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "placeholder": "List item",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "id": "MPParagraphElement:test",
+                                        "placeholder": "",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "The costs of day hospital care may be partly offset by a reduced use of hospital beds and institutional care among survivors.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "paragraph",
+                                    },
+                                  ],
+                                  "type": "list_item",
+                                },
+                              ],
+                              "type": "list",
+                            },
+                          ],
+                          "type": "section",
+                        },
+                      ],
+                      "type": "box_element",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "captionToggle": false,
+                        "dataTracked": null,
+                        "id": "MPSection:test",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "category": "",
