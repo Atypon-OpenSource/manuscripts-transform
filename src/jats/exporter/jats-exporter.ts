@@ -22,7 +22,6 @@ import {
   ObjectTypes,
 } from '@manuscripts/json-schema'
 import { CitationProvider } from '@manuscripts/library'
-import debug from 'debug'
 import {
   type NodeType,
   DOMOutputSpec,
@@ -75,8 +74,6 @@ const publicationTypeToJats: Record<string, string> = {
   webpage: 'web',
   dataset: 'data',
 }
-
-const warn = debug('manuscripts-transform')
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
@@ -666,7 +663,6 @@ export class JATSExporter {
     // bibliography element
     let refList = this.document.querySelector('ref-list')
     if (!refList) {
-      warn('No bibliography element, creating a ref-list anyway')
       refList = this.createElement('ref-list')
     }
 
@@ -1024,7 +1020,6 @@ export class JATSExporter {
           (attrs) => attrs.id === rid
         )[0]?.node
         if (!target) {
-          warn('')
           return text || ''
         }
 
@@ -1033,8 +1028,6 @@ export class JATSExporter {
         const type = chooseRefType(target.type)
         if (type) {
           xref.setAttribute('ref-type', type)
-        } else {
-          warn(`Unset ref-type for schema type ${target.type.name}`)
         }
 
         xref.setAttribute('rid', normalizeID(rids.join(' ')))
@@ -1539,8 +1532,7 @@ export class JATSExporter {
         try {
           this.validateContributor(contributor)
         } catch (error: any) {
-          warn(error.message)
-          return
+         return
         }
         const contrib = this.createElement('contrib')
         contrib.setAttribute('contrib-type', 'author')
@@ -1602,7 +1594,6 @@ export class JATSExporter {
           try {
             this.validateContributor(contributor)
           } catch (error: any) {
-            warn(error.message)
             return
           }
           const contrib = this.createElement('contrib')
@@ -1969,10 +1960,6 @@ export class JATSExporter {
     const container = body.querySelector(':scope > sec[sec-type="backmatter"]')
     if (!container) {
       return
-    }
-    const isContainerEmpty = container.children.length === 0
-    if (!isContainerEmpty) {
-      warn('Backmatter section is not empty.')
     }
     body.removeChild(container)
   }
