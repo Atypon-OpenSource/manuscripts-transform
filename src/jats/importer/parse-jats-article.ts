@@ -36,6 +36,7 @@ import {
   moveAwards,
   moveCaptionsToEnd,
   moveContributors,
+  moveHeroImage,
   moveReferencesToBackmatter,
   orderTableFootnote,
 } from './jats-transformations'
@@ -70,6 +71,7 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   createKeywordsSection(doc, body, createElement)
   fixTables(doc, body, createElement)
   orderTableFootnote(doc, body)
+  moveHeroImage(doc)
   createAttachments(doc, createElement)
   const back = doc.querySelector('back')
   if (!back) {
