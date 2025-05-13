@@ -39,6 +39,8 @@
           <degrees>RN</degrees>
           <degrees>MPH</degrees>
           <degrees>PhD</degrees>
+          <role> author </role>
+          <prefix> Mr </prefix>
           <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1" />
         </contrib>
         <contrib contrib-type="author">
@@ -210,7 +212,7 @@
     </article-meta>
   </front>
   <body>
-  <graphic 
+  <graphic
 xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
 1.2983775.1373315697!/images/1460725790.jpg">
  <alt-text>example of alt text for graphics</alt-text>

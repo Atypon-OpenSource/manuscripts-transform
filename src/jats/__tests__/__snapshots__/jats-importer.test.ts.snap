@@ -311,9 +311,9 @@ Array [
       "invitationID": undefined,
       "isCorresponding": true,
       "isJointContributor": undefined,
-      "prefix": "",
+      "prefix": "Mr",
       "priority": undefined,
-      "role": "",
+      "role": "author",
       "userID": undefined,
     },
     "content": Array [
@@ -31227,9 +31227,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": true,
             "isJointContributor": undefined,
-            "prefix": "",
+            "prefix": "Mr",
             "priority": undefined,
-            "role": "",
+            "role": "author",
             "userID": undefined,
           },
           "content": Array [

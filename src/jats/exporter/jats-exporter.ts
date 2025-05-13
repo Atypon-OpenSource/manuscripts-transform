@@ -1543,27 +1543,31 @@ export class JATSExporter {
         if (contributor.attrs.isCorresponding) {
           contrib.setAttribute('corresp', 'yes')
         }
+        if (contributor.attrs.role) {
+          this.appendElement(contrib, 'role', contributor.attrs.role)
+        }
 
         if (contributor.attrs.ORCIDIdentifier) {
-          const identifier = this.createElement('contrib-id')
-          identifier.setAttribute('contrib-id-type', 'orcid')
-          identifier.textContent = contributor.attrs.ORCIDIdentifier
-          contrib.appendChild(identifier)
+          this.appendElement(
+            contrib,
+            'contrib-id',
+            contributor.attrs.ORCIDIdentifier,
+            { 'contrib-id-type': 'orcid' }
+          )
         }
 
         const name = this.buildContributorName(contributor)
         contrib.appendChild(name)
 
         if (contributor.attrs.email) {
-          const email = this.createElement('email')
-          email.textContent = contributor.attrs.email
-          contrib.appendChild(email)
+          this.appendElement(contrib, 'email', contributor.attrs.email)
         }
         if (contributor.attrs.affiliations) {
           contributor.attrs.affiliations.forEach((rid) => {
-            const xref = this.createElement('xref')
-            xref.setAttribute('ref-type', 'aff')
-            xref.setAttribute('rid', normalizeID(rid))
+            const xref = this.appendElement(contrib, 'xref', '', {
+              'ref-type': 'aff',
+              rid: normalizeID(rid),
+            })
             xref.appendChild(creatAffiliationLabel(rid))
             contrib.appendChild(xref)
           })
@@ -1571,18 +1575,20 @@ export class JATSExporter {
 
         if (contributor.attrs.footnote) {
           contributor.attrs.footnote.map((note) => {
-            const xref = this.createElement('xref')
-            xref.setAttribute('ref-type', 'fn')
-            xref.setAttribute('rid', normalizeID(note.noteID))
+            const xref = this.appendElement(contrib, 'xref', '', {
+              'ref-type': 'fn',
+              rid: normalizeID(note.noteID),
+            })
             xref.appendChild(createFootNotesLabels(note.noteLabel))
             contrib.appendChild(xref)
           })
         }
         if (contributor.attrs.corresp) {
           contributor.attrs.corresp.map((corresp) => {
-            const xref = this.createElement('xref')
-            xref.setAttribute('ref-type', 'corresp')
-            xref.setAttribute('rid', normalizeID(corresp.correspID))
+            const xref = this.appendElement(contrib, 'xref', '', {
+              'ref-type': 'corresp',
+              rid: normalizeID(corresp.correspID),
+            })
             xref.appendChild(createFootNotesLabels(corresp.correspLabel))
             contrib.appendChild(xref)
           })
@@ -2148,15 +2154,23 @@ export class JATSExporter {
     const name = this.createElement('name')
 
     if (contributor.attrs.bibliographicName.family) {
-      const surname = this.createElement('surname')
-      surname.textContent = contributor.attrs.bibliographicName.family
-      name.appendChild(surname)
+      this.appendElement(
+        name,
+        'surname',
+        contributor.attrs.bibliographicName.family
+      )
     }
 
     if (contributor.attrs.bibliographicName.given) {
-      const givenNames = this.createElement('given-names')
-      givenNames.textContent = contributor.attrs.bibliographicName.given
-      name.appendChild(givenNames)
+      this.appendElement(
+        name,
+        'given-names',
+        contributor.attrs.bibliographicName.given
+      )
+    }
+
+    if (contributor.attrs.prefix) {
+      this.appendElement(name, 'prefix', contributor.attrs.prefix)
     }
 
     return name
