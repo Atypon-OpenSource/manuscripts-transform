@@ -47,6 +47,7 @@ interface Attrs {
   priority: number
   isJointContributor: boolean
   footnote: ContributorFootnote[]
+  prefix: string
   CRediTRoles?: CRediTRole[]
 }
 
@@ -73,6 +74,7 @@ export const contributor: NodeSpec = {
     CRediTRoles: { default: [] },
     dataTracked: { default: null },
     contents: { default: '' },
+    prefix: { default: '' },
   },
   group: 'block',
   toDOM: (node) => {

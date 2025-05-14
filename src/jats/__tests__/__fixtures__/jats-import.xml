@@ -39,6 +39,8 @@
           <degrees>RN</degrees>
           <degrees>MPH</degrees>
           <degrees>PhD</degrees>
+          <role> author </role>
+          <prefix> Mr </prefix>
           <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1" />
           <role vocab="CRediT"
             vocab-identifier="http://credit.niso.org/"
