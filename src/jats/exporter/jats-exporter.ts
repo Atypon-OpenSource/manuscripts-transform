@@ -1366,7 +1366,7 @@ export class JATSExporter {
       const element = createElement(node, 'boxed-text')
       appendLabels(element, node)
       const child = node.firstChild
-      if (child && child.type === schema.nodes.figcaption) {
+      if (child?.type === schema.nodes.figcaption) {
         appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
       }
 
