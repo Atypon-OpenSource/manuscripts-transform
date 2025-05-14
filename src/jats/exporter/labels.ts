@@ -81,7 +81,7 @@ export const buildTargets = (
       }
       if (node.type === schema.nodes.box_element) {
         const child = node.firstChild
-        if (child && child.type !== schema.nodes.figcaption) {
+        if (!child || child.type !== schema.nodes.figcaption) {
           return
         }
       }
