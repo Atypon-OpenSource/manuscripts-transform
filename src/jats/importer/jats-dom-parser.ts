@@ -992,7 +992,6 @@ export class JATSDOMParser {
 
         return {
           id: element.getAttribute('id'),
-          captionToggle: !!element.querySelector('caption'),
         }
       },
     },

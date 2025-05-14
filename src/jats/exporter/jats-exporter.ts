@@ -1365,9 +1365,11 @@ export class JATSExporter {
     const createBoxElement = (node: ManuscriptNode) => {
       const element = createElement(node, 'boxed-text')
       appendLabels(element, node)
-      if (node.attrs.captionToggle === true) {
+      const child = node.firstChild
+      if (child && child.type !== schema.nodes.figcaption) {
         appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
       }
+
       processChildNodes(element, node, node.type.schema.nodes.section)
       return element
     }
