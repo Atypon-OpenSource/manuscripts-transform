@@ -38,7 +38,7 @@ interface Attrs {
   role: string
   corresp: ContributorCorresp[]
   affiliations: string[]
-  bibliographicName: Omit<BibliographicName, '_id'>
+  bibliographicName: BibliographicName
   userID: string
   email: string
   invitationID: string
