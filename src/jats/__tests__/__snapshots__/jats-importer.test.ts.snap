@@ -2315,13 +2315,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Caldwell",
                         "given": "C.B.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Gottesman",
                         "given": "I.I.",
                         "objectType": "MPBibliographicName",
@@ -2372,13 +2370,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Hor",
                         "given": "K.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Taylor",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
@@ -2429,13 +2425,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Hor",
                         "given": "K.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Taylor",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
@@ -18968,47 +18962,39 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Roemer",
                         "given": "M. G.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Advani",
                         "given": "R. H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ligon",
                         "given": "A. H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Natkunam",
                         "given": "Y.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Redd",
                         "given": "R. A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Homer",
                         "given": "H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Shipp",
                         "given": "M. A.",
                         "objectType": "MPBibliographicName",
@@ -19059,13 +19045,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Liu",
                         "given": "W. R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Shipp",
                         "given": "M. A.",
                         "objectType": "MPBibliographicName",
@@ -19116,47 +19100,39 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Brahmer",
                         "given": "J. R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Drake",
                         "given": "C. G.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Wollner",
                         "given": "I.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Powderly",
                         "given": "J. D.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Picus",
                         "given": "J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Sharfman",
                         "given": "W. H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Topalian",
                         "given": "S. L.",
                         "objectType": "MPBibliographicName",
@@ -19207,47 +19183,39 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ansell",
                         "given": "S. M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lesokhin",
                         "given": "A. M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Borrello",
                         "given": "I.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Halwani",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Scott",
                         "given": "E. C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Gutierrez",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Armand",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
@@ -19298,47 +19266,39 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Hamid",
                         "given": "O.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Robert",
                         "given": "C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Daud",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Hodi",
                         "given": "F. S.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Hwu",
                         "given": "W. J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Kefford",
                         "given": "R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ribas",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
@@ -19389,47 +19349,39 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Armand",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Shipp",
                         "given": "M. A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ribrag",
                         "given": "V.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Michot",
                         "given": "J. M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Zinzani",
                         "given": "P. L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Kuruvilla",
                         "given": "J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Moskowitz",
                         "given": "C. H.",
                         "objectType": "MPBibliographicName",
@@ -19480,25 +19432,21 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Chen",
                         "given": "R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Zinzani",
                         "given": "P. L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Fanale",
                         "given": "M. A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                     ],
@@ -19547,43 +19495,36 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lindauer",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Valiathan",
                         "given": "C. R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Mehta",
                         "given": "K.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Sriram",
                         "given": "V.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "de Greef",
                         "given": "R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Elassaiss-Schaap",
                         "given": "J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "de Alwis",
                         "given": "D. P.",
                         "objectType": "MPBibliographicName",
@@ -19634,19 +19575,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Kwong",
                         "given": "Y. L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lopes",
                         "given": "D.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Khong",
                         "given": "P. L.",
                         "objectType": "MPBibliographicName",
@@ -19697,31 +19635,26 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Chan",
                         "given": "T. S.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Luk",
                         "given": "T. H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lau",
                         "given": "J. S.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Khong",
                         "given": "P. L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Kwong",
                         "given": "Y. L.",
                         "objectType": "MPBibliographicName",
@@ -19772,19 +19705,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Hwang",
                         "given": "Y. Y.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Khong",
                         "given": "P. L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Kwong",
                         "given": "Y. L.",
                         "objectType": "MPBibliographicName",
@@ -19835,53 +19765,44 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Brahmer",
                         "given": "J. R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lacchetti",
                         "given": "C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Schneider",
                         "given": "B. J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Atkins",
                         "given": "M. B.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Brassil",
                         "given": "K. J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Caterino",
                         "given": "J. M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Thompson",
                         "given": "J. A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "National Comprehensive Cancer Network",
                         "objectType": "MPBibliographicName",
                       },
@@ -19931,119 +19852,97 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Cheson",
                         "given": "B. D.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Fisher",
                         "given": "R. I.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Barrington",
                         "given": "S. F.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Cavalli",
                         "given": "F.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Schwartz",
                         "given": "L. H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Zucca",
                         "given": "E.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lister",
                         "given": "T. A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "Alliance, Australasian Leukaemia and Lymphoma Group",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "Eastern Cooperative Oncology Group",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "European Mantle Cell Lymphoma Consortium",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "Italian Lymphoma Foundation",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "European Organisation for Research",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "Treatment of Cancer/Dutch Hemato-Oncology Group",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "Grupo Español de Médula Ósea",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "German High-Grade Lymphoma Study Group",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "German Hodgkin’s Study Group",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "Japanese Lymphorra Study Group",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "Lymphoma Study Association",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "NCIC Clinical Trials Group",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "Nordic Lymphoma Study Group",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "Southwest Oncology Group",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "United Kingdom National Cancer Research Institute",
                         "objectType": "MPBibliographicName",
                       },
@@ -20093,47 +19992,39 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Cheson",
                         "given": "B. D.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ansell",
                         "given": "S.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Schwartz",
                         "given": "L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Gordon",
                         "given": "L. I.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Advani",
                         "given": "R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Jacene",
                         "given": "H. A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Armand",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
@@ -20184,31 +20075,26 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Kwong",
                         "given": "Y. L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Pang",
                         "given": "A. W.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Leung",
                         "given": "A. Y.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Chim",
                         "given": "C. S.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Tse",
                         "given": "E.",
                         "objectType": "MPBibliographicName",
@@ -20259,19 +20145,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Kwong",
                         "given": "Y. L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Loong",
                         "given": "F.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Khong",
                         "given": "P. L.",
                         "objectType": "MPBibliographicName",
@@ -20322,19 +20205,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Sim",
                         "given": "J. P. Y.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Au-Yeung",
                         "given": "R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Kwong",
                         "given": "Y. L.",
                         "objectType": "MPBibliographicName",
@@ -20385,47 +20265,39 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Chen",
                         "given": "R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Zinzani",
                         "given": "P. L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lee",
                         "given": "H. J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Armand",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Johnson",
                         "given": "N. A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Brice",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Moskowitz",
                         "given": "C. H.",
                         "objectType": "MPBibliographicName",
@@ -20476,47 +20348,39 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Younes",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Santoro",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Shipp",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Zinzani",
                         "given": "P. L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Timmerman",
                         "given": "J. M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ansell",
                         "given": "S.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Engert",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
@@ -20567,47 +20431,39 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Armand",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Engert",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Younes",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Fanale",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Santoro",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Zinzani",
                         "given": "P. L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ansell",
                         "given": "S. M.",
                         "objectType": "MPBibliographicName",
@@ -20658,13 +20514,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Shah",
                         "given": "G. L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Moskowitz",
                         "given": "C. H.",
                         "objectType": "MPBibliographicName",
@@ -31094,7 +30948,6 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Day",
                         "given": "R.N.",
                         "objectType": "MPBibliographicName",
@@ -40139,53 +39992,44 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Wahlgren",
                         "given": "N.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ahmed",
                         "given": "N.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Eriksson",
                         "given": "N.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Aichner",
                         "given": "F.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Bluhmki",
                         "given": "E.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Dávalos",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Vanhooren",
                         "given": "G.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "Safe
             Implementation of Thrombolysis in Stroke-MOnitoring STudy
             Investigators",
@@ -40240,7 +40084,6 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Wahlgren",
                         "given": "N.",
                         "objectType": "MPBibliographicName",
@@ -40293,25 +40136,21 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Thorvaldsen",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Davidsen",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Brønnum-Hansen",
                         "given": "H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Schroll",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
@@ -40365,33 +40204,28 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Jørgensen",
                         "given": "H.
           S.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Nakayama",
                         "given": "H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Reith",
                         "given": "J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Raaschou",
                         "given": "H.
             O.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Olsen",
                         "given": "T.
             S.",
@@ -40479,19 +40313,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Friday",
                         "given": "G.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Alter",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lai",
                         "given": "S.
             M.",
@@ -40544,26 +40375,22 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lai",
                         "given": "S.
           M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Alter",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Friday",
                         "given": "G.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Sobel",
                         "given": "E.",
                         "objectType": "MPBibliographicName",
@@ -40615,47 +40442,39 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Prencipe",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Culasso",
                         "given": "F.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Rasura",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Anzini",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Beccia",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Cao",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Fieschi",
                         "given": "C.",
                         "objectType": "MPBibliographicName",
@@ -40708,19 +40527,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Rashid",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Leonardi-Bee",
                         "given": "J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Bath",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
@@ -40773,37 +40589,31 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Girot",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Mackowiak-Cordoliani",
                         "given": "M. A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Deplanque",
                         "given": "D.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Hénon",
                         "given": "H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lucas",
                         "given": "C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Leys",
                         "given": "D.",
                         "objectType": "MPBibliographicName",
@@ -40855,19 +40665,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Johnson",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Rosewell",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "James",
                         "given": "M.
             A.",
@@ -40920,14 +40727,12 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Paul",
                         "given": "S.
           L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Thrift",
                         "given": "A.
             G.",
@@ -40980,19 +40785,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Hornnes",
                         "given": "N.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Larsen",
                         "given": "K.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Boysen",
                         "given": "G.",
                         "objectType": "MPBibliographicName",
@@ -41044,13 +40846,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Adie",
                         "given": "K.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "James",
                         "given": "M.
             A.",
@@ -41103,40 +40903,34 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Chiu",
                         "given": "C.
           C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Wu",
                         "given": "S. S.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lee",
                         "given": "P.
             Y.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Huang",
                         "given": "Y.
             C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Tan",
                         "given": "T. Y.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Chang",
                         "given": "K.
             C.",
@@ -41190,25 +40984,21 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ellis",
                         "given": "G.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Rodger",
                         "given": "J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "McAlpine",
                         "given": "C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Langhorne",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
@@ -41261,19 +41051,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Hornnes",
                         "given": "N.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Larsen",
                         "given": "K.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Boysen",
                         "given": "G.",
                         "objectType": "MPBibliographicName",
@@ -41325,46 +41112,39 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Johnston",
                         "given": "S.
           C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Sidney",
                         "given": "S.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Hills",
                         "given": "N.
             K.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Grosvenor",
                         "given": "D.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Klingman",
                         "given": "J.
             G.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Bernstein",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Levin",
                         "given": "E.",
                         "objectType": "MPBibliographicName",
@@ -41417,47 +41197,39 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Joubert",
                         "given": "J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Reid",
                         "given": "C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Barton",
                         "given": "D.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Cumming",
                         "given": "T.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "McLean",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Joubert",
                         "given": "L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Davis",
                         "given": "S.",
                         "objectType": "MPBibliographicName",
@@ -41510,19 +41282,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Fahey",
                         "given": "T.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Schroeder",
                         "given": "K.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ebrahim",
                         "given": "S.",
                         "objectType": "MPBibliographicName",
@@ -41574,58 +41343,49 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Furie",
                         "given": "K.
           L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Kasner",
                         "given": "S.
             E.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Adams",
                         "given": "R.
             J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Albers",
                         "given": "G.
             W.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Bush",
                         "given": "R.
             L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Fagan",
                         "given": "S. C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Wentworth",
                         "given": "D.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "American
             Heart Association Stroke Council, Council on Cardiovascular Nursing,
             Council on Clinical Cardiology, and Interdisciplinary Council on Quality
@@ -41681,40 +41441,34 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Bridgwood",
                         "given": "B.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lager",
                         "given": "K.
             E.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Mistri",
                         "given": "A.
             K.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Khunti",
                         "given": "K.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Wilson",
                         "given": "A.
             D.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Modi",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
@@ -41766,53 +41520,44 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Mancia",
                         "given": "G.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Fagard",
                         "given": "R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Narkiewicz",
                         "given": "K.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Redán",
                         "given": "J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Zanchetti",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Böhm",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Zannad",
                         "given": "F.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "literal": "ESH/ESC
             Task Force for the Management of Arterial
             Hypertension",
@@ -41867,21 +41612,18 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Boan",
                         "given": "A.
           D.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lackland",
                         "given": "D.
             T.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ovbiagele",
                         "given": "B.",
                         "objectType": "MPBibliographicName",
@@ -41933,50 +41675,42 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "McAlister",
                         "given": "F.
           A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Majumdar",
                         "given": "S.
             R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Padwal",
                         "given": "R.
             S.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Fradette",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Thompson",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Buck",
                         "given": "B.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Shuaib",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
@@ -54813,7 +54547,6 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Amihud",
                         "given": "Y.",
                         "objectType": "MPBibliographicName",
@@ -54864,13 +54597,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Amihud",
                         "given": "Y.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Mendelson",
                         "given": "H.",
                         "objectType": "MPBibliographicName",
@@ -54921,19 +54652,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Baker",
                         "given": "S. R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Bloom",
                         "given": "N.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Davis",
                         "given": "S. J.",
                         "objectType": "MPBibliographicName",
@@ -54984,13 +54712,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Barry",
                         "given": "C. B.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Brown",
                         "given": "S. J.",
                         "objectType": "MPBibliographicName",
@@ -55041,25 +54767,21 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Bhattacharya",
                         "given": "U.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Hsu",
                         "given": "P. H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Tian",
                         "given": "X.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Xu",
                         "given": "Y.",
                         "objectType": "MPBibliographicName",
@@ -55110,19 +54832,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Białkowski",
                         "given": "J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Gottschalk",
                         "given": "K.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Wisniewski",
                         "given": "T. P.",
                         "objectType": "MPBibliographicName",
@@ -55173,19 +54892,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Bonaparte",
                         "given": "Y.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Kumar",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Page",
                         "given": "J. K.",
                         "objectType": "MPBibliographicName",
@@ -55236,25 +54952,21 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Boutchkova",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Doshi",
                         "given": "H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Durnev",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Molchanov",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
@@ -55305,25 +55017,21 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Boutchkova",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Doshi",
                         "given": "H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Durnev",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Molchanov",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
@@ -55374,13 +55082,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Brogaard",
                         "given": "J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Detzel",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
@@ -55431,19 +55137,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Brown",
                         "given": "K. C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Harlow",
                         "given": "W. V.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Tinic",
                         "given": "S. M.",
                         "objectType": "MPBibliographicName",
@@ -55494,13 +55197,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Easley",
                         "given": "D.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "O’Hara",
                         "given": "M.",
                         "objectType": "MPBibliographicName",
@@ -55551,7 +55252,6 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Gemmill",
                         "given": "G.",
                         "objectType": "MPBibliographicName",
@@ -55602,13 +55302,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Goodell",
                         "given": "J. W.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Vähämaa",
                         "given": "S.",
                         "objectType": "MPBibliographicName",
@@ -55659,19 +55357,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Gungoraydinoglu",
                         "given": "A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Çolak",
                         "given": "G.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Öztekin",
                         "given": "Ö.",
                         "objectType": "MPBibliographicName",
@@ -55722,25 +55417,21 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "He",
                         "given": "Y.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lin",
                         "given": "H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Wu",
                         "given": "C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Dufrene",
                         "given": "U. B.",
                         "objectType": "MPBibliographicName",
@@ -55791,13 +55482,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ho",
                         "given": "T.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Stoll",
                         "given": "H. R.",
                         "objectType": "MPBibliographicName",
@@ -55848,13 +55537,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Holden",
                         "given": "C. W.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Jacobsen",
                         "given": "S.",
                         "objectType": "MPBibliographicName",
@@ -55905,13 +55592,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Hong",
                         "given": "H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Kostovetsky",
                         "given": "L.",
                         "objectType": "MPBibliographicName",
@@ -55962,13 +55647,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Julio",
                         "given": "B.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Yook",
                         "given": "Y.",
                         "objectType": "MPBibliographicName",
@@ -56019,19 +55702,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Kelly",
                         "given": "B.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Pástor",
                         "given": "L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Veronesi",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
@@ -56082,7 +55762,6 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Kyle",
                         "given": "A. S.",
                         "objectType": "MPBibliographicName",
@@ -56133,13 +55812,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Lee",
                         "given": "C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ready",
                         "given": "M. J.",
                         "objectType": "MPBibliographicName",
@@ -56190,13 +55867,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Li",
                         "given": "J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Born",
                         "given": "J. A.",
                         "objectType": "MPBibliographicName",
@@ -56247,19 +55922,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Liu",
                         "given": "L. X.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Shu",
                         "given": "H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Wei",
                         "given": "K. J.",
                         "objectType": "MPBibliographicName",
@@ -56310,25 +55982,21 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Marshall",
                         "given": "B. R.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Nguyen",
                         "given": "H. T.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Nguyen",
                         "given": "N. H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Visaltanachoti",
                         "given": "N.",
                         "objectType": "MPBibliographicName",
@@ -56379,13 +56047,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Mei",
                         "given": "J.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Guo",
                         "given": "L.",
                         "objectType": "MPBibliographicName",
@@ -56436,13 +56102,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Nippani",
                         "given": "S.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Arize",
                         "given": "A. C.",
                         "objectType": "MPBibliographicName",
@@ -56493,13 +56157,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Nippani",
                         "given": "S.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Medlin",
                         "given": "W. B.",
                         "objectType": "MPBibliographicName",
@@ -56550,13 +56212,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Ozsoylev",
                         "given": "H.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Werner",
                         "given": "J.",
                         "objectType": "MPBibliographicName",
@@ -56607,19 +56267,16 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Pantzalis",
                         "given": "C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Stangeland",
                         "given": "D. A.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Turtle",
                         "given": "H. J.",
                         "objectType": "MPBibliographicName",
@@ -56704,13 +56361,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Pástor",
                         "given": "L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Stambaugh",
                         "given": "R.",
                         "objectType": "MPBibliographicName",
@@ -56761,13 +56416,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Pástor",
                         "given": "L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Veronesi",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
@@ -56818,13 +56471,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Pástor",
                         "given": "L.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Veronesi",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
@@ -56875,13 +56526,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Pérignon",
                         "given": "C.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Vallée",
                         "given": "B.",
                         "objectType": "MPBibliographicName",
@@ -56932,13 +56581,11 @@ Object {
                     "accessed": undefined,
                     "author": Array [
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Santa‐Clara",
                         "given": "P.",
                         "objectType": "MPBibliographicName",
                       },
                       Object {
-                        "_id": "MPBibliographicName:test",
                         "family": "Valkanov",
                         "given": "R.",
                         "objectType": "MPBibliographicName",
