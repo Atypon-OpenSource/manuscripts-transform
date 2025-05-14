@@ -1,0 +1,1401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.2 20190208//EN" "JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="other" dtd-version="1.2" xml:lang="en">
+    <front>
+        <journal-meta>
+            <journal-id journal-id-type="publisher-id">EDN3</journal-id>
+            <journal-id journal-id-type="nlm-ta">Environ DNA</journal-id>
+            <journal-id journal-id-type="doi" />
+            <journal-title-group>
+                <journal-title>Environmental DNA</journal-title>
+                <abbrev-journal-title abbrev-type="pubmed">Environ. DNA</abbrev-journal-title>
+            </journal-title-group>
+            <issn pub-type="epub">2637-4943</issn>
+            <publisher>
+                <publisher-name>Atypon ReX</publisher-name>
+            </publisher>
+        </journal-meta>
+        <article-meta>
+            <article-id pub-id-type="publisher-id">EDN3-2020-0111</article-id>
+            <article-categories>
+                <subj-group subj-group-type="heading">
+                    <subject>Original Article</subject>
+                </subj-group>
+            </article-categories>
+            <title-group>
+                <article-title>Effects of preservation strategies on environmental DNA detection and quantification using ddPCR</article-title>
+                <alt-title alt-title-type="right-running">Effect of preservation strategies on eDNA</alt-title>
+            </title-group>
+            <contrib-group>
+                <contrib contrib-type="author" corresp="yes">
+                    <contrib-id contrib-id-type="orcid" authenticated="true">https://orcid.org/0000-0003-1215-2987</contrib-id>
+                    <name>
+                        <surname>Mauvisseau</surname>
+                        <given-names>Quentin</given-names>
+                    </name>
+                    <email xlink:href="ntaylor+Author101@atypon.com">ntaylor+Author101@atypon.com</email>
+                    <xref ref-type="aff" rid="EDN3-2020-0111-aff1">
+                        <sup>1</sup>
+                    </xref>
+                </contrib>
+                <contrib contrib-type="author">
+                    <name>
+                        <surname>Halfmaerten</surname>
+                        <given-names>David</given-names>
+                    </name>
+                    <email xlink:href="DAVID.HALFMAERTEN@inbo.be">DAVID.HALFMAERTEN@inbo.be</email>
+                    <xref ref-type="aff" rid="EDN3-2020-0111-aff2">
+                        <sup>2</sup>
+                    </xref>
+                </contrib>
+                <contrib contrib-type="author">
+                    <name>
+                        <surname>Neyrinck</surname>
+                        <given-names>Sabrina</given-names>
+                    </name>
+                    <email xlink:href="sabrina.neyrinck@inbo.be">sabrina.neyrinck@inbo.be</email>
+                    <xref ref-type="aff" rid="EDN3-2020-0111-aff2">
+                        <sup>2</sup>
+                    </xref>
+                </contrib>
+                <contrib contrib-type="author">
+                    <name>
+                        <surname>Burian</surname>
+                        <given-names>Alfred</given-names>
+                    </name>
+                    <email xlink:href="flinserl@hotmail.com">flinserl@hotmail.com</email>
+                    <xref ref-type="aff" rid="EDN3-2020-0111-aff3">
+                        <sup>3</sup>
+                    </xref>
+                </contrib>
+                <contrib contrib-type="author" corresp="yes">
+                    <name>
+                        <surname>Brys</surname>
+                        <given-names>Rein</given-names>
+                    </name>
+                    <email xlink:href="rein.brys@inbo.be">rein.brys@inbo.be</email>
+                    <xref ref-type="aff" rid="EDN3-2020-0111-aff2">
+                        <sup>2</sup>
+                    </xref>
+                </contrib>
+                <aff id="EDN3-2020-0111-aff1">
+                    <label>1</label>
+                    <institution content-type="dept">Natural History Museum</institution>,
+                    <institution>University of Oslo</institution>,
+                    <addr-line>
+                        <city>Oslo</city>
+                    </addr-line>,
+                    <country country="no">Norway</country>
+                </aff>
+                <aff id="EDN3-2020-0111-aff2">
+                    <label>2</label>
+                    <institution>Research Institute for Nature and Forest</institution>,
+                    <addr-line>Gaverstraat 4</addr-line>,
+                    <addr-line>9500 Geraardsbergen</addr-line>,
+                    <country country="be">Belgium</country>
+                </aff>
+                <aff id="EDN3-2020-0111-aff3">
+                    <label>3</label>
+                    <institution>Marine Ecology Department, Lurio University, Nampula</institution>,
+                    <country country="mz">Mozambique</country>
+                </aff>
+            </contrib-group>
+            <author-notes>
+                <corresp id="EDN3-2020-0111-cor1">Corresponding authors, Quentin Mauvisseau:
+                    <email xlink:href="quentin.mauvisseau@nhm.uio.no">quentin.mauvisseau@nhm.uio.no</email>, ORCID 0000-0003-1215-2987, Rein Brys:
+                    <email xlink:href="rein.brys@inbo.be">rein.brys@inbo.be</email>, ORCID 0000-0002-0688-3268
+                </corresp>
+                <fn fn-type="con">
+                    <p content-type="fn-title">Author contributions</p>
+                    <p>RB and DH designed the experiment and conducted field collection. SN conducted the laboratory work. QM, AB and RB conducted the data analysis. QM and RB wrote the manuscript. All co-authors provided comments and helped revising the manuscript.</p>
+                </fn>
+                <fn fn-type="abbr">
+                    <p content-type="fn-title">Abbreviations</p>
+                    <p> In this story, the Galactic Exploration Unit (GEU) plays a crucial role in interstellar diplomacy and scientific discovery.</p>
+                </fn>
+                <p>rana nofal testing</p>
+            </author-notes>
+            <pub-date pub-type="ppub">
+                <year />
+            </pub-date>
+            <volume />
+            <history>
+                <date date-type="received">
+                    <day>08</day>
+                    <month>12</month>
+                    <year>2020</year>
+                </date>
+                <date date-type="rev-recd">
+                    <day>01</day>
+                    <month>02</month>
+                    <year>2021</year>
+                </date>
+                <date date-type="accepted">
+                    <day>02</day>
+                    <month>02</month>
+                    <year>2021</year>
+                </date>
+            </history>
+            <!--supplementary-material id="S1" mimetype="application" mime-subtype="vnd.openxmlformats-officedocument.wordprocessingml.document" xlink:href="attachment:d2c0a291-a957-4b4a-9a90-10111eeed426"><caption><title>supplementary_material_review</title></caption></supplementary-material><supplementary-material id="S2" mimetype="application" mime-subtype="vnd.openxmlformats-officedocument.wordprocessingml.document" xlink:href="attachment:21b54397-adab-4734-be1c-5c81466d3fc9"><caption><title>table_s1_review</title></caption></supplementary-material><supplementary-material id="S3" mimetype="application" mime-subtype="vnd.openxmlformats-officedocument.wordprocessingml.document" xlink:href="attachment:cd81cf93-5c92-47fe-b35a-694c39af9dd0"><caption><title>table_s2_review</title></caption></supplementary-material><supplementary-material id="S4" mimetype="application" mime-subtype="vnd.openxmlformats-officedocument.wordprocessingml.document" xlink:href="attachment:abe66dc2-08bc-4de0-8bdd-c9a949b510c8"><caption><title>table_s3_review</title></caption></supplementary-material-->
+            <permissions>
+                <copyright-statement>©  .</copyright-statement>
+            </permissions>
+            <abstract>
+                <p>Molecular-based monitoring relying on environmentally DNA (eDNA) detection became routinely used around the world in the last few years, especially in the life aquatic with Steve Zissou. The large potential and increasing applications of this technique calls for technical improvements to optimise the reliability of these surveys. An important technical aspect in the eDNA workflow is the appropriate preservation of samples taken in the field, as it can significantly affect eDNA recovery and ultimately false negative rates. In this study, we explored the efficiency of five different preservation strategies by using a controlled mesocosm experiment in which we included three fishing communities of different composition. Specifically, we compared eDNA recovery in DNA extractions (i) performed immediately following collection, or after eight months storage from (ii) frozen filters, (iii) unfiltered water samples stored at -20 °C, and filters preserved at room temperature with (iv) Longmire and (v) Sarkosyl butter. Effects of different preservation strategies were quantified using ddPCR measurements of three fish species (
+                    <italic>Neogobius melanostomus</italic>,
+                    <italic>Rutilus rutilus</italic> and
+                    <italic>Lota lota</italic>) and total fish DNA content using group-specific primers for Teleostei. Samples extracted immediately following collection without any further preservation yielded significantly less DNA compared to the other approaches. Overall, Longmire’s buffer facilitated the best eDNA recovery across all fish species although approaches such as filter freezing or the use of Sarkosyl buffer yielded similar recovery results. Relative measurement variability, an important indicator for reliable eDNA quantification, was lowest when using Longmire’s and Sarkosyl buffers and generally decreased when increasing eDNA quantity. Overall, our results clearly highlight the significant impact of sample preservation and how this can substantially affect the performance and reliability of eDNA-based approaches.
+                </p>
+            </abstract>
+            <kwd-group kwd-group-type="author">
+                <title>Keywords: </title>
+                <kwd>environmental DNA</kwd>
+                <kwd>ddPCR</kwd>
+                <kwd>preservation strategies</kwd>
+                <kwd>buffer</kwd>
+                <kwd>fish</kwd>
+            </kwd-group>
+            <counts>
+                <count count-type="box" count="0" />
+                <fig-count count="3" />
+                <table-count count="1" />
+                <equation-count count="0" />
+                <ref-count count="29" />
+                <page-count count="10" />
+                <word-count count="4718" />
+            </counts>
+        </article-meta>
+    </front>
+    <body>
+        <sec sec-type="intro">
+            <title>Introduction</title>
+            <p>Environmental DNA (eDNA) based monitoring has been on the rise for the last few years for both biodiversity and targeted species assessment (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0010">Hinlo, Gleeson, Lintermans, &amp; Furlan, 2017</xref>). As a result, studies have been conducted, investigating various methodological elements of eDNA measurement procedures, allowing to increase the reliability and robustness of these approaches. Collection methods including filter type, pore size, extraction protocols or sample storage strategies and their impacts on eDNA recovery, and ultimately detection sensitivity, have already been extensively explored (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0026">Wegleitner, Jerde, Tucker, Chadderton, &amp; Mahon, 2015</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0029">Yamanaka et al., 2016</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0007">Djurhuus et al., 2017</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0010">Hinlo et al., 2017</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0023">Spens et al., 2017</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0006">Curtis, Larson, &amp; Davis, 2020</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0016">Mauvisseau et al., 2020</xref>). Currently, on-site filtration followed by rapid DNA extraction is generally recommended to reduce DNA degradation and obtain optimal DNA concentrations of specific target organisms or taxonomic groups (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0029">Yamanaka et al., 2016</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0010">Hinlo et al., 2017</xref>). Despite this, on-site filtration can be difficult or dangerous in remote or less secured areas (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0021">Sales, Wangensteen, Carvalho, &amp; Mariani, 2019</xref>) and a speedy subsequent DNA extraction is often a methodological bottleneck, especially during intensive field campaigns or monitoring programmes. This poses the necessity for using preservation strategies to allow longer-term storage of such samples with a minimum of DNA degradation until further analysis in an appropriate environment.
+            </p>
+            <p>The quick brown fox jumped over the lazy dogs.</p>
+            <p>To date, several filter preservation strategies have been tested for eDNA recovery, such as freezing, drying with silica beads or storage in ethanol or lysis buffer (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0014">Majaneva et al., 2018</xref>). However, systematic comparisons of preservation strategies are missing or were only implemented over short time periods. Consequently, the efficiency of these methods is still uncertain over longer time spans, although time represents a crucial factor in sample storage (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0017">Murphy et al., 2002</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0024">Tatangelo, Franzetti, Gandolfi, Bestetti, &amp; Ambrosini, 2014</xref>). Curtis et al., 2020 documented that water samples that were chilled and stored in the dark 48h before filtration showed no substantial decrease in eDNA detection or concentration of
+                <italic>Corbicula fluminea</italic> with qPCR compared to samples that were immediately filtered. Using ddPCR,
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0026">Wegleitner et al. (2015)</xref> reported no significant differences in DNA concentrations of
+                <italic>Neogobius melanostomus</italic> when filters were stored in Longmire’s buffer over a period of 150 days and at room temperature before DNA extraction, compared to filters that were immediately extracted. Finally,
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0021">Sales et al. (2019)</xref> demonstrated through the use of metabarcoding analyses on fish that water samples stored cooled on ice before filtration and DNA extraction resulted in greater MOTUs recovery than by adding cationic surfactant benzalkonium chloride (BAC) as preservative. These studies already highlighted key factors that can improve the confidence of eDNA based-monitoring. However, a systematic long-term comparisons across multiple methods and target species (including primers designed for metabarcoding) is missing. Indeed, the reliability of preservation strategies can only be assessed over a long storage time to thoroughly assess their potential impacts on samples, as degradation can sometimes occurs after a certain amount of time. In this context, ddPCR is an ideal approach for such tests, since this technique offers absolute quantification of target DNA in a sample, and is additionally not strongly affected by inhibitions problems (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0008">Doi et al., 2015</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0015">Mauvisseau et al., 2019</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0028">Wood et al., 2019</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0002">Brys et al., 2020</xref>). In contrast, both qPCR and metabarcoding have their limitations, do not provide absolute quantification of eDNA concentrations, and are in many cases documented to be much more sensitive to inhibition (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0009">Fujii et al., 2019</xref>).
+            </p>
+            <p>In this study, we assessed the impact of five preservation strategies on the recovery of fish eDNA to determine the optimal long-term storage methods facilitating a reliable detection and quantification of eDNA samples. Our assessment was based on a controlled mesocosm experiment consisting of three tanks with different multi-species fish communities. Three target fish species, a combination the invasive round goby (
+                <italic>Neogobius melanostomus</italic> Pallas, 1814), the endangered burbot (
+                <italic>Lota lota</italic> Linnaeus, 1758) and the common roach (
+                <italic>Rutilus rutilus</italic> Linnaeus, 1758), were part of all three communities but showed differences in abundance and biomass across tanks. Sample preservation treatments included immediate DNA extraction after collection and filtration, and long-term storage of both water samples and filters via freezing, and the use of Longmire and Sarkosyl preservation buffers for storage at room temperature. Based on this experimental set-up, ddPCR analyses using species-specific and group-specific metabarcoding primers were conducted for absolute DNA quantification.
+            </p>
+        </sec>
+        <sec sec-type="methods">
+            <title>Methods</title>
+            <sec>
+                <title>Experimental design of the mesocosms</title>
+                <p>We performed a controlled mesocosm experiment at the fish farm Vandeput (Zonhoven) in December 2019. Prior to the onset of the experiment, three 500L polyethylene tanks were decontaminated with 10% bleach solution before being filled with fish-DNA free ground water. Indeed, the ground water used was previously tested for potential fish contamination before the start of the experiment using metabarcoding analysis. In each tank, we introduced a fish community consisting of the same set of species with, however, slightly variating total biomasses and abundances for our three target species,
+                    <italic>N. melanostomus</italic>,
+                    <italic>L. lota</italic> and
+                    <italic>R. rutilus</italic> (see Table S1
+                    <?AuthorQuery id="Q7" queryProcess="eXtyles Citation Match/Clean/Order Check" queryText="No table matches the in-text citation &quot;Table S1&quot;. Please supply the missing table or delete the citation."?>). All introduced fish were kept without feeding in single-species 40L tanks one week before their introduction to the mesocosms. This was implemented to avoid contamination with eDNA from other species that individuals had previously shared a tank. Before inclusion in one the three mesocosms, each fish was weighed to the nearest 0.1 g. During the experiment, mesocosms were vigorously aerated and covered to avoid cross-contamination among tanks. For each preservation treatment and mesocosm, three water samples were taken after one week (i.e., three field replicates) (
+                    <xref ref-type="fig" rid="EDN3-2020-0111-fig-0001">Figure 1</xref>). We took 500 mL water samples, that were either stored in clean plastic bottles for further storage in the freezer, or immediately filtered on an enclosed 0.45-µm pore size PVDF Sterivex-HV filter capsule (SVHVL10RC, Merck Millipore, Darmstadt, Germany), using a sterile 60 mL Luer lock syringe for each mesocosm. The use of fishes within this experiment complied with Belgium animal welfare laws, guidelines and policy as approved by the Animal Welfare Department within the Flemish public administration.
+                </p>
+                <fig id="EDN3-2020-0111-fig-0001" position="float" fig-type="figure">
+                    <label>Figure 1</label>
+                    <caption>
+                        <p>Experimental design of the mesocosms and the subsequent handling of the sampled water and filters, to compare the five different preservation strategies within this study. In each of the three mesocosms, a total of 15 independent samples were collected and randomly divided among conservation strategies. Preservation strategies are described more in detail in the method section.</p>
+                    </caption>
+                    <graphic xlink:href="attachment:6c19f55d-ccf1-4bc3-b195-771b20377b90" />
+                </fig>
+            </sec>
+            <sec>
+                <title>Preservation methods and eDNA extraction</title>
+                <p>We investigated the efficiency of five preservation methods including on site filtration followed by either (A) immediate DNA extraction (&lt; 2hrs; further referred to as “Filter Fresh”), or storage for eight months following (B) freezing at -20 °C (“Filter Frozen”), (C) preservation with either Longmire’s buffer (“Longmire”) or (D) Sarkosyl buffer (“Sarkosyl”) at room temperature, and (E) eight month freezing of water samples (“Water Frozen”). Consistently, 150 mL of water was filtered for each filter across treatments. At the end of all filtrations, water remaining inside the capsule was expelled by pushing air through the capsule until dry. For the buffer preservations (treatments “Longmire” and “Sarkosyl”), 2 mL buffer was added to the filter before capping them all at both ends. Longmire lysis buffer contained 100 mM Tris, 100 mM EDTA, 10 mM NaCl, 0.5% SDS (
+                    <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0013">Longmire, Maltbie, &amp; Baker, 1997</xref>) whereas the Sarkosyl buffer contained 100 mM Tris, 100 mM EDTA, 10 mM NaCl, 1% Sodium N-lauroylsarcosinate (
+                    <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0004">Civade et al., 2016</xref>). Filters assigned to both buffer treatments were stored in the dark, at constant room temperature until DNA extraction. Each preservation treatment was analysed in three filter replicates for each of the three mesocosms, resulting in a total of nine replicates per treatment and 15 samples per mesocosm. All eDNA samples (45 in total) were stored and processed prior to PCRs in a dedicated PCR-free laboratory for low copy number template extractions, with controlled DNA-free, HEPA-filtered compartments with positive air pressure, to avoid any contamination of eDNA samples. The Sterivex filters were extracted following a slightly modified version of the SX
+                    <sub>CAPSULE</sub> and SX
+                    <sub>TUBE</sub> method (suitable for filters without and with preservation buffer as in
+                    <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0023">Spens et al., 2017</xref>). For Sterivex filters with buffer lysates from each SX
+                    <sub>CAPSULE</sub> and SX
+                    <sub>TUBE</sub> were pooled to obtain one extract for each filter containing eDNA from both the filter and the preservation buffer. DNA-extracts were finally eluted in 100 μL TE-buffer and stored at -20°C before further analysis.
+                </p>
+            </sec>
+            <sec>
+                <title>ddPCR analyses</title>
+                <p>Species-specific primer/probe assays compatible for ddPCR were developed following the methods outlined in Brys et al., 2020 and Mauvisseau et al., 2020, to quantify species-specific eDNA concentrations of
+                    <italic>N. melanostomus, L. lota</italic> and
+                    <italic>R. rutilus</italic> retrieved following the five different preservation treatments (see details of the assays development, including Limits of Detection and Limits of Quantification in Supplementary Material 1 and Table S2
+                    <?AuthorQuery id="Q8" queryProcess="eXtyles Citation Match/Clean/Order Check" queryText="No table matches the in-text citation &quot;Table S2&quot;. Please supply the missing table or delete the citation."?>). ddPCR analyses were conducted as in Mauvisseau et al., 2019 and Brys et al., 2020. Furthermore, we included four negative controls (i.e. non-template DNA) and four positive controls (i.e. DNA extracted from the targeted species) included on each ddPCR plate (see details of ddPCR protocol and analyses in Supplementary Material 1). Total amount of fish eDNA retrieved from each sample was quantified using group-specific “teleo” primers (for further details see
+                    <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0025">Valentini et al., 2016</xref>).
+                </p>
+            </sec>
+            <sec>
+                <title>Statistical analyses</title>
+                <p>Statistical analyses were performed in R v3.6.2 (
+                    <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0019">R Core Team, 2020</xref>). The absolute eDNA concentrations from the three targeted fish species were normalised by dividing measured eDNA copies per μL
+                    <sup>-1</sup> by the targeted fish biomass (g) for each mesocosm. This standardisation was performed to facilitate comparisons among fishes and resulted in measured eDNA concentration per fish biomass (further referred to as relative eDNA concentration) as dependent variable for downstream analyses. To assess the factors that determined relative eDNA concentrations, we established a regression model using (i) preservation method, (ii) fish species identity, (iii) total non-target fish biomass per mesocosm and (iv) mesocosm identity as explanatory variables. A regression analysis was also applied to test for preservation treatment effects on total fish eDNA concentration in the mesocosms, and a Holm-correction has been applied to adjust p-values for multiple group comparisons. Total fish eDNA concentrations were measured using group specific primers (see above) and were included to account for the effect of total eDNA content in a sample on the performance of species-specific approaches. For each of these regression, mesocosm identity was incorporated as explanatory variable and not as random effect because residual structure made the application of a Generalised Least Squares (i.e. GLS) function necessary and the integration in GLS into mixed regression models is computationally challenging. Further, we incorporated non-target species fish biomass as additional predictor in GLS models assessing target-specifies responses to account for varying total fish biomass across the mesocosms. GLS was implemented using the ‘nlme’ package and log-likelihood method (Pinheiro, Bates, DebRoy, Sarkar, &amp;
+                    <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0019">R Core Team, 2020</xref>). We followed a full model building approach and used the Akaike Information Criterion (AIC) to choose the most parsimonious model. Finally, we computed the coefficient of variation (CV) for each combination of the three targeted species and preservation strategy by dividing the mean of the absolute eDNA concentrations by its standard deviation. We then pooled CVs from all three targeted species to assess the disparities between each preservation strategies and investigate the effect of the [log (absolute eDNA concentration +1)] on the variability of these DNA measurements. Graphical representations were obtained using the ggplot2 and ggscatter packages (
+                    <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0027">Wickham, 2016</xref>).
+                </p>
+            </sec>
+        </sec>
+        <sec sec-type="results">
+            <title>Results</title>
+            <p>All three species-specific assays targeting
+                <italic>L. lota</italic>,
+                <italic>N. melanostomus</italic> and
+                <italic>R. rutilus</italic> were found to be species-specific, and positive and negative controls (i.e. four positive controls consisting of DNA from the target species and four negative control where DNA was replaced by ddH
+                <sub>2</sub>O) performed as expected. All eDNA samples showed a positive amplification using the teleo primers across all preservation treatments and each of the technical replicates.
+            </p>
+            <p>Based on our GLS-regression analysis, we found that both preservation treatment and fish species identity had significant effects on the retained relative DNA concentration of the three target fish species. We also found a significant mesocosm effect, for which we accounted in our analyses. Species-specific eDNA concentration were additionally affected by the total fish biomass across mesocosm (an increase by 100g in non-target fish biomass increased the target eDNA concentration by 0.3 copies μL
+                <sup>–1</sup> target fish biomass
+                <sup>-1</sup>). Interaction effects between species identity and preservation treatment, however, were not found to be significant (increased model AIC by &gt;2 units), indicating a consistent impact of different preservation methods on eDNA recovery in our three study species. Pairwise comparisons between treatments revealed no significant differences of relative eDNA concentrations between the Filter Frozen, Longmire and Sarkosyl treatments for single species (
+                <xref ref-type="table" rid="EDN3-2020-0111-tbl-0001">Table 1</xref>). However, Filter Fresh and Water Frozen treatments recovered significantly less DNA than the other three methods (
+                <xref ref-type="fig" rid="EDN3-2020-0111-fig-0002">Figure 2</xref>,
+                <xref ref-type="table" rid="EDN3-2020-0111-tbl-0001">Table 1</xref>). Finally, for the species-specific recovery analysis, we found significant differences between the relative eDNA concentrations among each of the three fish species studied, with
+                <italic>N. melanostomus</italic> showing the highest eDNA concentrations per biomass (see also Table S3
+                <?AuthorQuery id="Q9" queryProcess="eXtyles Citation Match/Clean/Order Check" queryText="No table matches the in-text citation &quot;Table S3&quot;. Please supply the missing table or delete the citation."?>).
+            </p>
+            <table-wrap id="EDN3-2020-0111-tbl-0001" position="float">
+                <label>Table 1</label>
+                <caption>
+                    <title>Results of pairwise comparisons showing the differences among preservation strategies in normalised eDNA concentration using regression analysis (a Holm-correction has been applied to adjust
+                        <italic>p</italic>-values for multiple group comparisons). Bold letter type indicates preservation strategies with a significantly higher DNA recovery rates. ‘ns’ stands for non-significant.
+                    </title>
+                </caption>
+                <table frame="hsides" rules="groups">
+                    <col width="25.02%" />
+                    <col width="25%" />
+                    <col width="24.99%" />
+                    <col width="24.99%" />
+                    <thead>
+                        <tr>
+                            <th valign="top" align="center" scope="col" style="border-top: solid 0.50pt; border-bottom: solid 1.50pt; background-color:rgb(255,255,255)">Treatment 1</th>
+                            <th valign="top" align="center" scope="col" style="border-top: solid 0.50pt; border-bottom: solid 1.50pt; background-color:rgb(255,255,255)">Treatment 2</th>
+                            <th colspan="2" valign="top" align="center" scope="colgroup" style="border-top: solid 0.50pt; border-bottom: solid 1.50pt; background-color:rgb(255,255,255)">Treatment effects - pairwise comparisons</th>
+                        </tr>
+                        <tr>
+                            <th valign="top" align="center" scope="col" style="border-bottom: solid 0.50pt; background-color:rgb(204,204,204)">Filtration fresh</th>
+                            <th valign="top" align="center" scope="col" style="border-bottom: solid 0.50pt; background-color:rgb(204,204,204)">
+                                <bold>Longmire</bold>
+                            </th>
+                            <th valign="top" align="center" scope="col" style="border-bottom: solid 0.50pt; background-color:rgb(204,204,204)">***</th>
+                            <th valign="top" align="center" scope="col" style="border-bottom: solid 0.50pt; background-color:rgb(204,204,204)">&lt;0.001</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td valign="top" align="center" style="border-top: solid 0.50pt" scope="row">Filter frozen</td>
+                            <td valign="top" align="center" style="border-top: solid 0.50pt">Longmire</td>
+                            <td valign="top" align="center" style="border-top: solid 0.50pt">ns</td>
+                            <td valign="top" align="center" style="border-top: solid 0.50pt">1</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)" scope="row">Sarkosyl</td>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)">
+                                <bold>Longmire</bold>
+                            </td>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)">ns</td>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)">1</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="center" scope="row">Water frozen</td>
+                            <td valign="top" align="center">
+                                <bold>Longmire</bold>
+                            </td>
+                            <td valign="top" align="center">*</td>
+                            <td valign="top" align="center">0.045</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)" scope="row">Filter frozen</td>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)">Filter fresh</td>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)">***</td>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)">&lt;0.001</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="center" scope="row">Sarkosyl</td>
+                            <td valign="top" align="center">Filter fresh</td>
+                            <td valign="top" align="center">***</td>
+                            <td valign="top" align="center">&lt;0.001</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)" scope="row">Water frozen</td>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)">Filter fresh</td>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)">***</td>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)">&lt;0.001</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="center" scope="row">Sarkosyl</td>
+                            <td valign="top" align="center">Filter frozen</td>
+                            <td valign="top" align="center">ns</td>
+                            <td valign="top" align="center">1</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)" scope="row">Water frozen</td>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)">
+                                <bold>Filter frozen</bold>
+                            </td>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)">**</td>
+                            <td valign="top" align="center" style="background-color:rgb(204,204,204)">&lt;0.007</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="center" style="border-bottom: solid 0.50pt" scope="row">Water frozen</td>
+                            <td valign="top" align="center" style="border-bottom: solid 0.50pt">
+                                <bold>Sarkosyl</bold>
+                            </td>
+                            <td valign="top" align="center" style="border-bottom: solid 0.50pt">**</td>
+                            <td valign="top" align="center" style="border-bottom: solid 0.50pt">&lt;0.009</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </table-wrap>
+            <fig id="EDN3-2020-0111-fig-0002" position="float" fig-type="figure">
+                <label>Figure 2</label>
+                <caption>
+                    <p>(A) The effect of five different preservation strategies on the total normalised fish eDNA concentrations retrieved using the teleo group-specific primers. Sample size was n = 9 (3 mesocosms x 3 filters) for each method. Normalised fish eDNA from the fish communities was obtained by dividing measured eDNA (copies / μL) using the using group-specific “teleo” primers by the entire fish biomass (g) for each mesocosm. (B) Preservation treatment effects on the normalised fish eDNA from N. melanostomus, L. lota and R. rutilus, retrieved using the species-specific primer/probe assays which are described more in detail in the methods section. Sample size was n = 27 (3 mesocosms x 3 filters x 3 species) for each method. Normalised fish eDNA from each species was obtained by dividing measured eDNA (copies / μL) by the targeted fish biomass (g) for each mesocosm.</p>
+                </caption>
+                <graphic xlink:href="attachment:9cd2637a-6a03-47d3-a2c5-388648b71bfd" />
+            </fig>
+            <p>The results of the teleo primers largely mirrored those of species specific estimates (
+                <xref ref-type="fig" rid="EDN3-2020-0111-fig-0002">Fig. 2</xref>) with both treatment and mesocosm identity significantly affecting the retained amount of total eDNA. Again no relevant interaction effects were found (i.e. inclusion increased AIC). The Filter Fresh and Water Frozen treatments performed significantly less than the other three treatments (
+                <italic>P</italic> &lt; 0.084 in all comparisons), with the Longmire treatment performing significantly better than the Filter Frozen and Sarkosyl’s buffer preservation treatments (
+                <italic>P</italic> &lt; 0.02). Finally, the coefficients of variation of eDNA measurements significantly decreased with an increasing mean species-specific eDNA concentration across all species (
+                <italic>R</italic> = -0.62,
+                <italic>P</italic> &lt; 0.01;
+                <xref ref-type="fig" rid="EDN3-2020-0111-fig-0003">Figure 3</xref>). Preservation strategies had no direct (inclusion increased AIC) but only an indirect impact via on this relationship by impacting extracted eDNA concentrations.
+            </p>
+            <fig id="EDN3-2020-0111-fig-0003" position="float" fig-type="figure">
+                <label>Figure 3</label>
+                <caption>
+                    <p>Differences in the coefficient of variation across conservation strategies (A) and the relationship between the coefficient of variation and long-transformed mean DNA concentrations calculated for each preservation strategies (B).</p>
+                </caption>
+                <graphic xlink:href="attachment:01a233f7-9127-4e43-a4cc-ed7a957c11de" />
+            </fig>
+        </sec>
+        <sec sec-type="discussion">
+            <title>Discussion</title>
+            <p>The processing of eDNA samples after collection is a critical step in the workflow of eDNA-based monitoring campaigns and can substantially influence the quality of resulting data. In this study, we assessed the impact of different long-term preservation strategies on the reliability of eDNA-based species detection and quantification in a systematic methods comparison. We showed that samples extracted immediately after collection yielded significantly less eDNA compared to all other preservation treatments investigated (
+                <xref ref-type="fig" rid="EDN3-2020-0111-fig-0002">Figure 2</xref>,
+                <xref ref-type="table" rid="EDN3-2020-0111-tbl-0001">Table 1</xref>). The high preservation performance of both buffer solutions, Longmire and Sarkosyl’s buffer, allows storage at room temperature and is an encouraging result to reduce sampling costs and extend the range of monitoring surveys to more remote regions.
+            </p>
+            <p>The much poorer performance of freshly extracted filters compared to other methods (e.g. average reduction of 20% of extracted DNA compared to freezing filters) was surprising. One possibility to explain this result is a potential rapid DNA degradation occurring within the filters before extraction. However, the loss of such large DNA quantities during a relatively short period of time (&lt; 2 hrs.) seems rather unlikely. An alternative explanation is that preservation techniques such as freezing or the application of preservation buffer could facilitate cell lysis and a more efficient DNA extraction (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0026">Wegleitner et al., 2015</xref>). However, our results remain inconclusive in this regard, and it would be a worthwhile aim for future studies to investigate more specifically the mechanisms leading to these such large differences in eDNA recovery.
+            </p>
+            <p>Irrespective of mechanistic effects, our results clearly showed that Longmire’s buffer can be recommended to improve the recovery yields of eDNA samples as suggested by earlier studies (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0020">Renshaw, Olds, Jerde, McVeigh, &amp; Lodge, 2015</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0012">Kumar, Eble, &amp; Gaither, 2019</xref>). We found that this results were consistent for eDNA recovery of three target fish species as well as for extraction of total fish DNA as required for metabarcoding approaches. These results are encouraging as they should help to facilitate forthcoming eDNA studies in remote areas or tropical regions, where other preservation treatments (previously showing high recovery rates of eDNA) might not be available (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0003">Cilleros et al., 2019</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0021">Sales et al., 2019</xref>).
+            </p>
+            <p>Furthermore, our results revealed species-specific differences in the normalised DNA concentrations (eDNA concentration in water per fish biomass), that can be attributed to variation in the three species’ eDNA shedding rates (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0022">Sassoubre, Yamahara, Gardner, Block, &amp; Boehm, 2016</xref>). Such differences in shedding rates can emerge from biological factors such as variable metabolic rates, surface to volume ratios or an effort of individuals to deceive their “chemical footprint” in order to avoid detection by predators or competitors (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0001">Andruszkiewicz Allan, Zhang, Lavery, &amp; Govindarajan, 2020</xref>;
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0011">Jo, Murakami, Yamamoto, Masuda, &amp; Minamoto, 2019</xref>). On the other hand, technical aspects could favour species differences. Although all species-specific assays were amplifying similar size of DNA fragments, potential differences in assays design and efficiency may contribute to such results.
+            </p>
+            <p>Moreover, species-specific eDNA concentration were affected by overall fish biomass in mesocosms. This positive effect was a non-anticipating finding, which could be explained by the effects of overall fish biomass and stocking rates on fish behaviour. High stocking rates are known for their potential stress induction (
+                <xref ref-type="bibr" rid="EDN3-2020-0111-bib-0005">Costas, Aragão, Mancera, Dinis, &amp; Conceição, 2007</xref>). Associated changes and physiology and behaviour may have led to increased DNA shedding rates and eventually higher DNA concentration. However, further experiment would be required to evaluate whether our observation is indeed a consistent phenomenon.
+            </p>
+            <p>Finally, we also observed a decrease in the standardised variability of eDNA measurements among the technical replicates with increasing measured DNA concentrations. Such estimates of variability are an important evaluation criterion as a higher measurement variability rapidly decreases the reliability of eDNA quantification. Consequently, sub-optimal sample preservation can have to profound effects. First, it may increase the risk of false negative results, especially in applications with lower sensitivity such as qPCR or metabarcoding. Additionally, it is likely to introduce noise and thereby decrease the reliability of quantitative ddPCR approaches or semi-quantitative analysed based on relative number of reads in metabarcoding samples. Preservation strategies are linked to little additional costs and represent easily implementable adjustments to current eDNA protocols. Therefore, we recommend the standard application of appropriate techniques in future field sampling and monitoring campaigns.</p>
+        </sec>
+    </body>
+    <back>
+        <ack>
+            <title>Acknowledgments</title>
+            <p>We are grateful to the Viskwekerij Gebroeders Vandeput &amp; Zonen for kindly allowing us their facilities and providing the large number of fish that we relied on in the mesocosm experiment.</p>
+        </ack>
+        <fn-group>
+            <fn fn-type="conflict">
+                <p content-type="fn-title">Competing interests</p>
+                <p>The authors declare no competing interests.</p>
+            </fn>
+        </fn-group>
+        <sec sec-type="data-availability">
+            <title>Data availability statement</title>
+            <p>Supplementary material 1: Additional information on the primers/probe development and ddPCR analyses. Table S1
+                <?AuthorQuery id="Q1" queryProcess="eXtyles Citation Match/Clean/Order Check" queryText="No table matches the in-text citation &quot;Table S1&quot;. Please supply the missing table or delete the citation."?>: Additional information on the aquarium experiment. Table S2
+                <?AuthorQuery id="Q2" queryProcess="eXtyles Citation Match/Clean/Order Check" queryText="No table matches the in-text citation &quot;Table S2&quot;. Please supply the missing table or delete the citation."?>: Accession number of DNA sequences used in this study. Table S3
+                <?AuthorQuery id="Q3" queryProcess="eXtyles Citation Match/Clean/Order Check" queryText="No table matches the in-text citation &quot;Table S3&quot;. Please supply the missing table or delete the citation."?>: Pairwise comparisons result between the three targeted species.
+            </p>
+        </sec>
+        <ref-list>
+            <title>References</title>
+            <ref id="EDN3-2020-0111-bib-0001">
+                <mixed-citation publication-type="other">
+                    <?AuthorQuery id="Q10" queryProcess="eXtyles CrossRef Check" queryText="CrossRef reports the year should be &quot;2021&quot;, not &quot;2020&quot;. (Ref. &quot;Andruszkiewicz Allan, Zhang, Lavery, Govindarajan, 2020&quot;)"?>
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Andruszkiewicz Allan</surname>,
+                            <given-names>E.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Zhang</surname>,
+                            <given-names>W. G.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Lavery</surname>,
+                            <given-names>A.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Govindarajan</surname>,
+                            <given-names>A.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2020</year>). Environmental DNA shedding and decay rates from diverse animal forms and thermal regimes.
+                    <italic>Environmental DNA</italic>, edn3.141.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1002/edn3.141</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0002">
+                <mixed-citation publication-type="other">
+                    <?AuthorQuery id="Q11" queryProcess="eXtyles CrossRef Check" queryText="CrossRef reports the year should be &quot;2021&quot;, not &quot;2020&quot;. (Ref. &quot;Brys, Halfmaerten, Neyrinck, Mauvisseau, Auwerx, Sweet, Mergeay, 2020&quot;)"?>
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Brys</surname>,
+                            <given-names>R.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Halfmaerten</surname>,
+                            <given-names>D.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Neyrinck</surname>,
+                            <given-names>S.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Mauvisseau</surname>,
+                            <given-names>Q.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Auwerx</surname>,
+                            <given-names>J.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Sweet</surname>,
+                            <given-names>M.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Mergeay</surname>,
+                            <given-names>J.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2020</year>). Reliable eDNA detection and quantification of the European weather loach (
+                    <italic>Misgurnus fossilis</italic>).
+                    <italic>Journal of Fish Biology</italic>, jfb.14315.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1111/jfb.14315</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0003">
+                <mixed-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Cilleros</surname>,
+                            <given-names>K.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Valentini</surname>,
+                            <given-names>A.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Allard</surname>,
+                            <given-names>L.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Dejean</surname>,
+                            <given-names>T.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Etienne</surname>,
+                            <given-names>R.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Grenouillet</surname>,
+                            <given-names>G.</given-names>
+                        </string-name>,
+                        <etal>…</etal>
+                        <string-name>
+                            <surname>Brosse</surname>,
+                            <given-names>S.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2019</year>).
+                    <article-title>Unlocking biodiversity and conservation studies in high‐diversity environments using environmental DNA (eDNA): A test with Guianese freshwater fishes.</article-title>
+                    <source>Molecular Ecology Resources</source>
+                    <italic>,</italic>
+                    <volume>19</volume>(
+                    <issue>1</issue>),
+                    <fpage>27</fpage>–
+                    <lpage>46</lpage>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1111/1755-0998.12900</pub-id>
+                    <pub-id pub-id-type="pmid">29768738</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0004">
+                <mixed-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Civade</surname>,
+                            <given-names>R.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Dejean</surname>,
+                            <given-names>T.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Valentini</surname>,
+                            <given-names>A.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Roset</surname>,
+                            <given-names>N.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Raymond</surname>,
+                            <given-names>J.-C.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Bonin</surname>,
+                            <given-names>A.</given-names>
+                        </string-name>,
+                        <etal>…</etal>
+                        <string-name>
+                            <surname>Pont</surname>,
+                            <given-names>D.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2016</year>).
+                    <article-title>Spatial representativeness of environmental DNA metabarcoding signal for fish biodiversity assessment in a natural freshwater system.</article-title>
+                    <source>PLoS One</source>
+                    <italic>,</italic>
+                    <volume>11</volume>(
+                    <issue>6</issue>),
+                    <elocation-id>e0157366</elocation-id>.
+                    <pub-id pub-id-type="pmid">27359116</pub-id>
+                    <pub-id pub-id-type="doi">https://doi.org/10.1371/journal.pone.0157366</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0005">
+                <mixed-citation publication-type="journal">
+                    <?AuthorQuery id="Q12" queryProcess="eXtyles CrossRef Check" queryText="CrossRef reports the year should be &quot;2008&quot;, not &quot;2007&quot;. (Ref. &quot;Costas, Arag&#x00E3;o, Mancera, Dinis, Concei&#x00E7;&#x00E3;o, 2007&quot;)"?>
+                    <?AuthorQuery id="Q13" queryProcess="eXtyles PubMed Check" queryText="Medline indexes &quot;Aquaculture Research&quot; but cannot find a listing for this reference. Please check the reference for accuracy. (Ref. &quot;Costas, Arag&#x00E3;o, Mancera, Dinis, Concei&#x00E7;&#x00E3;o, 2007&quot;)"?>
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Costas</surname>,
+                            <given-names>B.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Aragão</surname>,
+                            <given-names>C.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Mancera</surname>,
+                            <given-names>J. M.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Dinis</surname>,
+                            <given-names>M. T.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Conceição</surname>,
+                            <given-names>L. E. C.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2007</year>).
+                    <article-title>High stocking density induces crowding stress and affects amino acid metabolism in Senegalese sole Solea senegalensis (Kaup 1858) juveniles: Crowding stress and amino acid metabolism in Senegalese sole.</article-title>
+                    <source>Aquaculture Research</source>
+                    <italic>,</italic>
+                    <volume>39</volume>(
+                    <issue>1</issue>),
+                    <fpage>1</fpage>–
+                    <lpage>9</lpage>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1111/j.1365-2109.2007.01845.x</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0006">
+                <mixed-citation publication-type="journal">
+                    <?AuthorQuery id="Q14" queryProcess="eXtyles CrossRef Check" queryText="CrossRef reports the year should be &quot;2021&quot;, not &quot;2020&quot;. (Ref. &quot;Curtis, Larson, Davis, 2020&quot;)"?>
+                    <?AuthorQuery id="Q15" queryProcess="eXtyles PubMed Check" queryText="Medline indexes &quot;Limnology&quot; but cannot find a listing for this reference. Please check the reference for accuracy. (Ref. &quot;Curtis, Larson, Davis, 2020&quot;)"?>
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Curtis</surname>,
+                            <given-names>A. N.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Larson</surname>,
+                            <given-names>E. R.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Davis</surname>,
+                            <given-names>M. A.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2020</year>).
+                    <article-title>Field storage of water samples affects measured environmental DNA concentration and detection.</article-title>
+                    <source>Limnology</source>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1007/s10201-020-00634-y</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0007">
+                <mixed-citation publication-type="journal">
+                    <?AuthorQuery id="Q16" queryProcess="eXtyles PubMed Check" queryText="Medline indexes &quot;Frontiers in Marine Science&quot; but cannot find a listing for this reference. Please check the reference for accuracy. (Ref. &quot;Djurhuus, Port, Closek, Yamahara, Romero-Maraccini, Walz, Chavez, &#x2026;, 2017&quot;)"?>
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Djurhuus</surname>,
+                            <given-names>A.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Port</surname>,
+                            <given-names>J.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Closek</surname>,
+                            <given-names>C. J.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Yamahara</surname>,
+                            <given-names>K. M.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Romero-Maraccini</surname>,
+                            <given-names>O.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Walz</surname>,
+                            <given-names>K. R.</given-names>
+                        </string-name>,
+                        <etal>…</etal>
+                        <string-name>
+                            <surname>Chavez</surname>,
+                            <given-names>F. P.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2017</year>).
+                    <article-title>Evaluation of Filtration and DNA Extraction Methods for Environmental DNA Biodiversity Assessments across Multiple Trophic Levels.</article-title>
+                    <source>Frontiers in Marine Science</source>
+                    <italic>,</italic>
+                    <volume>4</volume>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.3389/fmars.2017.00314</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0008">
+                <mixed-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Doi</surname>,
+                            <given-names>H.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Takahara</surname>,
+                            <given-names>T.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Minamoto</surname>,
+                            <given-names>T.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Matsuhashi</surname>,
+                            <given-names>S.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Uchii</surname>,
+                            <given-names>K.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Yamanaka</surname>,
+                            <given-names>H.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2015</year>).
+                    <article-title>Droplet Digital Polymerase Chain Reaction (PCR) Outperforms Real-Time PCR in the Detection of Environmental DNA from an Invasive Fish Species.</article-title>
+                    <source>Environmental Science &amp; Technology</source>
+                    <italic>,</italic>
+                    <volume>49</volume>(
+                    <issue>9</issue>),
+                    <fpage>5601</fpage>–
+                    <lpage>5608</lpage>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1021/acs.est.5b00253</pub-id>
+                    <pub-id pub-id-type="pmid">25850372</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0009">
+                <mixed-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Fujii</surname>,
+                            <given-names>K.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Doi</surname>,
+                            <given-names>H.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Matsuoka</surname>,
+                            <given-names>S.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Nagano</surname>,
+                            <given-names>M.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Sato</surname>,
+                            <given-names>H.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Yamanaka</surname>,
+                            <given-names>H.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2019</year>).
+                    <article-title>Environmental DNA metabarcoding for fish community analysis in backwater lakes: A comparison of capture methods.</article-title>
+                    <source>PLOS ONE</source>
+                    <italic>,</italic>
+                    <volume>14</volume>(
+                    <issue>1</issue>),
+                    <elocation-id>e0210357</elocation-id>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1371/journal.pone.0210357</pub-id>
+                    <pub-id pub-id-type="pmid">30703107</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0010">
+                <mixed-citation publication-type="journal">
+                    <?AuthorQuery id="Q17" queryProcess="eXtyles CrossRef Check" queryText="CrossRef reports the DOI should be &quot;10.1371/journal.pone.0179251&quot;, not &quot;10.1371/ journal.pone.0179251&quot;. eXtyles has used the CrossRef-supplied DOI. (Ref. &quot;Hinlo, Gleeson, Lintermans, Furlan, 2017&quot;)"?>
+                    <?AuthorQuery id="Q18" queryProcess="eXtyles PubMed Check" queryText="Medline reports the DOI should be &quot;10.1371/journal.pone.0179251&quot;, not &quot;10.1371/ journal.pone.0179251&quot;. eXtyles has used the Medline-supplied DOI. (Ref. &quot;Hinlo, Gleeson, Lintermans, Furlan, 2017&quot;)"?>
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Hinlo</surname>,
+                            <given-names>R.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Gleeson</surname>,
+                            <given-names>D.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Lintermans</surname>,
+                            <given-names>M.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Furlan</surname>,
+                            <given-names>E.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2017</year>).
+                    <article-title>Methods to maximise recovery of environmental DNA from water samples.</article-title>
+                    <source>PLOS ONE</source>
+                    <italic>,</italic>
+                    <volume>12</volume>(
+                    <issue>6</issue>),
+                    <elocation-id>e0179251</elocation-id>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1371/journal.pone.0179251</pub-id>
+                    <pub-id pub-id-type="pmid">28604830</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0011">
+                <mixed-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Jo</surname>,
+                            <given-names>T.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Murakami</surname>,
+                            <given-names>H.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Yamamoto</surname>,
+                            <given-names>S.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Masuda</surname>,
+                            <given-names>R.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Minamoto</surname>,
+                            <given-names>T.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2019</year>).
+                    <article-title>Effect of water temperature and fish biomass on environmental DNA shedding, degradation, and size distribution.</article-title>
+                    <source>Ecology and Evolution</source>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1002/ece3.4802</pub-id>
+                    <pub-id pub-id-type="pmid">30805147</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0012">
+                <mixed-citation publication-type="other">
+                    <?AuthorQuery id="Q19" queryProcess="eXtyles CrossRef Check" queryText="CrossRef reports the year should be &quot;2020&quot;, not &quot;2019&quot;. (Ref. &quot;Kumar, Eble, Gaither, 2019&quot;)"?>
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Kumar</surname>,
+                            <given-names>G.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Eble</surname>,
+                            <given-names>J. E.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Gaither</surname>,
+                            <given-names>M. R.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2019</year>).
+                    <source>A practical guide to sample preservation and pre‐PCR processing of aquatic environmental DNA.</source>
+                    <italic>Molecular Ecology Resources</italic>, 1755-0998.13107.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1111/1755-0998.13107</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0013">
+                <mixed-citation publication-type="book">
+                    <?AuthorQuery id="Q20" queryProcess="eXtyles Bibliographic Reference Processing" queryText="Could not find a publisher location in this book reference. (Ref. &quot;Longmire, Maltbie, Baker, 1997&quot;)"?>
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Longmire</surname>,
+                            <given-names>J. L.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Maltbie</surname>,
+                            <given-names>M.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Baker</surname>,
+                            <given-names>R. J.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>1997</year>).
+                    <source>Use of “Lysis Buffer” in DNA isolation and its implication for museum collections.</source>
+                    <publisher-name>Texas Tech University Museum</publisher-name>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.5962/bhl.title.143318</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0014">
+                <mixed-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Majaneva</surname>,
+                            <given-names>M.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Diserud</surname>,
+                            <given-names>O. H.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Eagle</surname>,
+                            <given-names>S. H. C.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Boström</surname>,
+                            <given-names>E.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Hajibabaei</surname>,
+                            <given-names>M.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Ekrem</surname>,
+                            <given-names>T.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2018</year>).
+                    <article-title>Environmental DNA filtration techniques affect recovered biodiversity.</article-title>
+                    <source>Scientific Reports</source>
+                    <italic>,</italic>
+                    <volume>8</volume>(
+                    <issue>1</issue>).
+                    <pub-id pub-id-type="doi">https://doi.org/10.1038/s41598-018-23052-8</pub-id>
+                    <pub-id pub-id-type="pmid">29549344</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0015">
+                <mixed-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Mauvisseau</surname>,
+                            <given-names>Q.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Davy-Bowker</surname>,
+                            <given-names>J.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Bulling</surname>,
+                            <given-names>M.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Brys</surname>,
+                            <given-names>R.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Neyrinck</surname>,
+                            <given-names>S.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Troth</surname>,
+                            <given-names>C.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Sweet</surname>,
+                            <given-names>M.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2019</year>).
+                    <article-title>Combining ddPCR and environmental DNA to improve detection capabilities of a critically endangered freshwater invertebrate.</article-title>
+                    <source>Scientific Reports</source>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1038/s41598-019-50571-9</pub-id>
+                    <pub-id pub-id-type="pmid">31575968</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0016">
+                <mixed-citation publication-type="other">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Mauvisseau</surname>,
+                            <given-names>Q.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Kalogianni</surname>,
+                            <given-names>E.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Zimmerman</surname>,
+                            <given-names>B.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Bulling</surname>,
+                            <given-names>M.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Brys</surname>,
+                            <given-names>R.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Sweet</surname>,
+                            <given-names>M.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2020</year>). eDNA‐based monitoring: Advancement in management and conservation of critically endangered killifish species.
+                    <italic>Environmental DNA</italic>, edn3.92.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1002/edn3.92</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0017">
+                <mixed-citation publication-type="journal">
+                    <?AuthorQuery id="Q21" queryProcess="eXtyles PubMed Check" queryText="Medline cannot find the journal &quot;Conservation Genetics&quot;. Please check the journal name. (Ref. &quot;Murphy, Waits, Kendall, Wasser, Higbee, Bogden, 2002&quot;)"?>
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Murphy</surname>,
+                            <given-names>M.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Waits</surname>,
+                            <given-names>L.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Kendall</surname>,
+                            <given-names>K.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Wasser</surname>,
+                            <given-names>S.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Higbee</surname>,
+                            <given-names>J.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Bogden</surname>,
+                            <given-names>R.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2002</year>).
+                    <article-title>An evaluation of long-term preservation methods for brown bear (
+                        <italic>Ursus arctos</italic>) faecal DNA samples.
+                    </article-title>
+                    <source>Conservation Genetics</source>
+                    <italic>,</italic>
+                    <volume>3</volume>,
+                    <fpage>435</fpage>–
+                    <lpage>440</lpage>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1023/A:1020503330767</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0018">
+                <mixed-citation publication-type="web">
+                    <?AuthorQuery id="Q22" queryProcess="eXtyles Citation Match/Clean/Order Check" queryText="Reference &quot;Pinheiro, J., Bates, D., DebRoy, 2020&quot; is not cited in the text. Please add an in-text citation or delete the reference."?>Pinheiro, J., Bates, D., DebRoy, S., Sarkar, D., &amp; R Core Team. (
+                    <year>2020</year>). nlme: Linear and Nonlinear Mixed Effects Models.
+                    <italic>R Package Version 3.1-148</italic>. doi:
+                    <ext-link ext-link-type="uri" xlink:href="https://CRAN.R-project.org/package=nlme">https://CRAN.R-project.org/package=nlme</ext-link>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0019">
+                <mixed-citation publication-type="web">
+                    <person-group person-group-type="author">
+                        <collab>R Core Team</collab>
+                    </person-group>. (
+                    <year>2020</year>).
+                    <source>
+                        <italic>R: A Language and Environment for Statistical Computing</italic>.
+                    </source> Vienna, Austria: R Foundation for Statistical Computing. Retrieved from R Foundation for Statistical Computing website:
+                    <ext-link ext-link-type="uri" xlink:href="https://www.R-project.org">https://www.R-project.org</ext-link>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0020">
+                <mixed-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Renshaw</surname>,
+                            <given-names>M. A.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Olds</surname>,
+                            <given-names>B. P.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Jerde</surname>,
+                            <given-names>C. L.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>McVeigh</surname>,
+                            <given-names>M. M.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Lodge</surname>,
+                            <given-names>D. M.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2015</year>).
+                    <article-title>The room temperature preservation of filtered environmental DNA samples and assimilation into a phenol-chloroform-isoamyl alcohol DNA extraction.</article-title>
+                    <source>Molecular Ecology Resources</source>
+                    <italic>,</italic>
+                    <volume>15</volume>(
+                    <issue>1</issue>),
+                    <fpage>168</fpage>–
+                    <lpage>176</lpage>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1111/1755-0998.12281</pub-id>
+                    <pub-id pub-id-type="pmid">24834966</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0021">
+                <mixed-citation publication-type="other">
+                    <?AuthorQuery id="Q23" queryProcess="eXtyles CrossRef Check" queryText="CrossMark reports this article was originally posted as a Preprint at https://doi.org/10.1101/489609. (Ref. &quot;Sales, Wangensteen, Carvalho, Mariani, 2019&quot;)"?>
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Sales</surname>,
+                            <given-names>N. G.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Wangensteen</surname>,
+                            <given-names>O. S.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Carvalho</surname>,
+                            <given-names>D. C.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Mariani</surname>,
+                            <given-names>S.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2019</year>). Influence of preservation methods, sample medium and sampling time on eDNA recovery in a neotropical river.
+                    <italic>Environmental DNA</italic>, edn3.14.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1002/edn3.14</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0022">
+                <mixed-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Sassoubre</surname>,
+                            <given-names>L. M.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Yamahara</surname>,
+                            <given-names>K. M.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Gardner</surname>,
+                            <given-names>L. D.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Block</surname>,
+                            <given-names>B. A.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Boehm</surname>,
+                            <given-names>A. B.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2016</year>).
+                    <article-title>Quantification of Environmental DNA (eDNA) Shedding and Decay Rates for Three Marine Fish.</article-title>
+                    <source>Environmental Science &amp; Technology</source>
+                    <italic>,</italic>
+                    <volume>50</volume>(
+                    <issue>19</issue>),
+                    <fpage>10456</fpage>–
+                    <lpage>10464</lpage>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1021/acs.est.6b03114</pub-id>
+                    <pub-id pub-id-type="pmid">27580258</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0023">
+                <mixed-citation publication-type="journal">
+                    <?AuthorQuery id="Q24" queryProcess="eXtyles PubMed Check" queryText="Medline indexes &quot;Methods in Ecology and Evolution&quot; but cannot find a listing for this reference. Please check the reference for accuracy. (Ref. &quot;Spens, Evans, Halfmaerten, Knudsen, Sengupta, Mak, Hellstr&#x00F6;m, &#x2026;, 2017&quot;)"?>
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Spens</surname>,
+                            <given-names>J.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Evans</surname>,
+                            <given-names>A. R.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Halfmaerten</surname>,
+                            <given-names>D.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Knudsen</surname>,
+                            <given-names>S. W.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Sengupta</surname>,
+                            <given-names>M. E.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Mak</surname>,
+                            <given-names>S. S. T.</given-names>
+                        </string-name>,
+                        <etal>…</etal>
+                        <string-name>
+                            <surname>Hellström</surname>,
+                            <given-names>M.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2017</year>).
+                    <article-title>Comparison of capture and storage methods for aqueous macrobial eDNA using an optimized extraction protocol: advantage of enclosed filter.</article-title>
+                    <source>Methods in Ecology and Evolution</source>
+                    <italic>,</italic>
+                    <volume>8</volume>(
+                    <issue>5</issue>),
+                    <fpage>635</fpage>–
+                    <lpage>645</lpage>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1111/2041-210X.12683</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0024">
+                <mixed-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Tatangelo</surname>,
+                            <given-names>V.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Franzetti</surname>,
+                            <given-names>A.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Gandolfi</surname>,
+                            <given-names>I.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Bestetti</surname>,
+                            <given-names>G.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Ambrosini</surname>,
+                            <given-names>R.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2014</year>).
+                    <article-title>Effect of preservation method on the assessment of bacterial community structure in soil and water samples.</article-title>
+                    <source>FEMS Microbiology Letters</source>
+                    <italic>,</italic>
+                    <volume>356</volume>(
+                    <issue>1</issue>),
+                    <fpage>32</fpage>–
+                    <lpage>38</lpage>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1111/1574-6968.12475</pub-id>
+                    <pub-id pub-id-type="pmid">24840085</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0025">
+                <mixed-citation publication-type="journal">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Valentini</surname>,
+                            <given-names>A.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Taberlet</surname>,
+                            <given-names>P.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Miaud</surname>,
+                            <given-names>C.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Civade</surname>,
+                            <given-names>R.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Herder</surname>,
+                            <given-names>J.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Thomsen</surname>,
+                            <given-names>P. F.</given-names>
+                        </string-name>,
+                        <etal>…</etal>
+                        <string-name>
+                            <surname>Dejean</surname>,
+                            <given-names>T.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2016</year>).
+                    <article-title>Next-generation monitoring of aquatic biodiversity using environmental DNA metabarcoding.</article-title>
+                    <source>Molecular Ecology</source>
+                    <italic>,</italic>
+                    <volume>25</volume>(
+                    <issue>4</issue>),
+                    <fpage>929</fpage>–
+                    <lpage>942</lpage>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1111/mec.13428</pub-id>
+                    <pub-id pub-id-type="pmid">26479867</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0026">
+                <mixed-citation publication-type="journal">
+                    <?AuthorQuery id="Q25" queryProcess="eXtyles PubMed Check" queryText="Medline indexes &quot;Conservation Genetics Resources&quot; but cannot find a listing for this reference. Please check the reference for accuracy. (Ref. &quot;Wegleitner, Jerde, Tucker, Chadderton, Mahon, 2015&quot;)"?>
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Wegleitner</surname>,
+                            <given-names>B. J.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Jerde</surname>,
+                            <given-names>C. L.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Tucker</surname>,
+                            <given-names>A.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Chadderton</surname>,
+                            <given-names>W. L.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Mahon</surname>,
+                            <given-names>A. R.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2015</year>).
+                    <article-title>Long duration, room temperature preservation of filtered eDNA samples.</article-title>
+                    <source>Conservation Genetics Resources</source>
+                    <italic>,</italic>
+                    <volume>7</volume>(
+                    <issue>4</issue>),
+                    <fpage>789</fpage>–
+                    <lpage>791</lpage>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1007/s12686-015-0483-x</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0027">
+                <mixed-citation publication-type="web">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Wickham</surname>,
+                            <given-names>H.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2016</year>).
+                    <italic>ggplot2: Elegant Graphics for Data Analysis</italic> (Springer-Verlag New York). Retrieved from
+                    <ext-link ext-link-type="uri" xlink:href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</ext-link>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0028">
+                <mixed-citation publication-type="other">
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Wood</surname>,
+                            <given-names>S. A.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Pochon</surname>,
+                            <given-names>X.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Laroche</surname>,
+                            <given-names>O.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>von Ammon</surname>,
+                            <given-names>U.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Adamson</surname>,
+                            <given-names>J.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Zaiko</surname>,
+                            <given-names>A.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2019</year>). A comparison of droplet digital polymerase chain reaction (PCR), quantitative PCR and metabarcoding for species‐specific detection in environmental DNA.
+                    <italic>Molecular Ecology Resources</italic>, 1755-0998.13055.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1111/1755-0998.13055</pub-id>
+                </mixed-citation>
+            </ref>
+            <ref id="EDN3-2020-0111-bib-0029">
+                <mixed-citation publication-type="journal">
+                    <?AuthorQuery id="Q26" queryProcess="eXtyles PubMed Check" queryText="Medline indexes &quot;Ecological Research&quot; but cannot find a listing for this reference. Please check the reference for accuracy. (Ref. &quot;Yamanaka, Motozawa, Tsuji, Miyazawa, Takahara, Minamoto, 2016&quot;)"?>
+                    <person-group person-group-type="author">
+                        <string-name>
+                            <surname>Yamanaka</surname>,
+                            <given-names>H.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Motozawa</surname>,
+                            <given-names>H.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Tsuji</surname>,
+                            <given-names>S.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Miyazawa</surname>,
+                            <given-names>R. C.</given-names>
+                        </string-name>,
+                        <string-name>
+                            <surname>Takahara</surname>,
+                            <given-names>T.</given-names>
+                        </string-name>, &amp;
+                        <string-name>
+                            <surname>Minamoto</surname>,
+                            <given-names>T.</given-names>
+                        </string-name>
+                    </person-group> (
+                    <year>2016</year>).
+                    <article-title>On-site filtration of water samples for environmental DNA analysis to avoid DNA degradation during transportation.</article-title>
+                    <source>Ecological Research</source>
+                    <italic>,</italic>
+                    <volume>31</volume>(
+                    <issue>6</issue>),
+                    <fpage>963</fpage>–
+                    <lpage>967</lpage>.
+                    <pub-id pub-id-type="doi">https://doi.org/10.1007/s11284-016-1400-9</pub-id>
+                </mixed-citation>
+            </ref>
+        </ref-list>
+    </back>
+</article>

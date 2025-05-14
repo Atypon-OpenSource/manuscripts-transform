@@ -1717,6 +1717,8 @@ export class JATSExporter {
     )
     const usedCorrespondings = this.getUsedCorrespondings(contributorsNodes)
     authorNotesNode.descendants((node) => {
+      console.log(node.toString())
+
       switch (node.type) {
         case schema.nodes.paragraph:
           this.appendParagraphToElement(node as ParagraphNode, authorNotesEl)
@@ -1741,6 +1743,8 @@ export class JATSExporter {
     corresponding: CorrespNode,
     element: HTMLElement
   ) => {
+    console.log('corresponding.textContent')
+    console.log(corresponding.textContent)
     const correspondingEl = this.createElement('corresp')
     correspondingEl.setAttribute('id', normalizeID(corresponding.attrs.id))
     if (corresponding.attrs.label) {
@@ -1757,13 +1761,12 @@ export class JATSExporter {
   ): CorrespNode[] {
     return contributors
       .flatMap((c) => c.attrs.corresp ?? [])
-      .map(
-        (corresp) =>
-          findChildrenByAttr(
-            this.manuscriptNode,
-            (attr) => attr.id === corresp.correspID
-          )[0]?.node
-      )
+      .map((corresp) => {
+        return findChildrenByAttr(
+          this.manuscriptNode,
+          (attr) => attr.id === corresp.correspID
+        )[0]?.node
+      })
       .filter((corresp): corresp is CorrespNode => !!corresp)
   }
 
@@ -1775,10 +1778,9 @@ export class JATSExporter {
       paragraph.textContent,
       'text/html'
     )
-    const parsedParagraph = parsedDoc.body.querySelector('p')
-    if (parsedParagraph) {
+    if (parsedDoc.body.innerHTML.length) {
       const paragraphEl = this.createElement('p')
-      paragraphEl.innerHTML = parsedParagraph.innerHTML
+      paragraphEl.innerHTML = parsedDoc.body.innerHTML
       paragraphEl.setAttribute('id', normalizeID(paragraph.attrs.id))
       element.appendChild(paragraphEl)
     }
