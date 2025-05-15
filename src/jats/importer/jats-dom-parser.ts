@@ -31,7 +31,6 @@ import {
 import {
   ContributorCorresp,
   ContributorFootnote,
-  ContributorNode,
   ManuscriptNode,
   MarkRule,
   NodeRule,
