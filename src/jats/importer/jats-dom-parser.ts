@@ -502,7 +502,7 @@ export class JATSDOMParser {
       },
     },
     {
-      tag: 'fn[fn-type]', // all supported fn-types should be moved out by the time we pars to prosemirror
+      tag: 'fn[fn-type]', // all supported fn-types should be moved out by the time we parse into prosemirror
       context: 'author_notes/',
       ignore: true,
     },
