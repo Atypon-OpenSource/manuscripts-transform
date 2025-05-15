@@ -137,10 +137,6 @@ export function getCRediTRoleRole(elem: Element) {
       const result: CRediTRole = {
         vocabTerm: source.getAttribute('vocab-term') as CreditVocabTerm,
       }
-      if (source.getAttribute('degree-contribution')) {
-        result.degreeContribution =
-          source.getAttribute('degree-contribution') || undefined
-      }
       results.push(result)
     }
   })

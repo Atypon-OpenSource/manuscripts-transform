@@ -539,7 +539,7 @@ export class JATSDOMParser {
     {
       tag: 'contrib[contrib-type="author"]',
       node: 'contributor',
-      getAttrs: (node): Partial<ContributorNode['attrs']> => {
+      getAttrs: (node) => {
         const element = node as HTMLElement
         const footnote: ContributorFootnote[] = []
         const affiliations: string[] = []

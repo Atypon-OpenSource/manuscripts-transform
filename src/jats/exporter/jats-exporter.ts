@@ -1617,9 +1617,6 @@ export class JATSExporter {
               role.setAttribute('vocab-term-identifier', creditUrl)
               role.innerHTML = cr.vocabTerm
             }
-            if (cr.degreeContribution) {
-              role.setAttribute('degree-contribution', cr.degreeContribution)
-            }
 
             contrib.appendChild(role)
           })
