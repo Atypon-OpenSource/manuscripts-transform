@@ -1717,8 +1717,6 @@ export class JATSExporter {
     )
     const usedCorrespondings = this.getUsedCorrespondings(contributorsNodes)
     authorNotesNode.descendants((node) => {
-      console.log(node.toString())
-
       switch (node.type) {
         case schema.nodes.paragraph:
           this.appendParagraphToElement(node as ParagraphNode, authorNotesEl)
@@ -1743,8 +1741,6 @@ export class JATSExporter {
     corresponding: CorrespNode,
     element: HTMLElement
   ) => {
-    console.log('corresponding.textContent')
-    console.log(corresponding.textContent)
     const correspondingEl = this.createElement('corresp')
     correspondingEl.setAttribute('id', normalizeID(corresponding.attrs.id))
     if (corresponding.attrs.label) {
