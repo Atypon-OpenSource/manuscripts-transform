@@ -70,6 +70,7 @@ import { footnotesSection } from './nodes/footnotes_section'
 import { generalTableFootnote } from './nodes/general_table_footnote'
 import { graphicalAbstractSection } from './nodes/graphical_abstract_section'
 import { hardBreak } from './nodes/hard_break'
+import { heroImage } from './nodes/hero_image'
 import { highlightMarker } from './nodes/highlight_marker'
 import { imageElement } from './nodes/image_element'
 import { inlineEquation } from './nodes/inline_equation'
@@ -89,6 +90,7 @@ import { paragraph } from './nodes/paragraph'
 import { placeholder } from './nodes/placeholder'
 import { placeholderElement } from './nodes/placeholder_element'
 import { pullquoteElement } from './nodes/pullquote_element'
+import { quoteImage } from './nodes/quote_image'
 import { section } from './nodes/section'
 import { sectionLabel } from './nodes/section_label'
 import { sectionTitle } from './nodes/section_title'
@@ -171,6 +173,8 @@ export * from './nodes/alt_title'
 export * from './nodes/alt_titles_section'
 export * from './nodes/alt_text'
 export * from './nodes/long_desc'
+export * from './nodes/quote_image'
+export * from './nodes/hero_image'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -265,5 +269,7 @@ export const schema = new Schema<Nodes, Marks>({
     alt_titles: altTitlesSection,
     alt_text: altText,
     long_desc: longDesc,
+    quote_image: quoteImage,
+    hero_image: heroImage,
   },
 })

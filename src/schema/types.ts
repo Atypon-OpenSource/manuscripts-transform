@@ -54,6 +54,7 @@ export type Nodes =
   | 'bibliography_element'
   | 'bibliography_section'
   | 'blockquote_element'
+  | 'quote_image'
   | 'list'
   | 'caption'
   | 'caption_title'
@@ -127,6 +128,7 @@ export type Nodes =
   | 'alt_text'
   | 'alt_titles'
   | 'long_desc'
+  | 'hero_image'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

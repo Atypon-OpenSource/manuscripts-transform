@@ -1,5 +1,5 @@
 /*!
- * © 2024 Atypon Systems LLC
+ * © 2025 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export interface ImageElementNode extends ManuscriptNode {
+export interface HeroImageNode extends ManuscriptNode {
   attrs: {
     id: string
   }
 }
 
-export const imageElement: NodeSpec = {
+export const heroImage: NodeSpec = {
   content: 'figure? alt_text long_desc',
   attrs: {
     id: { default: '' },
@@ -34,14 +35,12 @@ export const imageElement: NodeSpec = {
     return [
       'div',
       {
-        class: 'image_element',
+        class: 'hero_image',
         id: node.attrs.id,
       },
     ]
   },
 }
 
-export const isImageElementNode = (
-  node: ManuscriptNode
-): node is ImageElementNode =>
-  node.type === node.type.schema.nodes.image_element
+export const isHeroImageNode = (node: ManuscriptNode): node is HeroImageNode =>
+  node.type === node.type.schema.nodes.hero_image

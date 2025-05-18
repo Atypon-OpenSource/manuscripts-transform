@@ -16,9 +16,13 @@
 
 import { Node as ProsemirrorNode, ResolvedPos } from 'prosemirror-model'
 
-import { ManuscriptEditorState, ManuscriptNode } from '../schema'
-import { isBibliographySectionNode } from '../schema/nodes/bibliography_section'
-import { isGraphicalAbstractSectionNode } from '../schema/nodes/graphical_abstract_section'
+import { htmlFromJatsNode } from '../jats/importer/jats-parser-utils'
+import {
+  isBibliographySectionNode,
+  isGraphicalAbstractSectionNode,
+  ManuscriptEditorState,
+  ManuscriptNode,
+} from '../schema'
 
 export function* iterateChildren(
   node: ManuscriptNode,
@@ -97,6 +101,10 @@ export const getTrimmedTextContent = (
   return selector
     ? node.querySelector(selector)?.textContent?.trim()
     : node.textContent?.trim()
+}
+
+export const getHTMLContent = (node: Element, querySelector: string) => {
+  return htmlFromJatsNode(node.querySelector(querySelector))
 }
 
 export const dateToTimestamp = (dateElement: Element) => {

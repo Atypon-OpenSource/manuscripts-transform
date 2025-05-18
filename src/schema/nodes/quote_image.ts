@@ -1,5 +1,5 @@
 /*!
- * © 2024 Atypon Systems LLC
+ * © 2019 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,35 +13,52 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export interface ImageElementNode extends ManuscriptNode {
-  attrs: {
-    id: string
-  }
+export interface QuoteImageAttrs {
+  id: string
+  src: string
+  type: string
 }
 
-export const imageElement: NodeSpec = {
-  content: 'figure? alt_text long_desc',
+export interface QuoteImageNode extends ManuscriptNode {
+  attrs: QuoteImageAttrs
+}
+
+export const quoteImage: NodeSpec = {
   attrs: {
     id: { default: '' },
+    src: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block element',
+  selectable: false,
+  group: 'block',
+  parseDOM: [
+    {
+      tag: 'figure',
+      context: 'pullquote_element/',
+      getAttrs: (dom) => {
+        const element = dom as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+          src: element.getAttribute('src'),
+        }
+      },
+    },
+  ],
   toDOM: (node) => {
+    const imageNode = node as QuoteImageNode
+
     return [
-      'div',
+      'figure',
       {
-        class: 'image_element',
-        id: node.attrs.id,
+        class: 'pullquote-figure',
+        id: imageNode.attrs.id,
       },
     ]
   },
 }
-
-export const isImageElementNode = (
-  node: ManuscriptNode
-): node is ImageElementNode =>
-  node.type === node.type.schema.nodes.image_element

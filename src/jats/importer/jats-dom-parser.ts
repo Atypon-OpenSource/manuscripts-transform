@@ -15,7 +15,6 @@
  */
 
 import {
-  BibliographicName,
   buildBibliographicDate,
   buildBibliographicName,
   buildContribution,
@@ -23,18 +22,21 @@ import {
 } from '@manuscripts/json-schema'
 import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
-import { dateToTimestamp, getTrimmedTextContent } from '../../lib/utils'
 import {
-  BibliographyItemAttrs,
+  dateToTimestamp,
+  getHTMLContent,
+  getTrimmedTextContent,
+} from '../../lib/utils'
+import {
   ContributorCorresp,
   ContributorFootnote,
   ManuscriptNode,
   MarkRule,
   NodeRule,
+  publicationTypeToPM,
   SectionCategory,
 } from '../../schema'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
-import { htmlFromJatsNode } from './jats-parser-utils'
 
 export class JATSDOMParser {
   private XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
@@ -112,7 +114,7 @@ export class JATSDOMParser {
     return { id, format, contents }
   }
 
-  private parseDates = (historyNode: Element | null) => {
+  private parseHistoryDates = (historyNode: Element | null) => {
     if (!historyNode) {
       return undefined
     }
@@ -204,116 +206,167 @@ export class JATSDOMParser {
     )
   }
 
-  private getHTMLContent = (node: Element, querySelector: string) => {
-    return htmlFromJatsNode(node.querySelector(querySelector))
+  private choosePublicationType = (element: Element) => {
+    const citationElement = element.querySelector(
+      'element-citation, mixed-citation'
+    )
+    const type = citationElement?.getAttribute('publication-type')
+    return type ? publicationTypeToPM[type] ?? type : 'article-journal'
   }
 
-  private chooseBibliographyItemType = (publicationType: string | null) => {
-    switch (publicationType) {
-      case 'book':
-      case 'thesis':
-        return publicationType
-      case 'journal':
-      default:
-        return 'article-journal'
+  private getNameContent(element: Element, query: string) {
+    const buildName = (node: Element) => {
+      const name = buildBibliographicName({})
+      const given = getTrimmedTextContent(node, 'given-names')
+      const family = getTrimmedTextContent(node, 'surname')
+
+      if (given) {
+        name.given = given
+      }
+      if (family) {
+        name.family = family
+      }
+      if (node.nodeName === 'collab') {
+        name.literal = getTrimmedTextContent(node)
+      }
+      return name
+    }
+    const personNodes = element.querySelectorAll(query)
+    if (personNodes.length) {
+      return Array.from(personNodes).map(buildName)
+    }
+  }
+
+  private getDateContent(element: Element, query: string) {
+    const buildDate = (element: Element) => {
+      const isoDate = element.getAttribute('iso-8601-date')
+      if (!isoDate) {
+        return
+      }
+
+      const parsedDate = new Date(Date.parse(isoDate))
+
+      const parts: [number, number, number] = [
+        parsedDate.getFullYear(),
+        parsedDate.getMonth() + 1, //month is 0 indexed.
+        parsedDate.getDate(),
+      ]
+
+      return buildBibliographicDate({
+        'date-parts': [parts],
+      })
+    }
+
+    const dateElement = element.querySelector(query)
+    if (dateElement) {
+      return buildDate(dateElement)
+    }
+  }
+
+  private getFigContent = (node: Node) => {
+    const element = node as HTMLElement
+    const content = [
+      this.schema.nodes.figure.create(this.getFigureAttrs(element)),
+    ]
+    const altText = element.querySelector('alt-text')
+    if (altText) {
+      const altTextNode = this.schema.nodes.alt_text.create()
+      content.push(this.parse(altText, { topNode: altTextNode }))
+    }
+    const longDesc = element.querySelector('long-desc')
+    if (longDesc) {
+      const longDescNode = this.schema.nodes.long_desc.create()
+      content.push(this.parse(longDesc, { topNode: longDescNode }))
+    }
+    return Fragment.from(content)
+  }
+
+  private parseRefLiteral = (element: Element) => {
+    const mixedCitation = element.querySelector('mixed-citation')
+    const hasDirectTextNodeWithLetters = Array.from(
+      mixedCitation?.childNodes ?? []
+    ).some(
+      (node) =>
+        node.nodeType === Node.TEXT_NODE &&
+        node.textContent?.match(/[A-Za-z]+/g)
+    )
+
+    if (hasDirectTextNodeWithLetters) {
+      return getTrimmedTextContent(mixedCitation)
+    }
+  }
+  private parseRefPages = (element: Element) => {
+    const fpage = getTrimmedTextContent(element, 'fpage')
+    const lpage = getTrimmedTextContent(element, 'lpage')
+    if (fpage) {
+      return lpage ? `${fpage}-${lpage}` : fpage
     }
   }
 
   private parseRef = (element: Element) => {
-    const publicationType = element.getAttribute('publication-type')
-
-    const authorNodes = [
-      ...element.querySelectorAll(
+    return {
+      id: element.id,
+      type: this.choosePublicationType(element),
+      comment: getTrimmedTextContent(element, 'comment'),
+      volume: getTrimmedTextContent(element, 'volume'),
+      issue: getTrimmedTextContent(element, 'issue'),
+      supplement: getTrimmedTextContent(element, 'supplement'),
+      DOI: getTrimmedTextContent(element, 'pub-id[pub-id-type="doi"]'),
+      URL: getTrimmedTextContent(element, 'ext-link[ext-link-type="uri"]'),
+      std: getTrimmedTextContent(
+        element,
+        'pub-id[pub-id-type="std-designation"]'
+      ),
+      'collection-title': getTrimmedTextContent(element, 'series'),
+      edition: getTrimmedTextContent(element, 'edition'),
+      publisher: getTrimmedTextContent(element, 'publisher-name'),
+      'publisher-place': getTrimmedTextContent(element, 'publisher-loc'),
+      event: getTrimmedTextContent(element, 'conf-name'),
+      'event-place': getTrimmedTextContent(element, 'conf-loc'),
+      'number-of-pages': getTrimmedTextContent(element, 'size[units="pages"]'),
+      institution: getTrimmedTextContent(element, 'institution'),
+      locator: getTrimmedTextContent(element, 'elocation-id'),
+      'container-title': getHTMLContent(element, 'source'),
+      title:
+        getHTMLContent(element, 'article-title') ??
+        getHTMLContent(element, 'data-title') ??
+        getHTMLContent(element, 'part-title'),
+      author: this.getNameContent(
+        element,
         'person-group[person-group-type="author"] > *'
       ),
-    ]
-
-    const id = element.id
-
-    const attrs: BibliographyItemAttrs = {
-      id,
-      type: this.chooseBibliographyItemType(publicationType),
+      editor: this.getNameContent(
+        element,
+        'person-group[person-group-type="editor"] > *'
+      ),
+      literal: this.parseRefLiteral(element),
+      accessed: this.getDateContent(element, 'date-in-citation'),
+      'event-date': this.getDateContent(element, 'conf-date'),
+      issued: getTrimmedTextContent(
+        element.querySelector('element-citation, mixed-citation'),
+        ':scope > year'
+      )
+        ? buildBibliographicDate({
+            'date-parts': [
+              [
+                getTrimmedTextContent(
+                  element.querySelector('element-citation, mixed-citation'),
+                  ':scope > year'
+                ) || '',
+                getTrimmedTextContent(
+                  element.querySelector('element-citation, mixed-citation'),
+                  ':scope > month'
+                ) || '',
+                getTrimmedTextContent(
+                  element.querySelector('element-citation, mixed-citation'),
+                  ':scope > day'
+                ) || '',
+              ],
+            ],
+          })
+        : undefined,
+      page: this.parseRefPages(element),
     }
-    const title = this.getHTMLContent(element, 'article-title')
-    if (title) {
-      attrs.title = title
-    }
-
-    const mixedCitation = element.querySelector('mixed-citation')
-
-    if (authorNodes.length <= 0) {
-      mixedCitation?.childNodes.forEach((item) => {
-        if (
-          item.nodeType === Node.TEXT_NODE &&
-          item.textContent?.match(/[A-Za-z]+/g)
-        ) {
-          attrs.literal = getTrimmedTextContent(mixedCitation) ?? ''
-          return attrs
-        }
-      })
-    }
-
-    const source = this.getHTMLContent(element, 'source')
-    if (source) {
-      attrs.containerTitle = source
-    }
-
-    const volume = getTrimmedTextContent(element, 'volume')
-    if (volume) {
-      attrs.volume = volume
-    }
-
-    const issue = getTrimmedTextContent(element, 'issue')
-    if (issue) {
-      attrs.issue = issue
-    }
-
-    const supplement = getTrimmedTextContent(element, 'supplement')
-    if (supplement) {
-      attrs.supplement = supplement
-    }
-
-    const fpage = getTrimmedTextContent(element, 'fpage')
-    const lpage = getTrimmedTextContent(element, 'lpage')
-    if (fpage) {
-      attrs.page = lpage ? `${fpage}-${lpage}` : fpage
-    }
-
-    const year = getTrimmedTextContent(element, 'year')
-    if (year) {
-      attrs.issued = buildBibliographicDate({
-        'date-parts': [[year]],
-      })
-    }
-
-    const doi = getTrimmedTextContent(element, 'pub-id[pub-id-type="doi"]')
-    if (doi) {
-      attrs.doi = doi
-    }
-
-    const authors: BibliographicName[] = []
-    authorNodes.forEach((authorNode) => {
-      const name = buildBibliographicName({})
-      const given = getTrimmedTextContent(authorNode, 'given-names')
-      if (given) {
-        name.given = given
-      }
-      const family = getTrimmedTextContent(authorNode, 'surname')
-
-      if (family) {
-        name.family = family
-      }
-
-      if (authorNode.nodeName === 'collab') {
-        name.literal = getTrimmedTextContent(authorNode)
-      }
-      authors.push(name)
-    })
-
-    if (authors.length) {
-      attrs.author = authors
-    }
-    return attrs
   }
 
   private nodes: NodeRule[] = [
@@ -346,7 +399,7 @@ export class JATSDOMParser {
           'front > article-meta > article-id[pub-id-type="doi"]'
         )
         const history = element.querySelector('history')
-        const dates = this.parseDates(history)
+        const dates = this.parseHistoryDates(history)
         return {
           doi: getTrimmedTextContent(doi),
           articleType: element.getAttribute('article-type') ?? '',
@@ -518,7 +571,7 @@ export class JATSDOMParser {
 
         return {
           id: element.getAttribute('id'),
-          role: 'author',
+          role: getTrimmedTextContent(element, 'role'),
           affiliations,
           corresp,
           footnote,
@@ -536,6 +589,7 @@ export class JATSDOMParser {
           ),
           priority: this.parsePriority(element.getAttribute('priority')),
           email: getTrimmedTextContent(element, 'email') || '',
+          prefix: getTrimmedTextContent(element, 'prefix'),
         }
       },
       getContent: () => {
@@ -693,6 +747,12 @@ export class JATSDOMParser {
       },
     },
     {
+      tag: 'graphic',
+      node: 'quote_image',
+      context: 'pullquote_element/',
+      getAttrs: this.getFigureAttrs,
+    },
+    {
       tag: 'ext-link',
       node: 'link',
       getAttrs: (node) => {
@@ -751,6 +811,11 @@ export class JATSDOMParser {
       },
     },
     {
+      tag: 'graphic[content-type=leading]',
+      node: 'hero_image',
+      getContent: this.getFigContent,
+    },
+    {
       tag: 'graphic',
       node: 'figure',
       context: 'figure_element/',
@@ -759,23 +824,7 @@ export class JATSDOMParser {
     {
       tag: 'graphic',
       node: 'image_element',
-      getContent: (node) => {
-        const element = node as HTMLElement
-        const content = [
-          this.schema.nodes.figure.create(this.getFigureAttrs(element)),
-        ]
-        const altText = element.querySelector('alt-text')
-        if (altText) {
-          const altTextNode = this.schema.nodes.alt_text.create()
-          content.push(this.parse(altText, { topNode: altTextNode }))
-        }
-        const longDesc = element.querySelector('long-desc')
-        if (longDesc) {
-          const longDescNode = this.schema.nodes.long_desc.create()
-          content.push(this.parse(longDesc, { topNode: longDescNode }))
-        }
-        return Fragment.from(content)
-      },
+      getContent: this.getFigContent,
     },
     {
       tag: 'fig',

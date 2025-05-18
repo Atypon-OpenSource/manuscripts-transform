@@ -22,6 +22,7 @@ import { updateDocumentIDs } from './jats-parser-utils'
 import {
   addMissingCaptions,
   createAbstracts,
+  createAccessibilityItems,
   createAttachments,
   createBackmatter,
   createBody,
@@ -30,12 +31,12 @@ import {
   createSupplementaryMaterialsSection,
   createTitles,
   fixTables,
-  moveAccessibilityItems,
   moveAffiliations,
   moveAuthorNotes,
   moveAwards,
   moveCaptionsToEnd,
   moveContributors,
+  moveHeroImage,
   moveReferencesToBackmatter,
   orderTableFootnote,
 } from './jats-transformations'
@@ -70,13 +71,14 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   createKeywordsSection(doc, body, createElement)
   fixTables(doc, body, createElement)
   orderTableFootnote(doc, body)
+  moveHeroImage(doc)
   createAttachments(doc, createElement)
   const back = doc.querySelector('back')
   if (!back) {
     return
   }
   moveReferencesToBackmatter(body, back, createElement)
-  moveAccessibilityItems(doc)
+  createAccessibilityItems(doc, createElement)
 }
 
 const createElementFn = (doc: Document) => (tagName: string) =>
