@@ -49,7 +49,7 @@ interface Attrs {
   footnote: ContributorFootnote[]
   prefix: string
   CRediTRoles?: CRediTRole[]
-  includeInList: true
+  contribType: string
 }
 
 export interface ContributorNode extends ManuscriptNode {
@@ -76,7 +76,7 @@ export const contributor: NodeSpec = {
     dataTracked: { default: null },
     contents: { default: '' },
     prefix: { default: '' },
-    includeInList: { default: true },
+    contribType: { default: 'author' },
   },
   group: 'block',
   toDOM: (node) => {
