@@ -79,6 +79,12 @@ export const buildTargets = (
       if (parent && excludedTypes.includes(parent.type)) {
         return
       }
+      if (node.type === schema.nodes.box_element) {
+        const child = node.firstChild
+        if (!child || child.type !== schema.nodes.figcaption) {
+          return
+        }
+      }
       const label = buildLabel(node.type)
 
       targets.set(node.attrs.id, {

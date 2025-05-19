@@ -18,12 +18,12 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface BoxElementAttrs {
   id: string
 }
 
 export interface BoxElementNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: BoxElementAttrs
 }
 
 export const box_element: NodeSpec = {
@@ -40,7 +40,7 @@ export const box_element: NodeSpec = {
       getAttrs: (p) => {
         const dom = p as HTMLParagraphElement
 
-        const attrs: Partial<Attrs> = {
+        const attrs: Partial<BoxElementAttrs> = {
           id: dom.getAttribute('id') || undefined,
         }
         return attrs
