@@ -17,7 +17,7 @@
 import { Node, NodeType } from 'prosemirror-model'
 import { findChildrenByType } from 'prosemirror-utils'
 
-import { ManuscriptNode, schema } from '../../schema'
+import { BibliographyItemNode, ManuscriptNode, schema } from '../../schema'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { sectionCategories } from './data/section-categories'
 import { readAndParseFixture } from './files'
@@ -71,15 +71,20 @@ const updateCommentNodeIDs = (node: ManuscriptNode) => {
 
 const updateBibliographyItemNodeIDs = (node: ManuscriptNode) => {
   if (node.type === schema.nodes.bibliography_item) {
-    node.attrs.author?.forEach(
-      (author: any) => (author._id = replaceUUIDWithTest(author._id))
-    )
-    node.attrs.editor?.forEach(
-      (author: any) => (author._id = replaceUUIDWithTest(author._id))
-    )
+    const bib = node as BibliographyItemNode
+    bib.attrs.author?.forEach((author: any) => {
+      if (author._id) {
+        author._id = replaceUUIDWithTest(author._id)
+      }
+    })
+    bib.attrs.editor?.forEach((author: any) => {
+      if (author._id) {
+        author._id = replaceUUIDWithTest(author._id)
+      }
+    })
     //@ts-ignore
-    if (node.attrs.issued) {
-      node.attrs.issued._id = replaceUUIDWithTest(node.attrs.issued._id)
+    if (bib.attrs.issued) {
+      bib.attrs.issued._id = replaceUUIDWithTest(bib.attrs.issued._id)
     }
   }
 }
