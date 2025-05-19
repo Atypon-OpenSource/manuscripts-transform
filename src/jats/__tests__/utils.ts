@@ -69,21 +69,6 @@ const updateCommentNodeIDs = (node: ManuscriptNode) => {
   }
 }
 
-const updateBibliographyItemNodeIDs = (node: ManuscriptNode) => {
-  if (node.type === schema.nodes.bibliography_item) {
-    node.attrs.author?.forEach(
-      (author: any) => (author._id = replaceUUIDWithTest(author._id))
-    )
-    node.attrs.editor?.forEach(
-      (author: any) => (author._id = replaceUUIDWithTest(author._id))
-    )
-    //@ts-ignore
-    if (node.attrs.issued) {
-      node.attrs.issued._id = replaceUUIDWithTest(node.attrs.issued._id)
-    }
-  }
-}
-
 const updateNodeRID = (node: ManuscriptNode) => {
   if (node.attrs.rid) {
     //@ts-ignore
@@ -105,7 +90,6 @@ export const changeIDs = (node: ManuscriptNode) => {
     updateNodeRIDs(child)
     updateContributorNodeIDs(child)
     updateCommentNodeIDs(child)
-    updateBibliographyItemNodeIDs(child)
   })
 }
 
