@@ -503,6 +503,11 @@ export class JATSDOMParser {
       },
     },
     {
+      tag: 'fn[fn-type]', // all supported fn-types should be moved out by the time we parse into prosemirror
+      context: 'author_notes/',
+      ignore: true,
+    },
+    {
       tag: 'fn:not([fn-type])',
       node: 'footnote',
       context: 'author_notes/',
