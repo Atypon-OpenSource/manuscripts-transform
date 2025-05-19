@@ -1761,13 +1761,12 @@ export class JATSExporter {
   ): CorrespNode[] {
     return contributors
       .flatMap((c) => c.attrs.corresp ?? [])
-      .map(
-        (corresp) =>
-          findChildrenByAttr(
-            this.manuscriptNode,
-            (attr) => attr.id === corresp.correspID
-          )[0]?.node
-      )
+      .map((corresp) => {
+        return findChildrenByAttr(
+          this.manuscriptNode,
+          (attr) => attr.id === corresp.correspID
+        )[0]?.node
+      })
       .filter((corresp): corresp is CorrespNode => !!corresp)
   }
 
@@ -1779,10 +1778,9 @@ export class JATSExporter {
       paragraph.textContent,
       'text/html'
     )
-    const parsedParagraph = parsedDoc.body.querySelector('p')
-    if (parsedParagraph) {
+    if (parsedDoc.body.innerHTML.length) {
       const paragraphEl = this.createElement('p')
-      paragraphEl.innerHTML = parsedParagraph.innerHTML
+      paragraphEl.innerHTML = parsedDoc.body.innerHTML
       paragraphEl.setAttribute('id', normalizeID(paragraph.attrs.id))
       element.appendChild(paragraphEl)
     }
