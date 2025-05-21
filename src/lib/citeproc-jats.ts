@@ -22,10 +22,16 @@ import { BibliographyItemAttrs } from '../schema'
 const normalizeID = (id: string) => id.replace(/:/g, '_')
 const labelOnly = /^<label>.+<\/label>$/
 
+/**
+ * This is a hacky way to add JATS support to citeproc-js
+ */
 export const initJats = () => {
+  // make sure initialization happens once
   if (Citeproc.Output.Formats.jats) {
     return
   }
+  // This defines a new citeproc "format". There is no real documentation
+  // for this, so the html format was copied and modified.
   Citeproc.Output.Formats.jats = {
     ...Citeproc.Output.Formats.html,
     text_escape: function (text) {
@@ -46,17 +52,34 @@ export const initJats = () => {
     '@vertical-align/sup': '<sup>%%STRING%%</sup>',
     '@vertical-align/sub': '<sub>%%STRING%%</sub>',
     '@vertical-align/baseline': false,
+    // this is the entry point for rendering bibliography items. The "str" arg
+    // will be the formatted bibliography item.
     '@bibliography/entry': function (state, str) {
+      // the id of the bibliography item
       const id = this.system_id
-      const item = state.registry.registry[id].ref
+      // get the bibliography item from the internal citeproc registry
+      const item: BibliographyItemAttrs = state.registry.registry[id].ref
       const type = getPublicationType(item)
       str = str.trim()
       if (labelOnly.test(str)) {
+        // If only a <label> is present in str, use the "literal" value of the
+        // item. This is usually the case for "unstructured" references, where
+        // no individual metadata is tagged. Since str includes the label, it's
+        // placed before the <mixed-citation> tag.
         return `<ref id="${normalizeID(id)}">${str}<mixed-citation publication-type="${type}">${item.literal}</mixed-citation></ref>`
       } else if (str.includes('mixed-citation')) {
+        // For citation styles that include a label (e.g. AMA), citeproc-js will
+        // invoke both @display/left-margin and @display/right-inline, meaning
+        // that str will include a <mixed-citation> tag. In that case, only the
+        // <ref> tag needs to be added.
         return `<ref id="${normalizeID(id)}">${str.replace('%%TYPE%%', type)}</ref>`
       } else {
-        return `<ref id="${normalizeID(id)}"><mixed-citation publication-type="${type}"></mixed-citation>${str}</ref>`
+        // For citation styles that do not include a label (e.g. Chicago Author),
+        // citeproc-js will invoke neither @display/left-margin nor
+        // @display/right-inline, meaning that str will not include a
+        // <mixed-citation> tag. In that case, both <ref> and <mixed-citation>
+        // need to be added.
+        return `<ref id="${normalizeID(id)}"><mixed-citation publication-type="${type}">${str}</mixed-citation></ref>`
       }
     },
     '@display/block': false,
@@ -64,6 +87,9 @@ export const initJats = () => {
       return `<label>${str}</label>`
     },
     '@display/right-inline': function (state, str) {
+      // this function doesn't have access to the metadat, so it's not possible
+      // to determine the publication type here. Instead, a placeholder is used
+      // and replaced in the @bibliography/entry function.
       return `<mixed-citation publication-type="%%TYPE%%">${str}</mixed-citation>`
     },
     '@display/indent': false,
@@ -71,6 +97,20 @@ export const initJats = () => {
     '@DOI/true': false,
   }
 
+  // This overrides how a person name is rendered and wraps it in
+  // a <string-name> tag.
+  const name = Citeproc.NameOutput.prototype._renderOnePersonalName
+  Citeproc.NameOutput.prototype._renderOnePersonalName = function (...args) {
+    const blob = name.call(this, ...args)
+    if (blob) {
+      blob.strings.prefix = '<string-name>'
+      blob.strings.suffix = '</string-name>'
+    }
+    return blob
+  }
+
+  // This overrides how the given name of a person is rendered
+  // and wraps it in a <given-names> tag.
   const given = Citeproc.NameOutput.prototype._givenName
   Citeproc.NameOutput.prototype._givenName = function (...args) {
     const info = given.call(this, ...args)
@@ -81,6 +121,8 @@ export const initJats = () => {
     return info
   }
 
+  // This overrides how the family name of a person is rendered
+  // and wraps it in a <surname> tag.
   const family = Citeproc.NameOutput.prototype._familyName
   Citeproc.NameOutput.prototype._familyName = function (...args) {
     const blob = family.call(this, ...args)
@@ -90,22 +132,19 @@ export const initJats = () => {
     }
     return blob
   }
-
-  const name = Citeproc.NameOutput.prototype._renderOnePersonalName
-  Citeproc.NameOutput.prototype._renderOnePersonalName = function (...args) {
-    const blob = name.call(this, ...args)
-    if (blob) {
-      blob.strings.prefix = '<string-name>'
-      blob.strings.suffix = '</string-name>'
-    }
-    return blob
-  }
 }
 
 const namesWrapper = (type: string) => (str: string) =>
   `<person-group person-group-type="${type}">${str}</person-group>`
 
-// not csl.date
+// Even though the CSL data model specifies a date type, citeproc-js processes
+// date fields and replaces their value with an object with the structure:
+// {
+//    year: string
+//    month: string
+//    day: string
+// }
+// see CSL.Engine.prototype.dateParseArray for more details.
 const formatDate = (date) => {
   let output = date.year
   if (date.month) {
@@ -131,7 +170,13 @@ const getPublicationType = (item: BibliographyItemAttrs) => {
 }
 
 const wrappers = {
+  // this is a name field, so other processing is required. See the "initJats"
+  // function for more info.
   author: namesWrapper('author'),
+  // Unlike other date fields, where a formatted date string is wrapped in
+  // a tag with the "iso-8601-date" attribute, the "issued" date components
+  // are individually wrapped in year/month/day tags. For the time being,
+  // only the year component is processed.
   issued: (str: string, item: BibliographyItemAttrs) =>
     str.replace(item.issued.year, `<year>${item.issued.year}</year>`),
   'container-title': (str: string) => `<source>${str}</source>`,
@@ -175,6 +220,8 @@ const wrappers = {
   'number-of-pages': (str: string) => `<size units="pages">${str}</size>`,
   institution: (str: string) => `<institution>${str}</institution>`,
   locator: (str: string) => `<elocation-id>${str}</elocation-id>`,
+  // this is a name field, so other processing is required. See the "initJats"
+  // function for more info.
   editor: namesWrapper('editor'),
   accessed: (str: string, item: BibliographyItemAttrs) =>
     `<date-in-citation content-type="access-date" iso-8601-date="${formatDate(item.accessed)}">${str}</date-in-citation>`,
@@ -185,6 +232,11 @@ const wrappers = {
     `<ext-link ext-link-type="uri" xlink:href="${str}">${str}</ext-link>`,
 }
 
+/**
+ * A function that formats the CSL variables into JATS. This is a simple operation
+ * in most cases: the passed string is wrapped with the appropriate tag
+ * as is. However, some variables require special handling.
+ */
 export const jatsVariableWrapper: Citeproc.VariableWrapper = (
   params,
   pre,
