@@ -134,6 +134,13 @@ export const moveAbstracts = (
     removeNodeFromParent(abstract)
     group.appendChild(sec)
   })
+  const transAbstractsSection = doc.querySelectorAll(
+    'front > article-meta > trans-abstract'
+  )
+  transAbstractsSection.forEach((transAbstract) => {
+    removeNodeFromParent(transAbstract)
+    group.appendChild(transAbstract)
+  })
 }
 
 export const moveHeroImage = (doc: Document) => {
@@ -293,7 +300,6 @@ const createAbstractSection = (
   createElement: CreateElement
 ) => {
   const abstractType = abstract.getAttribute('abstract-type')
-
   const section = createElement('sec')
   const sectionType = abstractType ? `abstract-${abstractType}` : 'abstract'
   section.setAttribute('sec-type', sectionType)

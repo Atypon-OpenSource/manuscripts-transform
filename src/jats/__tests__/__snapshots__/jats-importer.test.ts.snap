@@ -31997,6 +31997,30 @@ Object {
           ],
           "type": "section",
         },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPSection:test",
+            "lang": "",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "test betamony",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "trans_abstract",
+        },
       ],
       "type": "abstracts",
     },

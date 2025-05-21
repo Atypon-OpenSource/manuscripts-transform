@@ -87,25 +87,15 @@ const normalizeID = (id: string) => id.replace(/:/g, '_')
 const parser = ProsemirrorDOMParser.fromSchema(schema)
 // siblings from https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/article-meta.html
 const insertAbstractNode = (articleMeta: Element, abstractNode: Element) => {
-  const siblings = [
-    'kwd-group',
-    'funding-group',
-    'support-group',
-    'conference',
-    'counts',
-    'custom-meta-group',
-  ]
+  const insertBeforeElement = articleMeta.querySelector(
+    'kwd-group, funding-group, support-group, conference, counts, custom-meta-group'
+  )
 
-  for (const sibling of siblings) {
-    const siblingNode = articleMeta.querySelector(`:scope > ${sibling}`)
-
-    if (siblingNode) {
-      articleMeta.insertBefore(abstractNode, siblingNode)
-      return
-    }
+  if (insertBeforeElement) {
+    articleMeta.insertBefore(abstractNode, insertBeforeElement)
+  } else {
+    articleMeta.appendChild(abstractNode)
   }
-
-  articleMeta.appendChild(abstractNode)
 }
 
 export const createCounter = () => {
@@ -894,6 +884,15 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
+      trans_abstract: (node) => {
+        const attrs: { [key: string]: string } = {
+          id: normalizeID(node.attrs.id),
+        }
+        if (node.attrs.lang) {
+          attrs['xml:lang'] = node.attrs.category
+        }
+        return ['trans-abstract', attrs, 0]
+      },
       hero_image: () => '',
       alt_text: (node) => {
         if (node.textContent) {
@@ -1988,7 +1987,7 @@ export class JATSExporter {
     const container = body.querySelector(':scope > sec[sec-type="abstracts"]')
     const abstractsNode = this.getFirstChildOfType(schema.nodes.abstracts)
     const abstractCategories = this.getAbstractCategories(abstractsNode)
-
+    const articleMeta = front.querySelector(':scope > article-meta') as Element //we're sure there's an article meta(being created in buildFront), this is just for type safety
     const abstractSections = this.getAbstractSections(
       container,
       body,
@@ -1998,6 +1997,11 @@ export class JATSExporter {
     if (abstractSections.length) {
       this.processAbstractSections(abstractSections, front)
     }
+
+    const transAbstracts = body.querySelectorAll(':scope > trans-abstract')
+    transAbstracts.forEach((transAbstract) => {
+      insertAbstractNode(articleMeta, transAbstract)
+    })
 
     if (container) {
       body.removeChild(container)

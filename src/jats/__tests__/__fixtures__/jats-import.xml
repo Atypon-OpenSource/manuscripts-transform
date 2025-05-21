@@ -187,6 +187,9 @@
           of Gd, Tb, Dy, Ho, Er, Tm, Yb, and Lu, with coverage of the literature through the
           middle of 2008.</p>
       </abstract>
+      <trans-abstract xml:lang="fr">
+        <p>test betamony</p>
+      </trans-abstract>
       <kwd-group kwd-group-type="author">
         <title>KEYWORDS &#x2028;</title>
         <kwd>secondary prevention</kwd>
@@ -1527,7 +1530,7 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
   <floats-group>
     <graphic content-type="leading" xlink:href="fig1.png">
       <alt-text>example of alt text for hero-image</alt-text>
-      <long-desc>example of long desc for hero image</long-desc>  
+      <long-desc>example of long desc for hero image</long-desc>
     </graphic>
   </floats-group>
 </article>
