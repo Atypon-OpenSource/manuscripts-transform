@@ -46,18 +46,6 @@ declare module 'citeproc' {
     variableWrapper?: VariableWrapper
   }
 
-  interface BibliographyMetadata {
-    maxoffset: number
-    entryspacing: number
-    linespacing: number
-    hangingindent: boolean
-    ['second-field-align']: boolean
-    bibstart: string
-    bibend: string
-    bibliography_errors: string[]
-    entry_ids: string[]
-  }
-
   type Bibliography = string[]
 
   export class Engine {
@@ -67,10 +55,6 @@ declare module 'citeproc' {
       lang?: string,
       forceLang?: boolean
     )
-
-    public updateItems(idList: Array<string | number>): void
-
-    public updateUncitedItems(idList: Array<string | number>): void
 
     /**
      * Rebuilds the processor from scratch, based on a cached list of
@@ -115,25 +99,4 @@ declare module 'citeproc' {
 
     public setOutputFormat(format: string): void
   }
-
-  export function getLocaleNames(
-    style: string | Record<string, unknown>,
-    preferredLocale: string
-  ): string[]
-
-  type Locale = Record<string, unknown>
-
-  type Node = {
-    name: string
-    attrs: Record<string, unknown>
-    children: Node[]
-  }
-
-  export class XmlJSON {
-    constructor(dataObj: string | Record<string, unknown>)
-    dataObj: Record<string, unknown>
-    getNodesByName: (data: unknown, name: string) => Node[]
-  }
-
-  export function setupXml(style: string | Record<string, unknown>): XmlJSON
 }

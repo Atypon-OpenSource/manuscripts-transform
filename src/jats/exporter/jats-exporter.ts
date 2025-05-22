@@ -648,6 +648,7 @@ export class JATSExporter {
     // move ref-list from body to back
     back.appendChild(refList)
     const parser = new DOMParser()
+    //eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, bibliography] = this.engine.makeBibliography()
     for (let i = 0; i < bibliography.length; i++) {
       const item = `<template xmlns:xlink="${XLINK_NAMESPACE}">${bibliography[i]}</template>`

@@ -18,7 +18,7 @@ import Citeproc from 'citeproc'
 import { buildCiteprocCitation } from '../../lib/citeproc'
 import { BibliographyItemAttrs } from '../../schema'
 import { initJats, jatsVariableWrapper } from '../exporter/citeproc'
-import {ama, chicago, DEFAULT_CSL_OPTIONS} from './citations'
+import { ama, chicago, DEFAULT_CSL_OPTIONS } from './citations'
 
 const bib1: BibliographyItemAttrs = {
   id: 'bib1',
@@ -181,6 +181,7 @@ describe('Export formatted references', () => {
     const citationTexts = engine.rebuildProcessorState(citations)
     const [meta, bibliography] = engine.makeBibliography()
 
+    //eslint-disable-next-line @typescript-eslint/no-unused-vars
     for (const [id, _, text] of citationTexts) {
       expect(text).toMatchSnapshot(id)
     }
