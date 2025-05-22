@@ -143,9 +143,9 @@ const namesWrapper = (type: string) => (str: string) =>
 // Even though the CSL data model specifies a date type, citeproc-js processes
 // date fields and replaces their value with an object with the structure:
 // {
-//    year: string
-//    month: string
-//    day: string
+//    year: number
+//    month: number
+//    day: number
 // }
 // see CSL.Engine.prototype.dateParseArray for more details.
 const formatDate = (date) => {
