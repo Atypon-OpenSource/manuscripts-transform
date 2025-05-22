@@ -151,9 +151,9 @@ const namesWrapper = (type: string) => (str: string) =>
 const formatDate = (date) => {
   let output = date.year
   if (date.month) {
-    output += '-' + date.month
+    output += '-' + String(date.month).padStart(2, '0')
     if (date.day) {
-      output += '-' + date.day
+      output += '-' + String(date.day).padStart(2, '0')
     }
   }
   return output

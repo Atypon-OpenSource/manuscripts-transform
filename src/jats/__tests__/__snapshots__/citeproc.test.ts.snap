@@ -20,7 +20,7 @@ exports[`Export formatted references Export references in AMA style: bib5 1`] = 
 
 exports[`Export formatted references Export references in AMA style: bib5-citation 1`] = `"<sup>5</sup>"`;
 
-exports[`Export formatted references Export references in AMA style: bib6 1`] = `"<ref id=\\"bib6\\"><label>6. </label><mixed-citation publication-type=\\"page\\"><person-group person-group-type=\\"author\\"><string-name><surname>Jones</surname> <given-names>S</given-names></string-name></person-group>. <part-title>Big Data Trends in 2023</part-title>. <source>Data Science Blog</source>. <ext-link ext-link-type=\\"uri\\" xlink:href=\\"https://www.datascienceblog.com/big-data-2023\\">https://www.datascienceblog.com/big-data-2023</ext-link>. Published <year>2023</year>. Accessed <date-in-citation content-type=\\"access-date\\" iso-8601-date=\\"2024-2-15\\">February 15, 2024</date-in-citation>.</mixed-citation></ref>"`;
+exports[`Export formatted references Export references in AMA style: bib6 1`] = `"<ref id=\\"bib6\\"><label>6. </label><mixed-citation publication-type=\\"page\\"><person-group person-group-type=\\"author\\"><string-name><surname>Jones</surname> <given-names>S</given-names></string-name></person-group>. <part-title>Big Data Trends in 2023</part-title>. <source>Data Science Blog</source>. <ext-link ext-link-type=\\"uri\\" xlink:href=\\"https://www.datascienceblog.com/big-data-2023\\">https://www.datascienceblog.com/big-data-2023</ext-link>. Published <year>2023</year>. Accessed <date-in-citation content-type=\\"access-date\\" iso-8601-date=\\"2024-02-15\\">February 15, 2024</date-in-citation>.</mixed-citation></ref>"`;
 
 exports[`Export formatted references Export references in AMA style: bib6-citation 1`] = `"<sup>6</sup>"`;
 
