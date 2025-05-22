@@ -21,7 +21,7 @@ import { ManuscriptNode } from '../types'
 export interface CitationAttrs {
   id: string
   rids: string[]
-  selectedText: string
+  selectedText?: string
 }
 
 export interface CitationNode extends ManuscriptNode {

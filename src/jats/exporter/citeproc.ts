@@ -17,7 +17,7 @@
 
 import Citeproc from 'citeproc'
 
-import { BibliographyItemAttrs } from '../schema'
+import { BibliographyItemAttrs } from '../../schema'
 
 const normalizeID = (id: string) => id.replace(/:/g, '_')
 const labelOnly = /^<label>.+<\/label>$/
@@ -101,8 +101,9 @@ export const initJats = () => {
   // a <string-name> tag.
   const name = Citeproc.NameOutput.prototype._renderOnePersonalName
   Citeproc.NameOutput.prototype._renderOnePersonalName = function (...args) {
+    const area = this.state.tmp.area
     const blob = name.call(this, ...args)
-    if (blob) {
+    if (blob && area === 'bibliography') {
       blob.strings.prefix = '<string-name>'
       blob.strings.suffix = '</string-name>'
     }
@@ -113,8 +114,9 @@ export const initJats = () => {
   // and wraps it in a <given-names> tag.
   const given = Citeproc.NameOutput.prototype._givenName
   Citeproc.NameOutput.prototype._givenName = function (...args) {
+    const area = this.state.tmp.area
     const info = given.call(this, ...args)
-    if (info.blob) {
+    if (info.blob && area === 'bibliography') {
       info.blob.strings.prefix = '<given-names>'
       info.blob.strings.suffix = '</given-names>'
     }
@@ -125,8 +127,9 @@ export const initJats = () => {
   // and wraps it in a <surname> tag.
   const family = Citeproc.NameOutput.prototype._familyName
   Citeproc.NameOutput.prototype._familyName = function (...args) {
+    const area = this.state.tmp.area
     const blob = family.call(this, ...args)
-    if (blob) {
+    if (blob && area === 'bibliography') {
       blob.strings.prefix = '<surname>'
       blob.strings.suffix = '</surname>'
     }

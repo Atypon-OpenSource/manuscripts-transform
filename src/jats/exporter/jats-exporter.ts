@@ -26,7 +26,6 @@ import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { buildCiteprocCitation } from '../../lib/citeproc'
-import { initJats, jatsVariableWrapper } from '../../lib/citeproc-jats'
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML } from '../../lib/html'
 import {
@@ -53,6 +52,7 @@ import {
 } from '../../schema'
 import { isExecutableNodeType, isNodeType } from '../../transformer'
 import { IDGenerator } from '../types'
+import { initJats, jatsVariableWrapper } from './citeproc'
 import { selectVersionIds, Version } from './jats-versions'
 import { buildTargets, Target } from './labels'
 

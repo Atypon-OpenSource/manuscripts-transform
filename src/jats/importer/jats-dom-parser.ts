@@ -222,7 +222,11 @@ export class JATSDOMParser {
 
   private getNameContent(element: Element, type: string) {
     const query = `person-group[person-group-type="${type}"] > *`
-    return [...element.querySelectorAll(query)].map((node) => ({
+    const groups = [...element.querySelectorAll(query)]
+    if (!groups.length) {
+      return
+    }
+    return groups.map((node) => ({
       given: getTrimmedTextContent(node, 'given-names'),
       family: getTrimmedTextContent(node, 'surname'),
       literal:
@@ -263,7 +267,7 @@ export class JATSDOMParser {
     const month = getTrimmedTextContent(element, ':scope > * > month')
     const day = getTrimmedTextContent(element, ':scope > * > day')
     return {
-      'date-parts': [[year, month, day]],
+      'date-parts': [[year, month ?? '', day ?? '']],
     }
   }
 
