@@ -16,6 +16,7 @@
 import { BibliographicName } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
+import { CreditVocabTerm } from '../../lib/credit-roles'
 import { ManuscriptNode } from '../types'
 
 export type ContributorCorresp = {
@@ -26,6 +27,12 @@ export type ContributorFootnote = {
   noteID: string
   noteLabel: string
 }
+
+export type CRediTRole = {
+  vocabTerm: CreditVocabTerm
+  degreeContribution?: string
+}
+
 interface Attrs {
   id: string
   role: string
@@ -41,6 +48,7 @@ interface Attrs {
   isJointContributor: boolean
   footnote: ContributorFootnote[]
   prefix: string
+  CRediTRoles?: CRediTRole[]
 }
 
 export interface ContributorNode extends ManuscriptNode {
@@ -63,6 +71,7 @@ export const contributor: NodeSpec = {
     isJointContributor: { default: undefined },
     ORCIDIdentifier: { default: undefined },
     priority: { default: undefined },
+    CRediTRoles: { default: [] },
     dataTracked: { default: null },
     contents: { default: '' },
     prefix: { default: '' },

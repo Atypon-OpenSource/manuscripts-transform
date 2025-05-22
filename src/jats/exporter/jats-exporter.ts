@@ -26,6 +26,7 @@ import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { buildCiteprocCitation } from '../../lib/citeproc'
+import { CRediTRoleUrls } from '../../lib/credit-roles'
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML } from '../../lib/html'
 import {
@@ -1396,6 +1397,22 @@ export class JATSExporter {
             })
             xref.appendChild(createFootNotesLabels(corresp.correspLabel))
             contrib.appendChild(xref)
+          })
+        }
+
+        if (contributor.attrs.CRediTRoles) {
+          contributor.attrs.CRediTRoles.forEach((cr) => {
+            const role = this.createElement('role')
+            const creditUrl = CRediTRoleUrls.get(cr.vocabTerm)
+            if (creditUrl) {
+              role.setAttribute('vocab-identifier', 'http://credit.niso.org/')
+              role.setAttribute('vocab', 'CRediT')
+              role.setAttribute('vocab-term', cr.vocabTerm)
+              role.setAttribute('vocab-term-identifier', creditUrl)
+              role.innerHTML = cr.vocabTerm
+            }
+
+            contrib.appendChild(role)
           })
         }
         contribGroup.appendChild(contrib)

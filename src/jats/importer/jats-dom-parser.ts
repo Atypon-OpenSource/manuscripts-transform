@@ -19,6 +19,7 @@ import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
 import {
   dateToTimestamp,
+  getCRediTRoleRole,
   getHTMLContent,
   getTrimmedTextContent,
 } from '../../lib/utils'
@@ -538,7 +539,7 @@ export class JATSDOMParser {
         }
 
         return {
-          id: element.getAttribute('id'),
+          id: element.getAttribute('id') || undefined,
           role: getTrimmedTextContent(element, 'role'),
           affiliations,
           corresp,
@@ -555,6 +556,7 @@ export class JATSDOMParser {
             element,
             'contrib-id[contrib-id-type="orcid"]'
           ),
+          CRediTRoles: getCRediTRoleRole(element),
           priority: this.parsePriority(element.getAttribute('priority')),
           email: getTrimmedTextContent(element, 'email') || '',
           prefix: getTrimmedTextContent(element, 'prefix'),
