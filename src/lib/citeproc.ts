@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2025 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,15 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export * from './errors'
-export { getVersion } from './getVersion'
-export * from './jats'
-export * from './jats/types'
-export * from './lib/footnotes'
-export * from './lib/utils'
-export * from './lib/section-categories'
-export * from './lib/citeproc'
-export * from './schema'
-export { migrateFor } from './schema/migration/migrate'
-export * from './transformer'
-export * from './types'
+import * as Citeproc from 'citeproc'
+
+import { CitationAttrs } from '../schema'
+
+export const buildCiteprocCitation = (
+  citation: CitationAttrs
+): Citeproc.Citation => ({
+  citationID: citation.id,
+  citationItems: citation.rids.map((rid) => ({
+    id: rid,
+  })),
+  properties: {
+    noteIndex: 0,
+  },
+})

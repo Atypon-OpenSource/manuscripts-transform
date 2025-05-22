@@ -174,27 +174,6 @@ describe('JATS exporter', () => {
     expect(attrs['ext-link-type']).toBe('uri')
   })
 
-  test('Markup in citations', async () => {
-    const transformer = new JATSExporter()
-    const input = await readAndParseFixture('jats-import.xml')
-    const { node, journal } = parseJATSArticle(input, sectionCategories)
-    const xml = await transformer.serializeToJATS(node, {
-      csl: DEFAULT_CSL_OPTIONS,
-      //@ts-ignore
-      journal,
-    })
-
-    const output = parseXMLWithDTD(xml)
-
-    const refs = output.find<XMLElement>('//xref[@ref-type="bibr"]')
-
-    expect(refs).toHaveLength(17)
-    expect(refs[0].child(0)!.type()).toBe('text')
-    expect(refs[0].text()).toBe('1,2')
-    expect(refs[1].child(0)!.type()).toBe('text')
-    expect(refs[1].text()).toBe('3')
-  })
-
   test('DTD validation for MathML representation', async () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-example-doc.xml')

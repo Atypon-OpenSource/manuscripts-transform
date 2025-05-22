@@ -19,7 +19,7 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface CommentAttrs {
   id: string
   contents: string
   target: string
@@ -30,7 +30,7 @@ interface Attrs {
 }
 
 export interface CommentNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: CommentAttrs
 }
 
 export const comment: NodeSpec = {
@@ -44,3 +44,6 @@ export const comment: NodeSpec = {
     originalText: { default: '' },
   },
 }
+
+export const isCommentNode = (node: ManuscriptNode): node is CommentNode =>
+  node.type === node.type.schema.nodes.comment

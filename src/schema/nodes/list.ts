@@ -18,7 +18,7 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export type JatsStyleType =
+export type ListStyleType =
   | 'simple'
   | 'bullet'
   | 'order'
@@ -26,57 +26,14 @@ export type JatsStyleType =
   | 'alpha-upper'
   | 'roman-lower'
   | 'roman-upper'
-interface ListTypeInfo {
-  type: 'ul' | 'ol'
-  style: string
-}
 
-export const getJatsListType = (cssStyle: string | null) => {
-  switch (cssStyle) {
-    case 'disc':
-      return 'bullet'
-    case 'decimal':
-      return 'order'
-    case 'lower-alpha':
-      return 'alpha-lower'
-    case 'upper-alpha':
-      return 'alpha-upper'
-    case 'lower-roman':
-      return 'roman-lower'
-    case 'upper-roman':
-      return 'roman-upper'
-    case 'simple':
-      return 'none'
-    default:
-      return 'none'
-  }
-}
-
-export const getListType = (style: JatsStyleType): ListTypeInfo => {
-  switch (style) {
-    case 'bullet':
-      return { type: 'ul', style: 'disc' }
-    case 'order':
-      return { type: 'ul', style: 'decimal' }
-    case 'alpha-lower':
-      return { type: 'ul', style: 'lower-alpha' }
-    case 'alpha-upper':
-      return { type: 'ul', style: 'upper-alpha' }
-    case 'roman-lower':
-      return { type: 'ul', style: 'lower-roman' }
-    case 'roman-upper':
-      return { type: 'ul', style: 'upper-roman' }
-    case 'simple':
-    default:
-      return { type: 'ul', style: 'none' }
-  }
+export interface ListAttrs {
+  id: string
+  listStyleType: ListStyleType
 }
 
 export interface ListNode extends ManuscriptNode {
-  attrs: {
-    id: string
-    listStyleType: string
-  }
+  attrs: ListAttrs
 }
 
 export const list: NodeSpec = {
@@ -84,8 +41,8 @@ export const list: NodeSpec = {
   group: 'block list element',
   attrs: {
     id: { default: '' },
-    dataTracked: { default: null },
     listStyleType: { default: null },
+    dataTracked: { default: null },
   },
   parseDOM: [
     {
@@ -113,9 +70,8 @@ export const list: NodeSpec = {
   ],
   toDOM: (node) => {
     const list = node as ListNode
-    const { type } = getListType(list.attrs.listStyleType as JatsStyleType)
     return [
-      type,
+      'ul',
       {
         id: list.attrs.id,
         'list-type': list.attrs.listStyleType,

@@ -18,14 +18,14 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface CitationAttrs {
   id: string
   rids: string[]
-  selectedText: string
+  selectedText?: string
 }
 
 export interface CitationNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: CitationAttrs
 }
 
 export const citation: NodeSpec = {
