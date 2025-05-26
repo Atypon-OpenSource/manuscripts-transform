@@ -680,6 +680,8 @@ export class JATSExporter {
 
     const bibliographyItems = this.getChildrenOfType(
       schema.nodes.bibliography_item
+    ).concat(
+      this.getChildrenOfType(schema.nodes.unstructured_bibliography_item)
     )
     const [meta] = this.citationProvider.makeBibliography()
     for (const [id] of meta.entry_ids) {
@@ -691,7 +693,16 @@ export class JATSExporter {
       ref.setAttribute('id', normalizeID(id))
       const getPublicationType = (pubType?: string) =>
         publicationTypeToJats[pubType ?? ''] || pubType || 'journal'
-
+      if (
+        bibliographyItem.type === schema.nodes.unstructured_bibliography_item
+      ) {
+        const mixedCitation = this.createElement('mixed-citation')
+        mixedCitation.setAttribute('specific-use', 'unstructured-citation')
+        mixedCitation.textContent = bibliographyItem.textContent
+        ref.appendChild(mixedCitation)
+        refList.appendChild(ref)
+        continue
+      }
       // in case a literal was found in a bibItem the rest of the attributes are ignored
       // since the literal att should only be populated when the mixed-citation fails to parse
 
@@ -975,6 +986,7 @@ export class JATSExporter {
       attribution: () => ['attrib', 0],
       bibliography_element: () => '',
       bibliography_item: () => '',
+      unstructured_bibliography_item: () => '',
       comments: () => '',
       keyword_group: () => '',
       body: () => ['body', 0],

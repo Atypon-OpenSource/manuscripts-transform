@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2025 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,38 +16,30 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
+import { AltTitleAttrs, schema } from '../index'
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface UnstructuredBibliographyItemAttrs {
   id: string
+  type?: string
 }
 
-export interface BibliographyElementNode extends ManuscriptNode {
-  attrs: Attrs
+export interface UnstructuredBibliographyItemNode extends ManuscriptNode {
+  attrs: AltTitleAttrs
 }
 
-export const bibliographyElement: NodeSpec = {
-  content: '(bibliography_item | unstructured_bibliography_item)*',
+export const unstructuredBibliographyItem: NodeSpec = {
+  content: 'inline*',
   attrs: {
     id: { default: '' },
-    contents: { default: '' },
-    dataTracked: { default: null },
+    type: { default: undefined },
   },
   selectable: false,
-  group: 'block element',
-  parseDOM: [
-    {
-      tag: 'div.csl-bib-body',
-      getAttrs: () => {
-        return {
-          contents: '',
-        }
-      },
-    },
-  ],
-  toDOM: () => {
-    const dom = document.createElement('div')
-    dom.className = 'csl-bib-body'
-    return dom
-  },
+  group: 'block',
+  toDOM: () => ['div', { class: 'unstructured-bibliography-item' }, 0],
 }
+
+export const isUnstructuredBibliographyItem = (
+  node: ManuscriptNode
+): node is UnstructuredBibliographyItemNode =>
+  node.type === schema.nodes.unstructured_bibliography_item

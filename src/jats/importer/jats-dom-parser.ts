@@ -1014,6 +1014,30 @@ export class JATSDOMParser {
     },
     {
       tag: 'ref',
+      node: 'unstructured_bibliography_item',
+      consuming: false,
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        const unstructuredRef = element.querySelector(
+          'mixed-citation[specific-use="unstructured-citation"]'
+        )
+        if (!unstructuredRef) {
+          return false
+        }
+        return {
+          id: element.id,
+          type: this.choosePublicationType(element),
+        }
+      },
+      getContent: (node) => {
+        const element = node as HTMLElement
+        return Fragment.from([
+          this.schema.text(getTrimmedTextContent(element) || ''),
+        ]) as Fragment
+      },
+    },
+    {
+      tag: 'ref',
       context: 'bibliography_element/',
       node: 'bibliography_item',
       getAttrs: (node) => this.parseRef(node as Element),
