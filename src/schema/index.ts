@@ -102,7 +102,6 @@ import { tableElement } from './nodes/table_element'
 import { tableElementFooter } from './nodes/table_element_footer'
 import { text, textBlock } from './nodes/text'
 import { title } from './nodes/title'
-import { unstructuredBibliographyItem } from './nodes/unstructured_bibliography_item'
 import { Marks, Nodes } from './types'
 
 export * from './groups'
@@ -176,7 +175,6 @@ export * from './nodes/alt_text'
 export * from './nodes/long_desc'
 export * from './nodes/quote_image'
 export * from './nodes/hero_image'
-export * from './nodes/unstructured_bibliography_item'
 
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -273,6 +271,5 @@ export const schema = new Schema<Nodes, Marks>({
     long_desc: longDesc,
     quote_image: quoteImage,
     hero_image: heroImage,
-    unstructured_bibliography_item: unstructuredBibliographyItem,
   },
 })

@@ -129,7 +129,6 @@ export type Nodes =
   | 'alt_titles'
   | 'long_desc'
   | 'hero_image'
-  | 'unstructured_bibliography_item'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

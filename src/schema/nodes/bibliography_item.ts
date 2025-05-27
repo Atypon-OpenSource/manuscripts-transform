@@ -17,7 +17,6 @@
 import { BibliographicDate, BibliographicName } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
-import { schema } from '../index'
 import { ManuscriptNode } from '../types'
 
 export interface BibliographyItemAttrs {
@@ -49,7 +48,6 @@ export interface BibliographyItemAttrs {
   DOI?: string
   comment?: string
 }
-
 export type BibliographyItemType =
   | 'article-journal' //journal
   | 'book'
@@ -110,7 +108,3 @@ export const bibliographyItem: NodeSpec = {
   selectable: false,
   group: 'block',
 }
-
-export const isBibliographyItemNode = (
-  node: ManuscriptNode
-): node is BibliographyItemNode => node.type === schema.nodes.bibliography_item

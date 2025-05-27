@@ -1527,7 +1527,7 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
   <floats-group>
     <graphic content-type="leading" xlink:href="fig1.png">
       <alt-text>example of alt text for hero-image</alt-text>
-      <long-desc>example of long desc for hero image</long-desc>
+      <long-desc>example of long desc for hero image</long-desc>  
     </graphic>
   </floats-group>
 </article>
