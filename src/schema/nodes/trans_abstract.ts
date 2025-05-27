@@ -19,7 +19,7 @@ import { NodeSpec } from 'prosemirror-model'
 import { schema } from '../index'
 import type { ManuscriptNode } from '../types'
 
-interface TransAbstractAttrs {
+export interface TransAbstractAttrs {
   id: string
   lang: string
 }

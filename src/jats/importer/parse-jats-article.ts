@@ -91,7 +91,6 @@ export const parseJATSArticle = (
 ) => {
   const journal = parseJournal(doc)
   processJATS(doc, sectionCategories)
-  const schema2 = schema
   const node = new JATSDOMParser(sectionCategories, schema).parse(doc)
     .firstChild as ActualManuscriptNode
   if (!node) {
