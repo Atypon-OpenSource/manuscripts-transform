@@ -284,15 +284,9 @@ export class JATSDOMParser {
 
   private parseRefLiteral = (element: Element) => {
     const mixedCitation = element.querySelector('mixed-citation')
-    const hasDirectTextNodeWithLetters = Array.from(
-      mixedCitation?.childNodes ?? []
-    ).some(
-      (node) =>
-        node.nodeType === Node.TEXT_NODE &&
-        node.textContent?.match(/[A-Za-z]+/g)
-    )
-
-    if (hasDirectTextNodeWithLetters) {
+    if (
+      mixedCitation?.getAttribute('specific-use') === 'unstructured-citation'
+    ) {
       return getTrimmedTextContent(mixedCitation)
     }
   }

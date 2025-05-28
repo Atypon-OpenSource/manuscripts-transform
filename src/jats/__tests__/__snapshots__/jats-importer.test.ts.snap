@@ -57166,7 +57166,7 @@ Object {
                     "institution": undefined,
                     "issue": undefined,
                     "issued": undefined,
-                    "literal": "test-authorJintest reference which contains unparsed text",
+                    "literal": "test reference which contains unparsed text",
                     "locator": undefined,
                     "number-of-pages": undefined,
                     "page": undefined,

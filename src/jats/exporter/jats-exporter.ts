@@ -702,6 +702,7 @@ export class JATSExporter {
           bibliographyItem.attrs.literal,
           {
             'publication-type': getPublicationType(bibliographyItem.attrs.type),
+            'specific-use': 'unstructured-citation',
           }
         )
       } else {
