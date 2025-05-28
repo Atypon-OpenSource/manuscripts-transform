@@ -15,11 +15,11 @@
  */
 
 import { ObjectTypes } from '@manuscripts/json-schema'
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+import { getTrimmedTextContent } from '../utills'
 
-interface Attrs {
+export interface ListingAttrs {
   id: string
   contents: string
   language: string
@@ -28,8 +28,8 @@ interface Attrs {
   isExecuting: boolean
 }
 
-export interface ListingNode extends ManuscriptNode {
-  attrs: Attrs
+export interface ListingNode extends Node {
+  attrs: ListingAttrs
 }
 
 export const listing: NodeSpec = {
@@ -74,6 +74,20 @@ export const listing: NodeSpec = {
       },
       priority: 90,
     },
+    {
+      tag: 'code',
+      node: 'listing',
+      context: 'listing_element/',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+          language: element.getAttribute('language') ?? '',
+          contents: getTrimmedTextContent(element),
+        }
+      },
+    },
   ],
   toDOM: (node) => {
     const listingNode = node as ListingNode
@@ -89,5 +103,5 @@ export const listing: NodeSpec = {
   },
 }
 
-export const isListingNode = (node: ManuscriptNode): node is ListingNode =>
+export const isListingNode = (node: Node): node is ListingNode =>
   node.type === node.type.schema.nodes.listing

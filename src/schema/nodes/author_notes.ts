@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { Node, NodeSpec } from 'prosemirror-model'
 
 interface Attrs {
   id: string
 }
 
-export interface AuthorNotesNode extends ManuscriptNode {
+export interface AuthorNotesNode extends Node {
   attrs: Attrs
 }
 
@@ -33,6 +31,17 @@ export const authorNotes: NodeSpec = {
   },
   content: 'section_title (corresp | footnote | paragraph)+',
   group: 'block element',
+  parseDOM: [
+    {
+      tag: 'author-notes',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+        }
+      },
+    },
+  ],
   toDOM: (node) => [
     'div',
     {
@@ -42,3 +51,5 @@ export const authorNotes: NodeSpec = {
     0,
   ],
 }
+export const isAuthorNotesNode = (node: Node): node is AuthorNotesNode =>
+  node.type === node.type.schema.nodes.author_notes

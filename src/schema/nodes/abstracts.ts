@@ -14,16 +14,30 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
+export interface AbstractsAttrs {
+  id: string
+}
+
+export interface AbstractsNode extends Node {
+  attrs: AbstractsAttrs
+}
 
 export const abstracts: NodeSpec = {
   content: 'sections*',
   attrs: {
     id: { default: '' },
   },
+  parseDOM: [
+    {
+      tag: 'sec[sec-type="abstracts"]',
+      priority: 100,
+    },
+  ],
   group: 'block',
   toDOM: () => ['div', { class: 'abstracts' }, 0],
 }
+
+export const isAbstractsNode = (node: Node): node is AbstractsNode =>
+  node.type === node.type.schema.nodes.abstracts

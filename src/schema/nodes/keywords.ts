@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface KeywordsAttrs {
   id: string
 }
 
-export interface KeywordsNode extends ManuscriptNode {
-  attrs: Attrs
+export interface KeywordsNode extends Node {
+  attrs: KeywordsAttrs
 }
 
 export const keywords: NodeSpec = {
@@ -37,6 +35,14 @@ export const keywords: NodeSpec = {
   parseDOM: [
     {
       tag: 'div.keywords',
+    },
+    {
+      tag: 'sec[sec-type="keywords"]',
+      priority: 100,
+    },
+    {
+      tag: 'kwd',
+      context: 'keyword_group//',
     },
   ],
   toDOM: (node) => {
@@ -55,5 +61,5 @@ export const keywords: NodeSpec = {
   },
 }
 
-export const isKeywordsNode = (node: ManuscriptNode): node is KeywordsNode =>
+export const isKeywordsNode = (node: Node): node is KeywordsNode =>
   node.type === node.type.schema.nodes.keywords

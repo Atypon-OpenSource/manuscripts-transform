@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-export interface HardBreakNode extends ManuscriptNode {
+export interface HardBreakNode extends Node {
   attrs: Record<string, unknown>
 }
 
@@ -29,8 +27,16 @@ export const hardBreak: NodeSpec = {
   attrs: {
     dataTracked: { default: null },
   },
-  parseDOM: [{ tag: 'br' }],
+  parseDOM: [
+    { tag: 'br' },
+    {
+      tag: 'break',
+    },
+  ],
   toDOM() {
     return ['br']
   },
 }
+
+export const isHardBreakNode = (node: Node): node is HardBreakNode =>
+  node.type === node.type.schema.nodes.hard_break

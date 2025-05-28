@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { Node, NodeSpec } from 'prosemirror-model'
 
 export interface BoxElementAttrs {
   id: string
 }
 
-export interface BoxElementNode extends ManuscriptNode {
+export interface BoxElementNode extends Node {
   attrs: BoxElementAttrs
 }
 
@@ -46,6 +44,21 @@ export const box_element: NodeSpec = {
         return attrs
       },
     },
+    {
+      tag: 'sec[sec-type="box-element"]',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+        }
+      },
+      priority: 100,
+    },
+    {
+      tag: 'boxed-text',
+      ignore: true,
+    },
   ],
   toDOM: (node) => {
     const boxElementNode = node as BoxElementNode
@@ -65,3 +78,6 @@ export const box_element: NodeSpec = {
     ]
   },
 }
+
+export const isBoxElementNode = (node: Node): node is BoxElementNode =>
+  node.type === node.type.schema.nodes.box_element

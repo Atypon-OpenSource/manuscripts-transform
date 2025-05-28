@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-export interface AttributionNode extends ManuscriptNode {
+export interface AttributionNode extends Node {
   attrs: Record<string, unknown>
 }
 
@@ -36,3 +34,5 @@ export const attribution: NodeSpec = {
   ],
   toDOM: () => ['footer', 0],
 }
+export const isAttributionNode = (node: Node): node is AttributionNode =>
+  node.type === node.type.schema.nodes.attribution

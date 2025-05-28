@@ -14,12 +14,15 @@
  * limitations under the License.
  */
 
-import { Contribution } from '@manuscripts/json-schema'
-import { NodeSpec } from 'prosemirror-model'
+import { buildContribution, Contribution } from '@manuscripts/json-schema'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+import { getTrimmedTextContent } from '../utills'
 
-interface Attrs {
+const DEFAULT_PROFILE_ID =
+  'MPUserProfile:0000000000000000000000000000000000000001'
+
+export interface CommentAttrs {
   id: string
   contents: string
   target: string
@@ -29,8 +32,8 @@ interface Attrs {
   originalText?: string
 }
 
-export interface CommentNode extends ManuscriptNode {
-  attrs: Attrs
+export interface CommentNode extends Node {
+  attrs: CommentAttrs
 }
 
 export const comment: NodeSpec = {
@@ -43,4 +46,21 @@ export const comment: NodeSpec = {
     contributions: { default: [] },
     originalText: { default: '' },
   },
+  parseDOM: [
+    {
+      tag: 'comment',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          target: element.getAttribute('target-id'),
+          contents: getTrimmedTextContent(element),
+          contributions: [buildContribution(DEFAULT_PROFILE_ID)],
+        }
+      },
+    },
+  ],
 }
+
+export const isCommentNode = (node: Node): node is CommentNode =>
+  node.type === node.type.schema.nodes.comment

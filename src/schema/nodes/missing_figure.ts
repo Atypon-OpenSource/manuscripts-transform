@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-export interface MissingFigureNode extends ManuscriptNode {
-  attrs: {
-    id: string
-  }
+export interface MissingFigureAttrs {
+  id: string
+}
+export interface MissingFigureNode extends Node {
+  attrs: MissingFigureAttrs
 }
 
 export const missingFigure: NodeSpec = {
@@ -33,15 +32,15 @@ export const missingFigure: NodeSpec = {
   group: 'block',
   parseDOM: [
     {
-      tag: 'figure',
-      context: 'figure_element/',
-      getAttrs: (dom) => {
-        const element = dom as HTMLElement
+      tag: 'graphic[specific-use=MISSING]',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
 
         return {
           id: element.getAttribute('id'),
         }
       },
+      priority: 100,
     },
   ],
   toDOM: (node) => {
@@ -57,3 +56,6 @@ export const missingFigure: NodeSpec = {
     ]
   },
 }
+
+export const isMissingFigureNode = (node: Node): node is MissingFigureNode =>
+  node.type === node.type.schema.nodes.missing_figure

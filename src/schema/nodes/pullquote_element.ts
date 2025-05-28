@@ -15,17 +15,15 @@
  */
 
 import { ObjectTypes } from '@manuscripts/json-schema'
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface PullquoteElementAttrs {
   id: string
   placeholder: string
 }
 
-export interface PullquoteElementNode extends ManuscriptNode {
-  attrs: Attrs
+export interface PullquoteElementNode extends Node {
+  attrs: PullquoteElementAttrs
 }
 
 export const pullquoteElement: NodeSpec = {
@@ -43,7 +41,7 @@ export const pullquoteElement: NodeSpec = {
       getAttrs: (aside) => {
         const dom = aside as HTMLElement
 
-        const attrs: Partial<Attrs> = {
+        const attrs: Partial<PullquoteElementAttrs> = {
           id: dom.getAttribute('id') || undefined,
         }
 
@@ -54,6 +52,16 @@ export const pullquoteElement: NodeSpec = {
         }
 
         return attrs
+      },
+    },
+    {
+      tag: 'disp-quote',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+        }
       },
     },
   ],
@@ -78,7 +86,5 @@ export const pullquoteElement: NodeSpec = {
   },
 }
 
-export const isPullquoteElement = (
-  node: ManuscriptNode
-): node is PullquoteElementNode =>
+export const isPullquoteElement = (node: Node): node is PullquoteElementNode =>
   node.type === node.type.schema.nodes.pullquote_element

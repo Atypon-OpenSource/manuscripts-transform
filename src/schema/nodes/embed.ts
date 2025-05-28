@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { Node, NodeSpec } from 'prosemirror-model'
 
 export interface EmbedAttrs {
   id: string
@@ -24,8 +22,9 @@ export interface EmbedAttrs {
   mimetype: string
   mimeSubtype: string
 }
+const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
-export interface EmbedNode extends ManuscriptNode {
+export interface EmbedNode extends Node {
   attrs: EmbedAttrs
 }
 
@@ -40,6 +39,20 @@ export const embed: NodeSpec = {
     longDesc: { default: '' },
   },
   group: 'block element',
+  parseDOM: [
+    {
+      tag: 'media',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          href: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
+          mimetype: element.getAttribute('mimetype'),
+          mimeSubtype: element.getAttribute('mime-subtype'),
+        }
+      },
+    },
+  ],
   toDOM: (node) => {
     return [
       'div',
@@ -51,5 +64,5 @@ export const embed: NodeSpec = {
   },
 }
 
-export const isEmbedNode = (node: ManuscriptNode): node is EmbedNode =>
+export const isEmbedNode = (node: Node): node is EmbedNode =>
   node.type === node.type.schema.nodes.embed

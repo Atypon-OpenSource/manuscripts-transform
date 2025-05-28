@@ -15,7 +15,7 @@
  */
 
 import { NodeSpec } from 'prosemirror-model'
-
+// is this needed?
 export const doc: NodeSpec = {
   content: 'manuscript',
 }

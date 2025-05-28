@@ -28,6 +28,7 @@ import {
   DOMOutputSpec,
   DOMParser as ProsemirrorDOMParser,
   DOMSerializer,
+  Node as ProsemirrorNode,
 } from 'prosemirror-model'
 import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
@@ -46,8 +47,6 @@ import {
   isCitationNode,
   isNodeOfType,
   ManuscriptMark,
-  ManuscriptNode,
-  ManuscriptNodeType,
   Marks,
   Nodes,
   ParagraphNode,
@@ -65,7 +64,7 @@ interface Attrs {
   [key: string]: string
 }
 
-type NodeSpecs = { [key in Nodes]: (node: ManuscriptNode) => DOMOutputSpec }
+type NodeSpecs = { [key in Nodes]: (node: ProsemirrorNode) => DOMOutputSpec }
 
 type MarkSpecs = {
   [key in Marks]: (mark: ManuscriptMark, inline: boolean) => DOMOutputSpec
@@ -131,7 +130,7 @@ const createDefaultIdGenerator = (): IDGenerator => {
   }
 }
 
-const chooseRefType = (type: ManuscriptNodeType): string | undefined => {
+const chooseRefType = (type: NodeType): string | undefined => {
   switch (type) {
     case schema.nodes.figure:
     case schema.nodes.figure_element:
@@ -183,7 +182,7 @@ export class JATSExporter {
   protected footnoteLabels: Map<string, string>
   protected citationTexts: Map<string, string>
   protected citationProvider: CitationProvider
-  protected manuscriptNode: ManuscriptNode
+  protected manuscriptNode: ProsemirrorNode
 
   protected generateCitations() {
     const nodes: CitationNode[] = []
@@ -226,7 +225,7 @@ export class JATSExporter {
     })
   }
 
-  private nodesMap = new Map<NodeType, ManuscriptNode[]>()
+  private nodesMap = new Map<NodeType, ProsemirrorNode[]>()
 
   private populateNodesMap = () => {
     this.manuscriptNode.descendants((node) => {
@@ -237,16 +236,16 @@ export class JATSExporter {
     })
   }
 
-  protected getFirstChildOfType<T extends ManuscriptNode>(
+  protected getFirstChildOfType<T extends ProsemirrorNode>(
     type: NodeType,
-    node?: ManuscriptNode
+    node?: ProsemirrorNode
   ): T | undefined {
     return this.getChildrenOfType<T>(type, node)[0]
   }
 
-  protected getChildrenOfType<T extends ManuscriptNode>(
+  protected getChildrenOfType<T extends ProsemirrorNode>(
     type: NodeType,
-    node?: ManuscriptNode
+    node?: ProsemirrorNode
   ): T[] {
     const nodes = node
       ? findChildrenByType(node, type).map(({ node }) => node)
@@ -255,7 +254,7 @@ export class JATSExporter {
   }
 
   public serializeToJATS = async (
-    manuscriptNode: ManuscriptNode,
+    manuscriptNode: ProsemirrorNode,
     options: ExportOptions
   ): Promise<string> => {
     this.manuscriptNode = manuscriptNode
@@ -1048,7 +1047,6 @@ export class JATSExporter {
 
         return xref
       },
-      doc: () => '',
       equation: (node) => {
         return this.createEquation(node)
       },
@@ -1288,8 +1286,8 @@ export class JATSExporter {
     }
     const processChildNodes = (
       element: HTMLElement,
-      node: ManuscriptNode,
-      contentNodeType: ManuscriptNodeType
+      node: ProsemirrorNode,
+      contentNodeType: NodeType
     ) => {
       node.forEach((childNode) => {
         if (childNode.type === contentNodeType) {
@@ -1303,13 +1301,13 @@ export class JATSExporter {
         }
       })
     }
-    const createElement = (node: ManuscriptNode, nodeName: string) => {
+    const createElement = (node: ProsemirrorNode, nodeName: string) => {
       const element = this.createElement(nodeName)
       element.setAttribute('id', normalizeID(node.attrs.id))
       return element
     }
 
-    const appendLabels = (element: HTMLElement, node: ManuscriptNode) => {
+    const appendLabels = (element: HTMLElement, node: ProsemirrorNode) => {
       if (this.labelTargets) {
         const target = this.labelTargets.get(node.attrs.id)
 
@@ -1320,7 +1318,10 @@ export class JATSExporter {
         }
       }
     }
-    const appendAttributions = (element: HTMLElement, node: ManuscriptNode) => {
+    const appendAttributions = (
+      element: HTMLElement,
+      node: ProsemirrorNode
+    ) => {
       if (node.attrs.attribution) {
         const attribution = this.createElement('attrib')
         attribution.textContent = node.attrs.attribution.literal
@@ -1329,8 +1330,8 @@ export class JATSExporter {
     }
     const appendChildNodeOfType = (
       element: HTMLElement,
-      node: ManuscriptNode,
-      type: ManuscriptNodeType
+      node: ProsemirrorNode,
+      type: NodeType
     ) => {
       const childNode = this.getFirstChildOfType(type, node)
       if (childNode) {
@@ -1338,7 +1339,7 @@ export class JATSExporter {
       }
     }
 
-    const appendTable = (element: HTMLElement, node: ManuscriptNode) => {
+    const appendTable = (element: HTMLElement, node: ProsemirrorNode) => {
       const tableNode = this.getFirstChildOfType(schema.nodes.table, node)
       const colGroupNode = this.getFirstChildOfType(
         schema.nodes.table_colgroup,
@@ -1363,7 +1364,7 @@ export class JATSExporter {
 
       element.appendChild(table)
     }
-    const createBoxElement = (node: ManuscriptNode) => {
+    const createBoxElement = (node: ProsemirrorNode) => {
       const element = createElement(node, 'boxed-text')
       appendLabels(element, node)
       const child = node.firstChild
@@ -1391,7 +1392,7 @@ export class JATSExporter {
       })
     }
 
-    const createImage = (node: ManuscriptNode) => {
+    const createImage = (node: ProsemirrorNode) => {
       const graphicNode = node.content.firstChild
       if (graphicNode) {
         const graphicElement = createGraphic(graphicNode)
@@ -1402,7 +1403,7 @@ export class JATSExporter {
       return ''
     }
 
-    const createGraphic = (node: ManuscriptNode) => {
+    const createGraphic = (node: ProsemirrorNode) => {
       const graphic = this.createElement('graphic')
       graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
       if (
@@ -1415,8 +1416,8 @@ export class JATSExporter {
       return graphic
     }
     const createFigureElement = (
-      node: ManuscriptNode,
-      contentNodeType: ManuscriptNodeType
+      node: ProsemirrorNode,
+      contentNodeType: NodeType
     ) => {
       const element = createElement(node, 'fig')
       const figNode = this.getFirstChildOfType(schema.nodes.figure, node)
@@ -1441,7 +1442,7 @@ export class JATSExporter {
       return element
     }
 
-    const createTableElement = (node: ManuscriptNode) => {
+    const createTableElement = (node: ProsemirrorNode) => {
       const nodeName = 'table-wrap'
       const element = createElement(node, nodeName)
       appendLabels(element, node)
@@ -1459,7 +1460,7 @@ export class JATSExporter {
       }
       return element
     }
-    const processExecutableNode = (node: ManuscriptNode, element: Element) => {
+    const processExecutableNode = (node: ProsemirrorNode, element: Element) => {
       const listingNode = this.getFirstChildOfType(schema.nodes.listing, node)
 
       if (listingNode) {
@@ -1480,7 +1481,7 @@ export class JATSExporter {
     }
   }
 
-  private createEquation(node: ManuscriptNode, isInline = false) {
+  private createEquation(node: ProsemirrorNode, isInline = false) {
     if (node.attrs.format === 'tex') {
       const texMath = this.createElement('tex-math')
       texMath.setAttribute('notation', 'LaTeX')
@@ -1501,7 +1502,7 @@ export class JATSExporter {
     }
   }
 
-  protected serializeNode = (node: ManuscriptNode) =>
+  protected serializeNode = (node: ProsemirrorNode) =>
     this.serializer.serializeNode(node, {
       document: this.document,
     })
@@ -2005,7 +2006,7 @@ export class JATSExporter {
   }
 
   private getAbstractCategories(
-    abstractsNode: ManuscriptNode | undefined
+    abstractsNode: ProsemirrorNode | undefined
   ): string[] {
     const categories: string[] = []
     abstractsNode?.content.descendants((node) => {

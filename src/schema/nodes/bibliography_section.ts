@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface BibliographySectionAttrs {
   id: string
 }
 
-export interface BibliographySectionNode extends ManuscriptNode {
-  attrs: Attrs
+export interface BibliographySectionNode extends Node {
+  attrs: BibliographySectionAttrs
 }
 
 export const bibliographySection: NodeSpec = {
@@ -37,6 +35,10 @@ export const bibliographySection: NodeSpec = {
   parseDOM: [
     {
       tag: 'section.bibliography',
+    },
+    {
+      tag: 'sec[sec-type="bibliography"]',
+      priority: 100,
     },
   ],
   toDOM: (node) => {
@@ -55,6 +57,6 @@ export const bibliographySection: NodeSpec = {
 }
 
 export const isBibliographySectionNode = (
-  node: ManuscriptNode
+  node: Node
 ): node is BibliographySectionNode =>
   node.type === node.type.schema.nodes.bibliography_section

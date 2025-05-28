@@ -21,16 +21,16 @@ import { DataTrackedAttrs } from './types'
 export const bold: MarkSpec = {
   parseDOM: [
     {
-      // Google Docs can produce content wrapped in <b style="fontWeight:normal">, which isn't actually bold. This workaround is copied from prosemirror-schema-basic.
-      getAttrs: (dom) =>
-        (dom as HTMLElement).style.fontWeight !== 'normal' && null,
-      tag: 'b',
-    },
-    { tag: 'strong' },
-    {
       // this is to support article-title parsing which is done by creating htmlNode first and putting it through the parser
       tag: 'bold',
     },
+    {
+      // Google Docs can produce content wrapped in <b style="fontWeight:normal">, which isn't actually bold. This workaround is copied from prosemirror-schema-basic.
+      tag: 'b',
+      getAttrs: (dom) =>
+        (dom as HTMLElement)?.style?.fontWeight !== 'normal' && null,
+    },
+    { tag: 'strong' },
     {
       // This regex, copied from prosemirror-schema-basic, matches all the possible "font-weight" values that can mean "bold".
       getAttrs: (value) =>
@@ -47,12 +47,18 @@ export const code: MarkSpec = {
 }
 
 export const italic: MarkSpec = {
-  parseDOM: [{ tag: 'i' }, { tag: 'em' }, { style: 'font-style=italic' }],
+  parseDOM: [
+    { tag: 'italic' },
+    { tag: 'i' },
+    { tag: 'em' },
+    { style: 'font-style=italic' },
+  ],
   toDOM: () => ['i'],
 }
 
 export const smallcaps: MarkSpec = {
   parseDOM: [
+    { tag: 'sc' },
     { style: 'font-variant=small-caps' },
     { style: 'font-variant-caps=small-caps' }, // TODO: all the other font-variant-caps options?
   ],
@@ -89,6 +95,12 @@ export const styled: MarkSpec = {
         }
       },
     },
+    {
+      tag: 'styled-content',
+      getAttrs: (node) => ({
+        style: (node as Element).getAttribute('style'),
+      }),
+    },
   ],
   toDOM: (mark) => {
     return [
@@ -113,7 +125,11 @@ export const superscript: MarkSpec = {
 }
 
 export const underline: MarkSpec = {
-  parseDOM: [{ tag: 'u' }, { style: 'text-decoration=underline' }],
+  parseDOM: [
+    { tag: 'underline' },
+    { tag: 'u' },
+    { style: 'text-decoration=underline' },
+  ],
   toDOM: () => ['u'],
 }
 

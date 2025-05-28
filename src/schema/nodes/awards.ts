@@ -14,22 +14,25 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface AwardsAttrs {
   id: string
 }
 
-export interface AwardsNode extends ManuscriptNode {
-  attrs: Attrs
+export interface AwardsNode extends Node {
+  attrs: AwardsAttrs
 }
 export const awards: NodeSpec = {
   content: 'award*',
   attrs: {
     id: { default: '' },
   },
+  parseDOM: [
+    {
+      tag: 'funding-group',
+    },
+  ],
   toDOM: (node) => {
     return [
       'div',
@@ -41,5 +44,5 @@ export const awards: NodeSpec = {
   },
 }
 
-export const isAwardsNode = (node: ManuscriptNode): node is AwardsNode =>
+export const isAwardsNode = (node: Node): node is AwardsNode =>
   node.type === node.type.schema.nodes.awards

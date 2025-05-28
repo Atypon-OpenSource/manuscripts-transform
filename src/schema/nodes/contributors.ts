@@ -14,19 +14,17 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { Node, NodeSpec } from 'prosemirror-model'
 
 // This node has no representation in json-schema
 // It exists for the purpose of styling in the UI
 
-interface Attrs {
+export interface ContributorsAttrs {
   id: string
 }
 
-export interface ContributorsNode extends ManuscriptNode {
-  attrs: Attrs
+export interface ContributorsNode extends Node {
+  attrs: ContributorsAttrs
 }
 
 export const contributors: NodeSpec = {
@@ -38,3 +36,6 @@ export const contributors: NodeSpec = {
   selectable: false,
   toDOM: () => ['div', { class: 'contributors' }, 0],
 }
+
+export const isContributorsNode = (node: Node): node is ContributorsNode =>
+  node.type === node.type.schema.nodes.contributors

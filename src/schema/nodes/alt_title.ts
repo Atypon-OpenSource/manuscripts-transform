@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { Node, NodeSpec } from 'prosemirror-model'
 
 export interface AltTitleAttrs {
   id: string
   type: string
 }
 
-export interface AltTitleNode extends ManuscriptNode {
+export interface AltTitleNode extends Node {
   attrs: AltTitleAttrs
 }
 
@@ -35,6 +33,21 @@ export const altTitle: NodeSpec = {
     dataTracked: { default: null },
   },
   group: 'block element',
-  parseDOM: [{ tag: 'div' }],
+  parseDOM: [
+    { tag: 'div' },
+    {
+      tag: 'alt-title[alt-title-type]',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          type: element.getAttribute('alt-title-type'),
+        }
+      },
+    },
+  ],
   toDOM: () => ['div', 0],
 }
+
+export const isAltTitleNode = (node: Node): node is AltTitleNode =>
+  node.type === node.type.schema.nodes.alt_title

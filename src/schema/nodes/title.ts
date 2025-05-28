@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { Node, NodeSpec } from 'prosemirror-model'
 
 export interface TitleAttrs {
   id: string
   placeholder: string
 }
 
-export interface TitleNode extends ManuscriptNode {
+export interface TitleNode extends Node {
   attrs: TitleAttrs
 }
 
@@ -35,9 +33,21 @@ export const title: NodeSpec = {
     dataTracked: { default: null },
   },
   group: 'block element',
-  parseDOM: [{ tag: 'div' }],
+  parseDOM: [
+    { tag: 'div' },
+    {
+      tag: 'article-title',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          type: element.getAttribute('type') || '',
+        }
+      },
+    },
+  ],
   toDOM: () => ['div', 0],
 }
 
-export const isTitleNode = (node: ManuscriptNode): node is TitleNode =>
+export const isTitleNode = (node: Node): node is TitleNode =>
   node.type === node.type.schema.nodes.title

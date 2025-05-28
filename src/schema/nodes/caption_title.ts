@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface CaptionTitleAttrs {
   placeholder: string
 }
 
-export interface CaptionTitleNode extends ManuscriptNode {
-  attrs: Attrs
+export interface CaptionTitleNode extends Node {
+  attrs: CaptionTitleAttrs
 }
 
 export const captionTitle: NodeSpec = {
@@ -36,14 +34,8 @@ export const captionTitle: NodeSpec = {
   },
   parseDOM: [
     {
-      tag: 'label',
-      getAttrs: (node) => {
-        const dom = node as HTMLSpanElement
-
-        return {
-          placeholder: dom.getAttribute('data-placeholder-text'),
-        }
-      },
+      tag: 'title',
+      context: 'figcaption/',
     },
   ],
   toDOM: (node) => {
@@ -64,3 +56,6 @@ export const captionTitle: NodeSpec = {
     return ['label', attrs, 0]
   },
 }
+
+export const isCaptionTitleNode = (node: Node): node is CaptionTitleNode =>
+  node.type === node.type.schema.nodes.caption_title

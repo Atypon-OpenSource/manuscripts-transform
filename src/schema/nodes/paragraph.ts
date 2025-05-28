@@ -15,17 +15,15 @@
  */
 
 import { ObjectTypes } from '@manuscripts/json-schema'
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface ParagraphAttrs {
   id: string
   placeholder: string
 }
 
-export interface ParagraphNode extends ManuscriptNode {
-  attrs: Attrs
+export interface ParagraphNode extends Node {
+  attrs: ParagraphAttrs
 }
 
 export const paragraph: NodeSpec = {
@@ -40,10 +38,21 @@ export const paragraph: NodeSpec = {
   parseDOM: [
     {
       tag: 'p',
+      context: 'section/',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+        }
+      },
+    },
+    {
+      tag: 'p',
       getAttrs: (p) => {
         const dom = p as HTMLParagraphElement
 
-        const attrs: Partial<Attrs> = {
+        const attrs: Partial<ParagraphAttrs> = {
           id: dom.getAttribute('id') || undefined,
         }
 
@@ -76,5 +85,5 @@ export const paragraph: NodeSpec = {
   },
 }
 
-export const isParagraphNode = (node: ManuscriptNode): node is ParagraphNode =>
+export const isParagraphNode = (node: Node): node is ParagraphNode =>
   node.type === node.type.schema.nodes.paragraph

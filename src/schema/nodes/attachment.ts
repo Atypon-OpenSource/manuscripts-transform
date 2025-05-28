@@ -13,16 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 export interface AttachmentAttrs {
   id: string
   href: string
   type: string
 }
 
-export interface AttachmentNode extends ManuscriptNode {
+export interface AttachmentNode extends Node {
   attrs: AttachmentAttrs
 }
 export const attachment: NodeSpec = {
@@ -31,6 +31,19 @@ export const attachment: NodeSpec = {
     type: { default: '' },
     href: { default: '' },
   },
+  parseDOM: [
+    {
+      tag: 'attachments > self-uri',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          href: element.getAttributeNS(XLINK_NAMESPACE, 'href') || '',
+          type: element.getAttribute('content-type') || '',
+        }
+      },
+    },
+  ],
   toDOM: (node) => {
     return [
       'div',
@@ -41,6 +54,5 @@ export const attachment: NodeSpec = {
     ]
   },
 }
-export const isAttachmentNode = (
-  node: ManuscriptNode
-): node is AttachmentNode => node.type === node.type.schema.nodes.attachment
+export const isAttachmentNode = (node: Node): node is AttachmentNode =>
+  node.type === node.type.schema.nodes.attachment

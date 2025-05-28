@@ -14,16 +14,36 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Fragment, Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface EquationElementAttrs {
   id: string
 }
 
-export interface EquationElementNode extends ManuscriptNode {
-  attrs: Attrs
+const getEquationContent = (p: string | HTMLElement) => {
+  const element = p as HTMLElement
+  const id = element.getAttribute('id')
+  const container = element.querySelector('alternatives') ?? element
+  let contents: string | null = ''
+  let format: string | null = ''
+  for (const child of container.childNodes) {
+    const nodeName = child.nodeName.replace(/^[a-z]:/, '')
+
+    switch (nodeName) {
+      case 'tex-math':
+        contents = child.textContent
+        format = 'tex'
+        break
+      case 'mml:math':
+        contents = (child as Element).outerHTML
+        format = 'mathml'
+        break
+    }
+  }
+  return { id, format, contents }
+}
+export interface EquationElementNode extends Node {
+  attrs: EquationElementAttrs
 }
 
 export const equationElement: NodeSpec = {
@@ -45,6 +65,32 @@ export const equationElement: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'disp-formula',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+        }
+      },
+      getContent: (node, schema) => {
+        const element = node as HTMLElement
+        const attrs = getEquationContent(element)
+        return Fragment.from([
+          schema.nodes.equation.createChecked({ ...attrs }),
+        ]) as Fragment
+      },
+    },
+    {
+      tag: 'fig[fig-type=equation]',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+        }
+      },
+    },
   ],
   toDOM: (node) => {
     const equationElementNode = node as EquationElementNode
@@ -59,3 +105,7 @@ export const equationElement: NodeSpec = {
     ]
   },
 }
+export const isEquationElementNode = (
+  node: Node
+): node is EquationElementNode =>
+  node.type === node.type.schema.nodes.equation_element

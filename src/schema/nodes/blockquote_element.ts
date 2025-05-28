@@ -15,17 +15,15 @@
  */
 
 import { ObjectTypes } from '@manuscripts/json-schema'
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface BlockquoteElementAttrs {
   id: string
   placeholder: string
 }
 
-export interface BlockquoteElementNode extends ManuscriptNode {
-  attrs: Attrs
+export interface BlockquoteElementNode extends Node {
+  attrs: BlockquoteElementAttrs
 }
 
 export const blockquoteElement: NodeSpec = {
@@ -43,7 +41,7 @@ export const blockquoteElement: NodeSpec = {
       getAttrs: (blockquote) => {
         const dom = blockquote as HTMLQuoteElement
 
-        const attrs: Partial<Attrs> = {
+        const attrs: Partial<BlockquoteElementAttrs> = {
           id: dom.getAttribute('id') || undefined,
         }
 
@@ -54,6 +52,16 @@ export const blockquoteElement: NodeSpec = {
         }
 
         return attrs
+      },
+    },
+    {
+      tag: 'disp-quote[content-type=quote]',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+        }
       },
     },
   ],
@@ -77,6 +85,6 @@ export const blockquoteElement: NodeSpec = {
 }
 
 export const isBlockquoteElement = (
-  node: ManuscriptNode
+  node: Node
 ): node is BlockquoteElementNode =>
   node.type === node.type.schema.nodes.blockquote_element

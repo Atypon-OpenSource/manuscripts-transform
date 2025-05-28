@@ -14,20 +14,23 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+import { chooseSectionCategory } from '../section-utils'
+import { SectionCategory } from '../types'
 
 export interface GraphicalAbstractSectionAttrs {
   id: string
   category: string
 }
 
-export interface GraphicalAbstractSectionNode extends ManuscriptNode {
+export interface GraphicalAbstractSectionNode extends Node {
   attrs: GraphicalAbstractSectionAttrs
 }
 
-export const graphicalAbstractSection: NodeSpec = {
+export const createGraphicalAbstractSectionNodeSpec = (
+  sectionCategories: SectionCategory[]
+): NodeSpec => ({
   content: 'section_title (figure_element | placeholder)', // does it need perhaps a special view that limits the figure content? Ask Nick?
   attrs: {
     id: { default: '' },
@@ -39,6 +42,24 @@ export const graphicalAbstractSection: NodeSpec = {
   parseDOM: [
     {
       tag: 'section.graphical-abstract',
+    },
+    {
+      tag: 'sec[sec-type="abstract-graphical"]',
+      getAttrs: (dom) => {
+        const element = dom as HTMLElement
+        return {
+          category: chooseSectionCategory(element, sectionCategories) || '',
+        }
+      },
+    },
+    {
+      tag: 'sec[sec-type="abstract-key-image"]',
+      getAttrs: (dom) => {
+        const element = dom as HTMLElement
+        return {
+          category: chooseSectionCategory(element, sectionCategories) || '',
+        }
+      },
     },
   ],
   toDOM: (node) => {
@@ -54,9 +75,12 @@ export const graphicalAbstractSection: NodeSpec = {
       0,
     ]
   },
-}
+})
+
+export const graphicalAbstractSection: NodeSpec =
+  createGraphicalAbstractSectionNodeSpec([])
 
 export const isGraphicalAbstractSectionNode = (
-  node: ManuscriptNode
+  node: Node
 ): node is GraphicalAbstractSectionNode =>
   node.type === node.type.schema.nodes.graphical_abstract_section

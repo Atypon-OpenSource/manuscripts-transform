@@ -18,7 +18,7 @@ import {
   Fragment,
   Mark as ProsemirrorMark,
   MarkType,
-  Node as ProsemirrorNode,
+  Node,
   NodeSpec,
   NodeType,
   ParseRule,
@@ -62,7 +62,6 @@ export type Nodes =
   | 'comments'
   | 'citation'
   | 'cross_reference'
-  | 'doc'
   | 'equation'
   | 'equation_element'
   | 'figcaption'
@@ -136,7 +135,6 @@ export type ManuscriptEditorState = EditorState
 export type ManuscriptEditorView = EditorView
 export type ManuscriptFragment = Fragment
 export type ManuscriptMark = ProsemirrorMark
-export type ManuscriptNode = ProsemirrorNode
 export type ManuscriptNodeSelection = NodeSelection
 export type ManuscriptTextSelection = TextSelection
 export type ManuscriptMarkType = MarkType
@@ -184,8 +182,8 @@ export type MarkRule = ParseRule & { mark: Marks | null }
 
 export type NodeRule = ParseRule & { node?: Nodes | null }
 
-export function isNodeOfType<T extends ManuscriptNode>(
-  node: ManuscriptNode,
+export function isNodeOfType<T extends Node>(
+  node: Node,
   type: NodeType
 ): node is T {
   return node.type === type

@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-export interface SectionTitleNode extends ManuscriptNode {
+export interface SectionTitleNode extends Node {
   attrs: Record<string, unknown>
 }
 
@@ -48,11 +46,14 @@ export const sectionTitle: NodeSpec = {
     {
       tag: 'h6',
     },
+    {
+      tag: 'title',
+      context:
+        'section/|footnotes_section/|bibliography_section/|keywords/|supplements/|author_notes/|graphical_abstract_section/',
+    },
   ],
   toDOM: () => ['h1', 0],
 }
 
-export const isSectionTitleNode = (
-  node: ManuscriptNode
-): node is SectionTitleNode =>
+export const isSectionTitleNode = (node: Node): node is SectionTitleNode =>
   node.type === node.type.schema.nodes.section_title

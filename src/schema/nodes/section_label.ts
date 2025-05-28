@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-export interface SectionLabelNode extends ManuscriptNode {
+export interface SectionLabelNode extends Node {
   attrs: Record<string, unknown>
 }
 
@@ -27,13 +25,18 @@ export const sectionLabel: NodeSpec = {
   group: 'block',
   attrs: { dataTracked: { default: null } },
   selectable: false,
-  parseDOM: [{ tag: 'label' }],
+  parseDOM: [
+    {
+      tag: 'label',
+      context: 'section/',
+      node: 'section_label',
+    },
+    { tag: 'label' },
+  ],
   toDOM() {
     return ['label', 0]
   },
 }
 
-export const isSectionLabelNode = (
-  node: ManuscriptNode
-): node is SectionLabelNode =>
+export const isSectionLabelNode = (node: Node): node is SectionLabelNode =>
   node.type === node.type.schema.nodes.section_label

@@ -100,10 +100,10 @@ export const table: NodeSpec = {
   parseDOM: [
     {
       tag: 'table',
-      getAttrs: (p) => {
-        const dom = p as HTMLElement
+      getAttrs: (node) => {
+        const element = node as HTMLElement
         return {
-          id: dom.getAttribute('id'),
+          id: element.getAttribute('id'),
         }
       },
     },
@@ -121,12 +121,57 @@ export const table: NodeSpec = {
 export const tableRow: NodeSpec = {
   ...tableNodes.table_row,
   attrs: { ...tableNodes.table_row.attrs, dataTracked: { default: null } },
+  parseDOM: [
+    {
+      tag: 'tr',
+    },
+    ...(tableNodes.table_row?.parseDOM || []),
+  ],
 }
 export const tableCell: NodeSpec = {
   ...tableNodes.table_cell,
   attrs: { ...tableNodes.table_cell.attrs, dataTracked: { default: null } },
+  parseDOM: [
+    {
+      tag: 'td',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        const colspan = parseInt(element.getAttribute('colspan') || '1')
+        const rowspan = parseInt(element.getAttribute('rowspan') || '1')
+        return {
+          ...(colspan && { colspan }),
+          ...(rowspan && { rowspan }),
+          valign: element.getAttribute('valign'),
+          align: element.getAttribute('align'),
+          scope: element.getAttribute('scope'),
+          style: element.getAttribute('style'),
+        }
+      },
+    },
+    ...(tableNodes.table_cell?.parseDOM || []),
+  ],
 }
 export const tableHeader: NodeSpec = {
   ...tableNodes.table_header,
   attrs: { ...tableNodes.table_header.attrs, dataTracked: { default: null } },
+  parseDOM: [
+    {
+      tag: 'th',
+      node: 'table_header',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        const colspan = parseInt(element.getAttribute('colspan') || '1')
+        const rowspan = parseInt(element.getAttribute('rowspan') || '1')
+        return {
+          ...(colspan && { colspan }),
+          ...(rowspan && { rowspan }),
+          valign: element.getAttribute('valign'),
+          align: element.getAttribute('align'),
+          scope: element.getAttribute('scope'),
+          style: element.getAttribute('style'),
+        }
+      },
+    },
+    ...(tableNodes.table_header?.parseDOM || []),
+  ],
 }

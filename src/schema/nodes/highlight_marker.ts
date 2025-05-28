@@ -14,18 +14,16 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface HighlightMarkerAttrs {
   //TODO rename to rid
   id: string
   position: string
 }
 
-export interface HighlightMarkerNode extends ManuscriptNode {
-  attrs: Attrs
+export interface HighlightMarkerNode extends Node {
+  attrs: HighlightMarkerAttrs
 }
 
 export const highlightMarker: NodeSpec = {
@@ -49,6 +47,16 @@ export const highlightMarker: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'highlight-marker',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.id,
+          position: element.getAttribute('position'),
+        }
+      },
+    },
   ],
   toDOM: (node) => {
     const highlightMarkerNode = node as HighlightMarkerNode
@@ -63,6 +71,6 @@ export const highlightMarker: NodeSpec = {
 }
 
 export const isHighlightMarkerNode = (
-  node: ManuscriptNode
+  node: Node
 ): node is HighlightMarkerNode =>
   node.type === node.type.schema.nodes.highlight_marker

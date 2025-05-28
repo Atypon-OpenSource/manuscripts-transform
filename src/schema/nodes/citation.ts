@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+import { getTrimmedTextContent } from '../utills'
 
-interface Attrs {
+export interface CitationAttrs {
   id: string
   rids: string[]
   selectedText: string
 }
 
-export interface CitationNode extends ManuscriptNode {
-  attrs: Attrs
+export interface CitationNode extends Node {
+  attrs: CitationAttrs
 }
 
 export const citation: NodeSpec = {
@@ -51,6 +51,16 @@ export const citation: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'xref[ref-type="bibr"]',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          rids: element.getAttribute('rid')?.split(/\s+/) || [],
+          contents: getTrimmedTextContent(element),
+        }
+      },
+    },
   ],
   toDOM: (node) => {
     const citation = node as CitationNode
@@ -66,5 +76,5 @@ export const citation: NodeSpec = {
   },
 }
 
-export const isCitationNode = (node: ManuscriptNode): node is CitationNode =>
+export const isCitationNode = (node: Node): node is CitationNode =>
   node.type === node.type.schema.nodes.citation

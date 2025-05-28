@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface SupplementsAttrs {
   id: string
 }
 
-export interface SupplementsNode extends ManuscriptNode {
-  attrs: Attrs
+export interface SupplementsNode extends Node {
+  attrs: SupplementsAttrs
 }
 
 export const supplements: NodeSpec = {
@@ -37,6 +35,10 @@ export const supplements: NodeSpec = {
   parseDOM: [
     {
       tag: 'div.supplements',
+    },
+    {
+      tag: 'sec[sec-type="supplementary-material"]',
+      priority: 100,
     },
   ],
   toDOM: (node) => {
@@ -54,3 +56,6 @@ export const supplements: NodeSpec = {
     ]
   },
 }
+
+export const isSupplementsNode = (node: Node): node is SupplementsNode =>
+  node.type === node.type.schema.nodes.supplements

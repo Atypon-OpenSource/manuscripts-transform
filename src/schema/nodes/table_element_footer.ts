@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface TableElementFooterAttrs {
   id: string
 }
 
-export interface TableElementFooterNode extends ManuscriptNode {
-  attrs: Attrs
+export interface TableElementFooterNode extends Node {
+  attrs: TableElementFooterAttrs
 }
 
 export const tableElementFooter: NodeSpec = {
@@ -33,10 +31,22 @@ export const tableElementFooter: NodeSpec = {
   },
   content: 'general_table_footnote? footnotes_element?',
   group: 'block element',
+  parseDOM: [
+    {
+      tag: 'table-wrap-foot',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+        }
+      },
+    },
+  ],
   toDOM: () => ['table-wrap-foot', 0],
 }
 
 export const isTableElementFooter = (
-  node: ManuscriptNode
+  node: Node
 ): node is TableElementFooterNode =>
   node.type === node.type.schema.nodes.table_element_footer
