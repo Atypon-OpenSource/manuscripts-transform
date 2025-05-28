@@ -129,6 +129,7 @@ export const list: NodeSpec = {
 export interface ListItemNode extends ManuscriptNode {
   attrs: {
     placeholder: string
+    id: string
   }
 }
 
@@ -140,6 +141,7 @@ export const listItem: NodeSpec = {
   defining: true,
   attrs: {
     placeholder: { default: 'List item' },
+    id: { default: '' },
     dataTracked: { default: null },
   },
   parseDOM: [
@@ -150,6 +152,7 @@ export const listItem: NodeSpec = {
 
         return {
           placeholder: dom.getAttribute('data-placeholder-text') || '',
+          id: dom.getAttribute('id') || '',
         }
       },
     },
@@ -161,6 +164,9 @@ export const listItem: NodeSpec = {
 
     if (listItemNode.attrs.placeholder) {
       attrs['data-placeholder-text'] = listItemNode.attrs.placeholder
+    }
+    if (listItemNode.attrs.id) {
+      attrs['id'] = listItemNode.attrs.id
     }
 
     return ['li', attrs, 0]

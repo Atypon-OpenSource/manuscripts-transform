@@ -120,13 +120,88 @@ export const table: NodeSpec = {
 }
 export const tableRow: NodeSpec = {
   ...tableNodes.table_row,
-  attrs: { ...tableNodes.table_row.attrs, dataTracked: { default: null } },
+  attrs: { 
+    ...tableNodes.table_row.attrs, 
+    id: { default: '' },
+    dataTracked: { default: null } 
+  },
+  parseDOM: [
+    {
+      tag: 'tr',
+      getAttrs: (p) => {
+        const dom = p as HTMLElement
+        const baseAttrs = tableNodes.table_row.parseDOM?.[0]?.getAttrs?.(p) || {}
+        return {
+          ...baseAttrs,
+          id: dom.getAttribute('id'),
+        }
+      },
+    },
+  ],
+  toDOM(node) {
+    const baseDOM = tableNodes.table_row.toDOM?.(node) || ['tr', {}, 0]
+    if (node.attrs.id && Array.isArray(baseDOM) && baseDOM.length > 1) {
+      const attrs = baseDOM[1] as Record<string, string>
+      baseDOM[1] = { ...attrs, id: node.attrs.id }
+    }
+    return baseDOM
+  },
 }
 export const tableCell: NodeSpec = {
   ...tableNodes.table_cell,
-  attrs: { ...tableNodes.table_cell.attrs, dataTracked: { default: null } },
+  attrs: { 
+    ...tableNodes.table_cell.attrs,
+    id: { default: '' },
+    dataTracked: { default: null } 
+  },
+  parseDOM: [
+    {
+      tag: 'td',
+      getAttrs: (p) => {
+        const dom = p as HTMLElement
+        const baseAttrs = tableNodes.table_cell.parseDOM?.[0]?.getAttrs?.(p) || {}
+        return {
+          ...baseAttrs,
+          id: dom.getAttribute('id'),
+        }
+      },
+    },
+  ],
+  toDOM(node) {
+    const baseDOM = tableNodes.table_cell.toDOM?.(node) || ['td', {}, 0]
+    if (node.attrs.id && Array.isArray(baseDOM) && baseDOM.length > 1) {
+      const attrs = baseDOM[1] as Record<string, string>
+      baseDOM[1] = { ...attrs, id: node.attrs.id }
+    }
+    return baseDOM
+  },
 }
 export const tableHeader: NodeSpec = {
   ...tableNodes.table_header,
-  attrs: { ...tableNodes.table_header.attrs, dataTracked: { default: null } },
+  attrs: { 
+    ...tableNodes.table_header.attrs,
+    id: { default: '' },
+    dataTracked: { default: null } 
+  },
+  parseDOM: [
+    {
+      tag: 'th',
+      getAttrs: (p) => {
+        const dom = p as HTMLElement
+        const baseAttrs = tableNodes.table_header.parseDOM?.[0]?.getAttrs?.(p) || {}
+        return {
+          ...baseAttrs,
+          id: dom.getAttribute('id'),
+        }
+      },
+    },
+  ],
+  toDOM(node) {
+    const baseDOM = tableNodes.table_header.toDOM?.(node) || ['th', {}, 0]
+    if (node.attrs.id && Array.isArray(baseDOM) && baseDOM.length > 1) {
+      const attrs = baseDOM[1] as Record<string, string>
+      baseDOM[1] = { ...attrs, id: node.attrs.id }
+    }
+    return baseDOM
+  },
 }
