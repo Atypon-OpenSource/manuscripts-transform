@@ -981,6 +981,17 @@ export class JATSDOMParser {
       },
     },
     {
+      tag: 'trans-abstract',
+      node: 'trans_abstract',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          lang: element.getAttribute('xml:lang') ?? '',
+        }
+      },
+    },
+    {
       tag: 'sec[sec-type="abstracts"]',
       node: 'abstracts',
     },

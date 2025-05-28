@@ -32001,7 +32001,7 @@ Object {
           "attrs": Object {
             "dataTracked": null,
             "id": "MPTransAbstract:test",
-            "lang": "",
+            "lang": "fr",
           },
           "content": Array [
             Object {

@@ -889,7 +889,7 @@ export class JATSExporter {
           id: normalizeID(node.attrs.id),
         }
         if (node.attrs.lang) {
-          attrs['xml:lang'] = node.attrs.category
+          attrs['xml:lang'] = node.attrs.lang
         }
         return ['trans-abstract', attrs, 0]
       },
