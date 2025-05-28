@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
+import { NodeType } from 'prosemirror-model'
 import { v4 as uuid } from 'uuid'
 
-import { ManuscriptNodeType } from '../schema'
 import { nodeTypesMap } from './node-types'
 
-export const generateNodeID = (type: ManuscriptNodeType) => {
+export const generateNodeID = (type: NodeType) => {
   const uniqueID = ':' + uuid().toUpperCase()
   let name: string | undefined = nodeTypesMap.get(type)
   if (name === undefined) {

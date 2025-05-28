@@ -15,18 +15,16 @@
  */
 
 import { ObjectTypes } from '@manuscripts/json-schema'
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface EquationAttrs {
   id: string
   format: string
   contents: string
 }
 
-export interface EquationNode extends ManuscriptNode {
-  attrs: Attrs
+export interface EquationNode extends Node {
+  attrs: EquationAttrs
 }
 
 export const equation: NodeSpec = {
@@ -50,7 +48,7 @@ export const equation: NodeSpec = {
       },
     },
   ],
-  toDOM: (node: ManuscriptNode) => {
+  toDOM: (node: Node) => {
     const equationNode = node as EquationNode
     const { id, contents, format } = equationNode.attrs
 
@@ -65,3 +63,6 @@ export const equation: NodeSpec = {
     return dom
   },
 }
+
+export const isEquationNode = (node: Node): node is EquationNode =>
+  node.type === node.type.schema.nodes.equation

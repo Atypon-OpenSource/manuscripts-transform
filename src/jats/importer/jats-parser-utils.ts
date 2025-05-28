@@ -14,15 +14,12 @@
  * limitations under the License.
  */
 
-import {
-  ContributorCorresp,
-  ContributorFootnote,
-  ManuscriptNode,
-  schema,
-} from '../../schema'
+import { Node as ProsemirrorNode } from 'prosemirror-model'
+
+import { ContributorCorresp, ContributorFootnote, schema } from '../../schema'
 import { generateNodeID } from '../../transformer'
 
-export const updateDocumentIDs = (node: ManuscriptNode) => {
+export const updateDocumentIDs = (node: ProsemirrorNode) => {
   const replacements = new Map()
   const warnings: string[] = []
 
@@ -40,7 +37,10 @@ export const updateDocumentIDs = (node: ManuscriptNode) => {
  * @param node
  * @param fn
  */
-const recurseDoc = (node: ManuscriptNode, fn: (n: ManuscriptNode) => void) => {
+const recurseDoc = (
+  node: ProsemirrorNode,
+  fn: (n: ProsemirrorNode) => void
+) => {
   fn(node)
   node.descendants((n) => fn(n))
 }
@@ -49,7 +49,7 @@ const recurseDoc = (node: ManuscriptNode, fn: (n: ManuscriptNode) => void) => {
  * Provide IDs to nodes that have IDs but no value (null or '') by mutating them
  */
 const updateNodeID = (
-  node: ManuscriptNode,
+  node: ProsemirrorNode,
   replacements: Map<string, string>,
   warnings: string[]
 ) => {
@@ -86,7 +86,7 @@ const updateNodeID = (
  * Replaces cross-reference rids of nodes by mutating their attributes
  */
 const updateNodeRID = (
-  node: ManuscriptNode,
+  node: ProsemirrorNode,
   replacements: Map<string, string>,
   // eslint-disable-next-line
   warnings: string[]
@@ -108,7 +108,7 @@ const updateNodeRID = (
 }
 
 const updateNodeRIDS = (
-  node: ManuscriptNode,
+  node: ProsemirrorNode,
   replacements: Map<string, string>,
   // eslint-disable-next-line
   warnings: string[]
@@ -129,7 +129,7 @@ const updateNodeRIDS = (
  */
 
 const updateContributorNodesIDS = (
-  node: ManuscriptNode,
+  node: ProsemirrorNode,
   replacements: Map<string, string>,
   // eslint-disable-next-line
   warnings: string[]
@@ -175,7 +175,7 @@ const updateContributorNodesIDS = (
 }
 
 const updateCommentTarget = (
-  node: ManuscriptNode,
+  node: ProsemirrorNode,
   replacements: Map<string, string>,
   // eslint-disable-next-line
   warnings: string[]

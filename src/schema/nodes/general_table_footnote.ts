@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { DOMParser, Fragment, Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface GeneralTableFootnoteAttrs {
   id: string
 }
 
-export interface GeneralTableFootnoteNode extends ManuscriptNode {
-  attrs: Attrs
+export interface GeneralTableFootnoteNode extends Node {
+  attrs: GeneralTableFootnoteAttrs
 }
 
 export const generalTableFootnote: NodeSpec = {
@@ -33,10 +31,34 @@ export const generalTableFootnote: NodeSpec = {
     dataTracked: { default: null },
   },
   group: 'block',
+  parseDOM: [
+    {
+      tag: 'general-table-footnote',
+      context: 'table_element_footer/',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+        }
+      },
+      getContent: (node, schema) => {
+        const parser = DOMParser.fromSchema(schema)
+        const paragraphs: Node[] = []
+        node.childNodes.forEach((p) => {
+          const paragraph = schema.nodes.paragraph.create()
+          const content = parser.parse(p, {
+            topNode: paragraph,
+          })
+          paragraphs.push(content)
+        })
+        return Fragment.from([...paragraphs]) as Fragment
+      },
+    },
+  ],
   toDOM: () => ['div', { class: 'general-table-footnote' }, 0],
 }
 
 export const isGeneralTableFootnoteNode = (
-  node: ManuscriptNode
+  node: Node
 ): node is GeneralTableFootnoteNode =>
   node.type === node.type.schema.nodes.general_table_footnote

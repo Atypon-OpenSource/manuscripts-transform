@@ -14,17 +14,15 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface InlineFootnoteAttrs {
   id: string
   rids: string[]
 }
 
-export interface InlineFootnoteNode extends ManuscriptNode {
-  attrs: Attrs
+export interface InlineFootnoteNode extends Node {
+  attrs: InlineFootnoteAttrs
 }
 
 export const inlineFootnote: NodeSpec = {
@@ -48,6 +46,15 @@ export const inlineFootnote: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'xref[ref-type="fn"]',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          rids: element.getAttribute('rid')?.split(/\s+/) || [],
+        }
+      },
+    },
   ],
   toDOM: (node) => {
     const footnoteNode = node as InlineFootnoteNode
@@ -60,7 +67,5 @@ export const inlineFootnote: NodeSpec = {
   },
 }
 
-export const isInlineFootnoteNode = (
-  node: ManuscriptNode
-): node is InlineFootnoteNode =>
+export const isInlineFootnoteNode = (node: Node): node is InlineFootnoteNode =>
   node.type === node.type.schema.nodes.inline_footnote

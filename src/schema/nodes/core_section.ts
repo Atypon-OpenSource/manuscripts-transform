@@ -14,7 +14,15 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
+
+export interface CoreSectionAttrs {
+  id: string
+}
+
+export interface CoreSectionNode extends Node {
+  attrs: CoreSectionAttrs
+}
 
 export const coreSection: NodeSpec = {
   content: 'sections*',
@@ -25,3 +33,6 @@ export const coreSection: NodeSpec = {
   group: 'block',
   toDOM: () => ['section', 0],
 }
+
+export const isCoreSectionNode = (node: Node): node is CoreSectionNode =>
+  node.type === node.type.schema.nodes.core_section

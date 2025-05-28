@@ -16,14 +16,13 @@
 
 // adapted from 'prosemirror-tables'
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-export interface TableColNode extends ManuscriptNode {
-  attrs: {
-    width: string
-  }
+export interface TableColAttrs {
+  width: string
+}
+export interface TableColNode extends Node {
+  attrs: TableColAttrs
 }
 
 export const tableColGroup: NodeSpec = {
@@ -68,3 +67,6 @@ export const tableCol: NodeSpec = {
     return ['col', attrs]
   },
 }
+
+export const isTableColNode = (node: Node): node is TableColNode =>
+  node.type === node.type.schema.nodes.table_col

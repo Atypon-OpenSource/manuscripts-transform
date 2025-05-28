@@ -16,7 +16,7 @@
 
 import { ObjectTypes } from '@manuscripts/json-schema'
 
-import { getTrimmedTextContent } from '../../lib/utils'
+import { getTrimmedTextContent } from '../../schema/utills'
 
 export type ISSN = {
   ISSN: string

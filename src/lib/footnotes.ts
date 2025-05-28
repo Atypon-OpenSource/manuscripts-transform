@@ -13,13 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {
-  isFootnotesElementNode,
-  isTableElementFooter,
-  ManuscriptNode,
-} from '../schema'
+import { Node as ProsemirrorNode } from 'prosemirror-model'
 
-export const generateFootnoteLabels = (doc: ManuscriptNode) => {
+import { isFootnotesElementNode, isTableElementFooter } from '../schema'
+
+export const generateFootnoteLabels = (doc: ProsemirrorNode) => {
   const labels = new Map()
   doc.descendants((node, pos, parent) => {
     if (isFootnotesElementNode(node) && parent) {
@@ -35,7 +33,7 @@ export const generateFootnoteLabels = (doc: ManuscriptNode) => {
   return labels
 }
 
-export const footnoteLabelGenerator = (parent: ManuscriptNode) => {
+export const footnoteLabelGenerator = (parent: ProsemirrorNode) => {
   if (isTableElementFooter(parent)) {
     return generateNumericFootnoteLabel
   } else {

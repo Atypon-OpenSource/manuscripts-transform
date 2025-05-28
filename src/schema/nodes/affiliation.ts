@@ -13,16 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { NodeSpec } from 'prosemirror-model'
+import { Fragment, Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
+import { getTrimmedTextContent } from '../utills'
 interface Email {
   href: string
   text: string
 }
 
-interface Attrs {
+const getAddressLine = (element: HTMLElement, index: number) => {
+  return getTrimmedTextContent(element, `addr-line:nth-of-type(${index})`) || ''
+}
+
+const getInstitutionDetails = (element: HTMLElement) => {
+  let department = ''
+  let institution = ''
+  for (const node of element.querySelectorAll('institution')) {
+    const content = getTrimmedTextContent(node)
+    if (!content) {
+      continue
+    }
+    const type = node.getAttribute('content-type')
+    if (type === 'dept') {
+      department = content
+    } else {
+      institution = content
+    }
+  }
+  return { department, institution }
+}
+export interface AffiliationAttrs {
   id: string
   institution: string
   department: string
@@ -36,11 +56,26 @@ interface Attrs {
   email: Email
   priority: number
 }
-
-export interface AffiliationNode extends ManuscriptNode {
-  attrs: Attrs
+const parsePriority = (priority: string | null) => {
+  if (!priority) {
+    return undefined
+  }
+  return parseInt(priority)
 }
 
+export interface AffiliationNode extends Node {
+  attrs: AffiliationAttrs
+}
+const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
+const getEmail = (element: HTMLElement) => {
+  const email = element.querySelector('email')
+  if (email) {
+    return {
+      href: email.getAttributeNS(XLINK_NAMESPACE, 'href') ?? '',
+      text: getTrimmedTextContent(email) ?? '',
+    }
+  }
+}
 export const affiliation: NodeSpec = {
   content: 'inline*',
   attrs: {
@@ -69,6 +104,29 @@ export const affiliation: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'aff',
+      context: 'affiliations/',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        const { department, institution } = getInstitutionDetails(element)
+        return {
+          id: element.getAttribute('id'),
+          institution: institution ?? '',
+          department: department ?? '',
+          addressLine1: getAddressLine(element, 1),
+          addressLine2: getAddressLine(element, 2),
+          addressLine3: getAddressLine(element, 3),
+          postCode: getTrimmedTextContent(element, 'postal-code') ?? '',
+          country: getTrimmedTextContent(element, 'country') ?? '',
+          email: getEmail(element),
+          priority: parsePriority(element.getAttribute('priority')),
+        }
+      },
+      getContent: (_node, schema) => {
+        return Fragment.from(schema.text('_'))
+      },
+    },
   ],
   toDOM: (node) => {
     const affiliationNode = node as AffiliationNode
@@ -82,6 +140,5 @@ export const affiliation: NodeSpec = {
   },
 }
 
-export const isAffiliationNode = (
-  node: ManuscriptNode
-): node is AffiliationNode => node.type === node.type.schema.nodes.affiliation
+export const isAffiliationNode = (node: Node): node is AffiliationNode =>
+  node.type === node.type.schema.nodes.affiliation

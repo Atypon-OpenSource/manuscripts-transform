@@ -14,17 +14,15 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface SectionAttrs {
   id: string
   category: string
 }
 
-export interface SectionNode extends ManuscriptNode {
-  attrs: Attrs
+export interface SectionNode extends Node {
+  attrs: SectionAttrs
 }
 
 export const section: NodeSpec = {
@@ -65,5 +63,5 @@ export const section: NodeSpec = {
   },
 }
 
-export const isSectionNode = (node: ManuscriptNode): node is SectionNode =>
+export const isSectionNode = (node: Node): node is SectionNode =>
   node.type === node.type.schema.nodes.section

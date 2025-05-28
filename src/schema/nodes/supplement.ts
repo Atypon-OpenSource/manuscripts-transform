@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+import { getHTMLContent, getTrimmedTextContent } from '../utills'
+
+const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
 export interface SupplementAttrs {
   id: string
@@ -26,7 +28,7 @@ export interface SupplementAttrs {
   title: string
 }
 
-export interface SupplementNode extends ManuscriptNode {
+export interface SupplementNode extends Node {
   attrs: SupplementAttrs
 }
 
@@ -59,6 +61,20 @@ export const supplement: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'supplementary-material',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          href: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
+          mimeType: element.getAttribute('mimetype'),
+          mimeSubType: element.getAttribute('mime-subtype'),
+          title: getTrimmedTextContent(element, 'title'),
+        }
+      },
+      priority: 100,
+    },
   ],
   toDOM: (node) => {
     const supplement = node as SupplementNode
@@ -76,3 +92,6 @@ export const supplement: NodeSpec = {
     ]
   },
 }
+
+export const isSupplementNode = (node: Node): node is SupplementNode =>
+  node.type === node.type.schema.nodes.supplement

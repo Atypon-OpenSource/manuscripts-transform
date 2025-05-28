@@ -14,17 +14,15 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface KeywordsElementAttrs {
   id: string
   contents: string
 }
 
-export interface KeywordsElementNode extends ManuscriptNode {
-  attrs: Attrs
+export interface KeywordsElementNode extends Node {
+  attrs: KeywordsElementAttrs
 }
 
 export const keywordsElement: NodeSpec = {
@@ -48,6 +46,10 @@ export const keywordsElement: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'kwd-group-list',
+      context: 'keywords/',
+    },
   ],
   toDOM: (node) => {
     const keywordsElementNode = node as KeywordsElementNode
@@ -62,3 +64,8 @@ export const keywordsElement: NodeSpec = {
     ]
   },
 }
+
+export const isKeywordsElementNode = (
+  node: Node
+): node is KeywordsElementNode =>
+  node.type === node.type.schema.nodes.keywords_element

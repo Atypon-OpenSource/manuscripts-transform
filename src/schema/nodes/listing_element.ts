@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface ListingElementAttrs {
   id: string
 }
 
-export interface ListingElementNode extends ManuscriptNode {
-  attrs: Attrs
+export interface ListingElementNode extends Node {
+  attrs: ListingElementAttrs
 }
 
 export const listingElement: NodeSpec = {
@@ -45,6 +43,16 @@ export const listingElement: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'fig[fig-type=listing]',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+        }
+      },
+    },
   ],
   toDOM: (node) => {
     const listingElementNode = node as ListingElementNode
@@ -59,3 +67,6 @@ export const listingElement: NodeSpec = {
     ]
   },
 }
+
+export const isListingElementNode = (node: Node): node is ListingElementNode =>
+  node.type === node.type.schema.nodes.listing_element

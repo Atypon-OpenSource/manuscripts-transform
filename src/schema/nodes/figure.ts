@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { Node, NodeSpec } from 'prosemirror-model'
 
 export interface FigureAttrs {
   id: string
@@ -24,9 +22,22 @@ export interface FigureAttrs {
   type: string
 }
 
-export interface FigureNode extends ManuscriptNode {
+export interface FigureNode extends Node {
   attrs: FigureAttrs
 }
+const getFigureAttrs = (node: HTMLElement | string | Node) => {
+  const element = node as HTMLElement
+  const parentElement = element.parentElement
+  return {
+    id: element.getAttribute('id'),
+    type:
+      parentElement?.getAttribute('fig-type') ??
+      element.getAttribute('content-type') ??
+      '',
+    src: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
+  }
+}
+const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
 export const figure: NodeSpec = {
   attrs: {
@@ -39,16 +50,9 @@ export const figure: NodeSpec = {
   group: 'block',
   parseDOM: [
     {
-      tag: 'figure',
+      tag: 'graphic',
       context: 'figure_element/',
-      getAttrs: (dom) => {
-        const element = dom as HTMLElement
-
-        return {
-          id: element.getAttribute('id'),
-          src: element.getAttribute('src'),
-        }
-      },
+      getAttrs: getFigureAttrs,
     },
   ],
   toDOM: (node) => {
@@ -63,3 +67,6 @@ export const figure: NodeSpec = {
     ]
   },
 }
+
+export const isFigureNode = (node: Node): node is FigureNode =>
+  node.type === node.type.schema.nodes.figure

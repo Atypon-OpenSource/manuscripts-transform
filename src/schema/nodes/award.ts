@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+import { getTrimmedTextContent } from '../utills'
 
-interface Attrs {
+export interface AwardAttrs {
   id: string
   recipient: string
   code: string
   source: string
 }
 
-export interface AwardNode extends ManuscriptNode {
-  attrs: Attrs
+export interface AwardNode extends Node {
+  attrs: AwardAttrs
 }
 
 export const award: NodeSpec = {
@@ -37,6 +37,25 @@ export const award: NodeSpec = {
     source: { default: undefined },
     dataTracked: { default: null },
   },
+  parseDOM: [
+    {
+      tag: 'award-group',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          recipient: getTrimmedTextContent(
+            element,
+            'principal-award-recipient'
+          ),
+          code: Array.from(element.querySelectorAll('award-id'))
+            .map((awardID) => getTrimmedTextContent(awardID))
+            .reduce((acc, text) => (acc ? `${acc};${text}` : text), ''),
+          source: getTrimmedTextContent(element, 'funding-source'),
+        }
+      },
+    },
+  ],
   toDOM: (node) => {
     return [
       'div',
@@ -48,5 +67,5 @@ export const award: NodeSpec = {
   },
 }
 
-export const isAwardNode = (node: ManuscriptNode): node is AwardNode =>
+export const isAwardNode = (node: Node): node is AwardNode =>
   node.type === node.type.schema.nodes.award

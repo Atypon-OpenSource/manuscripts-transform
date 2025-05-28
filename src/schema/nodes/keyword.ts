@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { Node, NodeSpec } from 'prosemirror-model'
 
 interface Attrs {
   id: string
 }
 
-export interface KeywordNode extends ManuscriptNode {
+export interface KeywordNode extends Node {
   attrs: Attrs
 }
 
@@ -59,3 +57,6 @@ export const keyword: NodeSpec = {
     ]
   },
 }
+
+export const isKeywordNode = (node: Node): node is KeywordNode =>
+  node.type === node.type.schema.nodes.keyword

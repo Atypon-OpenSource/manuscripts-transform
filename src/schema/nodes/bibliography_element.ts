@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface BibliographyElementAttrs {
   id: string
 }
 
-export interface BibliographyElementNode extends ManuscriptNode {
-  attrs: Attrs
+export interface BibliographyElementNode extends Node {
+  attrs: BibliographyElementAttrs
 }
 
 export const bibliographyElement: NodeSpec = {
@@ -44,6 +42,10 @@ export const bibliographyElement: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'ref-list',
+      context: 'bibliography_section/',
+    },
   ],
   toDOM: () => {
     const dom = document.createElement('div')
@@ -51,3 +53,8 @@ export const bibliographyElement: NodeSpec = {
     return dom
   },
 }
+
+export const isBibliographyElementNode = (
+  node: Node
+): node is BibliographyElementNode =>
+  node.type === node.type.schema.nodes.bibliography_element

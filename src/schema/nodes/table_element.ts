@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { Node, NodeSpec } from 'prosemirror-model'
 
 export interface TableAttrs {
   id: string
 }
 
-export interface TableElementNode extends ManuscriptNode {
+export interface TableElementNode extends Node {
   attrs: TableAttrs
 }
 
@@ -46,6 +44,15 @@ export const tableElement: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'table-wrap',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+        }
+      },
+    },
   ],
   toDOM: (node) => {
     const tableElementNode = node as TableElementNode
@@ -61,7 +68,5 @@ export const tableElement: NodeSpec = {
   },
 }
 
-export const isTableElementNode = (
-  node: ManuscriptNode
-): node is TableElementNode =>
+export const isTableElementNode = (node: Node): node is TableElementNode =>
   node.type === node.type.schema.nodes.table_element

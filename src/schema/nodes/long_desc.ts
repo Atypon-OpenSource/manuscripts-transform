@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-import type { NodeSpec } from 'prosemirror-model'
-
-import type { ManuscriptNode } from '../types'
+import type { Node, NodeSpec } from 'prosemirror-model'
 
 export interface LongDescAttrs {
   id: string
 }
 
-export interface LongDescNode extends ManuscriptNode {
+export interface LongDescNode extends Node {
   attrs: LongDescAttrs
 }
 
@@ -31,6 +29,14 @@ export const longDesc: NodeSpec = {
   attrs: {
     id: { default: '' },
   },
-  parseDOM: [{ tag: 'div' }],
+  parseDOM: [
+    { tag: 'div' },
+    {
+      tag: 'long-desc',
+    },
+  ],
   toDOM: () => ['div', 0],
 }
+
+export const isLongDescNode = (node: Node): node is LongDescNode =>
+  node.type === node.type.schema.nodes.long_desc

@@ -14,22 +14,15 @@
  * limitations under the License.
  */
 
-import { Node as ProsemirrorNode, ResolvedPos } from 'prosemirror-model'
+import { Node, ResolvedPos } from 'prosemirror-model'
 
-import { htmlFromJatsNode } from '../jats/importer/jats-parser-utils'
 import {
-  CRediTRole,
   isBibliographySectionNode,
   isGraphicalAbstractSectionNode,
   ManuscriptEditorState,
-  ManuscriptNode,
 } from '../schema'
-import { CRediTRoleUrls, CreditVocabTerm } from './credit-roles'
 
-export function* iterateChildren(
-  node: ManuscriptNode,
-  recurse = false
-): Iterable<ManuscriptNode> {
+export function* iterateChildren(node: Node, recurse = false): Iterable<Node> {
   for (let i = 0; i < node.childCount; i++) {
     const child = node.child(i)
     yield child
@@ -44,11 +37,11 @@ export function* iterateChildren(
 
 export const findNodePositions = (
   state: ManuscriptEditorState,
-  predicate: (node: ManuscriptNode) => boolean
+  predicate: (node: Node) => boolean
 ) => {
   const found: number[] = []
   state.doc.descendants((node, nodePos) => {
-    if (predicate(node as ManuscriptNode)) {
+    if (predicate(node as Node)) {
       found.push(nodePos)
     }
     return true
@@ -78,7 +71,7 @@ export const isInBibliographySection = ($pos: ResolvedPos): boolean => {
 
 export const findParentNodeClosestToPos = (
   $pos: ResolvedPos,
-  predicate: (node: ProsemirrorNode) => boolean
+  predicate: (node: Node) => boolean
 ) => {
   for (let i = $pos.depth; i > 0; i--) {
     const node = $pos.node(i)
@@ -91,55 +84,4 @@ export const findParentNodeClosestToPos = (
       }
     }
   }
-}
-
-export const getTrimmedTextContent = (
-  node: Element | Document | null,
-  selector?: string
-) => {
-  if (!node) {
-    return undefined
-  }
-  return selector
-    ? node.querySelector(selector)?.textContent?.trim()
-    : node.textContent?.trim()
-}
-
-export const getHTMLContent = (node: Element, querySelector: string) => {
-  return htmlFromJatsNode(node.querySelector(querySelector))
-}
-
-export const dateToTimestamp = (dateElement: Element) => {
-  const selectors = ['year', 'month', 'day']
-  const values: Array<number> = []
-  for (const selector of selectors) {
-    const value = getTrimmedTextContent(dateElement, selector)
-    if (!value || isNaN(+value)) {
-      return
-    }
-    values.push(+value)
-  }
-
-  // timestamp stored in seconds in manuscript schema
-  return Date.UTC(values[0], values[1] - 1, values[2]) / 1000 // ms => s
-}
-
-export function getCRediTRoleRole(elem: Element) {
-  const sources = elem.querySelectorAll(
-    'role[vocab="CRediT"][vocab-identifier="http://credit.niso.org/"][vocab-term][vocab-term-identifier]'
-  )
-  const results: CRediTRole[] = []
-  sources.forEach((source) => {
-    if (
-      source &&
-      CRediTRoleUrls.has(source.getAttribute('vocab-term') as CreditVocabTerm)
-    ) {
-      const result: CRediTRole = {
-        vocabTerm: source.getAttribute('vocab-term') as CreditVocabTerm,
-      }
-      results.push(result)
-    }
-  })
-
-  return results
 }

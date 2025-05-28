@@ -14,17 +14,15 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface CrossReferenceAttrs {
   rids: string[]
   label: string
 }
 
-export interface CrossReferenceNode extends ManuscriptNode {
-  attrs: Attrs
+export interface CrossReferenceNode extends Node {
+  attrs: CrossReferenceAttrs
 }
 
 export const crossReference: NodeSpec = {
@@ -48,6 +46,16 @@ export const crossReference: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'xref',
+      node: 'cross_reference',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          rids: element.getAttribute('rid')?.split(/\s+/) || [],
+        }
+      },
+    },
   ],
   toDOM: (node) => {
     const crossReferenceNode = node as CrossReferenceNode
@@ -62,3 +70,6 @@ export const crossReference: NodeSpec = {
     ]
   },
 }
+
+export const isCrossReferenceNode = (node: Node): node is CrossReferenceNode =>
+  node.type === node.type.schema.nodes.cross_reference

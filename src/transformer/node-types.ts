@@ -15,19 +15,18 @@
  */
 
 import { ObjectTypes } from '@manuscripts/json-schema'
+import { Node, NodeType } from 'prosemirror-model'
 
 import {
   GROUP_ELEMENT,
   GROUP_EXECUTABLE,
   GROUP_SECTION,
   hasGroup,
-  ManuscriptNode,
-  ManuscriptNodeType,
   Nodes,
   schema,
 } from '../schema'
 
-export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
+export const nodeTypesMap: Map<NodeType, ObjectTypes> = new Map([
   [schema.nodes.abstracts, ObjectTypes.Section],
   [schema.nodes.body, ObjectTypes.Section],
   [schema.nodes.backmatter, ObjectTypes.Section],
@@ -72,16 +71,16 @@ export const nodeTypesMap: Map<ManuscriptNodeType, ObjectTypes> = new Map([
   [schema.nodes.box_element, ObjectTypes.Section],
 ])
 
-export const isExecutableNodeType = (type: ManuscriptNodeType) =>
+export const isExecutableNodeType = (type: NodeType) =>
   hasGroup(type, GROUP_EXECUTABLE)
 
-export const isElementNodeType = (type: ManuscriptNodeType) =>
+export const isElementNodeType = (type: NodeType) =>
   hasGroup(type, GROUP_ELEMENT)
 
-export const isSectionNodeType = (type: ManuscriptNodeType) =>
+export const isSectionNodeType = (type: NodeType) =>
   hasGroup(type, GROUP_SECTION)
 
-export const isNodeType = <T extends ManuscriptNode>(
-  node: ManuscriptNode,
+export const isNodeType = <T extends Node>(
+  node: Node,
   type: Nodes
 ): node is T => node.type === node.type.schema.nodes[type]

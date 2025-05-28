@@ -17,10 +17,11 @@
 import { Node, NodeType } from 'prosemirror-model'
 import { findChildrenByType } from 'prosemirror-utils'
 
-import { BibliographyItemNode, ManuscriptNode, schema } from '../../schema'
+import { BibliographyItemNode, schema } from '../../schema'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { sectionCategories } from './data/section-categories'
 import { readAndParseFixture } from './files'
+
 export const createNodeFromJATS = async (fileName: string) => {
   const jats = await readAndParseFixture(fileName)
   return parseJATSArticle(jats, sectionCategories)
@@ -30,7 +31,7 @@ const uuidRegex =
   /[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/g
 const replaceUUIDWithTest = (input: string) => input.replace(uuidRegex, 'test')
 
-const updateContributorNodeIDs = (node: ManuscriptNode) => {
+const updateContributorNodeIDs = (node: Node) => {
   if (node.type === schema.nodes.contributor) {
     //@ts-ignore
     node.attrs.footnote = node.attrs.footnote.map((fn) => {
@@ -52,7 +53,7 @@ const updateContributorNodeIDs = (node: ManuscriptNode) => {
   }
 }
 
-const updateCommentNodeIDs = (node: ManuscriptNode) => {
+const updateCommentNodeIDs = (node: Node) => {
   if (node.type === schema.nodes.comment) {
     //@ts-ignore
     node.attrs.target = replaceUUIDWithTest(node.attrs.target)
@@ -69,7 +70,7 @@ const updateCommentNodeIDs = (node: ManuscriptNode) => {
   }
 }
 
-const updateBibliographyItemNodeIDs = (node: ManuscriptNode) => {
+const updateBibliographyItemNodeIDs = (node: Node) => {
   if (node.type === schema.nodes.bibliography_item) {
     const bib = node as BibliographyItemNode
     bib.attrs.author?.forEach((author: any) => {
@@ -89,20 +90,20 @@ const updateBibliographyItemNodeIDs = (node: ManuscriptNode) => {
   }
 }
 
-const updateNodeRID = (node: ManuscriptNode) => {
+const updateNodeRID = (node: Node) => {
   if (node.attrs.rid) {
     //@ts-ignore
     node.attrs.rid = replaceUUIDWithTest(node.attrs.rid)
   }
 }
-const updateNodeRIDs = (node: ManuscriptNode) => {
+const updateNodeRIDs = (node: Node) => {
   if (node.attrs.rids) {
     //@ts-ignore
     node.attrs.rids = node.attrs.rids.map((rid) => replaceUUIDWithTest(rid))
   }
 }
 
-export const changeIDs = (node: ManuscriptNode) => {
+export const changeIDs = (node: Node) => {
   updateNodeID(node)
   node.descendants((child) => {
     updateNodeID(child)
@@ -122,7 +123,7 @@ export const findNodeByType = (node: Node, type: NodeType, descend = true) => {
   return findNodesByType(node, type, descend)[0]
 }
 
-export const updateNodeID = (node: ManuscriptNode) => {
+export const updateNodeID = (node: Node) => {
   if (node.attrs.id) {
     //@ts-ignore
     node.attrs.id = replaceUUIDWithTest(node.attrs.id)

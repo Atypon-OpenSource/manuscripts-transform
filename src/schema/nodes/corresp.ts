@@ -13,17 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { NodeSpec } from 'prosemirror-model'
+import { Fragment, Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+import { getTrimmedTextContent } from '../utills'
 
-interface Attrs {
+export interface CorrespAttrs {
   id: string
   label?: string
 }
 
-export interface CorrespNode extends ManuscriptNode {
-  attrs: Attrs
+export interface CorrespNode extends Node {
+  attrs: CorrespAttrs
 }
 
 export const corresp: NodeSpec = {
@@ -44,6 +44,26 @@ export const corresp: NodeSpec = {
       0,
     ]
   },
+  parseDOM: [
+    {
+      tag: 'corresp',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        const label = element.querySelector('label')
+        if (label) {
+          label.remove()
+        }
+        return {
+          id: element.getAttribute('id'),
+          label: getTrimmedTextContent(label),
+        }
+      },
+      getContent: (node, schema) => {
+        const element = node as HTMLElement
+        return Fragment.from(schema.text(getTrimmedTextContent(element) || ''))
+      },
+    },
+  ],
 }
-export const isCorrespNode = (node: ManuscriptNode): node is CorrespNode =>
+export const isCorrespNode = (node: Node): node is CorrespNode =>
   node.type === node.type.schema.nodes.corresp

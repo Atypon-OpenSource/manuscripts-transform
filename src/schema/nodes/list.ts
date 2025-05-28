@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 import { ObjectTypes } from '@manuscripts/json-schema'
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { Node, NodeSpec } from 'prosemirror-model'
 
 export type JatsStyleType =
   | 'simple'
@@ -72,11 +70,12 @@ export const getListType = (style: JatsStyleType): ListTypeInfo => {
   }
 }
 
-export interface ListNode extends ManuscriptNode {
-  attrs: {
-    id: string
-    listStyleType: string
-  }
+export interface ListAttrs {
+  id: string
+  listStyleType: string
+}
+export interface ListNode extends Node {
+  attrs: ListAttrs
 }
 
 export const list: NodeSpec = {
@@ -110,6 +109,17 @@ export const list: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'list',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+          listStyleType: element.getAttribute('list-type'),
+        }
+      },
+    },
   ],
   toDOM: (node) => {
     const list = node as ListNode
@@ -126,10 +136,12 @@ export const list: NodeSpec = {
   },
 }
 
-export interface ListItemNode extends ManuscriptNode {
-  attrs: {
-    placeholder: string
-  }
+export interface ListItemAttrs {
+  placeholder: string
+}
+
+export interface ListItemNode extends Node {
+  attrs: ListItemAttrs
 }
 
 export const listItem: NodeSpec = {
@@ -153,6 +165,9 @@ export const listItem: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'list-item',
+    },
   ],
   toDOM: (node) => {
     const listItemNode = node as ListItemNode
@@ -167,8 +182,8 @@ export const listItem: NodeSpec = {
   },
 }
 
-export const isListNode = (node: ManuscriptNode): node is ListNode => {
-  const { nodes } = node.type.schema
+export const isListNode = (node: Node): node is ListNode =>
+  node.type === node.type.schema.nodes.list
 
-  return node.type === nodes.list
-}
+export const isListItemNode = (node: Node): node is ListItemNode =>
+  node.type === node.type.schema.nodes.list_item

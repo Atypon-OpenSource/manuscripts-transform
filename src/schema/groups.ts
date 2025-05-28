@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { ManuscriptNodeType } from './types'
+import { NodeType } from 'prosemirror-model'
 
 export const GROUP_BLOCK = 'block'
 export const GROUP_ELEMENT = 'element'
@@ -22,10 +22,7 @@ export const GROUP_EXECUTABLE = 'executable'
 export const GROUP_LIST = 'list'
 export const GROUP_SECTION = 'sections'
 
-export const hasGroup = (
-  nodeType: ManuscriptNodeType,
-  groupName: string
-): boolean => {
+export const hasGroup = (nodeType: NodeType, groupName: string): boolean => {
   const { group } = nodeType.spec
 
   if (!group) {

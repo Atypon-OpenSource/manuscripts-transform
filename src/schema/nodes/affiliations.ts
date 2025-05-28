@@ -14,7 +14,15 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
+
+export interface AffiliationsAttrs {
+  id: string
+}
+
+export interface AffiliationsNode extends Node {
+  attrs: AffiliationsAttrs
+}
 
 // This node has no representation in json-schema
 // It exists for the purpose of styling in the UI
@@ -26,5 +34,13 @@ export const affiliations: NodeSpec = {
   },
   group: 'block',
   selectable: false,
+  parseDOM: [
+    {
+      tag: 'affiliations',
+    },
+  ],
   toDOM: () => ['div', { class: 'affiliations' }, 0],
 }
+
+export const isAffiliationsNode = (node: Node): node is AffiliationsNode =>
+  node.type === node.type.schema.nodes.affiliations

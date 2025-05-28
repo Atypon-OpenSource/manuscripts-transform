@@ -14,17 +14,15 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface PlaceholderAttrs {
   id: string
   label: string
 }
 
-export interface PlaceholderNode extends ManuscriptNode {
-  attrs: Attrs
+export interface PlaceholderNode extends Node {
+  attrs: PlaceholderAttrs
 }
 
 export const placeholder: NodeSpec = {
@@ -60,3 +58,6 @@ export const placeholder: NodeSpec = {
     ]
   },
 }
+
+export const isPlaceholderNode = (node: Node): node is PlaceholderNode =>
+  node.type === node.type.schema.nodes.placeholder

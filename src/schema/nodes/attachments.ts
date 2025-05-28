@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
 export interface AttachmentsAttrs {
   id: string
 }
 
-export interface AttachmentsNode extends ManuscriptNode {
+export interface AttachmentsNode extends Node {
   attrs: AttachmentsAttrs
 }
 export const attachments: NodeSpec = {
@@ -40,6 +39,5 @@ export const attachments: NodeSpec = {
   },
 }
 
-export const isAttachmentsNode = (
-  node: ManuscriptNode
-): node is AttachmentsNode => node.type === node.type.schema.nodes.attachments
+export const isAttachmentsNode = (node: Node): node is AttachmentsNode =>
+  node.type === node.type.schema.nodes.attachments

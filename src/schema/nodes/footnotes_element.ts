@@ -14,17 +14,15 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface FootnotesElementAttrs {
   id: string
   kind?: string
 }
 
-export interface FootnotesElementNode extends ManuscriptNode {
-  attrs: Attrs
+export interface FootnotesElementNode extends Node {
+  attrs: FootnotesElementAttrs
 }
 
 export const footnotesElement: NodeSpec = {
@@ -47,6 +45,18 @@ export const footnotesElement: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'fn-group',
+      context: 'footnotes_section/|table_element_footer/',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+          kind: 'footnote', // TODO: 'endnote' depending on position or attribute?
+        }
+      },
+    },
   ],
   toDOM: (node) => {
     const footnotesElementNode = node as FootnotesElementNode
@@ -64,6 +74,6 @@ export const footnotesElement: NodeSpec = {
 }
 
 export const isFootnotesElementNode = (
-  node: ManuscriptNode
+  node: Node
 ): node is FootnotesElementNode =>
   node.type === node.type.schema.nodes.footnotes_element

@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { DOMParser, Fragment, Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-export interface FigCaptionNode extends ManuscriptNode {
+export interface FigCaptionNode extends Node {
   attrs: Record<string, unknown>
 }
 
@@ -32,6 +30,45 @@ export const figcaption: NodeSpec = {
     {
       tag: 'figcaption',
     },
+    {
+      tag: 'caption',
+      context: 'figure/',
+    },
+    {
+      tag: 'caption',
+      context: 'figure_element/|table_element/|embed/',
+      getContent: (node, schema) => {
+        const parser = DOMParser.fromSchema(schema)
+        const element = node as HTMLElement
+        const content = []
+        const title = element.querySelector('title')
+        if (title) {
+          const captionTitle = schema.nodes.caption_title.create()
+          content.push(parser.parse(title, { topNode: captionTitle }))
+        }
+        const paragraphs = element.querySelectorAll('p')
+        if (paragraphs.length) {
+          const figcaption = schema.nodes.caption.create()
+          for (const paragraph of paragraphs) {
+            content.push(parser.parse(paragraph, { topNode: figcaption }))
+          }
+        }
+        return Fragment.from(content) as Fragment
+      },
+    },
+    {
+      tag: 'caption',
+      context: 'box_element/',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+        }
+      },
+    },
   ],
   toDOM: () => ['figcaption', 0],
 }
+
+export const isFigCaptionNode = (node: Node): node is FigCaptionNode =>
+  node.type === node.type.schema.nodes.figcaption

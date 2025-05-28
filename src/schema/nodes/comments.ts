@@ -14,15 +14,31 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
 // This node has no representation in json-schema
 // It exists for the purpose of styling in the UI
+
+export interface CommentsAttrs {
+  id: string
+}
+
+export interface CommentsNode extends Node {
+  attrs: CommentsAttrs
+}
 
 export const comments: NodeSpec = {
   content: 'comment*',
   attrs: {
     id: { default: '' },
   },
+  parseDOM: [
+    {
+      tag: 'comments',
+    },
+  ],
   toDOM: () => ['div', { class: 'comments' }, 0],
 }
+
+export const isCommentsNode = (node: Node): node is CommentsNode =>
+  node.type === node.type.schema.nodes.comments

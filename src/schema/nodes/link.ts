@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
-interface Attrs {
+export interface LinkAttrs {
   href: string
   title?: string
 }
 
-export interface LinkNode extends ManuscriptNode {
-  attrs: Attrs
+export interface LinkNode extends Node {
+  attrs: LinkAttrs
 }
 
 export const link: NodeSpec = {
@@ -61,6 +61,17 @@ export const link: NodeSpec = {
       },
       priority: 80,
     },
+    {
+      tag: 'ext-link',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          href: element.getAttributeNS(XLINK_NAMESPACE, 'href') || '',
+          title: element.getAttributeNS(XLINK_NAMESPACE, 'title') || '',
+        }
+      },
+    },
   ],
   toDOM: (node) => {
     const { href, title } = node.attrs
@@ -75,5 +86,5 @@ export const link: NodeSpec = {
   },
 }
 
-export const isLinkNode = (node: ManuscriptNode): node is LinkNode =>
+export const isLinkNode = (node: Node): node is LinkNode =>
   node.type === node.type.schema.nodes.link

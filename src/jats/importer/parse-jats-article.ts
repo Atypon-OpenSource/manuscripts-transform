@@ -14,9 +14,16 @@
  * limitations under the License.
  */
 
-import { ActualManuscriptNode, schema, SectionCategory } from '../../schema'
+import { DOMParser, ParseRule } from 'prosemirror-model'
+
+import {
+  ActualManuscriptNode,
+  NodeRule,
+  schema,
+  SectionCategory,
+} from '../../schema'
+import { chooseSectionCategory } from '../../schema/section-utils'
 import { markComments } from './jats-comments'
-import { JATSDOMParser } from './jats-dom-parser'
 import { parseJournal } from './jats-journal-meta-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
 import {
@@ -83,7 +90,6 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
 
 const createElementFn = (doc: Document) => (tagName: string) =>
   doc.createElement(tagName)
-
 export const parseJATSArticle = (
   doc: Document,
   sectionCategories: SectionCategory[],
@@ -92,8 +98,21 @@ export const parseJATSArticle = (
   const journal = parseJournal(doc)
   processJATS(doc, sectionCategories)
 
-  const node = new JATSDOMParser(sectionCategories, schema).parse(doc)
-    .firstChild as ActualManuscriptNode
+  // Build a flat array of parseDOM rules, each with the node name
+  const nodeParseRules: ParseRule[] = []
+  schema.spec.nodes.forEach((nodeName, nodeSpec) => {
+    if (nodeSpec.parseDOM) {
+      nodeSpec.parseDOM.forEach((rule) => {
+        nodeParseRules.push({ ...rule, node: nodeName })
+      })
+    }
+  })
+
+  const allParseRules = [...nodeParseRules, ...sectionRules(sectionCategories)]
+
+  const parser = new DOMParser(schema, allParseRules)
+
+  const node = parser.parse(doc)?.firstChild as ActualManuscriptNode
   if (!node) {
     throw new Error('No content was parsed from the JATS article body')
   }
@@ -106,3 +125,37 @@ export const parseJATSArticle = (
     journal,
   }
 }
+
+const sectionRules = (sectionCategories: SectionCategory[]): NodeRule[] => [
+  {
+    tag: 'sec[sec-type="abstract-graphical"]',
+    node: 'graphical_abstract_section',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        category: chooseSectionCategory(element, sectionCategories),
+      }
+    },
+  },
+  {
+    tag: 'sec[sec-type="abstract-key-image"]',
+    node: 'graphical_abstract_section',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        category: chooseSectionCategory(element, sectionCategories),
+      }
+    },
+  },
+  {
+    tag: 'sec',
+    node: 'section',
+    getAttrs: (node) => {
+      const element = node as HTMLElement
+      return {
+        id: element.getAttribute('id'),
+        category: chooseSectionCategory(element, sectionCategories),
+      }
+    },
+  },
+]

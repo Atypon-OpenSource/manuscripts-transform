@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { Node, NodeSpec } from 'prosemirror-model'
 
 export interface QuoteImageAttrs {
   id: string
@@ -24,9 +22,23 @@ export interface QuoteImageAttrs {
   type: string
 }
 
-export interface QuoteImageNode extends ManuscriptNode {
+export interface QuoteImageNode extends Node {
   attrs: QuoteImageAttrs
 }
+
+const getFigureAttrs = (node: HTMLElement | string | Node) => {
+  const element = node as HTMLElement
+  const parentElement = element.parentElement
+  return {
+    id: element.getAttribute('id'),
+    type:
+      parentElement?.getAttribute('fig-type') ??
+      element.getAttribute('content-type') ??
+      '',
+    src: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
+  }
+}
+const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 
 export const quoteImage: NodeSpec = {
   attrs: {
@@ -38,16 +50,10 @@ export const quoteImage: NodeSpec = {
   group: 'block',
   parseDOM: [
     {
-      tag: 'figure',
+      tag: 'graphic',
+      node: 'quote_image',
       context: 'pullquote_element/',
-      getAttrs: (dom) => {
-        const element = dom as HTMLElement
-
-        return {
-          id: element.getAttribute('id'),
-          src: element.getAttribute('src'),
-        }
-      },
+      getAttrs: getFigureAttrs,
     },
   ],
   toDOM: (node) => {
@@ -62,3 +68,6 @@ export const quoteImage: NodeSpec = {
     ]
   },
 }
+
+export const isQuoteImageNode = (node: Node): node is QuoteImageNode =>
+  node.type === node.type.schema.nodes.quote_image

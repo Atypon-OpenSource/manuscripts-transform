@@ -14,10 +14,15 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
+export interface BodyAttrs {
+  id: string
+}
+
+export interface BodyNode extends Node {
+  attrs: BodyAttrs
+}
 
 export const body: NodeSpec = {
   content: 'element* sections*',
@@ -25,5 +30,14 @@ export const body: NodeSpec = {
     id: { default: '' },
   },
   group: 'block',
+  parseDOM: [
+    {
+      tag: 'sec[sec-type="body"]',
+      priority: 100,
+    },
+  ],
   toDOM: () => ['div', { class: 'body' }, 0],
 }
+
+export const isBodyNode = (node: Node): node is BodyNode =>
+  node.type === node.type.schema.nodes.body

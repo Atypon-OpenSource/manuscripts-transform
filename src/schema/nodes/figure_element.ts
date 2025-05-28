@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+import { getHTMLContent, getTrimmedTextContent } from '../utills'
 import { AttributionNode } from './attribution'
 
 export interface FigureElementAttrs {
@@ -24,7 +24,7 @@ export interface FigureElementAttrs {
   attribution?: AttributionNode
 }
 
-export interface FigureElementNode extends ManuscriptNode {
+export interface FigureElementNode extends Node {
   attrs: FigureElementAttrs
 }
 
@@ -49,6 +49,22 @@ export const figureElement: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'fig',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        const attrib = element.querySelector('attrib')
+        const attribution = attrib
+          ? {
+              literal: getTrimmedTextContent(attrib) ?? '',
+            }
+          : undefined
+        return {
+          id: element.getAttribute('id'),
+          attribution,
+        }
+      },
+    },
   ],
   toDOM: (node) => {
     const figureElementNode = node as FigureElementNode
@@ -67,7 +83,5 @@ export const figureElement: NodeSpec = {
   },
 }
 
-export const isFigureElementNode = (
-  node: ManuscriptNode
-): node is FigureElementNode =>
+export const isFigureElementNode = (node: Node): node is FigureElementNode =>
   node.type === node.type.schema.nodes.figure_element

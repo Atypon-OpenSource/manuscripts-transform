@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-import type { NodeSpec } from 'prosemirror-model'
-
-import type { ManuscriptNode } from '../types'
+import type { Node, NodeSpec } from 'prosemirror-model'
 
 export interface AltTextAttrs {
   id: string
 }
 
-export interface AltTextNode extends ManuscriptNode {
+export interface AltTextNode extends Node {
   attrs: AltTextAttrs
 }
 
@@ -31,6 +29,14 @@ export const altText: NodeSpec = {
   attrs: {
     id: { default: '' },
   },
-  parseDOM: [{ tag: 'div' }],
+  parseDOM: [
+    { tag: 'div' },
+    {
+      tag: 'alt-text',
+    },
+  ],
   toDOM: () => ['div', 0],
 }
+
+export const isAltTextNode = (node: Node): node is AltTextNode =>
+  node.type === node.type.schema.nodes.alt_text

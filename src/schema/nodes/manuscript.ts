@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+import { dateToTimestamp, getTrimmedTextContent } from '../utills'
 
-export interface ActualManuscriptNode extends ManuscriptNode {
+export interface ActualManuscriptNode extends Node {
   attrs: ManuscriptAttrs
 }
 
@@ -36,6 +36,50 @@ export interface ManuscriptAttrs {
   receiveDate?: number
 }
 
+const parseHistoryDates = (historyNode: Element | null) => {
+  if (!historyNode) {
+    return undefined
+  }
+  const history: {
+    acceptanceDate?: number
+    correctionDate?: number
+    retractionDate?: number
+    revisionRequestDate?: number
+    revisionReceiveDate?: number
+    receiveDate?: number
+  } = {}
+
+  for (const date of historyNode.children) {
+    const dateType = date.getAttribute('date-type')
+    switch (dateType) {
+      case 'received': {
+        history.receiveDate = dateToTimestamp(date)
+        break
+      }
+      case 'rev-recd': {
+        history.revisionReceiveDate = dateToTimestamp(date)
+        break
+      }
+      case 'accepted': {
+        history.acceptanceDate = dateToTimestamp(date)
+        break
+      }
+      case 'rev-request': {
+        history.revisionRequestDate = dateToTimestamp(date)
+        break
+      }
+      case 'retracted': {
+        history.retractionDate = dateToTimestamp(date)
+        break
+      }
+      case 'corrected': {
+        history.correctionDate = dateToTimestamp(date)
+        break
+      }
+    }
+  }
+  return history
+}
 // The direct children of this node do not have a json-schema representation
 // They exist for the purpose of styling in the UI
 
@@ -59,13 +103,38 @@ export const manuscript: NodeSpec = {
   parseDOM: [
     {
       tag: 'article',
-      getAttrs: (p) => {
-        const dom = p as HTMLElement
-
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        const doi = element.querySelector(
+          'front > article-meta > article-id[pub-id-type="doi"]'
+        )
+        const history = element.querySelector('history')
+        const dates = parseHistoryDates(history)
         return {
-          id: dom.getAttribute('id'),
+          id: element.getAttribute('id'),
+          doi: getTrimmedTextContent(doi),
+          articleType: element.getAttribute('article-type') ?? '',
+          primaryLanguageCode: element.getAttribute('lang') ?? '',
+          ...dates,
         }
       },
+    },
+    {
+      tag: 'front',
+      ignore: true,
+    },
+    {
+      tag: 'back',
+      ignore: true,
+    },
+    {
+      tag: 'history',
+      ignore: true,
+    },
+
+    {
+      tag: 'label',
+      ignore: true,
     },
   ],
   toDOM: (node) => {
@@ -81,6 +150,5 @@ export const manuscript: NodeSpec = {
   },
 }
 
-export const isManuscriptNode = (
-  node: ManuscriptNode
-): node is ManuscriptNode => node.type === node.type.schema.nodes.manuscript
+export const isManuscriptNode = (node: Node): node is ActualManuscriptNode =>
+  node.type === node.type.schema.nodes.manuscript

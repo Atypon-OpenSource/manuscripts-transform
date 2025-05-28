@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-import {
-  ManuscriptFragment,
-  ManuscriptNode,
-  ManuscriptNodeType,
-  schema,
-} from '../../schema'
+import { Node, NodeType } from 'prosemirror-model'
+
+import { ManuscriptFragment, schema } from '../../schema'
 import { nodeNames } from '../../transformer/node-names'
 
 export interface Target {
@@ -38,7 +35,7 @@ interface Counters {
   [key: string]: Counter
 }
 
-const labelledNodeTypes: ManuscriptNodeType[] = [
+const labelledNodeTypes: NodeType[] = [
   schema.nodes.figure_element,
   schema.nodes.table_element,
   schema.nodes.equation_element,
@@ -50,12 +47,12 @@ const labelledNodeTypes: ManuscriptNodeType[] = [
 
 const excludedTypes = [schema.nodes.graphical_abstract_section]
 
-const chooseLabel = (nodeType: ManuscriptNodeType): string => {
+const chooseLabel = (nodeType: NodeType): string => {
   return nodeNames.get(nodeType) as string
 }
 
 export const buildTargets = (
-  node: ManuscriptNode | ManuscriptFragment
+  node: Node | ManuscriptFragment
 ): Map<string, Target> => {
   const counters: Counters = {}
 
@@ -66,7 +63,7 @@ export const buildTargets = (
     }
   }
 
-  const buildLabel = (type: ManuscriptNodeType) => {
+  const buildLabel = (type: NodeType) => {
     const counter = counters[type.name]
     counter.index++
     return `${counter.label} ${counter.index}`

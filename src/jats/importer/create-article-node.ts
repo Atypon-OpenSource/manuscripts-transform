@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-import { ManuscriptAttrs, ManuscriptNode, schema } from '../../schema'
+import { Node } from 'prosemirror-model'
+
+import { ManuscriptAttrs, schema } from '../../schema'
 import { generateNodeID } from '../../transformer'
 
 export const createArticleNode = (
   attrs: Partial<ManuscriptAttrs> & { id: string }
-): ManuscriptNode => {
+): Node => {
   const title = schema.nodes.title.createChecked({
     id: generateNodeID(schema.nodes.title),
   })

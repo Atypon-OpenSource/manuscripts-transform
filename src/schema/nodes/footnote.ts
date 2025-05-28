@@ -14,25 +14,18 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
-
-import { ManuscriptNode } from '../types'
+import { Node, NodeSpec } from 'prosemirror-model'
 
 type Kind = 'footnote' | 'endnote'
 
-// const placeholderText: { [key in Kind]: string } = {
-//   endnote: 'Endnote',
-//   footnote: 'Footnote',
-// }
-
-interface Attrs {
+export interface FootnoteAttrs {
   id: string
   kind: Kind
   placeholder?: string
 }
 
-export interface FootnoteNode extends ManuscriptNode {
-  attrs: Attrs
+export interface FootnoteNode extends Node {
+  attrs: FootnoteAttrs
 }
 
 export const footnote: NodeSpec = {
@@ -50,7 +43,7 @@ export const footnote: NodeSpec = {
       getAttrs: (p) => {
         const dom = p as HTMLDivElement
 
-        const attrs: Partial<Attrs> = {
+        const attrs: Partial<FootnoteAttrs> = {
           id: dom.getAttribute('id') || undefined,
           kind: (dom.getAttribute('data-kind') || 'footnote') as Kind,
         }
@@ -62,6 +55,34 @@ export const footnote: NodeSpec = {
         }
 
         return attrs
+      },
+    },
+    {
+      tag: 'fn[fn-type]', // all supported fn-types should be moved out by the time we parse into prosemirror
+      context: 'author_notes/',
+      ignore: true,
+    },
+    {
+      tag: 'fn:not([fn-type])',
+      context: 'author_notes/',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          kind: 'footnote',
+        }
+      },
+    },
+    {
+      tag: 'fn',
+      context: 'footnotes_element/|table_element_footer/',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+          kind: 'footnote', // TODO: 'endnote' depending on position or attribute?
+        }
       },
     },
   ],
@@ -91,5 +112,5 @@ export const footnote: NodeSpec = {
   },
 }
 
-export const isFootnoteNode = (node: ManuscriptNode): node is FootnoteNode =>
+export const isFootnoteNode = (node: Node): node is FootnoteNode =>
   node.type === node.type.schema.nodes.footnote

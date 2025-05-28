@@ -14,11 +14,15 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node, NodeSpec } from 'prosemirror-model'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
+export interface BackmatterAttrs {
+  id: string
+}
 
+export interface BackmatterNode extends Node {
+  attrs: BackmatterAttrs
+}
 export const backmatter: NodeSpec = {
   content: 'sections*',
   attrs: {
@@ -26,6 +30,15 @@ export const backmatter: NodeSpec = {
     placeholder: { default: ' ' },
   },
   group: 'block element',
-  parseDOM: [{ tag: 'div.backmatter' }],
+  parseDOM: [
+    { tag: 'div.backmatter' },
+    {
+      tag: 'sec[sec-type="backmatter"]',
+      priority: 100,
+    },
+  ],
   toDOM: () => ['div', { class: 'backmatter' }, 0],
 }
+
+export const isBackmatterNode = (node: Node): node is BackmatterNode =>
+  node.type === node.type.schema.nodes.backmatter

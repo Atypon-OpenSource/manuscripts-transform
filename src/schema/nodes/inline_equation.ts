@@ -14,18 +14,39 @@
  * limitations under the License.
  */
 
-import { NodeSpec } from 'prosemirror-model'
+import { Node as ProsemirrorNode, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
-
-interface Attrs {
+export interface InlineEquationAttrs {
   id: string
   contents: string
   format: string
 }
 
-export interface InlineEquationNode extends ManuscriptNode {
-  attrs: Attrs
+const getEquationContent = (p: string | HTMLElement) => {
+  const element = p as HTMLElement
+  const id = element.getAttribute('id')
+  const container = element.querySelector('alternatives') ?? element
+  let contents: string | null = ''
+  let format: string | null = ''
+  for (const child of container.childNodes) {
+    const nodeName = child.nodeName.replace(/^[a-z]:/, '')
+
+    switch (nodeName) {
+      case 'tex-math':
+        contents = child.textContent
+        format = 'tex'
+        break
+      case 'mml:math':
+        contents = (child as Element).outerHTML
+        format = 'mathml'
+        break
+    }
+  }
+  return { id, format, contents }
+}
+
+export interface InlineEquationNode extends ProsemirrorNode {
+  attrs: InlineEquationAttrs
 }
 
 export const inlineEquation: NodeSpec = {
@@ -51,6 +72,13 @@ export const inlineEquation: NodeSpec = {
         }
       },
     },
+    {
+      tag: 'inline-formula',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return getEquationContent(element)
+      },
+    },
   ],
   toDOM: (node) => {
     const inlineEquationNode = node as InlineEquationNode
@@ -66,3 +94,8 @@ export const inlineEquation: NodeSpec = {
     return dom
   },
 }
+
+export const isInlineEquationNode = (
+  node: ProsemirrorNode
+): node is InlineEquationNode =>
+  node.type === node.type.schema.nodes.inline_equation

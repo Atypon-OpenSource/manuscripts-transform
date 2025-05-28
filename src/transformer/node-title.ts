@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-import { NodeType } from 'prosemirror-model'
+import { Node, NodeType } from 'prosemirror-model'
 
 import { iterateChildren } from '../lib/utils'
 import { isHighlightMarkerNode, schema } from '../schema'
-import { ManuscriptNode, ManuscriptNodeType } from '../schema/types'
 import { nodeNames } from './node-names'
 
-const textSnippet = (node: ManuscriptNode, max = 100) => {
+const textSnippet = (node: Node, max = 100) => {
   let text = ''
 
   node.forEach((child) => {
@@ -37,10 +36,7 @@ const textSnippet = (node: ManuscriptNode, max = 100) => {
   return text.substring(0, max)
 }
 
-const snippetOfNodeType = (
-  node: ManuscriptNode,
-  nodeType: ManuscriptNodeType
-) => {
+const snippetOfNodeType = (node: Node, nodeType: NodeType) => {
   for (const child of iterateChildren(node, true)) {
     if (child.type === nodeType) {
       return textSnippet(child)
@@ -50,7 +46,7 @@ const snippetOfNodeType = (
   return null
 }
 
-export const nodeTitle = (node: ManuscriptNode) => {
+export const nodeTitle = (node: Node) => {
   const nodes = schema.nodes
 
   switch (node.type) {

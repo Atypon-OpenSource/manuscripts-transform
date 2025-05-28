@@ -14,10 +14,15 @@
  * limitations under the License.
  */
 
-import { BibliographicDate, BibliographicName } from '@manuscripts/json-schema'
-import { NodeSpec } from 'prosemirror-model'
+import {
+  BibliographicDate,
+  BibliographicName,
+  buildBibliographicDate,
+  buildBibliographicName,
+} from '@manuscripts/json-schema'
+import { Node as ProsemirrorNode, NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+import { getHTMLContent, getTrimmedTextContent } from '../utills'
 
 export interface BibliographyItemAttrs {
   id: string
@@ -60,15 +65,159 @@ export type BibliographyItemType =
   | 'dataset'
   | 'preprint'
 
-export const publicationTypeToPM: Record<string, string> = {
+const publicationTypeToPM: Record<string, string> = {
   journal: 'article-journal',
   web: 'webpage',
   data: 'dataset',
   preprint: 'article-journal',
 }
 
-export interface BibliographyItemNode extends ManuscriptNode {
+export interface BibliographyItemNode extends ProsemirrorNode {
   attrs: BibliographyItemAttrs
+}
+
+const parseRefLiteral = (element: Element) => {
+  const mixedCitation = element.querySelector('mixed-citation')
+  const hasDirectTextNodeWithLetters = Array.from(
+    mixedCitation?.childNodes ?? []
+  ).some(
+    (node) =>
+      node.nodeType === Node.TEXT_NODE && node.textContent?.match(/[A-Za-z]+/g)
+  )
+
+  if (hasDirectTextNodeWithLetters) {
+    return getTrimmedTextContent(mixedCitation)
+  }
+}
+const parseRefPages = (element: Element) => {
+  const fpage = getTrimmedTextContent(element, 'fpage')
+  const lpage = getTrimmedTextContent(element, 'lpage')
+  if (fpage) {
+    return lpage ? `${fpage}-${lpage}` : fpage
+  }
+}
+
+const parseRef = (element: Element) => {
+  return {
+    id: element.id,
+    type: choosePublicationType(element),
+    comment: getTrimmedTextContent(element, 'comment'),
+    volume: getTrimmedTextContent(element, 'volume'),
+    issue: getTrimmedTextContent(element, 'issue'),
+    supplement: getTrimmedTextContent(element, 'supplement'),
+    DOI: getTrimmedTextContent(element, 'pub-id[pub-id-type="doi"]'),
+    URL: getTrimmedTextContent(element, 'ext-link[ext-link-type="uri"]'),
+    std: getTrimmedTextContent(
+      element,
+      'pub-id[pub-id-type="std-designation"]'
+    ),
+    'collection-title': getTrimmedTextContent(element, 'series'),
+    edition: getTrimmedTextContent(element, 'edition'),
+    publisher: getTrimmedTextContent(element, 'publisher-name'),
+    'publisher-place': getTrimmedTextContent(element, 'publisher-loc'),
+    event: getTrimmedTextContent(element, 'conf-name'),
+    'event-place': getTrimmedTextContent(element, 'conf-loc'),
+    'number-of-pages': getTrimmedTextContent(element, 'size[units="pages"]'),
+    institution: getTrimmedTextContent(element, 'institution'),
+    locator: getTrimmedTextContent(element, 'elocation-id'),
+    'container-title': getHTMLContent(element, 'source'),
+    title:
+      getHTMLContent(element, 'article-title') ??
+      getHTMLContent(element, 'data-title') ??
+      getHTMLContent(element, 'part-title'),
+    author: getNameContent(
+      element,
+      'person-group[person-group-type="author"] > *'
+    ),
+    editor: getNameContent(
+      element,
+      'person-group[person-group-type="editor"] > *'
+    ),
+    literal: parseRefLiteral(element),
+    accessed: getDateContent(element, 'date-in-citation'),
+    'event-date': getDateContent(element, 'conf-date'),
+    issued: getTrimmedTextContent(
+      element.querySelector('element-citation, mixed-citation'),
+      ':scope > year'
+    )
+      ? buildBibliographicDate({
+          'date-parts': [
+            [
+              getTrimmedTextContent(
+                element.querySelector('element-citation, mixed-citation'),
+                ':scope > year'
+              ) || '',
+              getTrimmedTextContent(
+                element.querySelector('element-citation, mixed-citation'),
+                ':scope > month'
+              ) || '',
+              getTrimmedTextContent(
+                element.querySelector('element-citation, mixed-citation'),
+                ':scope > day'
+              ) || '',
+            ],
+          ],
+        })
+      : undefined,
+    page: parseRefPages(element),
+  }
+}
+
+const choosePublicationType = (element: Element) => {
+  const citationElement = element.querySelector(
+    'element-citation, mixed-citation'
+  )
+  const type = citationElement?.getAttribute('publication-type')
+  return type ? publicationTypeToPM[type] ?? type : 'article-journal'
+}
+
+const getNameContent = (element: Element, query: string) => {
+  const buildName = (node: Element) => {
+    const name = buildBibliographicName({})
+    const given = getTrimmedTextContent(node, 'given-names')
+    const family = getTrimmedTextContent(node, 'surname')
+
+    if (given) {
+      name.given = given
+    }
+    if (family) {
+      name.family = family
+    }
+    if (node.nodeName === 'collab') {
+      name.literal = getTrimmedTextContent(node)
+    }
+    return name
+  }
+  const personNodes = element.querySelectorAll(query)
+  if (personNodes.length) {
+    return Array.from(personNodes).map(buildName)
+  }
+}
+
+const getDateContent = (element: Element, query: string) => {
+  const buildDate = (element: Element) => {
+    const isoDate = element.getAttribute('iso-8601-date')
+    if (!isoDate) {
+      return
+    }
+
+    const parsedDate = new Date(Date.parse(isoDate))
+
+    const parts: [number, number, number] = [
+      parsedDate.getFullYear(),
+      parsedDate.getMonth() + 1, //month is 0 indexed.
+      parsedDate.getDate(),
+    ]
+
+    return buildBibliographicDate({
+      'date-parts': [parts],
+    })
+  }
+
+  const dateElement = element.querySelector(query)
+  if (dateElement) {
+    return buildDate(dateElement)
+  }
 }
 
 export const bibliographyItem: NodeSpec = {
@@ -107,4 +256,17 @@ export const bibliographyItem: NodeSpec = {
   },
   selectable: false,
   group: 'block',
+  parseDOM: [
+    {
+      tag: 'ref',
+      context: 'bibliography_element/',
+      node: 'bibliography_item',
+      getAttrs: (node) => parseRef(node as Element),
+    },
+  ],
 }
+
+export const isBibliographyItemNode = (
+  node: ProsemirrorNode
+): node is BibliographyItemNode =>
+  node.type === node.type.schema.nodes.bibliography_item
