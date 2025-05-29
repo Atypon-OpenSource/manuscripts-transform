@@ -75,7 +75,8 @@ export class JATSDOMParser {
   }
 
   private chooseSectionCategory(section: HTMLElement) {
-    const secType = section.getAttribute('sec-type')
+    const secType =
+      section.getAttribute('sec-type') || section.getAttribute('abstract-type')
     const titleNode = section.firstElementChild
 
     for (const category of this.sectionCategories) {
@@ -986,8 +987,8 @@ export class JATSDOMParser {
       getAttrs: (node) => {
         const element = node as HTMLElement
         return {
-          id: element.getAttribute('id'),
           lang: element.getAttribute('xml:lang') ?? '',
+          category: this.chooseSectionCategory(element),
         }
       },
     },

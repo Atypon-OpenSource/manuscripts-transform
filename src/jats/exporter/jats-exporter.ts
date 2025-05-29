@@ -81,6 +81,7 @@ const publicationTypeToJats: Record<string, string> = {
 const warn = debug('manuscripts-transform')
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
+const XML_NAMESPACE = 'http://www.w3.org/XML/1998/namespace'
 
 const normalizeID = (id: string) => id.replace(/:/g, '_')
 
@@ -890,6 +891,9 @@ export class JATSExporter {
         }
         if (node.attrs.lang) {
           attrs['xml:lang'] = node.attrs.lang
+        }
+        if (node.attrs.category) {
+          attrs['sec-type'] = node.attrs.category
         }
         return ['trans-abstract', attrs, 0]
       },
@@ -1994,8 +1998,16 @@ export class JATSExporter {
       abstractCategories
     )
 
-    if (abstractSections.length) {
-      this.processAbstractSections(abstractSections, front)
+    for (const abstractSection of abstractSections) {
+      const node =
+        abstractSection.nodeName === 'trans-abstract'
+          ? this.createTransAbstractNode(abstractSection)
+          : this.createAbstractNode(abstractSection)
+      abstractSection.remove()
+      const articleMeta = front.querySelector(':scope > article-meta')
+      if (articleMeta) {
+        insertAbstractNode(articleMeta, node)
+      }
     }
 
     const transAbstracts = body.querySelectorAll(':scope > trans-abstract')
@@ -2025,9 +2037,13 @@ export class JATSExporter {
     abstractCategories: string[]
   ): Element[] {
     if (container) {
-      return Array.from(container.querySelectorAll(':scope > sec'))
+      return Array.from(
+        container.querySelectorAll(':scope > sec, :scope > trans-abstract')
+      )
     } else {
-      const sections = Array.from(body.querySelectorAll(':scope > sec'))
+      const sections = Array.from(
+        body.querySelectorAll(':scope > sec, :scope > trans-abstract')
+      )
       return sections.filter((section) =>
         this.isAbstractSection(section, abstractCategories)
       )
@@ -2047,13 +2063,28 @@ export class JATSExporter {
     front: HTMLElement
   ) {
     for (const abstractSection of abstractSections) {
-      const abstractNode = this.createAbstractNode(abstractSection)
+      const node =
+        abstractSection.nodeName === 'trans-abstract'
+          ? this.createTransAbstractNode(abstractSection)
+          : this.createAbstractNode(abstractSection)
       abstractSection.remove()
       const articleMeta = front.querySelector(':scope > article-meta')
       if (articleMeta) {
-        insertAbstractNode(articleMeta, abstractNode)
+        insertAbstractNode(articleMeta, node)
       }
     }
+  }
+
+  private createTransAbstractNode(transAbstract: Element): Element {
+    const transAbstractNode = this.createElement('trans-abstract')
+    transAbstractNode.setAttributeNS(
+      XML_NAMESPACE,
+      'lang',
+      transAbstract.getAttribute('xml:lang') ?? ''
+    )
+    this.setAbstractType(transAbstractNode, transAbstract)
+    transAbstractNode.append(...transAbstract.childNodes)
+    return transAbstractNode
   }
 
   private createAbstractNode(abstractSection: Element): Element {

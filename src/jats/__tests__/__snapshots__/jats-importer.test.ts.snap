@@ -31999,6 +31999,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "category": "abstract-short",
             "dataTracked": null,
             "id": "MPTransAbstract:test",
             "lang": "fr",
@@ -32012,7 +32013,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "test betamony",
+                  "text": "Il s'agit de la troisième et dernière partie du volume consacrée aux données de solubilité des chlorures de métaux des terres rares dans l'eau et dans les systèmes aqueux ternaires et quaternaires. Une compilation de toutes les données expérimentales disponibles est présentée pour chaque chlorure de métaux des terres rares, accompagnée de l'évaluation critique correspondante. Cette partie couvre les chlorures de Gd, Tb, Dy, Ho, Er, Tm, Yb et Lu, avec une couverture de la littérature jusqu'à mi-2008.",
                   "type": "text",
                 },
               ],

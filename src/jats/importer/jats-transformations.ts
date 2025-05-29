@@ -124,22 +124,17 @@ export const moveAffiliations = (
 }
 
 export const moveAbstracts = (
-  doc: Document,
+  front: Element,
   group: Element,
   createElement: CreateElement
 ) => {
-  const abstracts = doc.querySelectorAll('front > article-meta > abstract')
+  const abstracts = front.querySelectorAll(
+    'article-meta > abstract, article-meta > trans-abstract'
+  )
   abstracts.forEach((abstract) => {
     const sec = createAbstractSection(abstract, createElement)
     removeNodeFromParent(abstract)
     group.appendChild(sec)
-  })
-  const transAbstractsSection = doc.querySelectorAll(
-    'front > article-meta > trans-abstract'
-  )
-  transAbstractsSection.forEach((transAbstract) => {
-    removeNodeFromParent(transAbstract)
-    group.appendChild(transAbstract)
   })
 }
 
@@ -200,12 +195,12 @@ export const createBody = (
 }
 
 export const createAbstracts = (
-  doc: Document,
+  front: Element,
   body: Element,
   createElement: CreateElement
 ) => {
   const group = createSectionGroup('abstracts', createElement)
-  moveAbstracts(doc, group, createElement)
+  moveAbstracts(front, group, createElement)
   body.insertBefore(group, body.lastElementChild)
 }
 
@@ -300,10 +295,13 @@ const createAbstractSection = (
   createElement: CreateElement
 ) => {
   const abstractType = abstract.getAttribute('abstract-type')
-  const section = createElement('sec')
   const sectionType = abstractType ? `abstract-${abstractType}` : 'abstract'
+  if (abstract.nodeName === 'trans-abstract') {
+    abstract.setAttribute('sec-type', sectionType)
+    return abstract
+  }
+  const section = createElement('sec')
   section.setAttribute('sec-type', sectionType)
-
   if (!abstract.querySelector(':scope > title')) {
     const title = createElement('title')
     title.textContent = abstractType

@@ -22,6 +22,7 @@ import type { ManuscriptNode } from '../types'
 export interface TransAbstractAttrs {
   id: string
   lang: string
+  category: string
 }
 
 export interface TransAbstractNode extends ManuscriptNode {
@@ -33,6 +34,7 @@ export const transAbstract: NodeSpec = {
   attrs: {
     id: { default: '' },
     lang: { default: '' },
+    category: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',
