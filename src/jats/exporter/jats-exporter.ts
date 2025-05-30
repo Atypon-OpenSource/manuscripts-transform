@@ -701,7 +701,6 @@ export class JATSExporter {
           'mixed-citation',
           bibliographyItem.attrs.literal,
           {
-            'publication-type': getPublicationType(bibliographyItem.attrs.type),
             'specific-use': 'unstructured-citation',
           }
         )

@@ -29,12 +29,12 @@ import {
   getTrimmedTextContent,
 } from '../../lib/utils'
 import {
+  BibliographyItemType,
   ContributorCorresp,
   ContributorFootnote,
   ManuscriptNode,
   MarkRule,
   NodeRule,
-  publicationTypeToPM,
   SectionCategory,
 } from '../../schema'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
@@ -207,12 +207,25 @@ export class JATSDOMParser {
     )
   }
 
-  private choosePublicationType = (element: Element) => {
-    const citationElement = element.querySelector(
-      'element-citation, mixed-citation'
-    )
-    const type = citationElement?.getAttribute('publication-type')
-    return type ? publicationTypeToPM[type] ?? type : 'article-journal'
+  private getRefType = (element: Element): BibliographyItemType => {
+    const citation = element.querySelector('element-citation, mixed-citation')
+    const type = citation?.getAttribute('publication-type')
+    if (citation?.getAttribute('specific-use') === 'unstructured-citation') {
+      return 'literal'
+    }
+    if (!type) {
+      return 'article-journal'
+    }
+    switch (type) {
+      case 'journal':
+        return 'article-journal'
+      case 'web':
+        return 'webpage'
+      case 'data':
+        return 'dataset'
+      default:
+        return type as BibliographyItemType
+    }
   }
 
   private getNameContent(element: Element, query: string) {
@@ -301,7 +314,7 @@ export class JATSDOMParser {
   private parseRef = (element: Element) => {
     return {
       id: element.id,
-      type: this.choosePublicationType(element),
+      type: this.getRefType(element),
       comment: getTrimmedTextContent(element, 'comment'),
       volume: getTrimmedTextContent(element, 'volume'),
       issue: getTrimmedTextContent(element, 'issue'),
