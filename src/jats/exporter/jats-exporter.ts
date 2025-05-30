@@ -87,7 +87,11 @@ const normalizeID = (id: string) => id.replace(/:/g, '_')
 
 const parser = ProsemirrorDOMParser.fromSchema(schema)
 // siblings from https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/article-meta.html
-const insertAbstractNode = (articleMeta: Element, abstractNode: Element) => {
+const insertAbstractNode = (front: Element, abstractNode: Element) => {
+  const articleMeta = front.querySelector(':scope > article-meta')
+  if (!articleMeta) {
+    return
+  }
   const insertBeforeElement = articleMeta.querySelector(
     'kwd-group, funding-group, support-group, conference, counts, custom-meta-group'
   )
@@ -1988,15 +1992,7 @@ export class JATSExporter {
     }
   }
   private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
-    const container = body.querySelector(':scope > sec[sec-type="abstracts"]')
-    const abstractsNode = this.getFirstChildOfType(schema.nodes.abstracts)
-    const abstractCategories = this.getAbstractCategories(abstractsNode)
-    const articleMeta = front.querySelector(':scope > article-meta') as Element //we're sure there's an article meta(being created in buildFront), this is just for type safety
-    const abstractSections = this.getAbstractSections(
-      container,
-      body,
-      abstractCategories
-    )
+    const abstractSections = this.getAbstractSections(body)
 
     for (const abstractSection of abstractSections) {
       const node =
@@ -2004,19 +2000,7 @@ export class JATSExporter {
           ? this.createTransAbstractNode(abstractSection)
           : this.createAbstractNode(abstractSection)
       abstractSection.remove()
-      const articleMeta = front.querySelector(':scope > article-meta')
-      if (articleMeta) {
-        insertAbstractNode(articleMeta, node)
-      }
-    }
-
-    const transAbstracts = body.querySelectorAll(':scope > trans-abstract')
-    transAbstracts.forEach((transAbstract) => {
-      insertAbstractNode(articleMeta, transAbstract)
-    })
-
-    if (container) {
-      body.removeChild(container)
+      insertAbstractNode(front, node)
     }
   }
 
@@ -2031,16 +2015,10 @@ export class JATSExporter {
     return categories
   }
 
-  private getAbstractSections(
-    container: Element | null,
-    body: HTMLElement,
-    abstractCategories: string[]
-  ): Element[] {
-    if (container) {
-      return Array.from(
-        container.querySelectorAll(':scope > sec, :scope > trans-abstract')
-      )
-    } else {
+  private getAbstractSections(body: HTMLElement) {
+    {
+      const abstractsNode = this.getFirstChildOfType(schema.nodes.abstracts)
+      const abstractCategories = this.getAbstractCategories(abstractsNode)
       const sections = Array.from(
         body.querySelectorAll(':scope > sec, :scope > trans-abstract')
       )
@@ -2056,23 +2034,6 @@ export class JATSExporter {
   ): boolean {
     const sectionType = section.getAttribute('sec-type')
     return sectionType ? abstractCategories.includes(sectionType) : false
-  }
-
-  private processAbstractSections(
-    abstractSections: Element[],
-    front: HTMLElement
-  ) {
-    for (const abstractSection of abstractSections) {
-      const node =
-        abstractSection.nodeName === 'trans-abstract'
-          ? this.createTransAbstractNode(abstractSection)
-          : this.createAbstractNode(abstractSection)
-      abstractSection.remove()
-      const articleMeta = front.querySelector(':scope > article-meta')
-      if (articleMeta) {
-        insertAbstractNode(articleMeta, node)
-      }
-    }
   }
 
   private createTransAbstractNode(transAbstract: Element): Element {
