@@ -32,16 +32,15 @@
   "dependencies": {
     "@manuscripts/json-schema": "2.2.12",
     "@manuscripts/library": "1.3.14-LEAN-2023.0",
-    "debug": "^4.3.4",
-    "jszip": "^3.10.1",
-    "lodash": "^4.17.21",
-    "mime": "^3.0.0",
-    "prosemirror-model": "^1.18.3",
-    "prosemirror-tables": "^1.3.5",
-    "prosemirror-utils": "^1.2.2",
-    "semver": "^7.6.2",
-    "uuid": "^9.0.0",
-    "w3c-xmlserializer": "^4.0.0"
+    "jszip": "3.10.1",
+    "lodash": "4.17.21",
+    "mime": "3.0.0",
+    "prosemirror-model": "1.25.1",
+    "prosemirror-tables": "1.7.1",
+    "prosemirror-utils": "1.2.2",
+    "semver": "7.7.2",
+    "uuid": "9.0.1",
+    "w3c-xmlserializer": "4.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.23.7",
