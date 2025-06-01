@@ -297,7 +297,7 @@ const createAbstractSection = (
   const abstractType = abstract.getAttribute('abstract-type')
   const sectionType = abstractType ? `abstract-${abstractType}` : 'abstract'
   if (abstract.nodeName === 'trans-abstract') {
-    abstract.setAttribute('sec-type', sectionType)
+    abstract.setAttribute('abstract-type', sectionType)
     return abstract
   }
   const section = createElement('sec')
