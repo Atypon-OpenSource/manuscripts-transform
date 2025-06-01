@@ -18,11 +18,13 @@ import { Node as ProsemirrorNode, ResolvedPos } from 'prosemirror-model'
 
 import { htmlFromJatsNode } from '../jats/importer/jats-parser-utils'
 import {
+  CRediTRole,
   isBibliographySectionNode,
   isGraphicalAbstractSectionNode,
   ManuscriptEditorState,
   ManuscriptNode,
 } from '../schema'
+import { CRediTRoleUrls, CreditVocabTerm } from './credit-roles'
 
 export function* iterateChildren(
   node: ManuscriptNode,
@@ -120,4 +122,24 @@ export const dateToTimestamp = (dateElement: Element) => {
 
   // timestamp stored in seconds in manuscript schema
   return Date.UTC(values[0], values[1] - 1, values[2]) / 1000 // ms => s
+}
+
+export function getCRediTRoleRole(elem: Element) {
+  const sources = elem.querySelectorAll(
+    'role[vocab="CRediT"][vocab-identifier="http://credit.niso.org/"][vocab-term][vocab-term-identifier]'
+  )
+  const results: CRediTRole[] = []
+  sources.forEach((source) => {
+    if (
+      source &&
+      CRediTRoleUrls.has(source.getAttribute('vocab-term') as CreditVocabTerm)
+    ) {
+      const result: CRediTRole = {
+        vocabTerm: source.getAttribute('vocab-term') as CreditVocabTerm,
+      }
+      results.push(result)
+    }
+  })
+
+  return results
 }

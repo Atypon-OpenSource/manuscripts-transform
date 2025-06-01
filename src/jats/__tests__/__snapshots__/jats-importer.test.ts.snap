@@ -293,6 +293,11 @@ exports[`JATS importer contributors node should correctly parse contributor node
 Array [
   Object {
     "attrs": Object {
+      "CRediTRoles": Array [
+        Object {
+          "vocabTerm": "Writing – original draft",
+        },
+      ],
       "ORCIDIdentifier": "https://orcid.org/0000-0003-2217-5904",
       "affiliations": Array [
         "MPAffiliation:test",
@@ -311,6 +316,7 @@ Array [
       "invitationID": undefined,
       "isCorresponding": true,
       "isJointContributor": undefined,
+      "prefix": "Mr",
       "priority": undefined,
       "role": "author",
       "userID": undefined,
@@ -325,6 +331,7 @@ Array [
   },
   Object {
     "attrs": Object {
+      "CRediTRoles": Array [],
       "ORCIDIdentifier": undefined,
       "affiliations": Array [
         "MPAffiliation:test",
@@ -348,8 +355,9 @@ Array [
       "invitationID": undefined,
       "isCorresponding": undefined,
       "isJointContributor": undefined,
+      "prefix": "",
       "priority": undefined,
-      "role": "author",
+      "role": "",
       "userID": undefined,
     },
     "content": Array [
@@ -470,6 +478,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": "https://orcid.org/0000-0001-6162-1335",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -493,8 +502,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": true,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -507,6 +517,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -525,8 +536,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -539,6 +551,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -557,8 +570,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -571,6 +585,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -589,8 +604,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -2578,6 +2594,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [],
             "bibliographicName": Object {
@@ -2594,8 +2611,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -4122,6 +4140,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4140,8 +4159,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -4154,6 +4174,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4172,8 +4193,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -4186,6 +4208,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4204,8 +4227,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -4218,6 +4242,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4236,8 +4261,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -4250,6 +4276,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": "https://orcid.org/0000-0003-2427-915X",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4268,8 +4295,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -4282,6 +4310,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4300,8 +4329,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -4314,6 +4344,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": "https://orcid.org/0000-0001-8156-6978",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4332,8 +4363,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": true,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -20924,6 +20956,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": "https://orcid.org/0000-0003-2217-5904",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -20942,8 +20975,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": true,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -20956,6 +20990,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -20979,8 +21014,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -29305,6 +29341,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -29333,8 +29370,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": true,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "Member, IEEE",
             "userID": undefined,
           },
           "content": Array [
@@ -31192,6 +31230,11 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [
+              Object {
+                "vocabTerm": "Writing – original draft",
+              },
+            ],
             "ORCIDIdentifier": "https://orcid.org/0000-0003-2217-5904",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -31210,6 +31253,7 @@ Object {
             "invitationID": undefined,
             "isCorresponding": true,
             "isJointContributor": undefined,
+            "prefix": "Mr",
             "priority": undefined,
             "role": "author",
             "userID": undefined,
@@ -31224,6 +31268,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -31247,8 +31292,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -32467,6 +32513,139 @@ Object {
                           ],
                           "type": "figcaption",
                         },
+                        Object {
+                          "attrs": Object {
+                            "category": "",
+                            "dataTracked": null,
+                            "id": "MPSection:test",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "Key messages",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "section_title",
+                            },
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                                "id": "MPListElement:test",
+                                "listStyleType": "bullet",
+                              },
+                              "content": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "placeholder": "List item",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "id": "MPParagraphElement:test",
+                                        "placeholder": "",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "The benefits of geriatric day hospital care have been controversial for many years.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "paragraph",
+                                    },
+                                  ],
+                                  "type": "list_item",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "placeholder": "List item",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "id": "MPParagraphElement:test",
+                                        "placeholder": "",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "This systematic review of 12 randomised trials comparing a variety of day hospitals with a range of alternative services found no overall advantage for day hospital care.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "paragraph",
+                                    },
+                                  ],
+                                  "type": "list_item",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "placeholder": "List item",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "id": "MPParagraphElement:test",
+                                        "placeholder": "",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "Day hospitals had a possible advantage over no comprehensive care in terms of death or poor outcome, disability, and use of resources.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "paragraph",
+                                    },
+                                  ],
+                                  "type": "list_item",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "placeholder": "List item",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "id": "MPParagraphElement:test",
+                                        "placeholder": "",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "The costs of day hospital care may be partly offset by a reduced use of hospital beds and institutional care among survivors.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "paragraph",
+                                    },
+                                  ],
+                                  "type": "list_item",
+                                },
+                              ],
+                              "type": "list",
+                            },
+                          ],
+                          "type": "section",
+                        },
+                      ],
+                      "type": "box_element",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPSection:test",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "category": "",
@@ -41985,6 +42164,48 @@ Object {
     },
     Object {
       "attrs": Object {
+        "dataTracked": null,
+        "id": "MPHeroImage:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPFigure:test",
+            "src": "fig1.png",
+            "type": "leading",
+          },
+          "type": "figure",
+        },
+        Object {
+          "attrs": Object {
+            "id": "MPAltText:test",
+          },
+          "content": Array [
+            Object {
+              "text": "example of alt text for hero-image",
+              "type": "text",
+            },
+          ],
+          "type": "alt_text",
+        },
+        Object {
+          "attrs": Object {
+            "id": "MPLongDesc:test",
+          },
+          "content": Array [
+            Object {
+              "text": "example of long desc for hero image",
+              "type": "text",
+            },
+          ],
+          "type": "long_desc",
+        },
+      ],
+      "type": "hero_image",
+    },
+    Object {
+      "attrs": Object {
         "id": "MPComments:test",
       },
       "content": Array [
@@ -42285,6 +42506,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -42303,8 +42525,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [
@@ -42317,6 +42540,7 @@ Object {
         },
         Object {
           "attrs": Object {
+            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -42335,8 +42559,9 @@ Object {
             "invitationID": undefined,
             "isCorresponding": undefined,
             "isJointContributor": undefined,
+            "prefix": "",
             "priority": undefined,
-            "role": "author",
+            "role": "",
             "userID": undefined,
           },
           "content": Array [

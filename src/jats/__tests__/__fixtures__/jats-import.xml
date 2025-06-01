@@ -39,7 +39,15 @@
           <degrees>RN</degrees>
           <degrees>MPH</degrees>
           <degrees>PhD</degrees>
+          <role> author </role>
+          <prefix> Mr </prefix>
           <xref ref-type="aff" rid="BRB3-2019-12-0787-aff1" />
+          <role vocab="CRediT"
+            vocab-identifier="http://credit.niso.org/"
+            vocab-term="Writing – original draft"
+            vocab-term-identifier=
+            "http://credit.niso.org/contributor-roles/writing-original-draft/"
+            degree-contribution="lead">writer</role>
         </contrib>
         <contrib contrib-type="author">
           <name>
@@ -210,7 +218,7 @@
     </article-meta>
   </front>
   <body>
-  <graphic 
+  <graphic
 xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
 1.2983775.1373315697!/images/1460725790.jpg">
  <alt-text>example of alt text for graphics</alt-text>
@@ -328,6 +336,35 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
               </list>
             </sec>
           </boxed-text>
+          <boxed-text>
+            <label>BoxedTextLabel</label>
+
+            <sec>
+              <title>Key messages</title>
+              <list list-type="bullet">
+                <list-item>
+                  <p>The benefits of geriatric day hospital care have been
+                    controversial for many years.</p>
+                </list-item>
+                <list-item>
+                  <p>This systematic review of 12 randomised trials comparing
+                    a variety of day hospitals with a range of alternative
+                    services found no overall advantage for day hospital care.</p>
+                </list-item>
+                <list-item>
+                  <p>Day hospitals had a possible advantage over no comprehensive
+                    care in terms of death or poor outcome, disability, and use of
+                    resources.</p>
+                </list-item>
+                <list-item>
+                  <p>The costs of day hospital care may be partly offset by
+                    a reduced use of hospital beds and institutional care among
+                    survivors.</p>
+                </list-item>
+              </list>
+            </sec>
+          </boxed-text>
+
         </sec>
       </sec>
     </sec>
@@ -1487,4 +1524,10 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
       </ref>
     </ref-list>
   </back>
+  <floats-group>
+    <graphic content-type="leading" xlink:href="fig1.png">
+      <alt-text>example of alt text for hero-image</alt-text>
+      <long-desc>example of long desc for hero image</long-desc>  
+    </graphic>
+  </floats-group>
 </article>

@@ -19,6 +19,40 @@
       <title-group>
         <article-title>A complete manuscript</article-title>
       </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Macintosh</surname>
+            <given-names>Alfred</given-names>
+          </name>
+          <email xlink:href="macintosh@hotmail.com">flinserl@hotmail.com</email>
+          <xref ref-type="aff" rid="EDN3-2020-0111-aff3">
+            <sup>3</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Adam</surname>
+            <given-names>Rein</given-names>
+          </name>
+          <email xlink:href="adam.brys@some.be">rein.brys@inbo.be</email>
+        </contrib>
+      </contrib-group>
+      <author-notes>
+        <corresp id="EDN3-2020-0111-cor1">Corresponding authors, John Macintosh:
+          <email xlink:href="macintosh@hotmail.com">macintosh@hotmail.com</email>, ORCID 0000-0003-1215-2987, Adam Brys:
+          <email xlink:href="adam.brys@some.be">adam.brys@some.be</email>, ORCID 0000-0002-0688-3268
+        </corresp>
+        <fn fn-type="con">
+          <p content-type="fn-title">Author contributions</p>
+          <p>JM and AB wrote the manuscript. All co-authors provided comments and helped revising the manuscript.</p>
+        </fn>
+        <fn fn-type="abbr">
+          <p content-type="fn-title">Abbreviations</p>
+          <p>In this story, the Galactic Exploration Unit (GEU) plays a crucial role in interstellar diplomacy and scientific discovery.</p>
+        </fn>
+        <p>rana nofal testing</p>
+      </author-notes>
     </article-meta>
   </front>
   <body>
@@ -43,7 +77,9 @@
     <fn-group>
       <fn fn-type="financial-disclosure">
         <p content-type="fn-title">FUNDING INFORMATION</p>
-        <p>This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key <xref ref-type="bibr" rid="HUP-19-0076-bib-0001">1</xref>Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).</p>
+        <p>This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key
+          <xref ref-type="bibr" rid="HUP-19-0076-bib-0001">1</xref>Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).
+        </p>
       </fn>
     </fn-group>
     <ref-list>

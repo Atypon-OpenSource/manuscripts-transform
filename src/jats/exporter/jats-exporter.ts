@@ -31,6 +31,7 @@ import {
 import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
 
+import { CRediTRoleUrls } from '../../lib/credit-roles'
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML, textFromHTML } from '../../lib/html'
 import {
@@ -49,6 +50,7 @@ import {
   Marks,
   Nodes,
   ParagraphNode,
+  QuoteImageNode,
   schema,
   TableElementFooterNode,
   TableElementNode,
@@ -170,6 +172,7 @@ export const buildCitations = (citations: CitationNode[]) =>
       noteIndex: 0,
     },
   }))
+
 export class JATSExporter {
   protected document: Document
   protected serializer: DOMSerializer
@@ -206,6 +209,7 @@ export class JATSExporter {
       } as BibliographyItem
     }
   }
+
   protected generateCitationTexts(csl: CSLOptions, manuscriptID: string) {
     this.citationTexts = new Map<string, string>()
     this.citationProvider = new CitationProvider({
@@ -236,6 +240,7 @@ export class JATSExporter {
   ): T | undefined {
     return this.getChildrenOfType<T>(type, node)[0]
   }
+
   protected getChildrenOfType<T extends ManuscriptNode>(
     type: NodeType,
     node?: ManuscriptNode
@@ -288,12 +293,12 @@ export class JATSExporter {
     article.appendChild(back)
     this.unwrapBody(body)
     this.moveAbstracts(front, body)
-    this.moveFloatsGroup(body, article)
     this.removeBackContainer(body)
     this.updateFootnoteTypes(front, back)
     this.fillEmptyTableFooters(article)
     this.fillEmptyFootnotes(article)
     this.moveAwards(front, body)
+    this.moveFloatsGroup(article)
     await this.rewriteIDs()
     return serializeToXML(this.document)
   }
@@ -885,6 +890,7 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
+      hero_image: () => '',
       alt_text: (node) => {
         if (node.textContent) {
           const altText = this.createElement('alt-text')
@@ -1178,7 +1184,13 @@ export class JATSExporter {
         }
         return ['disp-quote', { 'content-type': type }, 0]
       },
-      quote_image: (node) => createGraphic(node),
+      quote_image: (node) => {
+        const img = node as QuoteImageNode
+        if (img.attrs.src) {
+          return createGraphic(node)
+        }
+        return ''
+      },
       graphical_abstract_section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
@@ -1347,7 +1359,11 @@ export class JATSExporter {
     const createBoxElement = (node: ManuscriptNode) => {
       const element = createElement(node, 'boxed-text')
       appendLabels(element, node)
-      appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
+      const child = node.firstChild
+      if (child?.type === schema.nodes.figcaption) {
+        appendChildNodeOfType(element, node, node.type.schema.nodes.figcaption)
+      }
+
       processChildNodes(element, node, node.type.schema.nodes.section)
       return element
     }
@@ -1500,13 +1516,7 @@ export class JATSExporter {
   private buildContributors = (articleMeta: Node) => {
     const contributorNodes = this.getChildrenOfType<ContributorNode>(
       schema.nodes.contributor
-    )
-    const authorContributorNodes = contributorNodes
-      .filter((n) => n.attrs.role === 'author')
-      .sort(sortContributors)
-    const otherContributorsNodes = contributorNodes
-      .filter((n) => n.attrs.role !== 'author')
-      .sort(sortContributors)
+    ).sort(sortContributors)
 
     const affiliationLabels = new Map<string, number>()
     const creatAffiliationLabel = (rid: string) => {
@@ -1524,11 +1534,11 @@ export class JATSExporter {
       sup.textContent = String(content)
       return sup
     }
-    if (authorContributorNodes.length) {
+    if (contributorNodes.length) {
       const contribGroup = this.createElement('contrib-group')
       contribGroup.setAttribute('content-type', 'authors')
       articleMeta.appendChild(contribGroup)
-      authorContributorNodes.forEach((contributor) => {
+      contributorNodes.forEach((contributor) => {
         try {
           this.validateContributor(contributor)
         } catch (error: any) {
@@ -1541,27 +1551,31 @@ export class JATSExporter {
         if (contributor.attrs.isCorresponding) {
           contrib.setAttribute('corresp', 'yes')
         }
+        if (contributor.attrs.role) {
+          this.appendElement(contrib, 'role', contributor.attrs.role)
+        }
 
         if (contributor.attrs.ORCIDIdentifier) {
-          const identifier = this.createElement('contrib-id')
-          identifier.setAttribute('contrib-id-type', 'orcid')
-          identifier.textContent = contributor.attrs.ORCIDIdentifier
-          contrib.appendChild(identifier)
+          this.appendElement(
+            contrib,
+            'contrib-id',
+            contributor.attrs.ORCIDIdentifier,
+            { 'contrib-id-type': 'orcid' }
+          )
         }
 
         const name = this.buildContributorName(contributor)
         contrib.appendChild(name)
 
         if (contributor.attrs.email) {
-          const email = this.createElement('email')
-          email.textContent = contributor.attrs.email
-          contrib.appendChild(email)
+          this.appendElement(contrib, 'email', contributor.attrs.email)
         }
         if (contributor.attrs.affiliations) {
           contributor.attrs.affiliations.forEach((rid) => {
-            const xref = this.createElement('xref')
-            xref.setAttribute('ref-type', 'aff')
-            xref.setAttribute('rid', normalizeID(rid))
+            const xref = this.appendElement(contrib, 'xref', '', {
+              'ref-type': 'aff',
+              rid: normalizeID(rid),
+            })
             xref.appendChild(creatAffiliationLabel(rid))
             contrib.appendChild(xref)
           })
@@ -1569,72 +1583,46 @@ export class JATSExporter {
 
         if (contributor.attrs.footnote) {
           contributor.attrs.footnote.map((note) => {
-            const xref = this.createElement('xref')
-            xref.setAttribute('ref-type', 'fn')
-            xref.setAttribute('rid', normalizeID(note.noteID))
+            const xref = this.appendElement(contrib, 'xref', '', {
+              'ref-type': 'fn',
+              rid: normalizeID(note.noteID),
+            })
             xref.appendChild(createFootNotesLabels(note.noteLabel))
             contrib.appendChild(xref)
           })
         }
         if (contributor.attrs.corresp) {
           contributor.attrs.corresp.map((corresp) => {
-            const xref = this.createElement('xref')
-            xref.setAttribute('ref-type', 'corresp')
-            xref.setAttribute('rid', normalizeID(corresp.correspID))
+            const xref = this.appendElement(contrib, 'xref', '', {
+              'ref-type': 'corresp',
+              rid: normalizeID(corresp.correspID),
+            })
             xref.appendChild(createFootNotesLabels(corresp.correspLabel))
             contrib.appendChild(xref)
           })
         }
+
+        if (contributor.attrs.CRediTRoles) {
+          contributor.attrs.CRediTRoles.forEach((cr) => {
+            const role = this.createElement('role')
+            const creditUrl = CRediTRoleUrls.get(cr.vocabTerm)
+            if (creditUrl) {
+              role.setAttribute('vocab-identifier', 'http://credit.niso.org/')
+              role.setAttribute('vocab', 'CRediT')
+              role.setAttribute('vocab-term', cr.vocabTerm)
+              role.setAttribute('vocab-term-identifier', creditUrl)
+              role.innerHTML = cr.vocabTerm
+            }
+
+            contrib.appendChild(role)
+          })
+        }
         contribGroup.appendChild(contrib)
       })
-      if (otherContributorsNodes.length) {
-        const contribGroup = this.createElement('contrib-group')
-        articleMeta.appendChild(contribGroup)
-        otherContributorsNodes.forEach((contributor) => {
-          try {
-            this.validateContributor(contributor)
-          } catch (error: any) {
-            return
-          }
-          const contrib = this.createElement('contrib')
-          contrib.setAttribute('id', normalizeID(contributor.attrs.id))
 
-          const name = this.buildContributorName(contributor)
-          contrib.appendChild(name)
-
-          if (contributor.attrs.email) {
-            const email = this.createElement('email')
-            email.textContent = contributor.attrs.email
-            contrib.appendChild(email)
-          }
-          if (contributor.attrs.affiliations) {
-            contributor.attrs.affiliations.forEach((rid) => {
-              const xref = this.createElement('xref')
-              xref.setAttribute('ref-type', 'aff')
-              xref.setAttribute('rid', normalizeID(rid))
-              xref.appendChild(creatAffiliationLabel(rid))
-              contrib.appendChild(xref)
-            })
-          }
-          if (contributor.attrs.footnote) {
-            contributor.attrs.footnote.map((note) => {
-              const xref = this.createElement('xref')
-              xref.setAttribute('ref-type', 'fn')
-              xref.setAttribute('rid', normalizeID(note.noteID))
-              xref.appendChild(createFootNotesLabels(note.noteLabel))
-              contrib.appendChild(xref)
-            })
-          }
-
-          contribGroup.appendChild(contrib)
-        })
-      }
       const affiliationRIDs: string[] = []
-      const sortedContributors = [
-        ...authorContributorNodes,
-        ...otherContributorsNodes,
-      ]
-      for (const contributor of sortedContributors) {
+
+      for (const contributor of contributorNodes) {
         if (contributor.attrs.affiliations) {
           affiliationRIDs.push(...contributor.attrs.affiliations)
         }
@@ -1732,6 +1720,7 @@ export class JATSExporter {
     }
     return authorNotesEl
   }
+
   private appendModelsToAuthorNotes(
     authorNotesEl: HTMLElement,
     authorNotesNode: AuthorNotesNode
@@ -1760,6 +1749,7 @@ export class JATSExporter {
       return false
     })
   }
+
   private appendCorrespondingToElement = (
     corresponding: CorrespNode,
     element: HTMLElement
@@ -1780,13 +1770,12 @@ export class JATSExporter {
   ): CorrespNode[] {
     return contributors
       .flatMap((c) => c.attrs.corresp ?? [])
-      .map(
-        (corresp) =>
-          findChildrenByAttr(
-            this.manuscriptNode,
-            (attr) => attr.id === corresp.correspID
-          )[0]?.node
-      )
+      .map((corresp) => {
+        return findChildrenByAttr(
+          this.manuscriptNode,
+          (attr) => attr.id === corresp.correspID
+        )[0]?.node
+      })
       .filter((corresp): corresp is CorrespNode => !!corresp)
   }
 
@@ -1798,10 +1787,9 @@ export class JATSExporter {
       paragraph.textContent,
       'text/html'
     )
-    const parsedParagraph = parsedDoc.body.querySelector('p')
-    if (parsedParagraph) {
+    if (parsedDoc.body.innerHTML.length) {
       const paragraphEl = this.createElement('p')
-      paragraphEl.innerHTML = parsedParagraph.innerHTML
+      paragraphEl.innerHTML = parsedDoc.body.innerHTML
       paragraphEl.setAttribute('id', normalizeID(paragraph.attrs.id))
       element.appendChild(paragraphEl)
     }
@@ -1821,6 +1809,7 @@ export class JATSExporter {
     }
     element.appendChild(footnoteEl)
   }
+
   private buildKeywords(articleMeta: Node) {
     const keywordGroups = this.getChildrenOfType(schema.nodes.keyword_group)
 
@@ -2169,15 +2158,25 @@ export class JATSExporter {
     }
     return footNote
   }
-  private moveFloatsGroup = (body: HTMLElement, article: HTMLElement) => {
+  private moveFloatsGroup = (article: HTMLElement) => {
+    const heroImage = this.getFirstChildOfType(schema.nodes.hero_image)
+    if (!heroImage) {
+      return
+    }
     const floatsGroup = this.createElement('floats-group')
-    const section = body.querySelector('sec[sec-type="floating-element"]')
-    if (section) {
-      floatsGroup.append(...section.children)
-
-      if (section?.parentNode) {
-        section.parentNode.removeChild(section)
+    let figure: HTMLElement | null = null
+    heroImage.descendants((node) => {
+      if (node.type === schema.nodes.figure) {
+        figure = this.serializeNode(node) as HTMLElement
+        floatsGroup.appendChild(figure)
+      } else {
+        const serializedNode = this.serializeNode(node)
+        figure?.appendChild(serializedNode)
       }
+      return false
+    })
+
+    if (floatsGroup.children.length > 0) {
       article.appendChild(floatsGroup)
     }
   }
@@ -2186,15 +2185,23 @@ export class JATSExporter {
     const name = this.createElement('name')
 
     if (contributor.attrs.bibliographicName.family) {
-      const surname = this.createElement('surname')
-      surname.textContent = contributor.attrs.bibliographicName.family
-      name.appendChild(surname)
+      this.appendElement(
+        name,
+        'surname',
+        contributor.attrs.bibliographicName.family
+      )
     }
 
     if (contributor.attrs.bibliographicName.given) {
-      const givenNames = this.createElement('given-names')
-      givenNames.textContent = contributor.attrs.bibliographicName.given
-      name.appendChild(givenNames)
+      this.appendElement(
+        name,
+        'given-names',
+        contributor.attrs.bibliographicName.given
+      )
+    }
+
+    if (contributor.attrs.prefix) {
+      this.appendElement(name, 'prefix', contributor.attrs.prefix)
     }
 
     return name
@@ -2254,6 +2261,7 @@ export class JATSExporter {
       }
     })
   }
+
   private fillEmptyElements(
     articleElement: Element,
     selector: string,

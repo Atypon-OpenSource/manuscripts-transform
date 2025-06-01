@@ -24,6 +24,7 @@ import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
 import {
   dateToTimestamp,
+  getCRediTRoleRole,
   getHTMLContent,
   getTrimmedTextContent,
 } from '../../lib/utils'
@@ -263,6 +264,24 @@ export class JATSDOMParser {
     }
   }
 
+  private getFigContent = (node: Node) => {
+    const element = node as HTMLElement
+    const content = [
+      this.schema.nodes.figure.create(this.getFigureAttrs(element)),
+    ]
+    const altText = element.querySelector('alt-text')
+    if (altText) {
+      const altTextNode = this.schema.nodes.alt_text.create()
+      content.push(this.parse(altText, { topNode: altTextNode }))
+    }
+    const longDesc = element.querySelector('long-desc')
+    if (longDesc) {
+      const longDescNode = this.schema.nodes.long_desc.create()
+      content.push(this.parse(longDesc, { topNode: longDescNode }))
+    }
+    return Fragment.from(content)
+  }
+
   private parseRefLiteral = (element: Element) => {
     const mixedCitation = element.querySelector('mixed-citation')
     const hasDirectTextNodeWithLetters = Array.from(
@@ -484,6 +503,11 @@ export class JATSDOMParser {
       },
     },
     {
+      tag: 'fn[fn-type]', // all supported fn-types should be moved out by the time we parse into prosemirror
+      context: 'author_notes/',
+      ignore: true,
+    },
+    {
       tag: 'fn:not([fn-type])',
       node: 'footnote',
       context: 'author_notes/',
@@ -552,8 +576,8 @@ export class JATSDOMParser {
         }
 
         return {
-          id: element.getAttribute('id'),
-          role: 'author',
+          id: element.getAttribute('id') || undefined,
+          role: getTrimmedTextContent(element, 'role'),
           affiliations,
           corresp,
           footnote,
@@ -569,8 +593,10 @@ export class JATSDOMParser {
             element,
             'contrib-id[contrib-id-type="orcid"]'
           ),
+          CRediTRoles: getCRediTRoleRole(element),
           priority: this.parsePriority(element.getAttribute('priority')),
           email: getTrimmedTextContent(element, 'email') || '',
+          prefix: getTrimmedTextContent(element, 'prefix'),
         }
       },
       getContent: () => {
@@ -792,6 +818,11 @@ export class JATSDOMParser {
       },
     },
     {
+      tag: 'graphic[content-type=leading]',
+      node: 'hero_image',
+      getContent: this.getFigContent,
+    },
+    {
       tag: 'graphic',
       node: 'figure',
       context: 'figure_element/',
@@ -800,23 +831,7 @@ export class JATSDOMParser {
     {
       tag: 'graphic',
       node: 'image_element',
-      getContent: (node) => {
-        const element = node as HTMLElement
-        const content = [
-          this.schema.nodes.figure.create(this.getFigureAttrs(element)),
-        ]
-        const altText = element.querySelector('alt-text')
-        if (altText) {
-          const altTextNode = this.schema.nodes.alt_text.create()
-          content.push(this.parse(altText, { topNode: altTextNode }))
-        }
-        const longDesc = element.querySelector('long-desc')
-        if (longDesc) {
-          const longDescNode = this.schema.nodes.long_desc.create()
-          content.push(this.parse(longDesc, { topNode: longDescNode }))
-        }
-        return Fragment.from(content)
-      },
+      getContent: this.getFigContent,
     },
     {
       tag: 'fig',
