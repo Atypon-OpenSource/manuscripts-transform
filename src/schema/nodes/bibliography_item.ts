@@ -59,13 +59,7 @@ export type BibliographyItemType =
   | 'standard'
   | 'dataset'
   | 'preprint'
-
-export const publicationTypeToPM: Record<string, string> = {
-  journal: 'article-journal',
-  web: 'webpage',
-  data: 'dataset',
-  preprint: 'article-journal',
-}
+  | 'literal'
 
 export interface BibliographyItemNode extends ManuscriptNode {
   attrs: BibliographyItemAttrs
