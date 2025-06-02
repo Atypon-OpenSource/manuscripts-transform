@@ -33,7 +33,7 @@ export const link: NodeSpec = {
   attrs: {
     href: { default: '' },
     title: { default: '' },
-    inlineFigure: { default: null },
+    inlineFigure: { default: '' },
     dataTracked: { default: null },
   },
   inline: true,
