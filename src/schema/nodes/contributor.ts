@@ -30,7 +30,6 @@ export type ContributorFootnote = {
 
 export type CRediTRole = {
   vocabTerm: CreditVocabTerm
-  degreeContribution?: string
 }
 
 interface Attrs {
