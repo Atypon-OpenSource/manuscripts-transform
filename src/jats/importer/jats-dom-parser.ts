@@ -410,8 +410,8 @@ export class JATSDOMParser {
       },
     },
     {
-      tag: 'titles',
-      node: 'alt_titles',
+      tag: 'subtitle',
+      node: 'subtitle',
       getAttrs: (node) => {
         const element = node as HTMLElement
         return {

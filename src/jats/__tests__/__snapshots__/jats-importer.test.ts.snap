@@ -29336,6 +29336,27 @@ Object {
     },
     Object {
       "attrs": Object {
+        "id": "MPSubtitles:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPSubtitle:test",
+          },
+          "content": Array [
+            Object {
+              "text": "Which has a Subtitle",
+              "type": "text",
+            },
+          ],
+          "type": "subtitle",
+        },
+      ],
+      "type": "subtitles",
+    },
+    Object {
+      "attrs": Object {
         "id": "MPSection:test",
       },
       "content": Array [
