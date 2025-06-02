@@ -21,7 +21,7 @@ export enum CreditVocabTerm {
   FundingAcquisition = 'Funding acquisition',
   Investigation = 'Investigation',
   Methodology = 'Methodology',
-  ProjectAdministration = 'ProjectAdministration',
+  ProjectAdministration = 'Project administration',
   Resources = 'Resources',
   Software = 'Software',
   Supervision = 'Supervision',
