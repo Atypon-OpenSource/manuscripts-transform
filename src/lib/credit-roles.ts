@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-export const enum CreditVocabTerm {
+export enum CreditVocabTerm {
   Conceptualization = 'Conceptualization',
   DataCuration = 'Data curation',
   FormalAnalysis = 'Formal analysis',
