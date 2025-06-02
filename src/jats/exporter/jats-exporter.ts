@@ -1541,8 +1541,8 @@ export class JATSExporter {
       contributorNodes.forEach((contributor) => {
         try {
           this.validateContributor(contributor)
-        } catch (error: any) {
-         return
+        } catch (error) {
+          return
         }
         const contrib = this.createElement('contrib')
         contrib.setAttribute('contrib-type', 'author')

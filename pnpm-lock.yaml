@@ -12,8 +12,8 @@ importers:
         specifier: 2.2.12
         version: 2.2.12
       '@manuscripts/library':
-        specifier: 1.3.14-LEAN-2023.0
-        version: 1.3.14-LEAN-2023.0(encoding@0.1.13)
+        specifier: 1.3.14-LEAN-2023.1
+        version: 1.3.14-LEAN-2023.1(encoding@0.1.13)
       jszip:
         specifier: 3.10.1
         version: 3.10.1
@@ -24,14 +24,14 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       prosemirror-model:
-        specifier: 1.25.1
-        version: 1.25.1
+        specifier: 1.25.0
+        version: 1.25.0
       prosemirror-tables:
         specifier: 1.7.1
         version: 1.7.1
       prosemirror-utils:
         specifier: 1.2.2
-        version: 1.2.2(prosemirror-model@1.25.1)(prosemirror-state@1.4.3)
+        version: 1.2.2(prosemirror-model@1.25.0)(prosemirror-state@1.4.3)
       semver:
         specifier: 7.7.2
         version: 7.7.2
@@ -951,8 +951,8 @@ packages:
   '@manuscripts/library@1.3.10':
     resolution: {integrity: sha512-2XdsnITC/vJhbNHQrJo3giTyEKJ6HK+DyP9sjp/nT1o/mg5E2mTTfa+rHIB47sravEEbYdaaS4cr4VXbv9SXeA==}
 
-  '@manuscripts/library@1.3.14-LEAN-2023.0':
-    resolution: {integrity: sha512-UHxm/75j4ULNDU7RU8pxSKCtTZsGgIuAochEvIkv27yloXaV/O4/rN1e+ZTKW0ANeZjJ95m5Z3HITNIPu+bpWA==}
+  '@manuscripts/library@1.3.14-LEAN-2023.1':
+    resolution: {integrity: sha512-FGbYMaVzn96/6IG6aGyo7+Ecar5Oh1rBAk/ctljpHGMiMKhuLHwcn00zSzrKdO2MhEfQ22r03inH9AN2pnLK/Q==}
 
   '@manuscripts/transform@2.3.20':
     resolution: {integrity: sha512-1Sjc7ZaeCBVtG6a/Bz6hTBkk6pRXjO8B2ZmCMA0f5VtNd7r0yrJiZ5UbKDQE0SMcyFBDtjV7HueJ87WXyFvzrQ==}
@@ -3332,8 +3332,8 @@ packages:
   prosemirror-keymap@1.2.3:
     resolution: {integrity: sha512-4HucRlpiLd1IPQQXNqeo81BGtkY8Ai5smHhKW9jjPKRc2wQIxksg7Hl1tTI2IfT2B/LgX6bfYvXxEpJl7aKYKw==}
 
-  prosemirror-model@1.25.1:
-    resolution: {integrity: sha512-AUvbm7qqmpZa5d9fPKMvH1Q5bqYQvAZWOGRvxsB6iFLyycvC9MwNemNVjHVrWgjaoxAfY8XVg7DbvQ/qxvI9Eg==}
+  prosemirror-model@1.25.0:
+    resolution: {integrity: sha512-/8XUmxWf0pkj2BmtqZHYJipTBMHIdVjuvFzMvEoxrtyGNmfvdhBiRwYt/eFwy2wA9DtBW3RLqvZnjurEkHaFCw==}
 
   prosemirror-state@1.4.3:
     resolution: {integrity: sha512-goFKORVbvPuAQaXhpbemJFRKJ2aixr+AZMGiquiqKxaucC6hlpHNZHWgz5R7dS4roHiwq9vDctE//CZ++o0W1Q==}
@@ -5227,7 +5227,7 @@ snapshots:
       citeproc: 2.4.63
       fontoxpath: 3.33.2
 
-  '@manuscripts/library@1.3.14-LEAN-2023.0(encoding@0.1.13)':
+  '@manuscripts/library@1.3.14-LEAN-2023.1(encoding@0.1.13)':
     dependencies:
       '@citation-js/core': 0.7.18(encoding@0.1.13)
       '@citation-js/plugin-bibtex': 0.7.18(@citation-js/core@0.7.18(encoding@0.1.13))
@@ -5236,7 +5236,7 @@ snapshots:
       '@citation-js/plugin-enw': 0.3.0(@citation-js/core@0.7.18(encoding@0.1.13))
       '@citation-js/plugin-pubmed': 0.3.0(@citation-js/core@0.7.18(encoding@0.1.13))
       '@citation-js/plugin-ris': 0.7.18(@citation-js/core@0.7.18(encoding@0.1.13))
-      '@manuscripts/json-schema': 2.2.10
+      '@manuscripts/json-schema': 2.2.12
       citeproc: 2.4.63
     transitivePeerDependencies:
       - encoding
@@ -5248,7 +5248,7 @@ snapshots:
       debug: 4.3.5
       jszip: 3.10.1
       mime: 3.0.0
-      prosemirror-model: 1.25.1
+      prosemirror-model: 1.25.0
       prosemirror-tables: 1.7.1
       uuid: 9.0.1
       w3c-xmlserializer: 4.0.0
@@ -8300,36 +8300,36 @@ snapshots:
       prosemirror-state: 1.4.3
       w3c-keyname: 2.2.8
 
-  prosemirror-model@1.25.1:
+  prosemirror-model@1.25.0:
     dependencies:
       orderedmap: 2.1.1
 
   prosemirror-state@1.4.3:
     dependencies:
-      prosemirror-model: 1.25.1
+      prosemirror-model: 1.25.0
       prosemirror-transform: 1.10.4
       prosemirror-view: 1.39.2
 
   prosemirror-tables@1.7.1:
     dependencies:
       prosemirror-keymap: 1.2.3
-      prosemirror-model: 1.25.1
+      prosemirror-model: 1.25.0
       prosemirror-state: 1.4.3
       prosemirror-transform: 1.10.4
       prosemirror-view: 1.39.2
 
   prosemirror-transform@1.10.4:
     dependencies:
-      prosemirror-model: 1.25.1
+      prosemirror-model: 1.25.0
 
-  prosemirror-utils@1.2.2(prosemirror-model@1.25.1)(prosemirror-state@1.4.3):
+  prosemirror-utils@1.2.2(prosemirror-model@1.25.0)(prosemirror-state@1.4.3):
     dependencies:
-      prosemirror-model: 1.25.1
+      prosemirror-model: 1.25.0
       prosemirror-state: 1.4.3
 
   prosemirror-view@1.39.2:
     dependencies:
-      prosemirror-model: 1.25.1
+      prosemirror-model: 1.25.0
       prosemirror-state: 1.4.3
       prosemirror-transform: 1.10.4
 

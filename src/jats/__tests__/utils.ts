@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { BibliographicName, Contribution } from '@manuscripts/json-schema'
 import { Node, NodeType } from 'prosemirror-model'
 import { findChildrenByType } from 'prosemirror-utils'
 
@@ -58,7 +59,7 @@ const updateCommentNodeIDs = (node: ManuscriptNode) => {
     node.attrs.target = replaceUUIDWithTest(node.attrs.target)
     //@ts-ignore
     node.attrs.contributions = node.attrs.contributions.map(
-      (contribution: any) => {
+      (contribution: Contribution) => {
         return {
           ...contribution,
           _id: replaceUUIDWithTest(contribution._id),
@@ -72,12 +73,12 @@ const updateCommentNodeIDs = (node: ManuscriptNode) => {
 const updateBibliographyItemNodeIDs = (node: ManuscriptNode) => {
   if (node.type === schema.nodes.bibliography_item) {
     const bib = node as BibliographyItemNode
-    bib.attrs.author?.forEach((author: any) => {
+    bib.attrs.author?.forEach((author: BibliographicName) => {
       if (author._id) {
         author._id = replaceUUIDWithTest(author._id)
       }
     })
-    bib.attrs.editor?.forEach((author: any) => {
+    bib.attrs.editor?.forEach((author: BibliographicName) => {
       if (author._id) {
         author._id = replaceUUIDWithTest(author._id)
       }
