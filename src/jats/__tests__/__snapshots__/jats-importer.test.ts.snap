@@ -3667,6 +3667,7 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "href": "https://example.com",
+                    "inlineFigure": null,
                     "title": "",
                   },
                   "content": Array [
@@ -29103,6 +29104,7 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "href": "https://orcid.org/0000-0003-2217-5904",
+                    "inlineFigure": null,
                     "title": "",
                   },
                   "content": Array [
@@ -32005,6 +32007,25 @@ Object {
         "id": "MPSection:test",
       },
       "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPParagraphElement:test",
+            "placeholder": "",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "href": "WLYSP_5_4_Infographic_Nov_11_2022.pdf",
+                "inlineFigure": "Atopic-Dermatitis-Knowledge-Challenge-Infographic-Large.png",
+                "title": "",
+              },
+              "type": "link",
+            },
+          ],
+          "type": "paragraph",
+        },
         Object {
           "attrs": Object {
             "dataTracked": null,
@@ -40110,6 +40131,7 @@ Object {
                   "attrs": Object {
                     "dataTracked": null,
                     "href": "https://orcid.org/0000-0003-2217-5904",
+                    "inlineFigure": null,
                     "title": "",
                   },
                   "content": Array [
@@ -42967,6 +42989,7 @@ Object {
                           "attrs": Object {
                             "dataTracked": null,
                             "href": "https://iemweb.biz.uiowa.edu/closed/",
+                            "inlineFigure": null,
                             "title": "",
                           },
                           "content": Array [
@@ -54023,6 +54046,7 @@ Object {
                           "attrs": Object {
                             "dataTracked": null,
                             "href": "http://money.cnn.com/2016/11/09/investing/dow-jones-trump-wins-election/index.html",
+                            "inlineFigure": null,
                             "title": "",
                           },
                           "content": Array [
@@ -54067,6 +54091,7 @@ Object {
                           "attrs": Object {
                             "dataTracked": null,
                             "href": "http://money.cnn.com/2016/11/08/investing/global-markets-stocks-trump-clinton-us-presidential-election/index.html",
+                            "inlineFigure": null,
                             "title": "",
                           },
                           "content": Array [
@@ -54136,6 +54161,7 @@ Object {
                           "attrs": Object {
                             "dataTracked": null,
                             "href": "https://iemweb.biz.uiowa.edu/closed/",
+                            "inlineFigure": null,
                             "title": "",
                           },
                           "content": Array [
@@ -54252,6 +54278,7 @@ Object {
                           "attrs": Object {
                             "dataTracked": null,
                             "href": "https://projects.fivethirtyeight.com/2016-election-forecast/",
+                            "inlineFigure": null,
                             "title": "",
                           },
                           "content": Array [
@@ -54885,6 +54912,7 @@ Object {
                           "attrs": Object {
                             "dataTracked": null,
                             "href": "https://en.insider.pro/economics/2016-08-31/trump-vs-clinton-destiny-these-4-major-stock-industries-stake/",
+                            "inlineFigure": null,
                             "title": "",
                           },
                           "content": Array [

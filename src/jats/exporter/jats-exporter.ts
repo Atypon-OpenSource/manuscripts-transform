@@ -1118,26 +1118,27 @@ export class JATSExporter {
       keywords_element: () => '',
       keywords: () => '',
       link: (node) => {
-        const text = node.textContent
-
-        if (!text) {
+        if (!node.attrs.href) {
           return ''
         }
-
-        if (!node.attrs.href) {
-          return text
-        }
-
-        const linkNode = this.createElement('ext-link')
-        linkNode.setAttribute('ext-link-type', 'uri')
+        const linkNode = this.createElement('ext-link', node.textContent, {
+          'ext-link-type': 'uri',
+        })
         linkNode.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
-        linkNode.textContent = text
 
         if (node.attrs.title) {
           linkNode.setAttributeNS(
             XLINK_NAMESPACE,
             'xlink:title',
             node.attrs.title
+          )
+        }
+        if (node.attrs.inlineFigure) {
+          const inlineGraphic = this.appendElement(linkNode, 'inline-graphic')
+          inlineGraphic.setAttributeNS(
+            XLINK_NAMESPACE,
+            'href',
+            node.attrs.inlineFigure
           )
         }
 

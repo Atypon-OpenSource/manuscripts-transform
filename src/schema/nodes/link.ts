@@ -21,6 +21,7 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   href: string
   title?: string
+  inlineFigure?: string
 }
 
 export interface LinkNode extends ManuscriptNode {
@@ -32,6 +33,7 @@ export const link: NodeSpec = {
   attrs: {
     href: { default: '' },
     title: { default: '' },
+    inlineFigure: { default: null },
     dataTracked: { default: null },
   },
   inline: true,
