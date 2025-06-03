@@ -159,7 +159,7 @@ describe('JATS exporter', () => {
     })
 
     const output = parseXMLWithDTD(xml)
-    const link = output.get<XMLElement>('(//ext-link[@ext-link-type="uri"])[2]')
+    const link = output.get<XMLElement>('//ext-link[@ext-link-type="uri"]')
 
     expect(link).not.toBeNull()
     expect(link!.text()).toBe('https//orcid.org/0000-0003-2217-5904')

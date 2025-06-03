@@ -768,7 +768,6 @@ export class JATSDOMParser {
         return {
           href: element.getAttributeNS(this.XLINK_NAMESPACE, 'href') || '',
           title: element.getAttributeNS(this.XLINK_NAMESPACE, 'title') || '',
-          inlineFigure: element.querySelector('inline-graphic')?.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
         }
       },
     },
