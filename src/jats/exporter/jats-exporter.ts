@@ -81,31 +81,26 @@ const publicationTypeToJats: Record<string, string> = {
 const warn = debug('manuscripts-transform')
 
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
+const XML_NAMESPACE = 'http://www.w3.org/XML/1998/namespace'
 
 const normalizeID = (id: string) => id.replace(/:/g, '_')
 
 const parser = ProsemirrorDOMParser.fromSchema(schema)
 // siblings from https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/article-meta.html
-const insertAbstractNode = (articleMeta: Element, abstractNode: Element) => {
-  const siblings = [
-    'kwd-group',
-    'funding-group',
-    'support-group',
-    'conference',
-    'counts',
-    'custom-meta-group',
-  ]
-
-  for (const sibling of siblings) {
-    const siblingNode = articleMeta.querySelector(`:scope > ${sibling}`)
-
-    if (siblingNode) {
-      articleMeta.insertBefore(abstractNode, siblingNode)
-      return
-    }
+const insertAbstractNode = (front: Element, abstractNode: Element) => {
+  const articleMeta = front.querySelector(':scope > article-meta')
+  if (!articleMeta) {
+    return
   }
+  const insertBeforeElement = articleMeta.querySelector(
+    'kwd-group, funding-group, support-group, conference, counts, custom-meta-group'
+  )
 
-  articleMeta.appendChild(abstractNode)
+  if (insertBeforeElement) {
+    articleMeta.insertBefore(abstractNode, insertBeforeElement)
+  } else {
+    articleMeta.appendChild(abstractNode)
+  }
 }
 
 export const createCounter = () => {
@@ -894,6 +889,18 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
+      trans_abstract: (node) => {
+        const attrs: { [key: string]: string } = {
+          id: normalizeID(node.attrs.id),
+        }
+        if (node.attrs.lang) {
+          attrs['xml:lang'] = node.attrs.lang
+        }
+        if (node.attrs.category) {
+          attrs['sec-type'] = node.attrs.category
+        }
+        return ['trans-abstract', attrs, 0]
+      },
       hero_image: () => '',
       alt_text: (node) => {
         if (node.textContent) {
@@ -1985,22 +1992,15 @@ export class JATSExporter {
     }
   }
   private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
-    const container = body.querySelector(':scope > sec[sec-type="abstracts"]')
-    const abstractsNode = this.getFirstChildOfType(schema.nodes.abstracts)
-    const abstractCategories = this.getAbstractCategories(abstractsNode)
+    const abstractSections = this.getAbstractSections(body)
 
-    const abstractSections = this.getAbstractSections(
-      container,
-      body,
-      abstractCategories
-    )
-
-    if (abstractSections.length) {
-      this.processAbstractSections(abstractSections, front)
-    }
-
-    if (container) {
-      body.removeChild(container)
+    for (const abstractSection of abstractSections) {
+      const node =
+        abstractSection.nodeName === 'trans-abstract'
+          ? this.createTransAbstractNode(abstractSection)
+          : this.createAbstractNode(abstractSection)
+      abstractSection.remove()
+      insertAbstractNode(front, node)
     }
   }
 
@@ -2015,15 +2015,13 @@ export class JATSExporter {
     return categories
   }
 
-  private getAbstractSections(
-    container: Element | null,
-    body: HTMLElement,
-    abstractCategories: string[]
-  ): Element[] {
-    if (container) {
-      return Array.from(container.querySelectorAll(':scope > sec'))
-    } else {
-      const sections = Array.from(body.querySelectorAll(':scope > sec'))
+  private getAbstractSections(body: HTMLElement) {
+    {
+      const abstractsNode = this.getFirstChildOfType(schema.nodes.abstracts)
+      const abstractCategories = this.getAbstractCategories(abstractsNode)
+      const sections = Array.from(
+        body.querySelectorAll(':scope > sec, :scope > trans-abstract')
+      )
       return sections.filter((section) =>
         this.isAbstractSection(section, abstractCategories)
       )
@@ -2038,18 +2036,16 @@ export class JATSExporter {
     return sectionType ? abstractCategories.includes(sectionType) : false
   }
 
-  private processAbstractSections(
-    abstractSections: Element[],
-    front: HTMLElement
-  ) {
-    for (const abstractSection of abstractSections) {
-      const abstractNode = this.createAbstractNode(abstractSection)
-      abstractSection.remove()
-      const articleMeta = front.querySelector(':scope > article-meta')
-      if (articleMeta) {
-        insertAbstractNode(articleMeta, abstractNode)
-      }
-    }
+  private createTransAbstractNode(transAbstract: Element): Element {
+    const transAbstractNode = this.createElement('trans-abstract')
+    transAbstractNode.setAttributeNS(
+      XML_NAMESPACE,
+      'lang',
+      transAbstract.getAttribute('xml:lang') ?? ''
+    )
+    this.setAbstractType(transAbstractNode, transAbstract)
+    transAbstractNode.append(...transAbstract.childNodes)
+    return transAbstractNode
   }
 
   private createAbstractNode(abstractSection: Element): Element {

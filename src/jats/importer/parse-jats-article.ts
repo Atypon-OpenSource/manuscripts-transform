@@ -65,7 +65,7 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   moveCaptionsToEnd(body)
   createBoxedElementSection(body, createElement)
   createBody(doc, body, createElement)
-  createAbstracts(doc, body, createElement)
+  createAbstracts(front, body, createElement)
   createBackmatter(doc, body, sectionCategories, createElement)
   createSupplementaryMaterialsSection(doc, body, createElement)
   createKeywordsSection(doc, body, createElement)
@@ -91,7 +91,6 @@ export const parseJATSArticle = (
 ) => {
   const journal = parseJournal(doc)
   processJATS(doc, sectionCategories)
-
   const node = new JATSDOMParser(sectionCategories, schema).parse(doc)
     .firstChild as ActualManuscriptNode
   if (!node) {
