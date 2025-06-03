@@ -894,7 +894,7 @@ export class JATSExporter {
           id: normalizeID(node.attrs.id),
         }
         if (node.attrs.lang) {
-          attrs['xml:lang'] = node.attrs.lang
+          attrs[`${XML_NAMESPACE} xml:lang`] = node.attrs.lang
         }
         if (node.attrs.category) {
           attrs['sec-type'] = node.attrs.category
@@ -1139,20 +1139,14 @@ export class JATSExporter {
         if (!node.attrs.href) {
           return ''
         }
-
-        const attrs: Record<string, string> = {
-          'ext-link-type': 'uri',
-        }
-
         const xlinkAttrs: Record<string, string> = {
           [`${XLINK_NAMESPACE} xlink:href`]: node.attrs.href,
         }
-
         if (node.attrs.title) {
           xlinkAttrs[`${XLINK_NAMESPACE} xlink:title`] = node.attrs.title
         }
 
-        return ['ext-link', { ...xlinkAttrs, ...attrs }, 0]
+        return ['ext-link', { ...xlinkAttrs, 'ext-link-type': 'uri' }, 0]
       },
       list_item: () => ['list-item', 0],
       listing: (node) => {
