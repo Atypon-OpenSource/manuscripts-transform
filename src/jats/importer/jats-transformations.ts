@@ -136,6 +136,76 @@ export const moveAbstracts = (
   })
 }
 
+export const extractLinkedImagesToSeparateParagraphs = (
+  doc: Document,
+  createElement: CreateElement
+) => {
+  const extLinks = Array.from(doc.querySelectorAll('ext-link'))
+  const linksWithImages = extLinks.filter((link) =>
+    link.querySelector('inline-graphic')
+  )
+
+  linksWithImages.forEach((link) => {
+    const parentParagraph = link.closest('p')
+    if (!parentParagraph) {
+      return
+    }
+
+    const nodes = Array.from(parentParagraph.childNodes)
+
+    const inlineGraphic = link.querySelector('inline-graphic')
+    if (!inlineGraphic) {
+      return
+    }
+
+    // Split the paragraph into three parts: before, the ext-link, and after
+    const beforeNodes: ChildNode[] = []
+    const afterNodes: ChildNode[] = []
+    let foundLink = false
+    nodes.forEach((node) => {
+      if (node === link) {
+        foundLink = true
+      } else if (!foundLink) {
+        beforeNodes.push(node)
+      } else {
+        afterNodes.push(node)
+      }
+    })
+
+    const parent = parentParagraph.parentNode
+    if (!parent) {
+      return
+    }
+
+    // Create and insert paragraph for text before the ext-link
+    if (
+      beforeNodes.length > 0 &&
+      beforeNodes.some((n) => n.textContent && n.textContent.trim() !== '')
+    ) {
+      const beforeP = createElement('p')
+      beforeNodes.forEach((node) => beforeP.appendChild(node.cloneNode(true)))
+      parent.insertBefore(beforeP, parentParagraph)
+    }
+
+    // Create and insert paragraph for the ext-link (with inline-graphic)
+    const linkP = createElement('p')
+    linkP.appendChild(link.cloneNode(true))
+    parent.insertBefore(linkP, parentParagraph)
+
+    // Create and insert paragraph for text after the ext-link
+    if (
+      afterNodes.length > 0 &&
+      afterNodes.some((n) => n.textContent && n.textContent.trim() !== '')
+    ) {
+      const afterP = createElement('p')
+      afterNodes.forEach((node) => afterP.appendChild(node.cloneNode(true)))
+      parent.insertBefore(afterP, parentParagraph)
+    }
+
+    parent.removeChild(parentParagraph)
+  })
+}
+
 export const moveHeroImage = (doc: Document) => {
   const heroImage = doc.querySelector('graphic[content-type="leading"]')
   if (!heroImage) {
@@ -443,7 +513,9 @@ export const createAccessibilityItems = (
   createElement: CreateElement
 ) => {
   doc
-    .querySelectorAll('media, fig, table-wrap, graphic:not(fig graphic)')
+    .querySelectorAll(
+      'media, fig, table-wrap, graphic:not(fig graphic), inline-graphic'
+    )
     .forEach((item) => {
       const altText =
         item.querySelector('alt-text') || createElement('alt-text')

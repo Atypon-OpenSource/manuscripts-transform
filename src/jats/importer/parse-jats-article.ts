@@ -30,6 +30,7 @@ import {
   createKeywordsSection,
   createSupplementaryMaterialsSection,
   createTitles,
+  extractLinkedImagesToSeparateParagraphs,
   fixTables,
   moveAffiliations,
   moveAuthorNotes,
@@ -79,6 +80,7 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   }
   moveReferencesToBackmatter(body, back, createElement)
   createAccessibilityItems(doc, createElement)
+  extractLinkedImagesToSeparateParagraphs(doc, createElement)
 }
 
 const createElementFn = (doc: Document) => (tagName: string) =>

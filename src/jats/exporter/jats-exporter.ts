@@ -894,6 +894,17 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
+      inline_figure: (node) => {
+        const inlineFigure = this.createElement('inline-graphic')
+        inlineFigure.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.src)
+        if (node.attrs.altText) {
+          this.appendElement(inlineFigure, 'alt-text', node.attrs.altText)
+        }
+        if (node.attrs.longDesc) {
+          this.appendElement(inlineFigure, 'long-desc', node.attrs.longDesc)
+        }
+        return inlineFigure
+      },
       hero_image: () => '',
       alt_text: (node) => {
         if (node.textContent) {
@@ -1118,30 +1129,23 @@ export class JATSExporter {
       keywords_element: () => '',
       keywords: () => '',
       link: (node) => {
-        const text = node.textContent
-
-        if (!text) {
+        if (!node.attrs.href) {
           return ''
         }
 
-        if (!node.attrs.href) {
-          return text
+        const attrs: Record<string, string> = {
+          'ext-link-type': 'uri',
         }
 
-        const linkNode = this.createElement('ext-link')
-        linkNode.setAttribute('ext-link-type', 'uri')
-        linkNode.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
-        linkNode.textContent = text
+        const xlinkAttrs: Record<string, string> = {
+          [`${XLINK_NAMESPACE} xlink:href`]: node.attrs.href,
+        }
 
         if (node.attrs.title) {
-          linkNode.setAttributeNS(
-            XLINK_NAMESPACE,
-            'xlink:title',
-            node.attrs.title
-          )
+          xlinkAttrs[`${XLINK_NAMESPACE} xlink:title`] = node.attrs.title
         }
 
-        return linkNode
+        return ['ext-link', { ...xlinkAttrs, ...attrs }, 0]
       },
       list_item: () => ['list-item', 0],
       listing: (node) => {

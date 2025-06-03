@@ -32008,6 +32008,35 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
+            "id": "MPParagraphElement:test",
+            "placeholder": "",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "href": "WLYSP_5_4_Infographic_Nov_11_2022.pdf",
+                "title": "",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "altText": "example of alt text for inline graphic",
+                    "id": "MPInlineFigure:test",
+                    "longDesc": "example of long desc for inline graphic",
+                    "src": "Atopic-Dermatitis-Knowledge-Challenge-Infographic-Large.png",
+                  },
+                  "type": "inline_figure",
+                },
+              ],
+              "type": "link",
+            },
+          ],
+          "type": "paragraph",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
             "id": "MPImageElement:test",
           },
           "content": Array [

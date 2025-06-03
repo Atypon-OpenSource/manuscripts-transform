@@ -760,6 +760,24 @@ export class JATSDOMParser {
       getAttrs: this.getFigureAttrs,
     },
     {
+      tag: 'inline-graphic',
+      context: 'link/',
+      node: 'inline_figure',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
+          altText: getTrimmedTextContent(element, 'alt-text'),
+          longDesc: getTrimmedTextContent(element, 'long-desc'),
+        }
+      },
+    },
+    {
+      tag: 'inline-graphic',
+      ignore: true,
+    },
+    {
       tag: 'ext-link',
       node: 'link',
       getAttrs: (node) => {
