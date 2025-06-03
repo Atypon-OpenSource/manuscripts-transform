@@ -764,12 +764,11 @@ export class JATSDOMParser {
       node: 'link',
       getAttrs: (node) => {
         const element = node as HTMLElement
-        const inlineFigure = element.querySelector('inline-graphic')
+
         return {
           href: element.getAttributeNS(this.XLINK_NAMESPACE, 'href') || '',
           title: element.getAttributeNS(this.XLINK_NAMESPACE, 'title') || '',
-          inlineFigure:
-            inlineFigure?.getAttributeNS(this.XLINK_NAMESPACE, 'href') || '',
+          inlineFigure: element.querySelector('inline-graphic')?.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
         }
       },
     },
