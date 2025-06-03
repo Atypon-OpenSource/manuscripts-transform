@@ -68,6 +68,12 @@ export const createTitles = (front: Element, createElement: CreateElement) => {
   }
   titles.appendChild(title)
 
+  const subtitles = front.querySelectorAll('subtitle')
+  subtitles.forEach((subtitle) => {
+    subtitle.innerHTML = htmlFromJatsNode(subtitle, createElement) ?? ''
+    titles.appendChild(subtitle)
+  })
+
   const altTitles = front.querySelectorAll(
     'article-meta > title-group > alt-title'
   )
