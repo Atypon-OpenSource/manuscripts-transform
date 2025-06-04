@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-import { BibliographicName, Contribution } from '@manuscripts/json-schema'
 import { Node, NodeType } from 'prosemirror-model'
 import { findChildrenByType } from 'prosemirror-utils'
 
-import { BibliographyItemNode, ManuscriptNode, schema } from '../../schema'
+import { isCommentNode, isContributorNode, ManuscriptNode } from '../../schema'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { sectionCategories } from './data/section-categories'
 import { readAndParseFixture } from './files'
+
 export const createNodeFromJATS = async (fileName: string) => {
   const jats = await readAndParseFixture(fileName)
   return parseJATSArticle(jats, sectionCategories)
@@ -32,16 +32,13 @@ const uuidRegex =
 const replaceUUIDWithTest = (input: string) => input.replace(uuidRegex, 'test')
 
 const updateContributorNodeIDs = (node: ManuscriptNode) => {
-  if (node.type === schema.nodes.contributor) {
-    //@ts-ignore
+  if (isContributorNode(node)) {
     node.attrs.footnote = node.attrs.footnote.map((fn) => {
       return { ...fn, noteID: replaceUUIDWithTest(fn.noteID) }
     })
-    //@ts-ignore
     node.attrs.corresp = node.attrs.corresp.map((corresp) => {
       return { ...corresp, correspID: replaceUUIDWithTest(corresp.correspID) }
     })
-    //@ts-ignore
     node.attrs.affiliations = node.attrs.affiliations.map((aff: string) =>
       replaceUUIDWithTest(aff)
     )
@@ -54,39 +51,15 @@ const updateContributorNodeIDs = (node: ManuscriptNode) => {
 }
 
 const updateCommentNodeIDs = (node: ManuscriptNode) => {
-  if (node.type === schema.nodes.comment) {
-    //@ts-ignore
+  if (isCommentNode(node)) {
     node.attrs.target = replaceUUIDWithTest(node.attrs.target)
-    //@ts-ignore
-    node.attrs.contributions = node.attrs.contributions.map(
-      (contribution: Contribution) => {
-        return {
-          ...contribution,
-          _id: replaceUUIDWithTest(contribution._id),
-          timestamp: 1234,
-        }
-      }
-    )
-  }
-}
-
-const updateBibliographyItemNodeIDs = (node: ManuscriptNode) => {
-  if (node.type === schema.nodes.bibliography_item) {
-    const bib = node as BibliographyItemNode
-    bib.attrs.author?.forEach((author: BibliographicName) => {
-      if (author._id) {
-        author._id = replaceUUIDWithTest(author._id)
+    node.attrs.contributions = node.attrs.contributions?.map((contribution) => {
+      return {
+        ...contribution,
+        _id: replaceUUIDWithTest(contribution._id),
+        timestamp: 1234,
       }
     })
-    bib.attrs.editor?.forEach((author: BibliographicName) => {
-      if (author._id) {
-        author._id = replaceUUIDWithTest(author._id)
-      }
-    })
-    //@ts-ignore
-    if (bib.attrs.issued) {
-      bib.attrs.issued._id = replaceUUIDWithTest(bib.attrs.issued._id)
-    }
   }
 }
 
@@ -111,17 +84,14 @@ export const changeIDs = (node: ManuscriptNode) => {
     updateNodeRIDs(child)
     updateContributorNodeIDs(child)
     updateCommentNodeIDs(child)
-    updateBibliographyItemNodeIDs(child)
   })
 }
 
 export const findNodesByType = (node: Node, type: NodeType, descend = true) => {
   return findChildrenByType(node, type, descend).map((n) => n.node)
 }
-export const findNodeByType = (node: Node, type: NodeType, descend = true) => {
-  // @ts-ignore
-  return findNodesByType(node, type, descend)[0]
-}
+export const findNodeByType = (node: Node, type: NodeType, descend = true) =>
+  findNodesByType(node, type, descend)[0]
 
 export const updateNodeID = (node: ManuscriptNode) => {
   if (node.attrs.id) {

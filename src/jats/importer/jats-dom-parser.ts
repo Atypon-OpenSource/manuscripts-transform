@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-import {
-  buildBibliographicDate,
-  buildBibliographicName,
-  buildContribution,
-  ObjectTypes,
-} from '@manuscripts/json-schema'
+import { buildContribution, ObjectTypes } from '@manuscripts/json-schema'
 import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
 import {
@@ -29,12 +24,13 @@ import {
   getTrimmedTextContent,
 } from '../../lib/utils'
 import {
+  BibliographyItemAttrs,
+  BibliographyItemType,
   ContributorCorresp,
   ContributorFootnote,
   ManuscriptNode,
   MarkRule,
   NodeRule,
-  publicationTypeToPM,
   SectionCategory,
 } from '../../schema'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
@@ -75,7 +71,8 @@ export class JATSDOMParser {
   }
 
   private chooseSectionCategory(section: HTMLElement) {
-    const secType = section.getAttribute('sec-type')
+    const secType =
+      section.getAttribute('sec-type') || section.getAttribute('abstract-type')
     const titleNode = section.firstElementChild
 
     for (const category of this.sectionCategories) {
@@ -207,40 +204,45 @@ export class JATSDOMParser {
     )
   }
 
-  private choosePublicationType = (element: Element) => {
-    const citationElement = element.querySelector(
-      'element-citation, mixed-citation'
-    )
-    const type = citationElement?.getAttribute('publication-type')
-    return type ? publicationTypeToPM[type] ?? type : 'article-journal'
-  }
-
-  private getNameContent(element: Element, query: string) {
-    const buildName = (node: Element) => {
-      const name = buildBibliographicName({})
-      const given = getTrimmedTextContent(node, 'given-names')
-      const family = getTrimmedTextContent(node, 'surname')
-
-      if (given) {
-        name.given = given
-      }
-      if (family) {
-        name.family = family
-      }
-      if (node.nodeName === 'collab') {
-        name.literal = getTrimmedTextContent(node)
-      }
-      return name
+  private getRefType = (element: Element): BibliographyItemType => {
+    const citation = element.querySelector('element-citation, mixed-citation')
+    const type = citation?.getAttribute('publication-type')
+    if (!type) {
+      return 'article-journal'
     }
-    const personNodes = element.querySelectorAll(query)
-    if (personNodes.length) {
-      return Array.from(personNodes).map(buildName)
+    switch (type) {
+      case 'journal':
+        return 'article-journal'
+      case 'web':
+        return 'webpage'
+      case 'data':
+        return 'dataset'
+      default:
+        return type as BibliographyItemType
     }
   }
 
-  private getDateContent(element: Element, query: string) {
-    const buildDate = (element: Element) => {
-      const isoDate = element.getAttribute('iso-8601-date')
+  private getNameContent(element: Element, type: string) {
+    const query = `person-group[person-group-type="${type}"] > *`
+    const groups = [...element.querySelectorAll(query)]
+    if (!groups.length) {
+      return
+    }
+    return groups.map((node) => ({
+      given: getTrimmedTextContent(node, 'given-names'),
+      family: getTrimmedTextContent(node, 'surname'),
+      literal:
+        node.nodeName === 'collab' ? getTrimmedTextContent(node) : undefined,
+    })) as CSL.Person[]
+  }
+
+  private getDateContent(
+    element: Element,
+    query: string
+  ): CSL.Date | undefined {
+    const date = element.querySelector(query)
+    if (date) {
+      const isoDate = date.getAttribute('iso-8601-date')
       if (!isoDate) {
         return
       }
@@ -253,14 +255,21 @@ export class JATSDOMParser {
         parsedDate.getDate(),
       ]
 
-      return buildBibliographicDate({
+      return {
         'date-parts': [parts],
-      })
+      }
     }
+  }
 
-    const dateElement = element.querySelector(query)
-    if (dateElement) {
-      return buildDate(dateElement)
+  private getIssuedDateContent(element: Element): CSL.Date | undefined {
+    const year = getTrimmedTextContent(element, ':scope > * > year')
+    if (!year) {
+      return
+    }
+    const month = getTrimmedTextContent(element, ':scope > * > month')
+    const day = getTrimmedTextContent(element, ':scope > * > day')
+    return {
+      'date-parts': [[year, month ?? '', day ?? '']],
     }
   }
 
@@ -282,20 +291,6 @@ export class JATSDOMParser {
     return Fragment.from(content)
   }
 
-  private parseRefLiteral = (element: Element) => {
-    const mixedCitation = element.querySelector('mixed-citation')
-    const hasDirectTextNodeWithLetters = Array.from(
-      mixedCitation?.childNodes ?? []
-    ).some(
-      (node) =>
-        node.nodeType === Node.TEXT_NODE &&
-        node.textContent?.match(/[A-Za-z]+/g)
-    )
-
-    if (hasDirectTextNodeWithLetters) {
-      return getTrimmedTextContent(mixedCitation)
-    }
-  }
   private parseRefPages = (element: Element) => {
     const fpage = getTrimmedTextContent(element, 'fpage')
     const lpage = getTrimmedTextContent(element, 'lpage')
@@ -304,10 +299,10 @@ export class JATSDOMParser {
     }
   }
 
-  private parseRef = (element: Element) => {
+  private parseRef = (element: Element): BibliographyItemAttrs => {
     return {
       id: element.id,
-      type: this.choosePublicationType(element),
+      type: this.getRefType(element),
       comment: getTrimmedTextContent(element, 'comment'),
       volume: getTrimmedTextContent(element, 'volume'),
       issue: getTrimmedTextContent(element, 'issue'),
@@ -328,44 +323,13 @@ export class JATSDOMParser {
       institution: getTrimmedTextContent(element, 'institution'),
       locator: getTrimmedTextContent(element, 'elocation-id'),
       'container-title': getHTMLContent(element, 'source'),
-      title:
-        getHTMLContent(element, 'article-title') ??
-        getHTMLContent(element, 'data-title') ??
-        getHTMLContent(element, 'part-title'),
-      author: this.getNameContent(
-        element,
-        'person-group[person-group-type="author"] > *'
-      ),
-      editor: this.getNameContent(
-        element,
-        'person-group[person-group-type="editor"] > *'
-      ),
-      literal: this.parseRefLiteral(element),
+      title: getHTMLContent(element, 'article-title, data-title, part-title'),
+      author: this.getNameContent(element, 'author'),
+      editor: this.getNameContent(element, 'editor'),
+      literal: getTrimmedTextContent(element, 'mixed-citation'),
       accessed: this.getDateContent(element, 'date-in-citation'),
       'event-date': this.getDateContent(element, 'conf-date'),
-      issued: getTrimmedTextContent(
-        element.querySelector('element-citation, mixed-citation'),
-        ':scope > year'
-      )
-        ? buildBibliographicDate({
-            'date-parts': [
-              [
-                getTrimmedTextContent(
-                  element.querySelector('element-citation, mixed-citation'),
-                  ':scope > year'
-                ) || '',
-                getTrimmedTextContent(
-                  element.querySelector('element-citation, mixed-citation'),
-                  ':scope > month'
-                ) || '',
-                getTrimmedTextContent(
-                  element.querySelector('element-citation, mixed-citation'),
-                  ':scope > day'
-                ) || '',
-              ],
-            ],
-          })
-        : undefined,
+      issued: this.getIssuedDateContent(element),
       page: this.parseRefPages(element),
     }
   }
@@ -977,6 +941,17 @@ export class JATSDOMParser {
           mimeType: element.getAttribute('mimetype'),
           mimeSubType: element.getAttribute('mime-subtype'),
           title: getTrimmedTextContent(element, 'title'),
+        }
+      },
+    },
+    {
+      tag: 'trans-abstract',
+      node: 'trans_abstract',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          lang: element.getAttribute('xml:lang') ?? '',
+          category: this.chooseSectionCategory(element),
         }
       },
     },

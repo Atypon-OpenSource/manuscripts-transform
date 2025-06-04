@@ -14,14 +14,8 @@
  * limitations under the License.
  */
 
-import {
-  type BibliographicDate,
-  BibliographicName,
-  BibliographyItem,
-  Journal,
-  ObjectTypes,
-} from '@manuscripts/json-schema'
-import { CitationProvider } from '@manuscripts/library'
+import { Journal } from '@manuscripts/json-schema'
+import * as Citeproc from 'citeproc'
 import {
   type NodeType,
   DOMOutputSpec,
@@ -31,9 +25,10 @@ import {
 import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
 
+import { buildCiteprocCitation } from '../../lib/citeproc'
 import { CRediTRoleUrls } from '../../lib/credit-roles'
 import { generateFootnoteLabels } from '../../lib/footnotes'
-import { nodeFromHTML, textFromHTML } from '../../lib/html'
+import { nodeFromHTML } from '../../lib/html'
 import {
   AuthorNotesNode,
   AwardNode,
@@ -42,6 +37,7 @@ import {
   CorrespNode,
   CrossReferenceNode,
   FootnoteNode,
+  isBibliographyItemNode,
   isCitationNode,
   isNodeOfType,
   ManuscriptMark,
@@ -57,6 +53,7 @@ import {
 } from '../../schema'
 import { isExecutableNodeType, isNodeType } from '../../transformer'
 import { IDGenerator } from '../types'
+import { initJats, jatsVariableWrapper } from './citeproc'
 import { selectVersionIds, Version } from './jats-versions'
 import { buildTargets, Target } from './labels'
 
@@ -70,39 +67,27 @@ type MarkSpecs = {
   [key in Marks]: (mark: ManuscriptMark, inline: boolean) => DOMOutputSpec
 }
 
-const publicationTypeToJats: Record<string, string> = {
-  article: 'journal',
-  'article-journal': 'journal',
-  webpage: 'web',
-  dataset: 'data',
-}
-
 const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
+const XML_NAMESPACE = 'http://www.w3.org/XML/1998/namespace'
 
 const normalizeID = (id: string) => id.replace(/:/g, '_')
 
 const parser = ProsemirrorDOMParser.fromSchema(schema)
 // siblings from https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/article-meta.html
-const insertAbstractNode = (articleMeta: Element, abstractNode: Element) => {
-  const siblings = [
-    'kwd-group',
-    'funding-group',
-    'support-group',
-    'conference',
-    'counts',
-    'custom-meta-group',
-  ]
-
-  for (const sibling of siblings) {
-    const siblingNode = articleMeta.querySelector(`:scope > ${sibling}`)
-
-    if (siblingNode) {
-      articleMeta.insertBefore(abstractNode, siblingNode)
-      return
-    }
+const insertAbstractNode = (front: Element, abstractNode: Element) => {
+  const articleMeta = front.querySelector(':scope > article-meta')
+  if (!articleMeta) {
+    return
   }
+  const insertBeforeElement = articleMeta.querySelector(
+    'kwd-group, funding-group, support-group, conference, counts, custom-meta-group'
+  )
 
-  articleMeta.appendChild(abstractNode)
+  if (insertBeforeElement) {
+    articleMeta.insertBefore(abstractNode, insertBeforeElement)
+  } else {
+    articleMeta.appendChild(abstractNode)
+  }
 }
 
 export const createCounter = () => {
@@ -162,68 +147,16 @@ export type ExportOptions = {
   journal?: Journal
   csl: CSLOptions
 }
-export const buildCitations = (citations: CitationNode[]) =>
-  citations.map((citation) => ({
-    citationID: citation.attrs.id,
-    citationItems: citation.attrs.rids.map((rid) => ({
-      id: rid,
-    })),
-    properties: {
-      noteIndex: 0,
-    },
-  }))
 
 export class JATSExporter {
   protected document: Document
   protected serializer: DOMSerializer
   protected labelTargets: Map<string, Target>
   protected footnoteLabels: Map<string, string>
-  protected citationTexts: Map<string, string>
-  protected citationProvider: CitationProvider
   protected manuscriptNode: ManuscriptNode
-
-  protected generateCitations() {
-    const nodes: CitationNode[] = []
-    this.manuscriptNode.descendants((node) => {
-      if (isCitationNode(node)) {
-        nodes.push(node)
-      }
-    })
-    return buildCitations(nodes)
-  }
-
-  protected getLibraryItem = (manuscriptID: string) => {
-    return (id: string) => {
-      const node = findChildrenByAttr(
-        this.manuscriptNode,
-        (attrs) => attrs.id === id
-      )[0]?.node
-      if (!node) {
-        return undefined
-      }
-      return {
-        ...node.attrs,
-        _id: node.attrs.id,
-        manuscriptID,
-        objectType: ObjectTypes.BibliographyItem,
-      } as BibliographyItem
-    }
-  }
-
-  protected generateCitationTexts(csl: CSLOptions, manuscriptID: string) {
-    this.citationTexts = new Map<string, string>()
-    this.citationProvider = new CitationProvider({
-      getLibraryItem: this.getLibraryItem(manuscriptID),
-      locale: csl.locale,
-      citationStyle: csl.style,
-    })
-    const citations = this.generateCitations()
-    this.citationProvider.rebuildState(citations).forEach(([id, , output]) => {
-      this.citationTexts.set(id, output)
-    })
-  }
-
-  private nodesMap = new Map<NodeType, ManuscriptNode[]>()
+  private engine: Citeproc.Engine
+  private renderedCitations: Map<string, string>
+  private nodesMap: Map<NodeType, ManuscriptNode[]> = new Map()
 
   private populateNodesMap = () => {
     this.manuscriptNode.descendants((node) => {
@@ -257,7 +190,7 @@ export class JATSExporter {
   ): Promise<string> => {
     this.manuscriptNode = manuscriptNode
     this.populateNodesMap()
-    this.generateCitationTexts(options.csl, manuscriptNode.attrs.id)
+    this.initCiteprocEngine(options.csl)
     this.createSerializer()
     const versionIds = selectVersionIds(options.version ?? '1.2')
 
@@ -301,6 +234,42 @@ export class JATSExporter {
     this.moveFloatsGroup(article)
     await this.rewriteIDs()
     return serializeToXML(this.document)
+  }
+
+  private initCiteprocEngine = (csl: CSLOptions) => {
+    const bibitems: Map<string, CSL.Data> = new Map()
+    const citations: Map<string, Citeproc.Citation> = new Map()
+
+    this.manuscriptNode.descendants((n) => {
+      if (isBibliographyItemNode(n)) {
+        bibitems.set(n.attrs.id, n.attrs as CSL.Data)
+      }
+      if (isCitationNode(n)) {
+        citations.set(n.attrs.id, buildCiteprocCitation(n.attrs))
+      }
+    })
+
+    initJats()
+    const engine = new Citeproc.Engine(
+      {
+        retrieveLocale: () => csl.locale,
+        retrieveItem: (id: string) => {
+          const item = bibitems.get(id)
+          if (!item) {
+            throw Error(`Missing bibliography item with id ${id}`)
+          }
+          return item
+        },
+        variableWrapper: jatsVariableWrapper,
+      },
+      csl.style
+    )
+    engine.setOutputFormat('jats')
+
+    const output = engine.rebuildProcessorState([...citations.values()])
+
+    this.engine = engine
+    this.renderedCitations = new Map(output.map((i) => [i[0], i[2]]))
   }
 
   private nodeFromJATS = (JATSFragment: string) => {
@@ -673,194 +642,20 @@ export class JATSExporter {
 
     // move ref-list from body to back
     back.appendChild(refList)
-
-    const bibliographyItems = this.getChildrenOfType(
-      schema.nodes.bibliography_item
-    )
-    const [meta] = this.citationProvider.makeBibliography()
-    for (const [id] of meta.entry_ids) {
-      const bibliographyItem = bibliographyItems.find((n) => n.attrs.id === id)
-      if (!bibliographyItem) {
-        continue
+    const parser = new DOMParser()
+    //eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, bibliography] = this.engine.makeBibliography()
+    for (let i = 0; i < bibliography.length; i++) {
+      const item = `<template xmlns:xlink="${XLINK_NAMESPACE}">${bibliography[i]}</template>`
+      const ref = parser.parseFromString(item, 'text/xml').querySelector('ref')
+      if (ref) {
+        refList.appendChild(ref)
       }
-      const ref = this.createElement('ref')
-      ref.setAttribute('id', normalizeID(id))
-      const getPublicationType = (pubType?: string) =>
-        publicationTypeToJats[pubType ?? ''] || pubType || 'journal'
-
-      // in case a literal was found in a bibItem the rest of the attributes are ignored
-      // since the literal att should only be populated when the mixed-citation fails to parse
-
-      if (bibliographyItem.attrs.literal) {
-        this.appendElement(
-          ref,
-          'mixed-citation',
-          bibliographyItem.attrs.literal,
-          {
-            'publication-type': getPublicationType(bibliographyItem.attrs.type),
-          }
-        )
-      } else {
-        const citation = this.appendElement(
-          ref,
-          'element-citation',
-          undefined,
-          {
-            'publication-type': getPublicationType(bibliographyItem.attrs.type),
-          }
-        )
-
-        const attributeHandlers = {
-          author: (v: BibliographicName[]) =>
-            this.processRefPersonGroup(citation, 'author', v),
-          editor: (v: BibliographicName[]) =>
-            this.processRefPersonGroup(citation, 'editor', v),
-          title: (v: string) =>
-            this.setTitleContent(
-              this.appendElement(citation, 'article-title'),
-              v
-            ),
-          comment: (v: string) => this.appendElement(citation, 'comment', v),
-          'container-title': (v: string) =>
-            this.setTitleContent(this.appendElement(citation, 'source'), v),
-          issued: ({ 'date-parts': parts }: { 'date-parts': number[][] }) =>
-            this.processDateParts(citation, parts),
-          volume: (v: string) => this.appendElement(citation, 'volume', v),
-          issue: (v: string) => this.appendElement(citation, 'issue', v),
-          supplement: (v: string) =>
-            this.appendElement(citation, 'supplement', v),
-          page: (v: string) => this.processPageString(citation, String(v)),
-          DOI: (v: string) =>
-            this.appendElement(citation, 'pub-id', v, { 'pub-id-type': 'doi' }),
-          std: (v: string) =>
-            this.appendElement(citation, 'pub-id', v, {
-              'pub-id-type': 'std-designation',
-            }),
-          'collection-title': (v: string) =>
-            this.appendElement(citation, 'series', v),
-          edition: (v: string) => this.appendElement(citation, 'edition', v),
-          'publisher-place': (v: string) =>
-            this.appendElement(citation, 'publisher-loc', v),
-          publisher: (v: string) =>
-            this.appendElement(citation, 'publisher-name', v),
-          event: (v: string) => this.appendElement(citation, 'conf-name', v),
-          'event-place': (v: string) =>
-            this.appendElement(citation, 'conf-loc', v),
-          'number-of-pages': (v: string) =>
-            this.appendElement(citation, 'size', v, { units: 'pages' }),
-          institution: (v: string) =>
-            this.appendElement(citation, 'institution', v),
-          locator: (v: string) =>
-            this.appendElement(citation, 'elocation-id', v),
-          URL: (v: string) =>
-            this.appendElement(citation, 'ext-link', v, {
-              'ext-link-type': 'uri',
-            }),
-          'event-date': (v: BibliographicDate) =>
-            this.processDate(citation, 'conf-date', v),
-          accessed: (v: BibliographicDate) =>
-            this.processDate(citation, 'date-in-citation', v),
-        }
-
-        Object.entries(attributeHandlers).forEach(([key, handler]) => {
-          const value = bibliographyItem.attrs[key]
-          if (value) {
-            handler(value)
-          }
-        })
-      }
-
-      refList.appendChild(ref)
     }
 
     return back
   }
 
-  private processDateParts = (parent: HTMLElement, dateParts: number[][]) => {
-    const [[year, month, day]] = dateParts
-    if (year) {
-      this.appendElement(parent, 'year', String(year))
-    }
-    if (month) {
-      this.appendElement(parent, 'month', String(month))
-    }
-    if (day) {
-      this.appendElement(parent, 'day', String(day))
-    }
-  }
-
-  private processPageString = (parent: HTMLElement, page: string) => {
-    const numPattern = /^\d+$/
-    const rangePattern = /^(\d+)-(\d+)$/
-
-    if (numPattern.test(page)) {
-      this.appendElement(parent, 'fpage', page)
-    } else if (rangePattern.test(page)) {
-      const [fpage, lpage] = page.split('-')
-      this.appendElement(parent, 'fpage', fpage)
-      this.appendElement(parent, 'lpage', lpage)
-    } else {
-      this.appendElement(parent, 'page-range', page)
-    }
-  }
-
-  private processDate = (
-    parent: HTMLElement,
-    tag: string,
-    date: BibliographicDate
-  ) => {
-    const buildISODate = (date: BibliographicDate) => {
-      const dateParts = date['date-parts']
-      if (dateParts && dateParts.length) {
-        const [[year, month, day]] = dateParts
-        if (year && month && day) {
-          return new Date(
-            Date.UTC(Number(year), Number(month) - 1, Number(day))
-          )
-        }
-      }
-    }
-
-    const isoDate = buildISODate(date)
-    if (!isoDate) {
-      return
-    }
-    return this.appendElement(parent, tag, isoDate.toDateString(), {
-      'iso-8601-date': isoDate.toISOString(),
-    })
-  }
-
-  private processRefPersonGroup = (
-    citation: HTMLElement,
-    type: string,
-    people?: BibliographicName[]
-  ) => {
-    if (!people?.length) {
-      return
-    }
-    const group = this.appendElement(citation, 'person-group', undefined, {
-      'person-group-type': type,
-    })
-
-    people.forEach((person) => {
-      if (person.literal) {
-        this.appendElement(group, 'collab', person.literal)
-        return
-      }
-
-      const name = this.createElement('string-name')
-      if (person.family) {
-        this.appendElement(name, 'surname', person.family)
-      }
-      if (person.given) {
-        this.appendElement(name, 'given-names', person.given)
-      }
-
-      if (name.childNodes.length) {
-        group.appendChild(name)
-      }
-    })
-  }
   //@TODO: part of the export cleanup: check if we can use this elsewhere, maybe we can use strategy pattern for each element to have its own creator.
   private createElement = (
     tag: string,
@@ -890,6 +685,18 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
+      trans_abstract: (node) => {
+        const attrs: { [key: string]: string } = {
+          id: normalizeID(node.attrs.id),
+        }
+        if (node.attrs.lang) {
+          attrs['xml:lang'] = node.attrs.lang
+        }
+        if (node.attrs.category) {
+          attrs['sec-type'] = node.attrs.category
+        }
+        return ['trans-abstract', attrs, 0]
+      },
       hero_image: () => '',
       alt_text: (node) => {
         if (node.textContent) {
@@ -1004,11 +811,10 @@ export class JATSExporter {
         const xref = this.createElement('xref')
         xref.setAttribute('ref-type', 'bibr')
         xref.setAttribute('rid', normalizeID(rids.join(' ')))
-        const citationTextContent = this.citationTexts.get(node.attrs.id)
-        if (!citationTextContent) {
-          throw new Error(`No citation text found for ${node.attrs.id}`)
+        const fragment = this.renderedCitations.get(node.attrs.id)
+        if (fragment) {
+          xref.innerHTML = fragment
         }
-        xref.textContent = textFromHTML(citationTextContent)
         return xref
       },
       cross_reference: (node) => {
@@ -1019,14 +825,14 @@ export class JATSExporter {
         }
 
         const rid = rids[0]
-        const text = cross.attrs.label || this.labelTargets.get(rid)?.label
+        const text = cross.attrs.label ?? this.labelTargets.get(rid)?.label
 
         const target = findChildrenByAttr(
           this.manuscriptNode,
           (attrs) => attrs.id === rid
         )[0]?.node
         if (!target) {
-          return text || ''
+          return text ?? ''
         }
 
         const xref = this.createElement('xref')
@@ -1973,22 +1779,15 @@ export class JATSExporter {
     }
   }
   private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
-    const container = body.querySelector(':scope > sec[sec-type="abstracts"]')
-    const abstractsNode = this.getFirstChildOfType(schema.nodes.abstracts)
-    const abstractCategories = this.getAbstractCategories(abstractsNode)
+    const abstractSections = this.getAbstractSections(body)
 
-    const abstractSections = this.getAbstractSections(
-      container,
-      body,
-      abstractCategories
-    )
-
-    if (abstractSections.length) {
-      this.processAbstractSections(abstractSections, front)
-    }
-
-    if (container) {
-      body.removeChild(container)
+    for (const abstractSection of abstractSections) {
+      const node =
+        abstractSection.nodeName === 'trans-abstract'
+          ? this.createTransAbstractNode(abstractSection)
+          : this.createAbstractNode(abstractSection)
+      abstractSection.remove()
+      insertAbstractNode(front, node)
     }
   }
 
@@ -2003,15 +1802,13 @@ export class JATSExporter {
     return categories
   }
 
-  private getAbstractSections(
-    container: Element | null,
-    body: HTMLElement,
-    abstractCategories: string[]
-  ): Element[] {
-    if (container) {
-      return Array.from(container.querySelectorAll(':scope > sec'))
-    } else {
-      const sections = Array.from(body.querySelectorAll(':scope > sec'))
+  private getAbstractSections(body: HTMLElement) {
+    {
+      const abstractsNode = this.getFirstChildOfType(schema.nodes.abstracts)
+      const abstractCategories = this.getAbstractCategories(abstractsNode)
+      const sections = Array.from(
+        body.querySelectorAll(':scope > sec, :scope > trans-abstract')
+      )
       return sections.filter((section) =>
         this.isAbstractSection(section, abstractCategories)
       )
@@ -2026,18 +1823,16 @@ export class JATSExporter {
     return sectionType ? abstractCategories.includes(sectionType) : false
   }
 
-  private processAbstractSections(
-    abstractSections: Element[],
-    front: HTMLElement
-  ) {
-    for (const abstractSection of abstractSections) {
-      const abstractNode = this.createAbstractNode(abstractSection)
-      abstractSection.remove()
-      const articleMeta = front.querySelector(':scope > article-meta')
-      if (articleMeta) {
-        insertAbstractNode(articleMeta, abstractNode)
-      }
-    }
+  private createTransAbstractNode(transAbstract: Element): Element {
+    const transAbstractNode = this.createElement('trans-abstract')
+    transAbstractNode.setAttributeNS(
+      XML_NAMESPACE,
+      'lang',
+      transAbstract.getAttribute('xml:lang') ?? ''
+    )
+    this.setAbstractType(transAbstractNode, transAbstract)
+    transAbstractNode.append(...transAbstract.childNodes)
+    return transAbstractNode
   }
 
   private createAbstractNode(abstractSection: Element): Element {

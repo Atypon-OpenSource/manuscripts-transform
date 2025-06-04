@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2025 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,43 +16,43 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import { ManuscriptNode } from '../types'
+import { schema } from '../index'
+import type { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface TransAbstractAttrs {
   id: string
+  lang: string
+  category: string
 }
 
-export interface BibliographyElementNode extends ManuscriptNode {
-  attrs: Attrs
+export interface TransAbstractNode extends ManuscriptNode {
+  attrs: TransAbstractAttrs
 }
 
-export const bibliographyElement: NodeSpec = {
-  content: 'bibliography_item*',
+export const transAbstract: NodeSpec = {
+  content: '(paragraph | element)* sections*',
   attrs: {
     id: { default: '' },
-    contents: { default: '' },
+    lang: { default: '' },
+    category: { default: '' },
     dataTracked: { default: null },
   },
-  selectable: false,
   group: 'block element',
-  parseDOM: [
-    {
-      tag: 'div.csl-bib-body',
-      getAttrs: () => {
-        return {
-          contents: '',
-        }
+  selectable: false,
+  toDOM: (node) => {
+    const { id, lang } = node.attrs
+    return [
+      'section',
+      {
+        id,
+        lang,
+        class: 'trans-abstract',
       },
-    },
-  ],
-  toDOM: () => {
-    const dom = document.createElement('div')
-    dom.className = 'csl-bib-body'
-    return dom
+      0,
+    ]
   },
 }
 
-export const isBibliographyElementNode = (
+export const isTransAbstractNode = (
   node: ManuscriptNode
-): node is BibliographyElementNode =>
-  node.type === node.type.schema.nodes.bibliography_element
+): node is TransAbstractNode => node.type === schema.nodes.transAbstract

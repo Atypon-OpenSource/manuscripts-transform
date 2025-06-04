@@ -17,5 +17,5 @@
     "strictPropertyInitialization": false,
     "target": "es2020"
   },
-  "include": ["src"]
+  "include": ["src", "types"]
 }
