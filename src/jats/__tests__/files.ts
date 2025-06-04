@@ -21,7 +21,4 @@ export const readFixture = (filename: string) =>
   fs.promises.readFile(join(__dirname, '/__fixtures__/', filename), 'utf-8')
 
 export const readAndParseFixture = async (filename: string) =>
-  new DOMParser().parseFromString(
-    await readFixture(filename),
-    'application/xml'
-  )
+  new DOMParser().parseFromString(await readFixture(filename), 'text/xml')

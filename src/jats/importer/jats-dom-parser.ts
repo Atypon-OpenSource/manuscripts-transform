@@ -71,7 +71,8 @@ export class JATSDOMParser {
   }
 
   private chooseSectionCategory(section: HTMLElement) {
-    const secType = section.getAttribute('sec-type')
+    const secType =
+      section.getAttribute('sec-type') || section.getAttribute('abstract-type')
     const titleNode = section.firstElementChild
 
     for (const category of this.sectionCategories) {
@@ -940,6 +941,17 @@ export class JATSDOMParser {
           mimeType: element.getAttribute('mimetype'),
           mimeSubType: element.getAttribute('mime-subtype'),
           title: getTrimmedTextContent(element, 'title'),
+        }
+      },
+    },
+    {
+      tag: 'trans-abstract',
+      node: 'trans_abstract',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          lang: element.getAttribute('xml:lang') ?? '',
+          category: this.chooseSectionCategory(element),
         }
       },
     },
