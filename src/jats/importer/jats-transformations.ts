@@ -447,7 +447,9 @@ export const createAccessibilityItems = (
   createElement: CreateElement
 ) => {
   doc
-    .querySelectorAll('media, fig, table-wrap, graphic:not(fig graphic)')
+    .querySelectorAll(
+      'media, fig, table-wrap, graphic:not(fig graphic), inline-graphic'
+    )
     .forEach((item) => {
       const altText =
         item.querySelector('alt-text') || createElement('alt-text')

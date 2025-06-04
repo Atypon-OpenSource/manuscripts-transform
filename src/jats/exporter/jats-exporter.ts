@@ -894,12 +894,23 @@ export class JATSExporter {
           id: normalizeID(node.attrs.id),
         }
         if (node.attrs.lang) {
-          attrs['xml:lang'] = node.attrs.lang
+          attrs[`${XML_NAMESPACE} xml:lang`] = node.attrs.lang
         }
         if (node.attrs.category) {
           attrs['sec-type'] = node.attrs.category
         }
         return ['trans-abstract', attrs, 0]
+      },
+      inline_figure: (node) => {
+        const inlineFigure = this.createElement('inline-graphic')
+        inlineFigure.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.src)
+        if (node.attrs.altText) {
+          this.appendElement(inlineFigure, 'alt-text', node.attrs.altText)
+        }
+        if (node.attrs.longDesc) {
+          this.appendElement(inlineFigure, 'long-desc', node.attrs.longDesc)
+        }
+        return inlineFigure
       },
       hero_image: () => '',
       alt_text: (node) => {
@@ -1125,30 +1136,17 @@ export class JATSExporter {
       keywords_element: () => '',
       keywords: () => '',
       link: (node) => {
-        const text = node.textContent
-
-        if (!text) {
+        if (!node.attrs.href) {
           return ''
         }
-
-        if (!node.attrs.href) {
-          return text
+        const xlinkAttrs: Record<string, string> = {
+          [`${XLINK_NAMESPACE} xlink:href`]: node.attrs.href,
         }
-
-        const linkNode = this.createElement('ext-link')
-        linkNode.setAttribute('ext-link-type', 'uri')
-        linkNode.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
-        linkNode.textContent = text
-
         if (node.attrs.title) {
-          linkNode.setAttributeNS(
-            XLINK_NAMESPACE,
-            'xlink:title',
-            node.attrs.title
-          )
+          xlinkAttrs[`${XLINK_NAMESPACE} xlink:title`] = node.attrs.title
         }
 
-        return linkNode
+        return ['ext-link', { ...xlinkAttrs, 'ext-link-type': 'uri' }, 0]
       },
       list_item: () => ['list-item', 0],
       listing: (node) => {
