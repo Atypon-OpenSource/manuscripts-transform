@@ -23,6 +23,7 @@ import { ManuscriptNode } from '../types'
 export interface TableColNode extends ManuscriptNode {
   attrs: {
     width: string
+    id: string
   }
 }
 
@@ -42,6 +43,7 @@ export const tableColGroup: NodeSpec = {
 export const tableCol: NodeSpec = {
   attrs: {
     width: { default: '' },
+    id: { default: '' },
   },
   group: 'block',
   parseDOM: [
@@ -52,6 +54,7 @@ export const tableCol: NodeSpec = {
 
         return {
           width: dom.getAttribute('width'),
+          id: dom.getAttribute('id'),
         }
       },
     },
@@ -63,6 +66,9 @@ export const tableCol: NodeSpec = {
 
     if (tableColNode.attrs.width) {
       attrs['width'] = tableColNode.attrs.width
+    }
+    if (tableColNode.attrs.id) {
+      attrs['id'] = tableColNode.attrs.id
     }
 
     return ['col', attrs]
