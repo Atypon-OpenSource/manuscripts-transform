@@ -31,7 +31,7 @@ export enum CreditVocabTerm {
   WritingReviewEditing = 'Writing – review & editing',
 }
 
-export const CRediTRoleUrls = new Map([
+export const CreditRoleUrls = new Map([
   [
     CreditVocabTerm.Conceptualization,
     'https://credit.niso.org/contributor-roles/conceptualization/',
