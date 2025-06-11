@@ -20,7 +20,7 @@ import { ManuscriptNode } from '../types'
 export interface ImageElementNode extends ManuscriptNode {
   attrs: {
     id: string
-    extLink: string
+    extLink?: string
   }
 }
 
