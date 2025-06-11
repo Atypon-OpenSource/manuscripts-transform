@@ -29,6 +29,7 @@ export type BibliographyItemType =
   | 'standard'
   | 'dataset'
   | 'preprint'
+  | 'literal'
 
 export interface BibliographyItemAttrs {
   id: string

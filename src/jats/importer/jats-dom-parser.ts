@@ -209,6 +209,9 @@ export class JATSDOMParser {
   private getRefType = (element: Element): BibliographyItemType => {
     const citation = element.querySelector('element-citation, mixed-citation')
     const type = citation?.getAttribute('publication-type')
+    if (citation?.getAttribute('specific-use') === 'unstructured-citation') {
+      return 'literal'
+    }
     if (!type) {
       return 'article-journal'
     }
