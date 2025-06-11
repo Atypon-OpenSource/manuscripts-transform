@@ -208,7 +208,7 @@ export class JATSDOMParser {
     const citation = element.querySelector('element-citation, mixed-citation')
     const type = citation?.getAttribute('publication-type')
     if (citation?.getAttribute('specific-use') === 'unstructured-citation') {
-      return 'literal' 
+      return 'literal'
     }
     if (!type) {
       return 'article-journal'
@@ -294,14 +294,6 @@ export class JATSDOMParser {
     return Fragment.from(content)
   }
 
-  private parseRefLiteral = (element: Element) => {
-    const mixedCitation = element.querySelector('mixed-citation')
-    if (
-      mixedCitation?.getAttribute('specific-use') === 'unstructured-citation'
-    ) {
-      return getTrimmedTextContent(mixedCitation)
-    }
-  }
   private parseRefPages = (element: Element) => {
     const fpage = getTrimmedTextContent(element, 'fpage')
     const lpage = getTrimmedTextContent(element, 'lpage')
