@@ -51,3 +51,8 @@ export const bibliographyElement: NodeSpec = {
     return dom
   },
 }
+
+export const isBibliographyElementNode = (
+  node: ManuscriptNode
+): node is BibliographyElementNode =>
+  node.type === node.type.schema.nodes.bibliography_element
