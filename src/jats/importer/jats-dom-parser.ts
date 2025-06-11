@@ -793,11 +793,6 @@ export class JATSDOMParser {
       getAttrs: this.getFigAttrs,
     },
     {
-      tag: 'ext-link',
-      ignore: true,
-      context: 'image_element/',
-    },
-    {
       tag: 'graphic',
       node: 'image_element',
       getContent: this.getFigContent,
