@@ -167,8 +167,9 @@ export class JATSDOMParser {
     }
   }
 
-  private getFigureAttrs = (node: HTMLElement | string | Node) => {
+  private getFigAttrs = (node: HTMLElement | string | Node) => {
     const element = node as HTMLElement
+    const extLink = element.querySelector('ext-link')
     const parentElement = element.parentElement
     return {
       id: element.getAttribute('id'),
@@ -177,6 +178,7 @@ export class JATSDOMParser {
         element.getAttribute('content-type') ??
         '',
       src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
+      extLink: extLink?.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
     }
   }
 
@@ -275,9 +277,7 @@ export class JATSDOMParser {
 
   private getFigContent = (node: Node) => {
     const element = node as HTMLElement
-    const content = [
-      this.schema.nodes.figure.create(this.getFigureAttrs(element)),
-    ]
+    const content = [this.schema.nodes.figure.create(this.getFigAttrs(element))]
     const altText = element.querySelector('alt-text')
     if (altText) {
       const altTextNode = this.schema.nodes.alt_text.create()
@@ -721,25 +721,7 @@ export class JATSDOMParser {
       tag: 'graphic',
       node: 'quote_image',
       context: 'pullquote_element/',
-      getAttrs: this.getFigureAttrs,
-    },
-    {
-      tag: 'inline-graphic',
-      context: 'link/',
-      node: 'inline_figure',
-      getAttrs: (node) => {
-        const element = node as HTMLElement
-        return {
-          id: element.getAttribute('id'),
-          src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
-          altText: getTrimmedTextContent(element, 'alt-text'),
-          longDesc: getTrimmedTextContent(element, 'long-desc'),
-        }
-      },
-    },
-    {
-      tag: 'inline-graphic',
-      ignore: true,
+      getAttrs: this.getFigAttrs,
     },
     {
       tag: 'ext-link',
@@ -808,12 +790,18 @@ export class JATSDOMParser {
       tag: 'graphic',
       node: 'figure',
       context: 'figure_element/',
-      getAttrs: this.getFigureAttrs,
+      getAttrs: this.getFigAttrs,
+    },
+    {
+      tag: 'ext-link',
+      ignore: true,
+      context: 'image_element/',
     },
     {
       tag: 'graphic',
       node: 'image_element',
       getContent: this.getFigContent,
+      getAttrs: this.getFigAttrs,
     },
     {
       tag: 'fig',

@@ -74,7 +74,6 @@ import { heroImage } from './nodes/hero_image'
 import { highlightMarker } from './nodes/highlight_marker'
 import { imageElement } from './nodes/image_element'
 import { inlineEquation } from './nodes/inline_equation'
-import { inlineFigure } from './nodes/inline_figure'
 import { inlineFootnote } from './nodes/inline_footnote'
 import { keyword } from './nodes/keyword'
 import { keywordGroup } from './nodes/keyword_group'
@@ -275,7 +274,5 @@ export const schema = new Schema<Nodes, Marks>({
     quote_image: quoteImage,
     hero_image: heroImage,
     trans_abstract: transAbstract,
-    inline_figure: inlineFigure,
-
   },
 })

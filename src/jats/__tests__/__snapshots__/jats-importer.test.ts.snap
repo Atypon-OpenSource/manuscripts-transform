@@ -32535,35 +32535,38 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPParagraphElement:test",
-            "placeholder": "",
+            "extLink": "WLYSP_5_4_Infographic_Nov_11_2022.pdf",
+            "id": "MPImageElement:test",
           },
           "content": Array [
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "href": "WLYSP_5_4_Infographic_Nov_11_2022.pdf",
-                "title": "",
+                "id": "MPFigure:test",
+                "src": "demo1.png",
+                "type": "",
               },
-              "content": Array [
-                Object {
-                  "attrs": Object {
-                    "altText": "example of alt text for inline graphic",
-                    "id": "MPInlineFigure:test",
-                    "longDesc": "example of long desc for inline graphic",
-                    "src": "Atopic-Dermatitis-Knowledge-Challenge-Infographic-Large.png",
-                  },
-                  "type": "inline_figure",
-                },
-              ],
-              "type": "link",
+              "type": "figure",
+            },
+            Object {
+              "attrs": Object {
+                "id": "MPAltText:test",
+              },
+              "type": "alt_text",
+            },
+            Object {
+              "attrs": Object {
+                "id": "MPLongDesc:test",
+              },
+              "type": "long_desc",
             },
           ],
-          "type": "paragraph",
+          "type": "image_element",
         },
         Object {
           "attrs": Object {
             "dataTracked": null,
+            "extLink": "",
             "id": "MPImageElement:test",
           },
           "content": Array [
