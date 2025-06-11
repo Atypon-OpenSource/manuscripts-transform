@@ -14,16 +14,28 @@
  * limitations under the License.
  */
 
-import { BibliographicDate, BibliographicName } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
+export type BibliographyItemType =
+  | 'article-journal' //journal
+  | 'book'
+  | 'chapter'
+  | 'confproc'
+  | 'thesis'
+  | 'webpage'
+  | 'other'
+  | 'standard'
+  | 'dataset'
+  | 'preprint'
+  | 'literal'
+
 export interface BibliographyItemAttrs {
   id: string
-  type: string
-  author?: BibliographicName[]
-  issued?: BibliographicDate
+  type: BibliographyItemType
+  author?: CSL.Person[]
+  issued?: CSL.Date
   'container-title'?: string
   volume?: string
   issue?: string
@@ -38,28 +50,16 @@ export interface BibliographyItemAttrs {
   publisher?: string
   event?: string
   'event-place'?: string
-  'event-date'?: BibliographicDate
+  'event-date'?: CSL.Date
   institution?: string
-  editor?: BibliographicName[]
+  editor?: CSL.Person[]
   locator?: string
   URL?: string
   'number-of-pages'?: string
-  accessed?: BibliographicDate // date-in-citation
+  accessed?: CSL.Date // date-in-citation
   DOI?: string
   comment?: string
 }
-export type BibliographyItemType =
-  | 'article-journal' //journal
-  | 'book'
-  | 'chapter'
-  | 'confproc'
-  | 'thesis'
-  | 'webpage'
-  | 'other'
-  | 'standard'
-  | 'dataset'
-  | 'preprint'
-  | 'literal'
 
 export interface BibliographyItemNode extends ManuscriptNode {
   attrs: BibliographyItemAttrs
@@ -102,3 +102,8 @@ export const bibliographyItem: NodeSpec = {
   selectable: false,
   group: 'block',
 }
+
+export const isBibliographyItemNode = (
+  node: ManuscriptNode
+): node is BibliographyItemNode =>
+  node.type === node.type.schema.nodes.bibliography_item
