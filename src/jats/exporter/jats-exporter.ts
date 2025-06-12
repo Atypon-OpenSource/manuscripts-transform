@@ -690,7 +690,7 @@ export class JATSExporter {
           id: normalizeID(node.attrs.id),
         }
         if (node.attrs.lang) {
-          attrs[`${XML_NAMESPACE} xml:lang`] = node.attrs.lang
+          attrs[`${XML_NAMESPACE} lang`] = node.attrs.lang
         }
         if (node.attrs.category) {
           attrs['sec-type'] = node.attrs.category
@@ -1832,7 +1832,7 @@ export class JATSExporter {
     transAbstractNode.setAttributeNS(
       XML_NAMESPACE,
       'lang',
-      transAbstract.getAttribute('xml:lang') ?? ''
+      transAbstract.getAttributeNS(XML_NAMESPACE, 'lang') ?? ''
     )
     this.setAbstractType(transAbstractNode, transAbstract)
     transAbstractNode.append(...transAbstract.childNodes)
