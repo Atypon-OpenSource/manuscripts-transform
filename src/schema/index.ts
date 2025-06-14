@@ -104,6 +104,7 @@ import { tableElement } from './nodes/table_element'
 import { tableElementFooter } from './nodes/table_element_footer'
 import { text, textBlock } from './nodes/text'
 import { title } from './nodes/title'
+import { transAbstract } from './nodes/trans_abstract'
 import { Marks, Nodes } from './types'
 
 export * from './groups'
@@ -168,6 +169,7 @@ export * from './nodes/pullquote_element'
 export * from './nodes/quote_image'
 export * from './nodes/section'
 export * from './nodes/section_title'
+export * from './nodes/section_label'
 export * from './nodes/supplement'
 export * from './nodes/supplements'
 export * from './nodes/table'
@@ -177,7 +179,15 @@ export * from './nodes/table_element_footer'
 export * from './nodes/text'
 export * from './nodes/title'
 export * from './types'
-
+export * from './nodes/attachment'
+export * from './nodes/attachments'
+export * from './nodes/alt_title'
+export * from './nodes/alt_titles_section'
+export * from './nodes/alt_text'
+export * from './nodes/long_desc'
+export * from './nodes/quote_image'
+export * from './nodes/hero_image'
+export * from './nodes/trans_abstract'
 export const schema = new Schema<Nodes, Marks>({
   marks: {
     bold,
@@ -273,6 +283,7 @@ export const schema = new Schema<Nodes, Marks>({
     long_desc: longDesc,
     quote_image: quoteImage,
     hero_image: heroImage,
+    trans_abstract: transAbstract,
     subtitle: subtitle,
     subtitles: subtitles,
   },
