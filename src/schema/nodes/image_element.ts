@@ -20,6 +20,7 @@ import { ManuscriptNode } from '../types'
 export interface ImageElementNode extends ManuscriptNode {
   attrs: {
     id: string
+    extLink?: string
   }
 }
 
@@ -27,6 +28,7 @@ export const imageElement: NodeSpec = {
   content: 'figure? alt_text long_desc',
   attrs: {
     id: { default: '' },
+    extLink: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',
