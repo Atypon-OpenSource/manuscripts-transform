@@ -1,5 +1,5 @@
 /*!
- * © 2020 Atypon Systems LLC
+ * © 2025 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,12 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import * as Citeproc from 'citeproc'
 
-import fs from 'fs'
-import { join } from 'path'
+import { CitationAttrs } from '../schema'
 
-export const readFixture = (filename: string) =>
-  fs.promises.readFile(join(__dirname, '/__fixtures__/', filename), 'utf-8')
-
-export const readAndParseFixture = async (filename: string) =>
-  new DOMParser().parseFromString(await readFixture(filename), 'text/xml')
+export const buildCiteprocCitation = (
+  citation: CitationAttrs
+): Citeproc.Citation => ({
+  citationID: citation.id,
+  citationItems: citation.rids.map((rid) => ({
+    id: rid,
+  })),
+  properties: {
+    noteIndex: 0,
+  },
+})

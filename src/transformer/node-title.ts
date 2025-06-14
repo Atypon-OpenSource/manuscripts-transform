@@ -80,6 +80,7 @@ export const nodeTitle = (node: ManuscriptNode) => {
     case nodes.listing_element:
     case nodes.multi_graphic_figure_element:
     case nodes.image_element:
+    case nodes.hero_image:
       return ''
 
     case nodes.box_element:
