@@ -17,7 +17,7 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Email {
+export interface Email {
   href: string
   text: string
 }
