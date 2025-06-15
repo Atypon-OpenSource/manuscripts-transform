@@ -70,7 +70,7 @@ export const contributor: NodeSpec = {
     isJointContributor: { default: undefined },
     ORCIDIdentifier: { default: undefined },
     priority: { default: undefined },
-    crediTRoles: { default: [] },
+    creditRoles: { default: [] },
     dataTracked: { default: null },
     contents: { default: '' },
     prefix: { default: '' },
