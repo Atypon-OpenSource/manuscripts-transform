@@ -67,7 +67,7 @@ export const initJats = () => {
         // item. This is usually the case for "unstructured" references, where
         // no individual metadata is tagged. Since str includes the label, it's
         // placed before the <mixed-citation> tag.
-        return `<ref id="${normalizeID(id)}">${str}<mixed-citation publication-type="${type}">${item.literal}</mixed-citation></ref>`
+        return `<ref id="${normalizeID(id)}">${str}<mixed-citation specific-use="unstructured-citation">${item.literal}</mixed-citation></ref>`
       } else if (str.includes('mixed-citation')) {
         // For citation styles that include a label (e.g. AMA), citeproc-js will
         // invoke both @display/left-margin and @display/right-inline, meaning
