@@ -35,3 +35,6 @@ export const subtitle: NodeSpec = {
   group: 'block element',
   toDOM: () => ['div', 0],
 }
+
+export const isSubtitleNode = (node: ManuscriptNode): node is SubtitleNode =>
+  node.type === node.type.schema.nodes.subtitle
