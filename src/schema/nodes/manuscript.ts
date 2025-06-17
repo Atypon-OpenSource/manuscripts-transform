@@ -28,6 +28,7 @@ export interface ManuscriptAttrs {
   articleType: string
   prototype: string
   primaryLanguageCode: string
+  citationStyle?: string
   acceptanceDate?: number
   correctionDate?: number
   retractionDate?: number
