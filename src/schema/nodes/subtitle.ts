@@ -18,41 +18,23 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export interface AltTitlesSectionAttrs {
+export interface SubtitleAttrs {
   id: string
 }
 
-export interface AltTitlesSectionNode extends ManuscriptNode {
-  attrs: AltTitlesSectionAttrs
+export interface SubtitleNode extends ManuscriptNode {
+  attrs: SubtitleAttrs
 }
 
-export const altTitlesSection: NodeSpec = {
-  content: 'alt_title*',
+export const subtitle: NodeSpec = {
+  content: '(text | highlight_marker)*',
   attrs: {
     id: { default: '' },
+    dataTracked: { default: null },
   },
-  group: 'block sections',
-  selectable: false,
-  parseDOM: [
-    {
-      tag: 'section.alt-titles',
-    },
-  ],
-  toDOM: (node) => {
-    const altTitlesSectionNode = node as AltTitlesSectionNode
-
-    return [
-      'section',
-      {
-        id: altTitlesSectionNode.attrs.id,
-        class: 'alt-titles',
-      },
-      0,
-    ]
-  },
+  group: 'block element',
+  toDOM: () => ['div', 0],
 }
 
-export const isAltTitlesSectionNode = (
-  node: ManuscriptNode
-): node is AltTitlesSectionNode =>
-  node.type === node.type.schema.nodes.alt_titles_section
+export const isSubtitleNode = (node: ManuscriptNode): node is SubtitleNode =>
+  node.type === node.type.schema.nodes.subtitle
