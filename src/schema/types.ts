@@ -130,6 +130,8 @@ export type Nodes =
   | 'long_desc'
   | 'hero_image'
   | 'trans_abstract'
+  | 'subtitle'
+  | 'subtitles'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 
