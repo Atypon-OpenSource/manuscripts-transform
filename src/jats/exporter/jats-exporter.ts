@@ -424,6 +424,13 @@ export class JATSExporter {
       titleGroup.appendChild(element)
     }
 
+    const subtitlesNodes = this.getChildrenOfType(schema.nodes.subtitle)
+    subtitlesNodes.forEach((subtitleNode) => {
+      const element = this.createElement('subtitle')
+      this.setTitleContent(element, subtitleNode.textContent)
+      titleGroup.appendChild(element)
+    })
+
     const altTitlesNodes = this.getChildrenOfType(schema.nodes.alt_title)
 
     altTitlesNodes.forEach((titleNode) => {
@@ -766,6 +773,8 @@ export class JATSExporter {
       title: () => '',
       alt_title: () => '',
       alt_titles: () => '',
+      subtitle: () => '',
+      subtitles: () => '',
       text_block: (node) => nodes.paragraph(node),
       affiliations: () => '',
       contributors: () => '',
