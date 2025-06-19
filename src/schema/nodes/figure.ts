@@ -35,7 +35,8 @@ export const figure: NodeSpec = {
     type: { default: '' },
     dataTracked: { default: null },
   },
-  selectable: false,
+  draggable: true,
+  atom: true,
   group: 'block',
   parseDOM: [
     {
