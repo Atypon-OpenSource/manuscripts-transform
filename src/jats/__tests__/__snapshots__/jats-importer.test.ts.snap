@@ -32556,6 +32556,38 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
+            "extLink": "WLYSP_5_4_Infographic_Nov_11_2022.pdf",
+            "id": "MPImageElement:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPFigure:test",
+                "src": "demo1.png",
+                "type": "",
+              },
+              "type": "figure",
+            },
+            Object {
+              "attrs": Object {
+                "id": "MPAltText:test",
+              },
+              "type": "alt_text",
+            },
+            Object {
+              "attrs": Object {
+                "id": "MPLongDesc:test",
+              },
+              "type": "long_desc",
+            },
+          ],
+          "type": "image_element",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "extLink": "",
             "id": "MPImageElement:test",
           },
           "content": Array [
