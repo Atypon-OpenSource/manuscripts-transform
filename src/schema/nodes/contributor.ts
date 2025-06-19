@@ -28,9 +28,8 @@ export type ContributorFootnote = {
   noteLabel: string
 }
 
-export type CRediTRole = {
+export type CreditRole = {
   vocabTerm: CreditVocabTerm
-  degreeContribution?: string
 }
 
 interface Attrs {
@@ -48,7 +47,7 @@ interface Attrs {
   isJointContributor: boolean
   footnote: ContributorFootnote[]
   prefix: string
-  CRediTRoles?: CRediTRole[]
+  creditRoles?: CreditRole[]
 }
 
 export interface ContributorNode extends ManuscriptNode {
@@ -71,7 +70,7 @@ export const contributor: NodeSpec = {
     isJointContributor: { default: undefined },
     ORCIDIdentifier: { default: undefined },
     priority: { default: undefined },
-    CRediTRoles: { default: [] },
+    creditRoles: { default: [] },
     dataTracked: { default: null },
     contents: { default: '' },
     prefix: { default: '' },
