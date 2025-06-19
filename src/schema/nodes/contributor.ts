@@ -56,6 +56,7 @@ export interface ContributorNode extends ManuscriptNode {
 
 export const contributor: NodeSpec = {
   content: 'inline*',
+  atom: true,
   attrs: {
     id: { default: '' },
     role: { default: '' },
