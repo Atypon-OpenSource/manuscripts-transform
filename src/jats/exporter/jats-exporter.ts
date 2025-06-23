@@ -697,7 +697,7 @@ export class JATSExporter {
           id: normalizeID(node.attrs.id),
         }
         if (node.attrs.lang) {
-          attrs['xml:lang'] = node.attrs.lang
+          attrs[`${XML_NAMESPACE} lang`] = node.attrs.lang
         }
         if (node.attrs.category) {
           attrs['sec-type'] = node.attrs.category
@@ -1201,13 +1201,17 @@ export class JATSExporter {
 
     const createImage = (node: ManuscriptNode) => {
       const graphicNode = node.content.firstChild
-      if (graphicNode) {
-        const graphicElement = createGraphic(graphicNode)
-        appendChildNodeOfType(graphicElement, node, schema.nodes.alt_text)
-        appendChildNodeOfType(graphicElement, node, schema.nodes.long_desc)
-        return graphicElement
+      if (!graphicNode) {
+        return ''
       }
-      return ''
+      const graphicElement = createGraphic(graphicNode)
+      if (node.attrs.extLink) {
+        const extLink = this.appendElement(graphicElement, 'ext-link')
+        extLink.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.extLink)
+      }
+      appendChildNodeOfType(graphicElement, node, schema.nodes.alt_text)
+      appendChildNodeOfType(graphicElement, node, schema.nodes.long_desc)
+      return graphicElement
     }
 
     const createGraphic = (node: ManuscriptNode) => {
@@ -1837,7 +1841,7 @@ export class JATSExporter {
     transAbstractNode.setAttributeNS(
       XML_NAMESPACE,
       'lang',
-      transAbstract.getAttribute('xml:lang') ?? ''
+      transAbstract.getAttributeNS(XML_NAMESPACE, 'lang') ?? ''
     )
     this.setAbstractType(transAbstractNode, transAbstract)
     transAbstractNode.append(...transAbstract.childNodes)
