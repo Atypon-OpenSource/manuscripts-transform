@@ -26,7 +26,7 @@ import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { buildCiteprocCitation } from '../../lib/citeproc'
-import { CRediTRoleUrls } from '../../lib/credit-roles'
+import { CreditRoleUrls } from '../../lib/credit-roles'
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML } from '../../lib/html'
 import {
@@ -697,7 +697,7 @@ export class JATSExporter {
           id: normalizeID(node.attrs.id),
         }
         if (node.attrs.lang) {
-          attrs['xml:lang'] = node.attrs.lang
+          attrs[`${XML_NAMESPACE} lang`] = node.attrs.lang
         }
         if (node.attrs.category) {
           attrs['sec-type'] = node.attrs.category
@@ -1201,13 +1201,17 @@ export class JATSExporter {
 
     const createImage = (node: ManuscriptNode) => {
       const graphicNode = node.content.firstChild
-      if (graphicNode) {
-        const graphicElement = createGraphic(graphicNode)
-        appendChildNodeOfType(graphicElement, node, schema.nodes.alt_text)
-        appendChildNodeOfType(graphicElement, node, schema.nodes.long_desc)
-        return graphicElement
+      if (!graphicNode) {
+        return ''
       }
-      return ''
+      const graphicElement = createGraphic(graphicNode)
+      if (node.attrs.extLink) {
+        const extLink = this.appendElement(graphicElement, 'ext-link')
+        extLink.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.extLink)
+      }
+      appendChildNodeOfType(graphicElement, node, schema.nodes.alt_text)
+      appendChildNodeOfType(graphicElement, node, schema.nodes.long_desc)
+      return graphicElement
     }
 
     const createGraphic = (node: ManuscriptNode) => {
@@ -1417,10 +1421,10 @@ export class JATSExporter {
           })
         }
 
-        if (contributor.attrs.CRediTRoles) {
-          contributor.attrs.CRediTRoles.forEach((cr) => {
+        if (contributor.attrs.creditRoles) {
+          contributor.attrs.creditRoles.forEach((cr) => {
             const role = this.createElement('role')
-            const creditUrl = CRediTRoleUrls.get(cr.vocabTerm)
+            const creditUrl = CreditRoleUrls.get(cr.vocabTerm)
             if (creditUrl) {
               role.setAttribute('vocab-identifier', 'http://credit.niso.org/')
               role.setAttribute('vocab', 'CRediT')
@@ -1837,7 +1841,7 @@ export class JATSExporter {
     transAbstractNode.setAttributeNS(
       XML_NAMESPACE,
       'lang',
-      transAbstract.getAttribute('xml:lang') ?? ''
+      transAbstract.getAttributeNS(XML_NAMESPACE, 'lang') ?? ''
     )
     this.setAbstractType(transAbstractNode, transAbstract)
     transAbstractNode.append(...transAbstract.childNodes)

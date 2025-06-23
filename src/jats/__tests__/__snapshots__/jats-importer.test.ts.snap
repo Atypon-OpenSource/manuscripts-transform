@@ -292,11 +292,6 @@ exports[`JATS importer contributors node should correctly parse contributor node
 Array [
   Object {
     "attrs": Object {
-      "CRediTRoles": Array [
-        Object {
-          "vocabTerm": "Writing – original draft",
-        },
-      ],
       "ORCIDIdentifier": "https://orcid.org/0000-0003-2217-5904",
       "affiliations": Array [
         "MPAffiliation:test",
@@ -308,6 +303,11 @@ Array [
       },
       "contents": "",
       "corresp": Array [],
+      "creditRoles": Array [
+        Object {
+          "vocabTerm": "Writing – original draft",
+        },
+      ],
       "dataTracked": null,
       "email": "",
       "footnote": Array [],
@@ -330,7 +330,6 @@ Array [
   },
   Object {
     "attrs": Object {
-      "CRediTRoles": Array [],
       "ORCIDIdentifier": undefined,
       "affiliations": Array [
         "MPAffiliation:test",
@@ -342,6 +341,7 @@ Array [
       },
       "contents": "",
       "corresp": Array [],
+      "creditRoles": Array [],
       "dataTracked": null,
       "email": "",
       "footnote": Array [
@@ -477,7 +477,6 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": "https://orcid.org/0000-0001-6162-1335",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -494,6 +493,7 @@ Object {
                 "correspLabel": "*",
               },
             ],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "ntaylor+Author7@atypon.com",
             "footnote": Array [],
@@ -516,7 +516,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -528,6 +527,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "huweiming2019@yeah.net",
             "footnote": Array [],
@@ -550,7 +550,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -562,6 +561,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "04040416@163.com",
             "footnote": Array [],
@@ -584,7 +584,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -596,6 +595,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "jsxhgst888@163.com",
             "footnote": Array [],
@@ -2581,7 +2581,6 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [],
             "bibliographicName": Object {
@@ -2591,6 +2590,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "",
             "footnote": Array [],
@@ -4121,7 +4121,6 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4133,6 +4132,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "thomas28@netvigator.com",
             "footnote": Array [],
@@ -4155,7 +4155,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4167,6 +4166,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "yyhwang922@gmail.com",
             "footnote": Array [],
@@ -4189,7 +4189,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4201,6 +4200,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "plkhong@hku.hk",
             "footnote": Array [],
@@ -4223,7 +4223,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4235,6 +4234,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "ayhleung@hku.hk",
             "footnote": Array [],
@@ -4257,7 +4257,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": "https://orcid.org/0000-0003-2427-915X",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4269,6 +4268,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "jcschim@hku.hk",
             "footnote": Array [],
@@ -4291,7 +4291,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4303,6 +4302,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "ewctse@hku.hk",
             "footnote": Array [],
@@ -4325,7 +4325,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": "https://orcid.org/0000-0001-8156-6978",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -4337,6 +4336,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "mzerkani+Author3@atypon.com",
             "footnote": Array [],
@@ -21461,7 +21461,6 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": "https://orcid.org/0000-0003-2217-5904",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -21473,6 +21472,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "",
             "footnote": Array [],
@@ -21495,7 +21495,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -21507,6 +21506,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "",
             "footnote": Array [
@@ -29867,7 +29867,6 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -29884,6 +29883,7 @@ Object {
                 "correspLabel": "*",
               },
             ],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "",
             "footnote": Array [
@@ -31753,11 +31753,6 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [
-              Object {
-                "vocabTerm": "Writing – original draft",
-              },
-            ],
             "ORCIDIdentifier": "https://orcid.org/0000-0003-2217-5904",
             "affiliations": Array [
               "MPAffiliation:test",
@@ -31769,6 +31764,11 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [
+              Object {
+                "vocabTerm": "Writing – original draft",
+              },
+            ],
             "dataTracked": null,
             "email": "",
             "footnote": Array [],
@@ -31791,7 +31791,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -31803,6 +31802,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "",
             "footnote": Array [
@@ -32556,6 +32556,38 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
+            "extLink": "WLYSP_5_4_Infographic_Nov_11_2022.pdf",
+            "id": "MPImageElement:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPFigure:test",
+                "src": "demo1.png",
+                "type": "",
+              },
+              "type": "figure",
+            },
+            Object {
+              "attrs": Object {
+                "id": "MPAltText:test",
+              },
+              "type": "alt_text",
+            },
+            Object {
+              "attrs": Object {
+                "id": "MPLongDesc:test",
+              },
+              "type": "long_desc",
+            },
+          ],
+          "type": "image_element",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "extLink": "",
             "id": "MPImageElement:test",
           },
           "content": Array [
@@ -43215,7 +43247,6 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -43227,6 +43258,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "",
             "footnote": Array [],
@@ -43249,7 +43281,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "CRediTRoles": Array [],
             "ORCIDIdentifier": undefined,
             "affiliations": Array [
               "MPAffiliation:test",
@@ -43261,6 +43292,7 @@ Object {
             },
             "contents": "",
             "corresp": Array [],
+            "creditRoles": Array [],
             "dataTracked": null,
             "email": "",
             "footnote": Array [],

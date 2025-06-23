@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-export const enum CreditVocabTerm {
+export enum CreditVocabTerm {
   Conceptualization = 'Conceptualization',
   DataCuration = 'Data curation',
   FormalAnalysis = 'Formal analysis',
   FundingAcquisition = 'Funding acquisition',
   Investigation = 'Investigation',
   Methodology = 'Methodology',
-  ProjectAdministration = 'ProjectAdministration',
+  ProjectAdministration = 'Project administration',
   Resources = 'Resources',
   Software = 'Software',
   Supervision = 'Supervision',
@@ -31,7 +31,7 @@ export const enum CreditVocabTerm {
   WritingReviewEditing = 'Writing – review & editing',
 }
 
-export const CRediTRoleUrls = new Map([
+export const CreditRoleUrls = new Map([
   [
     CreditVocabTerm.Conceptualization,
     'https://credit.niso.org/contributor-roles/conceptualization/',
