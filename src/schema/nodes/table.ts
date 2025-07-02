@@ -120,13 +120,25 @@ export const table: NodeSpec = {
 }
 export const tableRow: NodeSpec = {
   ...tableNodes.table_row,
-  attrs: { ...tableNodes.table_row.attrs, dataTracked: { default: null } },
+  attrs: { 
+    ...tableNodes.table_row.attrs, 
+    id: { default: '' },
+    dataTracked: { default: null } 
+  },
 }
 export const tableCell: NodeSpec = {
   ...tableNodes.table_cell,
-  attrs: { ...tableNodes.table_cell.attrs, dataTracked: { default: null } },
+  attrs: { 
+    ...tableNodes.table_cell.attrs,
+    id: { default: '' },
+    dataTracked: { default: null } 
+  },
 }
 export const tableHeader: NodeSpec = {
   ...tableNodes.table_header,
-  attrs: { ...tableNodes.table_header.attrs, dataTracked: { default: null } },
+  attrs: { 
+    ...tableNodes.table_header.attrs,
+    id: { default: '' },
+    dataTracked: { default: null } 
+  },
 }
