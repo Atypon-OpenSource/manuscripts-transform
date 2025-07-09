@@ -85,6 +85,7 @@ import { listing } from './nodes/listing'
 import { listingElement } from './nodes/listing_element'
 import { longDesc } from './nodes/long_desc'
 import { manuscript } from './nodes/manuscript'
+import { media } from './nodes/media'
 import { missingFigure } from './nodes/missing_figure'
 import { paragraph } from './nodes/paragraph'
 import { placeholder } from './nodes/placeholder'
@@ -182,6 +183,8 @@ export * from './nodes/text'
 export * from './nodes/title'
 export * from './nodes/trans_abstract'
 export * from './types'
+export * from './nodes/media'
+
 export const schema = new Schema<Nodes, Marks>({
   marks: {
     bold,
@@ -280,5 +283,6 @@ export const schema = new Schema<Nodes, Marks>({
     trans_abstract: transAbstract,
     subtitle: subtitle,
     subtitles: subtitles,
+    media,
   },
 })

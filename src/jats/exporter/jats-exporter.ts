@@ -724,26 +724,8 @@ export class JATSExporter {
       attachment: () => '',
       attachments: () => '',
       image_element: (node) => createImage(node),
-      embed: (node) => {
-        const mediaElement = this.createElement('media')
-        const { id, href, mimetype, mimeSubtype } = node.attrs
-        mediaElement.setAttribute('id', normalizeID(id))
-        mediaElement.setAttributeNS(XLINK_NAMESPACE, 'show', 'embed')
-        if (href) {
-          mediaElement.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
-        }
-        if (mimetype) {
-          mediaElement.setAttribute('mimetype', node.attrs.mimetype)
-        }
-        if (mimeSubtype) {
-          mediaElement.setAttribute('mime-subtype', node.attrs.mimeSubtype)
-        }
-        appendLabels(mediaElement, node)
-        appendChildNodeOfType(mediaElement, node, schema.nodes.alt_text)
-        appendChildNodeOfType(mediaElement, node, schema.nodes.long_desc)
-        appendChildNodeOfType(mediaElement, node, schema.nodes.figcaption)
-        return mediaElement
-      },
+      embed: (node) => createMedia(node),
+      media: (node) => createMedia(node),
       awards: () => ['funding-group', 0],
       award: (node) => {
         const awardGroup = node as AwardNode
@@ -1212,6 +1194,27 @@ export class JATSExporter {
       appendChildNodeOfType(graphicElement, node, schema.nodes.alt_text)
       appendChildNodeOfType(graphicElement, node, schema.nodes.long_desc)
       return graphicElement
+    }
+
+    const createMedia = (node: ManuscriptNode) => {
+      const mediaElement = this.createElement('media')
+      const { id, href, mimetype, mimeSubtype } = node.attrs
+      mediaElement.setAttribute('id', normalizeID(id))
+      mediaElement.setAttributeNS(XLINK_NAMESPACE, 'show', 'embed')
+      if (href) {
+        mediaElement.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
+      }
+      if (mimetype) {
+        mediaElement.setAttribute('mimetype', node.attrs.mimetype)
+      }
+      if (mimeSubtype) {
+        mediaElement.setAttribute('mime-subtype', node.attrs.mimeSubtype)
+      }
+      appendLabels(mediaElement, node)
+      appendChildNodeOfType(mediaElement, node, schema.nodes.alt_text)
+      appendChildNodeOfType(mediaElement, node, schema.nodes.long_desc)
+      appendChildNodeOfType(mediaElement, node, schema.nodes.figcaption)
+      return mediaElement
     }
 
     const createGraphic = (node: ManuscriptNode) => {

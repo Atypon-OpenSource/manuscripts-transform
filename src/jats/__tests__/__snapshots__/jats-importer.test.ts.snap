@@ -34012,6 +34012,65 @@ Object {
             },
             Object {
               "attrs": Object {
+                "dataTracked": null,
+                "href": "attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312",
+                "id": "MPMedia:test",
+                "longDesc": "",
+                "mimeSubtype": "mp4",
+                "mimetype": "video",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Title...",
+                      },
+                      "type": "caption_title",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "type": "caption",
+                    },
+                  ],
+                  "type": "figcaption",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPAltText:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of alt text for media",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "alt_text",
+                },
+                Object {
+                  "attrs": Object {
+                    "id": "MPLongDesc:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "example of long desc",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "long_desc",
+                },
+              ],
+              "type": "media",
+            },
+            Object {
+              "attrs": Object {
                 "category": "",
                 "dataTracked": null,
                 "id": "MPSection:test",

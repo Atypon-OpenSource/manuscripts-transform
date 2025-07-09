@@ -132,6 +132,7 @@ export type Nodes =
   | 'trans_abstract'
   | 'subtitle'
   | 'subtitles'
+  | 'media'
 
 export type ManuscriptSchema = Schema<Nodes, Marks>
 

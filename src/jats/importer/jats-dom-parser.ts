@@ -625,7 +625,7 @@ export class JATSDOMParser {
     {
       tag: 'caption',
       node: 'figcaption',
-      context: 'figure_element/|table_element/|embed/',
+      context: 'figure_element/|table_element/|embed/|media/',
       getContent: (node, schema) => {
         const element = node as HTMLElement
 
@@ -752,6 +752,23 @@ export class JATSDOMParser {
     {
       tag: 'media',
       node: 'embed',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        const href = element.getAttributeNS(this.XLINK_NAMESPACE, 'href')
+        if (href && href.startsWith('attachment:')) {
+          return false
+        }
+        return {
+          id: element.getAttribute('id'),
+          href: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
+          mimetype: element.getAttribute('mimetype'),
+          mimeSubtype: element.getAttribute('mime-subtype'),
+        }
+      },
+    },
+    {
+      tag: 'media',
+      node: 'media',
       getAttrs: (node) => {
         const element = node as HTMLElement
         return {
