@@ -46,6 +46,7 @@ const labelledNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.box_element,
   schema.nodes.embed,
   schema.nodes.image_element,
+  schema.nodes.media,
 ]
 
 const excludedTypes = [schema.nodes.graphical_abstract_section]

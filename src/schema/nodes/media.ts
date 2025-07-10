@@ -23,6 +23,7 @@ export interface MediaAttrs {
   href: string
   mimetype: string
   mimeSubtype: string
+  type: string
 }
 
 export interface MediaNode extends ManuscriptNode {
@@ -38,6 +39,7 @@ export const media: NodeSpec = {
     mimetype: { default: undefined },
     mimeSubtype: { default: undefined },
     longDesc: { default: '' },
+    type: { default: '' },
   },
   group: 'block element',
   toDOM: (node) => {
