@@ -289,6 +289,15 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
          <alt-text>example of alt text for media</alt-text>
         <long-desc>example of long desc</long-desc>
         </media>
+        <media
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312"
+        xlink:show="embed"
+        mimetype="video"
+        mime-subtype="mp4" >
+         <alt-text>example of alt text for media</alt-text>
+        <long-desc>example of long desc</long-desc>
+        </media>
       <sec>
         <title>Aims and hypotheses</title>
         <p>The aim of the present study was to test the hypotheses that follow up after
