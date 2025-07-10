@@ -181,7 +181,7 @@ export type ManuscriptTemplate = {
   bundle: string
   title: string
   sectionCategories: SectionCategory[]
-  articleType?: string
+  articleType: string
 }
 
 export type MarkRule = ParseRule & { mark: Marks | null }
