@@ -370,7 +370,7 @@ export class JATSDOMParser {
         const dates = this.parseHistoryDates(history)
         return {
           doi: getTrimmedTextContent(doi),
-          articleType: element.getAttribute('article-type') ?? '',
+          articleType: element.getAttribute('article-type') || 'other',
           primaryLanguageCode: element.getAttribute('lang') ?? '',
           ...dates,
         }
