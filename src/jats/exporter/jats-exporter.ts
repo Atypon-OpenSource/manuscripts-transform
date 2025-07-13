@@ -1220,13 +1220,15 @@ export class JATSExporter {
     const createGraphic = (node: ManuscriptNode) => {
       const graphic = this.createElement('graphic')
       graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
-      if (
+      
+      if (isChildOfNodeType(node.attrs.id, schema.nodes.hero_image)) {
+        graphic.setAttribute('content-type', 'leading')
+      } else if (
         !isChildOfNodeType(node.attrs.id, schema.nodes.figure_element) &&
         node.attrs.type
       ) {
         graphic.setAttribute('content-type', node.attrs.type)
       }
-
       return graphic
     }
     const createFigureElement = (
