@@ -2548,7 +2548,7 @@ exports[`JATS importer parses JATS article to Manuscripts document 1`] = `
 Object {
   "attrs": Object {
     "acceptanceDate": undefined,
-    "articleType": "other",
+    "articleType": "",
     "correctionDate": undefined,
     "doi": "",
     "id": "MPManuscript:test",
