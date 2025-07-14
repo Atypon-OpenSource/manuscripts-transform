@@ -67,20 +67,29 @@ export const initJats = () => {
         // item. This is usually the case for "unstructured" references, where
         // no individual metadata is tagged. Since str includes the label, it's
         // placed before the <mixed-citation> tag.
-        return `<ref id="${normalizeID(id)}">${str}<mixed-citation specific-use="unstructured-citation">${item.literal}</mixed-citation></ref>`
+        return `<ref id="${normalizeID(
+          id
+        )}">${str}<mixed-citation specific-use="unstructured-citation">${
+          item.literal
+        }</mixed-citation></ref>`
       } else if (str.includes('mixed-citation')) {
         // For citation styles that include a label (e.g. AMA), citeproc-js will
         // invoke both @display/left-margin and @display/right-inline, meaning
         // that str will include a <mixed-citation> tag. In that case, only the
         // <ref> tag needs to be added.
-        return `<ref id="${normalizeID(id)}">${str.replace('%%TYPE%%', type)}</ref>`
+        return `<ref id="${normalizeID(id)}">${str.replace(
+          '%%TYPE%%',
+          type
+        )}</ref>`
       } else {
         // For citation styles that do not include a label (e.g. Chicago Author),
         // citeproc-js will invoke neither @display/left-margin nor
         // @display/right-inline, meaning that str will not include a
         // <mixed-citation> tag. In that case, both <ref> and <mixed-citation>
         // need to be added.
-        return `<ref id="${normalizeID(id)}"><mixed-citation publication-type="${type}">${str}</mixed-citation></ref>`
+        return `<ref id="${normalizeID(
+          id
+        )}"><mixed-citation publication-type="${type}">${str}</mixed-citation></ref>`
       }
     },
     '@display/block': false,
@@ -228,9 +237,13 @@ const wrappers = {
   // function for more info.
   editor: namesWrapper('editor'),
   accessed: (str: string, item: BibliographyItemAttrs) =>
-    `<date-in-citation content-type="access-date" iso-8601-date="${formatDate(item.accessed)}">${str}</date-in-citation>`,
+    `<date-in-citation content-type="access-date" iso-8601-date="${formatDate(
+      item.accessed
+    )}">${str}</date-in-citation>`,
   'event-date': (str: string, item: BibliographyItemAttrs) =>
-    `<conf-date iso-8601-date="${formatDate(item['event-date'])}">${str}</conf-date>`,
+    `<conf-date iso-8601-date="${formatDate(
+      item['event-date']
+    )}">${str}</conf-date>`,
   DOI: (str: string) => `<pub-id pub-id-type="doi">${str}</pub-id>`,
   URL: (str: string) =>
     `<ext-link ext-link-type="uri" xlink:href="${str}">${str}</ext-link>`,
