@@ -4,7 +4,7 @@ exports[`Create empty document should create an empty document 1`] = `
 Object {
   "attrs": Object {
     "acceptanceDate": undefined,
-    "articleType": "",
+    "articleType": "research-article",
     "correctionDate": undefined,
     "doi": "",
     "id": "manuscript:123",
