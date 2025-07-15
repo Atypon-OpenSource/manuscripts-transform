@@ -19,7 +19,10 @@ import { changeIDs } from './utils'
 
 describe('Create empty document', () => {
   it('should create an empty document', () => {
-    const doc = createArticleNode({ id: 'manuscript:123' })
+    const doc = createArticleNode({
+      id: 'manuscript:123',
+      articleType: 'research-article',
+    })
     changeIDs(doc)
     expect(doc).toMatchSnapshot()
   })
