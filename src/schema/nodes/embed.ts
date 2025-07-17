@@ -23,6 +23,8 @@ export interface EmbedAttrs {
   href: string
   mimetype: string
   mimeSubtype: string
+  mediaType?: string
+  type?: string
 }
 
 export interface EmbedNode extends ManuscriptNode {
@@ -38,6 +40,8 @@ export const embed: NodeSpec = {
     mimetype: { default: undefined },
     mimeSubtype: { default: undefined },
     longDesc: { default: '' },
+    mediaType: { default: undefined },
+    type: { default: undefined },
   },
   group: 'block element',
   toDOM: (node) => {
