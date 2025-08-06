@@ -212,7 +212,7 @@ describe('JATS exporter', () => {
     const hrefAttr = supplementaryMaterial.attr('href')
 
     expect(textContent).toBe(
-      'final manuscript-hum-huili-dbh-suicide-20200707_figures (9)'
+      'final manuscript-hum-huili-dbh-suicide-20200707_figures (9)example of alt text for supplementsexample of long desc for supplements'
     )
     expect(mimeTypeAttr?.value()).toBe('application')
     expect(mimeSubtypeAttr?.value()).toBe(

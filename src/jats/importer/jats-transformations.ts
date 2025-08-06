@@ -39,7 +39,9 @@ export const addMissingCaptions = (
   doc: Document,
   createElement: CreateElement
 ) => {
-  const elements = doc.querySelectorAll('fig, table-wrap, media')
+  const elements = doc.querySelectorAll(
+    'fig, table-wrap, media, supplementary-material'
+  )
   for (const element of elements) {
     let caption: Element | null = element.querySelector('caption')
     if (!caption) {

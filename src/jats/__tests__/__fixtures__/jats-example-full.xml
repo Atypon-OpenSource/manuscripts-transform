@@ -160,12 +160,6 @@
       <title>Conclusions</title>
       <p>Paragraph</p>
     </sec>
-    <sec sec-type="supplementary-material|materials">
-      <title>Supplementary_Material_Head</title>
-      <supplementary-material>
-        <p>Supplementary_Material</p>
-      </supplementary-material>
-    </sec>
   </body>
   <back>
     <app-group>

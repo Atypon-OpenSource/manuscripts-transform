@@ -22283,8 +22283,49 @@ Object {
             "id": "MPSupplement:test",
             "mimeSubType": "vnd.openxmlformats-officedocument.wordprocessingml.document",
             "mimeType": "application",
-            "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
           },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Title...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "type": "caption",
+                },
+              ],
+              "type": "figcaption",
+            },
+            Object {
+              "attrs": Object {
+                "id": "MPAltText:test",
+              },
+              "type": "alt_text",
+            },
+            Object {
+              "attrs": Object {
+                "id": "MPLongDesc:test",
+              },
+              "type": "long_desc",
+            },
+          ],
           "type": "supplement",
         },
       ],
@@ -31901,28 +31942,6 @@ Object {
           ],
           "type": "section",
         },
-        Object {
-          "attrs": Object {
-            "category": "",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "Supplementary_Material_Head",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-          ],
-          "type": "section",
-        },
       ],
       "type": "body",
     },
@@ -32823,8 +32842,61 @@ Object {
             "id": "MPSupplement:test",
             "mimeSubType": "vnd.openxmlformats-officedocument.wordprocessingml.document",
             "mimeType": "application",
-            "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
           },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Title...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "type": "caption",
+                },
+              ],
+              "type": "figcaption",
+            },
+            Object {
+              "attrs": Object {
+                "id": "MPAltText:test",
+              },
+              "content": Array [
+                Object {
+                  "text": "example of alt text for supplements",
+                  "type": "text",
+                },
+              ],
+              "type": "alt_text",
+            },
+            Object {
+              "attrs": Object {
+                "id": "MPLongDesc:test",
+              },
+              "content": Array [
+                Object {
+                  "text": "example of long desc for supplements",
+                  "type": "text",
+                },
+              ],
+              "type": "long_desc",
+            },
+          ],
           "type": "supplement",
         },
       ],
@@ -58961,8 +59033,61 @@ Object {
     "id": "MPSupplement:test",
     "mimeSubType": "vnd.openxmlformats-officedocument.wordprocessingml.document",
     "mimeType": "application",
-    "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
   },
+  "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "placeholder": "Title...",
+          },
+          "content": Array [
+            Object {
+              "text": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
+              "type": "text",
+            },
+          ],
+          "type": "caption_title",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "placeholder": "Caption...",
+          },
+          "type": "caption",
+        },
+      ],
+      "type": "figcaption",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPAltText:test",
+      },
+      "content": Array [
+        Object {
+          "text": "example of alt text for supplements",
+          "type": "text",
+        },
+      ],
+      "type": "alt_text",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPLongDesc:test",
+      },
+      "content": Array [
+        Object {
+          "text": "example of long desc for supplements",
+          "type": "text",
+        },
+      ],
+      "type": "long_desc",
+    },
+  ],
   "type": "supplement",
 }
 `;
