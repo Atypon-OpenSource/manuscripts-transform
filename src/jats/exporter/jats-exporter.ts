@@ -728,13 +728,14 @@ export class JATSExporter {
       attachments: () => '',
       image_element: (node) => createImage(node),
       embed: (node) => {
-        const mediaElement = this.createElement('media')
         const { id, href, mimetype, mimeSubtype } = node.attrs
+        if (!href) {
+          return ''
+        }
+        const mediaElement = this.createElement('media')
         mediaElement.setAttribute('id', normalizeID(id))
         mediaElement.setAttributeNS(XLINK_NAMESPACE, 'show', 'embed')
-        if (href) {
-          mediaElement.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
-        }
+        mediaElement.setAttributeNS(XLINK_NAMESPACE, 'href', href)
         if (mimetype) {
           mediaElement.setAttribute('mimetype', node.attrs.mimetype)
         }
