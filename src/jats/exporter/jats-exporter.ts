@@ -29,6 +29,7 @@ import { buildCiteprocCitation } from '../../lib/citeproc'
 import { CreditRoleUrls } from '../../lib/credit-roles'
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML } from '../../lib/html'
+import { XLINK_NAMESPACE, XML_NAMESPACE } from '../../lib/xml'
 import {
   AuthorNotesNode,
   AwardNode,
@@ -66,9 +67,6 @@ type NodeSpecs = { [key in Nodes]: (node: ManuscriptNode) => DOMOutputSpec }
 type MarkSpecs = {
   [key in Marks]: (mark: ManuscriptMark, inline: boolean) => DOMOutputSpec
 }
-
-const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
-const XML_NAMESPACE = 'http://www.w3.org/XML/1998/namespace'
 
 const normalizeID = (id: string) => id.replace(/:/g, '_')
 
@@ -216,6 +214,11 @@ export class JATSExporter {
     article.setAttribute(
       'article-type',
       manuscriptNode.attrs.articleType || 'other'
+    )
+    article.setAttributeNS(
+      XML_NAMESPACE,
+      'lang',
+      manuscriptNode.attrs.primaryLanguageCode || 'en'
     )
     this.labelTargets = buildTargets(manuscriptNode)
     this.footnoteLabels = generateFootnoteLabels(manuscriptNode)
@@ -725,13 +728,14 @@ export class JATSExporter {
       attachments: () => '',
       image_element: (node) => createImage(node),
       embed: (node) => {
-        const mediaElement = this.createElement('media')
         const { id, href, mimetype, mimeSubtype } = node.attrs
+        if (!href) {
+          return ''
+        }
+        const mediaElement = this.createElement('media')
         mediaElement.setAttribute('id', normalizeID(id))
         mediaElement.setAttributeNS(XLINK_NAMESPACE, 'show', 'embed')
-        if (href) {
-          mediaElement.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
-        }
+        mediaElement.setAttributeNS(XLINK_NAMESPACE, 'href', href)
         if (mimetype) {
           mediaElement.setAttribute('mimetype', node.attrs.mimetype)
         }
@@ -1217,7 +1221,7 @@ export class JATSExporter {
     const createGraphic = (node: ManuscriptNode) => {
       const graphic = this.createElement('graphic')
       graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
-      
+
       if (isChildOfNodeType(node.attrs.id, schema.nodes.hero_image)) {
         graphic.setAttribute('content-type', 'leading')
       } else if (
