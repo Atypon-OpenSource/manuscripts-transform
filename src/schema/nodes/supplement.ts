@@ -30,7 +30,7 @@ export interface SupplementNode extends ManuscriptNode {
 }
 
 export const supplement: NodeSpec = {
-  content: 'figcaption? alt_text long_desc',
+  content: 'figcaption?',
   attrs: {
     id: { default: '' },
     href: { default: '' },

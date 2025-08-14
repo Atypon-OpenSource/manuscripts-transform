@@ -446,7 +446,7 @@ export const createSupplementaryMaterialsSection = (
     title.textContent = 'Supplementary Material'
     section.append(title)
     section.append(...suppls)
-    body.prepend(section)
+    body.append(section)
   }
 }
 
