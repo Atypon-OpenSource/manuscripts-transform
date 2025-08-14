@@ -23,6 +23,7 @@ import {
   getHTMLContent,
   getTrimmedTextContent,
 } from '../../lib/utils'
+import { XLINK_NAMESPACE, XML_NAMESPACE } from '../../lib/xml'
 import {
   BibliographyItemAttrs,
   BibliographyItemType,
@@ -36,7 +37,6 @@ import {
 import { DEFAULT_PROFILE_ID } from './jats-comments'
 
 export class JATSDOMParser {
-  private XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
   private parser: DOMParser
 
   constructor(
@@ -161,7 +161,7 @@ export class JATSDOMParser {
     const email = element.querySelector('email')
     if (email) {
       return {
-        href: email.getAttributeNS(this.XLINK_NAMESPACE, 'href') ?? '',
+        href: email.getAttributeNS(XLINK_NAMESPACE, 'href') ?? '',
         text: getTrimmedTextContent(email) ?? '',
       }
     }
@@ -177,8 +177,8 @@ export class JATSDOMParser {
         parentElement?.getAttribute('fig-type') ??
         element.getAttribute('content-type') ??
         '',
-      src: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
-      extLink: extLink?.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
+      src: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
+      extLink: extLink?.getAttributeNS(XLINK_NAMESPACE, 'href'),
     }
   }
 
@@ -353,7 +353,7 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
-          href: element.getAttributeNS(this.XLINK_NAMESPACE, 'href') || '',
+          href: element.getAttributeNS(XLINK_NAMESPACE, 'href') || '',
           type: element.getAttribute('content-type') || '',
         }
       },
@@ -371,7 +371,7 @@ export class JATSDOMParser {
         return {
           doi: getTrimmedTextContent(doi),
           articleType: element.getAttribute('article-type') || '',
-          primaryLanguageCode: element.getAttribute('lang') ?? '',
+          primaryLanguageCode: element.getAttributeNS(XML_NAMESPACE, 'lang'),
           ...dates,
         }
       },
@@ -733,8 +733,8 @@ export class JATSDOMParser {
         const element = node as HTMLElement
 
         return {
-          href: element.getAttributeNS(this.XLINK_NAMESPACE, 'href') || '',
-          title: element.getAttributeNS(this.XLINK_NAMESPACE, 'title') || '',
+          href: element.getAttributeNS(XLINK_NAMESPACE, 'href') || '',
+          title: element.getAttributeNS(XLINK_NAMESPACE, 'title') || '',
         }
       },
     },
@@ -756,7 +756,7 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
-          href: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
+          href: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
           mimetype: element.getAttribute('mimetype'),
           mimeSubtype: element.getAttribute('mime-subtype'),
         }
@@ -940,7 +940,7 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
-          href: element.getAttributeNS(this.XLINK_NAMESPACE, 'href'),
+          href: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
           mimeType: element.getAttribute('mimetype'),
           mimeSubType: element.getAttribute('mime-subtype'),
         }
