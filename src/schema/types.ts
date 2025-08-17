@@ -182,7 +182,7 @@ export type ManuscriptTemplate = {
   title: string
   sectionCategories: SectionCategory[]
   articleType: string
-  allowedElementTypes?: string[]
+  hiddenNodeTypes?: string[]
 }
 
 export type MarkRule = ParseRule & { mark: Marks | null }
