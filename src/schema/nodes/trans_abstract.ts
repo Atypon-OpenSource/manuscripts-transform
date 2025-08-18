@@ -30,14 +30,14 @@ export interface TransAbstractNode extends ManuscriptNode {
 }
 
 export const transAbstract: NodeSpec = {
-  content: '(paragraph | element)* sections*',
+  content: 'section_title (paragraph | element)* sections*',
   attrs: {
     id: { default: '' },
     lang: { default: '' },
     category: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block element',
+  group: 'block sections',
   selectable: false,
   toDOM: (node) => {
     const { id, lang } = node.attrs
