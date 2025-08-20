@@ -475,16 +475,6 @@ export class JATSExporter {
         node,
         schema.nodes.figcaption
       )
-      this.appendChildNodeOfType(
-        supplementaryMaterial,
-        node,
-        schema.nodes.alt_text
-      )
-      this.appendChildNodeOfType(
-        supplementaryMaterial,
-        node,
-        schema.nodes.long_desc
-      )
 
       articleMeta.append(supplementaryMaterial)
     })
