@@ -23,6 +23,7 @@ import Migration3031 from './3.0.31'
 import Migration3041 from './3.0.41'
 import Migration3055 from './3.0.55'
 import Migration3056 from './3.0.56'
+import Migration4213 from './4.2.13'
 import Migration4214 from './4.2.14'
 
 const migrations = [
@@ -35,6 +36,7 @@ const migrations = [
   new Migration3041(),
   new Migration3055(),
   new Migration3056(),
+  new Migration4213(),
   new Migration4214(),
 ]
 

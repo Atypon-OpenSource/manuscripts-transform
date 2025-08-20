@@ -15,6 +15,7 @@
  */
 
 import { defaultTitle } from '../../lib/deafults'
+import { XML_NAMESPACE } from '../../lib/xml'
 import { SectionCategory, SectionGroup } from '../../schema'
 import { htmlFromJatsNode } from './jats-parser-utils'
 
@@ -304,11 +305,14 @@ const createAbstractSection = (
 ) => {
   const abstractType = abstract.getAttribute('abstract-type')
   const sectionType = abstractType ? `abstract-${abstractType}` : 'abstract'
+  let section = createElement('sec')
   if (abstract.nodeName === 'trans-abstract') {
-    abstract.setAttribute('abstract-type', sectionType)
-    return abstract
+    section = createElement('trans-abstract')
+    const lang = abstract.getAttributeNS(XML_NAMESPACE, 'lang')
+    if (lang) {
+      section.setAttributeNS(XML_NAMESPACE, 'lang', lang)
+    }
   }
-  const section = createElement('sec')
   section.setAttribute('sec-type', sectionType)
   if (!abstract.querySelector(':scope > title')) {
     const title = createElement('title')
