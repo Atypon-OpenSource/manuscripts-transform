@@ -33248,6 +33248,18 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Short Abstract",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
                 "id": "MPParagraphElement:test",
                 "placeholder": "",
               },
