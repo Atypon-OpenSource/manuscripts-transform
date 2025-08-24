@@ -1389,23 +1389,8 @@ export class JATSExporter {
           )
         }
 
-        const { given, family } = contributor.attrs.bibliographicName
-        if (Boolean(given) !== Boolean(family)) {
-          this.appendElement(contrib, 'string-name', given ?? family)
-        } else {
-          const name = this.createElement('name')
-          const nameMapping = {
-            surname: family,
-            'given-names': given,
-            prefix: contributor.attrs.prefix,
-          }
-          Object.entries(nameMapping).forEach(([tag, value]) => {
-            if (value) {
-              this.appendElement(name, tag, value)
-            }
-          })
-          contrib.appendChild(name)
-        }
+        const name = this.buildContributorName(contributor)
+        contrib.appendChild(name)
 
         if (contributor.attrs.email) {
           this.appendElement(contrib, 'email', contributor.attrs.email)
@@ -1550,6 +1535,26 @@ export class JATSExporter {
       }
     }
   }
+
+  private buildContributorName = (contributor: ContributorNode) => {
+    const { given, family } = contributor.attrs.bibliographicName
+    if (Boolean(given) !== Boolean(family)) {
+      return this.createElement('string-name', given ?? family)
+    }
+    const name = this.createElement('name')
+    const nameMapping = {
+      surname: family,
+      'given-names': given,
+      prefix: contributor.attrs.prefix,
+    }
+    Object.entries(nameMapping).forEach(([tag, value]) => {
+      if (value) {
+        this.appendElement(name, tag, value)
+      }
+    })
+    return name
+  }
+
   private createAuthorNotesElement = () => {
     const authorNotesEl = this.createElement('author-notes')
     const authorNotesNode = this.getFirstChildOfType<AuthorNotesNode>(
