@@ -43,13 +43,14 @@ import {
 
 const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   const createElement = createElementFn(doc)
-
+  console.log('doc', doc)
   markComments(doc)
 
   const front = doc.querySelector('front')
   if (!front) {
     return
   }
+  console.log('front', front)
   addMissingCaptions(doc, createElement)
   createTitles(front, createElement)
   moveContributors(front, createElement)
