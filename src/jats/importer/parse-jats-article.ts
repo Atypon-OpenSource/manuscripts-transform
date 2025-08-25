@@ -58,7 +58,9 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
 
   let body = doc.querySelector('body')
   if (!body) {
-    body = createElement('body') as HTMLBodyElement
+    const newBody = createElement('body') as HTMLBodyElement
+    doc.append(newBody)
+    body = doc.querySelector('body') as HTMLBodyElement
   }
 
   moveCaptionsToEnd(body)
