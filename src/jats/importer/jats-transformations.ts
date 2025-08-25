@@ -208,6 +208,7 @@ export const createAbstracts = (
 ) => {
   const group = createSectionGroup('abstracts', createElement)
   moveAbstracts(front, group, createElement)
+  console.log('group', group.children, body, body.lastElementChild)
   body.insertBefore(group, body.lastElementChild)
 }
 
