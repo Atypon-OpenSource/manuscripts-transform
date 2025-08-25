@@ -57,10 +57,9 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   moveAuthorNotes(front, createElement)
   moveAwards(front)
 
-  let body = doc.querySelector('body')
+  const body = doc.querySelector('body')
   if (!body) {
-    body = createElement('body') as HTMLBodyElement
-    doc.appendChild(body)
+    return
   }
 
   moveCaptionsToEnd(body)
