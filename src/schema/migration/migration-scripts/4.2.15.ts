@@ -17,9 +17,9 @@ import { JSONProsemirrorNode } from '../../../types'
 import { schema } from '../..'
 import { MigrationScript } from '../migration-script'
 
-class Migration4214 implements MigrationScript {
-  fromVersion = '4.2.13'
-  toVersion = '4.2.14'
+class Migration4215 implements MigrationScript {
+  fromVersion = '4.2.14'
+  toVersion = '4.2.15'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     if (node.type !== schema.nodes.manuscript.name || !node.content) {
@@ -45,4 +45,4 @@ class Migration4214 implements MigrationScript {
   }
 }
 
-export default Migration4214
+export default Migration4215
