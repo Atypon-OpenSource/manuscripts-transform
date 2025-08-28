@@ -23,7 +23,6 @@ export interface SupplementAttrs {
   href: string
   mimeType: string
   mimeSubType: string
-  title: string
 }
 
 export interface SupplementNode extends ManuscriptNode {
@@ -31,12 +30,12 @@ export interface SupplementNode extends ManuscriptNode {
 }
 
 export const supplement: NodeSpec = {
+  content: 'figcaption?',
   attrs: {
     id: { default: '' },
     href: { default: '' },
     mimeType: { default: '' },
     mimeSubType: { default: '' },
-    title: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block',

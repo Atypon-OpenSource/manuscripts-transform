@@ -20,7 +20,7 @@ import { MigrationScript } from '../migration-script'
 
 class Migration3056 implements MigrationScript {
   fromVersion = '3.0.55'
-  toVersion = '3.0.66'
+  toVersion = '3.0.56'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     const targetNodeTypes = [
