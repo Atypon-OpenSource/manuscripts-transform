@@ -14,11 +14,28 @@
  * limitations under the License.
  */
 
-import { MarkSpec } from 'prosemirror-model'
+import { Mark, MarkSpec } from 'prosemirror-model'
 
 import { DataTrackedAttrs } from './types'
 
+function getTrackedMarkAttrs(el: Mark) {
+  const dataTracked: Partial<DataTrackedAttrs> = Array.isArray(
+    el.attrs.dataTracked
+  )
+    ? el.attrs.dataTracked[0]
+    : null
+  return dataTracked
+    ? {
+        'data-track-status': dataTracked.status,
+        'data-track-op': dataTracked.operation,
+      }
+    : {}
+}
+
 export const bold: MarkSpec = {
+  attrs: {
+    dataTracked: { default: null },
+  },
   parseDOM: [
     {
       // Google Docs can produce content wrapped in <b style="fontWeight:normal">, which isn't actually bold. This workaround is copied from prosemirror-schema-basic.
@@ -38,7 +55,12 @@ export const bold: MarkSpec = {
       style: 'font-weight',
     },
   ],
-  toDOM: () => ['b'],
+  toDOM: (el) => {
+    const attrs = {
+      ...getTrackedMarkAttrs(el),
+    }
+    return ['b', attrs]
+  },
 }
 
 export const code: MarkSpec = {
@@ -47,8 +69,16 @@ export const code: MarkSpec = {
 }
 
 export const italic: MarkSpec = {
+  attrs: {
+    dataTracked: { default: null },
+  },
   parseDOM: [{ tag: 'i' }, { tag: 'em' }, { style: 'font-style=italic' }],
-  toDOM: () => ['i'],
+  toDOM: (el) => {
+    const attrs = {
+      ...getTrackedMarkAttrs(el),
+    }
+    return ['i', attrs]
+  },
 }
 
 export const smallcaps: MarkSpec = {
@@ -65,13 +95,21 @@ export const smallcaps: MarkSpec = {
 }
 
 export const strikethrough: MarkSpec = {
+  attrs: {
+    dataTracked: { default: null },
+  },
   parseDOM: [
     { tag: 's' },
     { tag: 'strike' },
     { style: 'text-decoration=line-through' },
     { style: 'text-decoration-line=line-through' },
   ],
-  toDOM: () => ['s'],
+  toDOM: (el) => {
+    const attrs = {
+      ...getTrackedMarkAttrs(el),
+    }
+    return ['s', attrs]
+  },
 }
 
 export const styled: MarkSpec = {
@@ -99,22 +137,46 @@ export const styled: MarkSpec = {
 }
 
 export const subscript: MarkSpec = {
+  attrs: {
+    dataTracked: { default: null },
+  },
   excludes: 'superscript',
   group: 'position',
   parseDOM: [{ tag: 'sub' }, { style: 'vertical-align=sub' }],
-  toDOM: () => ['sub'],
+  toDOM: (el) => {
+    const attrs = {
+      ...getTrackedMarkAttrs(el),
+    }
+    return ['sub', attrs]
+  },
 }
 
 export const superscript: MarkSpec = {
+  attrs: {
+    dataTracked: { default: null },
+  },
   excludes: 'subscript',
   group: 'position',
   parseDOM: [{ tag: 'sup' }, { style: 'vertical-align=super' }],
-  toDOM: () => ['sup'],
+  toDOM: (el) => {
+    const attrs = {
+      ...getTrackedMarkAttrs(el),
+    }
+    return ['sup', attrs]
+  },
 }
 
 export const underline: MarkSpec = {
+  attrs: {
+    dataTracked: { default: null },
+  },
   parseDOM: [{ tag: 'u' }, { style: 'text-decoration=underline' }],
-  toDOM: () => ['u'],
+  toDOM: (el) => {
+    const attrs = {
+      ...getTrackedMarkAttrs(el),
+    }
+    return ['u', attrs]
+  },
 }
 
 export const tracked_insert: MarkSpec = {
