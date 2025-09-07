@@ -624,7 +624,7 @@ export class JATSDOMParser {
     {
       tag: 'caption',
       node: 'figcaption',
-      context: 'figure_element/|table_element/|embed/',
+      context: 'figure_element/|table_element/|embed/|supplement/',
       getContent: (node, schema) => {
         const element = node as HTMLElement
 
@@ -937,13 +937,11 @@ export class JATSDOMParser {
       node: 'supplement', // NOTE: higher priority than 'section'
       getAttrs: (node) => {
         const element = node as HTMLElement
-
         return {
           id: element.getAttribute('id'),
           href: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
           mimeType: element.getAttribute('mimetype'),
           mimeSubType: element.getAttribute('mime-subtype'),
-          title: getTrimmedTextContent(element, 'title'),
         }
       },
     },
