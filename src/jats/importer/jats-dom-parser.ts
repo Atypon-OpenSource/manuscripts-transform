@@ -561,7 +561,7 @@ export class JATSDOMParser {
           bibliographicName: {
             given: getTrimmedTextContent(element, 'name > given-names'),
             family: getTrimmedTextContent(element, 'name > surname'),
-            objectType: objectTypes.BibliographicName,
+            ObjectType: objectTypes.BibliographicName,
           },
           ORCIDIdentifier: getTrimmedTextContent(
             element,
