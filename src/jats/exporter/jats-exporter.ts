@@ -1542,16 +1542,27 @@ export class JATSExporter {
       return this.createElement('string-name', given ?? family)
     }
     const name = this.createElement('name')
-    const nameMapping = {
-      surname: family,
-      'given-names': given,
-      prefix: contributor.attrs.prefix,
+
+    if (contributor.attrs.bibliographicName.family) {
+      this.appendElement(
+        name,
+        'surname',
+        contributor.attrs.bibliographicName.family
+      )
     }
-    Object.entries(nameMapping).forEach(([tag, value]) => {
-      if (value) {
-        this.appendElement(name, tag, value)
-      }
-    })
+
+    if (contributor.attrs.bibliographicName.given) {
+      this.appendElement(
+        name,
+        'given-names',
+        contributor.attrs.bibliographicName.given
+      )
+    }
+
+    if (contributor.attrs.prefix) {
+      this.appendElement(name, 'prefix', contributor.attrs.prefix)
+    }
+
     return name
   }
 
