@@ -22260,38 +22260,6 @@ Object {
     },
     Object {
       "attrs": Object {
-        "dataTracked": null,
-        "id": "MPSupplements:test",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Supplementary Material",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "href": "attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312",
-            "id": "MPSupplement:test",
-            "mimeSubType": "vnd.openxmlformats-officedocument.wordprocessingml.document",
-            "mimeType": "application",
-            "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
-          },
-          "type": "supplement",
-        },
-      ],
-      "type": "supplements",
-    },
-    Object {
-      "attrs": Object {
         "id": "MPSection:test",
       },
       "content": Array [
@@ -30455,6 +30423,67 @@ Object {
     },
     Object {
       "attrs": Object {
+        "dataTracked": null,
+        "id": "MPSupplements:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "Supplementary Material",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "href": "attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312",
+            "id": "MPSupplement:test",
+            "mimeSubType": "vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "mimeType": "application",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Title...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "type": "caption",
+                },
+              ],
+              "type": "figcaption",
+            },
+          ],
+          "type": "supplement",
+        },
+      ],
+      "type": "supplements",
+    },
+    Object {
+      "attrs": Object {
         "id": "MPComments:test",
       },
       "content": Array [
@@ -30555,6 +30584,7 @@ Object {
     },
     Object {
       "attrs": Object {
+        "dataTracked": null,
         "id": "MPSubtitles:test",
       },
       "content": Array [
@@ -31901,28 +31931,6 @@ Object {
           ],
           "type": "section",
         },
-        Object {
-          "attrs": Object {
-            "category": "",
-            "dataTracked": null,
-            "id": "MPSection:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "Supplementary_Material_Head",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-          ],
-          "type": "section",
-        },
       ],
       "type": "body",
     },
@@ -32797,38 +32805,6 @@ Object {
         },
       ],
       "type": "keywords",
-    },
-    Object {
-      "attrs": Object {
-        "dataTracked": null,
-        "id": "MPSupplements:test",
-      },
-      "content": Array [
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-          },
-          "content": Array [
-            Object {
-              "text": "Supplementary Material",
-              "type": "text",
-            },
-          ],
-          "type": "section_title",
-        },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "href": "attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312",
-            "id": "MPSupplement:test",
-            "mimeSubType": "vnd.openxmlformats-officedocument.wordprocessingml.document",
-            "mimeType": "application",
-            "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
-          },
-          "type": "supplement",
-        },
-      ],
-      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -43853,6 +43829,67 @@ Object {
         },
       ],
       "type": "backmatter",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPSupplements:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "content": Array [
+            Object {
+              "text": "Supplementary Material",
+              "type": "text",
+            },
+          ],
+          "type": "section_title",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "href": "attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312",
+            "id": "MPSupplement:test",
+            "mimeSubType": "vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "mimeType": "application",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Title...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "type": "caption",
+                },
+              ],
+              "type": "figcaption",
+            },
+          ],
+          "type": "supplement",
+        },
+      ],
+      "type": "supplements",
     },
     Object {
       "attrs": Object {
@@ -58973,8 +59010,37 @@ Object {
     "id": "MPSupplement:test",
     "mimeSubType": "vnd.openxmlformats-officedocument.wordprocessingml.document",
     "mimeType": "application",
-    "title": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
   },
+  "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "placeholder": "Title...",
+          },
+          "content": Array [
+            Object {
+              "text": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
+              "type": "text",
+            },
+          ],
+          "type": "caption_title",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "placeholder": "Caption...",
+          },
+          "type": "caption",
+        },
+      ],
+      "type": "figcaption",
+    },
+  ],
   "type": "supplement",
 }
 `;

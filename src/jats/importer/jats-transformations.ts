@@ -40,7 +40,9 @@ export const addMissingCaptions = (
   doc: Document,
   createElement: CreateElement
 ) => {
-  const elements = doc.querySelectorAll('fig, table-wrap, media')
+  const elements = doc.querySelectorAll(
+    'fig, table-wrap, media, supplementary-material'
+  )
   for (const element of elements) {
     let caption: Element | null = element.querySelector('caption')
     if (!caption) {
@@ -448,7 +450,7 @@ export const createSupplementaryMaterialsSection = (
     title.textContent = 'Supplementary Material'
     section.append(title)
     section.append(...suppls)
-    body.prepend(section)
+    body.append(section)
   }
 }
 
