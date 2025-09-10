@@ -34,8 +34,8 @@ import {
   SectionCategory,
 } from '../../schema'
 import { generateNodeID } from '../../transformer'
-import { DEFAULT_PROFILE_ID } from './jats-comments'
 import { objectTypes } from '../../types'
+import { DEFAULT_PROFILE_ID } from './jats-comments'
 
 export class JATSDOMParser {
   private parser: DOMParser
