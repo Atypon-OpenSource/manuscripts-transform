@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Create empty document should create an empty document 1`] = `
 Object {
@@ -19,26 +19,26 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:test",
+        "id": "MPTitle:test",
         "placeholder": "Insert title here...",
       },
       "type": "title",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAbstracts:test",
       },
       "type": "abstracts",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBody:test",
       },
       "content": Array [
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPParagraphElement:test",
+            "id": "MPParagraph:test",
             "placeholder": "",
           },
           "type": "paragraph",
@@ -48,7 +48,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBackmatter:test",
         "placeholder": " ",
       },
       "type": "backmatter",
