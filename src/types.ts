@@ -121,6 +121,7 @@ export interface Bundle extends Model {
 
 export const objectTypes = {
   Project: 'MPProject',
+  Contribution: 'MPContribution',
   Manuscript: 'MPManuscript',
   Journal: 'MPJournal',
   UserProfile: 'MPUserProfile',

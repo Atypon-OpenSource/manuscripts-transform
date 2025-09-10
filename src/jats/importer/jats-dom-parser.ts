@@ -35,6 +35,7 @@ import {
 } from '../../schema'
 import { generateNodeID } from '../../transformer'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
+import { objectTypes } from '../../types'
 
 export class JATSDOMParser {
   private parser: DOMParser
@@ -435,7 +436,7 @@ export class JATSDOMParser {
           contributions: [
             {
               _id: generateNodeID(this.schema.nodes.contribution),
-              objectType: 'MPContribution',
+              objectType: objectTypes.Contribution,
               profileID: DEFAULT_PROFILE_ID,
               timestamp: Date.now(),
             },
@@ -560,7 +561,7 @@ export class JATSDOMParser {
           bibliographicName: {
             given: getTrimmedTextContent(element, 'name > given-names'),
             family: getTrimmedTextContent(element, 'name > surname'),
-            ObjectType: 'MPBibliographicName',
+            objectType: objectTypes.BibliographicName,
           },
           ORCIDIdentifier: getTrimmedTextContent(
             element,
