@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@manuscripts/json-schema':
-        specifier: 2.2.12
-        version: 2.2.12
       citeproc:
         specifier: 2.4.63
         version: 2.4.63
@@ -999,9 +996,6 @@ packages:
 
   '@manuscripts/json-schema@2.2.10':
     resolution: {integrity: sha512-K6PRRD9RgFn6XmX9oyNg6+JCGT4E54pSeByg+TWkC9eyZwdKCXOHUu2IfWfYQqNfgMTASSIOZ2kAxZfP+lV2Rg==}
-
-  '@manuscripts/json-schema@2.2.12':
-    resolution: {integrity: sha512-MCz11Dhc1kric1oU9cnYHboPgEwwccWfuuU1XhAEilDIFe8KszAeQk5i4GBGlGLddp/Gvkr6N1gtzLl36mTE7A==}
 
   '@manuscripts/library@1.3.10':
     resolution: {integrity: sha512-2XdsnITC/vJhbNHQrJo3giTyEKJ6HK+DyP9sjp/nT1o/mg5E2mTTfa+rHIB47sravEEbYdaaS4cr4VXbv9SXeA==}
@@ -5415,12 +5409,6 @@ snapshots:
       - supports-color
 
   '@manuscripts/json-schema@2.2.10':
-    dependencies:
-      ajv: 8.17.1
-      deepmerge: 4.3.1
-      uuid: 9.0.1
-
-  '@manuscripts/json-schema@2.2.12':
     dependencies:
       ajv: 8.17.1
       deepmerge: 4.3.1

@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
@@ -48,7 +47,7 @@ export const listing: NodeSpec = {
   group: 'block',
   parseDOM: [
     {
-      tag: `pre.${ObjectTypes.Listing}`,
+      tag: 'pre.MPListing',
       preserveWhitespace: 'full',
       getAttrs: (p) => {
         const node = p as HTMLPreElement
@@ -80,7 +79,6 @@ export const listing: NodeSpec = {
 
     const dom = document.createElement('div')
     dom.setAttribute('id', listingNode.attrs.id)
-    dom.classList.add(ObjectTypes.Listing)
     dom.setAttribute('data-language', listingNode.attrs.language)
     dom.setAttribute('data-languageKey', listingNode.attrs.languageKey)
     dom.textContent = listingNode.attrs.contents

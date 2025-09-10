@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { Journal } from '@manuscripts/json-schema'
 import { parseXml } from 'libxmljs2'
 
+import { Journal } from '../../types'
 import { JATSExporter } from '../exporter/jats-exporter'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { DEFAULT_CSL_OPTIONS } from './citations'

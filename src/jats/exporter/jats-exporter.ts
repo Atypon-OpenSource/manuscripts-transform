@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { Journal } from '@manuscripts/json-schema'
 import * as Citeproc from 'citeproc'
 import {
   type NodeType,
@@ -53,6 +52,7 @@ import {
   TableElementNode,
 } from '../../schema'
 import { isExecutableNodeType, isNodeType } from '../../transformer'
+import { Journal } from '../../types'
 import { IDGenerator } from '../types'
 import { initJats, jatsVariableWrapper } from './citeproc'
 import { selectVersionIds, Version } from './jats-versions'

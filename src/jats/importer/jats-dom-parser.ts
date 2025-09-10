@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { buildContribution, ObjectTypes } from '@manuscripts/json-schema'
 import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
 import {
@@ -34,6 +33,7 @@ import {
   NodeRule,
   SectionCategory,
 } from '../../schema'
+import { generateNodeID } from '../../transformer'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
 
 export class JATSDOMParser {
@@ -432,7 +432,14 @@ export class JATSDOMParser {
           id: element.getAttribute('id'),
           target: element.getAttribute('target-id'),
           contents: getTrimmedTextContent(element),
-          contributions: [buildContribution(DEFAULT_PROFILE_ID)],
+          contributions: [
+            {
+              _id: generateNodeID(this.schema.nodes.contribution),
+              objectType: 'MPContribution',
+              profileID: DEFAULT_PROFILE_ID,
+              timestamp: Date.now(),
+            },
+          ],
         }
       },
     },
@@ -553,7 +560,7 @@ export class JATSDOMParser {
           bibliographicName: {
             given: getTrimmedTextContent(element, 'name > given-names'),
             family: getTrimmedTextContent(element, 'name > surname'),
-            ObjectType: ObjectTypes.BibliographicName,
+            ObjectType: 'MPBibliographicName',
           },
           ORCIDIdentifier: getTrimmedTextContent(
             element,
