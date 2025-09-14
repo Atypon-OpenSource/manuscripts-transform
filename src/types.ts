@@ -116,6 +116,7 @@ export interface Bundle extends Model {
     ISSNs?: string[]
     eISSNs?: string[]
     updatedAt?: number
+    _id?: string
   }
 }
 
