@@ -16,7 +16,7 @@
 
 import { parseXml } from 'libxmljs2'
 
-import { Journal } from '../../types'
+import { Journal } from '../../schema/types'
 import { JATSExporter } from '../exporter/jats-exporter'
 import { parseJATSArticle } from '../importer/parse-jats-article'
 import { DEFAULT_CSL_OPTIONS } from './citations'
