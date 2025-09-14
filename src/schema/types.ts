@@ -204,6 +204,7 @@ export interface UserProfile extends Model {
   placeholderString?: string
   appInvitationDate?: number
   addressBookIDs?: string[]
+  email?: string
   bibliographicName?: {
     _id: string
     objectType: string
