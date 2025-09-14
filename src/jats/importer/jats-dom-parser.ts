@@ -33,8 +33,8 @@ import {
   NodeRule,
   SectionCategory,
 } from '../../schema'
-import { generateNodeID } from '../../transformer'
 import { objectTypes } from '../../schema/types'
+import { generateNodeID } from '../../transformer'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
 
 export class JATSDOMParser {

@@ -185,7 +185,6 @@ export type ManuscriptTemplate = {
   hiddenNodeTypes?: string[]
 }
 
-
 export interface Model {
   _id: string
   objectType: string
@@ -304,7 +303,6 @@ export const objectTypes = {
   Citation: 'MPCitation',
   CitationItem: 'MPCitationItem',
 }
-
 
 export type MarkRule = ParseRule & { mark: Marks | null }
 
