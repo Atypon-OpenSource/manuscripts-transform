@@ -51,8 +51,8 @@ import {
   TableElementFooterNode,
   TableElementNode,
 } from '../../schema'
+import { Journal } from '../../schema/types'
 import { isExecutableNodeType, isNodeType } from '../../transformer'
-import { Journal } from '../../types'
 import { IDGenerator } from '../types'
 import { initJats, jatsVariableWrapper } from './citeproc'
 import { selectVersionIds, Version } from './jats-versions'
