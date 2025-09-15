@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`JATS importer affiliations should correctly parse affiliation nodes 1`] = `
 Array [
@@ -80,7 +80,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPCorresponding:test",
+        "id": "MPCorresp:test",
         "label": undefined,
       },
       "content": Array [
@@ -104,7 +104,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPParagraphElement:test",
+            "id": "MPParagraph:test",
             "placeholder": "",
           },
           "content": Array [
@@ -129,7 +129,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPParagraphElement:test",
+            "id": "MPParagraph:test",
             "placeholder": "",
           },
           "content": Array [
@@ -459,7 +459,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:test",
+        "id": "MPTitle:test",
         "placeholder": "Insert title here...",
       },
       "content": Array [
@@ -472,7 +472,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPContributors:test",
       },
       "content": Array [
         Object {
@@ -489,7 +489,7 @@ Object {
             "contents": "",
             "corresp": Array [
               Object {
-                "correspID": "MPCorresponding:test",
+                "correspID": "MPCorresp:test",
                 "correspLabel": "*",
               },
             ],
@@ -621,7 +621,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAffiliations:test",
       },
       "content": Array [
         Object {
@@ -714,7 +714,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPCorresponding:test",
+            "id": "MPCorresp:test",
             "label": "*",
           },
           "content": Array [
@@ -731,7 +731,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPSection:test",
+        "id": "MPKeywords:test",
       },
       "content": Array [
         Object {
@@ -841,7 +841,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAbstracts:test",
       },
       "content": Array [
         Object {
@@ -866,7 +866,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -880,7 +880,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -920,7 +920,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -934,7 +934,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -948,7 +948,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -976,7 +976,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBody:test",
       },
       "content": Array [
         Object {
@@ -1001,7 +1001,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -1041,7 +1041,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "id": "MPCommentAnnotation:test",
+                    "id": "MPComment:test",
                     "position": "point",
                   },
                   "type": "highlight_marker",
@@ -1056,7 +1056,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -1109,7 +1109,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -1188,7 +1188,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -1373,7 +1373,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1387,7 +1387,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1423,7 +1423,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1437,7 +1437,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1451,7 +1451,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1487,7 +1487,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1536,7 +1536,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1576,7 +1576,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1603,7 +1603,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -1642,7 +1642,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -1734,7 +1734,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -1748,7 +1748,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -1788,7 +1788,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -1824,7 +1824,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -1851,7 +1851,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -1956,7 +1956,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -1970,7 +1970,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -2075,7 +2075,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -2137,7 +2137,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -2169,7 +2169,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBackmatter:test",
         "placeholder": " ",
       },
       "content": Array [
@@ -2195,7 +2195,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -2231,7 +2231,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -2267,7 +2267,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -2284,7 +2284,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPSection:test",
+            "id": "MPBibliographySection:test",
           },
           "content": Array [
             Object {
@@ -2484,17 +2484,17 @@ Object {
             "contents": "No table matches the in-text citation &quot;Table 1&quot;. Please supply the missing table or delete the citation.",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "MPParagraphElement:test",
+            "target": "MPParagraph:test",
           },
           "type": "comment",
         },
@@ -2503,13 +2503,13 @@ Object {
             "contents": "CrossRef reports the issue should be &quot;4_suppl&quot;, not &quot;4&quot;. (Ref. &quot;Hor, Taylor, 2010&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -2522,13 +2522,13 @@ Object {
             "contents": "CrossRef reports the issue should be &quot;4_suppl&quot;, not &quot;4&quot;. (Ref. &quot;Hor, Taylor, 2010&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -2563,7 +2563,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:test",
+        "id": "MPTitle:test",
         "placeholder": "Insert title here...",
       },
       "content": Array [
@@ -2576,7 +2576,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPContributors:test",
       },
       "content": Array [
         Object {
@@ -2616,13 +2616,13 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAbstracts:test",
       },
       "type": "abstracts",
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBody:test",
       },
       "content": Array [
         Object {
@@ -2647,7 +2647,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -2683,7 +2683,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPListElement:test",
+                "id": "MPList:test",
                 "listStyleType": "order",
               },
               "content": Array [
@@ -2697,7 +2697,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -2721,7 +2721,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -2741,7 +2741,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPListElement:test",
+                "id": "MPList:test",
                 "listStyleType": "order",
               },
               "content": Array [
@@ -2755,7 +2755,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -2769,7 +2769,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPListElement:test",
+                        "id": "MPList:test",
                         "listStyleType": "order",
                       },
                       "content": Array [
@@ -2783,7 +2783,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -2807,7 +2807,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -2833,7 +2833,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPListElement:test",
+                "id": "MPList:test",
                 "listStyleType": "bullet",
               },
               "content": Array [
@@ -2847,7 +2847,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -2861,7 +2861,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPListElement:test",
+                        "id": "MPList:test",
                         "listStyleType": "bullet",
                       },
                       "content": Array [
@@ -2875,7 +2875,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -2899,7 +2899,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -2925,7 +2925,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPListElement:test",
+                "id": "MPList:test",
                 "listStyleType": "bullet",
               },
               "content": Array [
@@ -2939,7 +2939,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -2953,7 +2953,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPListElement:test",
+                        "id": "MPList:test",
                         "listStyleType": "order",
                       },
                       "content": Array [
@@ -2967,7 +2967,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -2991,7 +2991,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -3474,7 +3474,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -3586,7 +3586,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -3665,7 +3665,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -3719,14 +3719,14 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPQuoteElement:test",
+                "id": "MPBlockquoteElement:test",
                 "placeholder": "",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -3777,7 +3777,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -3802,7 +3802,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -3828,7 +3828,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -3860,7 +3860,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBackmatter:test",
         "placeholder": " ",
       },
       "content": Array [
@@ -3886,7 +3886,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -3922,7 +3922,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -3939,7 +3939,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPSection:test",
+            "id": "MPBibliographySection:test",
           },
           "content": Array [
             Object {
@@ -4126,7 +4126,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:test",
+        "id": "MPTitle:test",
         "placeholder": "Insert title here...",
       },
       "content": Array [
@@ -4139,7 +4139,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPContributors:test",
       },
       "content": Array [
         Object {
@@ -4385,7 +4385,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAffiliations:test",
       },
       "content": Array [
         Object {
@@ -4454,7 +4454,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPCorresponding:test",
+            "id": "MPCorresp:test",
             "label": undefined,
           },
           "content": Array [
@@ -4477,7 +4477,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -4497,7 +4497,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPSection:test",
+        "id": "MPKeywords:test",
       },
       "content": Array [
         Object {
@@ -4615,7 +4615,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAbstracts:test",
       },
       "content": Array [
         Object {
@@ -4640,7 +4640,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -4685,7 +4685,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBody:test",
       },
       "content": Array [
         Object {
@@ -4710,7 +4710,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -4754,7 +4754,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -4854,7 +4854,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -4868,7 +4868,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -4939,7 +4939,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -4994,7 +4994,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -5030,7 +5030,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -5077,7 +5077,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -5185,7 +5185,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -5243,7 +5243,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -10777,7 +10777,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -14316,7 +14316,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -17677,7 +17677,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -17746,7 +17746,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -17796,7 +17796,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -17857,7 +17857,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -17871,7 +17871,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -17885,7 +17885,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -17899,7 +17899,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -17913,7 +17913,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -17927,7 +17927,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -17941,7 +17941,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -18041,7 +18041,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18186,7 +18186,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18222,7 +18222,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18287,7 +18287,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18337,7 +18337,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18401,7 +18401,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18506,7 +18506,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18556,7 +18556,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18592,7 +18592,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18628,7 +18628,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18691,7 +18691,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18727,7 +18727,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -18860,7 +18860,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -18874,7 +18874,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -18975,7 +18975,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19034,7 +19034,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19121,7 +19121,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19165,7 +19165,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19194,7 +19194,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19208,7 +19208,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19237,7 +19237,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19256,7 +19256,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBackmatter:test",
         "placeholder": " ",
       },
       "content": Array [
@@ -19282,7 +19282,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19296,7 +19296,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19310,7 +19310,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19324,7 +19324,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19338,7 +19338,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19352,7 +19352,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19366,7 +19366,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19402,7 +19402,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -19419,7 +19419,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPSection:test",
+            "id": "MPBibliographySection:test",
           },
           "content": Array [
             Object {
@@ -21731,13 +21731,13 @@ Object {
             "contents": "Medline reports the journal title should be &quot;Journal of clinical oncology : official journal of the American Society of Clinical Oncology or J Clin Oncol&quot;, not &quot;Journal of Clinical Oncology&quot;. (Ref. 1 &quot;Roemer, Advani, Ligon, Natkunam, Redd, Homer, Shipp, &#x2026;, 2016&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -21750,13 +21750,13 @@ Object {
             "contents": "Medline reports the journal title should be &quot;Journal of clinical oncology : official journal of the American Society of Clinical Oncology or J Clin Oncol&quot;, not &quot;Journal of Clinical Oncology&quot;. (Ref. 3 &quot;Brahmer, Drake, Wollner, Powderly, Picus, Sharfman, Topalian, &#x2026;, 2010&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -21769,13 +21769,13 @@ Object {
             "contents": "Medline reports the journal title should be &quot;Journal of clinical oncology : official journal of the American Society of Clinical Oncology or J Clin Oncol&quot;, not &quot;Journal of Clinical Oncology&quot;. (Ref. 6 &quot;Armand, Shipp, Ribrag, Michot, Zinzani, Kuruvilla, Moskowitz, &#x2026;, 2016&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -21788,13 +21788,13 @@ Object {
             "contents": "eXtyles has not updated the article title because Medline&apos;s is slightly different and Title Case. The Medline article title is Translational Pharmacokinetic/Pharmacodynamic Modeling of Tumor Growth Inhibition Supports Dose-Range Selection of the Anti-PD-1 Antibody Pembrolizumab.. (Ref. 8 &quot;Lindauer, Valiathan, Mehta, Sriram, de Greef, Elassaiss-Schaap, de Alwis, 2017&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -21807,13 +21807,13 @@ Object {
             "contents": "Medline reports the journal title should be &quot;Journal of clinical oncology : official journal of the American Society of Clinical Oncology or J Clin Oncol&quot;, not &quot;Journal of Clinical Oncology&quot;. (Ref. 12 &quot;Brahmer, Lacchetti, Schneider, Atkins, Brassil, Caterino, Thompson, &#x2026;, 2018&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -21826,13 +21826,13 @@ Object {
             "contents": "CrossRef reports the last page should be &quot;3067&quot;, not &quot;3068&quot;. (Ref. 13 &quot;Cheson, Fisher, Barrington, Cavalli, Schwartz, Zucca, Lister, 2014&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -21845,13 +21845,13 @@ Object {
             "contents": "The title was updated but differs from the author&apos;s original: Alliance, Australasian Leukaemia and Lymphoma Group; Eastern Cooperative Oncology Group; European Mantle Cell Lymphoma Consortium; Italian Lymphoma Foundation; European Organisation for Research; Treatment of Cancer/Dutch Hemato-Oncology Group; Grupo Espa&#x00F1;ol de M&#x00E9;dula &#x00D3;sea; German High-Grade Lymphoma Study Group; German Hodgkin&#x2019;s Study Group; Japanese Lymphorra Study Group; Lymphoma Study Association; NCIC Clinical Trials Group; Nordic Lymphoma Study Group; Southwest Oncology Group; United Kingdom National Cancer Research Institute. Recommendations for initial evaluation, staging, and response assessment of Hodgkin and non-Hodgkin lymphoma: The Lugano classification.. (Ref. 13 &quot;Cheson, Fisher, Barrington, Cavalli, Schwartz, Zucca, Lister, 2014&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -21864,13 +21864,13 @@ Object {
             "contents": "Medline reports the journal title should be &quot;Journal of clinical oncology : official journal of the American Society of Clinical Oncology or J Clin Oncol&quot;, not &quot;Journal of Clinical Oncology&quot;. (Ref. 13 &quot;Cheson, Fisher, Barrington, Cavalli, Schwartz, Zucca, Lister, 2014&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -21883,13 +21883,13 @@ Object {
             "contents": "CrossMark reports an erratum (or similar issue). The CrossMark type is &quot;correction&quot;. Additional information can be found at https://doi.org/10.1200/JCO.2018.79.3547. (Ref. 20 &quot;Armand, Engert, Younes, Fanale, Santoro, Zinzani, Ansell, &#x2026;, 2018&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -21902,13 +21902,13 @@ Object {
             "contents": "Medline reports the journal title should be &quot;Journal of clinical oncology : official journal of the American Society of Clinical Oncology or J Clin Oncol&quot;, not &quot;Journal of Clinical Oncology&quot;. (Ref. 20 &quot;Armand, Engert, Younes, Fanale, Santoro, Zinzani, Ansell, &#x2026;, 2018&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -21943,7 +21943,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:test",
+        "id": "MPTitle:test",
         "placeholder": "Insert title here...",
       },
       "content": Array [
@@ -21956,7 +21956,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPContributors:test",
       },
       "content": Array [
         Object {
@@ -22037,7 +22037,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAffiliations:test",
       },
       "content": Array [
         Object {
@@ -22085,7 +22085,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPCorresponding:test",
+            "id": "MPCorresp:test",
             "label": undefined,
           },
           "content": Array [
@@ -22110,7 +22110,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -22135,7 +22135,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -22155,7 +22155,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPSection:test",
+        "id": "MPKeywords:test",
       },
       "content": Array [
         Object {
@@ -22260,7 +22260,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAbstracts:test",
       },
       "content": Array [
         Object {
@@ -22304,7 +22304,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22340,7 +22340,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22376,7 +22376,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22438,7 +22438,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22460,7 +22460,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBody:test",
       },
       "content": Array [
         Object {
@@ -22497,7 +22497,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -22568,7 +22568,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -22611,7 +22611,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -22697,7 +22697,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22749,7 +22749,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPParagraphElement:test",
+                            "id": "MPParagraph:test",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -22806,7 +22806,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -22835,7 +22835,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -22849,7 +22849,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -22894,7 +22894,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22908,7 +22908,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22956,7 +22956,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22970,7 +22970,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -22984,7 +22984,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -23032,7 +23032,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -23046,7 +23046,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -23056,7 +23056,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "id": "MPCommentAnnotation:test",
+                        "id": "MPComment:test",
                         "position": "point",
                       },
                       "type": "highlight_marker",
@@ -23071,7 +23071,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -23119,7 +23119,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -23129,7 +23129,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "id": "MPCommentAnnotation:test",
+                        "id": "MPComment:test",
                         "position": "point",
                       },
                       "type": "highlight_marker",
@@ -23194,7 +23194,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -26927,7 +26927,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPParagraphElement:test",
+                            "id": "MPParagraph:test",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -26959,7 +26959,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -27048,7 +27048,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -27178,7 +27178,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -27337,7 +27337,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -27377,7 +27377,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -27417,7 +27417,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -27444,7 +27444,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -27484,7 +27484,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -29753,7 +29753,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -29767,7 +29767,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "type": "paragraph",
@@ -29793,7 +29793,7 @@ Object {
                                 Object {
                                   "attrs": Object {
                                     "dataTracked": null,
-                                    "id": "MPParagraphElement:test",
+                                    "id": "MPParagraph:test",
                                     "placeholder": "",
                                   },
                                   "content": Array [
@@ -29882,7 +29882,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -29959,7 +29959,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -29973,7 +29973,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -30002,7 +30002,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -30057,7 +30057,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -30117,7 +30117,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -30131,7 +30131,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -30197,7 +30197,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -30216,7 +30216,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBackmatter:test",
         "placeholder": " ",
       },
       "content": Array [
@@ -30242,7 +30242,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -30278,7 +30278,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -30310,7 +30310,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -30320,7 +30320,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "id": "MPCommentAnnotation:test",
+                    "id": "MPComment:test",
                     "position": "point",
                   },
                   "type": "highlight_marker",
@@ -30357,7 +30357,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -30393,7 +30393,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -30492,17 +30492,17 @@ Object {
             "contents": "Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "MPParagraphElement:test",
+            "target": "MPParagraph:test",
           },
           "type": "comment",
         },
@@ -30511,17 +30511,17 @@ Object {
             "contents": "Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "MPParagraphElement:test",
+            "target": "MPParagraph:test",
           },
           "type": "comment",
         },
@@ -30530,17 +30530,17 @@ Object {
             "contents": "Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "MPParagraphElement:test",
+            "target": "MPParagraph:test",
           },
           "type": "comment",
         },
@@ -30571,7 +30571,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:test",
+        "id": "MPTitle:test",
         "placeholder": "Insert title here...",
       },
       "content": Array [
@@ -30606,7 +30606,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPContributors:test",
       },
       "content": Array [
         Object {
@@ -30623,7 +30623,7 @@ Object {
             "contents": "",
             "corresp": Array [
               Object {
-                "correspID": "MPCorresponding:test",
+                "correspID": "MPCorresp:test",
                 "correspLabel": "*",
               },
             ],
@@ -30658,7 +30658,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAffiliations:test",
       },
       "content": Array [
         Object {
@@ -30703,7 +30703,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPCorresponding:test",
+            "id": "MPCorresp:test",
             "label": "*",
           },
           "content": Array [
@@ -30725,7 +30725,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -30750,7 +30750,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -30764,7 +30764,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -30784,7 +30784,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPSection:test",
+        "id": "MPKeywords:test",
       },
       "content": Array [
         Object {
@@ -30876,7 +30876,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAbstracts:test",
       },
       "content": Array [
         Object {
@@ -30901,7 +30901,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -30956,7 +30956,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -30992,7 +30992,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -31014,7 +31014,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBody:test",
       },
       "content": Array [
         Object {
@@ -31134,7 +31134,7 @@ Object {
                                 Object {
                                   "attrs": Object {
                                     "dataTracked": null,
-                                    "id": "MPParagraphElement:test",
+                                    "id": "MPParagraph:test",
                                     "placeholder": "",
                                   },
                                   "content": Array [
@@ -31199,7 +31199,7 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
-                                        "id": "MPParagraphElement:test",
+                                        "id": "MPParagraph:test",
                                         "placeholder": "",
                                       },
                                       "content": Array [
@@ -31311,7 +31311,7 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
-                                        "id": "MPParagraphElement:test",
+                                        "id": "MPParagraph:test",
                                         "placeholder": "",
                                       },
                                       "content": Array [
@@ -31449,7 +31449,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -31485,7 +31485,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -31499,7 +31499,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -31513,7 +31513,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -31526,7 +31526,7 @@ Object {
                     "dataTracked": null,
                     "label": "",
                     "rids": Array [
-                      "MPSection:test",
+                      "MPBoxElement:test",
                     ],
                   },
                   "type": "cross_reference",
@@ -31555,7 +31555,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPSection:test",
+                "id": "MPBoxElement:test",
               },
               "content": Array [
                 Object {
@@ -31620,7 +31620,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPParagraphElement:test",
+                            "id": "MPParagraph:test",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -31653,7 +31653,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -31736,7 +31736,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPListElement:test",
+                    "id": "MPList:test",
                     "listStyleType": "bullet",
                   },
                   "content": Array [
@@ -31750,7 +31750,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPParagraphElement:test",
+                            "id": "MPParagraph:test",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -31764,7 +31764,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPParagraphElement:test",
+                            "id": "MPParagraph:test",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -31778,7 +31778,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPListElement:test",
+                            "id": "MPList:test",
                             "listStyleType": "bullet",
                           },
                           "content": Array [
@@ -31792,7 +31792,7 @@ Object {
                                 Object {
                                   "attrs": Object {
                                     "dataTracked": null,
-                                    "id": "MPParagraphElement:test",
+                                    "id": "MPParagraph:test",
                                     "placeholder": "",
                                   },
                                   "content": Array [
@@ -31806,7 +31806,7 @@ Object {
                                 Object {
                                   "attrs": Object {
                                     "dataTracked": null,
-                                    "id": "MPParagraphElement:test",
+                                    "id": "MPParagraph:test",
                                     "placeholder": "",
                                   },
                                   "content": Array [
@@ -31836,7 +31836,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPParagraphElement:test",
+                            "id": "MPParagraph:test",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -31881,7 +31881,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -31917,7 +31917,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -31936,7 +31936,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBackmatter:test",
         "placeholder": " ",
       },
       "content": Array [
@@ -31962,7 +31962,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -32048,7 +32048,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -32192,7 +32192,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -32209,7 +32209,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPSection:test",
+            "id": "MPFootnotesSection:test",
           },
           "content": Array [
             Object {
@@ -32242,7 +32242,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -32267,7 +32267,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -32292,7 +32292,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -32315,7 +32315,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPSection:test",
+            "id": "MPBibliographySection:test",
           },
           "content": Array [
             Object {
@@ -32424,7 +32424,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:test",
+        "id": "MPTitle:test",
         "placeholder": "Insert title here...",
       },
       "content": Array [
@@ -32473,7 +32473,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPContributors:test",
       },
       "content": Array [
         Object {
@@ -32558,7 +32558,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAffiliations:test",
       },
       "content": Array [
         Object {
@@ -32606,7 +32606,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPCorresponding:test",
+            "id": "MPCorresp:test",
             "label": undefined,
           },
           "content": Array [
@@ -32630,7 +32630,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -32655,7 +32655,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -32703,7 +32703,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPSection:test",
+        "id": "MPKeywords:test",
       },
       "content": Array [
         Object {
@@ -32808,7 +32808,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAbstracts:test",
       },
       "content": Array [
         Object {
@@ -32852,7 +32852,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -32888,7 +32888,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -32924,7 +32924,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -32986,7 +32986,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -33007,7 +33007,7 @@ Object {
           "attrs": Object {
             "category": "abstract-graphical",
             "dataTracked": null,
-            "id": "MPSection:test",
+            "id": "MPGraphicalAbstractSection:test",
           },
           "content": Array [
             Object {
@@ -33094,7 +33094,7 @@ Object {
           "attrs": Object {
             "category": "abstract-key-image",
             "dataTracked": null,
-            "id": "MPSection:test",
+            "id": "MPGraphicalAbstractSection:test",
           },
           "content": Array [
             Object {
@@ -33199,7 +33199,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -33236,7 +33236,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -33255,7 +33255,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBody:test",
       },
       "content": Array [
         Object {
@@ -33335,7 +33335,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPParagraphElement:test",
+            "id": "MPParagraph:test",
             "placeholder": "",
           },
           "content": Array [
@@ -33349,7 +33349,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPQuoteElement:test",
+            "id": "MPPullquoteElement:test",
             "placeholder": "",
           },
           "content": Array [
@@ -33364,7 +33364,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -33424,7 +33424,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -33495,7 +33495,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -33538,7 +33538,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -33683,7 +33683,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -33735,7 +33735,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPParagraphElement:test",
+                            "id": "MPParagraph:test",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -33774,7 +33774,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPSection:test",
+                        "id": "MPBoxElement:test",
                       },
                       "content": Array [
                         Object {
@@ -33820,7 +33820,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPListElement:test",
+                                "id": "MPList:test",
                                 "listStyleType": "bullet",
                               },
                               "content": Array [
@@ -33834,7 +33834,7 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
-                                        "id": "MPParagraphElement:test",
+                                        "id": "MPParagraph:test",
                                         "placeholder": "",
                                       },
                                       "content": Array [
@@ -33858,7 +33858,7 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
-                                        "id": "MPParagraphElement:test",
+                                        "id": "MPParagraph:test",
                                         "placeholder": "",
                                       },
                                       "content": Array [
@@ -33882,7 +33882,7 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
-                                        "id": "MPParagraphElement:test",
+                                        "id": "MPParagraph:test",
                                         "placeholder": "",
                                       },
                                       "content": Array [
@@ -33906,7 +33906,7 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
-                                        "id": "MPParagraphElement:test",
+                                        "id": "MPParagraph:test",
                                         "placeholder": "",
                                       },
                                       "content": Array [
@@ -33932,7 +33932,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPSection:test",
+                        "id": "MPBoxElement:test",
                       },
                       "content": Array [
                         Object {
@@ -33957,7 +33957,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPListElement:test",
+                                "id": "MPList:test",
                                 "listStyleType": "bullet",
                               },
                               "content": Array [
@@ -33971,7 +33971,7 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
-                                        "id": "MPParagraphElement:test",
+                                        "id": "MPParagraph:test",
                                         "placeholder": "",
                                       },
                                       "content": Array [
@@ -33995,7 +33995,7 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
-                                        "id": "MPParagraphElement:test",
+                                        "id": "MPParagraph:test",
                                         "placeholder": "",
                                       },
                                       "content": Array [
@@ -34019,7 +34019,7 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
-                                        "id": "MPParagraphElement:test",
+                                        "id": "MPParagraph:test",
                                         "placeholder": "",
                                       },
                                       "content": Array [
@@ -34043,7 +34043,7 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
-                                        "id": "MPParagraphElement:test",
+                                        "id": "MPParagraph:test",
                                         "placeholder": "",
                                       },
                                       "content": Array [
@@ -34109,7 +34109,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -34138,7 +34138,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -34152,7 +34152,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -34197,7 +34197,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34211,7 +34211,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34259,7 +34259,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34273,7 +34273,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34287,7 +34287,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34335,7 +34335,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34349,7 +34349,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34359,7 +34359,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "id": "MPCommentAnnotation:test",
+                        "id": "MPComment:test",
                         "position": "point",
                       },
                       "type": "highlight_marker",
@@ -34374,7 +34374,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34422,7 +34422,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -34432,7 +34432,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "id": "MPCommentAnnotation:test",
+                        "id": "MPComment:test",
                         "position": "point",
                       },
                       "type": "highlight_marker",
@@ -34497,7 +34497,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -38242,7 +38242,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPParagraphElement:test",
+                            "id": "MPParagraph:test",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -38274,7 +38274,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -38375,7 +38375,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -38505,7 +38505,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -38664,7 +38664,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -38704,7 +38704,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -38744,7 +38744,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -38771,7 +38771,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -38811,7 +38811,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -41080,7 +41080,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -41094,7 +41094,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "type": "paragraph",
@@ -41120,7 +41120,7 @@ Object {
                                 Object {
                                   "attrs": Object {
                                     "dataTracked": null,
-                                    "id": "MPParagraphElement:test",
+                                    "id": "MPParagraph:test",
                                     "placeholder": "",
                                   },
                                   "content": Array [
@@ -41209,7 +41209,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -41286,7 +41286,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -41300,7 +41300,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -41329,7 +41329,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -41384,7 +41384,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -41444,7 +41444,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -41458,7 +41458,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -41524,7 +41524,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -41543,7 +41543,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBackmatter:test",
         "placeholder": " ",
       },
       "content": Array [
@@ -41569,7 +41569,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -41605,7 +41605,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -41637,7 +41637,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -41647,7 +41647,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "id": "MPCommentAnnotation:test",
+                    "id": "MPComment:test",
                     "position": "point",
                   },
                   "type": "highlight_marker",
@@ -41684,7 +41684,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -41720,7 +41720,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -41748,7 +41748,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPSection:test",
+            "id": "MPBibliographySection:test",
           },
           "content": Array [
             Object {
@@ -43943,13 +43943,13 @@ Object {
             "contents": "eXtyles has not updated the authors because of a name mismatch. Please compare &quot;J&#x00F8;rgensen&quot; with &quot;Jerrgensen&quot;. The CrossRef authors are Jerrgensen, H. S., Nakayama, H., Reith, J., Raaschou, H. O., &amp; Olsen, T. S.. (Ref. 4 &quot;J&#x00F8;rgensen, Nakayama, Reith, Raaschou, Olsen, 1997&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -43962,13 +43962,13 @@ Object {
             "contents": "eXtyles has not updated this reference because the authors returned by CrossRef are invalid: Girot, M., Mackowiak-Cordoliani, M.-A., Deplanque, D., H&#xFFFD;non, H., Lucas, C., &amp; Leys, D. (2005). Secondary prevention after ischemic stroke. Journal of Neurology, <italic>252</italic>, 14&#x2013;20. (Ref. 10 &quot;Girot, Mackowiak-Cordoliani, Deplanque, H&#x00E9;non, Lucas, Leys, 2005&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -43981,13 +43981,13 @@ Object {
             "contents": "Medline reports the journal title should be &quot;Journal of stroke and cerebrovascular diseases : the official journal of National Stroke Association or J Stroke Cerebrovasc Dis&quot;, not &quot;Journal of Stroke and Cerebrovascular Diseases&quot;. (Ref. 17 &quot;Hornnes, Larsen, Boysen, 2011&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -44000,13 +44000,13 @@ Object {
             "contents": "CrossRef reports the first page should be &quot;NA&quot;, not &quot;579&quot;. (Ref. 18 &quot;Johnston, Sidney, Hills, Grosvenor, Klingman, Bernstein, Levin, 2010&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -44019,13 +44019,13 @@ Object {
             "contents": "Medline reports multiple listings for this reference. Please check the reference for accuracy. (Ref. 20 &quot;Fahey, Schroeder, Ebrahim, 2006&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -44038,13 +44038,13 @@ Object {
             "contents": "Medline reports the journal title should be &quot;The Cochrane database of systematic reviews or Cochrane Database Syst Rev&quot;, not &quot;Cochrane Database of Systematic Reviews&quot;. (Ref. 22 &quot;Bridgwood, Lager, Mistri, Khunti, Wilson, Modi, 2018&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -44057,13 +44057,13 @@ Object {
             "contents": "CrossRef reports the title is &quot;2013 Practice guidelines for the management of arterial hypertension of the European Society of Hypertension (ESH) and the European Society of Cardiology (ESC)&quot;. (Ref. 23 &quot;Mancia, Fagard, Narkiewicz, Red&#x00E1;n, Zanchetti, B&#x00F6;hm, Zannad, . . ., 2013&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -44076,13 +44076,13 @@ Object {
             "contents": "Medline reports the journal title should be &quot;CMAJ : Canadian Medical Association journal = journal de l&#x2019;Association medicale canadienne or CMAJ&quot;, not &quot;Canadian Medical Association Journal&quot;. (Ref. 25 &quot;McAlister, Majumdar, Padwal, Fradette, Thompson, Buck, Shuaib, . . ., 2014&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -44095,17 +44095,17 @@ Object {
             "contents": "Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "MPParagraphElement:test",
+            "target": "MPParagraph:test",
           },
           "type": "comment",
         },
@@ -44114,17 +44114,17 @@ Object {
             "contents": "Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "MPParagraphElement:test",
+            "target": "MPParagraph:test",
           },
           "type": "comment",
         },
@@ -44133,13 +44133,13 @@ Object {
             "contents": "Medline reports the journal title should be &quot;International journal of stroke : official journal of the International Stroke Society or Int J Stroke&quot;, not &quot;International Journal of Stroke&quot;. (Ref. 13 &quot;Hornnes, Larsen, Boysen, 2010&quot;)",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -44152,17 +44152,17 @@ Object {
             "contents": "Check meaning - US English uses different spellings for the noun &quot;analyses&quot; (more than one analysis) and the verb form &quot;analyzes&quot;",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
-            "target": "MPParagraphElement:test",
+            "target": "MPParagraph:test",
           },
           "type": "comment",
         },
@@ -44217,7 +44217,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPTitles:test",
+        "id": "MPTitle:test",
         "placeholder": "Insert title here...",
       },
       "content": Array [
@@ -44230,7 +44230,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPContributors:test",
       },
       "content": Array [
         Object {
@@ -44306,7 +44306,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAffiliations:test",
       },
       "content": Array [
         Object {
@@ -44363,7 +44363,7 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
-        "id": "MPSection:test",
+        "id": "MPKeywords:test",
       },
       "content": Array [
         Object {
@@ -44455,7 +44455,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPAbstracts:test",
       },
       "content": Array [
         Object {
@@ -44480,7 +44480,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -44499,7 +44499,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBody:test",
       },
       "content": Array [
         Object {
@@ -44536,7 +44536,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -44550,7 +44550,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -44786,7 +44786,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -44815,7 +44815,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -44829,7 +44829,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -44948,7 +44948,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -45046,7 +45046,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -45163,7 +45163,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -45206,7 +45206,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -45250,7 +45250,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -45346,7 +45346,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -45431,7 +45431,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -45578,7 +45578,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -45655,7 +45655,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -45935,7 +45935,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -46013,7 +46013,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -46182,7 +46182,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -46218,7 +46218,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -46257,7 +46257,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -46285,7 +46285,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -50213,7 +50213,7 @@ Object {
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPParagraphElement:test",
+                                "id": "MPParagraph:test",
                                 "placeholder": "",
                               },
                               "content": Array [
@@ -50609,7 +50609,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -50674,7 +50674,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -50734,7 +50734,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -50802,7 +50802,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -50877,7 +50877,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -51033,7 +51033,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -51481,7 +51481,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -51523,7 +51523,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -52001,7 +52001,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -52058,7 +52058,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -52619,7 +52619,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -52647,7 +52647,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -52711,7 +52711,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -52739,7 +52739,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -53132,7 +53132,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -53525,7 +53525,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -53561,7 +53561,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -53619,7 +53619,7 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraphElement:test",
+                    "id": "MPParagraph:test",
                     "placeholder": "",
                   },
                   "content": Array [
@@ -54049,7 +54049,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -54063,7 +54063,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -54476,7 +54476,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -54490,7 +54490,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "content": Array [
@@ -54509,7 +54509,7 @@ Object {
     },
     Object {
       "attrs": Object {
-        "id": "MPSection:test",
+        "id": "MPBackmatter:test",
         "placeholder": " ",
       },
       "content": Array [
@@ -54547,7 +54547,7 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
+                "id": "MPParagraph:test",
                 "placeholder": "",
               },
               "type": "paragraph",
@@ -55834,7 +55834,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPParagraphElement:test",
+                            "id": "MPParagraph:test",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -55848,7 +55848,7 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPParagraphElement:test",
+                            "id": "MPParagraph:test",
                             "placeholder": "",
                           },
                           "content": Array [
@@ -55898,7 +55898,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPSection:test",
+            "id": "MPFootnotesSection:test",
           },
           "content": Array [
             Object {
@@ -55931,7 +55931,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -55975,7 +55975,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56019,7 +56019,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56044,7 +56044,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56088,7 +56088,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56124,7 +56124,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56160,7 +56160,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56204,7 +56204,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56330,7 +56330,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56366,7 +56366,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56391,7 +56391,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56581,7 +56581,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56606,7 +56606,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56642,7 +56642,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56667,7 +56667,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56692,7 +56692,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56717,7 +56717,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56742,7 +56742,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56793,7 +56793,7 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
+                        "id": "MPParagraph:test",
                         "placeholder": "",
                       },
                       "content": Array [
@@ -56835,7 +56835,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPSection:test",
+            "id": "MPBibliographySection:test",
           },
           "content": Array [
             Object {
@@ -58961,13 +58961,13 @@ Object {
             "contents": "eXtyles test comment",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -58980,13 +58980,13 @@ Object {
             "contents": "The table &quot;Table A1&quot; is not cited in the text. Please add an in-text citation or delete the table.",
             "contributions": Array [
               Object {
-                "_id": "MPContribution:test",
+                "_id": ":test",
                 "objectType": "MPContribution",
                 "profileID": "MPUserProfile:0000000000000000000000000000000000000001",
                 "timestamp": 1234,
               },
             ],
-            "id": "MPCommentAnnotation:test",
+            "id": "MPComment:test",
             "originalText": "",
             "resolved": false,
             "selector": undefined,
@@ -59049,7 +59049,7 @@ exports[`JATS importer title node should have title node with content if title e
 Object {
   "attrs": Object {
     "dataTracked": null,
-    "id": "MPTitles:test",
+    "id": "MPTitle:test",
     "placeholder": "Insert title here...",
   },
   "content": Array [
@@ -59066,7 +59066,7 @@ exports[`JATS importer title node should have title node with default content if
 Object {
   "attrs": Object {
     "dataTracked": null,
-    "id": "MPTitles:test",
+    "id": "MPTitle:test",
     "placeholder": "Insert title here...",
   },
   "content": Array [

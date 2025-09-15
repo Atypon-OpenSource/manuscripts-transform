@@ -13,11 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { BibliographicName } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { CreditVocabTerm } from '../../lib/credit-roles'
 import { ManuscriptNode } from '../types'
+
+export interface BibliographicName {
+  _id: string
+  objectType: string
+  family?: string
+  given?: string
+  'dropping-particle'?: string
+  'non-dropping-particle'?: string
+  suffix?: string
+  literal?: string
+}
 
 export type ContributorCorresp = {
   correspID: string
