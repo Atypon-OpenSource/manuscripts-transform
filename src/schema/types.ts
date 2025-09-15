@@ -35,6 +35,8 @@ import {
 } from 'prosemirror-state'
 import { EditorView, NodeView } from 'prosemirror-view'
 
+import { BibliographicName } from './nodes/contributor'
+
 export type Marks =
   | 'bold'
   | 'code'
@@ -196,6 +198,7 @@ export interface Model {
 export interface UserProfile extends Model {
   objectType: 'MPUserProfile'
   userID: string
+  bibliographicName: BibliographicName
   role?: string
   isMe?: boolean
   isJointContributor?: boolean
@@ -205,16 +208,6 @@ export interface UserProfile extends Model {
   appInvitationDate?: number
   addressBookIDs?: string[]
   email?: string
-  bibliographicName?: {
-    _id: string
-    objectType: string
-    family?: string
-    given?: string
-    'dropping-particle'?: string
-    'non-dropping-particle'?: string
-    suffix?: string
-    literal?: string
-  }
 }
 
 export interface Project extends Model {
