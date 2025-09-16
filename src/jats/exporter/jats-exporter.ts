@@ -1547,7 +1547,7 @@ export class JATSExporter {
   private buildContributorName = (contributor: ContributorNode) => {
     const { given, family } = contributor.attrs.bibliographicName
     if (Boolean(given) !== Boolean(family)) {
-      return this.createElement('string-name', given ?? family)
+      return this.createElement('string-name', given || family)
     }
     const name = this.createElement('name')
 
