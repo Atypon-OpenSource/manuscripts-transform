@@ -405,6 +405,18 @@ describe('JATS importer', () => {
       const bodyNode = findNodeByType(node, schema.nodes.body)
       expect(bodyNode).toBeDefined()
     })
+    it('should create body element and append to article when body is missing', async () => {
+      const jats = await readAndParseFixture('jats-abstract-no-body.xml')
+      const { node } = parseJATSArticle(jats, sectionCategories)
+      const bodyNode = findNodeByType(node, schema.nodes.body)
+      expect(bodyNode).toBeDefined()
+    })
+    it('should have abstracts node even when no body element exists in JATS', async () => {
+      const jats = await readAndParseFixture('jats-abstract-no-body.xml')
+      const { node } = parseJATSArticle(jats, sectionCategories)
+      const abstractNode = findNodeByType(node, schema.nodes.abstracts)
+      expect(abstractNode).toBeDefined()
+    })
   })
   describe('backmatter', () => {
     it('should have backmatter node if back element exists', async () => {
