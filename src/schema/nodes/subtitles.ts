@@ -30,6 +30,7 @@ export const subtitles: NodeSpec = {
   content: 'subtitle*',
   attrs: {
     id: { default: '' },
+    dataTracked: { default: null },
   },
   group: 'block sections',
   selectable: false,

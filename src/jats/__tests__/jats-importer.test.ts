@@ -25,6 +25,7 @@ import {
   findNodesByType,
   updateNodeID,
 } from './utils'
+
 describe('JATS importer', () => {
   describe('title node', () => {
     it('should have title node with content if title element exists', async () => {
@@ -203,7 +204,7 @@ describe('JATS importer', () => {
       const jats = await readAndParseFixture('jats-import.xml')
       const { node } = parseJATSArticle(jats, sectionCategories)
       const supplementsNode = findNodeByType(node, schema.nodes.supplement)
-      updateNodeID(supplementsNode)
+      changeIDs(supplementsNode)
       expect(supplementsNode).toMatchSnapshot()
     })
 
