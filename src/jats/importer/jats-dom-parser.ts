@@ -205,6 +205,18 @@ export class JATSDOMParser {
     )
   }
 
+  private getSurname = (element: HTMLElement) => {
+    const surname = getTrimmedTextContent(element, 'surname')
+    if (surname) {
+      return surname
+    }
+
+    const stringName = element.querySelector('string-name')
+    if (stringName && !stringName.querySelector('given-names')) {
+      return getTrimmedTextContent(element, 'string-name')
+    }
+  }
+
   private getRefType = (element: Element): BibliographyItemType => {
     const citation = element.querySelector('element-citation, mixed-citation')
     const type = citation?.getAttribute('publication-type')
@@ -551,8 +563,8 @@ export class JATSDOMParser {
             ? element.getAttribute('corresp') === 'yes'
             : undefined,
           bibliographicName: {
-            given: getTrimmedTextContent(element, 'name > given-names'),
-            family: getTrimmedTextContent(element, 'name > surname'),
+            given: getTrimmedTextContent(element, 'given-names'),
+            family: this.getSurname(element),
             ObjectType: ObjectTypes.BibliographicName,
           },
           ORCIDIdentifier: getTrimmedTextContent(

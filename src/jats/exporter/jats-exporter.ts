@@ -1543,6 +1543,37 @@ export class JATSExporter {
       }
     }
   }
+
+  private buildContributorName = (contributor: ContributorNode) => {
+    const { given, family } = contributor.attrs.bibliographicName
+    if (Boolean(given) !== Boolean(family)) {
+      return this.createElement('string-name', given || family)
+    }
+    const name = this.createElement('name')
+
+    if (contributor.attrs.bibliographicName.family) {
+      this.appendElement(
+        name,
+        'surname',
+        contributor.attrs.bibliographicName.family
+      )
+    }
+
+    if (contributor.attrs.bibliographicName.given) {
+      this.appendElement(
+        name,
+        'given-names',
+        contributor.attrs.bibliographicName.given
+      )
+    }
+
+    if (contributor.attrs.prefix) {
+      this.appendElement(name, 'prefix', contributor.attrs.prefix)
+    }
+
+    return name
+  }
+
   private createAuthorNotesElement = () => {
     const authorNotesEl = this.createElement('author-notes')
     const authorNotesNode = this.getFirstChildOfType<AuthorNotesNode>(
@@ -2001,32 +2032,6 @@ export class JATSExporter {
     if (floatsGroup.children.length > 0) {
       article.appendChild(floatsGroup)
     }
-  }
-
-  private buildContributorName = (contributor: ContributorNode) => {
-    const name = this.createElement('name')
-
-    if (contributor.attrs.bibliographicName.family) {
-      this.appendElement(
-        name,
-        'surname',
-        contributor.attrs.bibliographicName.family
-      )
-    }
-
-    if (contributor.attrs.bibliographicName.given) {
-      this.appendElement(
-        name,
-        'given-names',
-        contributor.attrs.bibliographicName.given
-      )
-    }
-
-    if (contributor.attrs.prefix) {
-      this.appendElement(name, 'prefix', contributor.attrs.prefix)
-    }
-
-    return name
   }
 
   private moveCoiStatementToAuthorNotes(back: HTMLElement, front: HTMLElement) {
