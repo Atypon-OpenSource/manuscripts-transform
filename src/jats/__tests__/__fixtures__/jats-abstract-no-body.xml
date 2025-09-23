@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article
+  PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.2 20190208//EN" "JATS-archivearticle1.dtd">
+<article article-type="research-article" dtd-version="1.2" xml:lang="en">
+	<front>
+		<journal-meta>
+			<journal-id journal-id-type="publisher-id">authorea</journal-id>
+		</journal-meta>
+		<article-meta>
+			<article-id pub-id-type="doi">10.1111/risa.12692</article-id>
+			<article-categories>
+				<subj-group subj-group-type="heading">
+					<subject>TBD</subject>
+				</subj-group>
+			</article-categories>
+			<title-group>
+				<article-title>Does Medical Risk Perception and Risk Taking Change with Age?</article-title>
+			</title-group>
+			<contrib-group>
+				<contrib contrib-type="author" corresp="yes">
+					<name>
+						<surname>Manna</surname>
+						<given-names>Rabi</given-names>
+					</name>
+					<email>rmanaa@atypon.com</email>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Hanoch</surname>
+						<given-names>Yaniv</given-names>
+					</name>
+					<email>yaniv.hanoch@gmail.com.</email>
+					<xref ref-type="aff" rid="aff0"/>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Rolison</surname>
+						<given-names>Jonathan J</given-names>
+					</name>
+					<xref ref-type="aff" rid="aff1"/>
+				</contrib>
+				<contrib contrib-type="author">
+					<name>
+						<surname>Freund</surname>
+						<given-names>Alexandra M</given-names>
+					</name>
+					<xref ref-type="aff" rid="aff2"/>
+				</contrib>
+				<aff id="aff0">
+					<institution content-type="dept">School of Psychology</institution>,
+					<institution>Cognition Institute</institution>,
+					<institution>University of Ply-mouth</institution>
+					<address>
+						<addr-line>Drake Circus</addr-line>
+						<city>Plymouth</city>
+						<country>UK</country>
+					</address>
+				</aff>
+				<aff id="aff1">
+					<institution content-type="dept">Department of Psychology</institution>,
+					<institution>University of Essex</institution>
+					<address>
+						<addr-line>Wivenhoe Park</addr-line>
+						<city>Colchester</city>
+						<country>UK</country>
+					</address>
+				</aff>
+				<aff id="aff2">
+					<institution content-type="dept">Department of Psychology and University Research Priority Pro-gram Dynamics of Healthy Aging</institution>,
+					<institution>University of Zurich</institution>
+					<address>
+						<city>Zurich</city>
+						<country>Switzerland</country>
+					</address>
+				</aff>
+				<aff id="aff3">
+					<institution content-type="dept">School of Psychology, Cognition Institute</institution>,
+					<institution>University of Plymouth</institution>
+					<address>
+						<addr-line>Drake Circus, Ply-mouth</addr-line>
+						<country>UK</country>
+						<postal-code>PL4 8AA</postal-code>
+					</address>
+				</aff>
+			</contrib-group>
+			<abstract>
+				<p>Across adulthood, people face increasingly more risky medical problems and decisions. However, little is known about changes in medical risk taking across adulthood. Therefore, the current cross-sectional study investigated age-related differences in medical risk taking with N = 317 adults aged 20-77 years using newly developed scenarios to assess medical risk taking, and additional measures designed to evaluate risk-taking behavior in the medical domain. Greater expected benefits on the Domain-Specific Risk-Taking Scale-Medical (DOSPERT-M) predicted more active risk taking, whereas higher perceived risk predicted less active risk taking. Next, we examined differences in active and passive risk taking, where passive risk taking refers to risk taking that is associated with inaction. Age was associated with less passive risk taking, but not with active risk taking, risk perception, or expected benefits on the DOSPERT-M. Participants were overall more likely to opt for taking medical action than not, even more so for a scenario about a vaccine for a deadly flu than for a scenario about a chemotherapy treatment for cancer. Overall, participants were more likely to accept medication (vaccine or chemotherapy) for their child than for themselves. Increasing age was associated with a lower likelihood of accepting the treatment or vaccine for oneself. Taken together, our study provides important insights about changes in medical risk taking across adulthood when people face an increasing number of complex and risky medical decisions.</p>
+			</abstract>
+			<kwd-group kwd-group-type="author">
+				<kwd>Adulthood and aging</kwd>
+				<kwd>DOSPERT-M</kwd>
+				<kwd>medical</kwd>
+				<kwd>omission</kwd>
+				<kwd>risk taking</kwd>
+			</kwd-group>
+		</article-meta>
+	</front>
+   <back>
+    <ref-list id="MPSection_A83F9050-B6E5-4587-863B-2BD9F6D788FE">
+      <title>Bibliography</title>
+      <ref id="MPBibliographyItem_787BD4C1-3074-4076-9707-0227D29C1F10">
+        <element-citation publication-type="journal">
+          <name>
+            <surname>Case</surname>
+            <given-names>Nat</given-names>
+          </name>
+          <article-title>Creating Graphically Complex Indexes With InDesign</article-title>
+          <source>Cartographic Perspectives</source>
+          <issue>62</issue>
+          <fpage>52</fpage>
+          <lpage>54</lpage>
+          <year>2009</year>
+          <month>3</month>
+          <day>1</day>
+        </element-citation>
+      </ref>
+      <ref id="MPBibliographyItem_E9EFF971-4380-4DEB-83CF-B0CAA6C32BDF">
+        <element-citation publication-type="journal">
+          <article-title>Technique for extracting reusable XML Schema from schema-less XML Documents</article-title>
+          <source>The KIPS Transactions:PartD</source>
+          <volume>10D</volume>
+          <issue>4</issue>
+          <fpage>603</fpage>
+          <lpage>612</lpage>
+          <year>2003</year>
+          <month>8</month>
+          <day>1</day>
+        </element-citation>
+      </ref>
+      <ref id="MPBibliographyItem_36EDAD5A-EBA0-47AE-88E6-EBAD385166AE">
+        <element-citation publication-type="journal">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Jin</given-names>
+          </name>
+          <name>
+            <surname>Kang</surname>
+            <given-names>Hyun-Chul</given-names>
+          </name>
+          <article-title>XML Fragmentation for Resource-Efficient Query Processing over XML Fragment Stream</article-title>
+          <source>The KIPS Transactions:PartD</source>
+          <volume>16D</volume>
+          <issue>1</issue>
+          <fpage>27</fpage>
+          <lpage>42</lpage>
+          <year>2009</year>
+          <month>2</month>
+          <day>28</day>
+        </element-citation>
+      </ref>
+    </ref-list>
+    <fn-group>
+      <fn fn-type="conflict">
+        <p content-type="fn-title">CONFLICT OF INTEREST</p>
+        <p>No conflicts of interest have been declared.</p>
+      </fn>
+      <fn fn-type="financial-disclosure">
+        <p content-type="fn-title">FUNDING INFORMATION</p>
+        <p>This work was supported by the National Natural Science Foundation of China (81771439), Jiangsu Provincial Key Research and Development Program (BE2020661 and BE2018662), Jiangsu Provincial Health Commission Science Research Program (QNRC2016228, H2019056 and LGY2018010), Jiangsu Provincial Six Talent Peaks Project (WSN-165), Suzhou Municipal Health Commission Science Research Program (SZYJTD201715, LCZX201820, Kjxw2018048 and Gwzx201801), Suzhou Municipal Sci-Tech Bureau Program (SZS201722, SS201706, SYS2019113 and SS2019009), and CAS Key Laboratory of Mental Health, Institute of Psychology (KLMH2019K03).</p>
+      </fn>
+    </fn-group>
+  </back>
+</article>
