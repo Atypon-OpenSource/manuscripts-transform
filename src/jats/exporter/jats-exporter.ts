@@ -1318,7 +1318,10 @@ export class JATSExporter {
       }
       return texMath
     } else {
-      const math = this.nodeFromJATS(node.attrs.contents || "<mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"/>")
+      const math = this.nodeFromJATS(
+        node.attrs.contents ||
+          '<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML"/>'
+      )
       const mathml = math as Element
       if (!isInline) {
         mathml.setAttribute('id', normalizeID(node.attrs.id))
