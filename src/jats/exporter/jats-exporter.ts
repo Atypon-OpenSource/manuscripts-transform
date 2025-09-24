@@ -769,7 +769,7 @@ export class JATSExporter {
           awardGroup.attrs.source
         )
         awardGroup.attrs.code
-          .split(';')
+          ?.split(';')
           .forEach((code) =>
             appendChildIfPresent(awardGroupElement, 'award-id', code)
           )
@@ -872,7 +872,7 @@ export class JATSExporter {
       },
       doc: () => '',
       equation: (node) => {
-        return this.createEquation(node)
+        return node.attrs.contents ? this.createEquation(node) : ''
       },
       general_table_footnote: (node) => {
         const el = this.createElement('general-table-footnote')
@@ -881,6 +881,9 @@ export class JATSExporter {
         return el
       },
       inline_equation: (node) => {
+        if (!node.attrs.contents) {
+          return ''
+        }
         const eqElement = this.createElement('inline-formula')
         const equation = this.createEquation(node, true)
         eqElement.append(equation)
