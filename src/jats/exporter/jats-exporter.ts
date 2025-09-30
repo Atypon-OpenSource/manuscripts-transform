@@ -769,7 +769,7 @@ export class JATSExporter {
           awardGroup.attrs.source
         )
         awardGroup.attrs.code
-          .split(';')
+          ?.split(';')
           .forEach((code) =>
             appendChildIfPresent(awardGroupElement, 'award-id', code)
           )
@@ -872,7 +872,7 @@ export class JATSExporter {
       },
       doc: () => '',
       equation: (node) => {
-        return this.createEquation(node)
+        return node.attrs.contents ? this.createEquation(node) : ''
       },
       general_table_footnote: (node) => {
         const el = this.createElement('general-table-footnote')
@@ -881,6 +881,9 @@ export class JATSExporter {
         return el
       },
       inline_equation: (node) => {
+        if (!node.attrs.contents) {
+          return ''
+        }
         const eqElement = this.createElement('inline-formula')
         const equation = this.createEquation(node, true)
         eqElement.append(equation)
@@ -1543,6 +1546,37 @@ export class JATSExporter {
       }
     }
   }
+
+  private buildContributorName = (contributor: ContributorNode) => {
+    const { given, family } = contributor.attrs.bibliographicName
+    if (Boolean(given) !== Boolean(family)) {
+      return this.createElement('string-name', given || family)
+    }
+    const name = this.createElement('name')
+
+    if (contributor.attrs.bibliographicName.family) {
+      this.appendElement(
+        name,
+        'surname',
+        contributor.attrs.bibliographicName.family
+      )
+    }
+
+    if (contributor.attrs.bibliographicName.given) {
+      this.appendElement(
+        name,
+        'given-names',
+        contributor.attrs.bibliographicName.given
+      )
+    }
+
+    if (contributor.attrs.prefix) {
+      this.appendElement(name, 'prefix', contributor.attrs.prefix)
+    }
+
+    return name
+  }
+
   private createAuthorNotesElement = () => {
     const authorNotesEl = this.createElement('author-notes')
     const authorNotesNode = this.getFirstChildOfType<AuthorNotesNode>(
@@ -2001,32 +2035,6 @@ export class JATSExporter {
     if (floatsGroup.children.length > 0) {
       article.appendChild(floatsGroup)
     }
-  }
-
-  private buildContributorName = (contributor: ContributorNode) => {
-    const name = this.createElement('name')
-
-    if (contributor.attrs.bibliographicName.family) {
-      this.appendElement(
-        name,
-        'surname',
-        contributor.attrs.bibliographicName.family
-      )
-    }
-
-    if (contributor.attrs.bibliographicName.given) {
-      this.appendElement(
-        name,
-        'given-names',
-        contributor.attrs.bibliographicName.given
-      )
-    }
-
-    if (contributor.attrs.prefix) {
-      this.appendElement(name, 'prefix', contributor.attrs.prefix)
-    }
-
-    return name
   }
 
   private moveCoiStatementToAuthorNotes(back: HTMLElement, front: HTMLElement) {

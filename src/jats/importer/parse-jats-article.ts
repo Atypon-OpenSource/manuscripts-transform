@@ -43,7 +43,6 @@ import {
 
 const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   const createElement = createElementFn(doc)
-
   markComments(doc)
 
   const front = doc.querySelector('front')
@@ -57,9 +56,14 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   moveAuthorNotes(front, createElement)
   moveAwards(front)
 
-  const body = doc.querySelector('body')
+  let body = doc.querySelector('body')
   if (!body) {
-    return
+    body = createElement('body') as HTMLBodyElement
+    const article = doc.querySelector('article')
+    if (!article) {
+      return
+    }
+    article.append(body)
   }
 
   moveCaptionsToEnd(body)
