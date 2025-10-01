@@ -233,6 +233,7 @@ export class JATSExporter {
     this.updateFootnoteTypes(front, back)
     this.fillEmptyTableFooters(article)
     this.fillEmptyFootnotes(article)
+    this.fillEmptyListItem(article)
     this.moveAwards(front, body)
     this.moveFloatsGroup(article)
     await this.rewriteIDs()
@@ -968,7 +969,7 @@ export class JATSExporter {
 
         return linkNode
       },
-      list_item: () => ['list-item', 0],
+      list_item: (node) => node.childCount === 0 ? ['list-item', ['p']] : ['list-item', 0],
       listing: (node) => {
         const code = this.createElement('code')
         code.setAttribute('id', normalizeID(node.attrs.id))
@@ -2111,5 +2112,9 @@ export class JATSExporter {
 
   private fillEmptyTableFooters(articleElement: Element) {
     this.fillEmptyElements(articleElement, 'table-wrap-foot')
+  }
+
+  private fillEmptyListItem(articleElement: Element) {
+    this.fillEmptyElements(articleElement, 'list-item')
   }
 }
