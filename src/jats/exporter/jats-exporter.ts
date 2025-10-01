@@ -969,7 +969,8 @@ export class JATSExporter {
 
         return linkNode
       },
-      list_item: (node) => node.childCount === 0 ? ['list-item', ['p']] : ['list-item', 0],
+      list_item: (node) =>
+        node.childCount === 0 ? ['list-item', ['p']] : ['list-item', 0],
       listing: (node) => {
         const code = this.createElement('code')
         code.setAttribute('id', normalizeID(node.attrs.id))
