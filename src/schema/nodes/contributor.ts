@@ -20,7 +20,6 @@ import { ManuscriptNode } from '../types'
 
 export interface BibliographicName {
   _id: string
-  objectType: string
   family?: string
   given?: string
   'dropping-particle'?: string
