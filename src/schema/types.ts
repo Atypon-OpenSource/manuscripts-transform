@@ -190,7 +190,6 @@ export type ManuscriptTemplate = {
 export interface UserProfile {
   _id: string
   objectType: 'MPUserProfile'
-  updatedAt: number
   userID: string
   bibliographicName: BibliographicName
   role?: string
@@ -219,6 +218,7 @@ export interface Project {
   deadline?: number
   priority?: number
   status?: string
+  updatedAt: number
 }
 
 export interface Journal {
