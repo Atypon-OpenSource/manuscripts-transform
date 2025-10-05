@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
@@ -75,7 +74,6 @@ export const list: NodeSpec = {
       {
         id: list.attrs.id,
         'list-type': list.attrs.listStyleType,
-        'data-object-type': ObjectTypes.ListElement,
       },
       0,
     ]
