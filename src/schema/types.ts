@@ -187,15 +187,8 @@ export type ManuscriptTemplate = {
   hiddenNodeTypes?: string[]
 }
 
-export interface Model {
+export interface UserProfile {
   _id: string
-  objectType: string
-  createdAt: number
-  updatedAt: number
-  prototype?: string
-}
-
-export interface UserProfile extends Model {
   objectType: 'MPUserProfile'
   userID: string
   bibliographicName: BibliographicName
@@ -210,7 +203,8 @@ export interface UserProfile extends Model {
   email?: string
 }
 
-export interface Project extends Model {
+export interface Project {
+  _id: string
   objectType: 'MPProject'
   title?: string
   templateContainer?: boolean
@@ -226,7 +220,8 @@ export interface Project extends Model {
   status?: string
 }
 
-export interface Journal extends Model {
+export interface Journal {
+  _id: string
   objectType: 'MPJournal'
   title?: string
   publisherName?: string
@@ -251,7 +246,8 @@ export interface Journal extends Model {
   viewers?: string[]
 }
 
-export interface Bundle extends Model {
+export interface Bundle {
+  _id: string
   objectType: 'MPBundle'
   containerID: string
   csl?: {
@@ -275,27 +271,14 @@ export interface Bundle extends Model {
   }
 }
 
-export interface Manuscript extends Model {
+export interface Manuscript {
+  _id: string
   objectType: 'MPManuscript'
   containerID: string
   DOI?: string
   articleType: string
   prototype: string
   primaryLanguageCode: string
-}
-
-export const objectTypes = {
-  Project: 'MPProject',
-  Contribution: 'MPContribution',
-  Manuscript: 'MPManuscript',
-  Journal: 'MPJournal',
-  UserProfile: 'MPUserProfile',
-  BibliographicName: 'MPBibliographicName',
-  BibliographicDate: 'MPBibliographicDate',
-  Bundle: 'MPBundle',
-  BibliographyItem: 'MPBibliographyItem',
-  Citation: 'MPCitation',
-  CitationItem: 'MPCitationItem',
 }
 
 export type MarkRule = ParseRule & { mark: Marks | null }

@@ -64,13 +64,6 @@ export interface BibliographyItemAttrs {
 export interface BibliographyItemNode extends ManuscriptNode {
   attrs: BibliographyItemAttrs
 }
-export interface BibliographyItem extends BibliographyItemAttrs {
-  _id: string
-  objectType: string
-  createdAt?: number
-  updatedAt?: number
-  PMID?: string
-}
 
 export const bibliographyItem: NodeSpec = {
   // this is to help the prosemirror decoration to reach HTML of this node
