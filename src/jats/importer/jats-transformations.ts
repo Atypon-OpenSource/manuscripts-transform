@@ -447,7 +447,7 @@ export const createSupplementaryMaterialsSection = (
     const section = createElement('sec')
     section.setAttribute('sec-type', 'supplementary-material')
     const title = createElement('title')
-    title.textContent = 'Supplementary Material'
+    title.textContent = 'Supplements'
     section.append(title)
     section.append(...suppls)
     body.append(section)
