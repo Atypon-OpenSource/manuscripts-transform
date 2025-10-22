@@ -1448,7 +1448,10 @@ export class JATSExporter {
               role.setAttribute('vocab', 'CRediT')
               role.setAttribute('vocab-term', cr.vocabTerm)
               role.setAttribute('vocab-term-identifier', creditUrl)
-              role.innerHTML = cr.vocabTerm
+              const node = nodeFromHTML(cr.vocabTerm)
+              if (node) {
+                role.appendChild(node)
+              }
             }
 
             contrib.appendChild(role)
