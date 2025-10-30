@@ -197,14 +197,14 @@ const wrappers = {
   issue: (str: string) => `<issue>${str}</issue>`,
   supplement: (str: string) => `<supplement>${str}</supplement>`,
   page: (str: string) => {
-    const parts = str.split(/[-–]/)
-    if (parts.length === 2) {
+    const parts = str.split(/([-–])/)
+    if (parts.length === 3) {
       const fpage = parts[0].trim()
-      const lpage = parts[1].trim()
-      return `<fpage>${fpage}</fpage><lpage>${lpage}</lpage>`
-    } else {
-      return `<fpage>${str.trim()}</fpage>`
+      const separator = parts[1].trim()
+      const lpage = parts[2].trim()
+      return `<fpage>${fpage}</fpage>${separator}<lpage>${lpage}</lpage>`
     }
+    return `<fpage>${str.trim()}</fpage>`
   },
   title: (str: string, item: BibliographyItemAttrs) => {
     const type = item.type
