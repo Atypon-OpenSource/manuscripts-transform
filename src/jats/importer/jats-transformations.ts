@@ -41,7 +41,7 @@ export const addMissingCaptions = (
   createElement: CreateElement
 ) => {
   const elements = doc.querySelectorAll(
-    'fig, table-wrap, media, supplementary-material'
+    'fig, table-wrap, media, supplementary-material, boxed-text'
   )
   for (const element of elements) {
     let caption: Element | null = element.querySelector('caption')
@@ -157,33 +157,6 @@ export const moveHeroImage = (doc: Document) => {
     back.parentNode?.insertBefore(heroImage, back.nextSibling)
   } else {
     doc.documentElement.appendChild(heroImage)
-  }
-}
-
-export const createBoxedElementSection = (
-  body: Element,
-  createElement: (tagName: string) => HTMLElement
-) => {
-  const boxedTexts = body.querySelectorAll('boxed-text')
-  for (const boxedText of boxedTexts) {
-    const boxElementId = boxedText.getAttribute('id')
-    const boxElementSec = createElement('sec')
-    boxElementSec.setAttribute('sec-type', 'box-element')
-    if (boxElementId) {
-      boxElementSec.setAttribute('id', boxElementId)
-    }
-    const title = createElement('title')
-    title.textContent = 'BoxElement'
-    boxElementSec.append(title)
-    for (const element of [...boxedText.children]) {
-      if (element?.tagName === 'label' || element?.tagName === 'caption') {
-        boxElementSec.append(element)
-      }
-    }
-    const containerSection = createElement('sec')
-    containerSection.append(...boxedText.children)
-    boxElementSec.append(containerSection)
-    boxedText.replaceWith(boxElementSec)
   }
 }
 

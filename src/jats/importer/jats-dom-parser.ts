@@ -636,7 +636,7 @@ export class JATSDOMParser {
     {
       tag: 'caption',
       node: 'figcaption',
-      context: 'figure_element/|table_element/|embed/|supplement/',
+      context: 'figure_element/|table_element/|embed/|supplement/|box_element/',
       getContent: (node, schema) => {
         const element = node as HTMLElement
 
@@ -981,11 +981,10 @@ export class JATSDOMParser {
       node: 'backmatter',
     },
     {
-      tag: 'sec[sec-type="box-element"]',
+      tag: 'boxed-text',
       node: 'box_element',
       getAttrs: (node) => {
         const element = node as HTMLElement
-
         return {
           id: element.getAttribute('id'),
         }
@@ -1058,10 +1057,6 @@ export class JATSDOMParser {
       tag: 'kwd',
       context: 'keyword_group//',
       node: 'keyword',
-    },
-    {
-      tag: 'boxed-text',
-      ignore: true,
     },
     {
       tag: 'label',
