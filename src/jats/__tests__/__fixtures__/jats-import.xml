@@ -321,6 +321,7 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
         </sec>
         <sec>
           <title>BoxedText test</title>
+          <boxed-text></boxed-text>
           <boxed-text>
             <label>BoxedTextLabel</label>
             <caption>

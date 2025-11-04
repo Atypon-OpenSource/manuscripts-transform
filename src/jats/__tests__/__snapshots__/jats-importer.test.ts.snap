@@ -34238,6 +34238,53 @@ Object {
                                 "dataTracked": null,
                                 "placeholder": "Title...",
                               },
+                              "type": "caption_title",
+                            },
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                                "placeholder": "Caption...",
+                              },
+                              "type": "caption",
+                            },
+                          ],
+                          "type": "figcaption",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "category": "",
+                            "dataTracked": null,
+                            "id": "MPSection:test",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "section_title",
+                            },
+                          ],
+                          "type": "section",
+                        },
+                      ],
+                      "type": "box_element",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPSection:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                                "placeholder": "Title...",
+                              },
                               "content": Array [
                                 Object {
                                   "text": "BoxedTextCaptionTitle",
