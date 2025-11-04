@@ -59,6 +59,24 @@ export const addMissingCaptions = (
     }
   }
 }
+// adds placeholder sections for empty elemenets that require sections
+export const addMissingSections = (
+  doc: Document,
+  createElement: CreateElement
+) => {
+  const elements = doc.querySelectorAll('boxed-text')
+  for (const element of elements) {
+    if (
+      (element.children.length === 1 &&
+        element.children[0].nodeName === 'caption') ||
+      !element.hasChildNodes()
+    ) {
+      const section = createElement('sec')
+      section.appendChild(createElement('title'))
+      element.appendChild(section)
+    }
+  }
+}
 
 export const createTitles = (front: Element, createElement: CreateElement) => {
   const titles = createElement('titles')
