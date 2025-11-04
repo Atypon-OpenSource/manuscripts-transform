@@ -59,24 +59,18 @@ export const addMissingCaptions = (
     }
   }
 }
-// adds placeholder sections for empty elemenets that require sections
 export const createBoxedElementSection = (
   doc: Document,
   createElement: CreateElement
 ) => {
-  const elements = doc.querySelectorAll('boxed-text')
-  for (const element of elements) {
-    if (!element.querySelector(':scope > sec')) {
-      const containerSec = createElement('sec')
-      const children = Array.from(element.children)
-      for (const child of children) {
-        if (child.nodeName === 'label' || child.nodeName === 'caption') {
-          continue
-        }
-        containerSec.appendChild(child)
-      }
-      element.appendChild(containerSec)
-    }
+  const boxedTexts = doc.querySelectorAll('boxed-text')
+  for (const boxedText of boxedTexts) {
+    const containerSec = createElement('sec')
+    const children = Array.from(boxedText.children).filter(
+      (child) => child.localName !== 'label' && child.localName !== 'caption'
+    )
+    containerSec.append(...children)
+    boxedText.appendChild(containerSec)
   }
 }
 

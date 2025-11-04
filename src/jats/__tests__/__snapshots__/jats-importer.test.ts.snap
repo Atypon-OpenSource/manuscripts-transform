@@ -34428,6 +34428,42 @@ Object {
                               ],
                               "type": "list",
                             },
+                            Object {
+                              "attrs": Object {
+                                "category": "",
+                                "dataTracked": null,
+                                "id": "MPSection:test",
+                              },
+                              "content": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "text": "testing multiple sections inside a boxed-text element",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "type": "section_title",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "id": "MPParagraphElement:test",
+                                    "placeholder": "",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "text": "Hello World!",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "type": "paragraph",
+                                },
+                              ],
+                              "type": "section",
+                            },
                           ],
                           "type": "section",
                         },
