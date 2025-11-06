@@ -54,7 +54,7 @@ export const addMissingCaptions = (
     if (!caption.querySelector('title')) {
       caption.prepend(createElement('title'))
     }
-    if (!caption.querySelector('p')) {
+    if (!caption.querySelector('p') && element.nodeName !== 'boxed-text') {
       caption.appendChild(createElement('p'))
     }
   }

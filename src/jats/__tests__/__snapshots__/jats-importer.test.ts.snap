@@ -32011,13 +32011,6 @@ Object {
                       ],
                       "type": "caption_title",
                     },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "type": "caption",
-                    },
                   ],
                   "type": "figcaption",
                 },
@@ -34240,13 +34233,6 @@ Object {
                               },
                               "type": "caption_title",
                             },
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                                "placeholder": "Caption...",
-                              },
-                              "type": "caption",
-                            },
                           ],
                           "type": "figcaption",
                         },
@@ -34292,13 +34278,6 @@ Object {
                                 },
                               ],
                               "type": "caption_title",
-                            },
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                                "placeholder": "Caption...",
-                              },
-                              "type": "caption",
                             },
                           ],
                           "type": "figcaption",
@@ -34487,13 +34466,6 @@ Object {
                                 "placeholder": "Title...",
                               },
                               "type": "caption_title",
-                            },
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                                "placeholder": "Caption...",
-                              },
-                              "type": "caption",
                             },
                           ],
                           "type": "figcaption",
