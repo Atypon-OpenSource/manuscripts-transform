@@ -321,6 +321,7 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
         </sec>
         <sec>
           <title>BoxedText test</title>
+          <boxed-text></boxed-text>
           <boxed-text>
             <label>BoxedTextLabel</label>
             <caption>
@@ -350,6 +351,10 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
                 </list-item>
               </list>
             </sec>
+            <sec>
+            <title>testing multiple sections inside a boxed-text element</title>
+            <p>Hello World!</p>
+            </sec>
           </boxed-text>
           <boxed-text>
             <label>BoxedTextLabel</label>
@@ -379,7 +384,6 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
               </list>
             </sec>
           </boxed-text>
-
         </sec>
       </sec>
     </sec>

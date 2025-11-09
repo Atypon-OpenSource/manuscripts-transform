@@ -50,6 +50,7 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
     return
   }
   addMissingCaptions(doc, createElement)
+  createBoxedElementSection(doc, createElement)
   createTitles(front, createElement)
   moveContributors(front, createElement)
   moveAffiliations(front, createElement)
@@ -67,7 +68,6 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   }
 
   moveCaptionsToEnd(body)
-  createBoxedElementSection(body, createElement)
   createBody(doc, body, createElement)
   createAbstracts(front, body, createElement)
   createBackmatter(doc, body, sectionCategories, createElement)
