@@ -1,4 +1,2 @@
-packages:
-  - .
 onlyBuiltDependencies:
   - libxmljs2
