@@ -28,7 +28,7 @@ exports[`Export formatted references Export references in AMA style: bib7 1`] = 
 
 exports[`Export formatted references Export references in AMA style: bib7-citation 1`] = `"<sup>7</sup>"`;
 
-exports[`Export formatted references Export references in Chicago Author Date style: bib1 1`] = `"<ref id=\\"bib1\\"><mixed-citation publication-type=\\"journal\\"><person-group person-group-type=\\"author\\"><string-name><surname>Doe</surname>, <given-names>John</given-names></string-name>, and <string-name><given-names>Jane</given-names> <surname>Smith</surname></string-name></person-group>. <year>2021</year>. <article-title>“Advancements in Artificial Intelligence.”</article-title> <source><italic>AI Research Journal</italic></source> <volume>18</volume> (<issue>2</issue>): <fpage>45–60</fpage>. <pub-id pub-id-type=\\"doi\\">https://doi.org/10.1000/xyz123</pub-id>.</mixed-citation></ref>"`;
+exports[`Export formatted references Export references in Chicago Author Date style: bib1 1`] = `"<ref id=\\"bib1\\"><mixed-citation publication-type=\\"journal\\"><person-group person-group-type=\\"author\\"><string-name><surname>Doe</surname>, <given-names>John</given-names></string-name>, and <string-name><given-names>Jane</given-names> <surname>Smith</surname></string-name></person-group>. <year>2021</year>. <article-title>“Advancements in Artificial Intelligence.”</article-title> <source><italic>AI Research Journal</italic></source> <volume>18</volume> (<issue>2</issue>): <fpage>45</fpage>–<lpage>60</lpage>. <pub-id pub-id-type=\\"doi\\">https://doi.org/10.1000/xyz123</pub-id>.</mixed-citation></ref>"`;
 
 exports[`Export formatted references Export references in Chicago Author Date style: bib1-citation 1`] = `"(Doe and Smith 2021)"`;
 
@@ -36,7 +36,7 @@ exports[`Export formatted references Export references in Chicago Author Date st
 
 exports[`Export formatted references Export references in Chicago Author Date style: bib2-citation 1`] = `"(Brown and Green 2020)"`;
 
-exports[`Export formatted references Export references in Chicago Author Date style: bib3 1`] = `"<ref id=\\"bib3\\"><mixed-citation publication-type=\\"chapter\\"><person-group person-group-type=\\"author\\"><string-name><surname>Miller</surname>, <given-names>Susan</given-names></string-name></person-group>. <year>2022</year>. <part-title>“Machine Learning Applications.”</part-title> In <source><italic>Handbook of AI</italic></source>, <fpage>105–20</fpage>. <publisher-name>Oxford University Press</publisher-name>.</mixed-citation></ref>"`;
+exports[`Export formatted references Export references in Chicago Author Date style: bib3 1`] = `"<ref id=\\"bib3\\"><mixed-citation publication-type=\\"chapter\\"><person-group person-group-type=\\"author\\"><string-name><surname>Miller</surname>, <given-names>Susan</given-names></string-name></person-group>. <year>2022</year>. <part-title>“Machine Learning Applications.”</part-title> In <source><italic>Handbook of AI</italic></source>, <fpage>105</fpage>–<lpage>20</lpage>. <publisher-name>Oxford University Press</publisher-name>.</mixed-citation></ref>"`;
 
 exports[`Export formatted references Export references in Chicago Author Date style: bib3-citation 1`] = `"(Miller 2022)"`;
 
