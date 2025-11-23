@@ -253,8 +253,10 @@ const moveSpecialFootnotes = (
       category.synonyms.includes(type)
     )
     if (category) {
-      const section = createElement('sec') 
-      const fnTitle = fn.querySelector('label') || fn.querySelector('p[content-type="fn-title"]')
+      const section = createElement('sec')
+      const fnTitle =
+        fn.querySelector('label') ||
+        fn.querySelector('p[content-type="fn-title"]')
       if (fnTitle) {
         const title = createElement('title')
         const titleText = fnTitle.textContent?.trim()

@@ -32523,11 +32523,13 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "section_label",
+              "type": "section_title",
             },
             Object {
               "attrs": Object {
                 "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
               },
               "content": Array [
                 Object {
@@ -32535,7 +32537,7 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "section_title",
+              "type": "paragraph",
             },
           ],
           "type": "section",
@@ -32557,11 +32559,13 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "section_label",
+              "type": "section_title",
             },
             Object {
               "attrs": Object {
                 "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
               },
               "content": Array [
                 Object {
@@ -32569,7 +32573,7 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "section_title",
+              "type": "paragraph",
             },
           ],
           "type": "section",
@@ -32591,11 +32595,13 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "section_label",
+              "type": "section_title",
             },
             Object {
               "attrs": Object {
                 "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
               },
               "content": Array [
                 Object {
@@ -32603,7 +32609,7 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "section_title",
+              "type": "paragraph",
             },
           ],
           "type": "section",
