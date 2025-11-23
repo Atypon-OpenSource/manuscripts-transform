@@ -2003,8 +2003,7 @@ export class JATSExporter {
     footNote.setAttribute('fn-type', fnType)
     const title = section.querySelector('title')
     if (title) {
-      const footNoteTitle = this.createElement('p')
-      footNoteTitle.setAttribute('content-type', 'fn-title')
+      const footNoteTitle = this.createElement('label')
       footNoteTitle.textContent = title.textContent
       section.removeChild(title)
       footNote.append(footNoteTitle)
