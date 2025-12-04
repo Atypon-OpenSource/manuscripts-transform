@@ -24,11 +24,11 @@ class Migration4313 implements MigrationScript {
     const figcaptionIndex = node.content?.findIndex(
       (child) => child.type === 'figcaption'
     )
-    if (figcaptionIndex !== -1 && node.content) {
+    if (figcaptionIndex && figcaptionIndex !== -1 && node.content) {
       const figcaption = node.content[figcaptionIndex]
       const content = [
         ...node.content.slice(0, figcaptionIndex),
-        ...figcaption.content,
+        ...(figcaption?.content || []),
         ...node.content.slice(figcaptionIndex + 1),
       ]
       return { ...node, content }
