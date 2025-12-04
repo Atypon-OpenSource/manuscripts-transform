@@ -36,6 +36,26 @@ const createSectionGroup = (
   return sec
 }
 
+export const joinParagraphsInCaption = (
+  doc: Document,
+  createElement: CreateElement
+) => {
+  const captions = doc.querySelectorAll('caption')
+  for (const caption of captions) {
+    const paragraph = createElement('p')
+    caption.querySelectorAll('p').forEach((p, index) => {
+      if (index > 0) {
+        paragraph.append(' ')
+      }
+      paragraph.append(...p.childNodes)
+      p.remove()
+    })
+    if (paragraph.childNodes.length) {
+      caption.append(paragraph)
+    }
+  }
+}
+
 export const addMissingCaptions = (
   doc: Document,
   createElement: CreateElement

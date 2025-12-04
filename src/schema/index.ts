@@ -61,7 +61,6 @@ import { doc } from './nodes/doc'
 import { embed } from './nodes/embed'
 import { equation } from './nodes/equation'
 import { equationElement } from './nodes/equation_element'
-import { figcaption } from './nodes/figcaption'
 import { figure } from './nodes/figure'
 import { figureElement } from './nodes/figure_element'
 import { footnote } from './nodes/footnote'
@@ -137,7 +136,6 @@ export * from './nodes/doc'
 export * from './nodes/embed'
 export * from './nodes/equation'
 export * from './nodes/equation_element'
-export * from './nodes/figcaption'
 export * from './nodes/figure'
 export * from './nodes/figure_element'
 export * from './nodes/footnote'
@@ -215,7 +213,6 @@ export const schema = new Schema<Nodes, Marks>({
     doc,
     equation,
     equation_element: equationElement,
-    figcaption,
     figure,
     figure_element: figureElement,
     footnote,
