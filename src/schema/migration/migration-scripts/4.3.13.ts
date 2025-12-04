@@ -24,7 +24,7 @@ class Migration4313 implements MigrationScript {
     const figcaptionIndex = node.content?.findIndex(
       (child) => child.type === 'figcaption'
     )
-    if (figcaptionIndex && figcaptionIndex !== -1 && node.content) {
+    if (figcaptionIndex != undefined && figcaptionIndex !== -1 && node.content) {
       const figcaption = node.content[figcaptionIndex]
       const content = [
         ...node.content.slice(0, figcaptionIndex),
