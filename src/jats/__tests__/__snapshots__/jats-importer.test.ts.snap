@@ -54725,323 +54725,1325 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraphElement:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "marks": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                      },
-                      "type": "bold",
-                    },
-                  ],
-                  "text": "Exporter",
-                  "type": "text",
-                },
-                Object {
-                  "text": " ",
-                  "type": "text",
-                },
-                Object {
-                  "marks": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                      },
-                      "type": "bold",
-                    },
-                  ],
-                  "text": "EU exporter",
-                  "type": "text",
-                },
-                Object {
-                  "text": " ",
-                  "type": "text",
-                },
-                Object {
-                  "marks": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                      },
-                      "type": "bold",
-                    },
-                  ],
-                  "text": "HIC exporter",
-                  "type": "text",
-                },
-                Object {
-                  "text": " Average number of employed (log) 1.4904***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0107) .6878***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0225) .6473***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0222) Average number of female employed (log) 1.0341***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0104) .6266***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0220) .5870***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0219) Female employment share -.1245***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0023) .0271***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0036) .0355***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0036) Average wages (log) .9177***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0089) .2975***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0138) .2755***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0136) Average female wages (log) .8062***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0089) .2322***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0142) .2103***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0141) Female-to-male wage ratio -.0572***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0122) -.0316",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0194) -.0488**",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0192) Average turnover (log) 2.5000***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0171) .9636***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0292) .9103***",
-                  "type": "text",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "type": "hard_break",
-                },
-                Object {
-                  "text": "(.0288)",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPTableElementFooter:test",
+                "id": "MPTableElement:test",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPGeneralTableFootnote:test",
+                    "id": "MPTable:test",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
+                        "id": "MPTableRow:test",
                       },
                       "content": Array [
                         Object {
-                          "text": "Source: GEOSTAT Statistics Survey of Enterprises for 2006-2017.",
-                          "type": "text",
+                          "attrs": Object {
+                            "align": "left",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableHeader:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": "col",
+                            "style": "border-top: solid 0.50pt; border-bottom: solid 0.50pt",
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_header",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableHeader:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": "col",
+                            "style": "border-top: solid 0.50pt; border-bottom: solid 0.50pt",
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "marks": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                      },
+                                      "type": "bold",
+                                    },
+                                  ],
+                                  "text": "Exporter",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_header",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableHeader:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": "col",
+                            "style": "border-top: solid 0.50pt; border-bottom: solid 0.50pt",
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "marks": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                      },
+                                      "type": "bold",
+                                    },
+                                  ],
+                                  "text": "EU exporter",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_header",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableHeader:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": "col",
+                            "style": "border-top: solid 0.50pt; border-bottom: solid 0.50pt",
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "marks": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                      },
+                                      "type": "bold",
+                                    },
+                                  ],
+                                  "text": "HIC exporter",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_header",
                         },
                       ],
-                      "type": "paragraph",
+                      "type": "table_row",
                     },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPParagraphElement:test",
-                        "placeholder": "",
+                        "id": "MPTableRow:test",
                       },
                       "content": Array [
                         Object {
-                          "text": "Notes: HIC = high income country. Exporters are firms that exported in at least 1 year of the sample. EU / HIC exporters are firms that exported to the EU / high income country in at least 1 year of the sample. Column 2: difference in means in log workers, log wages, log turnover between exporters and non-exporters, controlling for year and 1-digit industry. Column 3: difference in means between firms that export to at least one EU destination and non-EU exporters, controlling for year and 1-digit industry. Column 4: difference in means between firms that export to at least one HIC destination and non-HIC exporters, controlling for year and 1-digit industry. ***Significant at the 1% level, **Significant at the 5% level, *Significant at the 10% level.",
-                          "type": "text",
+                          "attrs": Object {
+                            "align": "left",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": "row",
+                            "style": "border-top: solid 0.50pt",
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "Average number of employed (log)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": "border-top: solid 0.50pt",
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "1.4904***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0107)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": "border-top: solid 0.50pt",
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".6878***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0225)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": "border-top: solid 0.50pt",
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".6473***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0222)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
                         },
                       ],
-                      "type": "paragraph",
+                      "type": "table_row",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPTableRow:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "align": "left",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": "row",
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "Average number of female employed (log)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "1.0341***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0104)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".6266***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0220)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".5870***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0219)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                      ],
+                      "type": "table_row",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPTableRow:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "align": "left",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": "row",
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "Female employment share",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "-.1245***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0023)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".0271***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0036)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".0355***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0036)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                      ],
+                      "type": "table_row",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPTableRow:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "align": "left",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": "row",
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "Average wages (log)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".9177***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0089)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".2975***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0138)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".2755***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0136)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                      ],
+                      "type": "table_row",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPTableRow:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "align": "left",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": "row",
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "Average female wages (log)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".8062***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0089)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".2322***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0142)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".2103***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0141)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                      ],
+                      "type": "table_row",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPTableRow:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "align": "left",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": "row",
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "Female-to-male wage ratio",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "-.0572***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0122)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "-.0316",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0194)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": null,
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "-.0488**",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0192)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                      ],
+                      "type": "table_row",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPTableRow:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "align": "left",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": "row",
+                            "style": "border-bottom: solid 0.50pt",
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "Average turnover (log)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": "border-bottom: solid 0.50pt",
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "2.5000***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0171)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": "border-bottom: solid 0.50pt",
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".9636***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0292)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "align": "center",
+                            "colspan": 1,
+                            "colwidth": null,
+                            "dataTracked": null,
+                            "id": "MPTableCell:test",
+                            "placeholder": "Data",
+                            "rowspan": 1,
+                            "scope": null,
+                            "style": "border-bottom: solid 0.50pt",
+                            "valign": "top",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": ".9103***",
+                                  "type": "text",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "hard_break",
+                                },
+                                Object {
+                                  "text": "(.0288)",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "table_cell",
+                        },
+                      ],
+                      "type": "table_row",
                     },
                   ],
-                  "type": "general_table_footnote",
+                  "type": "table",
                 },
-              ],
-              "type": "table_element_footer",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPHeroImage:test",
-              },
-              "content": Array [
+                Object {
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "id": "MPTableCol:test",
+                        "width": "49.98%",
+                      },
+                      "type": "table_col",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPTableCol:test",
+                        "width": "14.26%",
+                      },
+                      "type": "table_col",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPTableCol:test",
+                        "width": "17.19%",
+                      },
+                      "type": "table_col",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPTableCol:test",
+                        "width": "18.57%",
+                      },
+                      "type": "table_col",
+                    },
+                  ],
+                  "type": "table_colgroup",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPTableElementFooter:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPGeneralTableFootnote:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPParagraphElement:test",
+                            "placeholder": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Source: GEOSTAT Statistics Survey of Enterprises for 2006-2017.",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "paragraph",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPParagraphElement:test",
+                            "placeholder": "",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Notes: HIC = high income country. Exporters are firms that exported in at least 1 year of the sample. EU / HIC exporters are firms that exported to the EU / high income country in at least 1 year of the sample. Column 2: difference in means in log workers, log wages, log turnover between exporters and non-exporters, controlling for year and 1-digit industry. Column 3: difference in means between firms that export to at least one EU destination and non-EU exporters, controlling for year and 1-digit industry. Column 4: difference in means between firms that export to at least one HIC destination and non-HIC exporters, controlling for year and 1-digit industry. ***Significant at the 1% level, **Significant at the 5% level, *Significant at the 10% level.",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "paragraph",
+                        },
+                      ],
+                      "type": "general_table_footnote",
+                    },
+                  ],
+                  "type": "table_element_footer",
+                },
                 Object {
                   "attrs": Object {
                     "id": "MPAltText:test",
@@ -55054,8 +56056,20 @@ Object {
                   },
                   "type": "long_desc",
                 },
+                Object {
+                  "attrs": Object {
+                    "contents": "",
+                    "dataTracked": null,
+                    "id": "MPListing:test",
+                    "isExecuting": false,
+                    "isExpanded": false,
+                    "language": "",
+                    "languageKey": "null",
+                  },
+                  "type": "listing",
+                },
               ],
-              "type": "hero_image",
+              "type": "table_element",
             },
           ],
           "type": "section",
