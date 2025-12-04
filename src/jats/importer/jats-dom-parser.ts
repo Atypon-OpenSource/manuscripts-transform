@@ -629,46 +629,14 @@ export class JATSDOMParser {
       node: 'hard_break',
     },
     {
-      tag: 'caption',
-      node: 'figcaption',
-      context: 'figure/',
-    },
-    {
-      tag: 'caption',
-      node: 'figcaption',
+      tag: 'caption > title',
+      node: 'caption_title',
       context: 'figure_element/|table_element/|embed/|supplement/|box_element/',
-      getContent: (node, schema) => {
-        const element = node as HTMLElement
-
-        const content = []
-
-        const title = element.querySelector('title')
-        if (title) {
-          const captionTitle = schema.nodes.caption_title.create()
-          content.push(this.parse(title, { topNode: captionTitle }))
-        }
-
-        const paragraphs = element.querySelectorAll('p')
-        if (paragraphs.length) {
-          const figcaption = schema.nodes.caption.create()
-          for (const paragraph of paragraphs) {
-            content.push(this.parse(paragraph, { topNode: figcaption }))
-          }
-        }
-
-        return Fragment.from(content) as Fragment
-      },
     },
     {
-      tag: 'caption',
-      node: 'figcaption',
-      context: 'box_element/',
-      getAttrs: (node) => {
-        const element = node as HTMLElement
-        return {
-          id: element.getAttribute('id'),
-        }
-      },
+      tag: 'caption > p',
+      node: 'caption',
+      context: 'figure_element/|table_element/|embed/|supplement/|box_element/',
     },
     {
       tag: 'code',
@@ -809,7 +777,26 @@ export class JATSDOMParser {
     {
       tag: 'graphic',
       node: 'image_element',
-      getContent: this.getFigContent,
+      getContent: (node) => {
+        const element = node as HTMLElement
+        const content = []
+
+        const captionTitle = element.querySelector('caption > title')
+        const captionTitleNode = this.schema.nodes.caption_title.create()
+        content.push(
+          captionTitle
+            ? this.parse(captionTitle, { topNode: captionTitleNode })
+            : captionTitleNode
+        )
+
+        const caption = element.querySelector('caption > *:not(title)')
+        const captionNode = this.schema.nodes.caption.create()
+        content.push(
+          caption ? this.parse(caption, { topNode: captionNode }) : captionNode
+        )
+        const fig = this.getFigContent(element).content
+        return Fragment.from([...fig.slice(0, 1), ...content, ...fig.slice(1)])
+      },
       getAttrs: this.getFigAttrs,
     },
     {
@@ -1090,11 +1077,6 @@ export class JATSDOMParser {
       node: 'section_title',
       context:
         'section/|footnotes_section/|bibliography_section/|keywords/|supplements/|author_notes/|graphical_abstract_section/|trans_abstract/',
-    },
-    {
-      tag: 'title',
-      node: 'caption_title',
-      context: 'figcaption/',
     },
     {
       tag: 'tr',
