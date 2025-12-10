@@ -60,4 +60,5 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.pullquote_element, 'Pull Quote'],
   [schema.nodes.box_element, 'Box'],
   [schema.nodes.supplements, 'Supplements'],
+  [schema.nodes.attachments, 'Main Document'],
 ])
