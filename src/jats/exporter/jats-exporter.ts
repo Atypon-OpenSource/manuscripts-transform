@@ -250,6 +250,14 @@ export class JATSExporter {
       element.appendChild(this.serializeNode(childNode))
     }
   }
+  protected appendCaption = (element: HTMLElement, node: ManuscriptNode) => {
+    const caption = this.createElement('caption')
+    this.appendChildNodeOfType(caption, node, schema.nodes.caption_title)
+    this.appendChildNodeOfType(caption, node, schema.nodes.caption)
+    if (caption.childNodes.length > 0) {
+      element.appendChild(caption)
+    }
+  }
   private initCiteprocEngine = (csl: CSLOptions) => {
     const bibitems: Map<string, CSL.Data> = new Map()
     const citations: Map<string, Citeproc.Citation> = new Map()
@@ -471,11 +479,7 @@ export class JATSExporter {
         'mime-subtype',
         node.attrs.mimeSubType ?? ''
       )
-      this.appendChildNodeOfType(
-        supplementaryMaterial,
-        node,
-        schema.nodes.figcaption
-      )
+      this.appendCaption(supplementaryMaterial, node)
 
       articleMeta.append(supplementaryMaterial)
     })
@@ -756,7 +760,7 @@ export class JATSExporter {
         appendLabels(mediaElement, node)
         this.appendChildNodeOfType(mediaElement, node, schema.nodes.alt_text)
         this.appendChildNodeOfType(mediaElement, node, schema.nodes.long_desc)
-        this.appendChildNodeOfType(mediaElement, node, schema.nodes.figcaption)
+        this.appendCaption(mediaElement, node)
         return mediaElement
       },
       awards: () => ['funding-group', 0],
@@ -895,12 +899,6 @@ export class JATSExporter {
         eqElement.setAttribute('id', normalizeID(node.attrs.id))
         processChildNodes(eqElement, node, schema.nodes.equation)
         return eqElement
-      },
-      figcaption: (node) => {
-        if (!node.textContent) {
-          return ''
-        }
-        return ['caption', 0]
       },
       figure: (node) => createGraphic(node),
       figure_element: (node) =>
@@ -1183,12 +1181,8 @@ export class JATSExporter {
       const element = createElement(node, 'boxed-text')
       appendLabels(element, node)
       const child = node.firstChild
-      if (child?.type === schema.nodes.figcaption) {
-        this.appendChildNodeOfType(
-          element,
-          node,
-          node.type.schema.nodes.figcaption
-        )
+      if (child?.type === schema.nodes.caption_title) {
+        this.appendCaption(element, node)
       }
 
       processChildNodes(element, node, node.type.schema.nodes.section)
@@ -1221,6 +1215,7 @@ export class JATSExporter {
         const extLink = this.appendElement(graphicElement, 'ext-link')
         extLink.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.extLink)
       }
+      this.appendCaption(graphicElement, node)
       this.appendChildNodeOfType(graphicElement, node, schema.nodes.alt_text)
       this.appendChildNodeOfType(graphicElement, node, schema.nodes.long_desc)
       return graphicElement
@@ -1251,11 +1246,7 @@ export class JATSExporter {
         element.setAttribute('fig-type', figType)
       }
       appendLabels(element, node)
-      this.appendChildNodeOfType(
-        element,
-        node,
-        node.type.schema.nodes.figcaption
-      )
+      this.appendCaption(element, node)
       this.appendChildNodeOfType(element, node, schema.nodes.alt_text)
       this.appendChildNodeOfType(element, node, schema.nodes.long_desc)
       this.appendChildNodeOfType(
@@ -1275,7 +1266,7 @@ export class JATSExporter {
       const nodeName = 'table-wrap'
       const element = createElement(node, nodeName)
       appendLabels(element, node)
-      this.appendChildNodeOfType(element, node, schema.nodes.figcaption)
+      this.appendCaption(element, node)
       this.appendChildNodeOfType(element, node, schema.nodes.alt_text)
       this.appendChildNodeOfType(element, node, schema.nodes.long_desc)
       appendTable(element, node)
