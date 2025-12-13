@@ -252,17 +252,8 @@ export class JATSExporter {
   }
   protected appendCaption = (element: HTMLElement, node: ManuscriptNode) => {
     const caption = this.createElement('caption')
-
-    const titleNode = this.getFirstChildOfType(schema.nodes.caption_title, node)
-    if (titleNode && titleNode.content.size > 0) {
-      caption.appendChild(this.serializeNode(titleNode))
-    }
-
-    const captionNode = this.getFirstChildOfType(schema.nodes.caption, node)
-    if (captionNode && captionNode.content.size > 0) {
-      caption.appendChild(this.serializeNode(captionNode))
-    }
-
+    this.appendChildNodeOfType(caption, node, schema.nodes.caption_title)
+    this.appendChildNodeOfType(caption, node, schema.nodes.caption)
     if (caption.childNodes.length > 0) {
       element.appendChild(caption)
     }

@@ -631,12 +631,12 @@ export class JATSDOMParser {
     {
       tag: 'caption > title',
       node: 'caption_title',
-      context: 'figure_element/|table_element/|embed/|supplement/|box_element/',
+      context: 'table_element/|embed/|supplement/|box_element/',
     },
     {
       tag: 'caption > p',
       node: 'caption',
-      context: 'figure_element/|table_element/|embed/|supplement/|box_element/',
+      context: 'figure_element/|embed/|supplement/|box_element/',
     },
     {
       tag: 'code',

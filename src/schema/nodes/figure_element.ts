@@ -30,7 +30,7 @@ export interface FigureElementNode extends ManuscriptNode {
 
 export const figureElement: NodeSpec = {
   content:
-    '(paragraph | figure | missing_figure | placeholder)+ attribution* caption_title caption alt_text long_desc (listing | placeholder)',
+    '(paragraph | figure | missing_figure | placeholder)+ attribution* caption alt_text long_desc (listing | placeholder)',
   attrs: {
     id: { default: '' },
     attribution: { default: undefined },

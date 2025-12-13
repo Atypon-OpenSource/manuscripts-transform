@@ -28,7 +28,7 @@ export interface TableElementNode extends ManuscriptNode {
 
 export const tableElement: NodeSpec = {
   content:
-    'caption_title? caption? (table | placeholder) table_colgroup? table_element_footer? alt_text long_desc (listing | placeholder)',
+    'caption_title? (table | placeholder) table_colgroup? table_element_footer? alt_text long_desc (listing | placeholder)',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },

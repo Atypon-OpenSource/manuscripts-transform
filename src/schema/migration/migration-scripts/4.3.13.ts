@@ -30,7 +30,11 @@ class Migration4313 implements MigrationScript {
         ...node.content.slice(0, figcaptionIndex),
         ...(figcaption.content || []),
         ...node.content.slice(figcaptionIndex + 1),
-      ]
+      ].filter(
+        (child) =>
+          !(child.type === 'caption' && node.type === 'table_element') &&
+          !(child.type === 'caption_title' && node.type === 'figure_element')
+      )
       return { ...node, content }
     }
 

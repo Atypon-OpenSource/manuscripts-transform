@@ -50,7 +50,10 @@ export const joinParagraphsInCaption = (
       paragraph.append(...p.childNodes)
       p.remove()
     })
-    if (paragraph.childNodes.length) {
+    if (
+      paragraph.childNodes.length &&
+      caption?.parentElement?.tagName !== 'table-wrap'
+    ) {
       caption.append(paragraph)
     }
   }
@@ -61,7 +64,7 @@ export const addMissingCaptions = (
   createElement: CreateElement
 ) => {
   const elements = doc.querySelectorAll(
-    'fig, table-wrap, media, supplementary-material, boxed-text'
+    'fig, media, supplementary-material, boxed-text'
   )
   for (const element of elements) {
     let caption: Element | null = element.querySelector('caption')
