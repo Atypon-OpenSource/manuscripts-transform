@@ -32,6 +32,7 @@ class Migration4313 implements MigrationScript {
         ...node.content.slice(figcaptionIndex + 1),
       ].filter(
         (child) =>
+          // will filter out caption from table_element as schema allow just caption_title, and opposite will be for figure_element
           !(child.type === 'caption' && node.type === 'table_element') &&
           !(child.type === 'caption_title' && node.type === 'figure_element')
       )

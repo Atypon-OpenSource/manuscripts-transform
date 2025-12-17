@@ -3279,6 +3279,13 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
                     "id": "MPTable:test",
                   },
                   "content": Array [
@@ -31850,7 +31857,7 @@ Object {
                   "type": "cross_reference",
                 },
                 Object {
-                  "text": ". Table_Head Table_Body* * Table_Footnote Block_Quote Source: Wikipedia Paragraph_Continued with a graphic in the middlewhere the paragraph continues.",
+                  "text": ". Kinds of tables Table_Head Table_Body* * Table_Footnote Block_Quote Source: Wikipedia Paragraph_Continued with a graphic in the middlewhere the paragraph continues.",
                   "type": "text",
                 },
               ],
@@ -33427,6 +33434,12 @@ Object {
                 "dataTracked": null,
                 "placeholder": "Caption...",
               },
+              "content": Array [
+                Object {
+                  "text": "simple image caption",
+                  "type": "text",
+                },
+              ],
               "type": "caption",
             },
             Object {
@@ -54476,6 +54489,19 @@ Object {
                 "id": "MPTableElement:test",
               },
               "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Title...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Difference between exporting vs. non-exporting firms",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption_title",
+                },
                 Object {
                   "attrs": Object {
                     "dataTracked": null,

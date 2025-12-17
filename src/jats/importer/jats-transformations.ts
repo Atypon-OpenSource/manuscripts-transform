@@ -64,7 +64,7 @@ export const addMissingCaptions = (
   createElement: CreateElement
 ) => {
   const elements = doc.querySelectorAll(
-    'fig, media, supplementary-material, boxed-text'
+    'fig, table-wrap, media, supplementary-material, boxed-text'
   )
   for (const element of elements) {
     let caption: Element | null = element.querySelector('caption')
@@ -74,10 +74,14 @@ export const addMissingCaptions = (
         ? element.appendChild(caption)
         : element.prepend(caption)
     }
-    if (!caption.querySelector('title')) {
+    if (!caption.querySelector('title') && element.nodeName !== 'fig') {
       caption.prepend(createElement('title'))
     }
-    if (!caption.querySelector('p') && element.nodeName !== 'boxed-text') {
+    if (
+      !caption.querySelector('p') &&
+      element.nodeName !== 'boxed-text' &&
+      element.nodeName !== 'table-wrap'
+    ) {
       caption.appendChild(createElement('p'))
     }
   }

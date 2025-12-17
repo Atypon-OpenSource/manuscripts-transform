@@ -629,14 +629,18 @@ export class JATSDOMParser {
       node: 'hard_break',
     },
     {
+      tag: 'caption',
+      skip: true,
+      context:
+        'image_element/|figure_element/|table_element/|embed/|supplement/|box_element/',
+    },
+    {
       tag: 'caption > title',
       node: 'caption_title',
-      context: 'table_element/|embed/|supplement/|box_element/',
     },
     {
       tag: 'caption > p',
       node: 'caption',
-      context: 'figure_element/|embed/|supplement/|box_element/',
     },
     {
       tag: 'code',
@@ -780,14 +784,6 @@ export class JATSDOMParser {
       getContent: (node) => {
         const element = node as HTMLElement
         const content = []
-
-        const captionTitle = element.querySelector('caption > title')
-        const captionTitleNode = this.schema.nodes.caption_title.create()
-        content.push(
-          captionTitle
-            ? this.parse(captionTitle, { topNode: captionTitleNode })
-            : captionTitleNode
-        )
 
         const caption = element.querySelector('caption > *:not(title)')
         const captionNode = this.schema.nodes.caption.create()

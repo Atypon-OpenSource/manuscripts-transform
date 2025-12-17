@@ -232,6 +232,11 @@
   <body>
     <graphic xlink:href="demo1.png">
       <ext-link xlink:href="WLYSP_5_4_Infographic_Nov_11_2022.pdf"/>
+      <caption>
+        <title>Title...</title>
+        <p>simple image</p>
+        <p>caption</p>
+      </caption>
   </graphic>
   <graphic
 xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/

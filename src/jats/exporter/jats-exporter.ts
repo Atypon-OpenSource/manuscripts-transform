@@ -897,6 +897,7 @@ export class JATSExporter {
       equation_element: (node) => {
         const eqElement = this.createElement('disp-formula')
         eqElement.setAttribute('id', normalizeID(node.attrs.id))
+        appendLabels(eqElement, node)
         processChildNodes(eqElement, node, schema.nodes.equation)
         return eqElement
       },
