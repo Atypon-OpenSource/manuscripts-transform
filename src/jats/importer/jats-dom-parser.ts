@@ -640,6 +640,11 @@ export class JATSDOMParser {
     },
     {
       tag: 'caption > p',
+      context: 'table_element/',
+      ignore: true,
+    },
+    {
+      tag: 'caption > p',
       node: 'caption',
     },
     {

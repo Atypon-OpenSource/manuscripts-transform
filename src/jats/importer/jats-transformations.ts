@@ -50,10 +50,7 @@ export const joinParagraphsInCaption = (
       paragraph.append(...p.childNodes)
       p.remove()
     })
-    if (
-      paragraph.childNodes.length &&
-      caption?.parentElement?.tagName !== 'table-wrap'
-    ) {
+    if (paragraph.childNodes.length) {
       caption.append(paragraph)
     }
   }

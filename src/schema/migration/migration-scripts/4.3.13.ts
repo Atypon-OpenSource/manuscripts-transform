@@ -21,10 +21,14 @@ class Migration4313 implements MigrationScript {
   toVersion = '4.3.13'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
+    if (!node.content) {
+      return node
+    }
+
     const figcaptionIndex = node.content?.findIndex(
       (child) => child.type === 'figcaption'
     )
-    if (figcaptionIndex != undefined && figcaptionIndex !== -1 && node.content) {
+    if (figcaptionIndex != undefined && figcaptionIndex !== -1) {
       const figcaption = node.content[figcaptionIndex]
       const content = [
         ...node.content.slice(0, figcaptionIndex),
@@ -37,6 +41,23 @@ class Migration4313 implements MigrationScript {
           !(child.type === 'caption_title' && node.type === 'figure_element')
       )
       return { ...node, content }
+    }
+
+    if (node.type === 'image_element') {
+      const altTextIndex = node.content.findIndex(
+        (child) => child.type === 'alt_text'
+      )
+      return {
+        ...node,
+        content: [
+          ...node.content.slice(0, altTextIndex),
+          {
+            type: 'caption',
+            attrs: { dataTracked: null, placeholder: 'Caption...' },
+          },
+          ...node.content.slice(altTextIndex),
+        ],
+      }
     }
 
     return node

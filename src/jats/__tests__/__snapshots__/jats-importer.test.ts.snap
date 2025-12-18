@@ -31857,7 +31857,7 @@ Object {
                   "type": "cross_reference",
                 },
                 Object {
-                  "text": ". Kinds of tables Table_Head Table_Body* * Table_Footnote Block_Quote Source: Wikipedia Paragraph_Continued with a graphic in the middlewhere the paragraph continues.",
+                  "text": ". Kinds of tables This is a table title continued paragraph Table_Head Table_Body* * Table_Footnote Block_Quote Source: Wikipedia Paragraph_Continued with a graphic in the middlewhere the paragraph continues.",
                   "type": "text",
                 },
               ],
