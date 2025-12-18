@@ -603,6 +603,8 @@ export class JATSDOMParser {
           addressLine3: this.getAddressLine(element, 3),
           postCode: getTrimmedTextContent(element, 'postal-code') ?? '',
           country: getTrimmedTextContent(element, 'country') ?? '',
+          county: getTrimmedTextContent(element, 'state') ?? '',
+          city: getTrimmedTextContent(element, 'city') ?? '',
           email: this.getEmail(element),
           priority: this.parsePriority(element.getAttribute('priority')),
         }
