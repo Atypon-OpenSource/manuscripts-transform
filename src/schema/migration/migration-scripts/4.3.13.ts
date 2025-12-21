@@ -15,6 +15,7 @@
  */
 import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
+import { schema } from '../../index'
 
 class Migration4313 implements MigrationScript {
   fromVersion = '4.3.12'
@@ -45,10 +46,16 @@ class Migration4313 implements MigrationScript {
       return {
         ...node,
         content: [
-          {
-            type: 'caption_title',
-            attrs: { dataTracked: null, placeholder: 'Title...' },
-          },
+          schema.nodes.caption_title.create().toJSON(),
+          ...node.content,
+        ],
+      }
+    } else if (node.type === 'supplement') {
+      return {
+        ...node,
+        content: [
+          schema.nodes.caption_title.create().toJSON(),
+          schema.nodes.caption.create().toJSON(),
           ...node.content,
         ],
       }
@@ -62,10 +69,7 @@ class Migration4313 implements MigrationScript {
         ...node,
         content: [
           ...node.content.slice(0, altTextIndex),
-          {
-            type: 'caption',
-            attrs: { dataTracked: null, placeholder: 'Caption...' },
-          },
+          schema.nodes.caption.create().toJSON(),
           ...node.content.slice(altTextIndex),
         ],
       }
