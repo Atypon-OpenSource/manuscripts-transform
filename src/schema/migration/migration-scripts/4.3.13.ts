@@ -15,67 +15,91 @@
  */
 import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
-import { schema } from '../../index'
+import { Nodes, schema } from '../../index'
+
+interface Config {
+  title?: 'required' | 'optional'
+  caption?: 'required' | 'optional'
+  location: { pos?: 'start' | 'end'; before?: Nodes }
+}
+
+const CONFIG: Record<string, Config> = {
+  figure_element: { caption: 'required', location: { before: 'alt_text' } },
+  table_element: { title: 'required', location: { pos: 'start' } },
+  image_element: { caption: 'required', location: { before: 'alt_text' } },
+  listing_element: {
+    title: 'required',
+    caption: 'required',
+    location: { pos: 'end' },
+  },
+  supplement: {
+    title: 'required',
+    caption: 'required',
+    location: { pos: 'start' },
+  },
+  embed: { title: 'required', caption: 'required', location: { pos: 'start' } },
+  box_element: {
+    title: 'optional',
+    caption: 'optional',
+    location: { pos: 'start' },
+  },
+}
 
 class Migration4313 implements MigrationScript {
   fromVersion = '4.3.12'
   toVersion = '4.3.13'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
-    if (!node.content) {
+    const config = CONFIG[node.type]
+    if (!node.content || !config) {
       return node
     }
 
-    const figcaptionIndex = node.content?.findIndex(
-      (child) => child.type === 'figcaption'
+    const figCaption = node.content.find((n) => n.type === 'figcaption')
+    const foundTitle = (figCaption?.content || []).find(
+      (n) => n.type === 'caption_title'
     )
-    if (figcaptionIndex != undefined && figcaptionIndex !== -1) {
-      const figcaption = node.content[figcaptionIndex]
-      const content = [
-        ...node.content.slice(0, figcaptionIndex),
-        ...(figcaption.content || []),
-        ...node.content.slice(figcaptionIndex + 1),
-      ].filter(
-        (child) =>
-          // will filter out caption from table_element as schema allow just caption_title, and opposite will be for figure_element
-          !(child.type === 'caption' && node.type === 'table_element') &&
-          !(child.type === 'caption_title' && node.type === 'figure_element')
-      )
-      return { ...node, content }
-    } else if (node.type === 'table_element') {
-      return {
-        ...node,
-        content: [
-          schema.nodes.caption_title.create().toJSON(),
-          ...node.content,
-        ],
-      }
-    } else if (node.type === 'supplement') {
-      return {
-        ...node,
-        content: [
-          schema.nodes.caption_title.create().toJSON(),
-          schema.nodes.caption.create().toJSON(),
-          ...node.content,
-        ],
-      }
+    const foundCaption = (figCaption?.content || []).find(
+      (n) => n.type === 'caption'
+    )
+
+    const cleanContent = node.content.filter((n) => n.type !== 'figcaption')
+
+    const placeholderTitle = schema.nodes.caption_title.create().toJSON()
+    const placeholderCaption = schema.nodes.caption.create().toJSON()
+
+    const captionGroup: JSONProsemirrorNode[] = []
+
+    if (
+      config.title === 'required' ||
+      (config.title === 'optional' && foundTitle)
+    ) {
+      captionGroup.push(foundTitle || placeholderTitle)
     }
 
-    if (node.type === 'image_element') {
-      const altTextIndex = node.content.findIndex(
-        (child) => child.type === 'alt_text'
-      )
-      return {
-        ...node,
-        content: [
-          ...node.content.slice(0, altTextIndex),
-          schema.nodes.caption.create().toJSON(),
-          ...node.content.slice(altTextIndex),
-        ],
-      }
+    if (
+      config.caption === 'required' ||
+      (config.caption === 'optional' && foundCaption)
+    ) {
+      captionGroup.push(foundCaption || placeholderCaption)
     }
 
-    return node
+    if (config.location.pos === 'start') {
+      cleanContent.unshift(...captionGroup)
+    } else if (config.location.pos === 'end') {
+      cleanContent.push(...captionGroup)
+    } else if (config.location.before) {
+      const idx = cleanContent.findIndex(
+        (n) => n.type === config.location.before
+      )
+      cleanContent.splice(
+        idx === -1 ? cleanContent.length : idx,
+        0,
+        ...captionGroup
+      )
+    }
+
+    return { ...node, content: cleanContent }
   }
 }
 
