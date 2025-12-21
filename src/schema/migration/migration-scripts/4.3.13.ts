@@ -41,6 +41,17 @@ class Migration4313 implements MigrationScript {
           !(child.type === 'caption_title' && node.type === 'figure_element')
       )
       return { ...node, content }
+    } else if (node.type === 'table_element') {
+      return {
+        ...node,
+        content: [
+          {
+            type: 'caption_title',
+            attrs: { dataTracked: null, placeholder: 'Title...' },
+          },
+          ...node.content,
+        ],
+      }
     }
 
     if (node.type === 'image_element') {
