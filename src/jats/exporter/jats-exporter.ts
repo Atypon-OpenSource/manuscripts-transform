@@ -1493,13 +1493,13 @@ export class JATSExporter {
             aff.appendChild(institution)
           }
 
-          if(affiliation.attrs.postCode) {
+          if (affiliation.attrs.postCode) {
             const postCode = this.createElement('postal-code')
             postCode.textContent = affiliation.attrs.postCode
             aff.appendChild(postCode)
           }
 
-          if(affiliation.attrs.county) {
+          if (affiliation.attrs.county) {
             const state = this.createElement('state')
             state.textContent = affiliation.attrs.county
             aff.appendChild(state)
