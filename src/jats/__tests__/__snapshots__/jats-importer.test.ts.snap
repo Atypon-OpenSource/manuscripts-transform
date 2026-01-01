@@ -32490,11 +32490,13 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "section_label",
+              "type": "section_title",
             },
             Object {
               "attrs": Object {
                 "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
               },
               "content": Array [
                 Object {
@@ -32502,7 +32504,7 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "section_title",
+              "type": "paragraph",
             },
           ],
           "type": "section",
@@ -32524,11 +32526,13 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "section_label",
+              "type": "section_title",
             },
             Object {
               "attrs": Object {
                 "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
               },
               "content": Array [
                 Object {
@@ -32536,7 +32540,7 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "section_title",
+              "type": "paragraph",
             },
           ],
           "type": "section",
@@ -32558,11 +32562,13 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "section_label",
+              "type": "section_title",
             },
             Object {
               "attrs": Object {
                 "dataTracked": null,
+                "id": "MPParagraphElement:test",
+                "placeholder": "",
               },
               "content": Array [
                 Object {
@@ -32570,7 +32576,7 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "section_title",
+              "type": "paragraph",
             },
           ],
           "type": "section",
@@ -34196,6 +34202,46 @@ Object {
                                 "dataTracked": null,
                                 "placeholder": "Title...",
                               },
+                              "type": "caption_title",
+                            },
+                          ],
+                          "type": "figcaption",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "category": "",
+                            "dataTracked": null,
+                            "id": "MPSection:test",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "section_title",
+                            },
+                          ],
+                          "type": "section",
+                        },
+                      ],
+                      "type": "box_element",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPSection:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                                "placeholder": "Title...",
+                              },
                               "content": Array [
                                 Object {
                                   "text": "BoxedTextCaptionTitle",
@@ -34332,6 +34378,42 @@ Object {
                               ],
                               "type": "list",
                             },
+                            Object {
+                              "attrs": Object {
+                                "category": "",
+                                "dataTracked": null,
+                                "id": "MPSection:test",
+                              },
+                              "content": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "text": "testing multiple sections inside a boxed-text element",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "type": "section_title",
+                                },
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                    "id": "MPParagraphElement:test",
+                                    "placeholder": "",
+                                  },
+                                  "content": Array [
+                                    Object {
+                                      "text": "Hello World!",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "type": "paragraph",
+                                },
+                              ],
+                              "type": "section",
+                            },
                           ],
                           "type": "section",
                         },
@@ -34344,6 +34426,21 @@ Object {
                         "id": "MPBoxElement:test",
                       },
                       "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                                "placeholder": "Title...",
+                              },
+                              "type": "caption_title",
+                            },
+                          ],
+                          "type": "figcaption",
+                        },
                         Object {
                           "attrs": Object {
                             "category": "",

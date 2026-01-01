@@ -41,7 +41,7 @@ export const addMissingCaptions = (
   createElement: CreateElement
 ) => {
   const elements = doc.querySelectorAll(
-    'fig, table-wrap, media, supplementary-material'
+    'fig, table-wrap, media, supplementary-material, boxed-text'
   )
   for (const element of elements) {
     let caption: Element | null = element.querySelector('caption')
@@ -54,9 +54,23 @@ export const addMissingCaptions = (
     if (!caption.querySelector('title')) {
       caption.prepend(createElement('title'))
     }
-    if (!caption.querySelector('p')) {
+    if (!caption.querySelector('p') && element.nodeName !== 'boxed-text') {
       caption.appendChild(createElement('p'))
     }
+  }
+}
+export const createBoxedElementSection = (
+  doc: Document,
+  createElement: CreateElement
+) => {
+  const boxedTexts = doc.querySelectorAll('boxed-text')
+  for (const boxedText of boxedTexts) {
+    const containerSec = createElement('sec')
+    const children = Array.from(boxedText.children).filter(
+      (child) => child.localName !== 'label' && child.localName !== 'caption'
+    )
+    containerSec.append(...children)
+    boxedText.appendChild(containerSec)
   }
 }
 
@@ -160,33 +174,6 @@ export const moveHeroImage = (doc: Document) => {
   }
 }
 
-export const createBoxedElementSection = (
-  body: Element,
-  createElement: (tagName: string) => HTMLElement
-) => {
-  const boxedTexts = body.querySelectorAll('boxed-text')
-  for (const boxedText of boxedTexts) {
-    const boxElementId = boxedText.getAttribute('id')
-    const boxElementSec = createElement('sec')
-    boxElementSec.setAttribute('sec-type', 'box-element')
-    if (boxElementId) {
-      boxElementSec.setAttribute('id', boxElementId)
-    }
-    const title = createElement('title')
-    title.textContent = 'BoxElement'
-    boxElementSec.append(title)
-    for (const element of [...boxedText.children]) {
-      if (element?.tagName === 'label' || element?.tagName === 'caption') {
-        boxElementSec.append(element)
-      }
-    }
-    const containerSection = createElement('sec')
-    containerSection.append(...boxedText.children)
-    boxElementSec.append(containerSection)
-    boxedText.replaceWith(boxElementSec)
-  }
-}
-
 export const createBody = (
   doc: Document,
   body: Element,
@@ -267,7 +254,9 @@ const moveSpecialFootnotes = (
     )
     if (category) {
       const section = createElement('sec')
-      const fnTitle = fn.querySelector('p[content-type="fn-title"]')
+      const fnTitle =
+        fn.querySelector('label') ||
+        fn.querySelector('p[content-type="fn-title"]')
       if (fnTitle) {
         const title = createElement('title')
         const titleText = fnTitle.textContent?.trim()

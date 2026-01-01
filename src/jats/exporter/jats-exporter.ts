@@ -233,6 +233,7 @@ export class JATSExporter {
     this.updateFootnoteTypes(front, back)
     this.fillEmptyTableFooters(article)
     this.fillEmptyFootnotes(article)
+    this.fillEmptyListItem(article)
     this.moveAwards(front, body)
     this.moveFloatsGroup(article)
     await this.rewriteIDs()
@@ -1447,7 +1448,7 @@ export class JATSExporter {
               role.setAttribute('vocab', 'CRediT')
               role.setAttribute('vocab-term', cr.vocabTerm)
               role.setAttribute('vocab-term-identifier', creditUrl)
-              role.innerHTML = cr.vocabTerm
+              role.textContent = cr.vocabTerm
             }
 
             contrib.appendChild(role)
@@ -2002,8 +2003,7 @@ export class JATSExporter {
     footNote.setAttribute('fn-type', fnType)
     const title = section.querySelector('title')
     if (title) {
-      const footNoteTitle = this.createElement('p')
-      footNoteTitle.setAttribute('content-type', 'fn-title')
+      const footNoteTitle = this.createElement('label')
       footNoteTitle.textContent = title.textContent
       section.removeChild(title)
       footNote.append(footNoteTitle)
@@ -2111,5 +2111,9 @@ export class JATSExporter {
 
   private fillEmptyTableFooters(articleElement: Element) {
     this.fillEmptyElements(articleElement, 'table-wrap-foot')
+  }
+
+  private fillEmptyListItem(articleElement: Element) {
+    this.fillEmptyElements(articleElement, 'list-item')
   }
 }
