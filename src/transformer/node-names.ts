@@ -48,6 +48,7 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.footnotes_section, 'Footnotes Section'],
   [schema.nodes.list, 'List'],
   [schema.nodes.list_item, 'List Item'],
+  [schema.nodes.manuscript, 'Manuscript'],
   [schema.nodes.paragraph, 'Paragraph'],
   [schema.nodes.text_block, 'Paragraph'],
   [schema.nodes.section, 'Section'],
@@ -60,3 +61,9 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.box_element, 'Box'],
   [schema.nodes.supplements, 'Supplements'],
 ])
+
+export const typeName = (type: ManuscriptNodeType) =>
+  type.name
+    .split('_')
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join('')

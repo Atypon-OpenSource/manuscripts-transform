@@ -17,17 +17,7 @@
 import { v4 as uuid } from 'uuid'
 
 import { ManuscriptNodeType } from '../schema'
+import { typeName } from './node-names'
 
-export const generateNodeID = (type?: ManuscriptNodeType) => {
-  const uniqueID = ':' + uuid().toUpperCase()
-  if (type) {
-    const name =
-      'MP' +
-      type.name
-        .split('_')
-        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-        .join('')
-    return name + uniqueID
-  }
-  return uniqueID
-}
+export const generateNodeID = (type: ManuscriptNodeType) =>
+  `MP${typeName(type)}:${uuid()}`

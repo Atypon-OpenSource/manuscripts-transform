@@ -57,6 +57,9 @@ importers:
       '@manuscripts/eslint-config':
         specifier: 0.5.1
         version: 0.5.1(@typescript-eslint/eslint-plugin@8.46.4(@typescript-eslint/parser@8.46.4(eslint@9.39.1)(typescript@5.9.2))(eslint@9.39.1)(typescript@5.9.2))(eslint-plugin-header@3.1.1(eslint@9.39.1))(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.46.4(eslint@9.39.1)(typescript@5.9.2))(eslint@9.39.1))(eslint-plugin-jest@29.1.0(@typescript-eslint/eslint-plugin@8.46.4(@typescript-eslint/parser@8.46.4(eslint@9.39.1)(typescript@5.9.2))(eslint@9.39.1)(typescript@5.9.2))(eslint@9.39.1)(jest@30.0.5(@types/node@20.17.46))(typescript@5.9.2))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.1))(eslint-plugin-mdx@3.6.2(eslint@9.39.1))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint@9.39.1)(prettier@3.6.2))(eslint-plugin-promise@7.2.1(eslint@9.39.1))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.1))(eslint-plugin-react@7.37.5(eslint@9.39.1))(eslint-plugin-simple-import-sort@12.1.1(eslint@9.39.1))(eslint@9.39.1)(typescript@5.9.2)
+      '@types/csl':
+        specifier: npm:csl-json@0.1.0
+        version: csl-json@0.1.0
       '@types/jest':
         specifier: 30.0.0
         version: 30.0.0
@@ -1722,6 +1725,9 @@ packages:
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
+
+  csl-json@0.1.0:
+    resolution: {integrity: sha512-KMvcQ07H0kMpzl2aO1mgyp+F+LVk+z+QMpN01noMUv0Uu4mqg4KyJjeM2u2716qU9ZgPq1Kr30DXqhT4RuEg1w==}
 
   cssstyle@4.6.0:
     resolution: {integrity: sha512-2z+rWdzbbSZv6/rhtvzvqeZQHrBaqgogqt85sqFNbabZOuFbCVFb8kPeEtZjiKkbrm395irpNKiYeFeLiQnFPg==}
@@ -6333,6 +6339,8 @@ snapshots:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+
+  csl-json@0.1.0: {}
 
   cssstyle@4.6.0:
     dependencies:
