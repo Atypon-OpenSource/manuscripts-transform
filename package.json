@@ -29,7 +29,6 @@
     "version": "pnpm build"
   },
   "dependencies": {
-    "@manuscripts/json-schema": "2.2.12",
     "citeproc": "2.4.63",
     "jszip": "3.10.1",
     "lodash": "4.17.21",
@@ -76,7 +75,6 @@
     "jest": "30.0.5",
     "jest-environment-jsdom": "30.0.5",
     "libxmljs2": "0.35.0",
-    "migration-base": "npm:@manuscripts/transform@2.3.20",
     "npm-run-all": "4.1.5",
     "prettier": "3.6.2",
     "prosemirror-state": "1.4.3",
