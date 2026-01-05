@@ -130,21 +130,14 @@ const updateContributorNodesIDS = (
   warnings: string[]
 ) => {
   if (isContributorNode(node)) {
-    const footnoteIDs = node.attrs.footnoteIDs
-      ?.map((i) => replacements.get(i))
-      .filter((id): id is string => !!id)
-    const correspIDs = node.attrs.correspIDs
-      ?.map((i) => replacements.get(i))
-      .filter((id): id is string => !!id)
-    const affiliationIDs = node.attrs.affiliationIDs
-      ?.map((i) => replacements.get(i))
-      .filter((id): id is string => !!id)
+    const replaceAll = (ids: string[]) =>
+      ids?.map((i) => replacements.get(i)).filter((id): id is string => !!id)
     // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
     node.attrs = {
       ...node.attrs,
-      footnoteIDs,
-      correspIDs,
-      affiliationIDs,
+      footnoteIDs: replaceAll(node.attrs.footnoteIDs),
+      correspIDs: replaceAll(node.attrs.correspIDs),
+      affiliationIDs: replaceAll(node.attrs.affiliationIDs),
     }
   }
 
