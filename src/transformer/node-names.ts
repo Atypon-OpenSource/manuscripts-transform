@@ -61,3 +61,9 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.box_element, 'Box'],
   [schema.nodes.supplements, 'Supplements'],
 ])
+
+export const typeName = (type: ManuscriptNodeType) =>
+  type.name
+    .split('_')
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join('')

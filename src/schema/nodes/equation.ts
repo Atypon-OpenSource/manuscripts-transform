@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
@@ -39,7 +38,7 @@ export const equation: NodeSpec = {
   group: 'block',
   parseDOM: [
     {
-      tag: `div.${ObjectTypes.Equation}`,
+      tag: `div.MPEquation`,
       getAttrs: (p) => {
         const htmlEl = p as HTMLElement
         return {
@@ -55,7 +54,6 @@ export const equation: NodeSpec = {
     const { id, contents, format } = equationNode.attrs
 
     const dom = document.createElement('div')
-    dom.classList.add(ObjectTypes.Equation)
     dom.setAttribute('id', id)
     if (format) {
       dom.setAttribute('data-equation-format', format)

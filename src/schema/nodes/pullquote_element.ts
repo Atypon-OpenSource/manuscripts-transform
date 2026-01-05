@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
@@ -67,8 +66,6 @@ export const pullquoteElement: NodeSpec = {
     }
 
     attrs.class = 'pullquote'
-
-    attrs['data-object-type'] = ObjectTypes.QuoteElement
 
     if (pullquoteElementNode.attrs.placeholder) {
       attrs['data-placeholder-text'] = pullquoteElementNode.attrs.placeholder
