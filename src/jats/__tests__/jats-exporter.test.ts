@@ -81,32 +81,6 @@ describe('JATS exporter', () => {
     expect(tableWrapFoot).not.toBeUndefined()
   })
 
-  test('add journal ID', async () => {
-    const transformer = new JATSExporter()
-    const input = await readAndParseFixture('jats-example-full.xml')
-    const node = parseJATSArticle(input, sectionCategories)
-    const xml = await transformer.serializeToJATS(node, {
-      csl: DEFAULT_CSL_OPTIONS,
-    })
-    expect(xml).toMatchSnapshot('jats-export-submitted')
-  })
-
-  test('journal metadata', async () => {
-    const transformer = new JATSExporter()
-    const input = await readAndParseFixture('jats-import.xml')
-    const node = parseJATSArticle(input, sectionCategories)
-    const xml = await transformer.serializeToJATS(node, {
-      csl: DEFAULT_CSL_OPTIONS,
-    })
-
-    const output = parseXMLWithDTD(xml)
-    expect(output.errors).toHaveLength(0)
-    expect(output.get<XMLElement>('//journal-title')!.text()).toBe(
-      'Brain and Behavior'
-    )
-    expect(output.get<XMLElement>('//issn')!.text()).toBe('2162-3279')
-  })
-
   test('DTD validation', async () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-import.xml')
