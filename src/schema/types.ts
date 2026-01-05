@@ -35,8 +35,6 @@ import {
 } from 'prosemirror-state'
 import { EditorView, NodeView } from 'prosemirror-view'
 
-import { BibliographicName } from './nodes/contributor'
-
 export type Marks =
   | 'bold'
   | 'code'
@@ -189,97 +187,27 @@ export type ManuscriptTemplate = {
 
 export interface UserProfile {
   _id: string
-  objectType: 'MPUserProfile'
   userID: string
-  bibliographicName: BibliographicName
-  role?: string
-  isMe?: boolean
-  isJointContributor?: boolean
-  isCorresponding?: boolean
-  contribution?: string
-  placeholderString?: string
-  appInvitationDate?: number
-  addressBookIDs?: string[]
-  email?: string
+  given?: string
+  family?: string
 }
 
 export interface Project {
   _id: string
-  objectType: 'MPProject'
-  title?: string
-  templateContainer?: boolean
   owners: string[]
   writers: string[]
   editors?: string[]
   annotators?: string[]
   proofers?: string[]
   viewers: string[]
-  assignees?: string[]
-  deadline?: number
-  priority?: number
-  status?: string
   updatedAt: number
-}
-
-export interface Journal {
-  _id: string
-  objectType: 'MPJournal'
-  title?: string
-  publisherName?: string
-  submittable?: boolean
-  ISSNs?: Array<{
-    ISSN: string
-    publicationType?: string
-  }>
-  abbreviatedTitles?: Array<{
-    abbreviatedTitle: string
-    abbrevType?: string
-  }>
-  journalIdentifiers?: Array<{
-    journalID: string
-    journalIDType?: string
-  }>
-  owners?: string[]
-  writers?: string[]
-  editors?: string[]
-  annotators?: string[]
-  proofers?: string[]
-  viewers?: string[]
 }
 
 export interface Bundle {
   _id: string
-  objectType: 'MPBundle'
-  containerID: string
-  csl?: {
-    'author-name'?: string
-    'author-email'?: string
-    'author-uri'?: string
-    'template-URL'?: string
-    summary?: string
-    version?: string
-    defaultLocale?: string
-    title?: string
-    cslIdentifier?: string
-    'self-URL'?: string
-    'independent-parent-URL'?: string
-    'documentation-URL'?: string
-    fields?: string[]
-    ISSNs?: string[]
-    eISSNs?: string[]
-    updatedAt?: number
+  csl: {
     _id?: string
   }
-}
-
-export interface Manuscript {
-  _id: string
-  objectType: 'MPManuscript'
-  containerID: string
-  DOI?: string
-  articleType: string
-  prototype: string
-  primaryLanguageCode: string
 }
 
 export type MarkRule = ParseRule & { mark: Marks | null }

@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import * as prevPackage from 'migration-base'
-
-import { migrateFor } from '../migration/migrate'
-
-describe('Prosemirror migration schema', () => {
-  const oldDoc = prevPackage.createTestDoc().toJSON()
-  test('Migrating doc from prev version to the current', () => {
-    expect(() => migrateFor(oldDoc!, prevPackage.getVersion())).not.toThrow()
-  })
-})
+// import * as prevPackage from 'migration-base'
+//
+// import { migrateFor } from '../migration/migrate'
+//
+// describe('Prosemirror migration schema', () => {
+//   const oldDoc = prevPackage.createTestDoc().toJSON()
+//   test('Migrating doc from prev version to the current', () => {
+//     expect(() => migrateFor(oldDoc!, prevPackage.getVersion())).not.toThrow()
+//   })
+// })

@@ -18,49 +18,30 @@ import { NodeSpec } from 'prosemirror-model'
 import { CreditVocabTerm } from '../../lib/credit-roles'
 import { ManuscriptNode } from '../types'
 
-export interface BibliographicName {
-  _id: string
-  family?: string
-  given?: string
-  'dropping-particle'?: string
-  'non-dropping-particle'?: string
-  suffix?: string
-  literal?: string
-}
-
-export type ContributorCorresp = {
-  correspID: string
-  correspLabel: string
-}
-export type ContributorFootnote = {
-  noteID: string
-  noteLabel: string
-}
-
 export type CreditRole = {
   vocabTerm: CreditVocabTerm
 }
 
-interface Attrs {
+export interface ContributorAttrs {
   id: string
   role: string
-  corresp: ContributorCorresp[]
-  affiliations: string[]
-  bibliographicName: BibliographicName
-  userID: string
-  email: string
-  invitationID: string
+  correspIDs: string[]
+  affiliationIDs: string[]
+  footnoteIDs: string[]
+  given?: string
+  family?: string
+  prefix?: string
+  suffix?: string
+  email?: string
+  ORCID?: string
   isCorresponding: boolean
-  ORCIDIdentifier: string
   priority: number
   isJointContributor: boolean
-  footnote: ContributorFootnote[]
-  prefix: string
   creditRoles?: CreditRole[]
 }
 
 export interface ContributorNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: ContributorAttrs
 }
 
 export const contributor: NodeSpec = {
@@ -69,21 +50,21 @@ export const contributor: NodeSpec = {
   attrs: {
     id: { default: '' },
     role: { default: '' },
-    email: { default: '' },
-    affiliations: { default: [] },
-    footnote: { default: undefined },
-    corresp: { default: undefined },
-    bibliographicName: { default: {} },
-    userID: { default: undefined },
-    invitationID: { default: undefined },
-    isCorresponding: { default: undefined },
-    isJointContributor: { default: undefined },
-    ORCIDIdentifier: { default: undefined },
+    correspIDs: { default: [] },
+    affiliationIDs: { default: [] },
+    footnoteIDs: { default: [] },
+    given: { default: undefined },
+    family: { default: undefined },
+    prefix: { default: undefined },
+    suffix: { default: undefined },
+    email: { default: undefined },
+    ORCID: { default: undefined },
+    isCorresponding: { default: false },
+    isJointContributor: { default: false },
     priority: { default: undefined },
     creditRoles: { default: [] },
     dataTracked: { default: null },
     contents: { default: '' },
-    prefix: { default: '' },
   },
   group: 'block',
   toDOM: (node) => {

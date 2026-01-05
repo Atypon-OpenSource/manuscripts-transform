@@ -28,23 +28,6 @@ export interface CitationNode extends ManuscriptNode {
   attrs: CitationAttrs
 }
 
-// Library-compatible Citation type with embedded citation items
-export interface Citation {
-  _id: string
-  objectType: string
-  createdAt: number
-  updatedAt: number
-  containerID: string
-  manuscriptID: string
-  embeddedCitationItems: CitationItem[]
-}
-
-export interface CitationItem {
-  _id: string
-  objectType: string
-  bibliographyItem: string
-}
-
 export const citation: NodeSpec = {
   inline: true,
   group: 'inline',

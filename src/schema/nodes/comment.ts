@@ -24,12 +24,8 @@ export interface CommentAttrs {
   target: string
   selector: { from: number; to: number }
   resolved?: boolean
-  contributions?: {
-    _id: string
-    objectType: 'MPContribution'
-    profileID: string
-    timestamp: number
-  }[]
+  userID: string
+  timestamp: number
   originalText?: string
 }
 
@@ -44,7 +40,8 @@ export const comment: NodeSpec = {
     target: { default: '' },
     selector: { default: undefined },
     resolved: { default: false },
-    contributions: { default: [] },
+    userID: { default: '' },
+    timestamp: { default: 0 },
     originalText: { default: '' },
   },
 }
