@@ -288,13 +288,13 @@ Array [
 ]
 `;
 
-exports[`JATS importer contributors node should correctly parse contributor nodes 1`] = `
+exports[`JATS importer contributors node should have contributors node with content if contributors element exists 1`] = `
 Array [
   Object {
     "attrs": Object {
       "ORCID": "https://orcid.org/0000-0003-2217-5904",
       "affiliationIDs": Array [
-        "MPAffiliation:50306251-0455-401e-bf71-3e062f055501",
+        "MPAffiliation:test",
       ],
       "contents": "",
       "correspIDs": Array [],
@@ -308,7 +308,7 @@ Array [
       "family": "Hornnes",
       "footnoteIDs": Array [],
       "given": "Agnete Hviid",
-      "id": "MPContributor:c5027e1a-5c57-46d0-8493-a441228e9446",
+      "id": "MPContributor:test",
       "isCorresponding": true,
       "isJointContributor": false,
       "prefix": "Mr",
@@ -328,7 +328,7 @@ Array [
     "attrs": Object {
       "ORCID": undefined,
       "affiliationIDs": Array [
-        "MPAffiliation:50306251-0455-401e-bf71-3e062f055501",
+        "MPAffiliation:test",
       ],
       "contents": "",
       "correspIDs": Array [],
@@ -337,10 +337,10 @@ Array [
       "email": "",
       "family": "Poulsen",
       "footnoteIDs": Array [
-        "MPFootnote:d484822d-4ff7-42b4-9130-a646ceabe1b6",
+        "MPFootnote:test",
       ],
       "given": "Mai Bang",
-      "id": "MPContributor:f2deebaa-209d-4bf6-8742-ad3edd3dc230",
+      "id": "MPContributor:test",
       "isCorresponding": false,
       "isJointContributor": false,
       "prefix": undefined,

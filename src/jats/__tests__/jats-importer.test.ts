@@ -52,32 +52,15 @@ describe('JATS importer', () => {
     it('should have contributors node with content if contributors element exists', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
       const node = parseJATSArticle(jats, sectionCategories)
-      const contributorsNode = findNodeByType(node, schema.nodes.contributors)
-      expect(node).toBeDefined()
-      expect(contributorsNode).toBeDefined()
-      expect(
-        findNodesByType(contributorsNode, schema.nodes.contributor)
-      ).toHaveLength(2)
-    })
-    it('should correctly parse contributor nodes', async () => {
-      const jats = await readAndParseFixture('jats-import.xml')
-      const contributorsEl = jats.querySelector('article-meta > contrib-group')
-      if (!contributorsEl) {
-        throw new Error('Contributors element not found')
-      }
-      const contributors = contributorsEl.querySelectorAll(
-        'contrib[contrib-type="author"]'
-      )
-      const node = parseJATSArticle(jats, sectionCategories)
+      changeIDs(node)
       const contributorNodes = findNodesByType(node, schema.nodes.contributor)
-      expect(contributorNodes).toHaveLength(contributors.length)
-
+      expect(contributorNodes).toHaveLength(2)
       expect(contributorNodes).toMatchSnapshot()
     })
     it('should not have contributors node if contributors element does not exist', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
-      const contributorsEl = jats.querySelector('article-meta > contrib-group')
-      contributorsEl?.remove()
+      const $contribGroup = jats.querySelector('article-meta > contrib-group')!
+      $contribGroup.remove()
       const node = parseJATSArticle(jats, sectionCategories)
       const contributorsNode = findNodesByType(node, schema.nodes.contributors)
       const contributorNodes = findNodesByType(node, schema.nodes.contributor)
