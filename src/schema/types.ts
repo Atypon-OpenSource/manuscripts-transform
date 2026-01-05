@@ -206,7 +206,7 @@ export interface Project {
 export interface Bundle {
   _id: string
   csl: {
-    _id?: string
+    _id: string
   }
 }
 
