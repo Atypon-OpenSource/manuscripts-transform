@@ -31,6 +31,7 @@ import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML } from '../../lib/html'
 import { XLINK_NAMESPACE, XML_NAMESPACE } from '../../lib/xml'
 import {
+  AffiliationNode,
   AuthorNotesNode,
   AwardNode,
   CitationNode,
@@ -1351,7 +1352,7 @@ export class JATSExporter {
   }
 
   private buildContributors = (articleMeta: Node) => {
-    const contributorNodes = this.getChildrenOfType<ContributorNode>(
+    const contributors = this.getChildrenOfType<ContributorNode>(
       schema.nodes.contributor
     ).sort(sortContributors)
 
@@ -1371,11 +1372,11 @@ export class JATSExporter {
       sup.textContent = String(content)
       return sup
     }
-    if (contributorNodes.length) {
+    if (contributors.length) {
       const contribGroup = this.createElement('contrib-group')
       contribGroup.setAttribute('content-type', 'authors')
       articleMeta.appendChild(contribGroup)
-      contributorNodes.forEach((contributor) => {
+      contributors.forEach((contributor) => {
         try {
           this.validateContributor(contributor)
         } catch (error) {
@@ -1459,100 +1460,79 @@ export class JATSExporter {
 
       const affiliationRIDs: string[] = []
 
-      for (const contributor of contributorNodes) {
+      for (const contributor of contributors) {
         if (contributor.attrs.affiliations) {
           affiliationRIDs.push(...contributor.attrs.affiliations)
         }
       }
 
-      const affiliations = this.getChildrenOfType(schema.nodes.affiliation)
+      const affiliationIDs = contributors.flatMap((n) => n.attrs.affiliations)
+      const sortAffiliations = (a: AffiliationNode, b: AffiliationNode) =>
+        affiliationIDs.indexOf(a.attrs.id) - affiliationIDs.indexOf(b.attrs.id)
 
-      if (affiliations.length) {
-        const usedAffiliations = affiliations.filter((affiliation) =>
-          affiliationRIDs.includes(affiliation.attrs.id)
-        )
-        usedAffiliations.sort(
-          (a, b) =>
-            affiliationRIDs.indexOf(a.attrs.id) -
-            affiliationRIDs.indexOf(b.attrs.id)
-        )
-        usedAffiliations.forEach((affiliation) => {
-          const aff = this.createElement('aff')
-          aff.setAttribute('id', normalizeID(affiliation.attrs.id))
-          contribGroup.appendChild(aff)
-          if (affiliation.attrs.department) {
-            const department = this.createElement('institution')
-            department.setAttribute('content-type', 'dept')
-            department.textContent = affiliation.attrs.department
-            aff.appendChild(department)
+      this.getChildrenOfType<AffiliationNode>(schema.nodes.affiliation)
+        .filter((a) => affiliationIDs.includes(a.attrs.id))
+        .sort(sortAffiliations)
+        .forEach((affiliation) => {
+          const $aff = this.createElement('aff', '', {
+            id: normalizeID(affiliation.attrs.id),
+          })
+
+          const label = affiliationLabels.get(affiliation.attrs.id)
+          if (label) {
+            this.appendElement($aff, 'label', String(label))
           }
 
-          if (affiliation.attrs.institution) {
-            const institution = this.createElement('institution')
-            institution.textContent = affiliation.attrs.institution
-            aff.appendChild(institution)
-          }
+          const locationConfig = [
+            {
+              value: affiliation.attrs.department,
+              tag: 'institution',
+              'content-type': 'dept',
+            },
+            { value: affiliation.attrs.institution, tag: 'institution' },
+            { value: affiliation.attrs.addressLine1, tag: 'addr-line' },
+            { value: affiliation.attrs.addressLine2, tag: 'addr-line' },
+            { value: affiliation.attrs.addressLine3, tag: 'addr-line' },
+            { value: affiliation.attrs.city, tag: 'city' },
+            { value: affiliation.attrs.county, tag: 'state' },
+            { value: affiliation.attrs.country, tag: 'country' },
+            { value: affiliation.attrs.postCode, tag: 'postal-code' },
+          ].filter((obj) => obj.value)
 
-          if (affiliation.attrs.postCode) {
-            const postCode = this.createElement('postal-code')
-            postCode.textContent = affiliation.attrs.postCode
-            aff.appendChild(postCode)
-          }
+          let shouldAddPunctuation = false
 
-          if (affiliation.attrs.county) {
-            const state = this.createElement('state')
-            state.textContent = affiliation.attrs.county
-            aff.appendChild(state)
-          }
-
-          if (affiliation.attrs.addressLine1) {
-            const addressLine = this.createElement('addr-line')
-            addressLine.textContent = affiliation.attrs.addressLine1
-            aff.appendChild(addressLine)
-          }
-
-          if (affiliation.attrs.addressLine2) {
-            const addressLine = this.createElement('addr-line')
-            addressLine.textContent = affiliation.attrs.addressLine2
-            aff.appendChild(addressLine)
-          }
-
-          if (affiliation.attrs.addressLine3) {
-            const addressLine = this.createElement('addr-line')
-            addressLine.textContent = affiliation.attrs.addressLine3
-            aff.appendChild(addressLine)
-          }
-
-          if (affiliation.attrs.city) {
-            const city = this.createElement('city')
-            city.textContent = affiliation.attrs.city
-            aff.appendChild(city)
-          }
-
-          if (affiliation.attrs.country) {
-            const country = this.createElement('country')
-            country.textContent = affiliation.attrs.country
-            aff.appendChild(country)
-          }
+          locationConfig.forEach((location) => {
+            if (shouldAddPunctuation) {
+              const punctuation = this.document.createTextNode(', ')
+              $aff.appendChild(punctuation)
+            }
+            this.appendElement(
+              $aff,
+              location.tag,
+              location.value!,
+              location['content-type']
+                ? { 'content-type': location['content-type'] }
+                : undefined
+            )
+            shouldAddPunctuation = true
+          })
 
           if (affiliation.attrs.email) {
-            const email = this.createElement('email')
+            const email = this.appendElement(
+              $aff,
+              'email',
+              affiliation.attrs.email.text
+            )
             email.setAttributeNS(
               XLINK_NAMESPACE,
               'href',
               affiliation.attrs.email.href ?? ''
             )
-            email.textContent = affiliation.attrs.email.text ?? ''
-            aff.appendChild(email)
           }
-          const labelNumber = affiliationLabels.get(affiliation.attrs.id)
-          if (labelNumber) {
-            const label = this.createElement('label')
-            label.textContent = String(labelNumber)
-            aff.appendChild(label)
-          }
+
+          contribGroup.appendChild($aff)
         })
-      }
+
       const authorNotesEl = this.createAuthorNotesElement()
       if (authorNotesEl.childNodes.length > 0) {
         articleMeta.insertBefore(authorNotesEl, contribGroup.nextSibling)
