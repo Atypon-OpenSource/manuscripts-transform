@@ -54,3 +54,7 @@ export const supplements: NodeSpec = {
     ]
   },
 }
+
+export const isSupplementsNode = (
+  node: ManuscriptNode
+): node is SupplementsNode => node.type === node.type.schema.nodes.supplements
