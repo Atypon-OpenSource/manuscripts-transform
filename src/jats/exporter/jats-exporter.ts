@@ -682,14 +682,18 @@ export class JATSExporter {
   private createElement = (
     tag: string,
     content?: string,
-    attrs?: Record<string, string>
+    attrs?: Record<string, string | undefined>
   ) => {
     const el = this.document.createElement(tag)
     if (content) {
       el.textContent = content
     }
     if (attrs) {
-      Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v))
+      Object.entries(attrs).forEach(([k, v]) => {
+        if (v) {
+          el.setAttribute(k, v)
+        }
+      })
     }
     return el
   }
@@ -698,7 +702,7 @@ export class JATSExporter {
     parent: HTMLElement,
     tag: string,
     content?: string,
-    attrs?: Record<string, string>
+    attrs?: Record<string, string | undefined>
   ) => {
     const el = this.createElement(tag, content, attrs)
     parent.appendChild(el)
@@ -1356,11 +1360,11 @@ export class JATSExporter {
       schema.nodes.contributor
     ).sort(sortContributors)
 
-    const affiliationLabels = new Map<string, number>()
+    const affiliationLabels = new Map<string, string>()
     const creatAffiliationLabel = (rid: string) => {
       let label = affiliationLabels.get(rid)
       if (!label) {
-        label = affiliationLabels.size + 1
+        label = String(affiliationLabels.size + 1)
         affiliationLabels.set(rid, label)
       }
       const sup = this.createElement('sup')
@@ -1477,13 +1481,11 @@ export class JATSExporter {
           const $aff = this.createElement('aff', '', {
             id: normalizeID(affiliation.attrs.id),
           })
-
-          const label = affiliationLabels.get(affiliation.attrs.id)
-          if (label) {
-            this.appendElement($aff, 'label', String(label))
-          }
-
-          const locationConfig = [
+          const affiliationParts = [
+            {
+              value: affiliationLabels.get(affiliation.attrs.id),
+              tag: 'label',
+            },
             {
               value: affiliation.attrs.department,
               tag: 'institution',
@@ -1499,22 +1501,13 @@ export class JATSExporter {
             { value: affiliation.attrs.postCode, tag: 'postal-code' },
           ].filter((obj) => obj.value)
 
-          let shouldAddPunctuation = false
-
-          locationConfig.forEach((location) => {
-            if (shouldAddPunctuation) {
+          affiliationParts.forEach((location, index) => {
+            if (index) {
               const punctuation = this.document.createTextNode(', ')
               $aff.appendChild(punctuation)
             }
-            this.appendElement(
-              $aff,
-              location.tag,
-              location.value!,
-              location['content-type']
-                ? { 'content-type': location['content-type'] }
-                : undefined
-            )
-            shouldAddPunctuation = true
+            const { tag, value, ...rest } = location
+            this.appendElement($aff, tag, value, rest)
           })
 
           if (affiliation.attrs.email) {

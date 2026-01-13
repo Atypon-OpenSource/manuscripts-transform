@@ -444,7 +444,7 @@ exports[`JATS importer parses JATS AuthorQueries example to Manuscripts document
 Object {
   "attrs": Object {
     "acceptanceDate": 1596412800,
-    "articleType": "other",
+    "articleType": "research-article",
     "correctionDate": undefined,
     "doi": "",
     "id": "MPManuscript:test",
@@ -4282,7 +4282,7 @@ exports[`JATS importer parses JATS article with tables and table footnotes 1`] =
 Object {
   "attrs": Object {
     "acceptanceDate": 1596326400,
-    "articleType": "other",
+    "articleType": "research-article",
     "correctionDate": undefined,
     "doi": "",
     "id": "MPManuscript:test",
@@ -32853,7 +32853,7 @@ exports[`JATS importer parses JATS to Manuscripts document 1`] = `
 Object {
   "attrs": Object {
     "acceptanceDate": 1587945600,
-    "articleType": "other",
+    "articleType": "research-article",
     "correctionDate": undefined,
     "doi": "10.5555/BRB3-2019-12-0787",
     "id": "MPManuscript:test",
