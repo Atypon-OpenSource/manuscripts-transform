@@ -1509,20 +1509,20 @@ export class JATSExporter {
             const { tag, value, ...rest } = location
             this.appendElement($aff, tag, value, rest)
           })
-
-          if (affiliation.attrs.email) {
+          const { href, text } = affiliation.attrs.email ?? {}
+          if (href) {
             const email = this.appendElement(
               $aff,
               'email',
-              affiliation.attrs.email.text
+              text ?? href
             )
             email.setAttributeNS(
               XLINK_NAMESPACE,
               'href',
-              affiliation.attrs.email.href ?? ''
+              href
             )
           }
-
+          
           contribGroup.appendChild($aff)
         })
 
