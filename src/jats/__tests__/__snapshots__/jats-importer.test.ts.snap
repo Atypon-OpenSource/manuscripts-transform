@@ -8,7 +8,7 @@ Array [
       "addressLine2": "2730
             Herlev",
       "addressLine3": "",
-      "city": "",
+      "city": "Herlev",
       "country": "Denmark",
       "county": "",
       "dataTracked": null,
@@ -444,7 +444,7 @@ exports[`JATS importer parses JATS AuthorQueries example to Manuscripts document
 Object {
   "attrs": Object {
     "acceptanceDate": 1596412800,
-    "articleType": "other",
+    "articleType": "research-article",
     "correctionDate": undefined,
     "doi": "",
     "id": "MPManuscript:test",
@@ -629,9 +629,9 @@ Object {
             "addressLine1": "Suzhou, Jiangsu",
             "addressLine2": "",
             "addressLine3": "",
-            "city": "",
+            "city": "Suzhou",
             "country": "China",
-            "county": "",
+            "county": "Jiangsu",
             "dataTracked": null,
             "department": "Research Center of Biological Psychiatry",
             "email": undefined,
@@ -653,7 +653,7 @@ Object {
             "addressLine1": "Mental Health Center of Yanqing District",
             "addressLine2": "Beijing",
             "addressLine3": "",
-            "city": "",
+            "city": "Beijing",
             "country": "China",
             "county": "",
             "dataTracked": null,
@@ -677,9 +677,9 @@ Object {
             "addressLine1": "Xinghua, Jiangsu",
             "addressLine2": "",
             "addressLine3": "",
-            "city": "",
+            "city": "Xinghua",
             "country": "China",
-            "county": "",
+            "county": "Jiangsu",
             "dataTracked": null,
             "department": "",
             "email": undefined,
@@ -4282,7 +4282,7 @@ exports[`JATS importer parses JATS article with tables and table footnotes 1`] =
 Object {
   "attrs": Object {
     "acceptanceDate": 1596326400,
-    "articleType": "other",
+    "articleType": "research-article",
     "correctionDate": undefined,
     "doi": "",
     "id": "MPManuscript:test",
@@ -22358,7 +22358,7 @@ Object {
             "addressLine2": "2730
             Herlev",
             "addressLine3": "",
-            "city": "",
+            "city": "Herlev",
             "country": "Denmark",
             "county": "",
             "dataTracked": null,
@@ -31101,9 +31101,9 @@ Object {
             "addressLine1": "Houston, TX",
             "addressLine2": "",
             "addressLine3": "",
-            "city": "",
+            "city": "Houston",
             "country": "USA",
-            "county": "",
+            "county": "TX",
             "dataTracked": null,
             "department": "",
             "email": undefined,
@@ -32853,7 +32853,7 @@ exports[`JATS importer parses JATS to Manuscripts document 1`] = `
 Object {
   "attrs": Object {
     "acceptanceDate": 1587945600,
-    "articleType": "other",
+    "articleType": "research-article",
     "correctionDate": undefined,
     "doi": "10.5555/BRB3-2019-12-0787",
     "id": "MPManuscript:test",
@@ -33011,7 +33011,7 @@ Object {
             "addressLine2": "2730
             Herlev",
             "addressLine3": "",
-            "city": "",
+            "city": "Herlev",
             "country": "Denmark",
             "county": "",
             "dataTracked": null,
