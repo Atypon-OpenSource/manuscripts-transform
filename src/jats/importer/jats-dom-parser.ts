@@ -635,13 +635,18 @@ export class JATSDOMParser {
         'image_element/|figure_element/|table_element/|embed/|supplement/|box_element/',
     },
     {
-      tag: 'caption > title',
-      node: 'caption_title',
-    },
-    {
       tag: 'caption > p',
       context: 'table_element/',
       ignore: true,
+    },
+    {
+      tag: 'caption > title',
+      context: 'image_element/|figure_element/',
+      ignore: true,
+    },
+    {
+      tag: 'caption > title',
+      node: 'caption_title',
     },
     {
       tag: 'caption > p',
