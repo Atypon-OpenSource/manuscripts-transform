@@ -1481,11 +1481,11 @@ export class JATSExporter {
           const $aff = this.createElement('aff', '', {
             id: normalizeID(affiliation.attrs.id),
           })
+          const label = affiliationLabels.get(affiliation.attrs.id)
+          if (label) {
+            this.appendElement($aff, 'label', String(label))
+          }
           const affiliationParts = [
-            {
-              value: affiliationLabels.get(affiliation.attrs.id),
-              tag: 'label',
-            },
             {
               value: affiliation.attrs.department,
               tag: 'institution',
