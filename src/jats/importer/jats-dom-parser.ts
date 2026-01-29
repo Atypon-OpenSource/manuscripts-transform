@@ -72,10 +72,13 @@ export class JATSDOMParser {
 
   private chooseSectionCategory(section: HTMLElement) {
     const secType = section.getAttribute('sec-type')
+    const abstractType = section.getAttribute('abstract-type')
+    const effectiveSecType =
+      secType || (abstractType ? `abstract-${abstractType}` : null)
     const titleNode = section.firstElementChild
 
     for (const category of this.sectionCategories) {
-      if (this.isMatchingCategory(secType, titleNode, category)) {
+      if (this.isMatchingCategory(effectiveSecType, titleNode, category)) {
         return category.id
       }
     }

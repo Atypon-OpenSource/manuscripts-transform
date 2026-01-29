@@ -55,4 +55,4 @@ export const transAbstract: NodeSpec = {
 
 export const isTransAbstractNode = (
   node: ManuscriptNode
-): node is TransAbstractNode => node.type === schema.nodes.transAbstract
+): node is TransAbstractNode => node.type === schema.nodes.trans_abstract
