@@ -723,6 +723,18 @@ export class JATSExporter {
         }
         return ['trans-abstract', attrs, 0]
       },
+      trans_graphical_abstract: (node) => {
+        const attrs: { [key: string]: string } = {
+          id: normalizeID(node.attrs.id),
+        }
+        if (node.attrs.lang) {
+          attrs[`${XML_NAMESPACE} lang`] = node.attrs.lang
+        }
+        if (node.attrs.category) {
+          attrs['sec-type'] = node.attrs.category
+        }
+        return ['trans-abstract', attrs, 0]
+      },
       hero_image: () => '',
       alt_text: (node) => {
         if (node.textContent) {
