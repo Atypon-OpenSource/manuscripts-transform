@@ -62,6 +62,7 @@ export const nodeTitle = (node: ManuscriptNode) => {
     case nodes.footnotes_section:
     case nodes.keywords:
     case nodes.graphical_abstract_section:
+    case nodes.trans_graphical_abstract:
       return snippetOfNodeType(node, nodes.section_title)
 
     case nodes.footnotes_element:

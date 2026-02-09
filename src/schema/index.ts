@@ -105,6 +105,7 @@ import { tableElementFooter } from './nodes/table_element_footer'
 import { text, textBlock } from './nodes/text'
 import { title } from './nodes/title'
 import { transAbstract } from './nodes/trans_abstract'
+import { transGraphicalAbstract } from './nodes/trans_graphical_abstract'
 import { Marks, Nodes } from './types'
 
 export * from './groups'
@@ -181,6 +182,7 @@ export * from './nodes/table_element_footer'
 export * from './nodes/text'
 export * from './nodes/title'
 export * from './nodes/trans_abstract'
+export * from './nodes/trans_graphical_abstract'
 export * from './types'
 export const schema = new Schema<Nodes, Marks>({
   marks: {
@@ -278,6 +280,7 @@ export const schema = new Schema<Nodes, Marks>({
     quote_image: quoteImage,
     hero_image: heroImage,
     trans_abstract: transAbstract,
+    trans_graphical_abstract: transGraphicalAbstract,
     subtitle: subtitle,
     subtitles: subtitles,
   },
