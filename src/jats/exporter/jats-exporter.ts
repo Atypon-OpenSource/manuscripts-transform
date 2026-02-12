@@ -615,14 +615,18 @@ export class JATSExporter {
   private createElement = (
     tag: string,
     content?: string,
-    attrs?: Record<string, string>
+    attrs?: Record<string, string | undefined>
   ) => {
     const el = this.document.createElement(tag)
     if (content) {
       el.textContent = content
     }
     if (attrs) {
-      Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v))
+      Object.entries(attrs).forEach(([k, v]) => {
+        if (v) {
+          el.setAttribute(k, v)
+        }
+      })
     }
     return el
   }
@@ -631,7 +635,7 @@ export class JATSExporter {
     parent: HTMLElement,
     tag: string,
     content?: string,
-    attrs?: Record<string, string>
+    attrs?: Record<string, string | undefined>
   ) => {
     const el = this.createElement(tag, content, attrs)
     parent.appendChild(el)
@@ -641,6 +645,18 @@ export class JATSExporter {
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
       trans_abstract: (node) => {
+        const attrs: { [key: string]: string } = {
+          id: normalizeID(node.attrs.id),
+        }
+        if (node.attrs.lang) {
+          attrs[`${XML_NAMESPACE} lang`] = node.attrs.lang
+        }
+        if (node.attrs.category) {
+          attrs['sec-type'] = node.attrs.category
+        }
+        return ['trans-abstract', attrs, 0]
+      },
+      trans_graphical_abstract: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
         }

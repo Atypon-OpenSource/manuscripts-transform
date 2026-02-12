@@ -52,6 +52,9 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.paragraph, 'Paragraph'],
   [schema.nodes.text_block, 'Paragraph'],
   [schema.nodes.section, 'Section'],
+  [schema.nodes.graphical_abstract_section, 'Graphical Abstract'],
+  [schema.nodes.trans_abstract, 'Trans Abstract'],
+  [schema.nodes.trans_graphical_abstract, 'Trans Graphical Abstract'],
   [schema.nodes.section_title, 'Section Title'],
   [schema.nodes.section_title_plain, 'Section Title'],
   [schema.nodes.table, 'Table'],
@@ -60,6 +63,7 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.pullquote_element, 'Pull Quote'],
   [schema.nodes.box_element, 'Box'],
   [schema.nodes.supplements, 'Supplements'],
+  [schema.nodes.attachments, 'Main Document'],
 ])
 
 export const typeName = (type: ManuscriptNodeType) =>

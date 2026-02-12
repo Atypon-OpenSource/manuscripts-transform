@@ -62,6 +62,7 @@ export const nodeTitle = (node: ManuscriptNode) => {
     case nodes.footnotes_section:
     case nodes.keywords:
     case nodes.graphical_abstract_section:
+    case nodes.trans_graphical_abstract:
       return snippetOfNodeType(node, nodes.section_title)
 
     case nodes.footnotes_element:
@@ -81,9 +82,9 @@ export const nodeTitle = (node: ManuscriptNode) => {
     case nodes.multi_graphic_figure_element:
     case nodes.image_element:
     case nodes.hero_image:
-      return ''
-
     case nodes.box_element:
+    case nodes.supplements:
+    case nodes.attachments:
       return ''
 
     default:
