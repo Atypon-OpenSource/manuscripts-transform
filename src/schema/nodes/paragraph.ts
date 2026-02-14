@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { ObjectTypes } from '@manuscripts/json-schema'
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
@@ -65,8 +64,6 @@ export const paragraph: NodeSpec = {
     if (paragraphNode.attrs.id) {
       attrs.id = paragraphNode.attrs.id
     }
-
-    attrs['data-object-type'] = ObjectTypes.ParagraphElement
 
     if (paragraphNode.attrs.placeholder) {
       attrs['data-placeholder-text'] = paragraphNode.attrs.placeholder

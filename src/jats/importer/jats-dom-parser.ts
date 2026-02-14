@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { buildContribution, ObjectTypes } from '@manuscripts/json-schema'
 import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
 import {
@@ -27,8 +25,6 @@ import { XLINK_NAMESPACE, XML_NAMESPACE } from '../../lib/xml'
 import {
   BibliographyItemAttrs,
   BibliographyItemType,
-  ContributorCorresp,
-  ContributorFootnote,
   ManuscriptNode,
   MarkRule,
   NodeRule,
@@ -447,7 +443,8 @@ export class JATSDOMParser {
           id: element.getAttribute('id'),
           target: element.getAttribute('target-id'),
           contents: getTrimmedTextContent(element),
-          contributions: [buildContribution(DEFAULT_PROFILE_ID)],
+          userID: DEFAULT_PROFILE_ID,
+          timestamp: Date.now(),
         }
       },
     },
@@ -526,9 +523,9 @@ export class JATSDOMParser {
       node: 'contributor',
       getAttrs: (node) => {
         const element = node as HTMLElement
-        const footnote: ContributorFootnote[] = []
-        const affiliations: string[] = []
-        const corresp: ContributorCorresp[] = []
+        const footnoteIDs: string[] = []
+        const affiliationIDs: string[] = []
+        const correspIDs: string[] = []
 
         const xrefs = element.querySelectorAll('xref')
         for (const xref of xrefs) {
@@ -539,19 +536,13 @@ export class JATSDOMParser {
           }
           switch (type) {
             case 'fn':
-              footnote.push({
-                noteID: rid,
-                noteLabel: getTrimmedTextContent(xref) || '',
-              })
+              footnoteIDs.push(rid)
               break
             case 'corresp':
-              corresp.push({
-                correspID: rid,
-                correspLabel: getTrimmedTextContent(xref) || '',
-              })
+              correspIDs.push(rid)
               break
             case 'aff':
-              affiliations.push(rid)
+              affiliationIDs.push(rid)
               break
           }
         }
@@ -559,25 +550,20 @@ export class JATSDOMParser {
         return {
           id: element.getAttribute('id') || undefined,
           role: getTrimmedTextContent(element, 'role'),
-          affiliations,
-          corresp,
-          footnote,
-          isCorresponding: element.getAttribute('corresp')
-            ? element.getAttribute('corresp') === 'yes'
-            : undefined,
-          bibliographicName: {
-            given: getTrimmedTextContent(element, 'given-names'),
-            family: this.getSurname(element),
-            ObjectType: ObjectTypes.BibliographicName,
-          },
-          ORCIDIdentifier: getTrimmedTextContent(
+          affiliationIDs,
+          correspIDs,
+          footnoteIDs,
+          isCorresponding: element.getAttribute('corresp') === 'yes',
+          given: getTrimmedTextContent(element, 'given-names'),
+          family: this.getSurname(element),
+          prefix: getTrimmedTextContent(element, 'prefix'),
+          ORCID: getTrimmedTextContent(
             element,
             'contrib-id[contrib-id-type="orcid"]'
           ),
           creditRoles: getCreditRole(element),
           priority: this.parsePriority(element.getAttribute('priority')),
           email: getTrimmedTextContent(element, 'email') || '',
-          prefix: getTrimmedTextContent(element, 'prefix'),
         }
       },
       getContent: () => {

@@ -33,33 +33,22 @@ const replaceUUIDWithTest = (input: string) => input.replace(uuidRegex, 'test')
 
 const updateContributorNodeIDs = (node: ManuscriptNode) => {
   if (isContributorNode(node)) {
-    node.attrs.footnote = node.attrs.footnote.map((fn) => {
-      return { ...fn, noteID: replaceUUIDWithTest(fn.noteID) }
-    })
-    node.attrs.corresp = node.attrs.corresp.map((corresp) => {
-      return { ...corresp, correspID: replaceUUIDWithTest(corresp.correspID) }
-    })
-    node.attrs.affiliations = node.attrs.affiliations.map((aff: string) =>
-      replaceUUIDWithTest(aff)
+    node.attrs.footnoteIDs = node.attrs.footnoteIDs?.map((id) =>
+      replaceUUIDWithTest(id)
     )
-    if (node.attrs.bibliographicName._id) {
-      node.attrs.bibliographicName._id = replaceUUIDWithTest(
-        node.attrs.bibliographicName._id
-      )
-    }
+    node.attrs.correspIDs = node.attrs.correspIDs?.map((id) =>
+      replaceUUIDWithTest(id)
+    )
+    node.attrs.affiliationIDs = node.attrs.affiliationIDs?.map((id) =>
+      replaceUUIDWithTest(id)
+    )
   }
 }
 
 const updateCommentNodeIDs = (node: ManuscriptNode) => {
   if (isCommentNode(node)) {
     node.attrs.target = replaceUUIDWithTest(node.attrs.target)
-    node.attrs.contributions = node.attrs.contributions?.map((contribution) => {
-      return {
-        ...contribution,
-        _id: replaceUUIDWithTest(contribution._id),
-        timestamp: 1234,
-      }
-    })
+    node.attrs.timestamp = 1234
   }
 }
 

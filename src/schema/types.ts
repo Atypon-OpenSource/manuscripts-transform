@@ -186,6 +186,31 @@ export type ManuscriptTemplate = {
   hiddenNodeTypes?: string[]
 }
 
+export interface UserProfile {
+  _id: string
+  userID: string
+  given?: string
+  family?: string
+}
+
+export interface Project {
+  _id: string
+  owners: string[]
+  writers: string[]
+  editors?: string[]
+  annotators?: string[]
+  proofers?: string[]
+  viewers: string[]
+  updatedAt: number
+}
+
+export interface Bundle {
+  _id: string
+  csl: {
+    _id: string
+  }
+}
+
 export type MarkRule = ParseRule & { mark: Marks | null }
 
 export type NodeRule = ParseRule & { node?: Nodes | null }

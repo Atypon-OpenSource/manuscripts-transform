@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-import {
-  ContributorCorresp,
-  ContributorFootnote,
-  ManuscriptNode,
-  schema,
-} from '../../schema'
+import { isContributorNode, ManuscriptNode, schema } from '../../schema'
 import { generateNodeID } from '../../transformer'
 
 export const updateDocumentIDs = (node: ManuscriptNode) => {
@@ -134,38 +129,15 @@ const updateContributorNodesIDS = (
   // eslint-disable-next-line
   warnings: string[]
 ) => {
-  if (node.type === schema.nodes.contributor) {
-    const footnote = node.attrs.footnote
-      ?.map((fn: ContributorFootnote) => {
-        return replacements.get(fn.noteID)
-          ? {
-              ...fn,
-              noteID: replacements.get(fn.noteID),
-            }
-          : undefined
-      })
-      .filter(Boolean)
-    const corresp = node.attrs.corresp
-      ?.map((corresp: ContributorCorresp) => {
-        return replacements.get(corresp.correspID)
-          ? {
-              ...corresp,
-              correspID: replacements.get(corresp.correspID),
-            }
-          : undefined
-      })
-      .filter(Boolean)
-    const affiliations = node.attrs.affiliations
-      .map((affiliation: string) => {
-        return replacements.get(affiliation)
-      })
-      .filter(Boolean)
+  if (isContributorNode(node)) {
+    const replaceAll = (ids: string[]) =>
+      ids?.map((i) => replacements.get(i)).filter((id): id is string => !!id)
     // @ts-ignore - while attrs are readonly, it is acceptable to change them when document is inactive and there is no view
     node.attrs = {
       ...node.attrs,
-      footnote,
-      corresp,
-      affiliations,
+      footnoteIDs: replaceAll(node.attrs.footnoteIDs),
+      correspIDs: replaceAll(node.attrs.correspIDs),
+      affiliationIDs: replaceAll(node.attrs.affiliationIDs),
     }
   }
 

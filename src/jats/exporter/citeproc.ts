@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 //@ts-nocheck
-/* eslint-disable */
 
 import Citeproc from 'citeproc'
 
