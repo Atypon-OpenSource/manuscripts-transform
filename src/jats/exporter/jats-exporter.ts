@@ -1384,54 +1384,70 @@ export class JATSExporter {
       .filter((a) => affiliationIDs.includes(a.attrs.id))
       .sort(sortAffiliations)
       .forEach((affiliation) => {
-        const $aff = this.createElement('aff')
-        $aff.setAttribute('id', normalizeID(affiliation.attrs.id))
-        $contribGroup.appendChild($aff)
+        const $content = [];
+
         if (affiliation.attrs.department) {
-          this.appendElement($aff, 'institution', affiliation.attrs.department, {
+          const $institution = this.createElement('institution', affiliation.attrs.department, {
             'content-type': 'dept',
-          })
+          });
+          $content.push($institution)
         }
 
         if (affiliation.attrs.institution) {
-          this.appendElement($aff, 'institution', affiliation.attrs.institution)
+          const $institution = this.createElement('institution', affiliation.attrs.institution)
+          $content.push($institution)
         }
 
         if (affiliation.attrs.addressLine1) {
-          this.appendElement($aff, 'addr-line', affiliation.attrs.addressLine1)
+          const $addrLine = this.createElement('addr-line', affiliation.attrs.addressLine1)
+          $content.push($addrLine)
         }
 
         if (affiliation.attrs.addressLine2) {
-          this.appendElement($aff, 'addr-line', affiliation.attrs.addressLine2)
+          const $addrLine = this.createElement('addr-line', affiliation.attrs.addressLine2)
+          $content.push($addrLine)
         }
 
         if (affiliation.attrs.addressLine3) {
-          this.appendElement($aff, 'addr-line', affiliation.attrs.addressLine3)
+          const $addrLine = this.createElement('addr-line', affiliation.attrs.addressLine3)
+          $content.push($addrLine)
         }
 
         if (affiliation.attrs.city) {
-          this.appendElement($aff, 'city', affiliation.attrs.city)
+          const $city = this.createElement('city', affiliation.attrs.city)
+          $content.push($city)
+        }
+
+        if (affiliation.attrs.county) {
+          const $state = this.createElement('state', affiliation.attrs.county)
+          $content.push($state)
         }
 
         if (affiliation.attrs.country) {
-          this.appendElement($aff, 'country', affiliation.attrs.country)
+          const $country = this.createElement('country', affiliation.attrs.country)
+          $content.push($country)
         }
 
-        if (affiliation.attrs.email) {
-          const email = this.createElement('email')
-          email.setAttributeNS(
-            XLINK_NAMESPACE,
-            'href',
-            affiliation.attrs.email.href ?? ''
-          )
-          email.textContent = affiliation.attrs.email.text ?? ''
-          $aff.appendChild(email)
+        if (affiliation.attrs.postCode) {
+          const $postalCode = this.createElement('postal-code', affiliation.attrs.postCode)
+          $content.push($postalCode)
         }
+
+        const $aff = this.createElement('aff')
+        $aff.setAttribute('id', normalizeID(affiliation.attrs.id))
+        $contribGroup.appendChild($aff)
 
         const label = labels.get(affiliation.attrs.id)
         if (label) {
           this.appendElement($aff, 'label', String(label))
         }
+
+        $content.forEach((node, i) => {
+          if (i > 0) {
+            $aff.appendChild(this.document.createTextNode(', '))
+          }
+          $aff.appendChild(node)
+        })
       })
 
     const $authorNotes = this.createAuthorNotesElement(contributors)
