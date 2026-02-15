@@ -30,7 +30,7 @@ export interface SupplementNode extends ManuscriptNode {
 }
 
 export const supplement: NodeSpec = {
-  content: '(caption_title caption*)',
+  content: 'caption_title caption*',
   attrs: {
     id: { default: '' },
     href: { default: '' },
