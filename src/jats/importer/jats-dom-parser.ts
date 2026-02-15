@@ -363,10 +363,6 @@ export class JATSDOMParser {
       node: 'alt_text',
       context:
         'image_element/|figure_element/|table_element/|embed/|hero_image/',
-      getAttrs: (node) => {
-        const element = node as HTMLElement
-        return {}
-      }
     },
     {
       tag: 'attachments > self-uri',

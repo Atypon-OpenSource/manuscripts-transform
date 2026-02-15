@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 import { JSONProsemirrorNode } from '../../../types'
-import { MigrationScript } from '../migration-script'
 import { Nodes, schema } from '../../index'
+import { MigrationScript } from '../migration-script'
 
 interface Config {
   title?: 'required' | 'optional'
@@ -45,9 +45,9 @@ const CONFIG: Record<string, Config> = {
   },
 }
 
-class Migration4314 implements MigrationScript {
-  fromVersion = '4.3.13'
-  toVersion = '4.3.14'
+class Migration4319 implements MigrationScript {
+  fromVersion = '4.3.18'
+  toVersion = '4.3.19'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     const config = CONFIG[node.type]
@@ -105,4 +105,4 @@ class Migration4314 implements MigrationScript {
   }
 }
 
-export default Migration4314
+export default Migration4319
