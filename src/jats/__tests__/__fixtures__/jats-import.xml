@@ -106,8 +106,6 @@
           <title>final manuscript-hum-huili-dbh-suicide-20200707_figures (9)
           </title>
         </caption>
-         <alt-text>example of alt text for supplements</alt-text>
-        <long-desc>example of long desc for supplements</long-desc>
       </supplementary-material>
       <history>
         <date date-type="received">
@@ -232,6 +230,11 @@
   <body>
     <graphic xlink:href="demo1.png">
       <ext-link xlink:href="WLYSP_5_4_Infographic_Nov_11_2022.pdf"/>
+      <caption>
+        <title>Title...</title>
+        <p>simple image</p>
+        <p>caption</p>
+      </caption>
   </graphic>
   <graphic
 xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/

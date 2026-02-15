@@ -51,10 +51,14 @@ export const addMissingCaptions = (
         ? element.appendChild(caption)
         : element.prepend(caption)
     }
-    if (!caption.querySelector('title')) {
+    if (!caption.querySelector('title') && element.nodeName !== 'fig') {
       caption.prepend(createElement('title'))
     }
-    if (!caption.querySelector('p') && element.nodeName !== 'boxed-text') {
+    if (
+      !caption.querySelector('p') &&
+      element.nodeName !== 'boxed-text' &&
+      element.nodeName !== 'table-wrap'
+    ) {
       caption.appendChild(createElement('p'))
     }
   }
