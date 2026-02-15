@@ -31,6 +31,7 @@ import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML } from '../../lib/html'
 import { XLINK_NAMESPACE, XML_NAMESPACE } from '../../lib/xml'
 import {
+  AffiliationNode,
   AuthorNotesNode,
   AwardNode,
   CitationNode,
@@ -697,14 +698,18 @@ export class JATSExporter {
   private createElement = (
     tag: string,
     content?: string,
-    attrs?: Record<string, string>
+    attrs?: Record<string, string | undefined>
   ) => {
     const el = this.document.createElement(tag)
     if (content) {
       el.textContent = content
     }
     if (attrs) {
-      Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v))
+      Object.entries(attrs).forEach(([k, v]) => {
+        if (v) {
+          el.setAttribute(k, v)
+        }
+      })
     }
     return el
   }
@@ -713,7 +718,7 @@ export class JATSExporter {
     parent: HTMLElement,
     tag: string,
     content?: string,
-    attrs?: Record<string, string>
+    attrs?: Record<string, string | undefined>
   ) => {
     const el = this.createElement(tag, content, attrs)
     parent.appendChild(el)
@@ -723,6 +728,18 @@ export class JATSExporter {
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
       trans_abstract: (node) => {
+        const attrs: { [key: string]: string } = {
+          id: normalizeID(node.attrs.id),
+        }
+        if (node.attrs.lang) {
+          attrs[`${XML_NAMESPACE} lang`] = node.attrs.lang
+        }
+        if (node.attrs.category) {
+          attrs['sec-type'] = node.attrs.category
+        }
+        return ['trans-abstract', attrs, 0]
+      },
+      trans_graphical_abstract: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
         }
@@ -1355,15 +1372,15 @@ export class JATSExporter {
   }
 
   private buildContributors = (articleMeta: Node) => {
-    const contributorNodes = this.getChildrenOfType<ContributorNode>(
+    const contributors = this.getChildrenOfType<ContributorNode>(
       schema.nodes.contributor
     ).sort(sortContributors)
 
-    const affiliationLabels = new Map<string, number>()
+    const affiliationLabels = new Map<string, string>()
     const creatAffiliationLabel = (rid: string) => {
       let label = affiliationLabels.get(rid)
       if (!label) {
-        label = affiliationLabels.size + 1
+        label = String(affiliationLabels.size + 1)
         affiliationLabels.set(rid, label)
       }
       const sup = this.createElement('sup')
@@ -1375,11 +1392,11 @@ export class JATSExporter {
       sup.textContent = String(content)
       return sup
     }
-    if (contributorNodes.length) {
+    if (contributors.length) {
       const contribGroup = this.createElement('contrib-group')
       contribGroup.setAttribute('content-type', 'authors')
       articleMeta.appendChild(contribGroup)
-      contributorNodes.forEach((contributor) => {
+      contributors.forEach((contributor) => {
         try {
           this.validateContributor(contributor)
         } catch (error) {
@@ -1463,88 +1480,60 @@ export class JATSExporter {
 
       const affiliationRIDs: string[] = []
 
-      for (const contributor of contributorNodes) {
+      for (const contributor of contributors) {
         if (contributor.attrs.affiliations) {
           affiliationRIDs.push(...contributor.attrs.affiliations)
         }
       }
 
-      const affiliations = this.getChildrenOfType(schema.nodes.affiliation)
+      const affiliationIDs = contributors.flatMap((n) => n.attrs.affiliations)
+      const sortAffiliations = (a: AffiliationNode, b: AffiliationNode) =>
+        affiliationIDs.indexOf(a.attrs.id) - affiliationIDs.indexOf(b.attrs.id)
 
-      if (affiliations.length) {
-        const usedAffiliations = affiliations.filter((affiliation) =>
-          affiliationRIDs.includes(affiliation.attrs.id)
-        )
-        usedAffiliations.sort(
-          (a, b) =>
-            affiliationRIDs.indexOf(a.attrs.id) -
-            affiliationRIDs.indexOf(b.attrs.id)
-        )
-        usedAffiliations.forEach((affiliation) => {
-          const aff = this.createElement('aff')
-          aff.setAttribute('id', normalizeID(affiliation.attrs.id))
-          contribGroup.appendChild(aff)
-          if (affiliation.attrs.department) {
-            const department = this.createElement('institution')
-            department.setAttribute('content-type', 'dept')
-            department.textContent = affiliation.attrs.department
-            aff.appendChild(department)
+      this.getChildrenOfType<AffiliationNode>(schema.nodes.affiliation)
+        .filter((a) => affiliationIDs.includes(a.attrs.id))
+        .sort(sortAffiliations)
+        .forEach((affiliation) => {
+          const $aff = this.createElement('aff', '', {
+            id: normalizeID(affiliation.attrs.id),
+          })
+          const label = affiliationLabels.get(affiliation.attrs.id)
+          if (label) {
+            this.appendElement($aff, 'label', String(label))
           }
+          const affiliationParts = [
+            {
+              value: affiliation.attrs.department,
+              tag: 'institution',
+              'content-type': 'dept',
+            },
+            { value: affiliation.attrs.institution, tag: 'institution' },
+            { value: affiliation.attrs.addressLine1, tag: 'addr-line' },
+            { value: affiliation.attrs.addressLine2, tag: 'addr-line' },
+            { value: affiliation.attrs.addressLine3, tag: 'addr-line' },
+            { value: affiliation.attrs.city, tag: 'city' },
+            { value: affiliation.attrs.county, tag: 'state' },
+            { value: affiliation.attrs.country, tag: 'country' },
+            { value: affiliation.attrs.postCode, tag: 'postal-code' },
+          ].filter((obj) => obj.value)
 
-          if (affiliation.attrs.institution) {
-            const institution = this.createElement('institution')
-            institution.textContent = affiliation.attrs.institution
-            aff.appendChild(institution)
-          }
-
-          if (affiliation.attrs.addressLine1) {
-            const addressLine = this.createElement('addr-line')
-            addressLine.textContent = affiliation.attrs.addressLine1
-            aff.appendChild(addressLine)
-          }
-
-          if (affiliation.attrs.addressLine2) {
-            const addressLine = this.createElement('addr-line')
-            addressLine.textContent = affiliation.attrs.addressLine2
-            aff.appendChild(addressLine)
-          }
-
-          if (affiliation.attrs.addressLine3) {
-            const addressLine = this.createElement('addr-line')
-            addressLine.textContent = affiliation.attrs.addressLine3
-            aff.appendChild(addressLine)
-          }
-
-          if (affiliation.attrs.city) {
-            const city = this.createElement('city')
-            city.textContent = affiliation.attrs.city
-            aff.appendChild(city)
+          affiliationParts.forEach((location, index) => {
+            if (index) {
+              const punctuation = this.document.createTextNode(', ')
+              $aff.appendChild(punctuation)
+            }
+            const { tag, value, ...rest } = location
+            this.appendElement($aff, tag, value, rest)
+          })
+          const { href, text } = affiliation.attrs.email ?? {}
+          if (href) {
+            const email = this.appendElement($aff, 'email', text ?? href)
+            email.setAttributeNS(XLINK_NAMESPACE, 'href', href)
           }
 
-          if (affiliation.attrs.country) {
-            const country = this.createElement('country')
-            country.textContent = affiliation.attrs.country
-            aff.appendChild(country)
-          }
-
-          if (affiliation.attrs.email) {
-            const email = this.createElement('email')
-            email.setAttributeNS(
-              XLINK_NAMESPACE,
-              'href',
-              affiliation.attrs.email.href ?? ''
-            )
-            email.textContent = affiliation.attrs.email.text ?? ''
-            aff.appendChild(email)
-          }
-          const labelNumber = affiliationLabels.get(affiliation.attrs.id)
-          if (labelNumber) {
-            const label = this.createElement('label')
-            label.textContent = String(labelNumber)
-            aff.appendChild(label)
-          }
+          contribGroup.appendChild($aff)
         })
-      }
+
       const authorNotesEl = this.createAuthorNotesElement()
       if (authorNotesEl.childNodes.length > 0) {
         articleMeta.insertBefore(authorNotesEl, contribGroup.nextSibling)

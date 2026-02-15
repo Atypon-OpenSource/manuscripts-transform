@@ -72,10 +72,13 @@ export class JATSDOMParser {
 
   private chooseSectionCategory(section: HTMLElement) {
     const secType = section.getAttribute('sec-type')
+    const abstractType = section.getAttribute('abstract-type')
+    const effectiveSecType =
+      secType || (abstractType ? `abstract-${abstractType}` : null)
     const titleNode = section.firstElementChild
 
     for (const category of this.sectionCategories) {
-      if (this.isMatchingCategory(secType, titleNode, category)) {
+      if (this.isMatchingCategory(effectiveSecType, titleNode, category)) {
         return category.id
       }
     }
@@ -611,6 +614,8 @@ export class JATSDOMParser {
           addressLine3: this.getAddressLine(element, 3),
           postCode: getTrimmedTextContent(element, 'postal-code') ?? '',
           country: getTrimmedTextContent(element, 'country') ?? '',
+          county: getTrimmedTextContent(element, 'state') ?? '',
+          city: getTrimmedTextContent(element, 'city') ?? '',
           email: this.getEmail(element),
           priority: this.parsePriority(element.getAttribute('priority')),
         }
@@ -964,6 +969,28 @@ export class JATSDOMParser {
       },
     },
     {
+      tag: 'trans-abstract[sec-type="abstract-graphical"]',
+      node: 'trans_graphical_abstract',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          lang: element.getAttributeNS(XML_NAMESPACE, 'lang') ?? '',
+          category: this.chooseSectionCategory(element),
+        }
+      },
+    },
+    {
+      tag: 'trans-abstract[sec-type="abstract-key-image"]',
+      node: 'trans_graphical_abstract',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          lang: element.getAttributeNS(XML_NAMESPACE, 'lang') ?? '',
+          category: this.chooseSectionCategory(element),
+        }
+      },
+    },
+    {
       tag: 'trans-abstract',
       node: 'trans_abstract',
       getAttrs: (node) => {
@@ -1095,7 +1122,7 @@ export class JATSDOMParser {
       tag: 'title',
       node: 'section_title',
       context:
-        'section/|footnotes_section/|bibliography_section/|keywords/|supplements/|author_notes/|graphical_abstract_section/|trans_abstract/',
+        'section/|footnotes_section/|bibliography_section/|keywords/|supplements/|author_notes/|graphical_abstract_section/|trans_abstract/|trans_graphical_abstract/',
     },
     {
       tag: 'tr',

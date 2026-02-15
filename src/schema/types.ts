@@ -129,6 +129,7 @@ export type Nodes =
   | 'long_desc'
   | 'hero_image'
   | 'trans_abstract'
+  | 'trans_graphical_abstract'
   | 'subtitle'
   | 'subtitles'
 
