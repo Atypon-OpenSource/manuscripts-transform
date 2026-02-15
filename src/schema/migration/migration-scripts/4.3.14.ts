@@ -59,7 +59,7 @@ class Migration4314 implements MigrationScript {
     const foundTitle = (figCaption?.content || []).find(
       (n) => n.type === 'caption_title'
     )
-    const foundCaption = (figCaption?.content || []).find(
+    const foundCaption = (figCaption?.content || []).filter(
       (n) => n.type === 'caption'
     )
 
@@ -79,9 +79,11 @@ class Migration4314 implements MigrationScript {
 
     if (
       config.caption === 'required' ||
-      (config.caption === 'optional' && foundCaption)
+      (config.caption === 'optional' && foundCaption.length > 0)
     ) {
-      captionGroup.push(foundCaption || placeholderCaption)
+      captionGroup.push(
+        ...(foundCaption.length > 0 ? foundCaption : [placeholderCaption])
+      )
     }
 
     if (config.location.pos === 'start') {

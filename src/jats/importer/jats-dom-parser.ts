@@ -352,10 +352,18 @@ export class JATSDOMParser {
     {
       tag: 'long-desc',
       node: 'long_desc',
+      context:
+        'image_element/|figure_element/|table_element/|embed/|hero_image/',
     },
     {
       tag: 'alt-text',
       node: 'alt_text',
+      context:
+        'image_element/|figure_element/|table_element/|embed/|hero_image/',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {}
+      }
     },
     {
       tag: 'attachments > self-uri',
@@ -632,16 +640,16 @@ export class JATSDOMParser {
       tag: 'caption',
       skip: true,
       context:
-        'image_element/|figure_element/|table_element/|embed/|supplement/|box_element/',
-    },
-    {
-      tag: 'caption > p',
-      context: 'table_element/',
-      ignore: true,
+        'image_element/|figure_element/|table_element/|listing_element/|embed/|supplement/|box_element/',
     },
     {
       tag: 'caption > title',
       context: 'image_element/|figure_element/',
+      ignore: true,
+    },
+    {
+      tag: 'caption > p',
+      context: 'table_element/',
       ignore: true,
     },
     {
@@ -795,11 +803,16 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         const content = []
 
-        const caption = element.querySelector('caption > *:not(title)')
-        const captionNode = this.schema.nodes.caption.create()
-        content.push(
-          caption ? this.parse(caption, { topNode: captionNode }) : captionNode
-        )
+        element
+          .querySelectorAll('caption > *:not(title)')
+          .forEach((caption) => {
+            const captionNode = this.schema.nodes.caption.create()
+            content.push(
+              caption
+                ? this.parse(caption, { topNode: captionNode })
+                : captionNode
+            )
+          })
         const fig = this.getFigContent(element).content
         return Fragment.from([...fig.slice(0, 1), ...content, ...fig.slice(1)])
       },

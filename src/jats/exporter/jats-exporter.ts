@@ -250,10 +250,22 @@ export class JATSExporter {
       element.appendChild(this.serializeNode(childNode))
     }
   }
+
+  private appendChildrenNodeOfType = (
+    element: HTMLElement,
+    node: ManuscriptNode,
+    type: ManuscriptNodeType
+  ) => {
+    const children = this.getChildrenOfType(type, node)
+    children.map((childNode) =>
+      element.appendChild(this.serializeNode(childNode))
+    )
+  }
+
   protected appendCaption = (element: HTMLElement, node: ManuscriptNode) => {
     const caption = this.createElement('caption')
     this.appendChildNodeOfType(caption, node, schema.nodes.caption_title)
-    this.appendChildNodeOfType(caption, node, schema.nodes.caption)
+    this.appendChildrenNodeOfType(caption, node, schema.nodes.caption)
     if (caption.childNodes.length > 0) {
       element.appendChild(caption)
     }

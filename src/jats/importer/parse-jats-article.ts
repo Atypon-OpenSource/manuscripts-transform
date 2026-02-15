@@ -21,7 +21,6 @@ import { parseJournal } from './jats-journal-meta-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
 import {
   addMissingCaptions,
-  joinParagraphsInCaption,
   createAbstracts,
   createAccessibilityItems,
   createAttachments,
@@ -50,7 +49,6 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   if (!front) {
     return
   }
-  joinParagraphsInCaption(doc, createElement)
   addMissingCaptions(doc, createElement)
   createBoxedElementSection(doc, createElement)
   createTitles(front, createElement)

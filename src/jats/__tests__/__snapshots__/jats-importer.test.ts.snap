@@ -3679,13 +3679,6 @@ Object {
                   },
                   "type": "caption_title",
                 },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "placeholder": "Caption...",
-                  },
-                  "type": "caption",
-                },
               ],
               "type": "listing_element",
             },
@@ -31472,7 +31465,20 @@ Object {
                                       },
                                       "content": Array [
                                         Object {
-                                          "text": "A picture on the kinds of figures. The Fig Caption continues.",
+                                          "text": "A picture on the kinds of figures.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "caption",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "placeholder": "Caption...",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "The Fig Caption continues.",
                                           "type": "text",
                                         },
                                       ],
@@ -31554,7 +31560,20 @@ Object {
                                       },
                                       "content": Array [
                                         Object {
-                                          "text": "A missing picture on the kinds of figures. The Fig Caption continues.",
+                                          "text": "A missing picture on the kinds of figures.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "caption",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                        "placeholder": "Caption...",
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "The Fig Caption continues.",
                                           "type": "text",
                                         },
                                       ],
@@ -33436,7 +33455,20 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "simple image caption",
+                  "text": "simple image",
+                  "type": "text",
+                },
+              ],
+              "type": "caption",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "placeholder": "Caption...",
+              },
+              "content": Array [
+                Object {
+                  "text": "caption",
                   "type": "text",
                 },
               ],
@@ -33472,13 +33504,6 @@ Object {
                 "type": "",
               },
               "type": "figure",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "placeholder": "Caption...",
-              },
-              "type": "caption",
             },
             Object {
               "attrs": Object {
@@ -44989,7 +45014,33 @@ Object {
                       "type": "text",
                     },
                     Object {
-                      "text": ". [Color figure can be viewed at wileyonlinelibrary.com.] A. 2016 U.S. Presidential Election B. 2012 U.S. Presidential Election",
+                      "text": ". [Color figure can be viewed at wileyonlinelibrary.com.]",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A. 2016 U.S. Presidential Election",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "B. 2012 U.S. Presidential Election",
                       "type": "text",
                     },
                   ],
@@ -51558,9 +51609,18 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " This figure reports the results of estimating the following fixed-effects regression equations for common stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections: ",
+                          "text": " This figure reports the results of estimating the following fixed-effects regression equations for common stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
                           "type": "text",
                         },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m25\\">
@@ -51598,10 +51658,15 @@ Object {
                           },
                           "type": "inline_equation",
                         },
-                        Object {
-                          "text": " ",
-                          "type": "text",
-                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m26\\">
@@ -51614,10 +51679,15 @@ Object {
                           },
                           "type": "inline_equation",
                         },
-                        Object {
-                          "text": " ",
-                          "type": "text",
-                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m27\\">
@@ -51670,8 +51740,17 @@ Object {
                           },
                           "type": "inline_equation",
                         },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
-                          "text": " where the dependent variable is either ",
+                          "text": "where the dependent variable is either ",
                           "type": "text",
                         },
                         Object {
@@ -51717,7 +51796,20 @@ Object {
                           "type": "cross_reference",
                         },
                         Object {
-                          "text": ". We estimate the first equation for each election separately and plot the beta coefficients with 95% confidence bands in Panels A and C. We include 10 pre-trend indicator variables for the 10 days leading up to each election, 31 post-trend indicator variables for the 31 days following the election outcomes (election days included), and stock fixed effects. We then estimate the second equation for the two elections jointly where we control for time trends, level effects, and stock fixed effects and plot the beta coefficients with 95% confidence intervals in Panels B and D. Standard errors in both equations are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.] A. ",
+                          "text": ". We estimate the first equation for each election separately and plot the beta coefficients with 95% confidence bands in Panels A and C. We include 10 pre-trend indicator variables for the 10 days leading up to each election, 31 post-trend indicator variables for the 31 days following the election outcomes (election days included), and stock fixed effects. We then estimate the second equation for the two elections jointly where we control for time trends, level effects, and stock fixed effects and plot the beta coefficients with 95% confidence intervals in Panels B and D. Standard errors in both equations are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A. ",
                           "type": "text",
                         },
                         Object {
@@ -51733,7 +51825,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Differences) B. ",
+                          "text": " (Differences)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "B. ",
                           "type": "text",
                         },
                         Object {
@@ -51749,7 +51854,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Diff-in-Diff) C. ",
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "C. ",
                           "type": "text",
                         },
                         Object {
@@ -51765,7 +51883,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Differences) D. ",
+                          "text": " (Differences)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "D. ",
                           "type": "text",
                         },
                         Object {
@@ -51989,9 +52120,18 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " This figure reports the results of estimating the following fixed-effects regression equations for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections: ",
+                          "text": " This figure reports the results of estimating the following fixed-effects regression equations for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
                           "type": "text",
                         },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m28\\">
@@ -52029,10 +52169,15 @@ Object {
                           },
                           "type": "inline_equation",
                         },
-                        Object {
-                          "text": " ",
-                          "type": "text",
-                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m29\\">
@@ -52045,10 +52190,15 @@ Object {
                           },
                           "type": "inline_equation",
                         },
-                        Object {
-                          "text": " ",
-                          "type": "text",
-                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m30\\">
@@ -52101,8 +52251,17 @@ Object {
                           },
                           "type": "inline_equation",
                         },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
-                          "text": " where the dependent variable is either the ",
+                          "text": "where the dependent variable is either the ",
                           "type": "text",
                         },
                         Object {
@@ -52163,7 +52322,20 @@ Object {
                           "type": "cross_reference",
                         },
                         Object {
-                          "text": ". We estimate the first equation for each election separately and plot the beta coefficients with 95% confidence bands in Panels A and C. We include 10 pre-trend indicator variables for the 10 days leading up to each election, 31 post-trend indicator variables for the 31 days following the election outcomes (election days included), and stock fixed effects. We then estimate the second equation for the two elections jointly where we control for time trends, level effects, and stock fixed effects and plot the beta coefficients with 95% confidence intervals in Panels B and D. Standard errors in both equations are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.] A. ",
+                          "text": ". We estimate the first equation for each election separately and plot the beta coefficients with 95% confidence bands in Panels A and C. We include 10 pre-trend indicator variables for the 10 days leading up to each election, 31 post-trend indicator variables for the 31 days following the election outcomes (election days included), and stock fixed effects. We then estimate the second equation for the two elections jointly where we control for time trends, level effects, and stock fixed effects and plot the beta coefficients with 95% confidence intervals in Panels B and D. Standard errors in both equations are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A. ",
                           "type": "text",
                         },
                         Object {
@@ -52179,7 +52351,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Differences) B. ",
+                          "text": " (Differences)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "B. ",
                           "type": "text",
                         },
                         Object {
@@ -52195,7 +52380,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Diff-in-Diff) C. ",
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "C. ",
                           "type": "text",
                         },
                         Object {
@@ -52211,7 +52409,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Differences) D. ",
+                          "text": " (Differences)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "D. ",
                           "type": "text",
                         },
                         Object {
@@ -52483,9 +52694,18 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " This figure reports the results of estimating the following fixed-effects regression equations for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections: ",
+                          "text": " This figure reports the results of estimating the following fixed-effects regression equations for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
                           "type": "text",
                         },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m31\\">
@@ -52523,10 +52743,15 @@ Object {
                           },
                           "type": "inline_equation",
                         },
-                        Object {
-                          "text": " ",
-                          "type": "text",
-                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m32\\">
@@ -52539,10 +52764,15 @@ Object {
                           },
                           "type": "inline_equation",
                         },
-                        Object {
-                          "text": " ",
-                          "type": "text",
-                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m33\\">
@@ -52595,8 +52825,17 @@ Object {
                           },
                           "type": "inline_equation",
                         },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
-                          "text": " where the dependent variable is either ",
+                          "text": "where the dependent variable is either ",
                           "type": "text",
                         },
                         Object {
@@ -52658,7 +52897,20 @@ Object {
                           "type": "cross_reference",
                         },
                         Object {
-                          "text": ". We estimate the first equation for each election separately and plot the beta coefficients with 95% confidence bands in Panels A, C, and E. We include 10 pre-trend indicator variables for the 10 days leading up to each election, 31 post-trend indicator variables for the 31 days following the election outcomes (election days included), and stock fixed effects. We then estimate the second equation for the two elections jointly where we control for time trends, level effects, and stock fixed effects and plot the beta coefficients with 95% confidence intervals in Panels B, D, and F. Standard errors in both equations are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.] A. ",
+                          "text": ". We estimate the first equation for each election separately and plot the beta coefficients with 95% confidence bands in Panels A, C, and E. We include 10 pre-trend indicator variables for the 10 days leading up to each election, 31 post-trend indicator variables for the 31 days following the election outcomes (election days included), and stock fixed effects. We then estimate the second equation for the two elections jointly where we control for time trends, level effects, and stock fixed effects and plot the beta coefficients with 95% confidence intervals in Panels B, D, and F. Standard errors in both equations are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A. ",
                           "type": "text",
                         },
                         Object {
@@ -52674,7 +52926,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Differences) B. ",
+                          "text": " (Differences)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "B. ",
                           "type": "text",
                         },
                         Object {
@@ -52690,7 +52955,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Diff-in-Diff) C. ",
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "C. ",
                           "type": "text",
                         },
                         Object {
@@ -52706,7 +52984,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Differences) D. ",
+                          "text": " (Differences)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "D. ",
                           "type": "text",
                         },
                         Object {
@@ -52722,7 +53013,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Diff-in-Diff) E. ",
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "E. ",
                           "type": "text",
                         },
                         Object {
@@ -52738,7 +53042,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Differences) F. ",
+                          "text": " (Differences)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "F. ",
                           "type": "text",
                         },
                         Object {
@@ -53011,9 +53328,18 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections: ",
+                          "text": " This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
                           "type": "text",
                         },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m34\\">
@@ -53066,8 +53392,17 @@ Object {
                           },
                           "type": "inline_equation",
                         },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
-                          "text": " where the dependent variable is one of four liquidity measures: ",
+                          "text": "where the dependent variable is one of four liquidity measures: ",
                           "type": "text",
                         },
                         Object {
@@ -53145,7 +53480,20 @@ Object {
                           "type": "cross_reference",
                         },
                         Object {
-                          "text": ". We separate the Trump sample into pre-election trading volume quintiles and estimate the equation above separately for the top and bottom quintiles. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.] A. ",
+                          "text": ". We separate the Trump sample into pre-election trading volume quintiles and estimate the equation above separately for the top and bottom quintiles. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A. ",
                           "type": "text",
                         },
                         Object {
@@ -53161,7 +53509,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Diff-in-Diff) B. ",
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "B. ",
                           "type": "text",
                         },
                         Object {
@@ -53177,7 +53538,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Diff-in-Diff) C. ",
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "C. ",
                           "type": "text",
                         },
                         Object {
@@ -53193,7 +53567,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Diff-in-Diff) Panel D. ",
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Panel D. ",
                           "type": "text",
                         },
                         Object {
@@ -53346,9 +53733,18 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections: ",
+                          "text": " This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
                           "type": "text",
                         },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m35\\">
@@ -53401,8 +53797,17 @@ Object {
                           },
                           "type": "inline_equation",
                         },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
-                          "text": " where the dependent variable is one of four liquidity measures: ",
+                          "text": "where the dependent variable is one of four liquidity measures: ",
                           "type": "text",
                         },
                         Object {
@@ -53480,7 +53885,20 @@ Object {
                           "type": "cross_reference",
                         },
                         Object {
-                          "text": ". We separate the Trump sample into pre-election market capitalization quintiles and estimate the above equation separately for the top and bottom quintiles. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.] A. ",
+                          "text": ". We separate the Trump sample into pre-election market capitalization quintiles and estimate the above equation separately for the top and bottom quintiles. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A. ",
                           "type": "text",
                         },
                         Object {
@@ -53496,7 +53914,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Diff-in-Diff) B. ",
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "B. ",
                           "type": "text",
                         },
                         Object {
@@ -53512,7 +53943,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Diff-in-Diff) C. ",
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "C. ",
                           "type": "text",
                         },
                         Object {
@@ -53528,7 +53972,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Diff-in-Diff) Panel D. ",
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Panel D. ",
                           "type": "text",
                         },
                         Object {
@@ -53775,9 +54232,18 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " The figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections: ",
+                          "text": " The figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
                           "type": "text",
                         },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
                           "attrs": Object {
                             "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m36\\">
@@ -53830,8 +54296,17 @@ Object {
                           },
                           "type": "inline_equation",
                         },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
                         Object {
-                          "text": " where the dependent variable is one of four liquidity measures: ",
+                          "text": "where the dependent variable is one of four liquidity measures: ",
                           "type": "text",
                         },
                         Object {
@@ -53909,7 +54384,20 @@ Object {
                           "type": "cross_reference",
                         },
                         Object {
-                          "text": ". We separate the sample by industry and define those in the healthcare (Standard Industrial Classification [SIC] 8000–8099), pharmaceutical (SIC 2830–2836), banking (SIC 6000–6199), trading (SIC 6200–6299 and 6700–6799), natural gas (SIC 1300–1389, 2900–2912, and 2990–2999), defense (SIC 3760–3769, 3795, and 3480–3489), and tobacco (SIC 2100–2199) industries as politically sensitive. We estimate the equation above separately for politically sensitive and insensitive stocks. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.] A. ",
+                          "text": ". We separate the sample by industry and define those in the healthcare (Standard Industrial Classification [SIC] 8000–8099), pharmaceutical (SIC 2830–2836), banking (SIC 6000–6199), trading (SIC 6200–6299 and 6700–6799), natural gas (SIC 1300–1389, 2900–2912, and 2990–2999), defense (SIC 3760–3769, 3795, and 3480–3489), and tobacco (SIC 2100–2199) industries as politically sensitive. We estimate the equation above separately for politically sensitive and insensitive stocks. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "A. ",
                           "type": "text",
                         },
                         Object {
@@ -53925,7 +54413,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Diff-in-Diff) B. ",
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "B. ",
                           "type": "text",
                         },
                         Object {
@@ -53941,7 +54442,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Diff-in-Diff) C. ",
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "C. ",
                           "type": "text",
                         },
                         Object {
@@ -53957,7 +54471,20 @@ Object {
                           "type": "text",
                         },
                         Object {
-                          "text": " (Diff-in-Diff) D. ",
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "D. ",
                           "type": "text",
                         },
                         Object {
@@ -54147,9 +54674,18 @@ Object {
                       "type": "text",
                     },
                     Object {
-                      "text": " This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2004 and 2016 U.S. presidential elections: ",
+                      "text": " This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2004 and 2016 U.S. presidential elections:",
                       "type": "text",
                     },
+                  ],
+                  "type": "caption",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
                     Object {
                       "attrs": Object {
                         "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m37\\">
@@ -54202,8 +54738,17 @@ Object {
                       },
                       "type": "inline_equation",
                     },
+                  ],
+                  "type": "caption",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
                     Object {
-                      "text": " where the dependent variable is one of four liquidity measures: ",
+                      "text": "where the dependent variable is one of four liquidity measures: ",
                       "type": "text",
                     },
                     Object {
@@ -54281,7 +54826,20 @@ Object {
                       "type": "cross_reference",
                     },
                     Object {
-                      "text": ". We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.] A. ",
+                      "text": ". We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "A. ",
                       "type": "text",
                     },
                     Object {
@@ -54297,7 +54855,20 @@ Object {
                       "type": "text",
                     },
                     Object {
-                      "text": " (Diff-in-Diff) B. ",
+                      "text": " (Diff-in-Diff)",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "B. ",
                       "type": "text",
                     },
                     Object {
@@ -54313,7 +54884,20 @@ Object {
                       "type": "text",
                     },
                     Object {
-                      "text": " (Diff-in-Diff) C. ",
+                      "text": " (Diff-in-Diff)",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "C. ",
                       "type": "text",
                     },
                     Object {
@@ -54329,7 +54913,20 @@ Object {
                       "type": "text",
                     },
                     Object {
-                      "text": " (Diff-in-Diff) D. ",
+                      "text": " (Diff-in-Diff)",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "D. ",
                       "type": "text",
                     },
                     Object {
