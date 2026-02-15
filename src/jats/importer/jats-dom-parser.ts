@@ -802,7 +802,7 @@ export class JATSDOMParser {
       node: 'image_element',
       getContent: (node) => {
         const element = node as HTMLElement
-        const content = []
+        const content: ManuscriptNode[] = []
 
         element
           .querySelectorAll('caption > *:not(title)')
