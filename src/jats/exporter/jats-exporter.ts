@@ -1522,7 +1522,7 @@ export class JATSExporter {
               href
             )
           }
-          
+
           contribGroup.appendChild($aff)
         })
 
@@ -2084,7 +2084,19 @@ export class JATSExporter {
   ) {
     const emptyElements = Array.from(
       articleElement.querySelectorAll(selector)
-    ).filter((element) => !element.innerHTML)
+    ).filter((element) => {
+      return Array.from(element.childNodes).every((node) => {
+        const isWhitespaceText =
+          node.nodeType === Node.TEXT_NODE && !node.textContent?.trim()
+
+        const isLabel =
+          node.nodeType === Node.ELEMENT_NODE &&
+          (node as Element).tagName.toLowerCase() === 'label'
+
+        return isWhitespaceText || isLabel
+      })
+    })
+
     emptyElements.forEach((element) =>
       element.appendChild(this.createElement(tagName))
     )
