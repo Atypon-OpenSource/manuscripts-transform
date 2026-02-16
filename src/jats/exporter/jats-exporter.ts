@@ -221,7 +221,7 @@ export class JATSExporter {
       'lang',
       manuscriptNode.attrs.primaryLanguageCode || 'en'
     )
-    this.labelTargets = buildTargets(manuscriptNode)
+    this.labelTargets = buildTargets(manuscriptNode.descendants)
     this.footnoteLabels = generateFootnoteLabels(manuscriptNode)
     const body = this.buildBody()
     article.appendChild(body)
