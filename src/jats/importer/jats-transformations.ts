@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { create } from 'lodash'
 import { defaultTitle } from '../../lib/deafults'
 import { XML_NAMESPACE } from '../../lib/xml'
 import { SectionCategory, SectionGroup } from '../../schema'
