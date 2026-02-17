@@ -19,18 +19,18 @@ import { NodeSpec } from 'prosemirror-model'
 import { schema } from '../index'
 import type { ManuscriptNode } from '../types'
 
-export interface TransAbstractAttrs {
+export interface TransGraphicalAbstractAttrs {
   id: string
   lang: string
   category: string
 }
 
-export interface TransAbstractNode extends ManuscriptNode {
-  attrs: TransAbstractAttrs
+export interface TransGraphicalAbstractNode extends ManuscriptNode {
+  attrs: TransGraphicalAbstractAttrs
 }
 
-export const transAbstract: NodeSpec = {
-  content: 'section_title (paragraph | element)* sections*',
+export const transGraphicalAbstract: NodeSpec = {
+  content: 'section_title (figure_element | placeholder)',
   attrs: {
     id: { default: '' },
     lang: { default: '' },
@@ -39,20 +39,29 @@ export const transAbstract: NodeSpec = {
   },
   group: 'block sections',
   selectable: false,
+  parseDOM: [
+    {
+      tag: 'section.trans-graphical-abstract',
+    },
+  ],
   toDOM: (node) => {
-    const { id, lang } = node.attrs
+    const transGraphicalAbstractNode = node as TransGraphicalAbstractNode
+    const { id, lang } = transGraphicalAbstractNode.attrs
+
     return [
       'section',
       {
         id,
         lang,
-        class: 'trans-abstract',
+        class: 'trans-graphical-abstract',
+        spellcheck: 'false',
       },
       0,
     ]
   },
 }
 
-export const isTransAbstractNode = (
+export const isTransGraphicalAbstractNode = (
   node: ManuscriptNode
-): node is TransAbstractNode => node.type === schema.nodes.trans_abstract
+): node is TransGraphicalAbstractNode =>
+  node.type === schema.nodes.trans_graphical_abstract
