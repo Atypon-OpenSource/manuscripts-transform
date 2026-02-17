@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { create } from 'lodash'
 import { defaultTitle } from '../../lib/deafults'
 import { XML_NAMESPACE } from '../../lib/xml'
 import { SectionCategory, SectionGroup } from '../../schema'
@@ -257,15 +258,15 @@ const moveSpecialFootnotes = (
       const fnTitle =
         fn.querySelector('label') ||
         fn.querySelector('p[content-type="fn-title"]')
+      const title = createElement('title')
       if (fnTitle) {
-        const title = createElement('title')
         const titleText = fnTitle.textContent?.trim()
         if (titleText) {
           title.textContent = titleText
         }
         removeNodeFromParent(fnTitle)
-        section.append(title)
       }
+      section.append(title)
       section.append(...fn.children)
       removeNodeFromParent(fn)
       section.setAttribute('sec-type', category.id)
