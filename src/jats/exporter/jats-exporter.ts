@@ -237,6 +237,7 @@ export class JATSExporter {
     this.fillEmptyListItem(article)
     this.moveAwards(front, body)
     this.moveFloatsGroup(article)
+    this.addParagraphsToSections(article)
     await this.rewriteIDs()
     return serializeToXML(this.document)
   }
@@ -2088,22 +2089,25 @@ export class JATSExporter {
   ) {
     const emptyElements = Array.from(
       articleElement.querySelectorAll(selector)
-    ).filter((element) => {
-      return Array.from(element.childNodes).every((node) => {
-        const isWhitespaceText =
-          node.nodeType === Node.TEXT_NODE && !node.textContent?.trim()
-
-        const isLabel =
-          node.nodeType === Node.ELEMENT_NODE &&
-          (node as Element).tagName.toLowerCase() === 'label'
-
-        return isWhitespaceText || isLabel
-      })
-    })
-
+    ).filter((element) => !element.innerHTML)
     emptyElements.forEach((element) =>
       element.appendChild(this.createElement(tagName))
     )
+  }
+  private addParagraphsToSections(articleElement: Element) {
+    const sections = Array.from(articleElement.querySelectorAll('sec'))
+    sections.forEach((section) => {
+      const p = this.createElement('p')
+      const insertAfterElement =
+        section.querySelector(':scope > title') ??
+        section.querySelector(':scope > label') ??
+        section.querySelector(':scope > sec-meta')
+      if (insertAfterElement) {
+        insertAfterElement.insertAdjacentElement('afterend', p)
+      } else {
+        section.appendChild(p)
+      }
+    })
   }
 
   private fillEmptyFootnotes(articleElement: Element) {

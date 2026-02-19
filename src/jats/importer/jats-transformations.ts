@@ -264,6 +264,8 @@ const moveSpecialFootnotes = (
           title.textContent = titleText
         }
         removeNodeFromParent(fnTitle)
+      } else {
+        title.textContent = category.titles[0]
       }
       section.append(title)
       section.append(...fn.children)
