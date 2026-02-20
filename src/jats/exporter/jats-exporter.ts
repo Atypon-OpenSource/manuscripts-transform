@@ -225,6 +225,7 @@ export class JATSExporter {
     this.footnoteLabels = generateFootnoteLabels(manuscriptNode)
     const body = this.buildBody()
     article.appendChild(body)
+    this.addParagraphsToSections(article)
     const back = this.buildBack(body)
     this.moveCoiStatementToAuthorNotes(back, front)
     article.appendChild(back)
@@ -237,7 +238,6 @@ export class JATSExporter {
     this.fillEmptyListItem(article)
     this.moveAwards(front, body)
     this.moveFloatsGroup(article)
-    this.addParagraphsToSections(article)
     await this.rewriteIDs()
     return serializeToXML(this.document)
   }
@@ -2095,19 +2095,27 @@ export class JATSExporter {
     )
   }
   private addParagraphsToSections(articleElement: Element) {
-    const sections = Array.from(articleElement.querySelectorAll('sec'))
-    sections.forEach((section) => {
+    const sections = articleElement.querySelectorAll('sec')
+    const TITLE_TAGS = new Set(['title', 'label', 'sec-meta'])
+    for (const section of sections) {
+      const hasContent = Array.from(section.children).some(
+        (child) => !TITLE_TAGS.has(child.tagName)
+      )
+      if (hasContent) {
+        continue
+      }
       const p = this.createElement('p')
       const insertAfterElement =
         section.querySelector(':scope > title') ??
         section.querySelector(':scope > label') ??
         section.querySelector(':scope > sec-meta')
+
       if (insertAfterElement) {
         insertAfterElement.insertAdjacentElement('afterend', p)
       } else {
-        section.appendChild(p)
+        section.prepend(p)
       }
-    })
+    }
   }
 
   private fillEmptyFootnotes(articleElement: Element) {
