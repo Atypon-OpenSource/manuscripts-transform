@@ -225,6 +225,7 @@ export class JATSExporter {
     this.footnoteLabels = generateFootnoteLabels(manuscriptNode)
     const body = this.buildBody()
     article.appendChild(body)
+    this.addParagraphsToSections(article)
     const back = this.buildBack(body)
     this.moveCoiStatementToAuthorNotes(back, front)
     article.appendChild(back)
@@ -2092,6 +2093,29 @@ export class JATSExporter {
     emptyElements.forEach((element) =>
       element.appendChild(this.createElement(tagName))
     )
+  }
+  private addParagraphsToSections(articleElement: Element) {
+    const sections = articleElement.querySelectorAll('sec')
+    const TITLE_TAGS = new Set(['title', 'label', 'sec-meta'])
+    for (const section of sections) {
+      const hasContent = Array.from(section.children).some(
+        (child) => !TITLE_TAGS.has(child.tagName)
+      )
+      if (hasContent) {
+        continue
+      }
+      const p = this.createElement('p')
+      const insertAfterElement =
+        section.querySelector(':scope > title') ??
+        section.querySelector(':scope > label') ??
+        section.querySelector(':scope > sec-meta')
+
+      if (insertAfterElement) {
+        insertAfterElement.insertAdjacentElement('afterend', p)
+      } else {
+        section.prepend(p)
+      }
+    }
   }
 
   private fillEmptyFootnotes(articleElement: Element) {
