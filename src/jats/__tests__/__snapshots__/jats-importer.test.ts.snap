@@ -3215,8 +3215,16 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "Test",
-                      "type": "text",
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Test",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "text_block",
                     },
                   ],
                   "type": "caption",
@@ -3678,6 +3686,13 @@ Object {
                     "placeholder": "Title...",
                   },
                   "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "type": "caption",
                 },
               ],
               "type": "listing_element",
@@ -18185,8 +18200,16 @@ Object {
                       },
                       "content": Array [
                         Object {
-                          "text": "Radiologic response assessed by positron emission tomography computed tomography in patients with classical Hodgkin lymphoma treated by low-dose anti-PD1 antibodies pembrolizumab and nivolumab.",
-                          "type": "text",
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Radiologic response assessed by positron emission tomography computed tomography in patients with classical Hodgkin lymphoma treated by low-dose anti-PD1 antibodies pembrolizumab and nivolumab.",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
                         },
                       ],
                       "type": "caption",
@@ -18306,20 +18329,28 @@ Object {
                       },
                       "content": Array [
                         Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "bold",
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "bold",
+                                },
+                              ],
+                              "text": "Swimmer plot of patients in the pembrolizumab and nivolumab cohorts.",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " mCR: metabolic complete response; PR: partial remission; IR: indeterminate response. Drug cessation (blue circle) in seven patients (P1, P3, P4, P5, P7, N1, N2) represented completion of 2 years of treatment. In patient P2, drug cessation represented truncation of treatment in an attempt to conceive. In patient P9, drug cessation was because of financial constraints.",
+                              "type": "text",
                             },
                           ],
-                          "text": "Swimmer plot of patients in the pembrolizumab and nivolumab cohorts.",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " mCR: metabolic complete response; PR: partial remission; IR: indeterminate response. Drug cessation (blue circle) in seven patients (P1, P3, P4, P5, P7, N1, N2) represented completion of 2 years of treatment. In patient P2, drug cessation represented truncation of treatment in an attempt to conceive. In patient P9, drug cessation was because of financial constraints.",
-                          "type": "text",
+                          "type": "text_block",
                         },
                       ],
                       "type": "caption",
@@ -18974,20 +19005,28 @@ Object {
                       },
                       "content": Array [
                         Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "bold",
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "bold",
+                                },
+                              ],
+                              "text": "Survivals of patients in the pembrolizumab and nivolumab cohorts.",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " A. Progression free survival of the pembrolizumab cohort. B: Overall survival of the pembrolizumab cohort. C: Progression free survival for the nivolumab cohort. Overall survival of the nivolumab cohort is not shown, as there were no events associated with overall survival in the Kaplan-Meier plot.",
+                              "type": "text",
                             },
                           ],
-                          "text": "Survivals of patients in the pembrolizumab and nivolumab cohorts.",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " A. Progression free survival of the pembrolizumab cohort. B: Overall survival of the pembrolizumab cohort. C: Progression free survival for the nivolumab cohort. Overall survival of the nivolumab cohort is not shown, as there were no events associated with overall survival in the Kaplan-Meier plot.",
-                          "type": "text",
+                          "type": "text_block",
                         },
                       ],
                       "type": "caption",
@@ -23452,8 +23491,16 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "Flow chart of participants",
-                      "type": "text",
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Flow chart of participants",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "text_block",
                     },
                   ],
                   "type": "caption",
@@ -27304,8 +27351,16 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "Blood pressure and treatment of hypertension at baseline in 73 patients (%)",
-                      "type": "text",
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Blood pressure and treatment of hypertension at baseline in 73 patients (%)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "text_block",
                     },
                   ],
                   "type": "caption",
@@ -27451,8 +27506,16 @@ Object {
                       },
                       "content": Array [
                         Object {
-                          "text": "Blood pressure and treatment of hypertension at follow up in 73 patients (%)",
-                          "type": "text",
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Blood pressure and treatment of hypertension at follow up in 73 patients (%)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
                         },
                       ],
                       "type": "caption",
@@ -30701,6 +30764,14 @@ Object {
                 "dataTracked": null,
                 "placeholder": "Caption...",
               },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "type": "text_block",
+                },
+              ],
               "type": "caption",
             },
           ],
@@ -31465,21 +31536,28 @@ Object {
                                       },
                                       "content": Array [
                                         Object {
-                                          "text": "A picture on the kinds of figures.",
-                                          "type": "text",
+                                          "attrs": Object {
+                                            "dataTracked": null,
+                                          },
+                                          "content": Array [
+                                            Object {
+                                              "text": "A picture on the kinds of figures.",
+                                              "type": "text",
+                                            },
+                                          ],
+                                          "type": "text_block",
                                         },
-                                      ],
-                                      "type": "caption",
-                                    },
-                                    Object {
-                                      "attrs": Object {
-                                        "dataTracked": null,
-                                        "placeholder": "Caption...",
-                                      },
-                                      "content": Array [
                                         Object {
-                                          "text": "The Fig Caption continues.",
-                                          "type": "text",
+                                          "attrs": Object {
+                                            "dataTracked": null,
+                                          },
+                                          "content": Array [
+                                            Object {
+                                              "text": "The Fig Caption continues.",
+                                              "type": "text",
+                                            },
+                                          ],
+                                          "type": "text_block",
                                         },
                                       ],
                                       "type": "caption",
@@ -31560,21 +31638,28 @@ Object {
                                       },
                                       "content": Array [
                                         Object {
-                                          "text": "A missing picture on the kinds of figures.",
-                                          "type": "text",
+                                          "attrs": Object {
+                                            "dataTracked": null,
+                                          },
+                                          "content": Array [
+                                            Object {
+                                              "text": "A missing picture on the kinds of figures.",
+                                              "type": "text",
+                                            },
+                                          ],
+                                          "type": "text_block",
                                         },
-                                      ],
-                                      "type": "caption",
-                                    },
-                                    Object {
-                                      "attrs": Object {
-                                        "dataTracked": null,
-                                        "placeholder": "Caption...",
-                                      },
-                                      "content": Array [
                                         Object {
-                                          "text": "The Fig Caption continues.",
-                                          "type": "text",
+                                          "attrs": Object {
+                                            "dataTracked": null,
+                                          },
+                                          "content": Array [
+                                            Object {
+                                              "text": "The Fig Caption continues.",
+                                              "type": "text",
+                                            },
+                                          ],
+                                          "type": "text_block",
                                         },
                                       ],
                                       "type": "caption",
@@ -31758,15 +31843,9 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "placeholder": "Title...",
+                    "placeholder": "Caption...",
                   },
-                  "content": Array [
-                    Object {
-                      "text": "Boxed boxes.",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "caption_title",
+                  "type": "caption",
                 },
                 Object {
                   "attrs": Object {
@@ -33247,6 +33326,14 @@ Object {
                     "dataTracked": null,
                     "placeholder": "Caption...",
                   },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "type": "text_block",
+                    },
+                  ],
                   "type": "caption",
                 },
                 Object {
@@ -33319,6 +33406,14 @@ Object {
                     "dataTracked": null,
                     "placeholder": "Caption...",
                   },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "type": "text_block",
+                    },
+                  ],
                   "type": "caption",
                 },
                 Object {
@@ -33455,21 +33550,28 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "simple image",
-                  "type": "text",
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "simple image",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "text_block",
                 },
-              ],
-              "type": "caption",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "placeholder": "Caption...",
-              },
-              "content": Array [
                 Object {
-                  "text": "caption",
-                  "type": "text",
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "caption",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "text_block",
                 },
               ],
               "type": "caption",
@@ -33504,6 +33606,13 @@ Object {
                 "type": "",
               },
               "type": "figure",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "placeholder": "Caption...",
+              },
+              "type": "caption",
             },
             Object {
               "attrs": Object {
@@ -33824,6 +33933,14 @@ Object {
                     "dataTracked": null,
                     "placeholder": "Caption...",
                   },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "type": "text_block",
+                    },
+                  ],
                   "type": "caption",
                 },
                 Object {
@@ -33972,9 +34089,9 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
+                            "placeholder": "Caption...",
                           },
-                          "type": "caption_title",
+                          "type": "caption",
                         },
                         Object {
                           "attrs": Object {
@@ -34004,15 +34121,9 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
+                            "placeholder": "Caption...",
                           },
-                          "content": Array [
-                            Object {
-                              "text": "BoxedTextCaptionTitle",
-                              "type": "text",
-                            },
-                          ],
-                          "type": "caption_title",
+                          "type": "caption",
                         },
                         Object {
                           "attrs": Object {
@@ -34190,9 +34301,9 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
+                            "placeholder": "Caption...",
                           },
-                          "type": "caption_title",
+                          "type": "caption",
                         },
                         Object {
                           "attrs": Object {
@@ -34821,8 +34932,16 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "Flow chart of participants",
-                      "type": "text",
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Flow chart of participants",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "text_block",
                     },
                   ],
                   "type": "caption",
@@ -38697,8 +38816,16 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "Blood pressure and treatment of hypertension at baseline in 73 patients (%)",
-                      "type": "text",
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Blood pressure and treatment of hypertension at baseline in 73 patients (%)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "text_block",
                     },
                   ],
                   "type": "caption",
@@ -38844,8 +38971,16 @@ Object {
                       },
                       "content": Array [
                         Object {
-                          "text": "Blood pressure and treatment of hypertension at follow up in 73 patients (%)",
-                          "type": "text",
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Blood pressure and treatment of hypertension at follow up in 73 patients (%)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
                         },
                       ],
                       "type": "caption",
@@ -44176,6 +44311,14 @@ Object {
                 "dataTracked": null,
                 "placeholder": "Caption...",
               },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "type": "text_block",
+                },
+              ],
               "type": "caption",
             },
           ],
@@ -44964,84 +45107,90 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "marks": Array [
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "marks": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "bold",
+                            },
+                          ],
+                          "text": "Iowa Election Markets Winner Takes All.",
+                          "type": "text",
+                        },
+                        Object {
+                          "text": " The figure displays the daily results of the Iowa Election Markets winner takes all (WTA) for both the 2012 and 2016 U.S. presidential elections (available at ",
+                          "type": "text",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
+                            "href": "https://iemweb.biz.uiowa.edu/closed/",
+                            "title": "",
                           },
-                          "type": "bold",
+                          "content": Array [
+                            Object {
+                              "text": "https://iemweb.biz.uiowa.edu/closed/",
+                              "type": "text",
+                            },
+                          ],
+                          "marks": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "underline",
+                            },
+                          ],
+                          "type": "link",
+                        },
+                        Object {
+                          "marks": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "underline",
+                            },
+                          ],
+                          "text": ")",
+                          "type": "text",
+                        },
+                        Object {
+                          "text": ". [Color figure can be viewed at wileyonlinelibrary.com.]",
+                          "type": "text",
                         },
                       ],
-                      "text": "Iowa Election Markets Winner Takes All.",
-                      "type": "text",
-                    },
-                    Object {
-                      "text": " The figure displays the daily results of the Iowa Election Markets winner takes all (WTA) for both the 2012 and 2016 U.S. presidential elections (available at ",
-                      "type": "text",
+                      "type": "text_block",
                     },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "href": "https://iemweb.biz.uiowa.edu/closed/",
-                        "title": "",
                       },
                       "content": Array [
                         Object {
-                          "text": "https://iemweb.biz.uiowa.edu/closed/",
+                          "text": "A. 2016 U.S. Presidential Election",
                           "type": "text",
                         },
                       ],
-                      "marks": Array [
+                      "type": "text_block",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
                         Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                          },
-                          "type": "underline",
+                          "text": "B. 2012 U.S. Presidential Election",
+                          "type": "text",
                         },
                       ],
-                      "type": "link",
-                    },
-                    Object {
-                      "marks": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                          },
-                          "type": "underline",
-                        },
-                      ],
-                      "text": ")",
-                      "type": "text",
-                    },
-                    Object {
-                      "text": ". [Color figure can be viewed at wileyonlinelibrary.com.]",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "caption",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "placeholder": "Caption...",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "A. 2016 U.S. Presidential Election",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "caption",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "placeholder": "Caption...",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "B. 2012 U.S. Presidential Election",
-                      "type": "text",
+                      "type": "text_block",
                     },
                   ],
                   "type": "caption",
@@ -51597,33 +51746,37 @@ Object {
                       },
                       "content": Array [
                         Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "bold",
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "bold",
+                                },
+                              ],
+                              "text": "Election Uncertainty and Transactions Costs.",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " This figure reports the results of estimating the following fixed-effects regression equations for common stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
+                              "type": "text",
                             },
                           ],
-                          "text": "Election Uncertainty and Transactions Costs.",
-                          "type": "text",
+                          "type": "text_block",
                         },
-                        Object {
-                          "text": " This figure reports the results of estimating the following fixed-effects regression equations for common stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m25\\">
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m25\\">
           <mml:mrow>
             <mml:mi>S</mml:mi><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>a</mml:mi><mml:msub>
             <mml:mi>d</mml:mi>
@@ -51652,45 +51805,43 @@ Object {
           </mml:msub>
             <mml:mo> </mml:mo><mml:mo>,</mml:mo><mml:mo> </mml:mo></mml:mrow>
         </mml:math>",
-                            "dataTracked": null,
-                            "format": "mathml",
-                            "id": "MPInlineEquation:test",
-                          },
-                          "type": "inline_equation",
+                                "dataTracked": null,
+                                "format": "mathml",
+                                "id": "MPInlineEquation:test",
+                              },
+                              "type": "inline_equation",
+                            },
+                          ],
+                          "type": "text_block",
                         },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m26\\">
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m26\\">
           <mml:mrow>
             <mml:mtext>and</mml:mtext></mml:mrow>
         </mml:math>",
-                            "dataTracked": null,
-                            "format": "mathml",
-                            "id": "MPInlineEquation:test",
-                          },
-                          "type": "inline_equation",
+                                "dataTracked": null,
+                                "format": "mathml",
+                                "id": "MPInlineEquation:test",
+                              },
+                              "type": "inline_equation",
+                            },
+                          ],
+                          "type": "text_block",
                         },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m27\\">
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m27\\">
           <mml:mrow>
             <mml:mi>S</mml:mi><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>a</mml:mi><mml:msub>
             <mml:mi>d</mml:mi>
@@ -51734,186 +51885,184 @@ Object {
           </mml:msub>
             <mml:mo> </mml:mo><mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo> </mml:mo></mml:mrow>
         </mml:math>",
-                            "dataTracked": null,
-                            "format": "mathml",
-                            "id": "MPInlineEquation:test",
-                          },
-                          "type": "inline_equation",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "where the dependent variable is either ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
                                 "dataTracked": null,
+                                "format": "mathml",
+                                "id": "MPInlineEquation:test",
                               },
-                              "type": "italic",
+                              "type": "inline_equation",
                             },
                           ],
-                          "text": "Quoted Spread",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " or ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
-                            },
-                          ],
-                          "text": "Effective Spread",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ". The variables are defined in ",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "label": "",
-                            "rids": Array [
-                              "MPTableElement:test",
-                            ],
                           },
-                          "type": "cross_reference",
-                        },
-                        Object {
-                          "text": ". We estimate the first equation for each election separately and plot the beta coefficients with 95% confidence bands in Panels A and C. We include 10 pre-trend indicator variables for the 10 days leading up to each election, 31 post-trend indicator variables for the 31 days following the election outcomes (election days included), and stock fixed effects. We then estimate the second equation for the two elections jointly where we control for time trends, level effects, and stock fixed effects and plot the beta coefficients with 95% confidence intervals in Panels B and D. Standard errors in both equations are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "content": Array [
+                            Object {
+                              "text": "where the dependent variable is either ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Quoted Spread",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " or ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Effective Spread",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ". The variables are defined in ",
+                              "type": "text",
+                            },
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
+                                "label": "",
+                                "rids": Array [
+                                  "MPTableElement:test",
+                                ],
                               },
-                              "type": "italic",
+                              "type": "cross_reference",
                             },
-                          ],
-                          "text": "Quoted Spread",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " (Differences)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "B. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": ". We estimate the first equation for each election separately and plot the beta coefficients with 95% confidence bands in Panels A and C. We include 10 pre-trend indicator variables for the 10 days leading up to each election, 31 post-trend indicator variables for the 31 days following the election outcomes (election days included), and stock fixed effects. We then estimate the second equation for the two elections jointly where we control for time trends, level effects, and stock fixed effects and plot the beta coefficients with 95% confidence intervals in Panels B and D. Standard errors in both equations are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                              "type": "text",
                             },
                           ],
-                          "text": "Quoted Spread",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "C. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": "A. ",
+                              "type": "text",
                             },
-                          ],
-                          "text": "Effective Spread",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " (Differences)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "D. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Quoted Spread",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Differences)",
+                              "type": "text",
                             },
                           ],
-                          "text": "Effective Spread",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "B. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Quoted Spread",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "C. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Effective Spread",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Differences)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "D. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Effective Spread",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
                         },
                       ],
                       "type": "caption",
@@ -52108,33 +52257,37 @@ Object {
                       },
                       "content": Array [
                         Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "bold",
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "bold",
+                                },
+                              ],
+                              "text": "Election Uncertainty and Adverse Selection.",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " This figure reports the results of estimating the following fixed-effects regression equations for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
+                              "type": "text",
                             },
                           ],
-                          "text": "Election Uncertainty and Adverse Selection.",
-                          "type": "text",
+                          "type": "text_block",
                         },
-                        Object {
-                          "text": " This figure reports the results of estimating the following fixed-effects regression equations for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m28\\">
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m28\\">
           <mml:mrow>
             <mml:mi>A</mml:mi><mml:mi>d</mml:mi><mml:mi>v</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>s</mml:mi><mml:mi>e</mml:mi><mml:mo> </mml:mo><mml:mi>S</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>o</mml:mi><mml:msub>
             <mml:mi>n</mml:mi>
@@ -52163,45 +52316,43 @@ Object {
           </mml:msub>
             <mml:mo> </mml:mo><mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo> </mml:mo></mml:mrow>
         </mml:math>",
-                            "dataTracked": null,
-                            "format": "mathml",
-                            "id": "MPInlineEquation:test",
-                          },
-                          "type": "inline_equation",
+                                "dataTracked": null,
+                                "format": "mathml",
+                                "id": "MPInlineEquation:test",
+                              },
+                              "type": "inline_equation",
+                            },
+                          ],
+                          "type": "text_block",
                         },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m29\\">
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m29\\">
           <mml:mrow>
             <mml:mtext>and</mml:mtext></mml:mrow>
         </mml:math>",
-                            "dataTracked": null,
-                            "format": "mathml",
-                            "id": "MPInlineEquation:test",
-                          },
-                          "type": "inline_equation",
+                                "dataTracked": null,
+                                "format": "mathml",
+                                "id": "MPInlineEquation:test",
+                              },
+                              "type": "inline_equation",
+                            },
+                          ],
+                          "type": "text_block",
                         },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m30\\">
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m30\\">
           <mml:mrow>
             <mml:mi>A</mml:mi><mml:mi>d</mml:mi><mml:mi>v</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>s</mml:mi><mml:mi>e</mml:mi><mml:mo> </mml:mo><mml:mi>S</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>o</mml:mi><mml:msub>
             <mml:mi>n</mml:mi>
@@ -52245,201 +52396,199 @@ Object {
           </mml:msub>
             <mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo> </mml:mo></mml:mrow>
         </mml:math>",
-                            "dataTracked": null,
-                            "format": "mathml",
-                            "id": "MPInlineEquation:test",
-                          },
-                          "type": "inline_equation",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "where the dependent variable is either the ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
                                 "dataTracked": null,
+                                "format": "mathml",
+                                "id": "MPInlineEquation:test",
                               },
-                              "type": "italic",
+                              "type": "inline_equation",
                             },
                           ],
-                          "text": "Price Impact",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " component of the bid–ask spread or ",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPCitation:test",
-                            "rids": Array [
-                              "MPBibliographyItem:test",
-                            ],
-                            "selectedText": "",
                           },
-                          "type": "citation",
-                        },
-                        Object {
-                          "text": " illiquidity measure (",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "content": Array [
+                            Object {
+                              "text": "where the dependent variable is either the ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Price Impact",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " component of the bid–ask spread or ",
+                              "type": "text",
+                            },
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
+                                "id": "MPCitation:test",
+                                "rids": Array [
+                                  "MPBibliographyItem:test",
+                                ],
+                                "selectedText": "",
                               },
-                              "type": "italic",
+                              "type": "citation",
+                            },
+                            Object {
+                              "text": " illiquidity measure (",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Amihud Illiquidity",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": "). The variables are defined in ",
+                              "type": "text",
+                            },
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                                "label": "",
+                                "rids": Array [
+                                  "MPTableElement:test",
+                                ],
+                              },
+                              "type": "cross_reference",
+                            },
+                            Object {
+                              "text": ". We estimate the first equation for each election separately and plot the beta coefficients with 95% confidence bands in Panels A and C. We include 10 pre-trend indicator variables for the 10 days leading up to each election, 31 post-trend indicator variables for the 31 days following the election outcomes (election days included), and stock fixed effects. We then estimate the second equation for the two elections jointly where we control for time trends, level effects, and stock fixed effects and plot the beta coefficients with 95% confidence intervals in Panels B and D. Standard errors in both equations are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                              "type": "text",
                             },
                           ],
-                          "text": "Amihud Illiquidity",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": "). The variables are defined in ",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "label": "",
-                            "rids": Array [
-                              "MPTableElement:test",
-                            ],
                           },
-                          "type": "cross_reference",
-                        },
-                        Object {
-                          "text": ". We estimate the first equation for each election separately and plot the beta coefficients with 95% confidence bands in Panels A and C. We include 10 pre-trend indicator variables for the 10 days leading up to each election, 31 post-trend indicator variables for the 31 days following the election outcomes (election days included), and stock fixed effects. We then estimate the second equation for the two elections jointly where we control for time trends, level effects, and stock fixed effects and plot the beta coefficients with 95% confidence intervals in Panels B and D. Standard errors in both equations are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": "A. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Price Impact",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Differences)",
+                              "type": "text",
                             },
                           ],
-                          "text": "Price Impact",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Differences)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "B. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": "B. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Price Impact",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
                             },
                           ],
-                          "text": "Price Impact",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "C. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": "C. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Amihud Illiquidity",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Differences)",
+                              "type": "text",
                             },
                           ],
-                          "text": "Amihud Illiquidity",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Differences)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "D. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": "D. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Amihud Illiquidity",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
                             },
                           ],
-                          "text": "Amihud Illiquidity",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
+                          "type": "text_block",
                         },
                       ],
                       "type": "caption",
@@ -52682,33 +52831,37 @@ Object {
                       },
                       "content": Array [
                         Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "bold",
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "bold",
+                                },
+                              ],
+                              "text": "Election Uncertainty and Volatility.",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " This figure reports the results of estimating the following fixed-effects regression equations for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
+                              "type": "text",
                             },
                           ],
-                          "text": "Election Uncertainty and Volatility.",
-                          "type": "text",
+                          "type": "text_block",
                         },
-                        Object {
-                          "text": " This figure reports the results of estimating the following fixed-effects regression equations for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m31\\">
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m31\\">
           <mml:mrow>
             <mml:mi>V</mml:mi><mml:mi>o</mml:mi><mml:mi>l</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>l</mml:mi><mml:mi>i</mml:mi><mml:mi>t</mml:mi><mml:msub>
             <mml:mi>y</mml:mi>
@@ -52737,45 +52890,43 @@ Object {
           </mml:msub>
             <mml:mo> </mml:mo><mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo> </mml:mo></mml:mrow>
         </mml:math>",
-                            "dataTracked": null,
-                            "format": "mathml",
-                            "id": "MPInlineEquation:test",
-                          },
-                          "type": "inline_equation",
+                                "dataTracked": null,
+                                "format": "mathml",
+                                "id": "MPInlineEquation:test",
+                              },
+                              "type": "inline_equation",
+                            },
+                          ],
+                          "type": "text_block",
                         },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m32\\">
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m32\\">
           <mml:mrow>
             <mml:mtext>and</mml:mtext></mml:mrow>
         </mml:math>",
-                            "dataTracked": null,
-                            "format": "mathml",
-                            "id": "MPInlineEquation:test",
-                          },
-                          "type": "inline_equation",
+                                "dataTracked": null,
+                                "format": "mathml",
+                                "id": "MPInlineEquation:test",
+                              },
+                              "type": "inline_equation",
+                            },
+                          ],
+                          "type": "text_block",
                         },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m33\\">
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m33\\">
           <mml:mrow>
             <mml:mi>V</mml:mi><mml:mi>o</mml:mi><mml:mi>l</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>l</mml:mi><mml:mi>i</mml:mi><mml:mi>t</mml:mi><mml:msub>
             <mml:mi>y</mml:mi>
@@ -52819,260 +52970,256 @@ Object {
           </mml:msub>
             <mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo> </mml:mo></mml:mrow>
         </mml:math>",
-                            "dataTracked": null,
-                            "format": "mathml",
-                            "id": "MPInlineEquation:test",
-                          },
-                          "type": "inline_equation",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "where the dependent variable is either ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
                                 "dataTracked": null,
+                                "format": "mathml",
+                                "id": "MPInlineEquation:test",
                               },
-                              "type": "italic",
+                              "type": "inline_equation",
                             },
                           ],
-                          "text": "Total Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
-                            },
-                          ],
-                          "text": "Systematic Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ", or ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
-                            },
-                          ],
-                          "text": "Idiosyncratic Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ". The variables are defined in ",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "label": "",
-                            "rids": Array [
-                              "MPTableElement:test",
-                            ],
                           },
-                          "type": "cross_reference",
-                        },
-                        Object {
-                          "text": ". We estimate the first equation for each election separately and plot the beta coefficients with 95% confidence bands in Panels A, C, and E. We include 10 pre-trend indicator variables for the 10 days leading up to each election, 31 post-trend indicator variables for the 31 days following the election outcomes (election days included), and stock fixed effects. We then estimate the second equation for the two elections jointly where we control for time trends, level effects, and stock fixed effects and plot the beta coefficients with 95% confidence intervals in Panels B, D, and F. Standard errors in both equations are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "content": Array [
+                            Object {
+                              "text": "where the dependent variable is either ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Total Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ", ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Systematic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ", or ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Idiosyncratic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ". The variables are defined in ",
+                              "type": "text",
+                            },
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
+                                "label": "",
+                                "rids": Array [
+                                  "MPTableElement:test",
+                                ],
                               },
-                              "type": "italic",
+                              "type": "cross_reference",
                             },
-                          ],
-                          "text": "Total Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " (Differences)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "B. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": ". We estimate the first equation for each election separately and plot the beta coefficients with 95% confidence bands in Panels A, C, and E. We include 10 pre-trend indicator variables for the 10 days leading up to each election, 31 post-trend indicator variables for the 31 days following the election outcomes (election days included), and stock fixed effects. We then estimate the second equation for the two elections jointly where we control for time trends, level effects, and stock fixed effects and plot the beta coefficients with 95% confidence intervals in Panels B, D, and F. Standard errors in both equations are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                              "type": "text",
                             },
                           ],
-                          "text": "Total Volatility",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "C. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": "A. ",
+                              "type": "text",
                             },
-                          ],
-                          "text": "Systematic Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " (Differences)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "D. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Total Volatility",
+                              "type": "text",
                             },
-                          ],
-                          "text": "Systematic Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "E. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": " (Differences)",
+                              "type": "text",
                             },
                           ],
-                          "text": "Idiosyncratic Volatility",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Differences)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "F. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": "B. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Total Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
                             },
                           ],
-                          "text": "Idiosyncratic Volatility",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "C. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Systematic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Differences)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "D. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Systematic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "E. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Idiosyncratic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Differences)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "F. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Idiosyncratic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
                         },
                       ],
                       "type": "caption",
@@ -53316,33 +53463,37 @@ Object {
                       },
                       "content": Array [
                         Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "bold",
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "bold",
+                                },
+                              ],
+                              "text": "Election Uncertainty and Liquidity—By Stock Trading Volume.",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
+                              "type": "text",
                             },
                           ],
-                          "text": "Election Uncertainty and Liquidity—By Stock Trading Volume.",
-                          "type": "text",
+                          "type": "text_block",
                         },
-                        Object {
-                          "text": " This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m34\\">
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m34\\">
           <mml:mrow>
             <mml:mi>L</mml:mi><mml:mi>i</mml:mi><mml:msub>
             <mml:mi>q</mml:mi>
@@ -53386,218 +53537,216 @@ Object {
           </mml:msub>
             <mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo> </mml:mo></mml:mrow>
         </mml:math>",
-                            "dataTracked": null,
-                            "format": "mathml",
-                            "id": "MPInlineEquation:test",
-                          },
-                          "type": "inline_equation",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "where the dependent variable is one of four liquidity measures: ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
                                 "dataTracked": null,
+                                "format": "mathml",
+                                "id": "MPInlineEquation:test",
                               },
-                              "type": "italic",
+                              "type": "inline_equation",
                             },
                           ],
-                          "text": "Effective Spread",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
-                            },
-                          ],
-                          "text": "Price Impact",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
-                            },
-                          ],
-                          "text": "Systematic Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ", or ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
-                            },
-                          ],
-                          "text": "Idiosyncratic Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ". The variables are defined in ",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "label": "",
-                            "rids": Array [
-                              "MPTableElement:test",
-                            ],
                           },
-                          "type": "cross_reference",
-                        },
-                        Object {
-                          "text": ". We separate the Trump sample into pre-election trading volume quintiles and estimate the equation above separately for the top and bottom quintiles. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "content": Array [
+                            Object {
+                              "text": "where the dependent variable is one of four liquidity measures: ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Effective Spread",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ", ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Price Impact",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ", ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Systematic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ", or ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Idiosyncratic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ". The variables are defined in ",
+                              "type": "text",
+                            },
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
+                                "label": "",
+                                "rids": Array [
+                                  "MPTableElement:test",
+                                ],
                               },
-                              "type": "italic",
+                              "type": "cross_reference",
                             },
-                          ],
-                          "text": "Effective Spread",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "B. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": ". We separate the Trump sample into pre-election trading volume quintiles and estimate the equation above separately for the top and bottom quintiles. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                              "type": "text",
                             },
                           ],
-                          "text": "Price Impact",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "C. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": "A. ",
+                              "type": "text",
                             },
-                          ],
-                          "text": "Systematic Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Panel D. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Effective Spread",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
                             },
                           ],
-                          "text": "Idiosyncratic Volatility",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "B. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Price Impact",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "C. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Systematic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Panel D. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Idiosyncratic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
                         },
                       ],
                       "type": "caption",
@@ -53721,33 +53870,37 @@ Object {
                       },
                       "content": Array [
                         Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "bold",
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "bold",
+                                },
+                              ],
+                              "text": "Election Uncertainty and Liquidity—By Stock Market Capitalization.",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
+                              "type": "text",
                             },
                           ],
-                          "text": "Election Uncertainty and Liquidity—By Stock Market Capitalization.",
-                          "type": "text",
+                          "type": "text_block",
                         },
-                        Object {
-                          "text": " This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m35\\">
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m35\\">
           <mml:mrow>
             <mml:mi>L</mml:mi><mml:mi>i</mml:mi><mml:msub>
             <mml:mi>q</mml:mi>
@@ -53791,218 +53944,216 @@ Object {
           </mml:msub>
             <mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo> </mml:mo></mml:mrow>
         </mml:math>",
-                            "dataTracked": null,
-                            "format": "mathml",
-                            "id": "MPInlineEquation:test",
-                          },
-                          "type": "inline_equation",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "where the dependent variable is one of four liquidity measures: ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
                                 "dataTracked": null,
+                                "format": "mathml",
+                                "id": "MPInlineEquation:test",
                               },
-                              "type": "italic",
+                              "type": "inline_equation",
                             },
                           ],
-                          "text": "Effective Spread",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
-                            },
-                          ],
-                          "text": "Price Impact",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
-                            },
-                          ],
-                          "text": "Systematic Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ", or ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
-                            },
-                          ],
-                          "text": "Idiosyncratic Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ". The variables are defined in ",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "label": "",
-                            "rids": Array [
-                              "MPTableElement:test",
-                            ],
                           },
-                          "type": "cross_reference",
-                        },
-                        Object {
-                          "text": ". We separate the Trump sample into pre-election market capitalization quintiles and estimate the above equation separately for the top and bottom quintiles. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "content": Array [
+                            Object {
+                              "text": "where the dependent variable is one of four liquidity measures: ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Effective Spread",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ", ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Price Impact",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ", ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Systematic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ", or ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Idiosyncratic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ". The variables are defined in ",
+                              "type": "text",
+                            },
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
+                                "label": "",
+                                "rids": Array [
+                                  "MPTableElement:test",
+                                ],
                               },
-                              "type": "italic",
+                              "type": "cross_reference",
                             },
-                          ],
-                          "text": "Effective Spread",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "B. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": ". We separate the Trump sample into pre-election market capitalization quintiles and estimate the above equation separately for the top and bottom quintiles. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                              "type": "text",
                             },
                           ],
-                          "text": "Price Impact",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "C. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": "A. ",
+                              "type": "text",
                             },
-                          ],
-                          "text": "Systematic Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Panel D. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Effective Spread",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
                             },
                           ],
-                          "text": "Idiosyncratic Volatility",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "B. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Price Impact",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "C. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Systematic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Panel D. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Idiosyncratic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
                         },
                       ],
                       "type": "caption",
@@ -54220,33 +54371,37 @@ Object {
                       },
                       "content": Array [
                         Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "bold",
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "bold",
+                                },
+                              ],
+                              "text": "Election Uncertainty and Liquidity—Politically Sensitive Industries.",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " The figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
+                              "type": "text",
                             },
                           ],
-                          "text": "Election Uncertainty and Liquidity—Politically Sensitive Industries.",
-                          "type": "text",
+                          "type": "text_block",
                         },
-                        Object {
-                          "text": " The figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2012 and 2016 U.S. presidential elections:",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
                         Object {
                           "attrs": Object {
-                            "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m36\\">
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m36\\">
           <mml:mrow>
             <mml:mi>L</mml:mi><mml:mi>i</mml:mi><mml:msub>
             <mml:mi>q</mml:mi>
@@ -54290,218 +54445,216 @@ Object {
           </mml:msub>
             <mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo> </mml:mo></mml:mrow>
         </mml:math>",
-                            "dataTracked": null,
-                            "format": "mathml",
-                            "id": "MPInlineEquation:test",
-                          },
-                          "type": "inline_equation",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "where the dependent variable is one of four liquidity measures: ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
                                 "dataTracked": null,
+                                "format": "mathml",
+                                "id": "MPInlineEquation:test",
                               },
-                              "type": "italic",
+                              "type": "inline_equation",
                             },
                           ],
-                          "text": "Effective Spread",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
-                            },
-                          ],
-                          "text": "Price Impact",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ", ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
-                            },
-                          ],
-                          "text": "Systematic Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ", or ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
-                            },
-                          ],
-                          "text": "Idiosyncratic Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": ". The variables are defined in ",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "label": "",
-                            "rids": Array [
-                              "MPTableElement:test",
-                            ],
                           },
-                          "type": "cross_reference",
-                        },
-                        Object {
-                          "text": ". We separate the sample by industry and define those in the healthcare (Standard Industrial Classification [SIC] 8000–8099), pharmaceutical (SIC 2830–2836), banking (SIC 6000–6199), trading (SIC 6200–6299 and 6700–6799), natural gas (SIC 1300–1389, 2900–2912, and 2990–2999), defense (SIC 3760–3769, 3795, and 3480–3489), and tobacco (SIC 2100–2199) industries as politically sensitive. We estimate the equation above separately for politically sensitive and insensitive stocks. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "A. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "content": Array [
+                            Object {
+                              "text": "where the dependent variable is one of four liquidity measures: ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Effective Spread",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ", ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Price Impact",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ", ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Systematic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ", or ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Idiosyncratic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": ". The variables are defined in ",
+                              "type": "text",
+                            },
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
+                                "label": "",
+                                "rids": Array [
+                                  "MPTableElement:test",
+                                ],
                               },
-                              "type": "italic",
+                              "type": "cross_reference",
                             },
-                          ],
-                          "text": "Effective Spread",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "B. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": ". We separate the sample by industry and define those in the healthcare (Standard Industrial Classification [SIC] 8000–8099), pharmaceutical (SIC 2830–2836), banking (SIC 6000–6199), trading (SIC 6200–6299 and 6700–6799), natural gas (SIC 1300–1389, 2900–2912, and 2990–2999), defense (SIC 3760–3769, 3795, and 3480–3489), and tobacco (SIC 2100–2199) industries as politically sensitive. We estimate the equation above separately for politically sensitive and insensitive stocks. We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                              "type": "text",
                             },
                           ],
-                          "text": "Price Impact",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "C. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "text": "A. ",
+                              "type": "text",
                             },
-                          ],
-                          "text": "Systematic Volatility",
-                          "type": "text",
-                        },
-                        Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "D. ",
-                          "type": "text",
-                        },
-                        Object {
-                          "marks": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                              },
-                              "type": "italic",
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Effective Spread",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
                             },
                           ],
-                          "text": "Idiosyncratic Volatility",
-                          "type": "text",
+                          "type": "text_block",
                         },
                         Object {
-                          "text": " (Diff-in-Diff)",
-                          "type": "text",
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "B. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Price Impact",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "C. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Systematic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "D. ",
+                              "type": "text",
+                            },
+                            Object {
+                              "marks": Array [
+                                Object {
+                                  "attrs": Object {
+                                    "dataTracked": null,
+                                  },
+                                  "type": "italic",
+                                },
+                              ],
+                              "text": "Idiosyncratic Volatility",
+                              "type": "text",
+                            },
+                            Object {
+                              "text": " (Diff-in-Diff)",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "text_block",
                         },
                       ],
                       "type": "caption",
@@ -54662,33 +54815,37 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "marks": Array [
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
                         Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                          },
-                          "type": "bold",
+                          "marks": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "bold",
+                            },
+                          ],
+                          "text": "Election Uncertainty and Liquidity—2004 U.S. Presidential Election as a Benchmark.",
+                          "type": "text",
+                        },
+                        Object {
+                          "text": " This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2004 and 2016 U.S. presidential elections:",
+                          "type": "text",
                         },
                       ],
-                      "text": "Election Uncertainty and Liquidity—2004 U.S. Presidential Election as a Benchmark.",
-                      "type": "text",
+                      "type": "text_block",
                     },
-                    Object {
-                      "text": " This figure reports the results of estimating specifications of the following fixed-effects regression equation for stock observations in the 121 days [−90,30] surrounding the 2004 and 2016 U.S. presidential elections:",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "caption",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "placeholder": "Caption...",
-                  },
-                  "content": Array [
                     Object {
                       "attrs": Object {
-                        "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m37\\">
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "contents": "<mml:math xmlns:mml=\\"http://www.w3.org/1998/Math/MathML\\" id=\\"m37\\">
         <mml:mrow>
           <mml:mi>L</mml:mi><mml:mi>i</mml:mi><mml:msub>
           <mml:mi>q</mml:mi>
@@ -54732,218 +54889,216 @@ Object {
         </mml:msub>
           <mml:mo>,</mml:mo><mml:mo> </mml:mo><mml:mo> </mml:mo></mml:mrow>
       </mml:math>",
-                        "dataTracked": null,
-                        "format": "mathml",
-                        "id": "MPInlineEquation:test",
-                      },
-                      "type": "inline_equation",
-                    },
-                  ],
-                  "type": "caption",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "placeholder": "Caption...",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "where the dependent variable is one of four liquidity measures: ",
-                      "type": "text",
-                    },
-                    Object {
-                      "marks": Array [
-                        Object {
-                          "attrs": Object {
                             "dataTracked": null,
+                            "format": "mathml",
+                            "id": "MPInlineEquation:test",
                           },
-                          "type": "italic",
+                          "type": "inline_equation",
                         },
                       ],
-                      "text": "Effective Spread",
-                      "type": "text",
-                    },
-                    Object {
-                      "text": ", ",
-                      "type": "text",
-                    },
-                    Object {
-                      "marks": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                          },
-                          "type": "italic",
-                        },
-                      ],
-                      "text": "Price Impact",
-                      "type": "text",
-                    },
-                    Object {
-                      "text": ", ",
-                      "type": "text",
-                    },
-                    Object {
-                      "marks": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                          },
-                          "type": "italic",
-                        },
-                      ],
-                      "text": "Systematic Volatility",
-                      "type": "text",
-                    },
-                    Object {
-                      "text": ", or ",
-                      "type": "text",
-                    },
-                    Object {
-                      "marks": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                          },
-                          "type": "italic",
-                        },
-                      ],
-                      "text": "Idiosyncratic Volatility",
-                      "type": "text",
-                    },
-                    Object {
-                      "text": ". The variables are defined in ",
-                      "type": "text",
+                      "type": "text_block",
                     },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "label": "",
-                        "rids": Array [
-                          "MPTableElement:test",
-                        ],
                       },
-                      "type": "cross_reference",
-                    },
-                    Object {
-                      "text": ". We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "caption",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "placeholder": "Caption...",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "A. ",
-                      "type": "text",
-                    },
-                    Object {
-                      "marks": Array [
+                      "content": Array [
+                        Object {
+                          "text": "where the dependent variable is one of four liquidity measures: ",
+                          "type": "text",
+                        },
+                        Object {
+                          "marks": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "italic",
+                            },
+                          ],
+                          "text": "Effective Spread",
+                          "type": "text",
+                        },
+                        Object {
+                          "text": ", ",
+                          "type": "text",
+                        },
+                        Object {
+                          "marks": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "italic",
+                            },
+                          ],
+                          "text": "Price Impact",
+                          "type": "text",
+                        },
+                        Object {
+                          "text": ", ",
+                          "type": "text",
+                        },
+                        Object {
+                          "marks": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "italic",
+                            },
+                          ],
+                          "text": "Systematic Volatility",
+                          "type": "text",
+                        },
+                        Object {
+                          "text": ", or ",
+                          "type": "text",
+                        },
+                        Object {
+                          "marks": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "italic",
+                            },
+                          ],
+                          "text": "Idiosyncratic Volatility",
+                          "type": "text",
+                        },
+                        Object {
+                          "text": ". The variables are defined in ",
+                          "type": "text",
+                        },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
+                            "label": "",
+                            "rids": Array [
+                              "MPTableElement:test",
+                            ],
                           },
-                          "type": "italic",
+                          "type": "cross_reference",
                         },
-                      ],
-                      "text": "Effective Spread",
-                      "type": "text",
-                    },
-                    Object {
-                      "text": " (Diff-in-Diff)",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "caption",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "placeholder": "Caption...",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "B. ",
-                      "type": "text",
-                    },
-                    Object {
-                      "marks": Array [
                         Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                          },
-                          "type": "italic",
+                          "text": ". We include 10 pre-trend interaction variables for the 10 days leading up to each election, 31 post-trend interaction variables for the 31 days following the election outcomes (election days included), time trends, level effects, and stock fixed effects. We plot the beta coefficients with 95% confidence intervals below. Standard errors are clustered at the stock level. [Color figure can be viewed at wileyonlinelibrary.com.]",
+                          "type": "text",
                         },
                       ],
-                      "text": "Price Impact",
-                      "type": "text",
+                      "type": "text_block",
                     },
                     Object {
-                      "text": " (Diff-in-Diff)",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "caption",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "placeholder": "Caption...",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "C. ",
-                      "type": "text",
-                    },
-                    Object {
-                      "marks": Array [
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
                         Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                          },
-                          "type": "italic",
+                          "text": "A. ",
+                          "type": "text",
                         },
-                      ],
-                      "text": "Systematic Volatility",
-                      "type": "text",
-                    },
-                    Object {
-                      "text": " (Diff-in-Diff)",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "caption",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "placeholder": "Caption...",
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "D. ",
-                      "type": "text",
-                    },
-                    Object {
-                      "marks": Array [
                         Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                          },
-                          "type": "italic",
+                          "marks": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "italic",
+                            },
+                          ],
+                          "text": "Effective Spread",
+                          "type": "text",
+                        },
+                        Object {
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
                         },
                       ],
-                      "text": "Idiosyncratic Volatility",
-                      "type": "text",
+                      "type": "text_block",
                     },
                     Object {
-                      "text": " (Diff-in-Diff)",
-                      "type": "text",
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "B. ",
+                          "type": "text",
+                        },
+                        Object {
+                          "marks": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "italic",
+                            },
+                          ],
+                          "text": "Price Impact",
+                          "type": "text",
+                        },
+                        Object {
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "text_block",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "C. ",
+                          "type": "text",
+                        },
+                        Object {
+                          "marks": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "italic",
+                            },
+                          ],
+                          "text": "Systematic Volatility",
+                          "type": "text",
+                        },
+                        Object {
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "text_block",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "D. ",
+                          "type": "text",
+                        },
+                        Object {
+                          "marks": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "type": "italic",
+                            },
+                          ],
+                          "text": "Idiosyncratic Volatility",
+                          "type": "text",
+                        },
+                        Object {
+                          "text": " (Diff-in-Diff)",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "text_block",
                     },
                   ],
                   "type": "caption",
@@ -59595,6 +59750,14 @@ Object {
         "dataTracked": null,
         "placeholder": "Caption...",
       },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+          },
+          "type": "text_block",
+        },
+      ],
       "type": "caption",
     },
   ],
