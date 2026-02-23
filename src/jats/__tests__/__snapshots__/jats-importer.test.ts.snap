@@ -31843,9 +31843,15 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "placeholder": "Caption...",
+                    "placeholder": "Title...",
                   },
-                  "type": "caption",
+                  "content": Array [
+                    Object {
+                      "text": "Boxed boxes.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
@@ -34089,9 +34095,9 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
+                            "placeholder": "Title...",
                           },
-                          "type": "caption",
+                          "type": "caption_title",
                         },
                         Object {
                           "attrs": Object {
@@ -34121,9 +34127,15 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
+                            "placeholder": "Title...",
                           },
-                          "type": "caption",
+                          "content": Array [
+                            Object {
+                              "text": "BoxedTextCaptionTitle",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "caption_title",
                         },
                         Object {
                           "attrs": Object {
@@ -34301,9 +34313,9 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
+                            "placeholder": "Title...",
                           },
-                          "type": "caption",
+                          "type": "caption_title",
                         },
                         Object {
                           "attrs": Object {
