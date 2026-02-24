@@ -15,7 +15,6 @@
  */
 
 import { Element as XMLElement, parseXml } from 'libxmljs2'
-import { Node as ProsemirrorNode } from 'prosemirror-model'
 
 import { JATSExporter } from '../exporter/jats-exporter'
 import { Version } from '../exporter/jats-versions'
