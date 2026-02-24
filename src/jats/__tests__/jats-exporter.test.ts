@@ -45,7 +45,7 @@ describe('JATS exporter', () => {
     expect(result).toMatchSnapshot('jats-export')
   })
 
-  test('export with & and > in bibliography metadata', async () => {
+  test('export with & and < in bibliography metadata', async () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-example-full.xml')
     const { node, journal } = parseJATSArticle(input, sectionCategories)
@@ -57,8 +57,7 @@ describe('JATS exporter', () => {
       }
     })
 
-    biblio!.attrs.title += ' & Sons'
-    biblio!.attrs.literal += ' 55 < 135'
+    biblio!.attrs.title += ' & Sons 55 < 135'
 
     const result = await transformer.serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
