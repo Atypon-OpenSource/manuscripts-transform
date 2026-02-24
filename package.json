@@ -26,7 +26,8 @@
     "preversion": "npm-run-all --parallel typecheck lint build test",
     "test": "TZ=UTC jest --runInBand",
     "typecheck": "tsc --noEmit",
-    "version": "pnpm build"
+    "version": "pnpm build",
+    "test-exp": "jest -i src/jats/__tests__/jats-exporter.test.ts"
   },
   "dependencies": {
     "@manuscripts/json-schema": "2.2.12",
