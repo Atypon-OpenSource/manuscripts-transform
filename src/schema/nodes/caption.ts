@@ -27,7 +27,7 @@ export interface CaptionNode extends ManuscriptNode {
 }
 
 export const caption: NodeSpec = {
-  content: 'text_block*',
+  content: 'text_block+',
   attrs: {
     placeholder: { default: 'Caption...' },
     dataTracked: { default: null },

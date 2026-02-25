@@ -61,12 +61,15 @@ class Migration4319 implements MigrationScript {
     )
     const foundCaption = (figCaption?.content || []).filter(
       (node) => node.type === 'caption')
-      .reduce(
+      .reduce<JSONProsemirrorNode>(
         (caption, { content }) => ({
           ...caption,
-          content: [...caption.content, { type: 'text_block', content }],
+          content: [
+            ...(caption.content || []),
+            { type: 'text_block', content, attrs: {} },
+          ],
         }),
-        { type: 'caption', content: [] }
+        { type: 'caption', content: [], attrs: {} }
       )
 
     const cleanContent = node.content.filter((n) => n.type !== 'figcaption')
