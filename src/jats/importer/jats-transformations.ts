@@ -525,6 +525,19 @@ export const fixTables = (
     if (!table) {
       return
     }
+    // Merge tfoot rows into tbody to preserve correct row order when parsing.
+    // In JATS, tfoot appears before tbody in the DOM, which would
+    // cause the last row to appear first after roundtripping.
+    const tfoot = table.querySelector('tfoot')
+    const tbody = table.querySelector('tbody')
+    if (tfoot && tbody) {
+      const tfootRows = Array.from(tfoot.querySelectorAll(':scope > tr'))
+      for (const row of tfootRows) {
+        removeNodeFromParent(row)
+        tbody.appendChild(row)
+      }
+      removeNodeFromParent(tfoot)
+    }
     const colgroup = table.querySelector('colgroup')
     const cols = table.querySelectorAll('col')
     if (!colgroup && table.firstChild && cols.length > 0) {
