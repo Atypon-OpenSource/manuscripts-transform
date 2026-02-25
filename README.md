@@ -25,6 +25,7 @@ It provides a way to import/export [Manuscript JSON Schema](https://gitlab.com/m
 ### Manuscript JSON Schema to ProseMirror Model
 
 ```typescript
+
 import { Decoder, ContainedModel } from '@manuscripts/manuscript-transform'
 
 
