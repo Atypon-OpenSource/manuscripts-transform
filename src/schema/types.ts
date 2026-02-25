@@ -172,6 +172,7 @@ export type SectionGroup =
 export type SectionCategory = {
   id: string
   synonyms: string[]
+  label?: string
   titles: [string, ...string[]]
   group?: SectionGroup
   isUnique: boolean
