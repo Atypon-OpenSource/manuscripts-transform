@@ -172,7 +172,7 @@ export type SectionGroup =
 export type SectionCategory = {
   id: string
   synonyms: string[]
-  label?: string
+  label?: string // for display menu purposes, if not provided, the first title will be used
   titles: [string, ...string[]]
   group?: SectionGroup
   isUnique: boolean
