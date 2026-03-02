@@ -14,11 +14,23 @@
  * limitations under the License.
  */
 
+import { ObjectTypes } from '@manuscripts/json-schema'
+import { Fragment } from 'prosemirror-model'
+
 import { ManuscriptAttrs, ManuscriptNode, schema } from '../../schema'
 import { generateNodeID } from '../../transformer'
 
+export interface SubmissionOwner {
+  email?: string
+  firstName?: string
+  lastName?: string
+  prefix?: string
+  orcid?: string
+}
+
 export const createArticleNode = (
-  attrs: Partial<ManuscriptAttrs> & { id: string }
+  attrs: Partial<ManuscriptAttrs> & { id: string },
+  submissionOwner?: SubmissionOwner
 ): ManuscriptNode => {
   const title = schema.nodes.title.createChecked({
     id: generateNodeID(schema.nodes.title),
@@ -42,11 +54,42 @@ export const createArticleNode = (
     id: generateNodeID(schema.nodes.comments),
   })
 
-  return schema.nodes.manuscript.createChecked(attrs, [
+  let contributors
+
+  if (submissionOwner) {
+    const contributor = schema.nodes.contributor.createChecked(
+      {
+        id: generateNodeID(schema.nodes.contributor),
+        email: submissionOwner.email || '',
+        bibliographicName: {
+          given: submissionOwner.firstName || '',
+          family: submissionOwner.lastName || '',
+          ObjectType: ObjectTypes.BibliographicName,
+        },
+        ORCIDIdentifier: submissionOwner.orcid,
+        prefix: submissionOwner.prefix || '',
+        isCorresponding: true,
+        priority: 0,
+        affiliations: [],
+        footnote: [],
+        corresp: [],
+      },
+      Fragment.from(schema.text('_'))
+    )
+    contributors = schema.nodes.contributors.createChecked(
+      { id: generateNodeID(schema.nodes.contributors) },
+      contributor
+    )
+  }
+
+  const children = [
     title,
+    contributors,
     abstracts,
     body,
     backmatter,
     comments,
-  ])
+  ].filter((node) => node !== undefined)
+
+  return schema.nodes.manuscript.createChecked(attrs, children)
 }

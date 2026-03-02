@@ -1,4 +1,108 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Create empty document should create a document with owner as contributor 1`] = `
+Object {
+  "attrs": Object {
+    "acceptanceDate": undefined,
+    "articleType": "research-article",
+    "correctionDate": undefined,
+    "doi": "",
+    "id": "manuscript:456",
+    "primaryLanguageCode": "",
+    "prototype": "",
+    "receiveDate": undefined,
+    "retractionDate": undefined,
+    "revisionReceiveDate": undefined,
+    "revisionRequestDate": undefined,
+  },
+  "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPTitles:test",
+        "placeholder": "Insert title here...",
+      },
+      "type": "title",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPSection:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "ORCIDIdentifier": "0000-0001-2345-6789",
+            "affiliations": Array [],
+            "bibliographicName": Object {
+              "ObjectType": "MPBibliographicName",
+              "family": "Doe",
+              "given": "Jane",
+            },
+            "contents": "",
+            "corresp": Array [],
+            "creditRoles": Array [],
+            "dataTracked": null,
+            "email": "owner@example.com",
+            "footnote": Array [],
+            "id": "MPContributor:test",
+            "invitationID": undefined,
+            "isCorresponding": true,
+            "isJointContributor": undefined,
+            "prefix": "Dr.",
+            "priority": 0,
+            "role": "",
+            "userID": undefined,
+          },
+          "content": Array [
+            Object {
+              "text": "_",
+              "type": "text",
+            },
+          ],
+          "type": "contributor",
+        },
+      ],
+      "type": "contributors",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPSection:test",
+      },
+      "type": "abstracts",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPSection:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPParagraphElement:test",
+            "placeholder": "",
+          },
+          "type": "paragraph",
+        },
+      ],
+      "type": "body",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPSection:test",
+        "placeholder": " ",
+      },
+      "type": "backmatter",
+    },
+    Object {
+      "attrs": Object {
+        "id": "MPComments:test",
+      },
+      "type": "comments",
+    },
+  ],
+  "type": "manuscript",
+}
+`;
 
 exports[`Create empty document should create an empty document 1`] = `
 Object {

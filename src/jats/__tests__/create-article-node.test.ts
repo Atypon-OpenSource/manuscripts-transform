@@ -26,4 +26,22 @@ describe('Create empty document', () => {
     changeIDs(doc)
     expect(doc).toMatchSnapshot()
   })
+
+  it('should create a document with owner as contributor', () => {
+    const doc = createArticleNode(
+      {
+        id: 'manuscript:456',
+        articleType: 'research-article',
+      },
+      {
+        email: 'owner@example.com',
+        firstName: 'Jane',
+        lastName: 'Doe',
+        prefix: 'Dr.',
+        orcid: '0000-0001-2345-6789',
+      }
+    )
+    changeIDs(doc)
+    expect(doc).toMatchSnapshot()
+  })
 })
