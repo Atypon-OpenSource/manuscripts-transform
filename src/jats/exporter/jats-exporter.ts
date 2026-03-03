@@ -866,7 +866,7 @@ export class JATSExporter {
         }
 
         const rid = rids[0]
-        const text = cross.attrs.label ?? this.labelTargets.get(rid)?.label
+        const text = cross.attrs.label || this.labelTargets.get(rid)?.label
 
         const target = findChildrenByAttr(
           this.manuscriptNode,
