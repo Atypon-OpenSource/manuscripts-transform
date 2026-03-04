@@ -22,6 +22,7 @@ import { parseJATSArticle } from '../importer/parse-jats-article'
 import { DEFAULT_CSL_OPTIONS } from './citations'
 import { sectionCategories } from './data/section-categories'
 import { readAndParseFixture } from './files'
+import { BibliographyItemNode, isBibliographyItemNode } from '../../schema'
 
 const parseXMLWithDTD = (data: string) =>
   parseXml(data, {
@@ -40,6 +41,29 @@ describe('JATS exporter', () => {
     })
 
     expect(result).toMatchSnapshot('jats-export')
+  })
+
+  test('export with & and < in bibliography metadata', async () => {
+    const transformer = new JATSExporter()
+    const input = await readAndParseFixture('jats-example-full.xml')
+    const { node, journal } = parseJATSArticle(input, sectionCategories)
+
+    let biblio: BibliographyItemNode | null = null
+    node.descendants((n) => {
+      if (isBibliographyItemNode(n)) {
+        biblio = n
+      }
+    })
+
+    biblio!.attrs.title += ' & Sons 55 < 135'
+
+    const result = await transformer.serializeToJATS(node, {
+      csl: DEFAULT_CSL_OPTIONS,
+      //@ts-ignore
+      journal,
+    })
+
+    expect(result).toMatchSnapshot('jats-export-with-xml-unsafe-in-biblios')
   })
 
   test('export v1.1', async () => {
