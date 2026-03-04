@@ -46,7 +46,7 @@ describe('JATS exporter', () => {
   test('export with & and < in bibliography metadata', async () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-example-full.xml')
-    const { node, journal } = parseJATSArticle(input, sectionCategories)
+    const node = parseJATSArticle(input, sectionCategories)
 
     let biblio: BibliographyItemNode | null = null
     node.descendants((n) => {
@@ -59,8 +59,6 @@ describe('JATS exporter', () => {
 
     const result = await transformer.serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
-      //@ts-ignore
-      journal,
     })
 
     expect(result).toMatchSnapshot('jats-export-with-xml-unsafe-in-biblios')
