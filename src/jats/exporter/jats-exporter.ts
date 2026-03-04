@@ -29,7 +29,11 @@ import { buildCiteprocCitation } from '../../lib/citeproc'
 import { CreditRoleUrls } from '../../lib/credit-roles'
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML } from '../../lib/html'
-import { XLINK_NAMESPACE, XML_NAMESPACE } from '../../lib/xml'
+import {
+  sanitizeXmlString,
+  XLINK_NAMESPACE,
+  XML_NAMESPACE,
+} from '../../lib/xml'
 import {
   AffiliationNode,
   AuthorNotesNode,
@@ -668,8 +672,9 @@ export class JATSExporter {
     const parser = new DOMParser()
     //eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, bibliography] = this.engine.makeBibliography()
+
     for (let i = 0; i < bibliography.length; i++) {
-      const item = `<template xmlns:xlink="${XLINK_NAMESPACE}">${bibliography[i]}</template>`
+      const item = `<template xmlns:xlink="${XLINK_NAMESPACE}">${sanitizeXmlString(bibliography[i])}</template>`
       const ref = parser.parseFromString(item, 'text/xml').querySelector('ref')
       if (ref) {
         refList.appendChild(ref)
