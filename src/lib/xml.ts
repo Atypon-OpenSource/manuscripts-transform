@@ -16,3 +16,13 @@
 
 export const XLINK_NAMESPACE = 'http://www.w3.org/1999/xlink'
 export const XML_NAMESPACE = 'http://www.w3.org/XML/1998/namespace'
+
+export function sanitizeXmlString(str: string): string {
+  return (
+    str
+      // Escape bare ampersands (not part of valid entities)
+      .replace(/&(?!(?:amp|lt|gt|quot|apos|#[0-9]+|#x[0-9a-fA-F]+);)/g, '&amp;')
+      // Escape < that doesn't start a valid tag
+      .replace(/<(?![a-zA-Z_\/!?])/g, '&lt;')
+  )
+}

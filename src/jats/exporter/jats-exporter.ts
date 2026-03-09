@@ -29,7 +29,11 @@ import { buildCiteprocCitation } from '../../lib/citeproc'
 import { CreditRoleUrls } from '../../lib/credit-roles'
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML } from '../../lib/html'
-import { XLINK_NAMESPACE, XML_NAMESPACE } from '../../lib/xml'
+import {
+  sanitizeXmlString,
+  XLINK_NAMESPACE,
+  XML_NAMESPACE,
+} from '../../lib/xml'
 import {
   AffiliationNode,
   AuthorNotesNode,
@@ -225,6 +229,7 @@ export class JATSExporter {
     this.footnoteLabels = generateFootnoteLabels(manuscriptNode)
     const body = this.buildBody()
     article.appendChild(body)
+    this.addParagraphsToSections(article)
     const back = this.buildBack(body)
     this.moveCoiStatementToAuthorNotes(back, front)
     article.appendChild(back)
@@ -667,8 +672,9 @@ export class JATSExporter {
     const parser = new DOMParser()
     //eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, bibliography] = this.engine.makeBibliography()
+
     for (let i = 0; i < bibliography.length; i++) {
-      const item = `<template xmlns:xlink="${XLINK_NAMESPACE}">${bibliography[i]}</template>`
+      const item = `<template xmlns:xlink="${XLINK_NAMESPACE}">${sanitizeXmlString(bibliography[i])}</template>`
       const ref = parser.parseFromString(item, 'text/xml').querySelector('ref')
       if (ref) {
         refList.appendChild(ref)
@@ -2084,6 +2090,29 @@ export class JATSExporter {
     emptyElements.forEach((element) =>
       element.appendChild(this.createElement(tagName))
     )
+  }
+  private addParagraphsToSections(articleElement: Element) {
+    const sections = articleElement.querySelectorAll('sec')
+    const TITLE_TAGS = new Set(['title', 'label', 'sec-meta'])
+    for (const section of sections) {
+      const hasContent = Array.from(section.children).some(
+        (child) => !TITLE_TAGS.has(child.tagName)
+      )
+      if (hasContent) {
+        continue
+      }
+      const p = this.createElement('p')
+      const insertAfterElement =
+        section.querySelector(':scope > title') ??
+        section.querySelector(':scope > label') ??
+        section.querySelector(':scope > sec-meta')
+
+      if (insertAfterElement) {
+        insertAfterElement.insertAdjacentElement('afterend', p)
+      } else {
+        section.prepend(p)
+      }
+    }
   }
 
   private fillEmptyFootnotes(articleElement: Element) {
