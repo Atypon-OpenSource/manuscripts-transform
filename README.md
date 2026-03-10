@@ -4,7 +4,7 @@ ProseMirror transformer for Manuscripts applications.
 
 It provides a way to import/export [Manuscript JSON Schema](https://gitlab.com/mpapp-public/manuscripts-json-schema) formatted data from and to other formats such as (JATS XML, STS XML, HTML, [ProseMirror Model](https://prosemirror.net/docs/guide/#doc))
 
-# Components
+# Components 
 
 **Decoder**: converts Manuscript JSON Schema to ProseMirror Model.
 
