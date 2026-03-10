@@ -3425,12 +3425,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                               },
-                              "content": Array [
-                                Object {
-                                  "text": "Test",
-                                  "type": "text",
-                                },
-                              ],
                               "type": "text_block",
                             },
                           ],
@@ -3454,6 +3448,12 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                               },
+                              "content": Array [
+                                Object {
+                                  "text": "Test",
+                                  "type": "text",
+                                },
+                              ],
                               "type": "text_block",
                             },
                           ],
@@ -3486,6 +3486,12 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                               },
+                              "content": Array [
+                                Object {
+                                  "text": "Test",
+                                  "type": "text",
+                                },
+                              ],
                               "type": "text_block",
                             },
                           ],
@@ -3509,12 +3515,6 @@ Object {
                               "attrs": Object {
                                 "dataTracked": null,
                               },
-                              "content": Array [
-                                Object {
-                                  "text": "Test",
-                                  "type": "text",
-                                },
-                              ],
                               "type": "text_block",
                             },
                           ],

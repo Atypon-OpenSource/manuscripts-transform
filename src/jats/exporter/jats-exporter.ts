@@ -1648,7 +1648,6 @@ export class JATSExporter {
 
     const tbodyRows = Array.from(tbody.childNodes)
     const thead = this.createElement('thead')
-    const tfoot = this.createElement('tfoot')
 
     tbodyRows.forEach((row, i) => {
       const isRow = row instanceof Element && row.tagName.toLowerCase() === 'tr'
@@ -1665,19 +1664,12 @@ export class JATSExporter {
             this.changeTag(td, 'th')
           }
           thead.appendChild(row)
-        } else if (i === tbodyRows.length - 1) {
-          tbody?.removeChild(row)
-          tfoot.appendChild(row)
         }
       }
     })
 
     if (thead.hasChildNodes()) {
       table.insertBefore(thead, tbody as Element)
-    }
-
-    if (tfoot.hasChildNodes()) {
-      table.insertBefore(tfoot, tbody as Element)
     }
   }
 
