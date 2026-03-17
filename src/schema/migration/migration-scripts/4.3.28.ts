@@ -45,9 +45,9 @@ const CONFIG: Record<string, Config> = {
   },
 }
 
-class Migration4327 implements MigrationScript {
-  fromVersion = '4.3.26'
-  toVersion = '4.3.27'
+class Migration4328 implements MigrationScript {
+  fromVersion = '4.3.27'
+  toVersion = '4.3.28'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     const config = CONFIG[node.type]
@@ -112,4 +112,4 @@ class Migration4327 implements MigrationScript {
   }
 }
 
-export default Migration4327
+export default Migration4328
