@@ -1220,6 +1220,29 @@ export class JATSExporter {
         node.type.schema.nodes.footnotes_element
       )
       processChildNodes(element, node, contentNodeType)
+
+      const altTextNode = this.getFirstChildOfType(schema.nodes.alt_text, node)
+      const longDescNode = this.getFirstChildOfType(
+        schema.nodes.long_desc,
+        node
+      )
+
+      if (altTextNode || longDescNode) {
+        const graphics = element.querySelectorAll(':scope > graphic')
+        graphics.forEach((graphic) => {
+          if (altTextNode && altTextNode.textContent) {
+            const altText = this.createElement('alt-text')
+            altText.textContent = altTextNode.textContent
+            graphic.appendChild(altText)
+          }
+          if (longDescNode && longDescNode.textContent) {
+            const longDesc = this.createElement('long-desc')
+            longDesc.textContent = longDescNode.textContent
+            graphic.appendChild(longDesc)
+          }
+        })
+      }
+
       appendAttributions(element, node)
       if (isExecutableNodeType(node.type)) {
         processExecutableNode(node, element)
