@@ -17,7 +17,6 @@
 import { ActualManuscriptNode, schema, SectionCategory } from '../../schema'
 import { markComments } from './jats-comments'
 import { JATSDOMParser } from './jats-dom-parser'
-import { parseJournal } from './jats-journal-meta-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
 import {
   addMissingCaptions,
@@ -93,7 +92,6 @@ export const parseJATSArticle = (
   sectionCategories: SectionCategory[],
   template?: string
 ) => {
-  const journal = parseJournal(doc)
   processJATS(doc, sectionCategories)
   const node = new JATSDOMParser(sectionCategories, schema).parse(doc)
     .firstChild as ActualManuscriptNode
@@ -104,8 +102,5 @@ export const parseJATSArticle = (
   if (template) {
     node.attrs.prototype = template
   }
-  return {
-    node,
-    journal,
-  }
+  return node
 }
