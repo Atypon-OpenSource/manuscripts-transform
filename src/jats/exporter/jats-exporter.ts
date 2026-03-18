@@ -1519,7 +1519,7 @@ export class JATSExporter {
       }
       return false
     })
-    return $authorNotes
+    return $authorNotes.childElementCount > 0 ? $authorNotes : undefined
   }
 
   private writeCorresp = (corresp: CorrespNode) => {
