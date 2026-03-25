@@ -13,30 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { CitationAttrs } from '@manuscripts/schema'
+import * as Citeproc from 'citeproc'
 
-import { FlatCompat } from '@eslint/eslintrc'
-import js from '@eslint/js'
-import config from '@manuscripts/eslint-config'
-import { defineConfig } from 'eslint/config'
-import header from 'eslint-plugin-header'
-
-header.rules.header.meta.schema = false
-
-const compat = new FlatCompat({
-  recommendedConfig: js.configs.recommended,
-})
-
-export default defineConfig([
-  {
-    ignores: [
-      '**/__snapshots__/**',
-      '**/dist/**',
-      '**/*.json',
-      '**/*.xml',
-      '**/.DS_Store',
-      '**/.!*!.DS_Store',
-    ],
+export const buildCiteprocCitation = (
+  citation: CitationAttrs
+): Citeproc.Citation => ({
+  citationID: citation.id,
+  citationItems: citation.rids.map((rid) => ({
+    id: rid,
+  })),
+  properties: {
+    noteIndex: 0,
   },
-  ...compat.config(config),
-  ...compat.extends('plugin:diff/diff'),
-])
+})

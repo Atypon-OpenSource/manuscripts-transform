@@ -17,11 +17,14 @@ process.env.XML_CATALOG_FILES = './node_modules/@jats4r/dtds/schema/catalog.xml'
 
 module.exports = {
   clearMocks: true,
-  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/types/*'],
+  collectCoverageFrom: [
+    'packages/*/src/**/*.{ts,tsx}',
+    '!packages/*/src/types/*',
+  ],
   coverageReporters: ['text-summary'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
-  setupFiles: ['./src/tests.ts'],
-  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/dist/'],
+  setupFiles: ['./packages/transform/src/tests.ts'],
+  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/packages/*/dist/'],
   testRegex: '__tests__.*\\.test\\.tsx?$',
   transformIgnorePatterns: [
     '<rootDir>/node_modules/(?!(lodash-es|@manuscripts)/)',

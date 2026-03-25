@@ -1,10 +1,12 @@
 /node_modules/
+/packages/*/node_modules/
 /dist/
+/packages/*/dist/
 /coverage/
 *.log
 junit.xml
 
-.DS_Store
+*.DS_Store
 .env.local
 .env.development.local
 .env.test.local
@@ -19,3 +21,4 @@ tmp/
 /.idea/
 /.vscode/
 /src/version.ts
+/.pnpm-store/

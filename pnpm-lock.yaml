@@ -7,34 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      citeproc:
-        specifier: 2.4.63
-        version: 2.4.63
-      jszip:
-        specifier: 3.10.1
-        version: 3.10.1
-      lodash:
-        specifier: 4.17.21
-        version: 4.17.21
-      prosemirror-model:
-        specifier: 1.25.0
-        version: 1.25.0
-      prosemirror-tables:
-        specifier: 1.7.1
-        version: 1.7.1
-      prosemirror-utils:
-        specifier: 1.2.2
-        version: 1.2.2(prosemirror-model@1.25.0)(prosemirror-state@1.4.3)
-      semver:
-        specifier: 7.7.2
-        version: 7.7.2
-      uuid:
-        specifier: 9.0.1
-        version: 9.0.1
-      w3c-xmlserializer:
-        specifier: 4.0.0
-        version: 4.0.0
     devDependencies:
       '@babel/core':
         specifier: 7.23.7
@@ -165,6 +137,70 @@ importers:
       typescript:
         specifier: 5.9.2
         version: 5.9.2
+
+  packages/schema:
+    dependencies:
+      lodash:
+        specifier: 4.17.21
+        version: 4.17.21
+      prosemirror-model:
+        specifier: 1.25.0
+        version: 1.25.0
+      prosemirror-state:
+        specifier: 1.4.3
+        version: 1.4.3
+      prosemirror-tables:
+        specifier: 1.7.1
+        version: 1.7.1
+      prosemirror-utils:
+        specifier: 1.2.2
+        version: 1.2.2(prosemirror-model@1.25.0)(prosemirror-state@1.4.3)
+      prosemirror-view:
+        specifier: 1.39.2
+        version: 1.39.2
+      semver:
+        specifier: 7.7.2
+        version: 7.7.2
+      uuid:
+        specifier: 9.0.1
+        version: 9.0.1
+    devDependencies:
+      '@types/uuid':
+        specifier: 9.0.8
+        version: 9.0.8
+
+  packages/transform:
+    dependencies:
+      '@manuscripts/schema':
+        specifier: workspace:*
+        version: link:../schema
+      citeproc:
+        specifier: 2.4.63
+        version: 2.4.63
+      jszip:
+        specifier: 3.10.1
+        version: 3.10.1
+      lodash:
+        specifier: 4.17.21
+        version: 4.17.21
+      prosemirror-model:
+        specifier: 1.25.0
+        version: 1.25.0
+      prosemirror-tables:
+        specifier: 1.7.1
+        version: 1.7.1
+      prosemirror-utils:
+        specifier: 1.2.2
+        version: 1.2.2(prosemirror-model@1.25.0)(prosemirror-state@1.4.3)
+      semver:
+        specifier: 7.7.2
+        version: 7.7.2
+      uuid:
+        specifier: 9.0.1
+        version: 9.0.1
+      w3c-xmlserializer:
+        specifier: 4.0.0
+        version: 4.0.0
 
 packages:
 
@@ -4137,6 +4173,7 @@ packages:
   whatwg-encoding@3.1.1:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
     engines: {node: '>=18'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-mimetype@4.0.0:
     resolution: {integrity: sha512-QaKxh0eNIi2mE9p2vEdzfagOKHCcj1pJ56EEHGQOVxp8r9/iszLUUV7v89x9O1p/T+NlTM5W7jW6+cz4Fq1YVg==}

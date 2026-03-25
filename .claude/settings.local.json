@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r froms*['']@manuscripts/transform ~/sourcegit/manuscripts-api/src --include=*.ts --include=*.tsx --include=*.js --include=*.jsx)",
+      "Bash(grep -r froms*['']@manuscripts/schema ~/sourcegit/manuscripts-api/src --include=*.ts --include=*.tsx --include=*.js --include=*.jsx)",
+      "Bash(grep -r froms*['']@manuscripts/transform ~/sourcegit/manuscripts-article-editor/src --include=*.ts --include=*.tsx --include=*.js --include=*.jsx)",
+      "Bash(/tmp/search_summary.txt:*)",
+      "Read(//tmp/**)",
+      "Bash(pnpm --filter @manuscripts/schema typecheck)",
+      "Bash(pnpm --filter @manuscripts/transform typecheck)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(''''exports:'''', json.dumps\\(d.get\\(''''exports'''',{}\\), indent=2\\)\\); print\\(''''main:'''', d.get\\(''''main''''\\)\\); print\\(''''types:'''', d.get\\(''''types''''\\)\\)\")",
+      "Bash(pnpm --filter @manuscripts/schema build)",
+      "Bash(pnpm test:*)",
+      "Bash(TZ=UTC node_modules/.bin/jest --runInBand -u)",
+      "Bash(TZ=UTC node_modules/.bin/jest --runInBand)",
+      "Bash(grep:*)",
+      "Bash(pnpm typecheck:*)",
+      "Bash(head -5 grep -rn \"semver\\\\|import.*semver\" ~/sourcegit/manuscripts-transform/packages/schema/src/)"
+    ]
+  }
+}

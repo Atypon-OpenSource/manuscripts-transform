@@ -1,0 +1,19 @@
+# Normalize line endings to LF for all text files
+* text=auto eol=lf
+
+# Explicitly mark source files as text
+*.ts   text eol=lf
+*.tsx  text eol=lf
+*.js   text eol=lf
+*.mjs  text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml  text eol=lf
+*.md   text eol=lf
+*.xml  text eol=lf
+
+# Binary files — never touch line endings
+*.snap binary
+*.png  binary
+*.jpg  binary
+*.pdf  binary
