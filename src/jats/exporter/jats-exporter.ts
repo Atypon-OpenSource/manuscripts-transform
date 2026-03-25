@@ -1362,6 +1362,14 @@ export class JATSExporter {
       const $name = this.buildContributorName(contributor)
       $contrib.appendChild($name)
 
+      if (contributor.attrs.suffix) {
+        this.appendElement($name, 'suffix', contributor.attrs.suffix)
+      }
+
+      contributor.attrs.degrees?.forEach((degree) => {
+        this.appendElement($contrib, 'degrees', degree)
+      })
+
       if (contributor.attrs.email) {
         this.appendElement($contrib, 'email', contributor.attrs.email)
       }
