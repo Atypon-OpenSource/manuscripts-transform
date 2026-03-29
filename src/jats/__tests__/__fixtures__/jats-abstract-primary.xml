@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article
+  PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.2 20190208//EN" "JATS-archivearticle1.dtd">
+<article article-type="research-article" dtd-version="1.2" xml:lang="en"
+         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="publisher-id">test-journal</journal-id>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="doi">10.1234/test.2018</article-id>
+      <title-group>
+        <article-title>On January 8, 2018, a relatively weak quasi-periodic oscillation</article-title>
+      </title-group>
+      <abstract abstract-type="primary">
+        <p>On January 8, 2018, a relatively weak quasi-periodic oscillation was detected. This is the main abstract of the article and should be treated as the primary abstract.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Introduction</title>
+      <p>This is the introduction section.</p>
+    </sec>
+  </body>
+</article>
