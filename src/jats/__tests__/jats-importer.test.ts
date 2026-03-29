@@ -342,6 +342,31 @@ describe('JATS importer', () => {
       const titleNode = findNodeByType(firstSection, schema.nodes.section_title)
       expect(titleNode.textContent).toBe('Abstract')
     })
+    it('should treat abstract-type="primary" as the main abstract section', async () => {
+      const jats = await readAndParseFixture('jats-abstract-primary.xml')
+      const abstractEl = jats.querySelector('front > article-meta > abstract')
+      if (!abstractEl) {
+        throw new Error('Abstract element not found')
+      }
+      const node = parseJATSArticle(jats, sectionCategories)
+      const abstractsNode = findNodeByType(node, schema.nodes.abstracts)
+      const sections = findNodesByType(abstractsNode, schema.nodes.section)
+      const firstSection = sections[0]
+      expect(firstSection.attrs.category).toBe('abstract')
+    })
+    it('should set the title to Abstract for abstract-type="primary"', async () => {
+      const jats = await readAndParseFixture('jats-abstract-primary.xml')
+      const abstractEl = jats.querySelector('front > article-meta > abstract')
+      if (!abstractEl) {
+        throw new Error('Abstract element not found')
+      }
+      const node = parseJATSArticle(jats, sectionCategories)
+      const abstractsNode = findNodeByType(node, schema.nodes.abstracts)
+      const sections = findNodesByType(abstractsNode, schema.nodes.section)
+      const firstSection = sections[0]
+      const titleNode = findNodeByType(firstSection, schema.nodes.section_title)
+      expect(titleNode.textContent).toBe('Abstract')
+    })
   })
 
   describe('body', () => {

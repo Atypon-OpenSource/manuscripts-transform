@@ -28,7 +28,7 @@ const compat = new FlatCompat({
 
 export default defineConfig([
   {
-    ignores: ['**/__snapshots__/**'],
+    ignores: ['**/__snapshots__/**', '**/*.xml'],
   },
   ...compat.config(config),
   ...compat.extends('plugin:diff/diff'),

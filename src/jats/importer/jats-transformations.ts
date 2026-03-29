@@ -295,7 +295,8 @@ const createAbstractSection = (
   createElement: CreateElement
 ) => {
   const abstractType = abstract.getAttribute('abstract-type')
-  const sectionType = abstractType ? `abstract-${abstractType}` : 'abstract'
+  const isMainAbstract = !abstractType || abstractType === 'primary'
+  const sectionType = isMainAbstract ? 'abstract' : `abstract-${abstractType}`
   let section = createElement('sec')
   if (abstract.nodeName === 'trans-abstract') {
     section = createElement('trans-abstract')
@@ -307,9 +308,9 @@ const createAbstractSection = (
   section.setAttribute('sec-type', sectionType)
   if (!abstract.querySelector(':scope > title')) {
     const title = createElement('title')
-    title.textContent = abstractType
-      ? `${capitalizeFirstLetter(abstractType.split('-').join(' '))} Abstract`
-      : 'Abstract'
+    title.textContent = isMainAbstract
+      ? 'Abstract'
+      : `${capitalizeFirstLetter(abstractType!.split('-').join(' '))} Abstract`
     section.appendChild(title)
   }
 
