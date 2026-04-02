@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-import {
-  ManuscriptFragment,
-  ManuscriptNode,
-  ManuscriptNodeType,
-  schema,
-} from '../../schema'
+import { ManuscriptNode, ManuscriptNodeType, schema } from '../../schema'
 import { nodeNames } from '../../transformer/node-names'
 
 export interface Target {
@@ -54,8 +49,15 @@ const chooseLabel = (nodeType: ManuscriptNodeType): string => {
   return nodeNames.get(nodeType) as string
 }
 
+type iterator = (
+  node: ManuscriptNode,
+  pos: number,
+  parent: ManuscriptNode | null,
+  index: number
+) => void | boolean
+
 export const buildTargets = (
-  node: ManuscriptNode | ManuscriptFragment
+  iterator: (fn: iterator) => void
 ): Map<string, Target> => {
   const counters: Counters = {}
 
@@ -74,7 +76,7 @@ export const buildTargets = (
 
   const targets: Map<string, Target> = new Map()
 
-  node.descendants((node, pos, parent) => {
+  iterator((node, pos, parent) => {
     if (node.type.name in counters) {
       if (parent && excludedTypes.includes(parent.type)) {
         return
