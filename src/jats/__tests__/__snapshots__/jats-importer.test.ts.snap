@@ -34940,7 +34940,7 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "example of alt text for figs",
+                      "text": "example of alt text for graphics inside figures",
                       "type": "text",
                     },
                   ],
@@ -34952,7 +34952,7 @@ Object {
                   },
                   "content": Array [
                     Object {
-                      "text": "example of long desc",
+                      "text": "example of long desc for graphics inside figures",
                       "type": "text",
                     },
                   ],

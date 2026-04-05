@@ -1226,7 +1226,30 @@ export class JATSExporter {
       if (isExecutableNodeType(node.type)) {
         processExecutableNode(node, element)
       }
+      moveAltTextAndLongDescToGraphics(element)
       return element
+    }
+
+    const moveAltTextAndLongDescToGraphics = (element: Element) => {
+      const altText = element.querySelector('alt-text')
+      const longDesc = element.querySelector('long-desc')
+      const graphics = element.querySelectorAll('graphic')
+
+      if (graphics.length === 0) {
+        return
+      }
+
+      graphics.forEach((graphic) => {
+        if (longDesc) {
+          graphic.prepend(longDesc.cloneNode(true))
+        }
+        if (altText) {
+          graphic.prepend(altText.cloneNode(true))
+        }
+      })
+
+      altText?.remove()
+      longDesc?.remove()
     }
 
     const createTableElement = (node: ManuscriptNode) => {

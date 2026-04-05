@@ -520,7 +520,10 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
         </caption>
         <alt-text>example of alt text for figs</alt-text>
         <long-desc>example of long desc</long-desc>
-        <graphic xlink:href="BRB3-2019-12-0787-fig-0001.png"/>
+        <graphic xlink:href="BRB3-2019-12-0787-fig-0001.png">
+          <alt-text>example of alt text for graphics inside figures</alt-text>
+          <long-desc>example of long desc for graphics inside figures</long-desc>
+        </graphic>
       </fig>
       <table-wrap id="BRB3-2019-12-0787-tbl-0001" position="float">
         <label>TABLE 1</label>
