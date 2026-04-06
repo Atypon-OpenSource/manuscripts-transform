@@ -21,16 +21,17 @@ class Migration4324 implements MigrationScript {
   toVersion = '4.3.24'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
-    if (node.type === 'pullquote_element') {
+    if (
+      node.type === 'pullquote_element' ||
+      node.type === 'blockquote_element'
+    ) {
       return {
         ...node,
-        content: [
-          {
-            type: 'text_block',
-            attrs: {},
-            content: node.content,
-          },
-        ],
+        content: (node.content ?? []).map((child) =>
+          child.type === 'paragraph'
+            ? { ...child, type: 'text_block' }
+            : child
+        ),
       }
     }
     return node
