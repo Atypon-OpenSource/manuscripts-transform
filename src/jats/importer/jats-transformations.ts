@@ -449,15 +449,23 @@ export const createAccessibilityItems = (
   doc: Document,
   createElement: CreateElement
 ) => {
+  const resolveA11yNode = (item: Element, tagName: string) => {
+    if (item.nodeName.toLowerCase() === 'fig') {
+      const graphicNode = item.querySelector(`graphic ${tagName}`)
+      const figNode = item.querySelector(`:scope > ${tagName}`)
+      if (graphicNode && figNode) {
+        figNode.remove()
+      }
+      return graphicNode || figNode || createElement(tagName)
+    }
+    return item.querySelector(tagName) || createElement(tagName)
+  }
+
   doc
     .querySelectorAll('media, fig, table-wrap, graphic:not(fig graphic)')
     .forEach((item) => {
-      const altText =
-        item.querySelector('alt-text') || createElement('alt-text')
-      const longDesc =
-        item.querySelector('long-desc') || createElement('long-desc')
-      item?.appendChild(altText)
-      item?.appendChild(longDesc)
+      item.appendChild(resolveA11yNode(item, 'alt-text'))
+      item.appendChild(resolveA11yNode(item, 'long-desc'))
     })
 }
 
