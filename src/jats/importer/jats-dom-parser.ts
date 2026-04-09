@@ -309,7 +309,9 @@ export class JATSDOMParser {
     const content = Array.from(element.querySelectorAll('p')).map((paragraph) =>
       this.parse(paragraph, { topNode: this.schema.nodes.text_block.create() })
     )
-    return Fragment.from(content)
+    return Fragment.from(
+      content.length > 0 ? content : this.schema.nodes.text_block.create()
+    )
   }
 
   private parseRefPages = (element: Element) => {

@@ -272,14 +272,14 @@ export class JATSExporter {
     const caption = this.createElement('caption')
     this.appendChildNodeOfType(caption, node, schema.nodes.caption_title)
     const captionNode = this.getChildrenOfType(schema.nodes.caption, node)[0]
-    if (captionNode) {
+    if (captionNode && captionNode.content.size > 2) {
       this.appendChildrenNodeOfType(
         caption,
         captionNode,
         schema.nodes.text_block
       )
     }
-    if (caption.childNodes.length > 0) {
+    if (caption.children.length > 0) {
       element.appendChild(caption)
     }
   }

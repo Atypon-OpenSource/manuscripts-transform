@@ -33436,6 +33436,14 @@ Object {
                 "dataTracked": null,
                 "placeholder": "Caption...",
               },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "type": "text_block",
+                },
+              ],
               "type": "caption",
             },
             Object {
