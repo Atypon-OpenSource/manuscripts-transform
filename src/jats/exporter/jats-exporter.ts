@@ -1544,7 +1544,7 @@ export class JATSExporter {
       }
       return false
     })
-    return $authorNotes
+    return $authorNotes.hasChildNodes() ? $authorNotes : undefined
   }
 
   private writeCorresp = (corresp: CorrespNode) => {
