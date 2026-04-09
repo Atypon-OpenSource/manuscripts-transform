@@ -463,6 +463,9 @@ export class JATSDOMParser {
       node: 'author_notes',
       getAttrs: (node) => {
         const element = node as HTMLElement
+        if (!getTrimmedTextContent(element)) {
+          return false
+        }
         return {
           id: element.getAttribute('id'),
         }
