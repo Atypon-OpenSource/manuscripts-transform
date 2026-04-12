@@ -222,3 +222,22 @@ export function isNodeOfType<T extends ManuscriptNode>(
 ): node is T {
   return node.type === type
 }
+
+export type Capabilities = {
+  handleOwnComments: boolean
+  resolveOwnComment: boolean
+  handleOthersComments: boolean
+  resolveOthersComment: boolean
+  createComment: boolean
+}
+
+export interface AccessContext {
+  userId: string
+  capabilities: Capabilities
+}
+
+export interface NodeAccessPolicy {
+  canEditAttr(node: ManuscriptNode, attr: string, context: AccessContext): boolean
+  canInsertNode(node: ManuscriptNode, context: AccessContext): boolean
+  canDeleteNode(node: ManuscriptNode, context: AccessContext): boolean
+}
