@@ -223,7 +223,9 @@ export class JATSExporter {
       'lang',
       manuscriptNode.attrs.primaryLanguageCode || 'en'
     )
-    this.labelTargets = buildTargets(manuscriptNode)
+    this.labelTargets = buildTargets(
+      manuscriptNode.descendants.bind(manuscriptNode)
+    )
     this.footnoteLabels = generateFootnoteLabels(manuscriptNode)
     const body = this.buildBody()
     article.appendChild(body)
@@ -805,7 +807,7 @@ export class JATSExporter {
         }
 
         const rid = rids[0]
-        const text = cross.attrs.label ?? this.labelTargets.get(rid)?.label
+        const text = cross.attrs.label || this.labelTargets.get(rid)?.label
 
         const target = findChildrenByAttr(
           this.manuscriptNode,
@@ -1224,7 +1226,30 @@ export class JATSExporter {
       if (isExecutableNodeType(node.type)) {
         processExecutableNode(node, element)
       }
+      moveAltTextAndLongDescToGraphics(element)
       return element
+    }
+
+    const moveAltTextAndLongDescToGraphics = (element: Element) => {
+      const altText = element.querySelector('alt-text')
+      const longDesc = element.querySelector('long-desc')
+      const graphics = element.querySelectorAll('graphic')
+
+      if (graphics.length === 0) {
+        return
+      }
+
+      graphics.forEach((graphic) => {
+        if (longDesc) {
+          graphic.prepend(longDesc.cloneNode(true))
+        }
+        if (altText) {
+          graphic.prepend(altText.cloneNode(true))
+        }
+      })
+
+      altText?.remove()
+      longDesc?.remove()
     }
 
     const createTableElement = (node: ManuscriptNode) => {
@@ -1527,7 +1552,7 @@ export class JATSExporter {
       }
       return false
     })
-    return $authorNotes
+    return $authorNotes.hasChildNodes() ? $authorNotes : undefined
   }
 
   private writeCorresp = (corresp: CorrespNode) => {
