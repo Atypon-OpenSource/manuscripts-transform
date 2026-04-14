@@ -24,7 +24,7 @@
     "prebuild": "rimraf dist && pnpm version-file",
     "prettier": "prettier --write \"src/**/*.{ts,tsx}\" \"*.{js,json}\"",
     "preversion": "npm-run-all --parallel typecheck lint build test",
-    "test": "TZ=UTC jest --runInBand --updateSnapshot",
+    "test": "TZ=UTC jest --runInBand",
     "typecheck": "tsc --noEmit",
     "version": "pnpm build"
   },
