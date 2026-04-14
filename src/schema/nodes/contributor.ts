@@ -34,6 +34,7 @@ export interface ContributorAttrs {
   suffix?: string
   email?: string
   ORCID?: string
+  isExternalORCIDContributor?: boolean
   isCorresponding: boolean
   priority: number
   isJointContributor: boolean
@@ -59,6 +60,7 @@ export const contributor: NodeSpec = {
     suffix: { default: undefined },
     email: { default: undefined },
     ORCID: { default: undefined },
+    isExternalORCIDContributor: { default: false },
     isCorresponding: { default: false },
     isJointContributor: { default: false },
     priority: { default: undefined },
