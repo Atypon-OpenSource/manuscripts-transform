@@ -314,7 +314,9 @@ const createAbstractSection = (
   section.setAttribute('sec-type', sectionType)
   if (!abstract.querySelector(':scope > title')) {
     const title = createElement('title')
-    const category = sectionCategories?.find((c) => c.id === sectionType)
+    const category = sectionCategories?.find(
+      (c) => c.id === sectionType || c.synonyms.includes(sectionType)
+    )
     if (category?.titles[0]) {
       title.textContent = category.titles[0]
     } else {
