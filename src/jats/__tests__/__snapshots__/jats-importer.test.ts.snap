@@ -3159,19 +3159,12 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Caption...",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -3179,10 +3172,10 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                   ],
-                  "type": "figcaption",
+                  "type": "caption",
                 },
                 Object {
                   "attrs": Object {
@@ -3242,30 +3235,9 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Title...",
                   },
-                  "content": Array [
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Test",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption",
-                    },
-                  ],
-                  "type": "figcaption",
+                  "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
@@ -3659,8 +3631,24 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Title...",
                   },
-                  "type": "figcaption",
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                      },
+                      "type": "text_block",
+                    },
+                  ],
+                  "type": "caption",
                 },
               ],
               "type": "listing_element",
@@ -5459,30 +5447,15 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
                       },
                       "content": Array [
                         Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "Eleven patients with relapsed/refractory Hodgkin lymphoma treated with low-dose pembrolizumab",
-                              "type": "text",
-                            },
-                          ],
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
-                          },
-                          "type": "caption",
+                          "text": "Eleven patients with relapsed/refractory Hodgkin lymphoma treated with low-dose pembrolizumab",
+                          "type": "text",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption_title",
                     },
                     Object {
                       "attrs": Object {
@@ -10981,30 +10954,15 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
                       },
                       "content": Array [
                         Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "Six patients with relapsed/refractory Hodgkin lymphoma treated with low-dose nivolumab",
-                              "type": "text",
-                            },
-                          ],
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
-                          },
-                          "type": "caption",
+                          "text": "Six patients with relapsed/refractory Hodgkin lymphoma treated with low-dose nivolumab",
+                          "type": "text",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption_title",
                     },
                     Object {
                       "attrs": Object {
@@ -14559,30 +14517,15 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
                       },
                       "content": Array [
                         Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "Clinicopathologic features and treatment outcome of patients with relapsed/refractory classical Hodgkin lymphoma treated by pembrolizumab and nivolumab",
-                              "type": "text",
-                            },
-                          ],
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
-                          },
-                          "type": "caption",
+                          "text": "Clinicopathologic features and treatment outcome of patients with relapsed/refractory classical Hodgkin lymphoma treated by pembrolizumab and nivolumab",
+                          "type": "text",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption_title",
                     },
                     Object {
                       "attrs": Object {
@@ -18181,19 +18124,12 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -18201,10 +18137,10 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption",
                     },
                     Object {
                       "attrs": Object {
@@ -18317,19 +18253,12 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -18349,10 +18278,10 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption",
                     },
                     Object {
                       "attrs": Object {
@@ -19000,19 +18929,12 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -19032,10 +18954,10 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption",
                     },
                     Object {
                       "attrs": Object {
@@ -23422,19 +23344,12 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Caption...",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -23442,10 +23357,10 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                   ],
-                  "type": "figcaption",
+                  "type": "caption",
                 },
                 Object {
                   "attrs": Object {
@@ -23483,30 +23398,15 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Title...",
                   },
                   "content": Array [
                     Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Baseline characteristics of 73 patients",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "type": "caption",
+                      "text": "Baseline characteristics of 73 patients",
+                      "type": "text",
                     },
                   ],
-                  "type": "figcaption",
+                  "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
@@ -27304,19 +27204,12 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Caption...",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -27324,10 +27217,10 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                   ],
-                  "type": "figcaption",
+                  "type": "caption",
                 },
                 Object {
                   "attrs": Object {
@@ -27466,19 +27359,12 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -27486,10 +27372,10 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption",
                     },
                     Object {
                       "attrs": Object {
@@ -27757,30 +27643,15 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
                       },
                       "content": Array [
                         Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "Nine months follow up of 73 patients",
-                              "type": "text",
-                            },
-                          ],
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
-                          },
-                          "type": "caption",
+                          "text": "Nine months follow up of 73 patients",
+                          "type": "text",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption_title",
                     },
                     Object {
                       "attrs": Object {
@@ -30735,30 +30606,30 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
+                "placeholder": "Title...",
+              },
+              "content": Array [
+                Object {
+                  "text": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
+                  "type": "text",
+                },
+              ],
+              "type": "caption_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "placeholder": "Caption...",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "placeholder": "Title...",
                   },
-                  "content": Array [
-                    Object {
-                      "text": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "caption_title",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "placeholder": "Caption...",
-                  },
-                  "type": "caption",
+                  "type": "text_block",
                 },
               ],
-              "type": "figcaption",
+              "type": "caption",
             },
           ],
           "type": "supplement",
@@ -31490,19 +31361,12 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
+                                        "placeholder": "Caption...",
                                       },
                                       "content": Array [
                                         Object {
                                           "attrs": Object {
                                             "dataTracked": null,
-                                            "placeholder": "Title...",
-                                          },
-                                          "type": "caption_title",
-                                        },
-                                        Object {
-                                          "attrs": Object {
-                                            "dataTracked": null,
-                                            "placeholder": "Caption...",
                                           },
                                           "content": Array [
                                             Object {
@@ -31510,12 +31374,11 @@ Object {
                                               "type": "text",
                                             },
                                           ],
-                                          "type": "caption",
+                                          "type": "text_block",
                                         },
                                         Object {
                                           "attrs": Object {
                                             "dataTracked": null,
-                                            "placeholder": "Caption...",
                                           },
                                           "content": Array [
                                             Object {
@@ -31523,10 +31386,10 @@ Object {
                                               "type": "text",
                                             },
                                           ],
-                                          "type": "caption",
+                                          "type": "text_block",
                                         },
                                       ],
-                                      "type": "figcaption",
+                                      "type": "caption",
                                     },
                                     Object {
                                       "attrs": Object {
@@ -31600,19 +31463,12 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
+                                        "placeholder": "Caption...",
                                       },
                                       "content": Array [
                                         Object {
                                           "attrs": Object {
                                             "dataTracked": null,
-                                            "placeholder": "Title...",
-                                          },
-                                          "type": "caption_title",
-                                        },
-                                        Object {
-                                          "attrs": Object {
-                                            "dataTracked": null,
-                                            "placeholder": "Caption...",
                                           },
                                           "content": Array [
                                             Object {
@@ -31620,12 +31476,11 @@ Object {
                                               "type": "text",
                                             },
                                           ],
-                                          "type": "caption",
+                                          "type": "text_block",
                                         },
                                         Object {
                                           "attrs": Object {
                                             "dataTracked": null,
-                                            "placeholder": "Caption...",
                                           },
                                           "content": Array [
                                             Object {
@@ -31633,10 +31488,10 @@ Object {
                                               "type": "text",
                                             },
                                           ],
-                                          "type": "caption",
+                                          "type": "text_block",
                                         },
                                       ],
-                                      "type": "figcaption",
+                                      "type": "caption",
                                     },
                                     Object {
                                       "attrs": Object {
@@ -31817,23 +31672,15 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Title...",
                   },
                   "content": Array [
                     Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Boxed boxes.",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption_title",
+                      "text": "Boxed boxes.",
+                      "type": "text",
                     },
                   ],
-                  "type": "figcaption",
+                  "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
@@ -31943,7 +31790,7 @@ Object {
                   "type": "cross_reference",
                 },
                 Object {
-                  "text": ". This is a table title continued paragraph Table_Head Table_Body* * Table_Footnote Block_Quote Source: Wikipedia Paragraph_Continued with a graphic in the middlewhere the paragraph continues.",
+                  "text": ". Kinds of tables This is a table title continued paragraph Table_Head Table_Body* * Table_Footnote Block_Quote Source: Wikipedia Paragraph_Continued with a graphic in the middlewhere the paragraph continues.",
                   "type": "text",
                 },
               ],
@@ -33301,24 +33148,17 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Caption...",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
                       },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "type": "caption",
+                      "type": "text_block",
                     },
                   ],
-                  "type": "figcaption",
+                  "type": "caption",
                 },
                 Object {
                   "attrs": Object {
@@ -33388,24 +33228,17 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Caption...",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
                       },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "type": "caption",
+                      "type": "text_block",
                     },
                   ],
-                  "type": "figcaption",
+                  "type": "caption",
                 },
                 Object {
                   "attrs": Object {
@@ -33536,6 +33369,39 @@ Object {
             },
             Object {
               "attrs": Object {
+                "dataTracked": null,
+                "placeholder": "Caption...",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "simple image",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "text_block",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "caption",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "text_block",
+                },
+              ],
+              "type": "caption",
+            },
+            Object {
+              "attrs": Object {
                 "id": "MPAltText:test",
               },
               "type": "alt_text",
@@ -33564,6 +33430,21 @@ Object {
                 "type": "",
               },
               "type": "figure",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "placeholder": "Caption...",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                  },
+                  "type": "text_block",
+                },
+              ],
+              "type": "caption",
             },
             Object {
               "attrs": Object {
@@ -33875,24 +33756,24 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Title...",
+                  },
+                  "type": "caption_title",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Caption...",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
                       },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "type": "caption",
+                      "type": "text_block",
                     },
                   ],
-                  "type": "figcaption",
+                  "type": "caption",
                 },
                 Object {
                   "attrs": Object {
@@ -34040,17 +33921,9 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
+                            "placeholder": "Title...",
                           },
-                          "content": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                                "placeholder": "Title...",
-                              },
-                              "type": "caption_title",
-                            },
-                          ],
-                          "type": "figcaption",
+                          "type": "caption_title",
                         },
                         Object {
                           "attrs": Object {
@@ -34080,23 +33953,15 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
+                            "placeholder": "Title...",
                           },
                           "content": Array [
                             Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                                "placeholder": "Title...",
-                              },
-                              "content": Array [
-                                Object {
-                                  "text": "BoxedTextCaptionTitle",
-                                  "type": "text",
-                                },
-                              ],
-                              "type": "caption_title",
+                              "text": "BoxedTextCaptionTitle",
+                              "type": "text",
                             },
                           ],
-                          "type": "figcaption",
+                          "type": "caption_title",
                         },
                         Object {
                           "attrs": Object {
@@ -34274,17 +34139,9 @@ Object {
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
+                            "placeholder": "Title...",
                           },
-                          "content": Array [
-                            Object {
-                              "attrs": Object {
-                                "dataTracked": null,
-                                "placeholder": "Title...",
-                              },
-                              "type": "caption_title",
-                            },
-                          ],
-                          "type": "figcaption",
+                          "type": "caption_title",
                         },
                         Object {
                           "attrs": Object {
@@ -34909,19 +34766,12 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Caption...",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -34929,10 +34779,10 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                   ],
-                  "type": "figcaption",
+                  "type": "caption",
                 },
                 Object {
                   "attrs": Object {
@@ -34982,30 +34832,15 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Title...",
                   },
                   "content": Array [
                     Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "content": Array [
-                        Object {
-                          "text": "Baseline characteristics of 73 patients",
-                          "type": "text",
-                        },
-                      ],
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
-                      },
-                      "type": "caption",
+                      "text": "Baseline characteristics of 73 patients",
+                      "type": "text",
                     },
                   ],
-                  "type": "figcaption",
+                  "type": "caption_title",
                 },
                 Object {
                   "attrs": Object {
@@ -38815,19 +38650,12 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Caption...",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -38835,10 +38663,10 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                   ],
-                  "type": "figcaption",
+                  "type": "caption",
                 },
                 Object {
                   "attrs": Object {
@@ -38977,19 +38805,12 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -38997,10 +38818,10 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption",
                     },
                     Object {
                       "attrs": Object {
@@ -39268,30 +39089,15 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
                       },
                       "content": Array [
                         Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "Nine months follow up of 73 patients",
-                              "type": "text",
-                            },
-                          ],
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
-                          },
-                          "type": "caption",
+                          "text": "Nine months follow up of 73 patients",
+                          "type": "text",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption_title",
                     },
                     Object {
                       "attrs": Object {
@@ -44328,30 +44134,30 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
+                "placeholder": "Title...",
+              },
+              "content": Array [
+                Object {
+                  "text": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
+                  "type": "text",
+                },
+              ],
+              "type": "caption_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "placeholder": "Caption...",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "placeholder": "Title...",
                   },
-                  "content": Array [
-                    Object {
-                      "text": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "caption_title",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "placeholder": "Caption...",
-                  },
-                  "type": "caption",
+                  "type": "text_block",
                 },
               ],
-              "type": "figcaption",
+              "type": "caption",
             },
           ],
           "type": "supplement",
@@ -45055,19 +44861,12 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Caption...",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -45125,12 +44924,11 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -45138,12 +44936,11 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -45151,10 +44948,10 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                   ],
-                  "type": "figcaption",
+                  "type": "caption",
                 },
                 Object {
                   "attrs": Object {
@@ -46843,30 +46640,15 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Title...",
                       },
                       "content": Array [
                         Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "Descriptive Statistics.",
-                              "type": "text",
-                            },
-                          ],
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
-                          },
-                          "type": "caption",
+                          "text": "Descriptive Statistics.",
+                          "type": "text",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption_title",
                     },
                     Object {
                       "attrs": Object {
@@ -51718,19 +51500,12 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -51750,12 +51525,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -51796,12 +51570,11 @@ Object {
                               "type": "inline_equation",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -51817,12 +51590,11 @@ Object {
                               "type": "inline_equation",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -51878,12 +51650,11 @@ Object {
                               "type": "inline_equation",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -51937,12 +51708,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -51966,12 +51736,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -51995,12 +51764,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52024,12 +51792,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52053,10 +51820,10 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption",
                     },
                     Object {
                       "attrs": Object {
@@ -52244,19 +52011,12 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52276,12 +52036,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52322,12 +52081,11 @@ Object {
                               "type": "inline_equation",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52343,12 +52101,11 @@ Object {
                               "type": "inline_equation",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52404,12 +52161,11 @@ Object {
                               "type": "inline_equation",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52478,12 +52234,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52507,12 +52262,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52536,12 +52290,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52565,12 +52318,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52594,10 +52346,10 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption",
                     },
                     Object {
                       "attrs": Object {
@@ -52833,19 +52585,12 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52865,12 +52610,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52911,12 +52655,11 @@ Object {
                               "type": "inline_equation",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52932,12 +52675,11 @@ Object {
                               "type": "inline_equation",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -52993,12 +52735,11 @@ Object {
                               "type": "inline_equation",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53068,12 +52809,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53097,12 +52837,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53126,12 +52865,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53155,12 +52893,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53184,12 +52921,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53213,12 +52949,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53242,10 +52977,10 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption",
                     },
                     Object {
                       "attrs": Object {
@@ -53482,19 +53217,12 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53514,12 +53242,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53575,12 +53302,11 @@ Object {
                               "type": "inline_equation",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53666,12 +53392,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53695,12 +53420,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53724,12 +53448,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53753,12 +53476,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53782,10 +53504,10 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption",
                     },
                     Object {
                       "attrs": Object {
@@ -53902,19 +53624,12 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53934,12 +53649,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -53995,12 +53709,11 @@ Object {
                               "type": "inline_equation",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -54086,12 +53799,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -54115,12 +53827,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -54144,12 +53855,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -54173,12 +53883,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -54202,10 +53911,10 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption",
                     },
                     Object {
                       "attrs": Object {
@@ -54416,19 +54125,12 @@ Object {
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
+                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Title...",
-                          },
-                          "type": "caption_title",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -54448,12 +54150,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -54509,12 +54210,11 @@ Object {
                               "type": "inline_equation",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -54600,12 +54300,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -54629,12 +54328,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -54658,12 +54356,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -54687,12 +54384,11 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "placeholder": "Caption...",
                           },
                           "content": Array [
                             Object {
@@ -54716,10 +54412,10 @@ Object {
                               "type": "text",
                             },
                           ],
-                          "type": "caption",
+                          "type": "text_block",
                         },
                       ],
-                      "type": "figcaption",
+                      "type": "caption",
                     },
                     Object {
                       "attrs": Object {
@@ -54873,19 +54569,12 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "placeholder": "Caption...",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Title...",
-                      },
-                      "type": "caption_title",
-                    },
-                    Object {
-                      "attrs": Object {
-                        "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -54905,12 +54594,11 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -54966,12 +54654,11 @@ Object {
                           "type": "inline_equation",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -55057,12 +54744,11 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -55086,12 +54772,11 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -55115,12 +54800,11 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -55144,12 +54828,11 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "placeholder": "Caption...",
                       },
                       "content": Array [
                         Object {
@@ -55173,10 +54856,10 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "type": "caption",
+                      "type": "text_block",
                     },
                   ],
-                  "type": "figcaption",
+                  "type": "caption",
                 },
                 Object {
                   "attrs": Object {
@@ -55313,17 +54996,22 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraph:test",
-                "placeholder": "",
-              },
-              "type": "paragraph",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
                 "id": "MPTableElement:test",
               },
               "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "placeholder": "Title...",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Difference between exporting vs. non-exporting firms",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "caption_title",
+                },
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
@@ -59793,30 +59481,30 @@ Object {
     Object {
       "attrs": Object {
         "dataTracked": null,
+        "placeholder": "Title...",
+      },
+      "content": Array [
+        Object {
+          "text": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
+          "type": "text",
+        },
+      ],
+      "type": "caption_title",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "placeholder": "Caption...",
       },
       "content": Array [
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "placeholder": "Title...",
           },
-          "content": Array [
-            Object {
-              "text": "final manuscript-hum-huili-dbh-suicide-20200707_figures (9)",
-              "type": "text",
-            },
-          ],
-          "type": "caption_title",
-        },
-        Object {
-          "attrs": Object {
-            "dataTracked": null,
-            "placeholder": "Caption...",
-          },
-          "type": "caption",
+          "type": "text_block",
         },
       ],
-      "type": "figcaption",
+      "type": "caption",
     },
   ],
   "type": "supplement",

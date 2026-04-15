@@ -65,7 +65,6 @@ export type Nodes =
   | 'doc'
   | 'equation'
   | 'equation_element'
-  | 'figcaption'
   | 'figure'
   | 'graphical_abstract_section'
   | 'figure_element'
