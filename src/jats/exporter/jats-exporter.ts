@@ -1356,9 +1356,16 @@ export class JATSExporter {
       }
 
       if (contributor.attrs.ORCID) {
-        this.appendElement($contrib, 'contrib-id', contributor.attrs.ORCID, {
-          'contrib-id-type': 'orcid',
-        })
+        const contribIdAttrs = { 'contrib-id-type': 'orcid' }
+        if (contributor.attrs.isAuthenticated) {
+          contribIdAttrs['authenticated'] = true
+        }
+        this.appendElement(
+          $contrib,
+          'contrib-id',
+          contributor.attrs.ORCID,
+          contribIdAttrs
+        )
       }
 
       const $name = this.buildContributorName(contributor)

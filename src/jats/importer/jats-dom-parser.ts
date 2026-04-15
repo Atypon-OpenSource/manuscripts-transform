@@ -550,10 +550,6 @@ export class JATSDOMParser {
           }
         }
 
-        const ORCID = getTrimmedTextContent(
-          element,
-          'contrib-id[contrib-id-type="orcid"]'
-        )
         return {
           id: element.getAttribute('id') || undefined,
           role: getTrimmedTextContent(element, 'role'),
@@ -564,8 +560,14 @@ export class JATSDOMParser {
           given: getTrimmedTextContent(element, 'given-names'),
           family: this.getSurname(element),
           prefix: getTrimmedTextContent(element, 'prefix'),
-          ORCID,
-          isExternalORCIDContributor: !!ORCID,
+          ORCID: getTrimmedTextContent(
+            element,
+            'contrib-id[contrib-id-type="orcid"]'
+          ),
+          isAuthenticated:
+            element
+              .querySelector('contrib-id')
+              ?.getAttribute('authenticated') === 'true',
           creditRoles: getCreditRole(element),
           priority: this.parsePriority(element.getAttribute('priority')),
           email: getTrimmedTextContent(element, 'email') || '',
