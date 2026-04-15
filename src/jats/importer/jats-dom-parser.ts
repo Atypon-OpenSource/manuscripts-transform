@@ -564,10 +564,9 @@ export class JATSDOMParser {
             element,
             'contrib-id[contrib-id-type="orcid"]'
           ),
-          isAuthenticated:
-            element
-              .querySelector('contrib-id')
-              ?.getAttribute('authenticated') === 'true',
+          isAuthenticated: !!element.querySelector(
+            'contrib-id[contrib-id-type="orcid"][authenticated="true"]'
+          ),
           creditRoles: getCreditRole(element),
           priority: this.parsePriority(element.getAttribute('priority')),
           email: getTrimmedTextContent(element, 'email') || '',
