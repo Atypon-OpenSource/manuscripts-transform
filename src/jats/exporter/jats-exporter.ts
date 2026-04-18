@@ -1379,6 +1379,10 @@ export class JATSExporter {
         this.appendElement($contrib, 'email', contributor.attrs.email)
       }
 
+      if (contributor.attrs.degrees) {
+        this.appendElement($contrib, 'degrees', contributor.attrs.degrees)
+      }
+
       contributor.attrs.affiliationIDs?.forEach((rid) => {
         const $xref = this.appendElement($contrib, 'xref', '', {
           'ref-type': 'aff',
@@ -1516,6 +1520,10 @@ export class JATSExporter {
 
     if (contributor.attrs.prefix) {
       this.appendElement(name, 'prefix', contributor.attrs.prefix)
+    }
+
+    if (contributor.attrs.suffix) {
+      this.appendElement(name, 'suffix', contributor.attrs.suffix)
     }
 
     return name

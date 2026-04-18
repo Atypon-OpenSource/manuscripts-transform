@@ -32,6 +32,7 @@ export interface ContributorAttrs {
   family?: string
   prefix?: string
   suffix?: string
+  degrees?: string
   email?: string
   ORCID?: string
   isCorresponding: boolean
@@ -57,6 +58,7 @@ export const contributor: NodeSpec = {
     family: { default: undefined },
     prefix: { default: undefined },
     suffix: { default: undefined },
+    degrees: { default: undefined },
     email: { default: undefined },
     ORCID: { default: undefined },
     isCorresponding: { default: false },

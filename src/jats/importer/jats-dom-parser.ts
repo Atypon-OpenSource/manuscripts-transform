@@ -570,6 +570,8 @@ export class JATSDOMParser {
           given: getTrimmedTextContent(element, 'given-names'),
           family: this.getSurname(element),
           prefix: getTrimmedTextContent(element, 'prefix'),
+          suffix: getTrimmedTextContent(element, 'suffix'),
+          degrees: getTrimmedTextContent(element, 'degrees'),
           ORCID: getTrimmedTextContent(
             element,
             'contrib-id[contrib-id-type="orcid"]'
