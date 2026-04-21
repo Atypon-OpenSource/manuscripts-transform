@@ -224,11 +224,14 @@ export function isNodeOfType<T extends ManuscriptNode>(
 }
 
 export type Capabilities = {
+  handleSuggestion: boolean
+  rejectOwnSuggestion: boolean
   handleOwnComments: boolean
   resolveOwnComment: boolean
   handleOthersComments: boolean
   resolveOthersComment: boolean
   createComment: boolean
+  editArticle: boolean
 }
 
 export interface AccessContext {
@@ -236,8 +239,7 @@ export interface AccessContext {
   capabilities: Capabilities
 }
 
-export interface NodeAccessPolicy {
-  canEditAttr(node: ManuscriptNode, attr: string, context: AccessContext): boolean
-  canInsertNode(node: ManuscriptNode, context: AccessContext): boolean
-  canDeleteNode(node: ManuscriptNode, context: AccessContext): boolean
-}
+export type AccessRule = (
+  node: ManuscriptNode,
+  context: AccessContext
+) => boolean

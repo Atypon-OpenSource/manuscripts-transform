@@ -16,7 +16,7 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-import {ManuscriptNode, NodeAccessPolicy} from '../types'
+import { ManuscriptNode } from '../types'
 
 export interface CommentAttrs {
   id: string
@@ -33,7 +33,7 @@ export interface CommentNode extends ManuscriptNode {
   attrs: CommentAttrs
 }
 
-export const comment: NodeSpec & NodeAccessPolicy = {
+export const comment: NodeSpec = {
   attrs: {
     id: { default: '' },
     contents: { default: '' },
@@ -44,28 +44,6 @@ export const comment: NodeSpec & NodeAccessPolicy = {
     timestamp: { default: 0 },
     originalText: { default: '' },
   },
-  canInsertNode(_, context) {
-    return context.capabilities.createComment
-  },
-  canDeleteNode(node, context) {
-    const isOwn = node.attrs.userID === context.userId
-    return isOwn ? context.capabilities.handleOwnComments
-      : context.capabilities.handleOthersComments
-  },
-  canEditAttr(node, attr, context): boolean {
-    const isOwn = node.attrs.userID === context.userId
-
-    if (attr === 'contents') {
-      return isOwn
-        ? context.capabilities.handleOwnComments
-        : context.capabilities.handleOthersComments
-    } else if (attr === 'resolved') {
-      return isOwn
-        ? context.capabilities.resolveOwnComment
-        : context.capabilities.resolveOthersComment
-    }
-    return false
-  }
 }
 
 export const isCommentNode = (node: ManuscriptNode): node is CommentNode =>
