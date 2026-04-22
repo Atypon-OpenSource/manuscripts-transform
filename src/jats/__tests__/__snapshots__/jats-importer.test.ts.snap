@@ -304,6 +304,11 @@ Array [
         },
       ],
       "dataTracked": null,
+      "degrees": Array [
+        "RN",
+        "MPH",
+        "PhD",
+      ],
       "email": "",
       "family": "Hornnes",
       "footnoteIDs": Array [],
@@ -314,7 +319,7 @@ Array [
       "prefix": "Mr",
       "priority": undefined,
       "role": "author",
-      "suffix": undefined,
+      "suffix": "Jr.",
     },
     "content": Array [
       Object {
@@ -334,6 +339,10 @@ Array [
       "correspIDs": Array [],
       "creditRoles": Array [],
       "dataTracked": null,
+      "degrees": Array [
+        "MD",
+        "PhD",
+      ],
       "email": "",
       "family": "Poulsen",
       "footnoteIDs": Array [
@@ -476,6 +485,7 @@ Object {
             ],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "ntaylor+Author7@atypon.com",
             "family": "Hui",
             "footnoteIDs": Array [],
@@ -506,6 +516,7 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "huweiming2019@yeah.net",
             "family": "Hu",
             "footnoteIDs": Array [],
@@ -536,6 +547,7 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "04040416@163.com",
             "family": "Zhu",
             "footnoteIDs": Array [],
@@ -566,6 +578,7 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "jsxhgst888@163.com",
             "family": "Gao",
             "footnoteIDs": Array [],
@@ -2695,6 +2708,7 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "",
             "family": "User",
             "footnoteIDs": Array [],
@@ -4257,6 +4271,7 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "thomas28@netvigator.com",
             "family": "Chan",
             "footnoteIDs": Array [],
@@ -4287,6 +4302,7 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "yyhwang922@gmail.com",
             "family": "Hwang",
             "footnoteIDs": Array [],
@@ -4317,6 +4333,7 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "plkhong@hku.hk",
             "family": "Khong",
             "footnoteIDs": Array [],
@@ -4347,6 +4364,7 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "ayhleung@hku.hk",
             "family": "Leung",
             "footnoteIDs": Array [],
@@ -4377,6 +4395,7 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "jcschim@hku.hk",
             "family": "Chim",
             "footnoteIDs": Array [],
@@ -4407,6 +4426,7 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "ewctse@hku.hk",
             "family": "Tse",
             "footnoteIDs": Array [],
@@ -4437,6 +4457,7 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "mzerkani+Author3@atypon.com",
             "family": "Kwong",
             "footnoteIDs": Array [],
@@ -22061,6 +22082,11 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [
+              "RN",
+              "MPH",
+              "PhD",
+            ],
             "email": "",
             "family": "Hornnes",
             "footnoteIDs": Array [],
@@ -22091,6 +22117,10 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [
+              "MD",
+              "PhD",
+            ],
             "email": "",
             "family": "Poulsen",
             "footnoteIDs": Array [
@@ -30756,6 +30786,7 @@ Object {
             ],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "",
             "family": "Day",
             "footnoteIDs": Array [
@@ -32600,6 +32631,11 @@ Object {
               },
             ],
             "dataTracked": null,
+            "degrees": Array [
+              "RN",
+              "MPH",
+              "PhD",
+            ],
             "email": "",
             "family": "Hornnes",
             "footnoteIDs": Array [],
@@ -32610,7 +32646,7 @@ Object {
             "prefix": "Mr",
             "priority": undefined,
             "role": "author",
-            "suffix": undefined,
+            "suffix": "Jr.",
           },
           "content": Array [
             Object {
@@ -32630,6 +32666,10 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [
+              "MD",
+              "PhD",
+            ],
             "email": "",
             "family": "Poulsen",
             "footnoteIDs": Array [
@@ -33201,7 +33241,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Key image Abstract",
+                  "text": "Key Image",
                   "type": "text",
                 },
               ],
@@ -33281,7 +33321,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Short Abstract",
+                  "text": "Short",
                   "type": "text",
                 },
               ],
@@ -33318,7 +33358,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Short Abstract",
+                  "text": "Short",
                   "type": "text",
                 },
               ],
@@ -44441,6 +44481,7 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "",
             "family": "Cox",
             "footnoteIDs": Array [],
@@ -44471,6 +44512,7 @@ Object {
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
+            "degrees": Array [],
             "email": "",
             "family": "Griffith",
             "footnoteIDs": Array [],
