@@ -18,7 +18,7 @@ It provides a way to import/export [Manuscript JSON Schema](https://gitlab.com/m
 
 **JATSExporter**: converts Manuscript JSON Schema to JATS XML via ProseMirror Model.
 
-**JATSImporter** converts JATS XML to Manuscript JSON Schema via ProseMirror Model.
+**JATSImporter** converts JATS XML to Manuscript JSON Schema via ProseMirror Model. 
 
 # Usage
 
