@@ -35,6 +35,7 @@ export interface ContributorAttrs {
   email?: string
   ORCID?: string
   degrees: string[]
+  isAuthenticated?: boolean
   isCorresponding: boolean
   priority: number
   isJointContributor: boolean
@@ -61,6 +62,7 @@ export const contributor: NodeSpec = {
     degrees: { default: [] },
     email: { default: undefined },
     ORCID: { default: undefined },
+    isAuthenticated: { default: false },
     isCorresponding: { default: false },
     isJointContributor: { default: false },
     priority: { default: undefined },
