@@ -33262,7 +33262,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Key image Abstract",
+                  "text": "Key Image",
                   "type": "text",
                 },
               ],
@@ -33342,7 +33342,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Short Abstract",
+                  "text": "Short",
                   "type": "text",
                 },
               ],
@@ -33379,7 +33379,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Short Abstract",
+                  "text": "Short",
                   "type": "text",
                 },
               ],
