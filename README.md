@@ -8,7 +8,7 @@ It provides a way to import/export [Manuscript JSON Schema](https://gitlab.com/m
 
 **Decoder**: converts Manuscript JSON Schema to ProseMirror Model.
 
-**Encoder**: converts ProseMirror Model to Manuscript JSON Schema.
+**Encoder**: converts ProseMirror Model to Manuscript JSON Schema. 
 
 **ManuscriptNode**: a Manuscript definition of a ProseMirror Node which hold a ProseMirror fragment containing zero or more child nodes, for example a section node or a figure node.
 
