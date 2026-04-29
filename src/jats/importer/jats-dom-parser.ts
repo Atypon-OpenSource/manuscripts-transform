@@ -812,6 +812,11 @@ export class JATSDOMParser {
     },
     {
       tag: 'graphic',
+      node: 'headshot',
+      context: 'headshots_grid/',
+    },
+    {
+      tag: 'graphic',
       node: 'image_element',
       getContent: (node) => {
         const element = node as HTMLElement
@@ -935,6 +940,10 @@ export class JATSDOMParser {
     {
       tag: 'p',
       node: 'paragraph',
+    },
+    {
+      tag: 'p[content-type="headshots"]',
+      node: 'headshots_grid',
     },
     {
       tag: 'sec[sec-type="endnotes"]',

@@ -20,7 +20,7 @@ import { NodeSpec } from 'prosemirror-model'
 // It exists for the purpose of styling in the UI
 
 export const body: NodeSpec = {
-  content: 'element* sections*',
+  content: 'element* sections* headshots_grid?',
   attrs: {
     id: { default: '' },
   },
