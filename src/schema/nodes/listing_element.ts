@@ -27,7 +27,7 @@ export interface ListingElementNode extends ManuscriptNode {
 }
 
 export const listingElement: NodeSpec = {
-  content: '(listing | placeholder) figcaption',
+  content: '(listing | placeholder) caption_title caption',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
