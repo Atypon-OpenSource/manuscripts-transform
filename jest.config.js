@@ -1,5 +1,5 @@
 /*!
- * © 2020 Atypon Systems LLC
+ * © 2026 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/', '<rootDir>/dist/'],
   testRegex: '__tests__.*\\.test\\.tsx?$',
   transformIgnorePatterns: [
-    '<rootDir>/node_modules/(?!(lodash-es|@manuscripts)/)',
+    'node_modules/(?!(?:\\.pnpm|lodash-es|@manuscripts|uuid))',
   ],
   testEnvironment: 'jsdom',
   snapshotFormat: {
