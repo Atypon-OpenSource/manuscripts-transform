@@ -3854,8 +3854,6 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraph:test",
-                    "placeholder": "",
                   },
                   "content": Array [
                     Object {
@@ -3863,7 +3861,7 @@ Object {
                       "type": "text",
                     },
                   ],
-                  "type": "paragraph",
+                  "type": "text_block",
                 },
                 Object {
                   "attrs": Object {
@@ -33564,8 +33562,6 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraph:test",
-                "placeholder": "",
               },
               "content": Array [
                 Object {
@@ -33573,7 +33569,7 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "paragraph",
+              "type": "text_block",
             },
             Object {
               "attrs": Object {
