@@ -6,7 +6,7 @@ It provides a way to import/export [Manuscript JSON Schema](https://gitlab.com/m
 
 # Components
 
-**Decoder**: converts Manuscript JSON Schema to ProseMirror Model.
+**Decoder**: converts Manuscript JSON Schema to ProseMirror Model. 
 
 **Encoder**: converts ProseMirror Model to Manuscript JSON Schema. 
 
