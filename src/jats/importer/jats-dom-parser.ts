@@ -791,7 +791,7 @@ export class JATSDOMParser {
     {
       tag: 'graphic',
       node: 'headshot_image',
-      context: 'headshot_element',
+      context: 'headshot_element/',
       getAttrs: this.getFigAttrs,
     },
     {

@@ -33082,6 +33082,177 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
+                    "id": "MPHeadshotGrid:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPHeadshotElement:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPHeadshotImage:test",
+                            "src": "headshot.png",
+                          },
+                          "type": "headshot_image",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Jane Doe, Ph.D.",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "Editor",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "Wiley",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "caption",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "id": "MPAltText:test",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Headshot of Jane Doe",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "alt_text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "id": "MPLongDesc:test",
+                          },
+                          "type": "long_desc",
+                        },
+                      ],
+                      "type": "headshot_element",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPHeadshotElement:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "id": "MPHeadshotImage:test",
+                            "src": "headshot2.png",
+                          },
+                          "type": "headshot_image",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Title...",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Jack Black",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "caption_title",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                            "placeholder": "Caption...",
+                          },
+                          "content": Array [
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "CEO",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "Generico",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "text_block",
+                            },
+                          ],
+                          "type": "caption",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "id": "MPAltText:test",
+                          },
+                          "content": Array [
+                            Object {
+                              "text": "Headshot of Jack Black",
+                              "type": "text",
+                            },
+                          ],
+                          "type": "alt_text",
+                        },
+                        Object {
+                          "attrs": Object {
+                            "id": "MPLongDesc:test",
+                          },
+                          "type": "long_desc",
+                        },
+                      ],
+                      "type": "headshot_element",
+                    },
+                  ],
+                  "type": "headshot_grid",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
                     "id": "MPParagraph:test",
                     "placeholder": "",
                   },
