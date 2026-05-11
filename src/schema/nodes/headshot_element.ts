@@ -30,7 +30,7 @@ export const headshotElement: NodeSpec = {
     id: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block element',
+  group: 'block',
   toDOM: (node) => {
     return [
       'div',
