@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2026 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,14 +16,31 @@
 
 import { NodeSpec } from 'prosemirror-model'
 
-// This node has no representation in json-schema
-// It exists for the purpose of styling in the UI
+import { ManuscriptNode } from '../types'
 
-export const body: NodeSpec = {
-  content: 'element* sections*',
+export interface HeadshotGridNode extends ManuscriptNode {
+  attrs: {
+    id: string
+  }
+}
+
+export const headshotGrid: NodeSpec = {
+  content: 'headshot_element*',
   attrs: {
     id: { default: '' },
+    dataTracked: { default: null },
   },
-  group: 'block',
-  toDOM: () => ['div', { class: 'body' }, 0],
+  group: 'block element',
+  toDOM: (node) => {
+    return [
+      'div',
+      {
+        class: 'headshot_grid',
+        id: node.attrs.id,
+      },
+    ]
+  },
 }
+
+export const isHeadshotGridNode = (node: ManuscriptNode): node is HeadshotGridNode =>
+  node.type === node.type.schema.nodes.headshot_grid

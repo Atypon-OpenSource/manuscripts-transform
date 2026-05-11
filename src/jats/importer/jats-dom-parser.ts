@@ -658,7 +658,7 @@ export class JATSDOMParser {
     {
       tag: 'caption',
       node: 'caption',
-      context: 'listing_element/|embed/|supplement/',
+      context: 'listing_element/|embed/|supplement/|headshot_element/',
       getContent: (node) => {
         const element = node as HTMLElement
         const title = element.querySelector('title')
@@ -789,6 +789,17 @@ export class JATSDOMParser {
       },
     },
     {
+      tag: 'graphic',
+      node: 'headshot_image',
+      context: 'headshot_element',
+      getAttrs: this.getFigAttrs,
+    },
+    {
+      tag: 'fig',
+      node: 'headshot_element',
+      context: 'headshot_grid/',
+    },
+    {
       tag: 'graphic[specific-use=MISSING]',
       node: 'missing_figure',
       getAttrs: (node) => {
@@ -809,11 +820,6 @@ export class JATSDOMParser {
       node: 'figure',
       context: 'figure_element/',
       getAttrs: this.getFigAttrs,
-    },
-    {
-      tag: 'graphic',
-      node: 'headshot',
-      context: 'headshots_grid/',
     },
     {
       tag: 'graphic',
@@ -926,6 +932,10 @@ export class JATSDOMParser {
       node: 'list_item',
     },
     {
+      tag: 'p[content-type="headshots"]',
+      node: 'headshot_grid',
+    },
+    {
       tag: 'p',
       node: 'paragraph',
       context: 'section/',
@@ -940,10 +950,6 @@ export class JATSDOMParser {
     {
       tag: 'p',
       node: 'paragraph',
-    },
-    {
-      tag: 'p[content-type="headshots"]',
-      node: 'headshots_grid',
     },
     {
       tag: 'sec[sec-type="endnotes"]',

@@ -158,6 +158,28 @@
         </sec>
         <sec>
           <title>Results</title>
+          <p content-type="headshots">
+            <fig>
+              <graphic xlink:href="headshot.png">
+                <alt-text>Headshot of Jane Doe</alt-text>
+              </graphic>
+              <caption>
+                <title>Jane Doe, Ph.D.</title>
+                <p>Editor</p>
+                <p>Wiley</p>
+              </caption>
+            </fig>
+            <fig>
+              <graphic xlink:href="headshot2.png">
+                <alt-text>Headshot of Jack Black</alt-text>
+              </graphic>
+              <caption>
+                <title>Jack Black</title>
+                <p>CEO</p>
+                <p>Generico</p>
+              </caption>
+            </fig>
+          </p>
           <p>In the intervention group blood pressure was treated to target in 25 patients
             (69%) versus 14 (38%) in the control group
             (<italic>p</italic>&#x2009;=&#x2009;0.007). Median time to first event was
