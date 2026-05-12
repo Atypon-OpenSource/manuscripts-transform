@@ -89,7 +89,11 @@ export const sectionCategories: SectionCategory[] = [
       'competing interests',
     ],
     label: 'Conflict of Interest',
-    titles: ['Conflict of Interest Statement','COI Statement', 'Competing Interests'],
+    titles: [
+      'Conflict of Interest Statement',
+      'COI Statement',
+      'Competing Interests',
+    ],
     group: 'backmatter',
     isUnique: true,
   },

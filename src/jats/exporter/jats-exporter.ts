@@ -1367,9 +1367,18 @@ export class JATSExporter {
       }
 
       if (contributor.attrs.ORCID) {
-        this.appendElement($contrib, 'contrib-id', contributor.attrs.ORCID, {
+        const contribIdAttrs: Record<string, string> = {
           'contrib-id-type': 'orcid',
-        })
+        }
+        if (contributor.attrs.isAuthenticated) {
+          contribIdAttrs['authenticated'] = 'true'
+        }
+        this.appendElement(
+          $contrib,
+          'contrib-id',
+          contributor.attrs.ORCID,
+          contribIdAttrs
+        )
       }
 
       const $name = this.buildContributorName(contributor)
@@ -1418,7 +1427,7 @@ export class JATSExporter {
         }
         this.appendElement($contrib, 'role', credit.vocabTerm, {
           'vocab-identifier': 'http://credit.niso.org/',
-          'vocab': 'CRediT',
+          vocab: 'CRediT',
           'vocab-term': credit.vocabTerm,
           'vocab-term-identifier': url,
         })
@@ -1434,32 +1443,48 @@ export class JATSExporter {
       .filter((a) => affiliationIDs.includes(a.attrs.id))
       .sort(sortAffiliations)
       .forEach((affiliation) => {
-        const $content = [];
+        const $content = []
 
         if (affiliation.attrs.department) {
-          const $institution = this.createElement('institution', affiliation.attrs.department, {
-            'content-type': 'dept',
-          });
+          const $institution = this.createElement(
+            'institution',
+            affiliation.attrs.department,
+            {
+              'content-type': 'dept',
+            }
+          )
           $content.push($institution)
         }
 
         if (affiliation.attrs.institution) {
-          const $institution = this.createElement('institution', affiliation.attrs.institution)
+          const $institution = this.createElement(
+            'institution',
+            affiliation.attrs.institution
+          )
           $content.push($institution)
         }
 
         if (affiliation.attrs.addressLine1) {
-          const $addrLine = this.createElement('addr-line', affiliation.attrs.addressLine1)
+          const $addrLine = this.createElement(
+            'addr-line',
+            affiliation.attrs.addressLine1
+          )
           $content.push($addrLine)
         }
 
         if (affiliation.attrs.addressLine2) {
-          const $addrLine = this.createElement('addr-line', affiliation.attrs.addressLine2)
+          const $addrLine = this.createElement(
+            'addr-line',
+            affiliation.attrs.addressLine2
+          )
           $content.push($addrLine)
         }
 
         if (affiliation.attrs.addressLine3) {
-          const $addrLine = this.createElement('addr-line', affiliation.attrs.addressLine3)
+          const $addrLine = this.createElement(
+            'addr-line',
+            affiliation.attrs.addressLine3
+          )
           $content.push($addrLine)
         }
 
@@ -1474,12 +1499,18 @@ export class JATSExporter {
         }
 
         if (affiliation.attrs.country) {
-          const $country = this.createElement('country', affiliation.attrs.country)
+          const $country = this.createElement(
+            'country',
+            affiliation.attrs.country
+          )
           $content.push($country)
         }
 
         if (affiliation.attrs.postCode) {
-          const $postalCode = this.createElement('postal-code', affiliation.attrs.postCode)
+          const $postalCode = this.createElement(
+            'postal-code',
+            affiliation.attrs.postCode
+          )
           $content.push($postalCode)
         }
 

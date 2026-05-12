@@ -314,6 +314,7 @@ Array [
       "footnoteIDs": Array [],
       "given": "Agnete Hviid",
       "id": "MPContributor:test",
+      "isAuthenticated": true,
       "isCorresponding": true,
       "isJointContributor": false,
       "prefix": "Mr",
@@ -350,6 +351,7 @@ Array [
       ],
       "given": "Mai Bang",
       "id": "MPContributor:test",
+      "isAuthenticated": false,
       "isCorresponding": false,
       "isJointContributor": false,
       "prefix": undefined,
@@ -491,6 +493,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Li",
             "id": "MPContributor:test",
+            "isAuthenticated": true,
             "isCorresponding": true,
             "isJointContributor": false,
             "prefix": undefined,
@@ -522,6 +525,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Wei Ming",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,
@@ -553,6 +557,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Zhen Hua",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,
@@ -584,6 +589,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Song Tian",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,
@@ -2714,6 +2720,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Developer",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,
@@ -3847,8 +3854,6 @@ Object {
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                    "id": "MPParagraph:test",
-                    "placeholder": "",
                   },
                   "content": Array [
                     Object {
@@ -3856,7 +3861,7 @@ Object {
                       "type": "text",
                     },
                   ],
-                  "type": "paragraph",
+                  "type": "text_block",
                 },
                 Object {
                   "attrs": Object {
@@ -4279,6 +4284,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Thomas S.Y.",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,
@@ -4310,6 +4316,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Yu-Yan",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,
@@ -4341,6 +4348,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Pek-Lan",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,
@@ -4372,6 +4380,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Anskar Y.H.",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,
@@ -4403,6 +4412,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Chor-Sang",
             "id": "MPContributor:test",
+            "isAuthenticated": true,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,
@@ -4434,6 +4444,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Eric",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,
@@ -4465,6 +4476,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Yok-Lam",
             "id": "MPContributor:test",
+            "isAuthenticated": true,
             "isCorresponding": true,
             "isJointContributor": false,
             "prefix": undefined,
@@ -22094,6 +22106,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Agnete Hviid",
             "id": "MPContributor:test",
+            "isAuthenticated": true,
             "isCorresponding": true,
             "isJointContributor": false,
             "prefix": undefined,
@@ -22130,6 +22143,7 @@ Object {
             ],
             "given": "Mai Bang",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,
@@ -30796,6 +30810,7 @@ Object {
             ],
             "given": "Nathan",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": true,
             "isJointContributor": false,
             "prefix": undefined,
@@ -32643,6 +32658,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Agnete Hviid",
             "id": "MPContributor:test",
+            "isAuthenticated": true,
             "isCorresponding": true,
             "isJointContributor": false,
             "prefix": "Mr",
@@ -32679,6 +32695,7 @@ Object {
             ],
             "given": "Mai Bang",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,
@@ -33243,7 +33260,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Key image Abstract",
+                  "text": "Key Image",
                   "type": "text",
                 },
               ],
@@ -33323,7 +33340,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Short Abstract",
+                  "text": "Short",
                   "type": "text",
                 },
               ],
@@ -33360,7 +33377,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "Short Abstract",
+                  "text": "Short",
                   "type": "text",
                 },
               ],
@@ -33545,8 +33562,6 @@ Object {
             Object {
               "attrs": Object {
                 "dataTracked": null,
-                "id": "MPParagraph:test",
-                "placeholder": "",
               },
               "content": Array [
                 Object {
@@ -33554,7 +33569,7 @@ Object {
                   "type": "text",
                 },
               ],
-              "type": "paragraph",
+              "type": "text_block",
             },
             Object {
               "attrs": Object {
@@ -44491,6 +44506,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Justin",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,
@@ -44522,6 +44538,7 @@ Object {
             "footnoteIDs": Array [],
             "given": "Todd",
             "id": "MPContributor:test",
+            "isAuthenticated": false,
             "isCorresponding": false,
             "isJointContributor": false,
             "prefix": undefined,

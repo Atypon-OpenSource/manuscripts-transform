@@ -68,7 +68,7 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
 
   moveCaptionsToEnd(body)
   createBody(doc, body, createElement)
-  createAbstracts(front, body, createElement)
+  createAbstracts(front, body, createElement, sectionCategories)
   createBackmatter(doc, body, sectionCategories, createElement)
   createSupplementaryMaterialsSection(doc, body, createElement)
   createKeywordsSection(doc, body, createElement)
