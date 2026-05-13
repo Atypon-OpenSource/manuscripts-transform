@@ -159,26 +159,21 @@
         <sec>
           <title>Results</title>
           <p content-type="headshots">
-            <fig>
-              <graphic xlink:href="headshot.png">
-                <alt-text>Headshot of Jane Doe</alt-text>
-              </graphic>
+            <graphic xlink:href="headshot.png">
               <caption>
                 <title>Jane Doe, Ph.D.</title>
-                <p>Editor</p>
+                <p><bold>Editor</bold></p>
                 <p>Wiley</p>
               </caption>
-            </fig>
-            <fig>
-              <graphic xlink:href="headshot2.png">
-                <alt-text>Headshot of Jack Black</alt-text>
-              </graphic>
+            </graphic>
+            <graphic xlink:href="headshot2.png">
+              <alt-text>Headshot of Jack Black</alt-text>
               <caption>
                 <title>Jack Black</title>
-                <p>CEO</p>
+                <p><bold>CEO</bold></p>
                 <p>Generico</p>
               </caption>
-            </fig>
+            </graphic>
           </p>
           <p>In the intervention group blood pressure was treated to target in 25 patients
             (69%) versus 14 (38%) in the control group

@@ -795,9 +795,39 @@ export class JATSDOMParser {
       getAttrs: this.getFigAttrs,
     },
     {
-      tag: 'fig',
+      tag: 'graphic',
       node: 'headshot_element',
       context: 'headshot_grid/',
+      getContent: (node) => {
+        const element = node as HTMLElement
+
+        const innerGraphic = element.cloneNode(false) as HTMLElement
+
+        // build wrapper: [graphic(shallow), caption, alt-text, long-desc]
+        const wrapper = element.ownerDocument!.createElement('div')
+        wrapper.appendChild(innerGraphic)
+
+        const caption = element.querySelector('caption')
+        if (caption) wrapper.appendChild(caption)
+
+        const altText = element.querySelector('alt-text')
+        if (altText) {
+          if (altText.childNodes.length === 0) {
+            const title = caption?.querySelector(':scope > title')
+            if (title) {
+              altText.append(...Array.from(title.childNodes).map(n => n.cloneNode(true)))
+            }
+          }
+          wrapper.appendChild(altText)
+        }
+
+        const longDesc = element.querySelector('long-desc')
+        if (longDesc) wrapper.appendChild(longDesc)
+
+        return this.parse(wrapper, {
+          topNode: this.schema.nodes.headshot_element.create(this.getFigAttrs(element)),
+        }).content
+      }
     },
     {
       tag: 'graphic[specific-use=MISSING]',
