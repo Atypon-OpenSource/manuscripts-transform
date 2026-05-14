@@ -28,7 +28,7 @@ export interface BlockquoteElementNode extends ManuscriptNode {
 }
 
 export const blockquoteElement: NodeSpec = {
-  content: 'paragraph+ attribution',
+  content: 'text_block+ attribution',
   attrs: {
     id: { default: '' },
     placeholder: { default: '' },

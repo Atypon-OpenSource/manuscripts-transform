@@ -6,9 +6,9 @@ It provides a way to import/export [Manuscript JSON Schema](https://gitlab.com/m
 
 # Components
 
-**Decoder**: converts Manuscript JSON Schema to ProseMirror Model.
+**Decoder**: converts Manuscript JSON Schema to ProseMirror Model. 
 
-**Encoder**: converts ProseMirror Model to Manuscript JSON Schema.
+**Encoder**: converts ProseMirror Model to Manuscript JSON Schema. 
 
 **ManuscriptNode**: a Manuscript definition of a ProseMirror Node which hold a ProseMirror fragment containing zero or more child nodes, for example a section node or a figure node.
 
@@ -18,7 +18,7 @@ It provides a way to import/export [Manuscript JSON Schema](https://gitlab.com/m
 
 **JATSExporter**: converts Manuscript JSON Schema to JATS XML via ProseMirror Model.
 
-**JATSImporter** converts JATS XML to Manuscript JSON Schema via ProseMirror Model.
+**JATSImporter** converts JATS XML to Manuscript JSON Schema via ProseMirror Model. 
 
 # Usage
 
