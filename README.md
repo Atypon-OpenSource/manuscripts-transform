@@ -16,13 +16,13 @@ It provides a way to import/export [Manuscript JSON Schema](https://gitlab.com/m
 
 **ManuscriptMark**:  a Manuscript definition of a ProseMirror mark which is a piece of information that can be attached to a node, such as it being emphasized, in code font, or a link
 
-**JATSExporter**: converts Manuscript JSON Schema to JATS XML via ProseMirror Model.
+**JATSExporter**: converts Manuscript JSON Schema to JATS XML via ProseMirror Model. 
 
 **JATSImporter** converts JATS XML to Manuscript JSON Schema via ProseMirror Model. 
 
 # Usage
 
-### Manuscript JSON Schema to ProseMirror Model
+### Manuscript JSON Schema to ProseMirror Model 
 
 ```typescript
 import { Decoder, ContainedModel } from '@manuscripts/manuscript-transform'
