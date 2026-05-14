@@ -21,6 +21,7 @@ import { ManuscriptNode } from '../types'
 export interface HeadshotImageAttrs {
   id: string
   src: string
+  type: string
 }
 
 export interface HeadshotImageNode extends ManuscriptNode {
@@ -31,6 +32,7 @@ export const headshotImage: NodeSpec = {
   attrs: {
     id: { default: '' },
     src: { default: '' },
+    type: { default: '' },
     dataTracked: { default: null },
   },
   selectable: false,
