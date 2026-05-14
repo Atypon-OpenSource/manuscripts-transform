@@ -33089,6 +33089,7 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPHeadshotElement:test",
+                        "priority": undefined,
                       },
                       "content": Array [
                         Object {
@@ -33124,6 +33125,14 @@ Object {
                               },
                               "content": Array [
                                 Object {
+                                  "marks": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                      },
+                                      "type": "bold",
+                                    },
+                                  ],
                                   "text": "Editor",
                                   "type": "text",
                                 },
@@ -33151,7 +33160,7 @@ Object {
                           },
                           "content": Array [
                             Object {
-                              "text": "Headshot of Jane Doe",
+                              "text": "Jane Doe, Ph.D.",
                               "type": "text",
                             },
                           ],
@@ -33170,6 +33179,7 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPHeadshotElement:test",
+                        "priority": undefined,
                       },
                       "content": Array [
                         Object {
@@ -33205,6 +33215,14 @@ Object {
                               },
                               "content": Array [
                                 Object {
+                                  "marks": Array [
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                      },
+                                      "type": "bold",
+                                    },
+                                  ],
                                   "text": "CEO",
                                   "type": "text",
                                 },
