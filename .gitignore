@@ -18,4 +18,4 @@ yarn-error.log*
 tmp/
 /.idea/
 /.vscode/
-/src/version.ts
+/src/versions.ts
