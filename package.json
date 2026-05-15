@@ -55,7 +55,7 @@
     "@types/w3c-xmlserializer": "2.0.4",
     "@typescript-eslint/eslint-plugin": "8.46.4",
     "@typescript-eslint/parser": "8.46.4",
-    "jsdom": "^26.0.0",
+    "jsdom": "26.0.0",
     "eslint": "9.39.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-diff": "2.0.3",
