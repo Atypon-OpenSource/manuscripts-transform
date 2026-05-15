@@ -45,7 +45,7 @@
     "@babel/preset-env": "7.23.8",
     "@babel/preset-typescript": "7.23.3",
     "@jats4r/dtds": "0.0.10",
-    "@manuscripts/eslint-config": "0.5.1",
+    "@manuscripts/eslint-config": "1.0.0",
     "@types/csl": "npm:csl-json@0.1.0",
     "@types/jest": "30.0.0",
     "@types/lodash": "4.17.16",
