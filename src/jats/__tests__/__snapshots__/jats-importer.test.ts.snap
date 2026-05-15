@@ -33089,7 +33089,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPHeadshotElement:test",
-                        "priority": undefined,
                       },
                       "content": Array [
                         Object {
@@ -33180,7 +33179,6 @@ Object {
                       "attrs": Object {
                         "dataTracked": null,
                         "id": "MPHeadshotElement:test",
-                        "priority": undefined,
                       },
                       "content": Array [
                         Object {
