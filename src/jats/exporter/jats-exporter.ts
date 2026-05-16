@@ -701,9 +701,8 @@ export class JATSExporter {
       },
       hero_image: () => '',
       headshot_grid: () => ['p', { 'content-type': 'headshots'}, 0],
-      headshot_element: (node) =>
-        createFigureElement(node, node.type.schema.nodes.headshot_image),
-      headshot_image: (node) => createGraphic(node),
+      headshot_element: (node) => createImage(node),
+      headshot_image: () => '',
       alt_text: (node) => {
         if (node.textContent) {
           const altText = this.createElement('alt-text')
