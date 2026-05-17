@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 // version file is created by prebuild script and gitignored which means you wont be able to find it in the source
-import { VERSION } from './version'
+import { VERSION } from './versions'
 
 export function getVersion() {
   return VERSION
