@@ -21,6 +21,7 @@ import { ManuscriptNode } from '../types'
 export interface HeadshotElementNode extends ManuscriptNode {
   attrs: {
     id: string
+    type: string
   }
 }
 
@@ -28,6 +29,7 @@ export const headshotElement: NodeSpec = {
   content: 'headshot_image caption_title caption alt_text long_desc',
   attrs: {
     id: { default: '' },
+    type: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block',
