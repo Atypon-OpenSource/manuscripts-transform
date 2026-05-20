@@ -16,9 +16,9 @@
 import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
 
-class Migration4335 implements MigrationScript {
-  fromVersion = '4.3.34'
-  toVersion = '4.3.35'
+class Migration4339 implements MigrationScript {
+  fromVersion = '4.3.38'
+  toVersion = '4.3.39'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     if (
@@ -38,4 +38,4 @@ class Migration4335 implements MigrationScript {
   }
 }
 
-export default Migration4335
+export default Migration4339
