@@ -28,6 +28,6 @@ Object.defineProperty(document, 'execCommand', {
 
 if (!window.URL.createObjectURL) {
   Object.defineProperty(window.URL, 'createObjectURL', {
-    value: jest.fn(() => 'blob:https://localhost/' + uuid()),
+    value: vi.fn(() => 'blob:https://localhost/' + uuid()),
   })
 }
