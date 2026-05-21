@@ -7,7 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "lib": ["es2020", "dom", "dom.iterable"],
     "module": "esnext",
-    "types": ["jest", "node", "csl"],
+    "types": ["node", "csl"],
     "moduleResolution": "bundler",
     "noImplicitAny": true,
     "noImplicitThis": true,
