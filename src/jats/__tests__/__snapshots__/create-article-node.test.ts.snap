@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Create empty document should create an empty document 1`] = `
+exports[`Create empty document > should create an empty document 1`] = `
 Object {
   "attrs": Object {
     "acceptanceDate": undefined,
