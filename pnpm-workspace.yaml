@@ -1,2 +1,8 @@
 onlyBuiltDependencies:
   - libxmljs2
+minimumReleaseAgeExclude:
+  - '@manuscripts/*'
+allowBuilds:
+  esbuild: true
+  libxmljs2: true
+  unrs-resolver: true
