@@ -1223,7 +1223,7 @@ export class JATSExporter {
 
       const hero = findParentHeroImage(node.attrs.id)
       if (hero) {
-        graphic.setAttribute('content-type', hero.attrs.layout || 'leading')
+        graphic.setAttribute('content-type', hero.attrs.contentType || 'leading')
       } else if (
         !isChildOfNodeType(node.attrs.id, schema.nodes.figure_element) &&
         node.attrs.type
