@@ -3249,9 +3249,9 @@ Object {
             },
             Object {
               "attrs": Object {
-                "contentType": "",
                 "dataTracked": null,
                 "id": "MPTableElement:test",
+                "type": "",
               },
               "content": Array [
                 Object {
@@ -3847,10 +3847,10 @@ Object {
             },
             Object {
               "attrs": Object {
-                "contentType": "quote",
                 "dataTracked": null,
                 "id": "MPBlockquoteElement:test",
                 "placeholder": "",
+                "type": "quote",
               },
               "content": Array [
                 Object {
@@ -5475,9 +5475,9 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
+                    "type": "",
                   },
                   "content": Array [
                     Object {
@@ -10983,9 +10983,9 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
+                    "type": "",
                   },
                   "content": Array [
                     Object {
@@ -14547,9 +14547,9 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
+                    "type": "",
                   },
                   "content": Array [
                     Object {
@@ -23440,9 +23440,9 @@ Object {
             },
             Object {
               "attrs": Object {
-                "contentType": "",
                 "dataTracked": null,
                 "id": "MPTableElement:test",
+                "type": "",
               },
               "content": Array [
                 Object {
@@ -27686,9 +27686,9 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
+                    "type": "",
                   },
                   "content": Array [
                     Object {
@@ -31718,9 +31718,9 @@ Object {
             },
             Object {
               "attrs": Object {
-                "contentType": "",
                 "dataTracked": null,
                 "id": "MPBoxElement:test",
+                "type": "",
               },
               "content": Array [
                 Object {
@@ -33596,6 +33596,93 @@ Object {
         },
         Object {
           "attrs": Object {
+            "dataTracked": null,
+            "id": "MPBlockquoteElement:test",
+            "placeholder": "",
+            "type": "quote",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "A standard blockquote.",
+                  "type": "text",
+                },
+              ],
+              "type": "text_block",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "type": "attribution",
+            },
+          ],
+          "type": "blockquote_element",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPBlockquoteElement:test",
+            "placeholder": "",
+            "type": "half-left",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "A half-left blockquote.",
+                  "type": "text",
+                },
+              ],
+              "type": "text_block",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "type": "attribution",
+            },
+          ],
+          "type": "blockquote_element",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPBlockquoteElement:test",
+            "placeholder": "",
+            "type": "half-right",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "A half-right blockquote.",
+                  "type": "text",
+                },
+              ],
+              "type": "text_block",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "type": "attribution",
+            },
+          ],
+          "type": "blockquote_element",
+        },
+        Object {
+          "attrs": Object {
             "category": "intro",
             "dataTracked": null,
             "id": "MPSection:test",
@@ -33977,9 +34064,9 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPBoxElement:test",
+                        "type": "",
                       },
                       "content": Array [
                         Object {
@@ -34010,9 +34097,9 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPBoxElement:test",
+                        "type": "half-left",
                       },
                       "content": Array [
                         Object {
@@ -34197,9 +34284,9 @@ Object {
                     },
                     Object {
                       "attrs": Object {
-                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPBoxElement:test",
+                        "type": "",
                       },
                       "content": Array [
                         Object {
@@ -34891,9 +34978,9 @@ Object {
             },
             Object {
               "attrs": Object {
-                "contentType": "",
                 "dataTracked": null,
                 "id": "MPTableElement:test",
+                "type": "half-right",
               },
               "content": Array [
                 Object {
@@ -39149,9 +39236,9 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
+                    "type": "",
                   },
                   "content": Array [
                     Object {
@@ -44235,9 +44322,9 @@ Object {
     },
     Object {
       "attrs": Object {
-        "contentType": "leading",
         "dataTracked": null,
         "id": "MPHeroImage:test",
+        "type": "leading",
       },
       "content": Array [
         Object {
@@ -46706,9 +46793,9 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
+                    "type": "",
                   },
                   "content": Array [
                     Object {
@@ -55069,9 +55156,9 @@ Object {
             },
             Object {
               "attrs": Object {
-                "contentType": "",
                 "dataTracked": null,
                 "id": "MPTableElement:test",
+                "type": "",
               },
               "content": Array [
                 Object {

@@ -793,7 +793,7 @@ export class JATSExporter {
       bibliography_section: () => '',
       blockquote_element: (node) => [
         'disp-quote',
-        { 'content-type': node.attrs.contentType || 'quote' },
+        { 'content-type': node.attrs.type || 'quote' },
         0,
       ],
       list: (node) => [
@@ -1031,8 +1031,8 @@ export class JATSExporter {
       table_element: (node) => {
         const element = createTableElement(node)
         element.setAttribute('position', 'anchor')
-        if (node.attrs.contentType) {
-          element.setAttribute('content-type', node.attrs.contentType)
+        if (node.attrs.type) {
+          element.setAttribute('content-type', node.attrs.type)
         }
         return element
       },
@@ -1164,8 +1164,8 @@ export class JATSExporter {
     }
     const createBoxElement = (node: ManuscriptNode) => {
       const element = createElement(node, 'boxed-text')
-      if (node.attrs.contentType) {
-        element.setAttribute('content-type', node.attrs.contentType)
+      if (node.attrs.type) {
+        element.setAttribute('content-type', node.attrs.type)
       }
       appendLabels(element, node)
       const child = node.firstChild
@@ -1223,7 +1223,7 @@ export class JATSExporter {
 
       const hero = findParentHeroImage(node.attrs.id)
       if (hero) {
-        graphic.setAttribute('content-type', hero.attrs.contentType || 'leading')
+        graphic.setAttribute('content-type', hero.attrs.type || 'leading')
       } else if (
         !isChildOfNodeType(node.attrs.id, schema.nodes.figure_element) &&
         node.attrs.type

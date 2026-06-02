@@ -20,7 +20,7 @@ import { ManuscriptNode } from '../types'
 
 export interface TableAttrs {
   id: string
-  contentType: string
+  type: string
 }
 
 export interface TableElementNode extends ManuscriptNode {
@@ -32,7 +32,7 @@ export const tableElement: NodeSpec = {
     'caption_title (table | placeholder) table_colgroup? table_element_footer? alt_text long_desc (listing | placeholder)',
   attrs: {
     id: { default: '' },
-    contentType: { default: '' },
+    type: { default: '' },
     dataTracked: { default: null },
   },
   selectable: false,
@@ -57,8 +57,8 @@ export const tableElement: NodeSpec = {
       id: tableElementNode.attrs.id,
     }
 
-    if (tableElementNode.attrs.contentType) {
-      attrs['data-content-type'] = tableElementNode.attrs.contentType
+    if (tableElementNode.attrs.type) {
+      attrs['data-content-type'] = tableElementNode.attrs.type
     }
 
     return ['figure', attrs, 0]

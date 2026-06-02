@@ -25,7 +25,6 @@ import { XLINK_NAMESPACE, XML_NAMESPACE } from '../../lib/xml'
 import {
   BibliographyItemAttrs,
   BibliographyItemType,
-  HERO_IMAGE_LAYOUTS,
   ManuscriptNode,
   MarkRule,
   NodeRule,
@@ -719,34 +718,20 @@ export class JATSDOMParser {
       node: 'blockquote_element',
       getAttrs: (node) => {
         const element = node as HTMLElement
-
         return {
           id: element.getAttribute('id'),
-          contentType: element.getAttribute('content-type') || 'quote',
+          type: 'quote',
         }
       },
     },
     {
-      tag: 'disp-quote[content-type=half-left]',
+      tag: 'disp-quote[content-type^=half]',
       node: 'blockquote_element',
       getAttrs: (node) => {
         const element = node as HTMLElement
-
         return {
           id: element.getAttribute('id'),
-          contentType: 'half-left',
-        }
-      },
-    },
-    {
-      tag: 'disp-quote[content-type=half-right]',
-      node: 'blockquote_element',
-      getAttrs: (node) => {
-        const element = node as HTMLElement
-
-        return {
-          id: element.getAttribute('id'),
-          contentType: 'half-right',
+          type: element.getAttribute('content-type'),
         }
       },
     },
@@ -825,14 +810,17 @@ export class JATSDOMParser {
         }
       },
     },
-    ...HERO_IMAGE_LAYOUTS.map(
-      (contentType): NodeRule => ({
-        tag: `graphic[content-type=${contentType}]`,
-        node: 'hero_image',
-        getAttrs: () => ({ contentType }),
-        getContent: this.getFigContent,
-      })
-    ),
+    {
+      tag: 'graphic[content-type^=leading]',
+      node: 'hero_image',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          type: element.getAttribute('content-type') || 'leading',
+        }
+      },
+      getContent: this.getFigContent,
+    },
     {
       tag: 'graphic',
       node: 'figure',
@@ -1050,7 +1038,7 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
-          contentType: element.getAttribute('content-type') ?? '',
+          type: element.getAttribute('content-type') ?? '',
         }
       },
     },
@@ -1146,7 +1134,7 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
-          contentType: element.getAttribute('content-type') ?? '',
+          type: element.getAttribute('content-type') ?? '',
         }
       },
     },

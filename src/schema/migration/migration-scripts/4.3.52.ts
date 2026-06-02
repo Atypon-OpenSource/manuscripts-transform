@@ -23,27 +23,27 @@ class Migration4352 implements MigrationScript {
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     switch (node.type) {
       case 'hero_image':
-        if (!node.attrs || node.attrs.contentType === undefined) {
+        if (!node.attrs || node.attrs.type === undefined) {
           return {
             ...node,
-            attrs: { ...(node.attrs ?? {}), contentType: 'leading' },
+            attrs: { ...(node.attrs ?? {}), type: 'leading' },
           }
         }
         return node
       case 'blockquote_element':
-        if (!node.attrs || node.attrs.contentType === undefined) {
+        if (!node.attrs || node.attrs.type === undefined) {
           return {
             ...node,
-            attrs: { ...(node.attrs ?? {}), contentType: 'quote' },
+            attrs: { ...(node.attrs ?? {}), type: 'quote' },
           }
         }
         return node
       case 'box_element':
       case 'table_element':
-        if (!node.attrs || node.attrs.contentType === undefined) {
+        if (!node.attrs || node.attrs.type === undefined) {
           return {
             ...node,
-            attrs: { ...(node.attrs ?? {}), contentType: '' },
+            attrs: { ...(node.attrs ?? {}), type: '' },
           }
         }
         return node
