@@ -25,6 +25,7 @@ import { XLINK_NAMESPACE, XML_NAMESPACE } from '../../lib/xml'
 import {
   BibliographyItemAttrs,
   BibliographyItemType,
+  HERO_IMAGE_LAYOUTS,
   ManuscriptNode,
   MarkRule,
   NodeRule,
@@ -721,6 +722,31 @@ export class JATSDOMParser {
 
         return {
           id: element.getAttribute('id'),
+          contentType: element.getAttribute('content-type') || 'quote',
+        }
+      },
+    },
+    {
+      tag: 'disp-quote[content-type=half-left]',
+      node: 'blockquote_element',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+          contentType: 'half-left',
+        }
+      },
+    },
+    {
+      tag: 'disp-quote[content-type=half-right]',
+      node: 'blockquote_element',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+          contentType: 'half-right',
         }
       },
     },
@@ -799,11 +825,14 @@ export class JATSDOMParser {
         }
       },
     },
-    {
-      tag: 'graphic[content-type=leading]',
-      node: 'hero_image',
-      getContent: this.getFigContent,
-    },
+    ...HERO_IMAGE_LAYOUTS.map(
+      (contentType): NodeRule => ({
+        tag: `graphic[content-type=${contentType}]`,
+        node: 'hero_image',
+        getAttrs: () => ({ contentType }),
+        getContent: this.getFigContent,
+      })
+    ),
     {
       tag: 'graphic',
       node: 'figure',
@@ -1021,6 +1050,7 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
+          contentType: element.getAttribute('content-type') ?? '',
         }
       },
     },
@@ -1116,6 +1146,7 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
+          contentType: element.getAttribute('content-type') ?? '',
         }
       },
     },

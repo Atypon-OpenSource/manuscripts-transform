@@ -18,9 +18,23 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
+export const HERO_IMAGE_LAYOUTS = [
+  'leading',
+  'leading-small-float',
+  'leading-large-float',
+  'leading-wallpaper',
+  'leading-half-left',
+] as const
+
+export type HeroImageLayout = (typeof HERO_IMAGE_LAYOUTS)[number]
+
+export const isHeroImageLayout = (value: string): value is HeroImageLayout =>
+  (HERO_IMAGE_LAYOUTS as readonly string[]).includes(value)
+
 export interface HeroImageNode extends ManuscriptNode {
   attrs: {
     id: string
+    contentType: HeroImageLayout
   }
 }
 
@@ -28,6 +42,7 @@ export const heroImage: NodeSpec = {
   content: 'figure? alt_text long_desc',
   attrs: {
     id: { default: '' },
+    contentType: { default: 'leading' },
     dataTracked: { default: null },
   },
   group: 'block element',
@@ -37,6 +52,7 @@ export const heroImage: NodeSpec = {
       {
         class: 'hero_image',
         id: node.attrs.id,
+        'data-content-type': node.attrs.contentType,
       },
     ]
   },

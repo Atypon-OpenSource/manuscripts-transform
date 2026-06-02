@@ -20,6 +20,7 @@ import { ManuscriptNode } from '../types'
 
 export interface TableAttrs {
   id: string
+  contentType: string
 }
 
 export interface TableElementNode extends ManuscriptNode {
@@ -31,6 +32,7 @@ export const tableElement: NodeSpec = {
     'caption_title (table | placeholder) table_colgroup? table_element_footer? alt_text long_desc (listing | placeholder)',
   attrs: {
     id: { default: '' },
+    contentType: { default: '' },
     dataTracked: { default: null },
   },
   selectable: false,
@@ -50,14 +52,16 @@ export const tableElement: NodeSpec = {
   toDOM: (node) => {
     const tableElementNode = node as TableElementNode
 
-    return [
-      'figure',
-      {
-        class: 'table', // TODO: suppress-header, suppress-footer?
-        id: tableElementNode.attrs.id,
-      },
-      0,
-    ]
+    const attrs: { [key: string]: string } = {
+      class: 'table',
+      id: tableElementNode.attrs.id,
+    }
+
+    if (tableElementNode.attrs.contentType) {
+      attrs['data-content-type'] = tableElementNode.attrs.contentType
+    }
+
+    return ['figure', attrs, 0]
   },
 }
 

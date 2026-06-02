@@ -3249,6 +3249,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "contentType": "",
                 "dataTracked": null,
                 "id": "MPTableElement:test",
               },
@@ -3846,6 +3847,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "contentType": "quote",
                 "dataTracked": null,
                 "id": "MPBlockquoteElement:test",
                 "placeholder": "",
@@ -5473,6 +5475,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
                   },
@@ -10980,6 +10983,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
                   },
@@ -14543,6 +14547,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
                   },
@@ -23435,6 +23440,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "contentType": "",
                 "dataTracked": null,
                 "id": "MPTableElement:test",
               },
@@ -27680,6 +27686,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
                   },
@@ -31711,6 +31718,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "contentType": "",
                 "dataTracked": null,
                 "id": "MPBoxElement:test",
               },
@@ -33969,6 +33977,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPBoxElement:test",
                       },
@@ -34001,6 +34010,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPBoxElement:test",
                       },
@@ -34187,6 +34197,7 @@ Object {
                     },
                     Object {
                       "attrs": Object {
+                        "contentType": "",
                         "dataTracked": null,
                         "id": "MPBoxElement:test",
                       },
@@ -34880,6 +34891,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "contentType": "",
                 "dataTracked": null,
                 "id": "MPTableElement:test",
               },
@@ -39137,6 +39149,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
                   },
@@ -44222,6 +44235,7 @@ Object {
     },
     Object {
       "attrs": Object {
+        "contentType": "leading",
         "dataTracked": null,
         "id": "MPHeroImage:test",
       },
@@ -46692,6 +46706,7 @@ Object {
                 },
                 Object {
                   "attrs": Object {
+                    "contentType": "",
                     "dataTracked": null,
                     "id": "MPTableElement:test",
                   },
@@ -55054,6 +55069,7 @@ Object {
             },
             Object {
               "attrs": Object {
+                "contentType": "",
                 "dataTracked": null,
                 "id": "MPTableElement:test",
               },

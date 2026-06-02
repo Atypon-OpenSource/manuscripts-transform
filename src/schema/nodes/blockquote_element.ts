@@ -21,6 +21,7 @@ import { ManuscriptNode } from '../types'
 interface Attrs {
   id: string
   placeholder: string
+  contentType: string
 }
 
 export interface BlockquoteElementNode extends ManuscriptNode {
@@ -32,6 +33,7 @@ export const blockquoteElement: NodeSpec = {
   attrs: {
     id: { default: '' },
     placeholder: { default: '' },
+    contentType: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',
@@ -67,6 +69,10 @@ export const blockquoteElement: NodeSpec = {
 
     if (blockquoteElementNode.attrs.placeholder) {
       attrs['data-placeholder-text'] = blockquoteElementNode.attrs.placeholder
+    }
+
+    if (blockquoteElementNode.attrs.contentType) {
+      attrs['data-content-type'] = blockquoteElementNode.attrs.contentType
     }
 
     return ['blockquote', attrs, 0]

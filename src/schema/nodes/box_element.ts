@@ -20,6 +20,7 @@ import { ManuscriptNode } from '../types'
 
 export interface BoxElementAttrs {
   id: string
+  contentType: string
 }
 
 export interface BoxElementNode extends ManuscriptNode {
@@ -30,6 +31,7 @@ export const box_element: NodeSpec = {
   content: 'caption_title? caption? section?',
   attrs: {
     id: { default: '' },
+    contentType: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',
@@ -54,6 +56,10 @@ export const box_element: NodeSpec = {
 
     if (boxElementNode.attrs.id) {
       attrs.id = boxElementNode.attrs.id
+    }
+
+    if (boxElementNode.attrs.contentType) {
+      attrs['data-content-type'] = boxElementNode.attrs.contentType
     }
 
     return [

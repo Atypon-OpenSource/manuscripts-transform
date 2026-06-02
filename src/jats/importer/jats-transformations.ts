@@ -16,7 +16,11 @@
 
 import { defaultTitle } from '../../lib/deafults'
 import { XML_NAMESPACE } from '../../lib/xml'
-import { SectionCategory, SectionGroup } from '../../schema'
+import {
+  HERO_IMAGE_LAYOUTS,
+  SectionCategory,
+  SectionGroup,
+} from '../../schema'
 import { htmlFromJatsNode } from './jats-parser-utils'
 
 export type CreateElement = (tagName: string) => HTMLElement
@@ -171,7 +175,10 @@ export const moveAbstracts = (
 }
 
 export const moveHeroImage = (doc: Document) => {
-  const heroImage = doc.querySelector('graphic[content-type="leading"]')
+  const selectors = HERO_IMAGE_LAYOUTS.map(
+    (l) => `graphic[content-type="${l}"]`
+  ).join(',')
+  const heroImage = doc.querySelector(selectors)
   if (!heroImage) {
     return
   }
