@@ -816,7 +816,7 @@ export class JATSDOMParser {
       getAttrs: (node) => {
         const element = node as HTMLElement
         return {
-          type: element.getAttribute('content-type') || 'leading',
+          type: element.getAttribute('content-type'),
         }
       },
       getContent: this.getFigContent,
