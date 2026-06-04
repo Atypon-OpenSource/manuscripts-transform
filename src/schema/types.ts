@@ -189,8 +189,7 @@ export type ManuscriptTemplate = {
 export interface UserProfile {
   _id: string
   userID: string
-  given?: string
-  family?: string
+  connectID: string
 }
 
 export interface Project {
