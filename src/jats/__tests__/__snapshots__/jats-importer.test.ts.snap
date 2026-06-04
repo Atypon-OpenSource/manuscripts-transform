@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`JATS importer affiliations should correctly parse affiliation nodes 1`] = `
+exports[`JATS importer > affiliations > should correctly parse affiliation nodes 1`] = `
 Array [
   Object {
     "attrs": Object {
@@ -32,7 +32,7 @@ Array [
 ]
 `;
 
-exports[`JATS importer attachments should correctly parse multiple self-uri element 1`] = `
+exports[`JATS importer > attachments > should correctly parse multiple self-uri element 1`] = `
 Array [
   Object {
     "attrs": Object {
@@ -53,7 +53,7 @@ Array [
 ]
 `;
 
-exports[`JATS importer attachments should correctly parse self-uri element 1`] = `
+exports[`JATS importer > attachments > should correctly parse self-uri element 1`] = `
 Object {
   "attrs": Object {
     "href": "http://www.harmreductionjournal.com/content/1/1/5",
@@ -64,7 +64,7 @@ Object {
 }
 `;
 
-exports[`JATS importer author-notes should have author notes node with content if author notes element exists 1`] = `
+exports[`JATS importer > author-notes > should have author notes node with content if author notes element exists 1`] = `
 Object {
   "attrs": Object {
     "dataTracked": null,
@@ -148,7 +148,7 @@ Object {
 }
 `;
 
-exports[`JATS importer awards should correctly parse award nodes 1`] = `
+exports[`JATS importer > awards > should correctly parse award nodes 1`] = `
 Object {
   "attrs": Object {
     "id": "MPAwards:test",
@@ -179,7 +179,7 @@ Object {
 }
 `;
 
-exports[`JATS importer backmatter should parse references correctly 1`] = `
+exports[`JATS importer > backmatter > should parse references correctly 1`] = `
 Object {
   "attrs": Object {
     "DOI": undefined,
@@ -232,7 +232,7 @@ Object {
 }
 `;
 
-exports[`JATS importer comments should parse abstract comment 1`] = `
+exports[`JATS importer > comments > should parse abstract comment 1`] = `
 Array [
   Object {
     "text": "A paragraph with",
@@ -252,7 +252,7 @@ Array [
 ]
 `;
 
-exports[`JATS importer comments should parse back comment 1`] = `
+exports[`JATS importer > comments > should parse back comment 1`] = `
 Array [
   Object {
     "text": "A paragraph with a comment",
@@ -268,7 +268,7 @@ Array [
 ]
 `;
 
-exports[`JATS importer comments should parse body comment 1`] = `
+exports[`JATS importer > comments > should parse body comment 1`] = `
 Array [
   Object {
     "text": "A ",
@@ -288,7 +288,7 @@ Array [
 ]
 `;
 
-exports[`JATS importer contributors node should have contributors node with content if contributors element exists 1`] = `
+exports[`JATS importer > contributors node > should have contributors node with content if contributors element exists 1`] = `
 Array [
   Object {
     "attrs": Object {
@@ -370,7 +370,7 @@ Array [
 ]
 `;
 
-exports[`JATS importer keywords should have keywords node with content if keywords element exists 1`] = `
+exports[`JATS importer > keywords > should have keywords node with content if keywords element exists 1`] = `
 Array [
   Object {
     "attrs": Object {
@@ -440,7 +440,7 @@ Array [
 ]
 `;
 
-exports[`JATS importer parses JATS AuthorQueries example to Manuscripts document 1`] = `
+exports[`JATS importer > parses JATS AuthorQueries example to Manuscripts document 1`] = `
 Object {
   "attrs": Object {
     "acceptanceDate": 1596412800,
@@ -2671,7 +2671,7 @@ Object {
 }
 `;
 
-exports[`JATS importer parses JATS article to Manuscripts document 1`] = `
+exports[`JATS importer > parses JATS article to Manuscripts document 1`] = `
 Object {
   "attrs": Object {
     "acceptanceDate": undefined,
@@ -4233,7 +4233,7 @@ Object {
 }
 `;
 
-exports[`JATS importer parses JATS article with tables and table footnotes 1`] = `
+exports[`JATS importer > parses JATS article with tables and table footnotes 1`] = `
 Object {
   "attrs": Object {
     "acceptanceDate": 1596326400,
@@ -22051,7 +22051,7 @@ Object {
 }
 `;
 
-exports[`JATS importer parses JATS article without references and doesn't create empty references section 1`] = `
+exports[`JATS importer > parses JATS article without references and doesn't create empty references section 1`] = `
 Object {
   "attrs": Object {
     "acceptanceDate": 1587945600,
@@ -30733,7 +30733,7 @@ Object {
 }
 `;
 
-exports[`JATS importer parses JATS example full 1`] = `
+exports[`JATS importer > parses JATS example full 1`] = `
 Object {
   "attrs": Object {
     "acceptanceDate": 1242086400,
@@ -32563,7 +32563,7 @@ Object {
 }
 `;
 
-exports[`JATS importer parses JATS to Manuscripts document 1`] = `
+exports[`JATS importer > parses JATS to Manuscripts document 1`] = `
 Object {
   "attrs": Object {
     "acceptanceDate": 1587945600,
@@ -44455,7 +44455,7 @@ Object {
 }
 `;
 
-exports[`JATS importer parses full JATS example to Manuscripts document 1`] = `
+exports[`JATS importer > parses full JATS example to Manuscripts document 1`] = `
 Object {
   "attrs": Object {
     "acceptanceDate": 897091200,
@@ -59527,7 +59527,7 @@ Object {
 }
 `;
 
-exports[`JATS importer supplements should have supplements node with content if supplementary-material elements exist 1`] = `
+exports[`JATS importer > supplements > should have supplements node with content if supplementary-material elements exist 1`] = `
 Object {
   "attrs": Object {
     "dataTracked": null,
@@ -59570,7 +59570,7 @@ Object {
 }
 `;
 
-exports[`JATS importer title node should have title node with content if title element exists 1`] = `
+exports[`JATS importer > title node > should have title node with content if title element exists 1`] = `
 Object {
   "attrs": Object {
     "dataTracked": null,
@@ -59587,7 +59587,7 @@ Object {
 }
 `;
 
-exports[`JATS importer title node should have title node with default content if title element does not exist 1`] = `
+exports[`JATS importer > title node > should have title node with default content if title element does not exist 1`] = `
 Object {
   "attrs": Object {
     "dataTracked": null,
