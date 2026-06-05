@@ -25,6 +25,13 @@ export interface SupplementAttrs {
   mimeSubType: string
 }
 
+/** External URL supplement (not an uploaded attachment). */
+export const isSupplementWeblink = (href: string): boolean =>
+  Boolean(href) && !href.startsWith('attachment:')
+
+export const isSupplementFile = (href: string): boolean =>
+  Boolean(href) && href.startsWith('attachment:')
+
 export interface SupplementNode extends ManuscriptNode {
   attrs: SupplementAttrs
 }
