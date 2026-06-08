@@ -18,14 +18,14 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface PullquoteAttrs {
+interface PullquoteElementAttrs {
   id: string
   placeholder: string
   type: string
 }
 
 export interface PullquoteElementNode extends ManuscriptNode {
-  attrs: PullquoteAttrs
+  attrs: PullquoteElementAttrs
 }
 
 export const pullquoteElement: NodeSpec = {
@@ -44,7 +44,7 @@ export const pullquoteElement: NodeSpec = {
       getAttrs: (aside) => {
         const dom = aside as HTMLElement
 
-        const attrs: Partial<PullquoteAttrs> = {
+        const attrs: Partial<PullquoteElementAttrs> = {
           id: dom.getAttribute('id') || undefined,
         }
 
