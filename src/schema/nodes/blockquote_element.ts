@@ -18,14 +18,13 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface BlockquoteAttrs {
   id: string
   placeholder: string
-  type: string
 }
 
 export interface BlockquoteElementNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: BlockquoteAttrs
 }
 
 export const blockquoteElement: NodeSpec = {
@@ -33,7 +32,6 @@ export const blockquoteElement: NodeSpec = {
   attrs: {
     id: { default: '' },
     placeholder: { default: '' },
-    type: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',
@@ -44,7 +42,7 @@ export const blockquoteElement: NodeSpec = {
       getAttrs: (blockquote) => {
         const dom = blockquote as HTMLQuoteElement
 
-        const attrs: Partial<Attrs> = {
+        const attrs: Partial<BlockquoteAttrs> = {
           id: dom.getAttribute('id') || undefined,
         }
 
@@ -69,10 +67,6 @@ export const blockquoteElement: NodeSpec = {
 
     if (blockquoteElementNode.attrs.placeholder) {
       attrs['data-placeholder-text'] = blockquoteElementNode.attrs.placeholder
-    }
-
-    if (blockquoteElementNode.attrs.type) {
-      attrs['data-content-type'] = blockquoteElementNode.attrs.type
     }
 
     return ['blockquote', attrs, 0]

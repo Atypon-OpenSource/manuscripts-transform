@@ -791,11 +791,7 @@ export class JATSExporter {
       supplement: () => '',
       supplements: () => '',
       bibliography_section: () => '',
-      blockquote_element: (node) => [
-        'disp-quote',
-        { 'content-type': node.attrs.type || 'quote' },
-        0,
-      ],
+      blockquote_element: () => ['disp-quote', { 'content-type': 'quote' }, 0],
       list: (node) => [
         'list',
         {
@@ -991,11 +987,11 @@ export class JATSExporter {
         return this.createElement('boxed-text')
       },
       pullquote_element: (node) => {
-        let type = 'pullquote'
-        if (node.firstChild?.type === schema.nodes.quote_image) {
-          type = 'quote-with-image'
+        const attrs: { [key: string]: string } = {}
+        if (node.attrs.type) {
+          attrs['content-type'] = node.attrs.type
         }
-        return ['disp-quote', { 'content-type': type }, 0]
+        return ['disp-quote', attrs, 0]
       },
       quote_image: (node) => {
         const img = node as QuoteImageNode

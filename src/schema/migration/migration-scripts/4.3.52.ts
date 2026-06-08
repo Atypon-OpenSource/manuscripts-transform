@@ -30,11 +30,15 @@ class Migration4352 implements MigrationScript {
           }
         }
         return node
-      case 'blockquote_element':
+      case 'pullquote_element':
         if (!node.attrs || node.attrs.type === undefined) {
+          const hasImage = node.content?.[0]?.type === 'quote_image'
           return {
             ...node,
-            attrs: { ...(node.attrs ?? {}), type: 'quote' },
+            attrs: {
+              ...(node.attrs ?? {}),
+              type: hasImage ? 'quote-with-image' : 'pullquote',
+            },
           }
         }
         return node

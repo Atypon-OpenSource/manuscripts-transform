@@ -3850,7 +3850,6 @@ Object {
                 "dataTracked": null,
                 "id": "MPBlockquoteElement:test",
                 "placeholder": "",
-                "type": "quote",
               },
               "content": Array [
                 Object {
@@ -33557,6 +33556,7 @@ Object {
             "dataTracked": null,
             "id": "MPPullquoteElement:test",
             "placeholder": "",
+            "type": "quote-with-image",
           },
           "content": Array [
             Object {
@@ -33599,7 +33599,6 @@ Object {
             "dataTracked": null,
             "id": "MPBlockquoteElement:test",
             "placeholder": "",
-            "type": "quote",
           },
           "content": Array [
             Object {
@@ -33626,7 +33625,7 @@ Object {
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPBlockquoteElement:test",
+            "id": "MPPullquoteElement:test",
             "placeholder": "",
             "type": "half-left",
           },
@@ -33650,12 +33649,12 @@ Object {
               "type": "attribution",
             },
           ],
-          "type": "blockquote_element",
+          "type": "pullquote_element",
         },
         Object {
           "attrs": Object {
             "dataTracked": null,
-            "id": "MPBlockquoteElement:test",
+            "id": "MPPullquoteElement:test",
             "placeholder": "",
             "type": "half-right",
           },
@@ -33679,7 +33678,7 @@ Object {
               "type": "attribution",
             },
           ],
-          "type": "blockquote_element",
+          "type": "pullquote_element",
         },
         Object {
           "attrs": Object {

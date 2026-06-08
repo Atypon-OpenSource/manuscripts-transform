@@ -18,13 +18,14 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+interface PullquoteAttrs {
   id: string
   placeholder: string
+  type: string
 }
 
 export interface PullquoteElementNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: PullquoteAttrs
 }
 
 export const pullquoteElement: NodeSpec = {
@@ -32,6 +33,7 @@ export const pullquoteElement: NodeSpec = {
   attrs: {
     id: { default: '' },
     placeholder: { default: '' },
+    type: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',
@@ -42,7 +44,7 @@ export const pullquoteElement: NodeSpec = {
       getAttrs: (aside) => {
         const dom = aside as HTMLElement
 
-        const attrs: Partial<Attrs> = {
+        const attrs: Partial<PullquoteAttrs> = {
           id: dom.getAttribute('id') || undefined,
         }
 
@@ -69,6 +71,10 @@ export const pullquoteElement: NodeSpec = {
 
     if (pullquoteElementNode.attrs.placeholder) {
       attrs['data-placeholder-text'] = pullquoteElementNode.attrs.placeholder
+    }
+
+    if (pullquoteElementNode.attrs.type) {
+      attrs['data-content-type'] = pullquoteElementNode.attrs.type
     }
 
     return ['aside', attrs, 0]

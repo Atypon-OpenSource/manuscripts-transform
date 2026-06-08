@@ -720,18 +720,6 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
-          type: 'quote',
-        }
-      },
-    },
-    {
-      tag: 'disp-quote[content-type^=half]',
-      node: 'blockquote_element',
-      getAttrs: (node) => {
-        const element = node as HTMLElement
-        return {
-          id: element.getAttribute('id'),
-          type: element.getAttribute('content-type'),
         }
       },
     },
@@ -743,6 +731,7 @@ export class JATSDOMParser {
 
         return {
           id: element.getAttribute('id'),
+          type: element.getAttribute('content-type'),
         }
       },
     },
