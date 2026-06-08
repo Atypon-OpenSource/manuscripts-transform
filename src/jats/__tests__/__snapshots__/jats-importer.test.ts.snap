@@ -33607,7 +33607,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "A standard blockquote.",
+                  "text": "A standard pullquote.",
                   "type": "text",
                 },
               ],
@@ -33636,7 +33636,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "A half-left blockquote.",
+                  "text": "A half-left pullquote.",
                   "type": "text",
                 },
               ],
@@ -33665,7 +33665,7 @@ Object {
               },
               "content": Array [
                 Object {
-                  "text": "A half-right blockquote.",
+                  "text": "A half-right pullquote.",
                   "type": "text",
                 },
               ],
@@ -33679,6 +33679,63 @@ Object {
             },
           ],
           "type": "pullquote_element",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPPullquoteElement:test",
+            "placeholder": "",
+            "type": null,
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "pullquote without content-type",
+                  "type": "text",
+                },
+              ],
+              "type": "text_block",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "type": "attribution",
+            },
+          ],
+          "type": "pullquote_element",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPBlockquoteElement:test",
+            "placeholder": "",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "blockquote",
+                  "type": "text",
+                },
+              ],
+              "type": "text_block",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "type": "attribution",
+            },
+          ],
+          "type": "blockquote_element",
         },
         Object {
           "attrs": Object {

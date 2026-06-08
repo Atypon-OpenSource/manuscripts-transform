@@ -252,13 +252,19 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
     <attrib>Charles Dickens</attrib>
 </disp-quote>
     <disp-quote content-type="quote">
-      <p>A standard blockquote.</p>
+      <p>A standard pullquote.</p>
     </disp-quote>
     <disp-quote content-type="half-left">
-      <p>A half-left blockquote.</p>
+      <p>A half-left pullquote.</p>
     </disp-quote>
     <disp-quote content-type="half-right">
-      <p>A half-right blockquote.</p>
+      <p>A half-right pullquote.</p>
+    </disp-quote>
+    <disp-quote>
+      <p>pullquote without content-type</p>
+    </disp-quote>
+    <disp-quote content-type="quote">
+      <p>blockquote</p>
     </disp-quote>
     <sec id="BRB3-2019-12-0787-sec1" sec-type="intro">
       <label>1</label>
