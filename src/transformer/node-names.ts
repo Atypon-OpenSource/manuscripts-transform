@@ -33,6 +33,7 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.image_element, 'Image'],
   [schema.nodes.hero_image, 'Hero Image'],
   [schema.nodes.headshot_grid, 'Headshot Panel'],
+  [schema.nodes.headshot_element, 'Headshot'],
   [schema.nodes.table_element, 'Table'],
   [schema.nodes.table_cell, 'Table Cell'],
   [schema.nodes.table_col, 'Table Column'],
