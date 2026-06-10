@@ -251,6 +251,21 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
     <p>It is a far, far better thing that I do now than I have ever done.</p>
     <attrib>Charles Dickens</attrib>
 </disp-quote>
+    <disp-quote content-type="quote">
+      <p>A standard pullquote.</p>
+    </disp-quote>
+    <disp-quote content-type="half-left">
+      <p>A half-left pullquote.</p>
+    </disp-quote>
+    <disp-quote content-type="half-right">
+      <p>A half-right pullquote.</p>
+    </disp-quote>
+    <disp-quote>
+      <p>pullquote without content-type</p>
+    </disp-quote>
+    <disp-quote content-type="quote">
+      <p>blockquote</p>
+    </disp-quote>
     <sec id="BRB3-2019-12-0787-sec1" sec-type="intro">
       <label>1</label>
       <title>INTRODUCTION</title>
@@ -328,7 +343,7 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
         <sec>
           <title>BoxedText test</title>
           <boxed-text></boxed-text>
-          <boxed-text>
+          <boxed-text content-type="half-left">
             <label>BoxedTextLabel</label>
             <caption>
               <title>BoxedTextCaptionTitle</title>
@@ -531,7 +546,7 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
           <long-desc>example of long desc for graphics inside figures</long-desc>
         </graphic>
       </fig>
-      <table-wrap id="BRB3-2019-12-0787-tbl-0001" position="float">
+      <table-wrap id="BRB3-2019-12-0787-tbl-0001" position="float" content-type="half-right">
         <label>TABLE 1</label>
         <caption>
           <title>Baseline characteristics of 73 patients</title>
