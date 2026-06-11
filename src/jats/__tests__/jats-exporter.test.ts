@@ -22,7 +22,11 @@ import { parseJATSArticle } from '../importer/parse-jats-article'
 import { DEFAULT_CSL_OPTIONS } from './citations'
 import { sectionCategories } from './data/section-categories'
 import { readAndParseFixture } from './files'
-import { BibliographyItemNode, isBibliographyItemNode } from '../../schema'
+import {
+  BibliographyItemNode,
+  isBibliographyItemNode,
+  isCitationNode,
+} from '../../schema'
 
 const parseXMLWithDTD = (data: string) =>
   parseXml(data, {
@@ -195,6 +199,39 @@ describe('JATS exporter', () => {
     expect(hrefAttr?.value()).toBe(
       'attachment:7d9d686b-5488-44a5-a1c5-46351e7f9312'
     )
+  })
+
+  test('export uncited references when includeUncitedReferences is set', async () => {
+    const input = await readAndParseFixture('jats-document.xml')
+    const node = parseJATSArticle(input, sectionCategories)
+
+    const bibliographyItemIDs = new Set<string>()
+    const citedIDs = new Set<string>()
+    node.descendants((n) => {
+      if (isBibliographyItemNode(n)) {
+        bibliographyItemIDs.add(n.attrs.id)
+      }
+      if (isCitationNode(n)) {
+        n.attrs.rids.forEach((rid: string) => citedIDs.add(rid))
+      }
+    })
+
+    const withoutUncited = await new JATSExporter().serializeToJATS(node, {
+      csl: DEFAULT_CSL_OPTIONS,
+    })
+    const withUncited = await new JATSExporter().serializeToJATS(node, {
+      csl: DEFAULT_CSL_OPTIONS,
+      includeUncitedReferences: true,
+    })
+
+    const countRefs = (xml: string) =>
+      parseXMLWithDTD(xml).find('//ref-list/ref').length
+
+    expect(countRefs(withoutUncited)).toBe(citedIDs.size)
+    expect(countRefs(withUncited)).toBe(bibliographyItemIDs.size)
+
+    const { errors } = parseXMLWithDTD(withUncited)
+    expect(errors).toHaveLength(0)
   })
 
   test('export footnotes', async () => {
