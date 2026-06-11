@@ -147,6 +147,7 @@ export type CSLOptions = {
 export type ExportOptions = {
   version?: Version
   csl: CSLOptions
+  includeUncitedReferences?: boolean
 }
 
 export class JATSExporter {
@@ -191,7 +192,7 @@ export class JATSExporter {
   ): Promise<string> => {
     this.manuscriptNode = manuscriptNode
     this.populateNodesMap()
-    this.initCiteprocEngine(options.csl)
+    this.initCiteprocEngine(options)
     this.createSerializer()
     const versionIds = selectVersionIds(options.version ?? '1.2')
 
@@ -283,7 +284,8 @@ export class JATSExporter {
       element.appendChild(caption)
     }
   }
-  private initCiteprocEngine = (csl: CSLOptions) => {
+  private initCiteprocEngine = (options: ExportOptions) => {
+    const { includeUncitedReferences, csl } = options
     const bibitems: Map<string, CSL.Data> = new Map()
     const citations: Map<string, Citeproc.Citation> = new Map()
 
@@ -313,7 +315,13 @@ export class JATSExporter {
     )
     engine.setOutputFormat('jats')
 
-    const output = engine.rebuildProcessorState([...citations.values()])
+    const uncitedItemIDs = includeUncitedReferences ? [...bibitems.keys()] : []
+
+    const output = engine.rebuildProcessorState(
+      [...citations.values()],
+      undefined,
+      uncitedItemIDs
+    )
 
     this.engine = engine
     this.renderedCitations = new Map(output.map((i) => [i[0], i[2]]))
