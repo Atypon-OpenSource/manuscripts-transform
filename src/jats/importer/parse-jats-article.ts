@@ -19,7 +19,6 @@ import { markComments } from './jats-comments'
 import { JATSDOMParser } from './jats-dom-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
 import {
-  addMissingCaptions,
   createAbstracts,
   createAccessibilityItems,
   createAttachments,
@@ -48,7 +47,6 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   if (!front) {
     return
   }
-  addMissingCaptions(doc, createElement)
   createBoxedElementSection(doc, createElement)
   createTitles(front, createElement)
   moveContributors(front, createElement)
