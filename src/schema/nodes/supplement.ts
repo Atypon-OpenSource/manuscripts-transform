@@ -75,6 +75,3 @@ export const supplement: NodeSpec = {
     ]
   },
 }
-
-export const isSupplementWeblink = (href: string): boolean =>
-  /^https?:\/\//.test(href)
