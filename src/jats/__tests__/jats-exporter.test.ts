@@ -201,7 +201,7 @@ describe('JATS exporter', () => {
     )
   })
 
-  test('export uncited references when includeUncitedReferences is set', async () => {
+  test('exports uncited references alongside cited ones', async () => {
     const input = await readAndParseFixture('jats-document.xml')
     const node = parseJATSArticle(input, sectionCategories)
 
@@ -215,22 +215,12 @@ describe('JATS exporter', () => {
         n.attrs.rids.forEach((rid: string) => citedIDs.add(rid))
       }
     })
-
-    const withoutUncited = await new JATSExporter().serializeToJATS(node, {
+    const xml = await new JATSExporter().serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
     })
-    const withUncited = await new JATSExporter().serializeToJATS(node, {
-      csl: DEFAULT_CSL_OPTIONS,
-      includeUncitedReferences: true,
-    })
-
-    const countRefs = (xml: string) =>
-      parseXMLWithDTD(xml).find('//ref-list/ref').length
-
-    expect(countRefs(withoutUncited)).toBe(citedIDs.size)
-    expect(countRefs(withUncited)).toBe(bibliographyItemIDs.size)
-
-    const { errors } = parseXMLWithDTD(withUncited)
+    const refCount = parseXMLWithDTD(xml).find('//ref-list/ref').length
+    expect(refCount).toBe(bibliographyItemIDs.size)
+    const { errors } = parseXMLWithDTD(xml)
     expect(errors).toHaveLength(0)
   })
 

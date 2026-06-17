@@ -147,7 +147,6 @@ export type CSLOptions = {
 export type ExportOptions = {
   version?: Version
   csl: CSLOptions
-  includeUncitedReferences?: boolean
 }
 
 export class JATSExporter {
@@ -285,7 +284,7 @@ export class JATSExporter {
     }
   }
   private initCiteprocEngine = (options: ExportOptions) => {
-    const { includeUncitedReferences, csl } = options
+    const { csl } = options
     const bibitems: Map<string, CSL.Data> = new Map()
     const citations: Map<string, Citeproc.Citation> = new Map()
 
@@ -315,7 +314,8 @@ export class JATSExporter {
     )
     engine.setOutputFormat('jats')
 
-    const uncitedItemIDs = includeUncitedReferences ? [...bibitems.keys()] : []
+
+    const uncitedItemIDs = [...bibitems.keys()]
 
     const output = engine.rebuildProcessorState(
       [...citations.values()],
