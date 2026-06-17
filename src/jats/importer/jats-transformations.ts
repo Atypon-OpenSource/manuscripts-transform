@@ -51,10 +51,14 @@ export const addMissingCaptions = (
         ? element.appendChild(caption)
         : element.prepend(caption)
     }
-    if (!caption.querySelector('title')) {
+    if (!caption.querySelector('title') && element.nodeName !== 'fig') {
       caption.prepend(createElement('title'))
     }
-    if (!caption.querySelector('p') && element.nodeName !== 'boxed-text') {
+    if (
+      !caption.querySelector('p') &&
+      element.nodeName !== 'boxed-text' &&
+      element.nodeName !== 'table-wrap'
+    ) {
       caption.appendChild(createElement('p'))
     }
   }
@@ -149,13 +153,18 @@ export const moveAffiliations = (
 export const moveAbstracts = (
   front: Element,
   group: Element,
-  createElement: CreateElement
+  createElement: CreateElement,
+  sectionCategories?: SectionCategory[]
 ) => {
   const abstracts = front.querySelectorAll(
     'article-meta > abstract, article-meta > trans-abstract'
   )
   abstracts.forEach((abstract) => {
-    const sec = createAbstractSection(abstract, createElement)
+    const sec = createAbstractSection(
+      abstract,
+      createElement,
+      sectionCategories
+    )
     removeNodeFromParent(abstract)
     group.appendChild(sec)
   })
@@ -193,10 +202,11 @@ export const createBody = (
 export const createAbstracts = (
   front: Element,
   body: Element,
-  createElement: CreateElement
+  createElement: CreateElement,
+  sectionCategories?: SectionCategory[]
 ) => {
   const group = createSectionGroup('abstracts', createElement)
-  moveAbstracts(front, group, createElement)
+  moveAbstracts(front, group, createElement, sectionCategories)
   body.insertBefore(group, body.lastElementChild)
 }
 
@@ -292,7 +302,8 @@ export const moveCaptionsToEnd = (body: Element) => {
 
 const createAbstractSection = (
   abstract: Element,
-  createElement: CreateElement
+  createElement: CreateElement,
+  sectionCategories?: SectionCategory[]
 ) => {
   const abstractType = abstract.getAttribute('abstract-type')
   const sectionType = abstractType ? `abstract-${abstractType}` : 'abstract'
@@ -307,9 +318,16 @@ const createAbstractSection = (
   section.setAttribute('sec-type', sectionType)
   if (!abstract.querySelector(':scope > title')) {
     const title = createElement('title')
-    title.textContent = abstractType
-      ? `${capitalizeFirstLetter(abstractType.split('-').join(' '))} Abstract`
-      : 'Abstract'
+    const category = sectionCategories?.find(
+      (c) => c.id === sectionType || c.synonyms.includes(sectionType)
+    )
+    if (category?.titles[0]) {
+      title.textContent = category.titles[0]
+    } else {
+      title.textContent = abstractType
+        ? `${capitalizeFirstLetter(abstractType.split('-').join(' '))} Abstract`
+        : 'Abstract'
+    }
     section.appendChild(title)
   }
 

@@ -6,9 +6,9 @@ It provides a way to import/export [Manuscript JSON Schema](https://gitlab.com/m
 
 # Components
 
-**Decoder**: converts Manuscript JSON Schema to ProseMirror Model.
+**Decoder**: converts Manuscript JSON Schema to ProseMirror Model. 
 
-**Encoder**: converts ProseMirror Model to Manuscript JSON Schema.
+**Encoder**: converts ProseMirror Model to Manuscript JSON Schema. 
 
 **ManuscriptNode**: a Manuscript definition of a ProseMirror Node which hold a ProseMirror fragment containing zero or more child nodes, for example a section node or a figure node.
 
@@ -16,15 +16,15 @@ It provides a way to import/export [Manuscript JSON Schema](https://gitlab.com/m
 
 **ManuscriptMark**:  a Manuscript definition of a ProseMirror mark which is a piece of information that can be attached to a node, such as it being emphasized, in code font, or a link
 
-**JATSExporter**: converts Manuscript JSON Schema to JATS XML via ProseMirror Model.
+**JATSExporter**: converts Manuscript JSON Schema to JATS XML via ProseMirror Model. 
 
-**JATSImporter** converts JATS XML to Manuscript JSON Schema via ProseMirror Model.
+**JATSImporter** converts JATS XML to Manuscript JSON Schema via ProseMirror Model. 
 
 # Usage
 
-### Manuscript JSON Schema to ProseMirror Model
+### Manuscript JSON Schema to ProseMirror Model 
 
-```typescript 
+```typescript
 import { Decoder, ContainedModel } from '@manuscripts/manuscript-transform'
 
 

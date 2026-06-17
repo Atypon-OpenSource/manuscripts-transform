@@ -256,6 +256,33 @@ export class JATSExporter {
       element.appendChild(this.serializeNode(childNode))
     }
   }
+
+  private appendChildrenNodeOfType = (
+    element: HTMLElement,
+    node: ManuscriptNode,
+    type: ManuscriptNodeType
+  ) => {
+    const children = this.getChildrenOfType(type, node)
+    children.map((childNode) =>
+      element.appendChild(this.serializeNode(childNode))
+    )
+  }
+
+  protected appendCaption = (element: HTMLElement, node: ManuscriptNode) => {
+    const caption = this.createElement('caption')
+    this.appendChildNodeOfType(caption, node, schema.nodes.caption_title)
+    const captionNode = this.getChildrenOfType(schema.nodes.caption, node)[0]
+    if (captionNode && captionNode.content.size > 2) {
+      this.appendChildrenNodeOfType(
+        caption,
+        captionNode,
+        schema.nodes.text_block
+      )
+    }
+    if (caption.children.length > 0) {
+      element.appendChild(caption)
+    }
+  }
   private initCiteprocEngine = (csl: CSLOptions) => {
     const bibitems: Map<string, CSL.Data> = new Map()
     const citations: Map<string, Citeproc.Citation> = new Map()
@@ -420,11 +447,7 @@ export class JATSExporter {
         'mime-subtype',
         node.attrs.mimeSubType ?? ''
       )
-      this.appendChildNodeOfType(
-        supplementaryMaterial,
-        node,
-        schema.nodes.figcaption
-      )
+      this.appendCaption(supplementaryMaterial, node)
 
       articleMeta.append(supplementaryMaterial)
     })
@@ -714,7 +737,7 @@ export class JATSExporter {
         appendLabels(mediaElement, node)
         this.appendChildNodeOfType(mediaElement, node, schema.nodes.alt_text)
         this.appendChildNodeOfType(mediaElement, node, schema.nodes.long_desc)
-        this.appendChildNodeOfType(mediaElement, node, schema.nodes.figcaption)
+        this.appendCaption(mediaElement, node)
         return mediaElement
       },
       awards: () => ['funding-group', 0],
@@ -851,14 +874,9 @@ export class JATSExporter {
       equation_element: (node) => {
         const eqElement = this.createElement('disp-formula')
         eqElement.setAttribute('id', normalizeID(node.attrs.id))
+        appendLabels(eqElement, node)
         processChildNodes(eqElement, node, schema.nodes.equation)
         return eqElement
-      },
-      figcaption: (node) => {
-        if (!node.textContent) {
-          return ''
-        }
-        return ['caption', 0]
       },
       figure: (node) => createGraphic(node),
       figure_element: (node) =>
@@ -1141,12 +1159,8 @@ export class JATSExporter {
       const element = createElement(node, 'boxed-text')
       appendLabels(element, node)
       const child = node.firstChild
-      if (child?.type === schema.nodes.figcaption) {
-        this.appendChildNodeOfType(
-          element,
-          node,
-          node.type.schema.nodes.figcaption
-        )
+      if (child?.type === schema.nodes.caption_title) {
+        this.appendCaption(element, node)
       }
 
       processChildNodes(element, node, node.type.schema.nodes.section)
@@ -1179,6 +1193,7 @@ export class JATSExporter {
         const extLink = this.appendElement(graphicElement, 'ext-link')
         extLink.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.extLink)
       }
+      this.appendCaption(graphicElement, node)
       this.appendChildNodeOfType(graphicElement, node, schema.nodes.alt_text)
       this.appendChildNodeOfType(graphicElement, node, schema.nodes.long_desc)
       return graphicElement
@@ -1209,11 +1224,7 @@ export class JATSExporter {
         element.setAttribute('fig-type', figType)
       }
       appendLabels(element, node)
-      this.appendChildNodeOfType(
-        element,
-        node,
-        node.type.schema.nodes.figcaption
-      )
+      this.appendCaption(element, node)
       this.appendChildNodeOfType(element, node, schema.nodes.alt_text)
       this.appendChildNodeOfType(element, node, schema.nodes.long_desc)
       this.appendChildNodeOfType(
@@ -1256,7 +1267,7 @@ export class JATSExporter {
       const nodeName = 'table-wrap'
       const element = createElement(node, nodeName)
       appendLabels(element, node)
-      this.appendChildNodeOfType(element, node, schema.nodes.figcaption)
+      this.appendCaption(element, node)
       this.appendChildNodeOfType(element, node, schema.nodes.alt_text)
       this.appendChildNodeOfType(element, node, schema.nodes.long_desc)
       appendTable(element, node)
@@ -1356,13 +1367,30 @@ export class JATSExporter {
       }
 
       if (contributor.attrs.ORCID) {
-        this.appendElement($contrib, 'contrib-id', contributor.attrs.ORCID, {
+        const contribIdAttrs: Record<string, string> = {
           'contrib-id-type': 'orcid',
-        })
+        }
+        if (contributor.attrs.isAuthenticated) {
+          contribIdAttrs['authenticated'] = 'true'
+        }
+        this.appendElement(
+          $contrib,
+          'contrib-id',
+          contributor.attrs.ORCID,
+          contribIdAttrs
+        )
       }
 
       const $name = this.buildContributorName(contributor)
       $contrib.appendChild($name)
+
+      if (contributor.attrs.suffix) {
+        this.appendElement($name, 'suffix', contributor.attrs.suffix)
+      }
+
+      contributor.attrs.degrees?.forEach((degree) => {
+        this.appendElement($contrib, 'degrees', degree)
+      })
 
       if (contributor.attrs.email) {
         this.appendElement($contrib, 'email', contributor.attrs.email)
@@ -1399,7 +1427,7 @@ export class JATSExporter {
         }
         this.appendElement($contrib, 'role', credit.vocabTerm, {
           'vocab-identifier': 'http://credit.niso.org/',
-          'vocab': 'CRediT',
+          vocab: 'CRediT',
           'vocab-term': credit.vocabTerm,
           'vocab-term-identifier': url,
         })
@@ -1415,32 +1443,48 @@ export class JATSExporter {
       .filter((a) => affiliationIDs.includes(a.attrs.id))
       .sort(sortAffiliations)
       .forEach((affiliation) => {
-        const $content = [];
+        const $content = []
 
         if (affiliation.attrs.department) {
-          const $institution = this.createElement('institution', affiliation.attrs.department, {
-            'content-type': 'dept',
-          });
+          const $institution = this.createElement(
+            'institution',
+            affiliation.attrs.department,
+            {
+              'content-type': 'dept',
+            }
+          )
           $content.push($institution)
         }
 
         if (affiliation.attrs.institution) {
-          const $institution = this.createElement('institution', affiliation.attrs.institution)
+          const $institution = this.createElement(
+            'institution',
+            affiliation.attrs.institution
+          )
           $content.push($institution)
         }
 
         if (affiliation.attrs.addressLine1) {
-          const $addrLine = this.createElement('addr-line', affiliation.attrs.addressLine1)
+          const $addrLine = this.createElement(
+            'addr-line',
+            affiliation.attrs.addressLine1
+          )
           $content.push($addrLine)
         }
 
         if (affiliation.attrs.addressLine2) {
-          const $addrLine = this.createElement('addr-line', affiliation.attrs.addressLine2)
+          const $addrLine = this.createElement(
+            'addr-line',
+            affiliation.attrs.addressLine2
+          )
           $content.push($addrLine)
         }
 
         if (affiliation.attrs.addressLine3) {
-          const $addrLine = this.createElement('addr-line', affiliation.attrs.addressLine3)
+          const $addrLine = this.createElement(
+            'addr-line',
+            affiliation.attrs.addressLine3
+          )
           $content.push($addrLine)
         }
 
@@ -1455,12 +1499,18 @@ export class JATSExporter {
         }
 
         if (affiliation.attrs.country) {
-          const $country = this.createElement('country', affiliation.attrs.country)
+          const $country = this.createElement(
+            'country',
+            affiliation.attrs.country
+          )
           $content.push($country)
         }
 
         if (affiliation.attrs.postCode) {
-          const $postalCode = this.createElement('postal-code', affiliation.attrs.postCode)
+          const $postalCode = this.createElement(
+            'postal-code',
+            affiliation.attrs.postCode
+          )
           $content.push($postalCode)
         }
 
