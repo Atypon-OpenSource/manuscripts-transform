@@ -19,6 +19,7 @@ import {
   DOMOutputSpec,
   DOMParser as ProsemirrorDOMParser,
   DOMSerializer,
+  type Node as ProsemirrorNode,
   type NodeType,
 } from 'prosemirror-model'
 import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
@@ -66,7 +67,7 @@ interface Attrs {
   [key: string]: string
 }
 
-type NodeSpecs = { [key in Nodes]: (node: ManuscriptNode) => DOMOutputSpec }
+type NodeSpecs = { [key in Nodes]: (node: ManuscriptNode) => DOMOutputSpec | string | Element }
 
 type MarkSpecs = {
   [key in Marks]: (mark: ManuscriptMark, inline: boolean) => DOMOutputSpec
@@ -1075,7 +1076,7 @@ export class JATSExporter {
       tracked_delete: () => ['del'],
     }
 
-    this.serializer = new DOMSerializer(nodes, marks)
+    this.serializer = new DOMSerializer(nodes as Record<string, (node: ProsemirrorNode) => DOMOutputSpec>, marks)
     const appendChildIfPresent = (
       parent: Element,
       tagName: string,

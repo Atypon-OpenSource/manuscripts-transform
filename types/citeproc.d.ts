@@ -18,6 +18,8 @@
 // https://github.com/citation-style-language/schema
 // https://github.com/Zettlr/Zettlr/blob/dd2cbda72d9499edae6a1d95fb977794bde1ed4e/source/citeproc.d.ts
 
+/// <reference types="csl" />
+
 declare module 'citeproc' {
   interface Citation {
     citationID?: string
