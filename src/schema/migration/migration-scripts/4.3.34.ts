@@ -45,6 +45,29 @@ const CONFIG: Record<string, Config> = {
   },
 }
 
+const getCaptionNode = (nodes: JSONProsemirrorNode[], isRequired: boolean) => {
+  if (nodes.length === 0) {
+    return isRequired
+      ? {
+          type: 'caption',
+          content: [{ type: 'text_block', attrs: {} }],
+          attrs: {},
+        }
+      : undefined
+  }
+
+  return nodes.reduce<JSONProsemirrorNode>(
+    (caption, { content }) => ({
+      ...caption,
+      content: [
+        ...(caption.content || []),
+        { type: 'text_block', content, attrs: {} },
+      ],
+    }),
+    { type: 'caption', content: [], attrs: {} }
+  )
+}
+
 class Migration4334 implements MigrationScript {
   fromVersion = '4.3.33'
   toVersion = '4.3.34'
@@ -59,18 +82,12 @@ class Migration4334 implements MigrationScript {
     const foundTitle = (figCaption?.content || []).find(
       (n) => n.type === 'caption_title'
     )
-    const foundCaption = (figCaption?.content || []).filter(
+    const captionNodes = (figCaption?.content || []).filter(
       (node) => node.type === 'caption')
-      .reduce<JSONProsemirrorNode>(
-        (caption, { content }) => ({
-          ...caption,
-          content: [
-            ...(caption.content || []),
-            { type: 'text_block', content, attrs: {} },
-          ],
-        }),
-        { type: 'caption', content: [], attrs: {} }
-      )
+    const foundCaption = getCaptionNode(
+      captionNodes,
+      config.caption === 'required'
+    )
 
     const cleanContent = node.content.filter((n) => n.type !== 'figcaption')
 
