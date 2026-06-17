@@ -287,6 +287,7 @@ export class JATSExporter {
     const { csl } = options
     const bibitems: Map<string, CSL.Data> = new Map()
     const citations: Map<string, Citeproc.Citation> = new Map()
+    const citedItemIDs: Set<string> = new Set()
 
     this.manuscriptNode.descendants((n) => {
       if (isBibliographyItemNode(n)) {
@@ -294,6 +295,7 @@ export class JATSExporter {
       }
       if (isCitationNode(n)) {
         citations.set(n.attrs.id, buildCiteprocCitation(n.attrs))
+        n.attrs.rids.forEach((rid: string) => citedItemIDs.add(rid))
       }
     })
 
@@ -314,8 +316,9 @@ export class JATSExporter {
     )
     engine.setOutputFormat('jats')
 
-
-    const uncitedItemIDs = [...bibitems.keys()]
+    const uncitedItemIDs = [...bibitems.keys()].filter(
+      (id) => !citedItemIDs.has(id)
+    )
 
     const output = engine.rebuildProcessorState(
       [...citations.values()],
