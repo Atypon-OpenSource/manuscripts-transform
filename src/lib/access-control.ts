@@ -18,8 +18,8 @@ import { NodeType } from 'prosemirror-model'
 import { CommentNode, ManuscriptActions, ManuscriptNode } from '../schema'
 
 /**
- * Attribute-Based Access Control (ABAC) polices for manuscript nodes.
- * used by manuscript-api to evaluate incoming ProseMirror steps against these policies.
+ * Attribute-Based Access Control (ABAC) policies for manuscript nodes.
+ * Used by manuscript-api to evaluate incoming ProseMirror steps against these policies.
  */
 
 export type AccessContext = {
