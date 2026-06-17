@@ -18,11 +18,11 @@ import { NodeType } from 'prosemirror-model'
 import { CommentNode, ManuscriptActions, ManuscriptNode } from '../schema'
 
 /**
- * Attribute-Based Access Control polices for manuscript nodes.
+ * Attribute-Based Access Control (ABAC) polices for manuscript nodes.
  * used by manuscript-api to evaluate incoming ProseMirror steps against these policies.
  */
 
-export type NodeAccessSubject = {
+export type AccessContext = {
   userId: string
   actions: Record<ManuscriptActions, boolean>
 }
@@ -35,7 +35,7 @@ type ProtectedResources = {
 /** A rule that evaluates whether a subject can perform an operation on a specific node */
 type NodeRule<T extends ManuscriptNode> = (
   node: T,
-  subject: NodeAccessSubject
+  context: AccessContext
 ) => boolean
 
 /** Policy for a single node type */
@@ -56,25 +56,25 @@ type NodesPolicy = {
 
 const nodesPolicy: NodesPolicy = {
   comment: {
-    insert: (_, subject) => subject.actions.createComment,
-    delete: (node, subject) => {
-      const isOwn = node.attrs.userID === subject.userId
+    insert: (_, context) => context.actions.createComment,
+    delete: (node, context) => {
+      const isOwn = node.attrs.userID === context.userId
       return isOwn
-        ? subject.actions.handleOwnComments
-        : subject.actions.handleOthersComments
+        ? context.actions.handleOwnComments
+        : context.actions.handleOthersComments
     },
     attrs: {
-      contents: (node, subject) => {
-        const isOwn = node.attrs.userID === subject.userId
+      contents: (node, context) => {
+        const isOwn = node.attrs.userID === context.userId
         return isOwn
-          ? subject.actions.handleOwnComments
-          : subject.actions.handleOthersComments
+          ? context.actions.handleOwnComments
+          : context.actions.handleOthersComments
       },
-      resolved: (node, subject) => {
-        const isOwn = node.attrs.userID === subject.userId
+      resolved: (node, context) => {
+        const isOwn = node.attrs.userID === context.userId
         return isOwn
-          ? subject.actions.resolveOwnComment
-          : subject.actions.resolveOthersComment
+          ? context.actions.resolveOwnComment
+          : context.actions.resolveOthersComment
       },
     },
   },
