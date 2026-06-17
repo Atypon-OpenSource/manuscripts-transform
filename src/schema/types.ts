@@ -214,6 +214,23 @@ export interface Bundle {
   }
 }
 
+export enum ManuscriptActions {
+  handleSuggestion = 'handleSuggestion',
+  rejectOwnSuggestion = 'rejectOwnSuggestion',
+  handleOwnComments = 'handleOwnComments',
+  handleOthersComments = 'handleOthersComments',
+  resolveOwnComment = 'resolveOwnComment',
+  resolveOthersComment = 'resolveOthersComment',
+  createComment = 'createComment',
+  canEditFiles = 'canEditFiles',
+  editArticle = 'editArticle',
+  formatArticle = 'formatArticle',
+  editMetadata = 'editMetadata',
+  editCitationsAndRefs = 'editCitationsAndRefs',
+  seeEditorToolbar = 'seeEditorToolbar',
+  seeReferencesButtons = 'seeReferencesButtons',
+}
+
 export type MarkRule = ParseRule & { mark: Marks | null }
 
 export type NodeRule = ParseRule & { node?: Nodes | null }
