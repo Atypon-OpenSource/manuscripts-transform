@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
+    "rootDir": "src",
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["es2020", "dom", "dom.iterable"],
     "module": "esnext",
-    "moduleResolution": "node",
+    "types": ["node", "csl"],
+    "moduleResolution": "bundler",
     "noImplicitAny": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,

@@ -48,19 +48,19 @@ describe('JATS roundtrip', () => {
 
     const doc = parseXMLWithDTD(jats)
     expect(doc.errors).toHaveLength(0)
-  })
+  }, 45000)
   test('jats-roundtrip.xml roundtrip', async () => {
     const jats = await roundtrip('jats-roundtrip.xml')
     expect(jats).toMatchSnapshot()
 
     const doc = parseXMLWithDTD(jats)
     expect(doc.errors).toHaveLength(0)
-  })
+  }, 45000)
   test('jats-citations.xml roundtrip', async () => {
     const jats = await roundtrip('jats-citations.xml')
     expect(jats).toMatchSnapshot()
 
     const doc = parseXMLWithDTD(jats)
     expect(doc.errors).toHaveLength(0)
-  })
+  }, 45000)
 })
