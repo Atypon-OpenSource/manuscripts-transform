@@ -71,6 +71,9 @@ import { generalTableFootnote } from './nodes/general_table_footnote'
 import { graphicalAbstractSection } from './nodes/graphical_abstract_section'
 import { hardBreak } from './nodes/hard_break'
 import { heroImage } from './nodes/hero_image'
+import { headshotGrid } from './nodes/headshot_grid'
+import { headshotElement } from './nodes/headshot_element'
+import { headshotImage } from './nodes/headshot_image'
 import { highlightMarker } from './nodes/highlight_marker'
 import { imageElement } from './nodes/image_element'
 import { inlineEquation } from './nodes/inline_equation'
@@ -147,6 +150,9 @@ export * from './nodes/general_table_footnote'
 export * from './nodes/graphical_abstract_section'
 export * from './nodes/hard_break'
 export * from './nodes/hero_image'
+export * from './nodes/headshot_grid'
+export * from './nodes/headshot_element'
+export * from './nodes/headshot_image'
 export * from './nodes/highlight_marker'
 export * from './nodes/image_element'
 export * from './nodes/inline_equation'
@@ -277,10 +283,13 @@ export const schema = new Schema<Nodes, Marks>({
     long_desc: longDesc,
     quote_image: quoteImage,
     hero_image: heroImage,
+    headshot_grid: headshotGrid,
+    headshot_element: headshotElement,
+    headshot_image: headshotImage,
     trans_abstract: transAbstract,
     trans_graphical_abstract: transGraphicalAbstract,
     subtitle: subtitle,
     subtitles: subtitles,
   },
 })
-/**/
+

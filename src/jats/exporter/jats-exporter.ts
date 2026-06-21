@@ -700,6 +700,9 @@ export class JATSExporter {
         return ['trans-abstract', attrs, 0]
       },
       hero_image: () => '',
+      headshot_grid: () => ['p', { 'content-type': 'headshots'}, 0],
+      headshot_element: (node) => createImage(node),
+      headshot_image: () => '',
       alt_text: (node) => {
         if (node.textContent) {
           const altText = this.createElement('alt-text')
