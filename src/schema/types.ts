@@ -238,3 +238,7 @@ export function isNodeOfType<T extends ManuscriptNode>(
 ): node is T {
   return node.type === type
 }
+
+export type ExposedSlice<T, F> = T & {
+  insertAt: (pos: number, fragment: F) => T
+}

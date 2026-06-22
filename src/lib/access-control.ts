@@ -54,6 +54,15 @@ type NodesPolicy = {
   [K in keyof ProtectedResources]?: NodePolicy<ProtectedResources[K]>
 }
 
+/**
+ * Access policy to manuscript content as node-based.
+ * @example add access policy to citation node based on ManuscriptActions which is resolved at manuscript-api by user role
+ * citation: {
+ *   insert: (_, context) => context.actions.editCitationsAndRefs,
+ *   delete: (_, context) => context.actions.editCitationsAndRefs,
+ *   attrs:  (_, context) => context.actions.editCitationsAndRefs,
+ * }
+ */
 const nodesPolicy: NodesPolicy = {
   comment: {
     insert: (_, context) => context.actions.createComment,
