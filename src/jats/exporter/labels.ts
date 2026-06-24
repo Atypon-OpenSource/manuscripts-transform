@@ -44,8 +44,8 @@ const labelledNodeTypes: ManuscriptNodeType[] = [
 ]
 
 const excludedTypes = [
-  schema.nodes.graphical_abstract_section, 
-  schema.nodes.trans_graphical_abstract
+  schema.nodes.graphical_abstract_section,
+  schema.nodes.trans_graphical_abstract,
 ]
 
 const chooseLabel = (nodeType: ManuscriptNodeType): string => {
