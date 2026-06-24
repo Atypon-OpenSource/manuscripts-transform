@@ -16,9 +16,9 @@
 import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
 
-class Migration4352 implements MigrationScript {
-  fromVersion = '4.3.51'
-  toVersion = '4.3.52'
+class Migration442 implements MigrationScript {
+  fromVersion = '4.4.1'
+  toVersion = '4.4.2'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     switch (node.type) {
@@ -57,4 +57,4 @@ class Migration4352 implements MigrationScript {
   }
 }
 
-export default Migration4352
+export default Migration442
