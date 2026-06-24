@@ -718,7 +718,6 @@ export class JATSDOMParser {
       node: 'blockquote_element',
       getAttrs: (node) => {
         const element = node as HTMLElement
-
         return {
           id: element.getAttribute('id'),
         }
@@ -732,6 +731,7 @@ export class JATSDOMParser {
 
         return {
           id: element.getAttribute('id'),
+          type: element.getAttribute('content-type'),
         }
       },
     },
@@ -842,8 +842,14 @@ export class JATSDOMParser {
       },
     },
     {
-      tag: 'graphic[content-type=leading]',
+      tag: 'graphic[content-type^=leading]',
       node: 'hero_image',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          type: element.getAttribute('content-type'),
+        }
+      },
       getContent: this.getFigContent,
     },
     {
@@ -1067,6 +1073,7 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
+          type: element.getAttribute('content-type') ?? '',
         }
       },
     },
@@ -1162,6 +1169,7 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
+          type: element.getAttribute('content-type') ?? '',
         }
       },
     },
