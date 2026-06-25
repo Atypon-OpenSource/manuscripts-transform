@@ -990,11 +990,11 @@ export class JATSExporter {
         return this.createElement('boxed-text')
       },
       pullquote_element: (node) => {
-        let type = 'pullquote'
-        if (node.firstChild?.type === schema.nodes.quote_image) {
-          type = 'quote-with-image'
+        const attrs: { [key: string]: string } = {}
+        if (node.attrs.type) {
+          attrs['content-type'] = node.attrs.type
         }
-        return ['disp-quote', { 'content-type': type }, 0]
+        return ['disp-quote', attrs, 0]
       },
       quote_image: (node) => {
         const img = node as QuoteImageNode
@@ -1030,6 +1030,9 @@ export class JATSExporter {
       table_element: (node) => {
         const element = createTableElement(node)
         element.setAttribute('position', 'anchor')
+        if (node.attrs.type) {
+          element.setAttribute('content-type', node.attrs.type)
+        }
         return element
       },
       table_cell: (node) => [
@@ -1160,6 +1163,9 @@ export class JATSExporter {
     }
     const createBoxElement = (node: ManuscriptNode) => {
       const element = createElement(node, 'boxed-text')
+      if (node.attrs.type) {
+        element.setAttribute('content-type', node.attrs.type)
+      }
       appendLabels(element, node)
       const child = node.firstChild
       if (child?.type === schema.nodes.caption_title) {
@@ -1186,6 +1192,14 @@ export class JATSExporter {
       })
     }
 
+    const findParentHeroImage = (targetID: string) => {
+      const heroes = this.getChildrenOfType(schema.nodes.hero_image)
+      return heroes.find(
+        (hero) =>
+          !!findChildrenByAttr(hero, (attrs) => attrs.id === targetID)[0]
+      )
+    }
+
     const createImage = (node: ManuscriptNode) => {
       const graphicNode = node.content.firstChild
       if (!graphicNode) {
@@ -1206,8 +1220,9 @@ export class JATSExporter {
       const graphic = this.createElement('graphic')
       graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
 
-      if (isChildOfNodeType(node.attrs.id, schema.nodes.hero_image)) {
-        graphic.setAttribute('content-type', 'leading')
+      const hero = findParentHeroImage(node.attrs.id)
+      if (hero) {
+        graphic.setAttribute('content-type', hero.attrs.type || 'leading')
       } else if (
         !isChildOfNodeType(node.attrs.id, schema.nodes.figure_element) &&
         node.attrs.type

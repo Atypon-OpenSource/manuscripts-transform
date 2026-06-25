@@ -21,6 +21,7 @@ import { ManuscriptNode } from '../types'
 export interface HeroImageNode extends ManuscriptNode {
   attrs: {
     id: string
+    type: string
   }
 }
 
@@ -28,6 +29,7 @@ export const heroImage: NodeSpec = {
   content: 'figure? alt_text long_desc',
   attrs: {
     id: { default: '' },
+    type: { default: 'leading' },
     dataTracked: { default: null },
   },
   group: 'block element',
@@ -37,6 +39,7 @@ export const heroImage: NodeSpec = {
       {
         class: 'hero_image',
         id: node.attrs.id,
+        'data-content-type': node.attrs.type,
       },
     ]
   },
