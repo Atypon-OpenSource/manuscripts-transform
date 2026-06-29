@@ -1,5 +1,5 @@
 /*!
- * © 2025 Atypon Systems LLC
+ * © 2026 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,32 +18,48 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export interface HeroImageNode extends ManuscriptNode {
-  attrs: {
-    id: string
-    type: string
-  }
+export interface HeadshotImageAttrs {
+  id: string
+  src: string
+  type: string
 }
 
-export const heroImage: NodeSpec = {
-  content: 'figure? alt_text long_desc',
+export interface HeadshotImageNode extends ManuscriptNode {
+  attrs: HeadshotImageAttrs
+}
+
+export const headshotImage: NodeSpec = {
   attrs: {
     id: { default: '' },
-    type: { default: 'leading' },
+    src: { default: '' },
+    type: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block element',
+  selectable: false,
+  group: 'block',
+  parseDOM: [
+    {
+      tag: 'figure',
+      context: 'headshot_element/',
+      getAttrs: (dom) => {
+        const element = dom as HTMLElement
+
+        return {
+          id: element.getAttribute('id'),
+          src: element.getAttribute('src'),
+        }
+      },
+    },
+  ],
   toDOM: (node) => {
+    const imageNode = node as HeadshotImageNode
+
     return [
-      'div',
+      'figure',
       {
-        class: 'hero_image',
-        id: node.attrs.id,
-        'data-content-type': node.attrs.type,
+        class: 'headshot-figure',
+        id: imageNode.attrs.id,
       },
     ]
   },
 }
-
-export const isHeroImageNode = (node: ManuscriptNode): node is HeroImageNode =>
-  node.type === node.type.schema.nodes.hero_image
