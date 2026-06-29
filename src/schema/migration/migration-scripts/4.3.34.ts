@@ -83,7 +83,8 @@ class Migration4334 implements MigrationScript {
       (n) => n.type === 'caption_title'
     )
     const captionNodes = (figCaption?.content || []).filter(
-      (node) => node.type === 'caption')
+      (node) => node.type === 'caption'
+    )
     const foundCaption = getCaptionNode(
       captionNodes,
       config.caption === 'required'

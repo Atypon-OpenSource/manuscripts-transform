@@ -816,7 +816,9 @@ export class JATSDOMParser {
             // fill empty alt-text with `caption > title` content
             const title = caption?.querySelector(':scope > title')
             if (title) {
-              altText.append(...Array.from(title.childNodes).map(n => n.cloneNode(true)))
+              altText.append(
+                ...Array.from(title.childNodes).map((n) => n.cloneNode(true))
+              )
             }
           }
           wrapper.appendChild(altText)
@@ -828,7 +830,7 @@ export class JATSDOMParser {
         return this.parse(wrapper, {
           topNode: this.schema.nodes.headshot_element.create(),
         }).content
-      }
+      },
     },
     {
       tag: 'graphic[specific-use=MISSING]',
