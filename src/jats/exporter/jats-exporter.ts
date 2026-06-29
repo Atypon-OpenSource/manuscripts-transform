@@ -134,6 +134,9 @@ const chooseRefType = (type: ManuscriptNodeType): string | undefined => {
     case schema.nodes.equation:
     case schema.nodes.equation_element:
       return 'disp-formula'
+
+    case schema.nodes.supplement:
+      return 'supplementary-material'
   }
 }
 
@@ -700,7 +703,7 @@ export class JATSExporter {
         return ['trans-abstract', attrs, 0]
       },
       hero_image: () => '',
-      headshot_grid: () => ['p', { 'content-type': 'headshots'}, 0],
+      headshot_grid: () => ['p', { 'content-type': 'headshots' }, 0],
       headshot_element: (node) => createImage(node),
       headshot_image: () => '',
       alt_text: (node) => {

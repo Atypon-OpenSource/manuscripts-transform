@@ -28,9 +28,7 @@ class Migration4335 implements MigrationScript {
       return {
         ...node,
         content: (node.content ?? []).map((child) =>
-          child.type === 'paragraph'
-            ? { ...child, type: 'text_block' }
-            : child
+          child.type === 'paragraph' ? { ...child, type: 'text_block' } : child
         ),
       }
     }

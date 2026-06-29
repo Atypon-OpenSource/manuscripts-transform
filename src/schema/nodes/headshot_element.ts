@@ -44,5 +44,7 @@ export const headshotElement: NodeSpec = {
   },
 }
 
-export const isHeadshotElementNode = (node: ManuscriptNode): node is HeadshotElementNode =>
+export const isHeadshotElementNode = (
+  node: ManuscriptNode
+): node is HeadshotElementNode =>
   node.type === node.type.schema.nodes.headshot_element
