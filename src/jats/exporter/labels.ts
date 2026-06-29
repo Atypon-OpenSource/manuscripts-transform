@@ -22,6 +22,7 @@ export interface Target {
   id: string
   label: string
   caption: string
+  href?: string
 }
 
 interface Counter {
@@ -41,7 +42,10 @@ const labelledNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.box_element,
   schema.nodes.embed,
   schema.nodes.image_element,
+  schema.nodes.supplement,
 ]
+
+const noLabelTypes = new Set([schema.nodes.supplement.name])
 
 const excludedTypes = [schema.nodes.graphical_abstract_section]
 
@@ -69,6 +73,9 @@ export const buildTargets = (
   }
 
   const buildLabel = (type: ManuscriptNodeType) => {
+    if (noLabelTypes.has(type.name)) {
+      return ''
+    }
     const counter = counters[type.name]
     counter.index++
     return `${counter.label} ${counter.index}`
@@ -88,12 +95,12 @@ export const buildTargets = (
         }
       }
       const label = buildLabel(node.type)
-
       targets.set(node.attrs.id, {
         type: node.type.name,
         id: node.attrs.id,
         label,
-        caption: node.textContent?.trim(), // TODO: HTML?
+        caption: node.textBetween(0, node.content.size, ' ').trim(),
+        ...(node.attrs.href && { href: node.attrs.href }),
       })
     }
   })
