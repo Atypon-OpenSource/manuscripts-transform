@@ -137,12 +137,6 @@ const chooseRefType = (type: ManuscriptNodeType): string | undefined => {
 
     case schema.nodes.supplement:
       return 'supplementary-material'
-
-    case schema.nodes.listing_element:
-      return 'other'
-
-    case schema.nodes.box_element:
-      return 'boxed-text'
   }
 }
 
