@@ -41,12 +41,6 @@ export default defineConfig([
   ...compat.extends('plugin:diff/diff'),
   {
     rules: {
-      // TypeScript already verifies module resolution during typecheck, and the
-      // legacy eslint-plugin-import resolver cannot read modern "exports" maps
-      // (e.g. uuid v14), so defer resolution checking to tsc.
-      'import/no-unresolved': 'off',
-      // This codebase intentionally uses `cond ? a() : b()` and `cond && a()`
-      // as statements for their side effects.
       '@typescript-eslint/no-unused-expressions': [
         'error',
         { allowShortCircuit: true, allowTernary: true },
