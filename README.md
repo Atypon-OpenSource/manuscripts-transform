@@ -4,6 +4,32 @@ ProseMirror transformer for Manuscripts applications.
 
 It provides a way to import/export [Manuscript JSON Schema](https://gitlab.com/mpapp-public/manuscripts-json-schema) formatted data from and to other formats such as (JATS XML, STS XML, HTML, [ProseMirror Model](https://prosemirror.net/docs/guide/#doc))
 
+## Monorepo layout
+
+This repository is a pnpm workspace containing two published packages:
+
+| Package | Responsibility | Depends on |
+|---------|----------------|------------|
+| [`@manuscripts/schema`](packages/schema) | The ProseMirror `schema` (node/mark specs, groups, types), the document migration system (`migrateFor`), and model-level helpers (`generateNodeID`, `typeName`/`nodeNames`, credit roles, `JSONProsemirrorNode`). | `prosemirror-model`, `prosemirror-tables` |
+| [`@manuscripts/transform`](packages/transform) | JATS XML ↔ ProseMirror conversion (`parseJATSArticle`, `JATSExporter`, `createArticleNode`), citeproc, and JATS-specific utilities. | `@manuscripts/schema` (+ JATS deps) |
+
+The dependency direction is one-way: **`transform` → `schema`**. Import the schema, migrations, and model helpers from `@manuscripts/schema`; import JATS conversion from `@manuscripts/transform`.
+
+```typescript
+import { schema, migrateFor, generateNodeID } from '@manuscripts/schema'
+import { parseJATSArticle, JATSExporter } from '@manuscripts/transform'
+```
+
+### Development
+
+```bash
+pnpm install        # install + link the workspace
+pnpm build          # builds @manuscripts/schema, then @manuscripts/transform
+pnpm typecheck      # type-checks both packages
+pnpm test           # runs the vitest workspace (both packages)
+pnpm lint:fix       # eslint --fix across both packages
+```
+
 # Components
 
 **Decoder**: converts Manuscript JSON Schema to ProseMirror Model. 

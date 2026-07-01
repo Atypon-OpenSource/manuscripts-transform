@@ -1,6 +1,6 @@
-/node_modules/
-/dist/
-/coverage/
+node_modules/
+dist/
+coverage/
 *.log
 junit.xml
 
@@ -12,10 +12,9 @@ junit.xml
 .env
 
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+
 
 tmp/
 /.idea/
 /.vscode/
-/src/version.ts
+**/src/version.ts

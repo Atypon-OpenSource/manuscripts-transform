@@ -1,0 +1,56 @@
+{
+  "name": "@manuscripts/schema",
+  "description": "ProseMirror schema and migrations for Manuscripts applications",
+  "version": "0.1.0",
+  "repository": "github:Atypon-OpenSource/manuscripts-transform",
+  "license": "Apache-2.0",
+  "main": "dist/cjs",
+  "module": "dist/es",
+  "types": "dist/types",
+  "files": [
+    "dist",
+    "src",
+    "!src/**/__tests__/**",
+    "!src/**/__fixtures__/**",
+    "!src/**/__snapshots__/**",
+    "!src/tests.ts"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "prosemirror"
+  ],
+  "scripts": {
+    "build": "npm-run-all2 --parallel build:cjs build:es",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.build.json",
+    "version-file": "node -p \"'export const VERSION = ' + JSON.stringify(require('./package.json').version) + ';'\" > src/version.ts",
+    "prebuild": "rimraf dist && pnpm version-file",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "lodash": "4.18.1",
+    "prosemirror-model": "1.25.0",
+    "prosemirror-tables": "1.7.1",
+    "prosemirror-utils": "1.2.2",
+    "semver": "7.7.4",
+    "uuid": "14.0.0"
+  },
+  "peerDependencies": {
+    "prosemirror-state": "^1.4.3",
+    "prosemirror-view": "^1.39.2"
+  },
+  "peerDependenciesMeta": {
+    "prosemirror-state": {
+      "optional": true
+    },
+    "prosemirror-view": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

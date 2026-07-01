@@ -1,46 +1,18 @@
 {
-  "name": "@manuscripts/transform",
-  "description": "ProseMirror transformer for Manuscripts applications",
-  "version": "4.4.3",
+  "name": "manuscripts-transform-monorepo",
+  "description": "Monorepo for @manuscripts/schema and @manuscripts/transform",
+  "private": true,
   "repository": "github:Atypon-OpenSource/manuscripts-transform",
   "license": "Apache-2.0",
-  "main": "dist/cjs",
-  "module": "dist/es",
-  "types": "dist/types",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "sideEffects": false,
-  "keywords": [
-    "prosemirror"
-  ],
   "scripts": {
-    "build": "npm-run-all2 --parallel build:*",
-    "build:cjs": "tsc --outDir dist/cjs --module commonjs",
-    "build:es": "tsc --outDir dist/es --declarationDir dist/types --declaration",
-    "dev": "pnpm version-file && npm-run-all2 --parallel \"build:* --watch\"",
-    "version-file": "node -p \"'export const VERSION = ' + JSON.stringify(require('./package.json').version) + ';'\" > src/version.ts",
-    "lint": "eslint src --ext .js,.ts",
-    "lint:fix": "eslint src --fix --ext .js,.ts",
-    "prebuild": "rimraf dist && pnpm version-file",
-    "prettier": "prettier --write \"src/**/*.{ts,tsx}\" \"*.{js,json}\"",
-    "preversion": "npm-run-all --parallel typecheck lint build test",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm --filter @manuscripts/schema build && pnpm -r typecheck",
+    "lint": "eslint packages/*/src --ext .js,.ts",
+    "lint:fix": "eslint packages/*/src --fix --ext .js,.ts",
+    "prettier": "prettier --write \"packages/*/src/**/*.{ts,tsx}\" \"*.{js,json}\"",
+    "preversion": "pnpm typecheck && pnpm lint && pnpm build && pnpm test",
     "test": "TZ=UTC vitest run",
-    "typecheck": "tsc --noEmit",
-    "version": "pnpm build",
     "prepare": "husky"
-  },
-  "dependencies": {
-    "citeproc": "2.4.63",
-    "jszip": "3.10.1",
-    "lodash": "4.18.1",
-    "prosemirror-model": "1.25.0",
-    "prosemirror-tables": "1.7.1",
-    "prosemirror-utils": "1.2.2",
-    "semver": "7.7.4",
-    "uuid": "14.0.0",
-    "w3c-xmlserializer": "5.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.5",

@@ -15,24 +15,10 @@
  */
 import { defineConfig } from 'vitest/config'
 
+// Vitest 4 replaced the `vitest.workspace.ts` + `defineWorkspace` API with the
+// `test.projects` field. Each package supplies its own vitest.config.ts.
 export default defineConfig({
   test: {
-    clearMocks: true,
-    coverage: {
-      include: ['src/**/*.{ts,tsx}'],
-      exclude: ['src/types/*'],
-      reporter: ['text-summary'],
-    },
-    setupFiles: ['./src/tests.ts'],
-    include: ['src/**/__tests__/**/*.test.{ts,tsx}'],
-    environment: 'jsdom',
-    globals: true,
-    snapshotFormat: {
-      printBasicPrototype: true,
-      escapeString: true,
-    },
-    env: {
-      XML_CATALOG_FILES: './node_modules/@jats4r/dtds/schema/catalog.xml',
-    },
+    projects: ['packages/*'],
   },
 })
