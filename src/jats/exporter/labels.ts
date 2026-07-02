@@ -41,6 +41,7 @@ const labelledNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.box_element,
   schema.nodes.embed,
   schema.nodes.image_element,
+  schema.nodes.supplement,
 ]
 
 const excludedTypes = [
@@ -63,7 +64,6 @@ export const buildTargets = (
   iterator: (fn: iterator) => void
 ): Map<string, Target> => {
   const counters: Counters = {}
-
   for (const nodeType of labelledNodeTypes) {
     counters[nodeType.name] = {
       label: chooseLabel(nodeType), // choosing label name: "Figure", "Table", etc.
