@@ -7,5 +7,6 @@
       "@manuscripts/schema/*": ["../schema/src/*"]
     }
   },
-  "include": ["src", "types"]
+  "include": ["src", "types"],
+  "exclude": ["dist"]
 }

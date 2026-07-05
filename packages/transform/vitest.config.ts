@@ -13,7 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 import { defineConfig } from 'vitest/config'
+
+const dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   test: {
@@ -31,9 +36,8 @@ export default defineConfig({
       printBasicPrototype: true,
       escapeString: true,
     },
-    env: {
-      // @jats4r/dtds is a root devDependency; resolve from the workspace root node_modules.
-      XML_CATALOG_FILES: '../../node_modules/@jats4r/dtds/schema/catalog.xml',
+   env: {
+      XML_CATALOG_FILES: './node_modules/@jats4r/dtds/schema/catalog.xml',
     },
   },
 })

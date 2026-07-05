@@ -13,14 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'tsup'
 
+// `@manuscripts/schema` is listed under `dependencies` and is therefore
+// automatically externalized by tsup (it only bundles source and dev-time
+// helpers — production deps stay as `require`/`import` calls in the output).
 export default defineConfig({
-  test: {
-    projects: ['packages/*'],
-    snapshotFormat: {
-      printBasicPrototype: true,
-      escapeString: true,
-    },
-  },
+  entry: ['src/index.ts'],
+  format: ['cjs', 'esm'],
+  dts: true,
+  clean: true,
+  sourcemap: true,
+  target: 'node22',
+  treeshake: true,
 })

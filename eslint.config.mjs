@@ -29,22 +29,11 @@ const compat = new FlatCompat({
 export default defineConfig([
   {
     ignores: [
-      '**/dist/**',
       '**/__snapshots__/**',
       '**/__fixtures__/**',
-      '**/src/version.ts',
-      '**/*.json',
       '**/*.xml',
     ],
   },
   ...compat.config(config),
   ...compat.extends('plugin:diff/diff'),
-  {
-    rules: {
-      '@typescript-eslint/no-unused-expressions': [
-        'error',
-        { allowShortCircuit: true, allowTernary: true },
-      ],
-    },
-  },
 ])

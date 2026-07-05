@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  test: {
-    projects: ['packages/*'],
-    snapshotFormat: {
-      printBasicPrototype: true,
-      escapeString: true,
-    },
-  },
+  entry: ['src/index.ts'],
+  format: ['cjs', 'esm'],
+  dts: true,
+  clean: true,
+  sourcemap: true,
+  target: 'node22',
+  treeshake: true,
 })
