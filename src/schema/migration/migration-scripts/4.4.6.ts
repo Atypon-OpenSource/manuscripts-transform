@@ -18,11 +18,6 @@ import { MigrationScript } from '../migration-script'
 
 const TRANS_ABSTRACT_TYPES = ['trans_abstract', 'trans_graphical_abstract']
 
-// The abstracts content model now requires that translated abstracts appear
-// after all regular abstracts. Existing documents may have them interleaved
-// (e.g. a translation inserted directly after its source abstract), so reorder
-// the children to keep all translated abstracts last while preserving their
-// relative order.
 class Migration446 implements MigrationScript {
   fromVersion = '4.4.5'
   toVersion = '4.4.6'
