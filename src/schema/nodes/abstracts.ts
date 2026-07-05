@@ -20,7 +20,13 @@ import { NodeSpec } from 'prosemirror-model'
 // It exists for the purpose of styling in the UI
 
 export const abstracts: NodeSpec = {
-  content: 'sections* (trans_abstract | trans_graphical_abstract)*',
+  // Translated abstracts (trans_abstract / trans_graphical_abstract) must come
+  // after all regular abstracts. The non-translated types are listed explicitly
+  // rather than via the `sections` group, because the translated types also
+  // belong to that group and would otherwise be matched by the leading part,
+  // defeating the ordering constraint.
+  content:
+    '(section | graphical_abstract_section)* (trans_abstract | trans_graphical_abstract)*',
   attrs: {
     id: { default: '' },
   },
