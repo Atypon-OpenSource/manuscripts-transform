@@ -191,7 +191,7 @@ export class JATSExporter {
   ): Promise<string> => {
     this.manuscriptNode = manuscriptNode
     this.populateNodesMap()
-    this.initCiteprocEngine(options.csl)
+    this.initCiteprocEngine(options)
     this.createSerializer()
     const versionIds = selectVersionIds(options.version ?? '1.2')
 
@@ -283,9 +283,11 @@ export class JATSExporter {
       element.appendChild(caption)
     }
   }
-  private initCiteprocEngine = (csl: CSLOptions) => {
+  private initCiteprocEngine = (options: ExportOptions) => {
+    const { csl } = options
     const bibitems: Map<string, CSL.Data> = new Map()
     const citations: Map<string, Citeproc.Citation> = new Map()
+    const citedItemIDs: Set<string> = new Set()
 
     this.manuscriptNode.descendants((n) => {
       if (isBibliographyItemNode(n)) {
@@ -293,6 +295,7 @@ export class JATSExporter {
       }
       if (isCitationNode(n)) {
         citations.set(n.attrs.id, buildCiteprocCitation(n.attrs))
+        n.attrs.rids.forEach((rid: string) => citedItemIDs.add(rid))
       }
     })
 
@@ -313,7 +316,15 @@ export class JATSExporter {
     )
     engine.setOutputFormat('jats')
 
-    const output = engine.rebuildProcessorState([...citations.values()])
+    const uncitedItemIDs = [...bibitems.keys()].filter(
+      (id) => !citedItemIDs.has(id)
+    )
+
+    const output = engine.rebuildProcessorState(
+      [...citations.values()],
+      undefined,
+      uncitedItemIDs
+    )
 
     this.engine = engine
     this.renderedCitations = new Map(output.map((i) => [i[0], i[2]]))
