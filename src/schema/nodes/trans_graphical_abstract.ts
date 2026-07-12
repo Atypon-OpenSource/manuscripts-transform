@@ -37,7 +37,7 @@ export const transGraphicalAbstract: NodeSpec = {
     category: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block abstract',
+  group: 'block',
   selectable: false,
   parseDOM: [
     {
