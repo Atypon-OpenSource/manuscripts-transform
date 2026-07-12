@@ -37,7 +37,7 @@ export const transAbstract: NodeSpec = {
     category: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block sections',
+  group: 'block abstract',
   selectable: false,
   toDOM: (node) => {
     const { id, lang } = node.attrs

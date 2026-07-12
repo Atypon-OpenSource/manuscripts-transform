@@ -325,9 +325,22 @@ describe('JATS importer', () => {
       }
       const node = parseJATSArticle(jats, sectionCategories)
       const abstractsNode = findNodeByType(node, schema.nodes.abstracts)
-      const sections = findNodesByType(abstractsNode, schema.nodes.section)
-      // first section is the abstract node
-      expect(sections).toHaveLength(6)
+      const abstracts = findNodesByType(abstractsNode, schema.nodes.abstract)
+      expect(abstracts).toHaveLength(2)
+    })
+    it('should order abstracts children per the schema', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const node = parseJATSArticle(jats, sectionCategories)
+      const abstractsNode = findNodeByType(node, schema.nodes.abstracts)
+      const childTypes: string[] = []
+      abstractsNode.content.forEach((child) => childTypes.push(child.type.name))
+      expect(childTypes).toEqual([
+        'abstract',
+        'abstract',
+        'graphical_abstract_section',
+        'graphical_abstract_section',
+        'trans_abstract',
+      ])
     })
     it('should set the title to Abstract if no title is provided', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
@@ -337,9 +350,12 @@ describe('JATS importer', () => {
       }
       const node = parseJATSArticle(jats, sectionCategories)
       const abstractsNode = findNodeByType(node, schema.nodes.abstracts)
-      const sections = findNodesByType(abstractsNode, schema.nodes.section)
-      const firstSection = sections[0]
-      const titleNode = findNodeByType(firstSection, schema.nodes.section_title)
+      const abstracts = findNodesByType(abstractsNode, schema.nodes.abstract)
+      const firstAbstract = abstracts[0]
+      const titleNode = findNodeByType(
+        firstAbstract,
+        schema.nodes.section_title
+      )
       expect(titleNode.textContent).toBe('Abstract')
     })
   })

@@ -20,7 +20,8 @@ import { NodeSpec } from 'prosemirror-model'
 // It exists for the purpose of styling in the UI
 
 export const abstracts: NodeSpec = {
-  content:'(section | graphical_abstract_section)* (trans_abstract | trans_graphical_abstract)*',
+  content:
+    'abstract* graphical_abstract_section* trans_abstract* trans_graphical_abstract*',
   attrs: {
     id: { default: '' },
   },

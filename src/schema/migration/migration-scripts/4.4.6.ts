@@ -16,8 +16,6 @@
 import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
 
-const TRANS_ABSTRACT_TYPES = ['trans_abstract', 'trans_graphical_abstract']
-
 class Migration446 implements MigrationScript {
   fromVersion = '4.4.5'
   toVersion = '4.4.6'
@@ -27,19 +25,35 @@ class Migration446 implements MigrationScript {
       return node
     }
 
-    const regular: JSONProsemirrorNode[] = []
-    const translated: JSONProsemirrorNode[] = []
-    for (const child of node.content) {
-      if (TRANS_ABSTRACT_TYPES.includes(child.type)) {
-        translated.push(child)
-      } else {
-        regular.push(child)
-      }
+    const children = node.content.map((child) => {
+      const type = child.type === 'section' ? 'abstract' : child.type
+      const category = child.attrs?.category
+      const attrs =
+        typeof category === 'string' && category.startsWith('abstract-')
+          ? { ...child.attrs, category: category.slice('abstract-'.length) }
+          : child.attrs
+      return { ...child, type, attrs }
+    })
+
+    const ABSTRACT_NODE_ORDER: Record<string, number> = {
+      abstract: 0,
+      graphical_abstract_section: 1,
+      trans_abstract: 2,
+      trans_graphical_abstract: 3,
     }
+
+    const ordered = children
+      .map((child, index) => ({ child, index }))
+      .sort((a, b) => {
+        const orderA = ABSTRACT_NODE_ORDER[a.child.type] ?? 0
+        const orderB = ABSTRACT_NODE_ORDER[b.child.type] ?? 0
+        return orderA - orderB || a.index - b.index
+      })
+      .map(({ child }) => child)
 
     return {
       ...node,
-      content: [...regular, ...translated],
+      content: ordered,
     }
   }
 }

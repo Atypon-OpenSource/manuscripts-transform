@@ -25,3 +25,38 @@ export const getGroupCategories = (
     : Array.from(sections.values())
   return sectionsArray.filter((section) => section.group === group)
 }
+
+export const findMatchingCategory = (
+  categories: SectionCategory[],
+  type?: string | null,
+  titleText?: string | null
+): SectionCategory | undefined => {
+  return categories.find((category) => {
+    if (type && (category.id === type || category.synonyms.includes(type))) {
+      return true
+    }
+    if (titleText) {
+      const normalizedTitle = titleText.trim().toLowerCase()
+      if (category.synonyms.includes(normalizedTitle)) {
+        return true
+      }
+    }
+    return false
+  })
+}
+
+export const abstractTypeToCategory = (abstractType: string | null) =>
+  abstractType || 'abstract'
+
+export const FOOTNOTE_SECTION_CATEGORY_IDS = [
+  'con',
+  'deceased',
+  'equal',
+  'present-address',
+  'presented-at',
+  'previously-at',
+  'supplementary-material',
+  'supported-by',
+  'financial-disclosure',
+  'coi-statement',
+]

@@ -28,6 +28,7 @@ import { buildCiteprocCitation } from '../../lib/citeproc'
 import { CreditRoleUrls } from '../../lib/credit-roles'
 import { generateFootnoteLabels } from '../../lib/footnotes'
 import { nodeFromHTML } from '../../lib/html'
+import { FOOTNOTE_SECTION_CATEGORY_IDS } from '../../lib/section-categories'
 import {
   sanitizeXmlString,
   XLINK_NAMESPACE,
@@ -129,6 +130,7 @@ const chooseRefType = (type: ManuscriptNodeType): string | undefined => {
       return 'table'
 
     case schema.nodes.section:
+    case schema.nodes.abstract:
       return 'sec'
 
     case schema.nodes.equation:
@@ -229,12 +231,13 @@ export class JATSExporter {
     this.footnoteLabels = generateFootnoteLabels(manuscriptNode)
     const body = this.buildBody()
     article.appendChild(body)
+    this.buildAbstracts(front)
+    this.fixBody(front)
     this.addParagraphsToSections(article)
     const back = this.buildBack(body)
     this.moveCoiStatementToAuthorNotes(back, front)
     article.appendChild(back)
     this.unwrapBody(body)
-    this.moveAbstracts(front, body)
     this.removeBackContainer(body)
     this.updateFootnoteTypes(front, back)
     this.fillEmptyTableFooters(article)
@@ -597,6 +600,9 @@ export class JATSExporter {
   protected buildBody = () => {
     const body = this.createElement('body')
     this.manuscriptNode.forEach((cFragment) => {
+      if (cFragment.type === schema.nodes.abstracts) {
+        return
+      }
       const serializedNode = this.serializeNode(cFragment)
       body.append(...serializedNode.childNodes)
     })
@@ -686,32 +692,10 @@ export class JATSExporter {
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
-      trans_abstract: (node) => {
-        const attrs: { [key: string]: string } = {
-          id: normalizeID(node.attrs.id),
-        }
-        if (node.attrs.lang) {
-          attrs[`${XML_NAMESPACE} lang`] = node.attrs.lang
-        }
-        if (node.attrs.category) {
-          attrs['sec-type'] = node.attrs.category
-        }
-        return ['trans-abstract', attrs, 0]
-      },
-      trans_graphical_abstract: (node) => {
-        const attrs: { [key: string]: string } = {
-          id: normalizeID(node.attrs.id),
-        }
-        if (node.attrs.lang) {
-          attrs[`${XML_NAMESPACE} lang`] = node.attrs.lang
-        }
-        if (node.attrs.category) {
-          attrs['sec-type'] = node.attrs.category
-        }
-        return ['trans-abstract', attrs, 0]
-      },
+      trans_abstract: (node) => createTransAbstract(node),
+      trans_graphical_abstract: (node) => createTransAbstract(node),
       hero_image: () => '',
-      headshot_grid: () => ['p', { 'content-type': 'headshots'}, 0],
+      headshot_grid: () => ['p', { 'content-type': 'headshots' }, 0],
       headshot_element: (node) => createImage(node),
       headshot_image: () => '',
       alt_text: (node) => {
@@ -913,7 +897,7 @@ export class JATSExporter {
       footnotes_section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
-          'sec-type': 'endnotes', // chooseSecType(node.attrs.category),
+          'sec-type': 'endnotes',
         }
 
         return ['sec', attrs, 0]
@@ -1014,15 +998,7 @@ export class JATSExporter {
         }
         return ''
       },
-      graphical_abstract_section: (node) => {
-        const attrs: { [key: string]: string } = {
-          id: normalizeID(node.attrs.id),
-        }
-        if (node.attrs.category) {
-          attrs['sec-type'] = node.attrs.category
-        }
-        return ['sec', attrs, 0]
-      },
+      graphical_abstract_section: (node) => createAbstract(node),
       section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
@@ -1034,6 +1010,7 @@ export class JATSExporter {
 
         return ['sec', attrs, 0]
       },
+      abstract: (node) => createAbstract(node),
       section_label: () => ['label', 0],
       section_title: () => ['title', 0],
       section_title_plain: () => ['title', 0],
@@ -1186,6 +1163,24 @@ export class JATSExporter {
       processChildNodes(element, node, node.type.schema.nodes.section)
       return element
     }
+
+    const abstractTypeAttrs = (category: string) =>
+      category && category !== 'abstract' ? { 'abstract-type': category } : {}
+
+    const createAbstract = (node: ManuscriptNode): DOMOutputSpec => [
+      'abstract',
+      abstractTypeAttrs(node.attrs.category),
+      0,
+    ]
+
+    const createTransAbstract = (node: ManuscriptNode): DOMOutputSpec => [
+      'trans-abstract',
+      {
+        [`${XML_NAMESPACE} lang`]: node.attrs.lang ?? '',
+        ...abstractTypeAttrs(node.attrs.category),
+      },
+      0,
+    ]
 
     const isChildOfNodeType = (
       targetID: string,
@@ -1817,80 +1812,17 @@ export class JATSExporter {
     }
   }
 
-  private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
-    const abstractSections = this.getAbstractSections(body)
-
-    for (const abstractSection of abstractSections) {
-      const node =
-        abstractSection.nodeName === 'trans-abstract'
-          ? this.createTransAbstractNode(abstractSection)
-          : this.createAbstractNode(abstractSection)
-      abstractSection.remove()
-      insertAbstractNode(front, node)
-    }
-  }
-
-  private getAbstractCategories(
-    abstractsNode: ManuscriptNode | undefined
-  ): string[] {
-    const categories: string[] = []
-    abstractsNode?.content.descendants((node) => {
-      categories.push(node.attrs.category)
-      return false
-    })
-    return categories
-  }
-
-  private getAbstractSections(body: HTMLElement) {
-    {
-      const abstractsNode = this.getFirstChildOfType(schema.nodes.abstracts)
-      const abstractCategories = this.getAbstractCategories(abstractsNode)
-      const sections = Array.from(
-        body.querySelectorAll(':scope > sec, :scope > trans-abstract')
-      )
-      return sections.filter((section) =>
-        this.isAbstractSection(section, abstractCategories)
-      )
-    }
-  }
-
-  private isAbstractSection(
-    section: Element,
-    abstractCategories: string[]
-  ): boolean {
-    const sectionType = section.getAttribute('sec-type')
-    return sectionType ? abstractCategories.includes(sectionType) : false
-  }
-
-  private createTransAbstractNode(transAbstract: Element): Element {
-    const transAbstractNode = this.createElement('trans-abstract')
-    transAbstractNode.setAttributeNS(
-      XML_NAMESPACE,
-      'lang',
-      transAbstract.getAttributeNS(XML_NAMESPACE, 'lang') ?? ''
-    )
-    this.setAbstractType(transAbstractNode, transAbstract)
-    transAbstractNode.append(...transAbstract.childNodes)
-    return transAbstractNode
-  }
-
-  private createAbstractNode(abstractSection: Element): Element {
-    const abstractNode = this.createElement('abstract')
-    for (const node of abstractSection.childNodes) {
-      if (node.nodeName !== 'title') {
-        abstractNode.appendChild(node.cloneNode(true))
+  private buildAbstracts = (front: HTMLElement) => {
+    const abstractsNode = this.getFirstChildOfType(schema.nodes.abstracts)
+    abstractsNode?.forEach((child) => {
+      const abstract = this.serializeNode(child) as Element
+      if (abstract.nodeName === 'abstract') {
+        abstract
+          .querySelectorAll(':scope > title')
+          .forEach((title) => title.remove())
       }
-    }
-    this.setAbstractType(abstractNode, abstractSection)
-    return abstractNode
-  }
-
-  private setAbstractType(abstractNode: Element, abstractSection: Element) {
-    const sectionType = abstractSection.getAttribute('sec-type')
-    if (sectionType && sectionType !== 'abstract') {
-      const abstractType = sectionType.replace('abstract-', '')
-      abstractNode.setAttribute('abstract-type', abstractType)
-    }
+      insertAbstractNode(front, abstract)
+    })
   }
 
   private moveSectionsToBack = (back: HTMLElement, body: HTMLElement) => {
@@ -1941,26 +1873,12 @@ export class JATSExporter {
 
     const footNotes = []
 
-    const footnoteCategories = [
-      'con',
-      'conflict',
-      'deceased',
-      'equal',
-      'present-address',
-      'presented-at',
-      'previously-at',
-      'supplementary-material',
-      'supported-by',
-      'financial-disclosure',
-      'coi-statement',
-    ]
-
     const sections = body.querySelectorAll('sec')
     for (const currentSection of sections) {
       const currentSectionType = currentSection.getAttribute('sec-type')
       if (
         currentSectionType &&
-        footnoteCategories.indexOf(currentSectionType) >= 0
+        FOOTNOTE_SECTION_CATEGORY_IDS.includes(currentSectionType)
       ) {
         footNotes.push(
           this.sectionToFootnote(currentSection, currentSectionType)
@@ -2082,7 +2000,7 @@ export class JATSExporter {
     )
   }
   private addParagraphsToSections(articleElement: Element) {
-    const sections = articleElement.querySelectorAll('sec')
+    const sections = articleElement.querySelectorAll('sec, abstract')
     const TITLE_TAGS = new Set(['title', 'label', 'sec-meta'])
     for (const section of sections) {
       const hasContent = Array.from(section.children).some(
