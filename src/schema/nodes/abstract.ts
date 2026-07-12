@@ -34,7 +34,7 @@ export const abstract: NodeSpec = {
     category: { default: '' },
     dataTracked: { default: null },
   },
-  group: 'block sections',
+  group: 'block',
   selectable: false,
   parseDOM: [
     {
