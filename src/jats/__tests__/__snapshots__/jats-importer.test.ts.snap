@@ -31853,7 +31853,7 @@ Object {
               "attrs": Object {
                 "category": "",
                 "dataTracked": null,
-                "id": "MPAbstract:test",
+                "id": "MPSection:test",
               },
               "content": Array [
                 Object {
@@ -32013,7 +32013,7 @@ Object {
                   "type": "list",
                 },
               ],
-              "type": "abstract",
+              "type": "section",
             },
           ],
           "type": "section",
