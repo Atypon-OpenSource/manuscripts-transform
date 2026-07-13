@@ -19,6 +19,7 @@ import { NodeSpec } from 'prosemirror-model'
 import { ManuscriptNode } from '../types'
 
 interface Attrs {
+  id: string
   rids: string[]
   label: string
 }
@@ -33,6 +34,7 @@ export const crossReference: NodeSpec = {
   draggable: true,
   atom: true,
   attrs: {
+    id: { default: '' },
     rids: { default: [] },
     label: { default: '' },
     dataTracked: { default: null },
@@ -44,6 +46,7 @@ export const crossReference: NodeSpec = {
         const dom = p as HTMLSpanElement
 
         return {
+          id: dom.getAttribute('data-id'),
           rids: dom.getAttribute('data-reference-id')?.split(/\s+/) || [],
         }
       },
@@ -56,6 +59,7 @@ export const crossReference: NodeSpec = {
       'span',
       {
         class: 'cross-reference',
+        'data-id': crossReferenceNode.attrs.id,
         'data-reference-id': crossReferenceNode.attrs.rids.join(' '),
       },
       crossReferenceNode.attrs.label,
