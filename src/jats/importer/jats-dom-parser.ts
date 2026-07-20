@@ -1103,7 +1103,7 @@ export class JATSDOMParser {
           id: element.getAttribute('id'),
           category: element.getAttribute('abstract-type')
             ? this.chooseSectionCategory(element)
-            : 'abstract',
+            : '',
         }
       },
     },

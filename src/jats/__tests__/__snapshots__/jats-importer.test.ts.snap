@@ -838,7 +838,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "abstract",
+            "category": "",
             "dataTracked": null,
             "id": "MPAbstract:test",
           },
@@ -4733,7 +4733,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "abstract",
+            "category": "",
             "dataTracked": null,
             "id": "MPAbstract:test",
           },
@@ -22396,7 +22396,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "abstract",
+            "category": "",
             "dataTracked": null,
             "id": "MPAbstract:test",
           },
@@ -31096,7 +31096,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "abstract",
+            "category": "",
             "dataTracked": null,
             "id": "MPAbstract:test",
           },
@@ -32978,7 +32978,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "abstract",
+            "category": "",
             "dataTracked": null,
             "id": "MPAbstract:test",
           },
@@ -45061,7 +45061,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "abstract",
+            "category": "",
             "dataTracked": null,
             "id": "MPAbstract:test",
           },
