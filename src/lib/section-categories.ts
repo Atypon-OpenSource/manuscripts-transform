@@ -50,6 +50,7 @@ export const abstractTypeToCategory = (abstractType: string | null) =>
 
 export const FOOTNOTE_SECTION_CATEGORY_IDS = [
   'con',
+  'conflict',
   'deceased',
   'equal',
   'present-address',

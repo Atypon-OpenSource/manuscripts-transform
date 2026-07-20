@@ -295,4 +295,3 @@ export const schema = new Schema<Nodes, Marks>({
     subtitles: subtitles,
   },
 })
-
