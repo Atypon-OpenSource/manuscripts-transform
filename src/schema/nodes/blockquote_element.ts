@@ -18,13 +18,13 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface BlockquoteElementAttrs {
   id: string
   placeholder: string
 }
 
 export interface BlockquoteElementNode extends ManuscriptNode {
-  attrs: Attrs
+  attrs: BlockquoteElementAttrs
 }
 
 export const blockquoteElement: NodeSpec = {
@@ -42,7 +42,7 @@ export const blockquoteElement: NodeSpec = {
       getAttrs: (blockquote) => {
         const dom = blockquote as HTMLQuoteElement
 
-        const attrs: Partial<Attrs> = {
+        const attrs: Partial<BlockquoteElementAttrs> = {
           id: dom.getAttribute('id') || undefined,
         }
 

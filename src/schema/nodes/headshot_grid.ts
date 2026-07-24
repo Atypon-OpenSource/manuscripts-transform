@@ -1,5 +1,5 @@
 /*!
- * © 2025 Atypon Systems LLC
+ * © 2026 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,18 +18,16 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-export interface HeroImageNode extends ManuscriptNode {
+export interface HeadshotGridNode extends ManuscriptNode {
   attrs: {
     id: string
-    type: string
   }
 }
 
-export const heroImage: NodeSpec = {
-  content: 'figure? alt_text long_desc',
+export const headshotGrid: NodeSpec = {
+  content: 'headshot_element*',
   attrs: {
     id: { default: '' },
-    type: { default: 'leading' },
     dataTracked: { default: null },
   },
   group: 'block element',
@@ -37,13 +35,12 @@ export const heroImage: NodeSpec = {
     return [
       'div',
       {
-        class: 'hero_image',
+        class: 'headshot_grid',
         id: node.attrs.id,
-        'data-content-type': node.attrs.type,
       },
     ]
   },
 }
 
-export const isHeroImageNode = (node: ManuscriptNode): node is HeroImageNode =>
-  node.type === node.type.schema.nodes.hero_image
+export const isHeadshotGridNode = (node: ManuscriptNode): node is HeadshotGridNode =>
+  node.type === node.type.schema.nodes.headshot_grid

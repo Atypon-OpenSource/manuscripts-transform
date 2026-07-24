@@ -191,7 +191,7 @@ export class JATSExporter {
   ): Promise<string> => {
     this.manuscriptNode = manuscriptNode
     this.populateNodesMap()
-    this.initCiteprocEngine(options.csl)
+    this.initCiteprocEngine(options)
     this.createSerializer()
     const versionIds = selectVersionIds(options.version ?? '1.2')
 
@@ -283,9 +283,11 @@ export class JATSExporter {
       element.appendChild(caption)
     }
   }
-  private initCiteprocEngine = (csl: CSLOptions) => {
+  private initCiteprocEngine = (options: ExportOptions) => {
+    const { csl } = options
     const bibitems: Map<string, CSL.Data> = new Map()
     const citations: Map<string, Citeproc.Citation> = new Map()
+    const citedItemIDs: Set<string> = new Set()
 
     this.manuscriptNode.descendants((n) => {
       if (isBibliographyItemNode(n)) {
@@ -293,6 +295,7 @@ export class JATSExporter {
       }
       if (isCitationNode(n)) {
         citations.set(n.attrs.id, buildCiteprocCitation(n.attrs))
+        n.attrs.rids.forEach((rid: string) => citedItemIDs.add(rid))
       }
     })
 
@@ -313,7 +316,15 @@ export class JATSExporter {
     )
     engine.setOutputFormat('jats')
 
-    const output = engine.rebuildProcessorState([...citations.values()])
+    const uncitedItemIDs = [...bibitems.keys()].filter(
+      (id) => !citedItemIDs.has(id)
+    )
+
+    const output = engine.rebuildProcessorState(
+      [...citations.values()],
+      undefined,
+      uncitedItemIDs
+    )
 
     this.engine = engine
     this.renderedCitations = new Map(output.map((i) => [i[0], i[2]]))
@@ -700,6 +711,9 @@ export class JATSExporter {
         return ['trans-abstract', attrs, 0]
       },
       hero_image: () => '',
+      headshot_grid: () => ['p', { 'content-type': 'headshots'}, 0],
+      headshot_element: (node) => createImage(node),
+      headshot_image: () => '',
       alt_text: (node) => {
         if (node.textContent) {
           const altText = this.createElement('alt-text')
@@ -987,11 +1001,11 @@ export class JATSExporter {
         return this.createElement('boxed-text')
       },
       pullquote_element: (node) => {
-        let type = 'pullquote'
-        if (node.firstChild?.type === schema.nodes.quote_image) {
-          type = 'quote-with-image'
+        const attrs: { [key: string]: string } = {}
+        if (node.attrs.type) {
+          attrs['content-type'] = node.attrs.type
         }
-        return ['disp-quote', { 'content-type': type }, 0]
+        return ['disp-quote', attrs, 0]
       },
       quote_image: (node) => {
         const img = node as QuoteImageNode
@@ -1027,6 +1041,9 @@ export class JATSExporter {
       table_element: (node) => {
         const element = createTableElement(node)
         element.setAttribute('position', 'anchor')
+        if (node.attrs.type) {
+          element.setAttribute('content-type', node.attrs.type)
+        }
         return element
       },
       table_cell: (node) => [
@@ -1157,6 +1174,9 @@ export class JATSExporter {
     }
     const createBoxElement = (node: ManuscriptNode) => {
       const element = createElement(node, 'boxed-text')
+      if (node.attrs.type) {
+        element.setAttribute('content-type', node.attrs.type)
+      }
       appendLabels(element, node)
       const child = node.firstChild
       if (child?.type === schema.nodes.caption_title) {
@@ -1183,6 +1203,14 @@ export class JATSExporter {
       })
     }
 
+    const findParentHeroImage = (targetID: string) => {
+      const heroes = this.getChildrenOfType(schema.nodes.hero_image)
+      return heroes.find(
+        (hero) =>
+          !!findChildrenByAttr(hero, (attrs) => attrs.id === targetID)[0]
+      )
+    }
+
     const createImage = (node: ManuscriptNode) => {
       const graphicNode = node.content.firstChild
       if (!graphicNode) {
@@ -1203,8 +1231,9 @@ export class JATSExporter {
       const graphic = this.createElement('graphic')
       graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
 
-      if (isChildOfNodeType(node.attrs.id, schema.nodes.hero_image)) {
-        graphic.setAttribute('content-type', 'leading')
+      const hero = findParentHeroImage(node.attrs.id)
+      if (hero) {
+        graphic.setAttribute('content-type', hero.attrs.type || 'leading')
       } else if (
         !isChildOfNodeType(node.attrs.id, schema.nodes.figure_element) &&
         node.attrs.type

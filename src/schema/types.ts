@@ -128,6 +128,9 @@ export type Nodes =
   | 'alt_titles'
   | 'long_desc'
   | 'hero_image'
+  | 'headshot_grid'
+  | 'headshot_element'
+  | 'headshot_image'
   | 'trans_abstract'
   | 'trans_graphical_abstract'
   | 'subtitle'
@@ -208,6 +211,23 @@ export interface Bundle {
   csl: {
     _id: string
   }
+}
+
+export enum ManuscriptActions {
+  handleSuggestion = 'handleSuggestion',
+  rejectOwnSuggestion = 'rejectOwnSuggestion',
+  handleOwnComments = 'handleOwnComments',
+  handleOthersComments = 'handleOthersComments',
+  resolveOwnComment = 'resolveOwnComment',
+  resolveOthersComment = 'resolveOthersComment',
+  createComment = 'createComment',
+  canEditFiles = 'canEditFiles',
+  editArticle = 'editArticle',
+  formatArticle = 'formatArticle',
+  editMetadata = 'editMetadata',
+  editCitationsAndRefs = 'editCitationsAndRefs',
+  seeEditorToolbar = 'seeEditorToolbar',
+  seeReferencesButtons = 'seeReferencesButtons',
 }
 
 export type MarkRule = ParseRule & { mark: Marks | null }

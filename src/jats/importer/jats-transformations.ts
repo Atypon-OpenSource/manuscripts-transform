@@ -171,7 +171,7 @@ export const moveAbstracts = (
 }
 
 export const moveHeroImage = (doc: Document) => {
-  const heroImage = doc.querySelector('graphic[content-type="leading"]')
+  const heroImage = doc.querySelector('graphic[content-type^="leading"]')
   if (!heroImage) {
     return
   }

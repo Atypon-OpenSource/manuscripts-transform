@@ -654,6 +654,46 @@ export const v2_3_20 = {
               ],
             },
             {
+              type: 'figure_element',
+              attrs: {
+                id: 'MPFigureElement:ca6dac1a-b6ae-4227-be6e-75119186224b',
+                label: '',
+                sizeFraction: 0,
+                suppressCaption: true,
+                suppressTitle: true,
+                dataTracked: null,
+              },
+              content: [
+                {
+                  type: 'figure',
+                  attrs: {
+                    id: 'MPFigure:d377ead2-6849-4597-9caa-f3e6b73bb629',
+                    src: 'chemoji/chemoji8.png',
+                    contentType: 'image/png',
+                    dataTracked: null,
+                  },
+                },
+                {
+                  type: 'figcaption',
+                  attrs: {
+                    dataTracked: null,
+                  },
+                },
+                {
+                  type: 'listing',
+                  attrs: {
+                    id: '',
+                    contents: '',
+                    language: '',
+                    languageKey: 'null',
+                    isExpanded: false,
+                    isExecuting: false,
+                    dataTracked: null,
+                  },
+                },
+              ],
+            },
+            {
               type: 'table_element',
               attrs: {
                 id: 'MPTableElement:82BD8BAF-D136-4536-AD9C-92C30B9D7315',

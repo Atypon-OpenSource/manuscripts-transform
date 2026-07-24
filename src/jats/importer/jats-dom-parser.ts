@@ -658,7 +658,7 @@ export class JATSDOMParser {
     {
       tag: 'caption',
       node: 'caption',
-      context: 'listing_element/|embed/|supplement/',
+      context: 'listing_element/|embed/|supplement/|headshot_element/',
       getContent: (node) => {
         const element = node as HTMLElement
         const title = element.querySelector('title')
@@ -718,7 +718,6 @@ export class JATSDOMParser {
       node: 'blockquote_element',
       getAttrs: (node) => {
         const element = node as HTMLElement
-
         return {
           id: element.getAttribute('id'),
         }
@@ -732,6 +731,7 @@ export class JATSDOMParser {
 
         return {
           id: element.getAttribute('id'),
+          type: element.getAttribute('content-type'),
         }
       },
     },
@@ -789,6 +789,48 @@ export class JATSDOMParser {
       },
     },
     {
+      tag: 'graphic',
+      node: 'headshot_image',
+      context: 'headshot_element/',
+      getAttrs: this.getFigAttrs,
+    },
+    {
+      tag: 'graphic',
+      node: 'headshot_element',
+      context: 'headshot_grid/',
+      getContent: (node) => {
+        const element = node as HTMLElement
+
+        const innerGraphic = element.cloneNode(false) as HTMLElement
+
+        // build wrapper: [graphic(shallow), caption, alt-text, long-desc]
+        const wrapper = element.ownerDocument!.createElement('div')
+        wrapper.appendChild(innerGraphic)
+
+        const caption = element.querySelector('caption')
+        if (caption) wrapper.appendChild(caption)
+
+        const altText = element.querySelector('alt-text')
+        if (altText) {
+          if (altText.childNodes.length === 0) {
+            // fill empty alt-text with `caption > title` content
+            const title = caption?.querySelector(':scope > title')
+            if (title) {
+              altText.append(...Array.from(title.childNodes).map(n => n.cloneNode(true)))
+            }
+          }
+          wrapper.appendChild(altText)
+        }
+
+        const longDesc = element.querySelector('long-desc')
+        if (longDesc) wrapper.appendChild(longDesc)
+
+        return this.parse(wrapper, {
+          topNode: this.schema.nodes.headshot_element.create(),
+        }).content
+      }
+    },
+    {
       tag: 'graphic[specific-use=MISSING]',
       node: 'missing_figure',
       getAttrs: (node) => {
@@ -800,8 +842,14 @@ export class JATSDOMParser {
       },
     },
     {
-      tag: 'graphic[content-type=leading]',
+      tag: 'graphic[content-type^=leading]',
       node: 'hero_image',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          type: element.getAttribute('content-type'),
+        }
+      },
       getContent: this.getFigContent,
     },
     {
@@ -921,6 +969,10 @@ export class JATSDOMParser {
       node: 'list_item',
     },
     {
+      tag: 'p[content-type="headshots"]',
+      node: 'headshot_grid',
+    },
+    {
       tag: 'p',
       node: 'paragraph',
       context: 'section/',
@@ -1021,6 +1073,7 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
+          type: element.getAttribute('content-type') ?? '',
         }
       },
     },
@@ -1116,6 +1169,7 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
+          type: element.getAttribute('content-type') ?? '',
         }
       },
     },

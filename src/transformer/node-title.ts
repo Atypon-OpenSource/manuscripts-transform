@@ -29,6 +29,10 @@ const textSnippet = (node: ManuscriptNode, max = 100) => {
       text += child.text
     } else if (isHighlightMarkerNode(node)) {
       text += ''
+    } else if (node.type === schema.nodes.headshot_element) {
+      if (child.type === schema.nodes.caption_title) {
+        text += child.textContent
+      }
     } else {
       text += ' '
     }
@@ -82,6 +86,7 @@ export const nodeTitle = (node: ManuscriptNode) => {
     case nodes.multi_graphic_figure_element:
     case nodes.image_element:
     case nodes.hero_image:
+    case nodes.headshot_grid:
     case nodes.box_element:
     case nodes.supplements:
     case nodes.attachments:
