@@ -838,7 +838,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPAbstract:test",
           },
@@ -4733,7 +4733,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPAbstract:test",
           },
@@ -22396,7 +22396,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPAbstract:test",
           },
@@ -31096,7 +31096,7 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPAbstract:test",
           },
@@ -31851,169 +31851,123 @@ Object {
             },
             Object {
               "attrs": Object {
-                "category": "",
                 "dataTracked": null,
-                "id": "MPAbstract:test",
+                "id": "MPList:test",
+                "listStyleType": "bullet",
               },
               "content": Array [
                 Object {
                   "attrs": Object {
                     "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "H",
-                      "type": "text",
-                    },
-                    Object {
-                      "marks": Array [
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                          },
-                          "type": "subscript",
-                        },
-                      ],
-                      "text": "1",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "section_label",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                  },
-                  "content": Array [
-                    Object {
-                      "text": "This is a hypothesis.",
-                      "type": "text",
-                    },
-                  ],
-                  "type": "section_title",
-                },
-                Object {
-                  "attrs": Object {
-                    "dataTracked": null,
-                    "id": "MPList:test",
-                    "listStyleType": "bullet",
+                    "id": "MPListItem:test",
+                    "placeholder": "List item",
                   },
                   "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPListItem:test",
-                        "placeholder": "List item",
+                        "id": "MPParagraph:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Num_Bul_List_1",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPParagraph:test",
+                        "placeholder": "",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "List_1_Continued",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPList:test",
+                        "listStyleType": "bullet",
                       },
                       "content": Array [
                         Object {
                           "attrs": Object {
                             "dataTracked": null,
-                            "id": "MPParagraph:test",
-                            "placeholder": "",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "Num_Bul_List_1",
-                              "type": "text",
-                            },
-                          ],
-                          "type": "paragraph",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPParagraph:test",
-                            "placeholder": "",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "List_1_Continued",
-                              "type": "text",
-                            },
-                          ],
-                          "type": "paragraph",
-                        },
-                        Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPList:test",
-                            "listStyleType": "bullet",
+                            "id": "MPListItem:test",
+                            "placeholder": "List item",
                           },
                           "content": Array [
                             Object {
                               "attrs": Object {
                                 "dataTracked": null,
-                                "id": "MPListItem:test",
-                                "placeholder": "List item",
+                                "id": "MPParagraph:test",
+                                "placeholder": "",
                               },
                               "content": Array [
                                 Object {
-                                  "attrs": Object {
-                                    "dataTracked": null,
-                                    "id": "MPParagraph:test",
-                                    "placeholder": "",
-                                  },
-                                  "content": Array [
-                                    Object {
-                                      "text": "Num_Bul_List_2",
-                                      "type": "text",
-                                    },
-                                  ],
-                                  "type": "paragraph",
-                                },
-                                Object {
-                                  "attrs": Object {
-                                    "dataTracked": null,
-                                    "id": "MPParagraph:test",
-                                    "placeholder": "",
-                                  },
-                                  "content": Array [
-                                    Object {
-                                      "text": "List_2_Continued",
-                                      "type": "text",
-                                    },
-                                  ],
-                                  "type": "paragraph",
+                                  "text": "Num_Bul_List_2",
+                                  "type": "text",
                                 },
                               ],
-                              "type": "list_item",
+                              "type": "paragraph",
+                            },
+                            Object {
+                              "attrs": Object {
+                                "dataTracked": null,
+                                "id": "MPParagraph:test",
+                                "placeholder": "",
+                              },
+                              "content": Array [
+                                Object {
+                                  "text": "List_2_Continued",
+                                  "type": "text",
+                                },
+                              ],
+                              "type": "paragraph",
                             },
                           ],
-                          "type": "list",
+                          "type": "list_item",
                         },
                       ],
-                      "type": "list_item",
+                      "type": "list",
                     },
+                  ],
+                  "type": "list_item",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPListItem:test",
+                    "placeholder": "List item",
+                  },
+                  "content": Array [
                     Object {
                       "attrs": Object {
                         "dataTracked": null,
-                        "id": "MPListItem:test",
-                        "placeholder": "List item",
+                        "id": "MPParagraph:test",
+                        "placeholder": "",
                       },
                       "content": Array [
                         Object {
-                          "attrs": Object {
-                            "dataTracked": null,
-                            "id": "MPParagraph:test",
-                            "placeholder": "",
-                          },
-                          "content": Array [
-                            Object {
-                              "text": "level 1, bullet 2",
-                              "type": "text",
-                            },
-                          ],
-                          "type": "paragraph",
+                          "text": "level 1, bullet 2",
+                          "type": "text",
                         },
                       ],
-                      "type": "list_item",
+                      "type": "paragraph",
                     },
                   ],
-                  "type": "list",
+                  "type": "list_item",
                 },
               ],
-              "type": "abstract",
+              "type": "list",
             },
           ],
           "type": "section",
@@ -32978,7 +32932,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPAbstract:test",
           },
@@ -33367,42 +33321,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "category": "short",
-            "dataTracked": null,
-            "id": "MPAbstract:test",
-          },
-          "content": Array [
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-              },
-              "content": Array [
-                Object {
-                  "text": "Short",
-                  "type": "text",
-                },
-              ],
-              "type": "section_title",
-            },
-            Object {
-              "attrs": Object {
-                "dataTracked": null,
-                "id": "MPParagraph:test",
-                "placeholder": "",
-              },
-              "content": Array [
-                Object {
-                  "text": "The is the third and last part of the volume devoted to solubility data of rare earth metal chlorides in water and in ternary and quaternary aqueous systems. Compilations of all available experimental data are introduced for each rare earth metal chloride with a corresponding critical evaluation. This part covers chlorides of Gd, Tb, Dy, Ho, Er, Tm, Yb, and Lu, with coverage of the literature through the middle of 2008.",
-                  "type": "text",
-                },
-              ],
-              "type": "paragraph",
-            },
-          ],
-          "type": "abstract",
-        },
-        Object {
-          "attrs": Object {
             "category": "graphical",
             "dataTracked": null,
             "id": "MPGraphicalAbstractSection:test",
@@ -33560,6 +33478,42 @@ Object {
             },
           ],
           "type": "graphical_abstract_section",
+        },
+        Object {
+          "attrs": Object {
+            "category": "short",
+            "dataTracked": null,
+            "id": "MPAbstract:test",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "content": Array [
+                Object {
+                  "text": "Short",
+                  "type": "text",
+                },
+              ],
+              "type": "section_title",
+            },
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPParagraph:test",
+                "placeholder": "",
+              },
+              "content": Array [
+                Object {
+                  "text": "The is the third and last part of the volume devoted to solubility data of rare earth metal chlorides in water and in ternary and quaternary aqueous systems. Compilations of all available experimental data are introduced for each rare earth metal chloride with a corresponding critical evaluation. This part covers chlorides of Gd, Tb, Dy, Ho, Er, Tm, Yb, and Lu, with coverage of the literature through the middle of 2008.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "abstract",
         },
         Object {
           "attrs": Object {
@@ -45061,7 +45015,7 @@ Object {
       "content": Array [
         Object {
           "attrs": Object {
-            "category": "",
+            "category": "abstract",
             "dataTracked": null,
             "id": "MPAbstract:test",
           },

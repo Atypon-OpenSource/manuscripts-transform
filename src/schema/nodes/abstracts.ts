@@ -21,7 +21,7 @@ import { NodeSpec } from 'prosemirror-model'
 
 export const abstracts: NodeSpec = {
   content:
-    'abstract* graphical_abstract_section* trans_abstract* trans_graphical_abstract*',
+    '(abstract | graphical_abstract_section)* (trans_abstract | trans_graphical_abstract)*',
   attrs: {
     id: { default: '' },
   },

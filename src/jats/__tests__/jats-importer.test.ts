@@ -336,9 +336,9 @@ describe('JATS importer', () => {
       abstractsNode.content.forEach((child) => childTypes.push(child.type.name))
       expect(childTypes).toEqual([
         'abstract',
+        'graphical_abstract_section',
+        'graphical_abstract_section',
         'abstract',
-        'graphical_abstract_section',
-        'graphical_abstract_section',
         'trans_abstract',
       ])
     })

@@ -16,9 +16,9 @@
 import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
 
-class Migration446 implements MigrationScript {
-  fromVersion = '4.4.5'
-  toVersion = '4.4.6'
+class Migration447 implements MigrationScript {
+  fromVersion = '4.4.6'
+  toVersion = '4.4.7'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     if (node.type !== 'abstracts' || !node.content) {
@@ -29,33 +29,17 @@ class Migration446 implements MigrationScript {
       const type = child.type === 'section' ? 'abstract' : child.type
       const category = child.attrs?.category
       const attrs =
-        typeof category === 'string' && category.startsWith('abstract-')
+        category && category.startsWith('abstract-')
           ? { ...child.attrs, category: category.slice('abstract-'.length) }
           : child.attrs
       return { ...child, type, attrs }
     })
 
-    const ABSTRACT_NODE_ORDER: Record<string, number> = {
-      abstract: 0,
-      graphical_abstract_section: 1,
-      trans_abstract: 2,
-      trans_graphical_abstract: 3,
-    }
-
-    const ordered = children
-      .map((child, index) => ({ child, index }))
-      .sort((a, b) => {
-        const orderA = ABSTRACT_NODE_ORDER[a.child.type] ?? 0
-        const orderB = ABSTRACT_NODE_ORDER[b.child.type] ?? 0
-        return orderA - orderB || a.index - b.index
-      })
-      .map(({ child }) => child)
-
     return {
       ...node,
-      content: ordered,
+      content: children,
     }
   }
 }
 
-export default Migration446
+export default Migration447

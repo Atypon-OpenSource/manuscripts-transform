@@ -22,23 +22,6 @@ import {
 import { SectionCategory, SectionGroup } from '../../schema'
 import { htmlFromJatsNode } from './jats-parser-utils'
 
-const ABSTRACT_NODE_ORDER = [
-  'abstract',
-  'graphical_abstract_section',
-  'trans_abstract',
-  'trans_graphical_abstract',
-]
-
-const getAbstractNodeType = (element: Element) => {
-  const isGraphical = ['graphical', 'key-image'].includes(
-    element.getAttribute('abstract-type') ?? ''
-  )
-  if (element.nodeName === 'trans-abstract') {
-    return isGraphical ? 'trans_graphical_abstract' : 'trans_abstract'
-  }
-  return isGraphical ? 'graphical_abstract_section' : 'abstract'
-}
-
 export type CreateElement = (tagName: string) => HTMLElement
 
 const removeNodeFromParent = (node: Element) =>
@@ -176,23 +159,13 @@ export const moveAbstracts = (
   createElement: CreateElement,
   sectionCategories?: SectionCategory[]
 ) => {
-  const abstracts = [
-    ...front.querySelectorAll(
-      'article-meta > abstract, article-meta > trans-abstract'
-    ),
-  ]
-  const sections = abstracts.map((abstract) =>
-    prepareAbstract(abstract, createElement, sectionCategories)
+  const abstracts = front.querySelectorAll(
+    'article-meta > abstract, article-meta > trans-abstract'
   )
-
-  sections
-    .map((sec, index) => ({ sec, index }))
-    .sort((a, b) => {
-      const orderA = ABSTRACT_NODE_ORDER.indexOf(getAbstractNodeType(a.sec))
-      const orderB = ABSTRACT_NODE_ORDER.indexOf(getAbstractNodeType(b.sec))
-      return orderA - orderB || a.index - b.index
-    })
-    .forEach(({ sec }) => group.appendChild(sec))
+  abstracts.forEach((abstract) => {
+    const sec = prepareAbstract(abstract, createElement, sectionCategories)
+    group.appendChild(sec)
+  })
 }
 
 export const moveHeroImage = (doc: Document) => {
