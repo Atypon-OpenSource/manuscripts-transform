@@ -28,6 +28,7 @@ export interface AltTextNode extends ManuscriptNode {
 
 export const altText: NodeSpec = {
   content: 'text*',
+  isolating: true,
   attrs: {
     id: { default: '' },
   },
