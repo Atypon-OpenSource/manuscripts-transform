@@ -28,6 +28,7 @@ export interface LongDescNode extends ManuscriptNode {
 
 export const longDesc: NodeSpec = {
   content: 'text*',
+  isolating: true,
   attrs: {
     id: { default: '' },
   },
