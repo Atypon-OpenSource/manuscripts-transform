@@ -28,6 +28,7 @@ export interface GeneralTableFootnoteNode extends ManuscriptNode {
 
 export const generalTableFootnote: NodeSpec = {
   content: 'paragraph*',
+  isolating: true,
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
