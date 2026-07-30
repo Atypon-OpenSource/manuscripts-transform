@@ -13,4 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export type IdGenerator = (element: Element) => Promise<string | null>
+export type IDGenerator = (element: Element) => Promise<string | null>

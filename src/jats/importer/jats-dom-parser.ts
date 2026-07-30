@@ -1108,17 +1108,6 @@ export class JATSDOMParser {
         const element = node as HTMLElement
         return {
           id: element.getAttribute('id'),
-          // A plain <abstract> (no abstract-type/sec-type attribute) is
-          // unambiguously the main abstract - it has no attribute for
-          // chooseSectionCategory to match against, and title-text matching
-          // isn't guaranteed to resolve it either. Master guaranteed this
-          // case by writing a literal 'abstract' sec-type before parsing;
-          // do the same here directly rather than relying on the fallback.
-          // For an abstract-type this rule didn't special-case (i.e. not
-          // graphical/key-image) that resolved to no category, fall back to
-          // that type rather than collapsing every unknown subtype onto the
-          // main abstract; abstractTypeToCategory yields 'abstract' when the
-          // attribute is absent, preserving the plain-abstract guarantee.
           category:
             this.chooseSectionCategory(element) ||
             abstractTypeToCategory(element.getAttribute('abstract-type')),

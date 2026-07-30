@@ -51,9 +51,9 @@ import {
   schema,
 } from '../../schema'
 import { isExecutableNodeType } from '../../transformer'
-import { IdGenerator } from '../types'
+import { IDGenerator } from '../types'
 import { initJats, jatsVariableWrapper } from './citeproc'
-import { selectVersionIds, Version } from './jats-versions'
+import { selectVersionIDs, Version } from './jats-versions'
 import { buildTargets, Target } from './labels'
 
 interface Attrs {
@@ -66,7 +66,7 @@ type MarkSpecs = {
   [key in Marks]: (mark: ManuscriptMark, inline: boolean) => DOMOutputSpec
 }
 
-const normalizeId = (id: string) => id.replace(/:/g, '_')
+const normalizeID = (id: string) => id.replace(/:/g, '_')
 
 export const createCounter = () => {
   const counts = new Map<string, number>()
@@ -81,7 +81,7 @@ export const createCounter = () => {
   }
 }
 
-const createDefaultIdGenerator = (): IdGenerator => {
+const createDefaultIDGenerator = (): IDGenerator => {
   const counter = createCounter()
 
   return async (element: Element) => {
@@ -167,15 +167,15 @@ export class JATSExporter {
     this.populateNodesMap()
     this.initCiteprocEngine(options)
     this.createSerializer()
-    const versionIds = selectVersionIds(options.version ?? '1.2')
+    const versionIDs = selectVersionIDs(options.version ?? '1.2')
 
     this.document = document.implementation.createDocument(
       null,
       'article',
       document.implementation.createDocumentType(
         'article',
-        versionIds.publicId,
-        versionIds.systemId
+        versionIDs.publicID,
+        versionIDs.systemID
       )
     )
 
@@ -218,7 +218,7 @@ export class JATSExporter {
     if ($floatsGroup) {
       $article.appendChild($floatsGroup)
     }
-    await this.rewriteIds()
+    await this.rewriteIDs()
     return serializeToXML(this.document)
   }
 
@@ -263,7 +263,7 @@ export class JATSExporter {
     const { csl } = options
     const bibitems: Map<string, CSL.Data> = new Map()
     const citations: Map<string, Citeproc.Citation> = new Map()
-    const citedItemIds: Set<string> = new Set()
+    const citedItemIDs: Set<string> = new Set()
 
     this.manuscriptNode.descendants((n) => {
       if (isBibliographyItemNode(n)) {
@@ -271,7 +271,7 @@ export class JATSExporter {
       }
       if (isCitationNode(n)) {
         citations.set(n.attrs.id, buildCiteprocCitation(n.attrs))
-        n.attrs.rids.forEach((rid: string) => citedItemIds.add(rid))
+        n.attrs.rids.forEach((rid: string) => citedItemIDs.add(rid))
       }
     })
 
@@ -292,14 +292,14 @@ export class JATSExporter {
     )
     engine.setOutputFormat('jats')
 
-    const uncitedItemIds = [...bibitems.keys()].filter(
-      (id) => !citedItemIds.has(id)
+    const uncitedItemIDs = [...bibitems.keys()].filter(
+      (id) => !citedItemIDs.has(id)
     )
 
     const output = engine.rebuildProcessorState(
       [...citations.values()],
       undefined,
-      uncitedItemIds
+      uncitedItemIDs
     )
 
     this.engine = engine
@@ -316,21 +316,21 @@ export class JATSExporter {
     return $template.firstChild
   }
 
-  protected rewriteIds = async (
-    generator: IdGenerator = createDefaultIdGenerator()
+  protected rewriteIDs = async (
+    generator: IDGenerator = createDefaultIDGenerator()
   ) => {
     const ids = new Map<string, string | null>()
 
     for (const $element of this.document.querySelectorAll('[id]')) {
-      const oldId = $element.getAttribute('id')
-      const newId = await generator($element)
-      if (newId) {
-        $element.setAttribute('id', newId)
+      const oldID = $element.getAttribute('id')
+      const newID = await generator($element)
+      if (newID) {
+        $element.setAttribute('id', newID)
       } else {
         $element.removeAttribute('id')
       }
-      if (oldId) {
-        ids.set(oldId, newId)
+      if (oldID) {
+        ids.set(oldID, newID)
       }
     }
 
@@ -361,7 +361,7 @@ export class JATSExporter {
     ).sort((a, b) => Number(a.attrs.priority) - Number(b.attrs.priority))
     this.contributorLabels = this.computeContributorLabels(contributors)
     const $frontNodes = [
-      this.buildArticleId(),
+      this.buildArticleID(),
       this.buildTitleGroup(),
       this.buildContributorGroup(contributors),
       this.buildAuthorNotes($coiStatement),
@@ -389,12 +389,12 @@ export class JATSExporter {
     list.forEach(($element) => $parent.appendChild($element))
   }
 
-  private buildArticleId = (): Element | undefined => {
+  private buildArticleID = (): Element | undefined => {
     if (this.manuscriptNode.attrs.doi) {
-      const $articleId = this.createElement('article-id')
-      $articleId.setAttribute('pub-id-type', 'doi')
-      $articleId.textContent = this.manuscriptNode.attrs.doi
-      return $articleId
+      const $articleID = this.createElement('article-id')
+      $articleID.setAttribute('pub-id-type', 'doi')
+      $articleID.textContent = this.manuscriptNode.attrs.doi
+      return $articleID
     }
   }
 
@@ -693,7 +693,7 @@ export class JATSExporter {
           return ''
         }
         const $media = this.createElement('media')
-        $media.setAttribute('id', normalizeId(id))
+        $media.setAttribute('id', normalizeID(id))
         $media.setAttributeNS(XLINK_NAMESPACE, 'show', 'embed')
         $media.setAttributeNS(XLINK_NAMESPACE, 'href', href)
         if (mimetype) {
@@ -712,7 +712,7 @@ export class JATSExporter {
       award: (node) => {
         const awardGroup = node as AwardNode
         const $awardGroup = this.createElement('award-group')
-        $awardGroup.setAttribute('id', normalizeId(awardGroup.attrs.id))
+        $awardGroup.setAttribute('id', normalizeID(awardGroup.attrs.id))
         appendChildIfPresent(
           $awardGroup,
           'funding-source',
@@ -772,7 +772,7 @@ export class JATSExporter {
         const $supplementaryMaterial = this.createElement(
           'supplementary-material'
         )
-        $supplementaryMaterial.setAttribute('id', normalizeId(node.attrs.id))
+        $supplementaryMaterial.setAttribute('id', normalizeID(node.attrs.id))
         $supplementaryMaterial.setAttributeNS(
           XLINK_NAMESPACE,
           'href',
@@ -815,7 +815,7 @@ export class JATSExporter {
 
         const $xref = this.createElement('xref')
         $xref.setAttribute('ref-type', 'bibr')
-        $xref.setAttribute('rid', normalizeId(rids.join(' ')))
+        $xref.setAttribute('rid', normalizeID(rids.join(' ')))
         const fragment = this.renderedCitations.get(node.attrs.id)
         if (fragment) {
           $xref.innerHTML = fragment
@@ -847,7 +847,7 @@ export class JATSExporter {
           $xref.setAttribute('ref-type', type)
         }
 
-        $xref.setAttribute('rid', normalizeId(rids.join(' ')))
+        $xref.setAttribute('rid', normalizeID(rids.join(' ')))
         $xref.textContent = text ?? ''
 
         return $xref
@@ -874,7 +874,7 @@ export class JATSExporter {
       },
       equation_element: (node) => {
         const $dispFormula = this.createElement('disp-formula')
-        $dispFormula.setAttribute('id', normalizeId(node.attrs.id))
+        $dispFormula.setAttribute('id', normalizeID(node.attrs.id))
         appendLabels($dispFormula, node)
         processChildNodes($dispFormula, node, schema.nodes.equation)
         return $dispFormula
@@ -886,7 +886,7 @@ export class JATSExporter {
         const attrs: Attrs = {}
 
         if (node.attrs.id) {
-          attrs.id = normalizeId(node.attrs.id)
+          attrs.id = normalizeID(node.attrs.id)
         }
         if (node.attrs.category) {
           attrs['fn-type'] = node.attrs.category
@@ -895,11 +895,11 @@ export class JATSExporter {
       },
       footnotes_element: (node) =>
         node.childCount == 0
-          ? ['fn-group', { id: normalizeId(node.attrs.id) }, ['fn', ['p']]]
-          : ['fn-group', { id: normalizeId(node.attrs.id) }, 0],
+          ? ['fn-group', { id: normalizeID(node.attrs.id) }, ['fn', ['p']]]
+          : ['fn-group', { id: normalizeID(node.attrs.id) }, 0],
       footnotes_section: (node) => {
         const $fnGroup = this.createElement('fn-group', undefined, {
-          id: normalizeId(node.attrs.id),
+          id: normalizeID(node.attrs.id),
         })
         const titleNode = this.getFirstChildOfType(
           schema.nodes.section_title,
@@ -929,7 +929,7 @@ export class JATSExporter {
         const rids: string[] = node.attrs.rids
         const $xref = this.createElement('xref')
         $xref.setAttribute('ref-type', 'fn')
-        $xref.setAttribute('rid', normalizeId(rids.join(' ')))
+        $xref.setAttribute('rid', normalizeID(rids.join(' ')))
         $xref.textContent = rids
           .map((rid) => this.footnoteLabels.get(rid))
           .join(', ')
@@ -967,7 +967,7 @@ export class JATSExporter {
       list_item: () => ['list-item', 0],
       listing: (node) => {
         const $code = this.createElement('code')
-        $code.setAttribute('id', normalizeId(node.attrs.id))
+        $code.setAttribute('id', normalizeID(node.attrs.id))
         $code.setAttribute('language', node.attrs.languageKey)
         $code.textContent = node.attrs.contents
 
@@ -975,7 +975,7 @@ export class JATSExporter {
       },
       listing_element: (node) =>
         createFigureElement(node, node.type.schema.nodes.listing),
-      manuscript: (node) => ['article', { id: normalizeId(node.attrs.id) }, 0],
+      manuscript: (node) => ['article', { id: normalizeID(node.attrs.id) }, 0],
       missing_figure: () => {
         const $graphic = this.createElement('graphic')
         $graphic.setAttribute('specific-use', 'MISSING')
@@ -990,7 +990,7 @@ export class JATSExporter {
         const attrs: Attrs = {}
 
         if (node.attrs.id) {
-          attrs.id = normalizeId(node.attrs.id)
+          attrs.id = normalizeID(node.attrs.id)
         }
 
         if (node.attrs.contentType) {
@@ -1022,7 +1022,7 @@ export class JATSExporter {
       graphical_abstract_section: (node) => createAbstract(node),
       section: (node) => {
         const attrs: { [key: string]: string } = {
-          id: normalizeId(node.attrs.id),
+          id: normalizeID(node.attrs.id),
         }
 
         if (node.attrs.category) {
@@ -1035,7 +1035,7 @@ export class JATSExporter {
       section_label: () => ['label', 0],
       section_title: () => ['title', 0],
       section_title_plain: () => ['title', 0],
-      table: (node) => ['table', { id: normalizeId(node.attrs.id) }, 0],
+      table: (node) => ['table', { id: normalizeID(node.attrs.id) }, 0],
       table_element: (node) => {
         const $tableWrap = createTableElement(node)
         $tableWrap.setAttribute('position', 'anchor')
@@ -1122,7 +1122,7 @@ export class JATSExporter {
     }
     const createElement = (node: ManuscriptNode, nodeName: string) => {
       const $element = this.createElement(nodeName)
-      $element.setAttribute('id', normalizeId(node.attrs.id))
+      $element.setAttribute('id', normalizeID(node.attrs.id))
       return $element
     }
 
@@ -1205,7 +1205,7 @@ export class JATSExporter {
     ]
 
     const isChildOfNodeType = (
-      targetId: string,
+      targetID: string,
       type: NodeType,
       descend = false
     ) => {
@@ -1213,18 +1213,18 @@ export class JATSExporter {
       return nodes.some((node) => {
         const result = findChildrenByAttr(
           node,
-          (attrs) => attrs.id === targetId,
+          (attrs) => attrs.id === targetID,
           descend
         )[0]
         return !!result
       })
     }
 
-    const findParentHeroImage = (targetId: string) => {
+    const findParentHeroImage = (targetID: string) => {
       const heroes = this.getChildrenOfType(schema.nodes.hero_image)
       return heroes.find(
         (hero) =>
-          !!findChildrenByAttr(hero, (attrs) => attrs.id === targetId)[0]
+          !!findChildrenByAttr(hero, (attrs) => attrs.id === targetID)[0]
       )
     }
 
@@ -1363,7 +1363,7 @@ export class JATSExporter {
       const math = this.nodeFromJATS(node.attrs.contents)
       const $mathml = math as Element
       if (!isInline) {
-        $mathml.setAttribute('id', normalizeId(node.attrs.id))
+        $mathml.setAttribute('id', normalizeID(node.attrs.id))
       }
       return $mathml
     }
@@ -1379,9 +1379,9 @@ export class JATSExporter {
       return
     }
 
-    const affiliationIds = contributors.flatMap((n) => n.attrs.affiliationIDs)
+    const affiliationIDs = contributors.flatMap((n) => n.attrs.affiliationIDs)
     const affiliationOrder = new Map<string, number>()
-    affiliationIds.forEach((id, index) => {
+    affiliationIDs.forEach((id, index) => {
       if (!affiliationOrder.has(id)) {
         affiliationOrder.set(id, index)
       }
@@ -1390,7 +1390,7 @@ export class JATSExporter {
     const affiliations = this.getChildrenOfType<AffiliationNode>(
       schema.nodes.affiliation
     )
-      .filter((a) => affiliationIds.includes(a.attrs.id))
+      .filter((a) => affiliationIDs.includes(a.attrs.id))
       .sort(
         (a, b) =>
           (affiliationOrder.get(a.attrs.id) ?? Infinity) -
@@ -1446,7 +1446,7 @@ export class JATSExporter {
   private buildContributorElement = (contributor: ContributorNode) => {
     const $contrib = this.createElement('contrib')
     $contrib.setAttribute('contrib-type', 'author')
-    $contrib.setAttribute('id', normalizeId(contributor.attrs.id))
+    $contrib.setAttribute('id', normalizeID(contributor.attrs.id))
 
     if (contributor.attrs.isCorresponding) {
       $contrib.setAttribute('corresp', 'yes')
@@ -1457,17 +1457,17 @@ export class JATSExporter {
     }
 
     if (contributor.attrs.ORCID) {
-      const contribIdAttrs: Record<string, string> = {
+      const contribIDAttrs: Record<string, string> = {
         'contrib-id-type': 'orcid',
       }
       if (contributor.attrs.isAuthenticated) {
-        contribIdAttrs['authenticated'] = 'true'
+        contribIDAttrs['authenticated'] = 'true'
       }
       this.appendElement(
         $contrib,
         'contrib-id',
         contributor.attrs.ORCID,
-        contribIdAttrs
+        contribIDAttrs
       )
     }
 
@@ -1489,7 +1489,7 @@ export class JATSExporter {
     contributor.attrs.affiliationIDs?.forEach((rid) => {
       const $xref = this.appendElement($contrib, 'xref', '', {
         'ref-type': 'aff',
-        rid: normalizeId(rid),
+        rid: normalizeID(rid),
       })
       $xref.appendChild(this.createLabelSup(rid))
     })
@@ -1497,7 +1497,7 @@ export class JATSExporter {
     contributor.attrs.footnoteIDs?.forEach((rid) => {
       const $xref = this.appendElement($contrib, 'xref', '', {
         'ref-type': 'fn',
-        rid: normalizeId(rid),
+        rid: normalizeID(rid),
       })
       $xref.appendChild(this.createLabelSup(rid))
     })
@@ -1505,7 +1505,7 @@ export class JATSExporter {
     contributor.attrs.correspIDs?.forEach((rid) => {
       const $xref = this.appendElement($contrib, 'xref', '', {
         'ref-type': 'corresp',
-        rid: normalizeId(rid),
+        rid: normalizeID(rid),
       })
       $xref.appendChild(this.createLabelSup(rid))
     })
@@ -1580,7 +1580,7 @@ export class JATSExporter {
     }
 
     const $aff = this.createElement('aff')
-    $aff.setAttribute('id', normalizeId(affiliation.attrs.id))
+    $aff.setAttribute('id', normalizeID(affiliation.attrs.id))
 
     const label = this.contributorLabels.get(affiliation.attrs.id)
     if (label) {
@@ -1622,7 +1622,7 @@ export class JATSExporter {
 
   private writeCorresp = (corresp: CorrespNode) => {
     const $corresp = this.createElement('corresp')
-    $corresp.setAttribute('id', normalizeId(corresp.attrs.id))
+    $corresp.setAttribute('id', normalizeID(corresp.attrs.id))
     if (corresp.attrs.label) {
       this.appendElement($corresp, 'label', corresp.attrs.label)
     }
@@ -1636,7 +1636,7 @@ export class JATSExporter {
       'text/html'
     )
     const $p = this.createElement('p')
-    $p.setAttribute('id', normalizeId(paragraph.attrs.id))
+    $p.setAttribute('id', normalizeID(paragraph.attrs.id))
     if (dom.body.innerHTML.length) {
       $p.innerHTML = dom.body.innerHTML
     }
@@ -1645,7 +1645,7 @@ export class JATSExporter {
 
   private writeFootnote = (footnote: FootnoteNode) => {
     const $fn = this.createElement('fn')
-    $fn.setAttribute('id', normalizeId(footnote.attrs.id))
+    $fn.setAttribute('id', normalizeID(footnote.attrs.id))
     let content = footnote.textContent
     if (!content.includes('<p>')) {
       content = `<p>${content}</p>`
@@ -1658,7 +1658,7 @@ export class JATSExporter {
     $authorNotes: Element,
     authorNotes: AuthorNotesNode
   ) => {
-    const correspIds = new Set(
+    const correspIDs = new Set(
       this.getChildrenOfType<ContributorNode>(schema.nodes.contributor).flatMap(
         (contributor) => contributor.attrs.correspIDs
       )
@@ -1674,7 +1674,7 @@ export class JATSExporter {
           break
         }
         case schema.nodes.corresp: {
-          if (correspIds.has(node.attrs.id)) {
+          if (correspIDs.has(node.attrs.id)) {
             $authorNotes.append(this.writeCorresp(node as CorrespNode))
           }
           break
