@@ -104,6 +104,7 @@ export const buildTargets = (
         label,
         caption: node.textBetween(0, node.content.size, ' ').trim(),
         ...(node.attrs.href && { href: node.attrs.href }),
+        ...(node.attrs.extLink && { href: node.attrs.extLink }),
       })
     }
   })
