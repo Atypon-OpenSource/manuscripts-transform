@@ -13,27 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { generateNodeID } from '../../../transformer'
 import { JSONProsemirrorNode } from '../../../types'
+import { schema } from '../../index'
 import { MigrationScript } from '../migration-script'
 
-class Migration4335 implements MigrationScript {
-  fromVersion = '4.3.34'
-  toVersion = '4.3.35'
+class Migration447 implements MigrationScript {
+  fromVersion = '4.4.6'
+  toVersion = '4.4.7'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
-    if (
-      node.type === 'pullquote_element' ||
-      node.type === 'blockquote_element'
-    ) {
-      return {
-        ...node,
-        content: (node.content ?? []).map((child) =>
-          child.type === 'paragraph' ? { ...child, type: 'text_block' } : child
-        ),
-      }
+    if (node.type !== 'cross_reference') {
+      return node
     }
-    return node
+
+    if (node.attrs?.id) {
+      return node
+    }
+
+    return {
+      ...node,
+      attrs: {
+        ...(node.attrs ?? {}),
+        id: generateNodeID(schema.nodes.cross_reference),
+      },
+    }
   }
 }
 
-export default Migration4335
+export default Migration447
