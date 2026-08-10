@@ -847,7 +847,8 @@ export class JATSExporter {
         }
 
         const rid = rids[0]
-        const text = cross.attrs.label || this.labelTargets.get(rid)?.label
+        const labelTarget = this.labelTargets.get(rid)
+        let text = cross.attrs.label || labelTarget?.label
 
         const target = findChildrenByAttr(
           this.manuscriptNode,
@@ -855,6 +856,11 @@ export class JATSExporter {
         )[0]?.node
         if (!target) {
           return text ?? ''
+        }
+
+        // For supplements, fall back to caption title then href (URL or filename)
+        if (!text && target.type === schema.nodes.supplement) {
+          text = labelTarget?.caption || labelTarget?.href
         }
 
         const xref = this.createElement('xref')
