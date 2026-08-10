@@ -848,34 +848,20 @@ export class JATSExporter {
 
         const rid = rids[0]
         const labelTarget = this.labelTargets.get(rid)
-        let text = cross.attrs.label || labelTarget?.label
 
         const target = findChildrenByAttr(
           this.manuscriptNode,
           (attrs) => attrs.id === rid
         )[0]?.node
-        if (!target) {
-          return text ?? ''
+
+        let text = cross.attrs.label || labelTarget?.label
+        // For supplements: label → caption → href
+        if (!text && target?.type === schema.nodes.supplement) {
+          text = labelTarget?.caption || target.attrs.href
         }
 
-        // For supplements, skip internal attachment IDs; fall back to caption then xlink:href from DOM
-        if (target.type === schema.nodes.supplement) {
-          const userLabel = cross.attrs.label
-          if (!userLabel || userLabel.startsWith('attachment:')) {
-            const caption = labelTarget?.caption
-            const suppEl = this.document.getElementById(normalizeID(rid))
-            const resolvedHref =
-              suppEl?.getAttributeNS(XLINK_NAMESPACE, 'href') ?? undefined
-            if (caption) {
-              console.log(`[xref-supp] caption fallback: "${caption}" (rid: ${rid})`)
-              text = caption
-            } else if (resolvedHref) {
-              console.log(`[xref-supp] xlink:href DOM fallback: "${resolvedHref}" (rid: ${rid})`)
-              text = resolvedHref
-            } else {
-              console.log(`[xref-supp] no fallback found (rid: ${rid})`)
-            }
-          }
+        if (!target) {
+          return text ?? ''
         }
 
         const xref = this.createElement('xref')
