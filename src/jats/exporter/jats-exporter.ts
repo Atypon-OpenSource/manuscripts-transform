@@ -111,6 +111,9 @@ const chooseRefType = (type: ManuscriptNodeType): string | undefined => {
     case schema.nodes.equation:
     case schema.nodes.equation_element:
       return 'disp-formula'
+
+    case schema.nodes.supplement:
+      return 'supplementary-material'
   }
 }
 export type CSLOptions = {

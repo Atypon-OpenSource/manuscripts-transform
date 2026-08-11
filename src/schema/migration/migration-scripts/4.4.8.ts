@@ -16,9 +16,11 @@
 import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
 
-class Migration447 implements MigrationScript {
-  fromVersion = '4.4.6'
-  toVersion = '4.4.7'
+const TRANS_ABSTRACT_TYPES = ['trans_abstract', 'trans_graphical_abstract']
+
+class Migration448 implements MigrationScript {
+  fromVersion = '4.4.7'
+  toVersion = '4.4.8'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     if (node.type !== 'abstracts' || !node.content) {
@@ -35,11 +37,21 @@ class Migration447 implements MigrationScript {
       return { ...child, type, attrs }
     })
 
+    const regular: JSONProsemirrorNode[] = []
+    const translated: JSONProsemirrorNode[] = []
+    for (const child of children) {
+      if (TRANS_ABSTRACT_TYPES.includes(child.type)) {
+        translated.push(child)
+      } else {
+        regular.push(child)
+      }
+    }
+
     return {
       ...node,
-      content: children,
+      content: [...regular, ...translated],
     }
   }
 }
 
-export default Migration447
+export default Migration448
