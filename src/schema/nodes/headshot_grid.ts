@@ -42,5 +42,7 @@ export const headshotGrid: NodeSpec = {
   },
 }
 
-export const isHeadshotGridNode = (node: ManuscriptNode): node is HeadshotGridNode =>
+export const isHeadshotGridNode = (
+  node: ManuscriptNode
+): node is HeadshotGridNode =>
   node.type === node.type.schema.nodes.headshot_grid
