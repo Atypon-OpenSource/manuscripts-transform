@@ -33,6 +33,7 @@ import {
   AffiliationNode,
   AuthorNotesNode,
   AwardNode,
+  CaptionFile,
   CitationNode,
   ContributorNode,
   CorrespNode,
@@ -691,7 +692,7 @@ export class JATSExporter {
       attachments: () => '',
       image_element: (node) => createImage(node),
       embed: (node) => {
-        const { id, href, mimetype, mimeSubtype } = node.attrs
+        const { id, href, mimetype, mimeSubtype, captions } = node.attrs
         if (!href) {
           return ''
         }
@@ -709,6 +710,22 @@ export class JATSExporter {
         this.appendChildNodeOfType($media, node, schema.nodes.alt_text)
         this.appendChildNodeOfType($media, node, schema.nodes.long_desc)
         this.appendCaption($media, node)
+        if (captions && captions.length > 0) {
+          captions.forEach((caption: CaptionFile) => {
+            if (caption.href) {
+              const extLink = this.createElement('ext-link')
+              extLink.setAttribute('ext-link-type', 'transcript')
+              extLink.setAttributeNS(XLINK_NAMESPACE, 'href', caption.href)
+              if (caption.lang) {
+                extLink.setAttributeNS(XML_NAMESPACE, 'lang', caption.lang)
+              }
+              if (caption.label) {
+                extLink.textContent = caption.label
+              }
+              $media.appendChild(extLink)
+            }
+          })
+        }
         return $media
       },
       awards: () => ['funding-group', 0],
