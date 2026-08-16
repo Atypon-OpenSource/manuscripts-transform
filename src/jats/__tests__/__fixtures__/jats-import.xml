@@ -326,6 +326,8 @@ xlink:href="prodbe.int.aip.org:8080/journal/journal_fs/
         mime-subtype="mp4" >
          <alt-text>example of alt text for media</alt-text>
         <long-desc>example of long desc</long-desc>
+        <ext-link ext-link-type="transcript" xlink:href="file:///suppl/video1-en.vtt" xml:lang="en">English captions for Video 1</ext-link>
+        <ext-link ext-link-type="transcript" xlink:href="file:///suppl/video1-es.vtt" xml:lang="es">Spanish captions for Video 1</ext-link>
         </media>
       <sec>
         <title>Aims and hypotheses</title>

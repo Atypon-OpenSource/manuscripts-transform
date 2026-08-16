@@ -742,6 +742,10 @@ export class JATSDOMParser {
       getAttrs: this.getFigAttrs,
     },
     {
+      tag: 'ext-link[ext-link-type="transcript"]',
+      ignore: true, // Transcript links are handled via captions attribute in media/embed
+    },
+    {
       tag: 'ext-link',
       node: 'link',
       getAttrs: (node) => {
@@ -769,11 +773,21 @@ export class JATSDOMParser {
       node: 'embed',
       getAttrs: (node) => {
         const element = node as HTMLElement
+        const captionFiles = element.querySelectorAll(
+          'ext-link[ext-link-type="transcript"]'
+        )
+        const captions = Array.from(captionFiles).map((captionFile) => ({
+          href: captionFile.getAttributeNS(XLINK_NAMESPACE, 'href') || '',
+          lang: captionFile.getAttributeNS(XML_NAMESPACE, 'lang') || '',
+          label: getTrimmedTextContent(captionFile) || undefined,
+        }))
+        
         return {
           id: element.getAttribute('id'),
           href: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
           mimetype: element.getAttribute('mimetype'),
           mimeSubtype: element.getAttribute('mime-subtype'),
+          captions: captions.length > 0 ? captions : undefined,
         }
       },
     },
