@@ -215,6 +215,9 @@ export class JATSExporter {
       'xmlns:xlink',
       XLINK_NAMESPACE
     )
+    this.labelTargets = buildTargets(
+      manuscriptNode.descendants.bind(manuscriptNode)
+    )
     const front = this.buildFront()
     article.appendChild(front)
     article.setAttribute(
@@ -225,9 +228,6 @@ export class JATSExporter {
       XML_NAMESPACE,
       'lang',
       manuscriptNode.attrs.primaryLanguageCode || 'en'
-    )
-    this.labelTargets = buildTargets(
-      manuscriptNode.descendants.bind(manuscriptNode)
     )
     this.footnoteLabels = generateFootnoteLabels(manuscriptNode)
     const body = this.buildBody()
