@@ -45,8 +45,6 @@ const labelledNodeTypes: ManuscriptNodeType[] = [
   schema.nodes.supplement,
 ]
 
-const noLabelTypes = new Set([schema.nodes.supplement.name])
-
 const excludedTypes = [
   schema.nodes.graphical_abstract_section,
   schema.nodes.trans_graphical_abstract,
@@ -76,9 +74,6 @@ export const buildTargets = (
   }
 
   const buildLabel = (type: ManuscriptNodeType) => {
-    if (noLabelTypes.has(type.name)) {
-      return ''
-    }
     const counter = counters[type.name]
     counter.index++
     return `${counter.label} ${counter.index}`
