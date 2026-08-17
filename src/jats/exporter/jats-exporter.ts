@@ -851,19 +851,12 @@ export class JATSExporter {
         }
 
         const rid = rids[0]
-        const labelTarget = this.labelTargets.get(rid)
+        const text = cross.attrs.label || this.labelTargets.get(rid)?.label
 
         const target = findChildrenByAttr(
           this.manuscriptNode,
           (attrs) => attrs.id === rid
         )[0]?.node
-
-        const text =
-          cross.attrs.label ||
-          (target?.type === schema.nodes.supplement
-            ? labelTarget?.caption || labelTarget?.label
-            : labelTarget?.label) ||
-          ''
 
         if (!target) {
           return text ?? ''
