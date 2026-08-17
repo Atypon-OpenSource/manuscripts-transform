@@ -860,8 +860,9 @@ export class JATSExporter {
 
         const text =
           cross.attrs.label ||
-          labelTarget?.caption ||
-          labelTarget?.label ||
+          (target?.type === schema.nodes.supplement
+            ? labelTarget?.caption || labelTarget?.label
+            : labelTarget?.label) ||
           ''
 
         if (!target) {
