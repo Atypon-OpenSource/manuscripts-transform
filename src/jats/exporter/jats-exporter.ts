@@ -461,6 +461,10 @@ export class JATSExporter {
         'mime-subtype',
         node.attrs.mimeSubType ?? ''
       )
+      const target = this.labelTargets.get(node.attrs.id)
+      if (target) {
+        supplementaryMaterial.append(this.createElement('label', target.label))
+      }
       this.appendCaption(supplementaryMaterial, node)
 
       articleMeta.append(supplementaryMaterial)
@@ -854,11 +858,11 @@ export class JATSExporter {
           (attrs) => attrs.id === rid
         )[0]?.node
 
-        let text = cross.attrs.label || labelTarget?.label
-        // For supplements: label → caption → href
-        if (!text && target?.type === schema.nodes.supplement) {
-          text = labelTarget?.caption || target.attrs.href
-        }
+        const text =
+          cross.attrs.label ||
+          labelTarget?.caption ||
+          labelTarget?.label ||
+          ''
 
         if (!target) {
           return text ?? ''
