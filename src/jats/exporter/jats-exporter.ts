@@ -37,7 +37,7 @@ import {
   AffiliationNode,
   AuthorNotesNode,
   AwardNode,
-  CaptionFile,
+  ExtLink,
   CitationNode,
   ContributorNode,
   CorrespNode,
@@ -738,7 +738,7 @@ export class JATSExporter {
       attachments: () => '',
       image_element: (node) => createImage(node),
       embed: (node) => {
-        const { id, href, mimetype, mimeSubtype, captions } = node.attrs
+        const { id, href, mimetype, mimeSubtype, extLinks } = node.attrs
         if (!href) {
           return ''
         }
@@ -756,19 +756,19 @@ export class JATSExporter {
         this.appendChildNodeOfType(mediaElement, node, schema.nodes.alt_text)
         this.appendChildNodeOfType(mediaElement, node, schema.nodes.long_desc)
         this.appendCaption(mediaElement, node)
-        if (captions && captions.length > 0) {
-          captions.forEach((caption: CaptionFile) => {
-            if (caption.href) {
-              const extLink = this.createElement('ext-link')
-              extLink.setAttribute('ext-link-type', 'transcript')
-              extLink.setAttributeNS(XLINK_NAMESPACE, 'href', caption.href)
-              if (caption.lang) {
-                extLink.setAttributeNS(XML_NAMESPACE, 'lang', caption.lang)
+        if (extLinks && extLinks.length > 0) {
+          extLinks.forEach((extLink: ExtLink) => {
+            if (extLink.href) {
+              const extLinkElement = this.createElement('ext-link')
+              extLinkElement.setAttribute('ext-link-type', extLink.type)
+              extLinkElement.setAttributeNS(XLINK_NAMESPACE, 'href', extLink.href)
+              if (extLink.lang) {
+                extLinkElement.setAttributeNS(XML_NAMESPACE, 'lang', extLink.lang)
               }
-              if (caption.label) {
-                extLink.textContent = caption.label
+              if (extLink.label) {
+                extLinkElement.textContent = extLink.label
               }
-              mediaElement.appendChild(extLink)
+              mediaElement.appendChild(extLinkElement)
             }
           })
         }

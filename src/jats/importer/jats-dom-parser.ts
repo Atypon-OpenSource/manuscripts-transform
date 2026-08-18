@@ -742,8 +742,9 @@ export class JATSDOMParser {
       getAttrs: this.getFigAttrs,
     },
     {
-      tag: 'ext-link[ext-link-type="transcript"]',
-      ignore: true, // Transcript links are handled via captions attribute in media/embed
+      tag: 'ext-link',
+      context: 'embed/',
+      ignore: true, // ext-links within media are handled via extLinks attribute
     },
     {
       tag: 'ext-link',
@@ -773,21 +774,22 @@ export class JATSDOMParser {
       node: 'embed',
       getAttrs: (node) => {
         const element = node as HTMLElement
-        const captionFiles = element.querySelectorAll(
-          'ext-link[ext-link-type="transcript"]'
-        )
-        const captions = Array.from(captionFiles).map((captionFile) => ({
-          href: captionFile.getAttributeNS(XLINK_NAMESPACE, 'href') || '',
-          lang: captionFile.getAttributeNS(XML_NAMESPACE, 'lang') || '',
-          label: getTrimmedTextContent(captionFile) || undefined,
-        }))
+        const extLinkElements = element.querySelectorAll('ext-link')
+        const extLinks = Array.from(extLinkElements)
+          .map((extLinkElement) => ({
+            type: extLinkElement.getAttribute('ext-link-type') || '',
+            href: extLinkElement.getAttributeNS(XLINK_NAMESPACE, 'href') || '',
+            lang: extLinkElement.getAttributeNS(XML_NAMESPACE, 'lang') || '',
+            label: getTrimmedTextContent(extLinkElement) || undefined,
+          }))
+          .filter((extLink) => extLink.href) // Filter out entries without href
         
         return {
           id: element.getAttribute('id'),
           href: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
           mimetype: element.getAttribute('mimetype'),
           mimeSubtype: element.getAttribute('mime-subtype'),
-          captions: captions.length > 0 ? captions : undefined,
+          extLinks: extLinks.length > 0 ? extLinks : undefined,
         }
       },
     },

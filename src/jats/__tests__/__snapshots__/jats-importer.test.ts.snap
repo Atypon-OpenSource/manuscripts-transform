@@ -34167,19 +34167,21 @@ Object {
             },
             Object {
               "attrs": Object {
-                "captions": Array [
+                "dataTracked": null,
+                "extLinks": Array [
                   Object {
                     "href": "file:///suppl/video1-en.vtt",
                     "label": "English captions for Video 1",
                     "lang": "en",
+                    "type": "transcript",
                   },
                   Object {
                     "href": "file:///suppl/video1-es.vtt",
                     "label": "Spanish captions for Video 1",
                     "lang": "es",
+                    "type": "transcript",
                   },
                 ],
-                "dataTracked": null,
                 "href": "example.mp4",
                 "id": "MPEmbed:test",
                 "longDesc": "",
