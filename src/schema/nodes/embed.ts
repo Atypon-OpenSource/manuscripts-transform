@@ -18,11 +18,19 @@ import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
+export interface ExtLink {
+  type: string
+  href: string
+  lang: string
+  label?: string
+}
+
 export interface EmbedAttrs {
   id: string
   href: string
   mimetype: string
   mimeSubtype: string
+  extLinks?: ExtLink[]
 }
 
 export interface EmbedNode extends ManuscriptNode {
@@ -38,6 +46,7 @@ export const embed: NodeSpec = {
     mimetype: { default: undefined },
     mimeSubtype: { default: undefined },
     longDesc: { default: '' },
+    extLinks: { default: [] },
   },
   group: 'block element',
   toDOM: (node) => {

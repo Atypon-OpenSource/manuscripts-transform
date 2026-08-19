@@ -743,6 +743,11 @@ export class JATSDOMParser {
     },
     {
       tag: 'ext-link',
+      context: 'embed/',
+      ignore: true, // ext-links within media are handled via extLinks attribute
+    },
+    {
+      tag: 'ext-link',
       node: 'link',
       getAttrs: (node) => {
         const element = node as HTMLElement
@@ -769,11 +774,22 @@ export class JATSDOMParser {
       node: 'embed',
       getAttrs: (node) => {
         const element = node as HTMLElement
+        const extLinkElements = element.querySelectorAll('ext-link')
+        const extLinks = Array.from(extLinkElements)
+          .map((extLinkElement) => ({
+            type: extLinkElement.getAttribute('ext-link-type') || '',
+            href: extLinkElement.getAttributeNS(XLINK_NAMESPACE, 'href') || '',
+            lang: extLinkElement.getAttributeNS(XML_NAMESPACE, 'lang') || '',
+            label: getTrimmedTextContent(extLinkElement) || undefined,
+          }))
+          .filter((extLink) => extLink.href) // Filter out entries without href
+        
         return {
           id: element.getAttribute('id'),
           href: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
           mimetype: element.getAttribute('mimetype'),
           mimeSubtype: element.getAttribute('mime-subtype'),
+          extLinks: extLinks.length > 0 ? extLinks : undefined,
         }
       },
     },
