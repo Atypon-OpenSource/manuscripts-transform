@@ -182,9 +182,19 @@ const getPublicationType = (item: BibliographyItemAttrs) => {
 }
 
 const wrappers = {
-  // this is a name field, so other processing is required. See the "initJats"
-  // function for more info.
-  author: namesWrapper('author'),
+  // This is a name field, so other processing is required. See the
+  // "initJats" function for more info on name rendering.
+  //
+  // When an item has neither "author" nor "editor" data, the CSL style's
+  // author-substitute rule 
+  // falls back to rendering the item's "title" in this slot instead. In
+  // that case the string received here is the title, not a name, so it's
+  // routed through the "title" wrapper to produce the correct JATS title
+  // element instead of being mislabeled as a <person-group>.
+  author: (str: string, item: BibliographyItemAttrs) => {
+    const hasNames = item.author?.length || item.editor?.length
+    return hasNames ? namesWrapper('author')(str) : wrappers.title(str, item)
+  },
   // Unlike other date fields, where a formatted date string is wrapped in
   // a tag with the "iso-8601-date" attribute, the "issued" date components
   // are individually wrapped in year/month/day tags. For the time being,
