@@ -146,11 +146,10 @@ export const initJats = () => {
   }
 }
 
-const authorNamesWrapper = namesWrapper('author')
-
 const namesWrapper = (type: string) => (str: string) =>
   `<person-group person-group-type="${type}">${str}</person-group>`
 
+const authorNamesWrapper = namesWrapper('author')
 // Even though the CSL data model specifies a date type, citeproc-js processes
 // date fields and replaces their value with an object with the structure:
 // {
