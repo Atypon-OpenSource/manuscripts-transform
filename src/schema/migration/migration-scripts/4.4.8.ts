@@ -18,9 +18,9 @@ import { MigrationScript } from '../migration-script'
 
 const TRANS_ABSTRACT_TYPES = ['trans_abstract', 'trans_graphical_abstract']
 
-class Migration448 implements MigrationScript {
-  fromVersion = '4.4.7'
-  toVersion = '4.4.8'
+class Migration453 implements MigrationScript {
+  fromVersion = '4.5.2'
+  toVersion = '4.5.3'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     if (node.type !== 'abstracts' || !node.content) {
@@ -54,4 +54,4 @@ class Migration448 implements MigrationScript {
   }
 }
 
-export default Migration448
+export default Migration453
