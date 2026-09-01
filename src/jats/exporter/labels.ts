@@ -54,6 +54,24 @@ const chooseLabel = (nodeType: ManuscriptNodeType): string => {
   return nodeNames.get(nodeType) as string
 }
 
+const text = (node: ManuscriptNode) =>
+  node.textBetween(0, node.content.size, ' ').trim()
+
+const buildCaption = (node: ManuscriptNode): string => {
+  let title: string | undefined
+  let caption = ''
+
+  node.forEach((child) => {
+    if (child.type === schema.nodes.caption_title) {
+      title = text(child)
+    } else if (child.type === schema.nodes.caption) {
+      caption = text(child)
+    }
+  })
+
+  return title ?? caption
+}
+
 type iterator = (
   node: ManuscriptNode,
   pos: number,
@@ -97,7 +115,7 @@ export const buildTargets = (
         type: node.type.name,
         id: node.attrs.id,
         label,
-        caption: node.textBetween(0, node.content.size, ' ').trim(),
+        caption: buildCaption(node),
         ...(node.attrs.href && { href: node.attrs.href }),
         ...(node.attrs.extLink && { href: node.attrs.extLink }),
       })
