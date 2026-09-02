@@ -15,7 +15,10 @@
  */
 
 import { defaultTitle } from '../../lib/deafults'
-import { XML_NAMESPACE } from '../../lib/xml'
+import {
+  abstractTypeToCategory,
+  findMatchingCategory,
+} from '../../lib/section-categories'
 import { SectionCategory, SectionGroup } from '../../schema'
 import { htmlFromJatsNode } from './jats-parser-utils'
 
@@ -160,12 +163,7 @@ export const moveAbstracts = (
     'article-meta > abstract, article-meta > trans-abstract'
   )
   abstracts.forEach((abstract) => {
-    const sec = createAbstractSection(
-      abstract,
-      createElement,
-      sectionCategories
-    )
-    removeNodeFromParent(abstract)
+    const sec = prepareAbstract(abstract, createElement, sectionCategories)
     group.appendChild(sec)
   })
 }
@@ -259,9 +257,7 @@ const moveSpecialFootnotes = (
   const fns = [...doc.querySelectorAll('fn[fn-type]')]
   for (const fn of fns) {
     const type = fn.getAttribute('fn-type') || '' //Cannot be null since it is queried above
-    const category = sectionCategories.find((category) =>
-      category.synonyms.includes(type)
-    )
+    const category = findMatchingCategory(sectionCategories, type)
     if (category) {
       const section = createElement('sec')
       const fnTitle =
@@ -300,41 +296,29 @@ export const moveCaptionsToEnd = (body: Element) => {
   }
 }
 
-const createAbstractSection = (
+const prepareAbstract = (
   abstract: Element,
   createElement: CreateElement,
   sectionCategories?: SectionCategory[]
 ) => {
-  const abstractType = abstract.getAttribute('abstract-type')
-  const sectionType = abstractType ? `abstract-${abstractType}` : 'abstract'
-  let section = createElement('sec')
-  if (abstract.nodeName === 'trans-abstract') {
-    section = createElement('trans-abstract')
-    const lang = abstract.getAttributeNS(XML_NAMESPACE, 'lang')
-    if (lang) {
-      section.setAttributeNS(XML_NAMESPACE, 'lang', lang)
-    }
-  }
-  section.setAttribute('sec-type', sectionType)
+  const rawType = abstract.getAttribute('abstract-type')
+  const category = abstractTypeToCategory(rawType)
+
   if (!abstract.querySelector(':scope > title')) {
+    const matched =
+      sectionCategories && findMatchingCategory(sectionCategories, category)
     const title = createElement('title')
-    const category = sectionCategories?.find(
-      (c) => c.id === sectionType || c.synonyms.includes(sectionType)
-    )
-    if (category?.titles[0]) {
-      title.textContent = category.titles[0]
-    } else {
-      title.textContent = abstractType
-        ? `${capitalizeFirstLetter(abstractType.split('-').join(' '))} Abstract`
-        : 'Abstract'
-    }
-    section.appendChild(title)
+
+    title.textContent =
+      matched?.titles[0] ??
+      (rawType
+        ? `${capitalizeFirstLetter(rawType.split('-').join(' '))} Abstract`
+        : 'Abstract')
+
+    abstract.insertBefore(title, abstract.firstChild)
   }
 
-  while (abstract.firstChild) {
-    section.appendChild(abstract.firstChild)
-  }
-  return section
+  return abstract
 }
 
 const createAcknowledgmentsSection = (

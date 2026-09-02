@@ -54,6 +54,7 @@ export const nodeNames: Map<ManuscriptNodeType, string> = new Map([
   [schema.nodes.paragraph, 'Paragraph'],
   [schema.nodes.text_block, 'Paragraph'],
   [schema.nodes.section, 'Section'],
+  [schema.nodes.abstract, 'Abstract'],
   [schema.nodes.graphical_abstract_section, 'Graphical Abstract'],
   [schema.nodes.trans_abstract, 'Trans Abstract'],
   [schema.nodes.trans_graphical_abstract, 'Trans Graphical Abstract'],

@@ -15,25 +15,21 @@
  */
 
 import * as Citeproc from 'citeproc'
-import {
-  DOMOutputSpec,
-  DOMParser as ProsemirrorDOMParser,
-  DOMSerializer,
-  type NodeType,
-} from 'prosemirror-model'
+import { DOMOutputSpec, DOMSerializer, type NodeType } from 'prosemirror-model'
 import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { buildCiteprocCitation } from '../../lib/citeproc'
 import { CreditRoleUrls } from '../../lib/credit-roles'
 import { generateFootnoteLabels } from '../../lib/footnotes'
-import { nodeFromHTML } from '../../lib/html'
+import { FOOTNOTE_SECTION_CATEGORY_IDS } from '../../lib/section-categories'
 import {
   sanitizeXmlString,
   XLINK_NAMESPACE,
   XML_NAMESPACE,
 } from '../../lib/xml'
 import {
+  ActualManuscriptNode,
   AffiliationNode,
   AuthorNotesNode,
   AwardNode,
@@ -53,13 +49,11 @@ import {
   ParagraphNode,
   QuoteImageNode,
   schema,
-  TableElementFooterNode,
-  TableElementNode,
 } from '../../schema'
-import { isExecutableNodeType, isNodeType } from '../../transformer'
+import { isExecutableNodeType } from '../../transformer'
 import { IDGenerator } from '../types'
 import { initJats, jatsVariableWrapper } from './citeproc'
-import { selectVersionIds, Version } from './jats-versions'
+import { selectVersionIDs, Version } from './jats-versions'
 import { buildTargets, Target } from './labels'
 
 interface Attrs {
@@ -74,24 +68,6 @@ type MarkSpecs = {
 
 const normalizeID = (id: string) => id.replace(/:/g, '_')
 
-const parser = ProsemirrorDOMParser.fromSchema(schema)
-// siblings from https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/article-meta.html
-const insertAbstractNode = (front: Element, abstractNode: Element) => {
-  const articleMeta = front.querySelector(':scope > article-meta')
-  if (!articleMeta) {
-    return
-  }
-  const insertBeforeElement = articleMeta.querySelector(
-    'kwd-group, funding-group, support-group, conference, counts, custom-meta-group'
-  )
-
-  if (insertBeforeElement) {
-    articleMeta.insertBefore(abstractNode, insertBeforeElement)
-  } else {
-    articleMeta.appendChild(abstractNode)
-  }
-}
-
 export const createCounter = () => {
   const counts = new Map<string, number>()
 
@@ -105,7 +81,7 @@ export const createCounter = () => {
   }
 }
 
-const createDefaultIdGenerator = (): IDGenerator => {
+const createDefaultIDGenerator = (): IDGenerator => {
   const counter = createCounter()
 
   return async (element: Element) => {
@@ -129,6 +105,7 @@ const chooseRefType = (type: ManuscriptNodeType): string | undefined => {
       return 'table'
 
     case schema.nodes.section:
+    case schema.nodes.abstract:
       return 'sec'
 
     case schema.nodes.equation:
@@ -139,10 +116,6 @@ const chooseRefType = (type: ManuscriptNodeType): string | undefined => {
       return 'supplementary-material'
   }
 }
-
-const sortContributors = (a: ContributorNode, b: ContributorNode) =>
-  Number(a.attrs.priority) - Number(b.attrs.priority)
-
 export type CSLOptions = {
   style: string
   locale: string
@@ -157,10 +130,11 @@ export class JATSExporter {
   protected serializer: DOMSerializer
   protected labelTargets: Map<string, Target>
   protected footnoteLabels: Map<string, string>
-  protected manuscriptNode: ManuscriptNode
+  protected manuscriptNode: ActualManuscriptNode
   private engine: Citeproc.Engine
   private renderedCitations: Map<string, string>
   private nodesMap: Map<NodeType, ManuscriptNode[]> = new Map()
+  private contributorLabels: Map<string, number> = new Map()
 
   private populateNodesMap = () => {
     this.manuscriptNode.descendants((node) => {
@@ -189,101 +163,103 @@ export class JATSExporter {
   }
 
   public serializeToJATS = async (
-    manuscriptNode: ManuscriptNode,
+    manuscriptNode: ActualManuscriptNode,
     options: ExportOptions
   ): Promise<string> => {
     this.manuscriptNode = manuscriptNode
     this.populateNodesMap()
     this.initCiteprocEngine(options)
     this.createSerializer()
-    const versionIds = selectVersionIds(options.version ?? '1.2')
+    const versionIDs = selectVersionIDs(options.version ?? '1.2')
 
     this.document = document.implementation.createDocument(
       null,
       'article',
       document.implementation.createDocumentType(
         'article',
-        versionIds.publicId,
-        versionIds.systemId
+        versionIDs.publicID,
+        versionIDs.systemID
       )
     )
 
-    const article = this.document.documentElement
+    const $article = this.document.documentElement
 
-    article.setAttributeNS(
+    $article.setAttributeNS(
       'http://www.w3.org/2000/xmlns/',
       'xmlns:xlink',
       XLINK_NAMESPACE
-    )
-    const front = this.buildFront()
-    article.appendChild(front)
-    article.setAttribute(
-      'article-type',
-      manuscriptNode.attrs.articleType || 'other'
-    )
-    article.setAttributeNS(
-      XML_NAMESPACE,
-      'lang',
-      manuscriptNode.attrs.primaryLanguageCode || 'en'
     )
     this.labelTargets = buildTargets(
       manuscriptNode.descendants.bind(manuscriptNode)
     )
     this.footnoteLabels = generateFootnoteLabels(manuscriptNode)
-    const body = this.buildBody()
-    article.appendChild(body)
-    this.addParagraphsToSections(article)
-    const back = this.buildBack(body)
-    this.moveCoiStatementToAuthorNotes(back, front)
-    article.appendChild(back)
-    this.unwrapBody(body)
-    this.moveAbstracts(front, body)
-    this.removeBackContainer(body)
-    this.updateFootnoteTypes(front, back)
-    this.fillEmptyTableFooters(article)
-    this.fillEmptyFootnotes(article)
-    this.fillEmptyListItem(article)
-    this.moveAwards(front, body)
-    this.moveFloatsGroup(article)
+
+    const $body = this.buildBody()
+    const $back = this.buildBack()
+    this.routeBackmatterSections($body, $back)
+    const $coiStatement = this.extractCoiStatement($back)
+    $back.appendChild(this.buildRefList())
+
+    const $front = this.buildFront($coiStatement)
+    $article.appendChild($front)
+    $article.setAttribute(
+      'article-type',
+      manuscriptNode.attrs.articleType || 'other'
+    )
+    $article.setAttributeNS(
+      XML_NAMESPACE,
+      'lang',
+      manuscriptNode.attrs.primaryLanguageCode || 'en'
+    )
+    $article.appendChild($body)
+    $article.appendChild($back)
+    this.addParagraphsToSections($article)
+    this.fillEmptyTableFooters($article)
+    this.fillEmptyFootnotes($article)
+    this.fillEmptyListItem($article)
+    const $floatsGroup = this.buildFloatsGroup()
+    if ($floatsGroup) {
+      $article.appendChild($floatsGroup)
+    }
     await this.rewriteIDs()
     return serializeToXML(this.document)
   }
 
   private appendChildNodeOfType = (
-    element: HTMLElement,
+    $element: Element,
     node: ManuscriptNode,
     type: ManuscriptNodeType
   ) => {
     const childNode = this.getFirstChildOfType(type, node)
     if (childNode) {
-      element.appendChild(this.serializeNode(childNode))
+      $element.appendChild(this.serializeNode(childNode))
     }
   }
 
   private appendChildrenNodeOfType = (
-    element: HTMLElement,
+    $element: Element,
     node: ManuscriptNode,
     type: ManuscriptNodeType
   ) => {
     const children = this.getChildrenOfType(type, node)
     children.map((childNode) =>
-      element.appendChild(this.serializeNode(childNode))
+      $element.appendChild(this.serializeNode(childNode))
     )
   }
 
-  protected appendCaption = (element: HTMLElement, node: ManuscriptNode) => {
-    const caption = this.createElement('caption')
-    this.appendChildNodeOfType(caption, node, schema.nodes.caption_title)
+  protected appendCaption = ($element: Element, node: ManuscriptNode) => {
+    const $caption = this.createElement('caption')
+    this.appendChildNodeOfType($caption, node, schema.nodes.caption_title)
     const captionNode = this.getChildrenOfType(schema.nodes.caption, node)[0]
     if (captionNode && captionNode.content.size > 2) {
       this.appendChildrenNodeOfType(
-        caption,
+        $caption,
         captionNode,
         schema.nodes.text_block
       )
     }
-    if (caption.children.length > 0) {
-      element.appendChild(caption)
+    if ($caption.children.length > 0) {
+      $element.appendChild($caption)
     }
   }
   private initCiteprocEngine = (options: ExportOptions) => {
@@ -333,43 +309,36 @@ export class JATSExporter {
     this.renderedCitations = new Map(output.map((i) => [i[0], i[2]]))
   }
 
-  private nodeFromJATS = (JATSFragment: string) => {
-    JATSFragment = JATSFragment.trim()
-    JATSFragment = JATSFragment.replace('&nbsp;', ' ')
-
-    if (!JATSFragment.length) {
+  private nodeFromJATS = (fragment: string) => {
+    fragment = fragment.trim().replace('&nbsp;', ' ')
+    if (!fragment.length) {
       return null
     }
-
-    const template = this.createElement('template')
-
-    template.innerHTML = JATSFragment
-
-    return template.firstChild
+    const $template = this.createElement('template')
+    $template.innerHTML = fragment
+    return $template.firstChild
   }
 
   protected rewriteIDs = async (
-    generator: IDGenerator = createDefaultIdGenerator()
+    generator: IDGenerator = createDefaultIDGenerator()
   ) => {
     const ids = new Map<string, string | null>()
 
-    for (const element of this.document.querySelectorAll('[id]')) {
-      const oldID = element.getAttribute('id')
-      const newID = await generator(element)
-
+    for (const $element of this.document.querySelectorAll('[id]')) {
+      const oldID = $element.getAttribute('id')
+      const newID = await generator($element)
       if (newID) {
-        element.setAttribute('id', newID)
+        $element.setAttribute('id', newID)
       } else {
-        element.removeAttribute('id')
+        $element.removeAttribute('id')
       }
-
       if (oldID) {
         ids.set(oldID, newID)
       }
     }
 
-    for (const node of this.document.querySelectorAll('[rid]')) {
-      const rids = node.getAttribute('rid')
+    for (const $node of this.document.querySelectorAll('[rid]')) {
+      const rids = $node.getAttribute('rid')
 
       if (rids) {
         const newRids = rids
@@ -379,198 +348,151 @@ export class JATSExporter {
           .filter(Boolean)
 
         if (newRids.length) {
-          node.setAttribute('rid', newRids.join(' '))
+          $node.setAttribute('rid', newRids.join(' '))
         }
       }
     }
   }
 
-  protected setTitleContent = (element: HTMLElement, title: string) => {
-    const htmlTitleNode = nodeFromHTML(`<h1>${title}</h1>`)
+  protected buildFront = ($coiStatement?: Element) => {
+    const $front = this.createElement('front')
+    const $articleMeta = this.createElement('article-meta')
+    $front.appendChild($articleMeta)
 
-    if (htmlTitleNode) {
-      // TODO: parse and serialize with title schema
-      const titleNode = parser.parse(htmlTitleNode, {
-        topNode: schema.nodes.section_title.create(),
-      })
+    const contributors = this.getChildrenOfType<ContributorNode>(
+      schema.nodes.contributor
+    ).sort((a, b) => Number(a.attrs.priority) - Number(b.attrs.priority))
+    this.contributorLabels = this.computeContributorLabels(contributors)
+    const $frontNodes = [
+      this.buildArticleID(),
+      this.buildTitleGroup(),
+      this.buildContributorGroup(contributors),
+      this.buildAuthorNotes($coiStatement),
+      this.buildSupplements(),
+      this.buildHistory(),
+      this.buildSelfUris(),
+      this.buildAbstracts(),
+      this.buildKeywords(),
+      this.buildAwards(),
+      this.buildCounts(),
+    ]
 
-      const jatsTitleNode = this.serializeNode(titleNode)
+    $frontNodes.forEach(($nodes) => this.appendChildren($articleMeta, $nodes))
+    return $front
+  }
 
-      while (jatsTitleNode.firstChild) {
-        element.appendChild(jatsTitleNode.firstChild)
-      }
+  private appendChildren = (
+    $parent: Element,
+    $elements?: Node | Node[] | null
+  ) => {
+    if (!$elements) {
+      return
+    }
+    const list = Array.isArray($elements) ? $elements : [$elements]
+    list.forEach(($element) => $parent.appendChild($element))
+  }
+
+  private buildArticleID = (): Element | undefined => {
+    if (this.manuscriptNode.attrs.doi) {
+      const $articleID = this.createElement('article-id')
+      $articleID.setAttribute('pub-id-type', 'doi')
+      $articleID.textContent = this.manuscriptNode.attrs.doi
+      return $articleID
     }
   }
 
-  protected buildFront = () => {
-    // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/front.html
-    const front = this.createElement('front')
-
-    // https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/article-meta.html
-    const articleMeta = this.createElement('article-meta')
-    front.appendChild(articleMeta)
-
-    if (this.manuscriptNode.attrs.doi) {
-      const articleID = this.createElement('article-id')
-      articleID.setAttribute('pub-id-type', 'doi')
-      // @ts-ignore
-      articleID.textContent = this.manuscriptNode.attrs.doi
-      articleMeta.appendChild(articleID)
-    }
-
-    const titleGroup = this.createElement('title-group')
+  private buildTitleGroup = (): Element => {
+    const $titleGroup = this.createElement('title-group')
 
     const titleNode = this.getFirstChildOfType(schema.nodes.title)
-
     if (titleNode) {
-      const element = this.createElement('article-title')
-      this.setTitleContent(element, titleNode.textContent)
-      titleGroup.appendChild(element)
+      $titleGroup.appendChild(this.serializeNode(titleNode))
     }
 
-    const subtitlesNodes = this.getChildrenOfType(schema.nodes.subtitle)
-    subtitlesNodes.forEach((subtitleNode) => {
-      const element = this.createElement('subtitle')
-      this.setTitleContent(element, subtitleNode.textContent)
-      titleGroup.appendChild(element)
-    })
-
-    const altTitlesNodes = this.getChildrenOfType(schema.nodes.alt_title)
-
-    altTitlesNodes.forEach((titleNode) => {
-      const element = this.createElement('alt-title')
-      element.setAttribute('alt-title-type', titleNode.attrs.type)
-      this.setTitleContent(element, titleNode.textContent)
-      titleGroup.appendChild(element)
-    })
-
-    articleMeta.appendChild(titleGroup)
-    this.buildContributors(articleMeta)
-
-    const supplementsNodes = this.getChildrenOfType(schema.nodes.supplement)
-    supplementsNodes.forEach((node) => {
-      const supplementaryMaterial = this.createElement('supplementary-material')
-      supplementaryMaterial.setAttribute('id', normalizeID(node.attrs.id))
-      supplementaryMaterial.setAttributeNS(
-        XLINK_NAMESPACE,
-        'href',
-        node.attrs.href ?? ''
-      )
-      supplementaryMaterial.setAttribute('mimetype', node.attrs.mimeType ?? '')
-      supplementaryMaterial.setAttribute(
-        'mime-subtype',
-        node.attrs.mimeSubType ?? ''
-      )
-      this.appendCaption(supplementaryMaterial, node)
-
-      articleMeta.append(supplementaryMaterial)
-    })
-
-    const history =
-      articleMeta.querySelector('history') || this.createElement('history')
-
-    if (this.manuscriptNode.attrs.acceptanceDate) {
-      const date = this.buildDateElement(
-        this.manuscriptNode.attrs.acceptanceDate,
-        'accepted'
-      )
-      history.appendChild(date)
-    }
-    if (this.manuscriptNode.attrs.correctionDate) {
-      const date = this.buildDateElement(
-        this.manuscriptNode.attrs.correctionDate,
-        'corrected'
-      )
-      history.appendChild(date)
-    }
-    if (this.manuscriptNode.attrs.retractionDate) {
-      const date = this.buildDateElement(
-        this.manuscriptNode.attrs.retractionDate,
-        'retracted'
-      )
-      history.appendChild(date)
-    }
-    if (this.manuscriptNode.attrs.receiveDate) {
-      const date = this.buildDateElement(
-        this.manuscriptNode.attrs.receiveDate,
-        'received'
-      )
-      history.appendChild(date)
-    }
-    if (this.manuscriptNode.attrs.revisionReceiveDate) {
-      const date = this.buildDateElement(
-        this.manuscriptNode.attrs.revisionReceiveDate,
-        'rev-recd'
-      )
-      history.appendChild(date)
-    }
-    if (this.manuscriptNode.attrs.revisionRequestDate) {
-      const date = this.buildDateElement(
-        this.manuscriptNode.attrs.revisionRequestDate,
-        'rev-request'
-      )
-      history.appendChild(date)
-    }
-
-    if (history.childElementCount) {
-      articleMeta.appendChild(history)
-    }
-
-    this.buildKeywords(articleMeta)
-
-    let countingElements = []
-    const figureCount = this.getChildrenOfType(schema.nodes.figure).length
-    countingElements.push(this.buildCountingElement('fig-count', figureCount))
-
-    const tableCount = this.getChildrenOfType(schema.nodes.table).length
-    countingElements.push(this.buildCountingElement('table-count', tableCount))
-
-    const equationCount = this.getChildrenOfType(
-      schema.nodes.equation_element
-    ).length
-    countingElements.push(
-      this.buildCountingElement('equation-count', equationCount)
+    this.getChildrenOfType(schema.nodes.subtitle).forEach((node) =>
+      $titleGroup.appendChild(this.serializeNode(node))
     )
 
-    const referencesCount = this.getChildrenOfType(
-      schema.nodes.bibliography_item
-    ).length
-    countingElements.push(
-      this.buildCountingElement('ref-count', referencesCount)
+    this.getChildrenOfType(schema.nodes.alt_title).forEach((node) =>
+      $titleGroup.appendChild(this.serializeNode(node))
     )
 
-    //todo: is this correct?
-    const wordCount = this.manuscriptNode.textContent.split(/\s+/).length
-    countingElements.push(this.buildCountingElement('word-count', wordCount))
-
-    countingElements = countingElements.filter((el) => el) as Array<HTMLElement>
-    if (countingElements.length > 0) {
-      const counts = this.createElement('counts')
-      counts.append(...countingElements)
-      articleMeta.append(counts)
-    }
-
-    const attachments = this.getChildrenOfType(schema.nodes.attachment)
-
-    attachments.forEach((attachment) => {
-      const $selfUri = this.createElement('self-uri')
-      $selfUri.setAttribute('content-type', attachment.attrs.type)
-      $selfUri.setAttributeNS(XLINK_NAMESPACE, 'href', attachment.attrs.href)
-      const insertBeforeElements = articleMeta.querySelector(
-        'related-article, related-object, abstract, trans-abstract, kwd-group, funding-group, support-group, conference, counts, custom-meta-group'
-      )
-      insertBeforeElements
-        ? articleMeta.insertBefore($selfUri, insertBeforeElements)
-        : articleMeta.appendChild($selfUri)
-    })
-
-    return front
+    return $titleGroup
   }
 
-  protected buildDateElement = (timestamp: number, type: string) => {
-    const dateElement = this.createElement('date')
+  private buildSupplements = () =>
+    this.getChildrenOfType(schema.nodes.supplement).map((node) =>
+      this.serializeNode(node)
+    )
 
-    dateElement.setAttribute('date-type', type)
+  private buildHistory = () => {
+    const $history = this.createElement('history')
+    const dates = new Map([
+      ['accepted', this.manuscriptNode.attrs.acceptanceDate],
+      ['corrected', this.manuscriptNode.attrs.correctionDate],
+      ['retracted', this.manuscriptNode.attrs.retractionDate],
+      ['received', this.manuscriptNode.attrs.receiveDate],
+      ['rev-recd', this.manuscriptNode.attrs.revisionReceiveDate],
+      ['rev-request', this.manuscriptNode.attrs.revisionRequestDate],
+    ])
+
+    dates.forEach((val, key) => {
+      if (val) {
+        $history.appendChild(this.buildDateElement(val, key))
+      }
+    })
+
+    if ($history.childElementCount) {
+      return $history
+    }
+  }
+
+  private buildCounts = () => {
+    const $counts = this.createElement('counts')
+    const counts = new Map([
+      ['fig-count', this.getChildrenOfType(schema.nodes.figure).length],
+      ['table-count', this.getChildrenOfType(schema.nodes.table).length],
+      [
+        'equation-count',
+        this.getChildrenOfType(schema.nodes.equation_element).length,
+      ],
+      [
+        'ref-count',
+        this.getChildrenOfType(schema.nodes.bibliography_item).length,
+      ],
+      ['word-count', this.manuscriptNode.textContent.split(/\s+/).length],
+    ])
+
+    counts.forEach((val, key) => {
+      if (val) {
+        $counts.appendChild(
+          this.createElement(key, undefined, { count: String(val) })
+        )
+      }
+    })
+
+    if ($counts.childElementCount) {
+      return $counts
+    }
+  }
+
+  private buildAwards = () => {
+    const awards = this.getFirstChildOfType(schema.nodes.awards)
+    if (!awards || !awards.childCount) {
+      return
+    }
+    return this.serializeNode(awards)
+  }
+
+  private buildSelfUris = () =>
+    this.getChildrenOfType(schema.nodes.attachment).map((attachment) =>
+      this.serializeNode(attachment)
+    )
+
+  protected buildDateElement = (timestamp: number, type: string) => {
+    const $date = this.createElement('date')
+
+    $date.setAttribute('date-type', type)
 
     const date = new Date(timestamp * 1000) // s => ms
     const lookup = {
@@ -580,160 +502,192 @@ export class JATSExporter {
     }
 
     for (const [key, value] of Object.entries(lookup).reverse()) {
-      const el = this.createElement(key)
-      el.textContent = value
-      dateElement.appendChild(el)
+      const $datePart = this.createElement(key, value)
+      $date.appendChild($datePart)
     }
 
-    return dateElement
+    return $date
   }
-  protected buildCountingElement = (
-    tagName: string,
-    count: number | undefined
-  ) => {
-    if (count) {
-      const wordCount = this.createElement(tagName)
-      wordCount.setAttribute('count', String(count))
-      return wordCount
-    }
-  }
+
   protected buildBody = () => {
-    const body = this.createElement('body')
-    this.manuscriptNode.forEach((cFragment) => {
-      const serializedNode = this.serializeNode(cFragment)
-      body.append(...serializedNode.childNodes)
+    const body = this.getFirstChildOfType(schema.nodes.body)
+    const $body = this.createElement('body')
+    body?.forEach((node) => {
+      $body.appendChild(this.serializeNode(node))
     })
-    this.fixBody(body)
-
-    return body
+    return $body
   }
 
-  protected buildBack = (body: HTMLElement) => {
-    const back = this.createElement('back')
-    this.moveSectionsToBack(back, body)
+  protected buildBack = () => {
+    const backmatter = this.getFirstChildOfType(schema.nodes.backmatter)
+    const $back = this.createElement('back')
+    backmatter?.forEach((node) => {
+      $back.appendChild(this.serializeNode(node))
+    })
+    return $back
+  }
 
-    // footnotes elements in footnotes section (i.e. not in table footer)
-    const footnotesElements = this.document.querySelectorAll('sec > fn-group')
-
-    for (const footnotesElement of footnotesElements) {
-      // move fn-group from body to back
-      const previousParent = footnotesElement.parentElement
-      back.appendChild(footnotesElement)
-
-      if (previousParent) {
-        const title = previousParent.querySelector('title')
-        if (title) {
-          footnotesElement.insertBefore(
-            title,
-            footnotesElement.firstElementChild
-          )
-        }
-        if (!previousParent.childElementCount) {
-          previousParent.remove()
-        }
+  private findSection = (category: string, ...$roots: Element[]) => {
+    for (const $root of $roots) {
+      const $match = $root.querySelector(`sec[sec-type="${category}"]`)
+      if ($match) {
+        return $match
       }
     }
-    // bibliography element
-    let refList = this.document.querySelector('ref-list')
-    if (!refList) {
-      refList = this.createElement('ref-list')
+  }
+
+  private findSections = (category: string, ...$roots: Element[]) =>
+    $roots.flatMap(($root) =>
+      Array.from($root.querySelectorAll<Element>(`sec[sec-type="${category}"]`))
+    )
+
+  private routeBackmatterSections = ($body: Element, $back: Element) => {
+    const $footnoteSections = FOOTNOTE_SECTION_CATEGORY_IDS.flatMap(
+      (category) =>
+        this.findSections(category, $body, $back).map(($section) => ({
+          $section,
+          category,
+        }))
+    )
+    let $fnGroup: Element | undefined
+    if ($footnoteSections.length) {
+      $fnGroup = this.createElement('fn-group')
+      for (const { $section, category } of $footnoteSections) {
+        $fnGroup.appendChild(this.sectionToFootnote($section, category))
+      }
     }
 
-    // move ref-list from body to back
-    back.appendChild(refList)
+    const $appendices = this.findSections('appendices', $body, $back)
+    let $appGroup: Element | undefined
+    if ($appendices.length) {
+      $appGroup = this.createElement('app-group')
+      for (const $section of $appendices) {
+        const $app = this.createElement('app')
+        $app.appendChild($section)
+        $appGroup.appendChild($app)
+      }
+    }
+
+    const $ackSection = this.findSection('acknowledgements', $body, $back)
+    let $ack: Element | undefined
+    if ($ackSection) {
+      $ack = this.createElement('ack')
+      $ack.append(...$ackSection.childNodes)
+      $ackSection.remove()
+    }
+
+    const $availabilitySection = this.findSection('availability', $body, $back)
+    const $ethicsSection = this.findSection('ethics-statement', $body, $back)
+
+    const $prepend = [
+      $appGroup,
+      $ack,
+      $availabilitySection,
+      $ethicsSection,
+      $fnGroup,
+    ].filter((el): el is Element => el != null)
+
+    if ($prepend.length) {
+      $back.prepend(...$prepend)
+    }
+  }
+
+  private extractCoiStatement = ($back: Element) => {
+    const $coiStatement = $back.querySelector<Element>(
+      'fn[fn-type="coi-statement"]'
+    )
+    if (!$coiStatement) {
+      return undefined
+    }
+
+    const $fnGroup = $coiStatement.parentElement
+    $coiStatement.remove()
+
+    if ($fnGroup && !$fnGroup.hasChildNodes()) {
+      $fnGroup.remove()
+    }
+
+    return $coiStatement
+  }
+
+  private buildRefList = () => {
+    const $refList = this.createElement('ref-list')
+    const [, bibliography] = this.engine.makeBibliography()
     const parser = new DOMParser()
-    //eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [_, bibliography] = this.engine.makeBibliography()
-
-    for (let i = 0; i < bibliography.length; i++) {
-      const item = `<template xmlns:xlink="${XLINK_NAMESPACE}">${sanitizeXmlString(bibliography[i])}</template>`
-      const ref = parser.parseFromString(item, 'text/xml').querySelector('ref')
-      if (ref) {
-        refList.appendChild(ref)
+    bibliography.forEach((item) => {
+      const fragment = `<template xmlns:xlink="${XLINK_NAMESPACE}">${sanitizeXmlString(
+        item
+      )}</template>`
+      const $ref = parser
+        .parseFromString(fragment, 'text/xml')
+        .querySelector('ref')
+      if ($ref) {
+        $refList.appendChild($ref)
       }
-    }
-
-    return back
+    })
+    return $refList
   }
 
-  //@TODO: part of the export cleanup: check if we can use this elsewhere, maybe we can use strategy pattern for each element to have its own creator.
   private createElement = (
     tag: string,
     content?: string,
     attrs?: Record<string, string | undefined>
   ) => {
-    const el = this.document.createElement(tag)
+    const $element = this.document.createElement(tag)
     if (content) {
-      el.textContent = content
+      $element.textContent = content
     }
     if (attrs) {
       Object.entries(attrs).forEach(([k, v]) => {
         if (v) {
-          el.setAttribute(k, v)
+          $element.setAttribute(k, v)
         }
       })
     }
-    return el
+    return $element
   }
 
   private appendElement = (
-    parent: HTMLElement,
+    $parent: Element,
     tag: string,
     content?: string,
     attrs?: Record<string, string | undefined>
   ) => {
-    const el = this.createElement(tag, content, attrs)
-    parent.appendChild(el)
-    return el
+    const $element = this.createElement(tag, content, attrs)
+    $parent.appendChild($element)
+    return $element
   }
 
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
-      trans_abstract: (node) => {
-        const attrs: { [key: string]: string } = {
-          id: normalizeID(node.attrs.id),
-        }
-        if (node.attrs.lang) {
-          attrs[`${XML_NAMESPACE} lang`] = node.attrs.lang
-        }
-        if (node.attrs.category) {
-          attrs['sec-type'] = node.attrs.category
-        }
-        return ['trans-abstract', attrs, 0]
-      },
-      trans_graphical_abstract: (node) => {
-        const attrs: { [key: string]: string } = {
-          id: normalizeID(node.attrs.id),
-        }
-        if (node.attrs.lang) {
-          attrs[`${XML_NAMESPACE} lang`] = node.attrs.lang
-        }
-        if (node.attrs.category) {
-          attrs['sec-type'] = node.attrs.category
-        }
-        return ['trans-abstract', attrs, 0]
-      },
+      trans_abstract: (node) => createTransAbstract(node),
+      trans_graphical_abstract: (node) => createTransAbstract(node),
       hero_image: () => '',
       headshot_grid: () => ['p', { 'content-type': 'headshots' }, 0],
       headshot_element: (node) => createImage(node),
       headshot_image: () => '',
       alt_text: (node) => {
         if (node.textContent) {
-          const altText = this.createElement('alt-text')
-          altText.textContent = node.textContent
-          return altText
+          const $altText = this.createElement('alt-text')
+          $altText.textContent = node.textContent
+          return $altText
         }
         return ''
       },
       long_desc: (node) => {
         if (node.textContent) {
-          const longDesc = this.createElement('long-desc')
-          longDesc.textContent = node.textContent
-          return longDesc
+          const $longDesc = this.createElement('long-desc')
+          $longDesc.textContent = node.textContent
+          return $longDesc
         }
         return ''
       },
-      attachment: () => '',
+      attachment: (node) => {
+        const $selfUri = this.createElement('self-uri')
+        $selfUri.setAttribute('content-type', node.attrs.type)
+        $selfUri.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
+        return $selfUri
+      },
       attachments: () => '',
       image_element: (node) => createImage(node),
       embed: (node) => {
@@ -741,52 +695,56 @@ export class JATSExporter {
         if (!href) {
           return ''
         }
-        const mediaElement = this.createElement('media')
-        mediaElement.setAttribute('id', normalizeID(id))
-        mediaElement.setAttributeNS(XLINK_NAMESPACE, 'show', 'embed')
-        mediaElement.setAttributeNS(XLINK_NAMESPACE, 'href', href)
+        const $media = this.createElement('media')
+        $media.setAttribute('id', normalizeID(id))
+        $media.setAttributeNS(XLINK_NAMESPACE, 'show', 'embed')
+        $media.setAttributeNS(XLINK_NAMESPACE, 'href', href)
         if (mimetype) {
-          mediaElement.setAttribute('mimetype', node.attrs.mimetype)
+          $media.setAttribute('mimetype', node.attrs.mimetype)
         }
         if (mimeSubtype) {
-          mediaElement.setAttribute('mime-subtype', node.attrs.mimeSubtype)
+          $media.setAttribute('mime-subtype', node.attrs.mimeSubtype)
         }
-        appendLabels(mediaElement, node)
-        this.appendChildNodeOfType(mediaElement, node, schema.nodes.alt_text)
-        this.appendChildNodeOfType(mediaElement, node, schema.nodes.long_desc)
-        this.appendCaption(mediaElement, node)
-        return mediaElement
+        appendLabels($media, node)
+        this.appendChildNodeOfType($media, node, schema.nodes.alt_text)
+        this.appendChildNodeOfType($media, node, schema.nodes.long_desc)
+        this.appendCaption($media, node)
+        return $media
       },
       awards: () => ['funding-group', 0],
       award: (node) => {
         const awardGroup = node as AwardNode
-        const awardGroupElement = this.createElement('award-group')
-        awardGroupElement.setAttribute('id', normalizeID(awardGroup.attrs.id))
+        const $awardGroup = this.createElement('award-group')
+        $awardGroup.setAttribute('id', normalizeID(awardGroup.attrs.id))
         appendChildIfPresent(
-          awardGroupElement,
+          $awardGroup,
           'funding-source',
           awardGroup.attrs.source
         )
         awardGroup.attrs.code
           ?.split(';')
           .forEach((code) =>
-            appendChildIfPresent(awardGroupElement, 'award-id', code)
+            appendChildIfPresent($awardGroup, 'award-id', code)
           )
         appendChildIfPresent(
-          awardGroupElement,
+          $awardGroup,
           'principal-award-recipient',
           awardGroup.attrs.recipient
         )
 
-        return awardGroupElement
+        return $awardGroup
       },
       box_element: (node) => createBoxElement(node),
       author_notes: () => '',
       corresp: () => '',
-      title: () => '',
-      alt_title: () => '',
+      title: () => ['article-title', 0],
+      alt_title: (node) => [
+        'alt-title',
+        { 'alt-title-type': node.attrs.type },
+        0,
+      ],
       alt_titles: () => '',
-      subtitle: () => '',
+      subtitle: () => ['subtitle', 0],
       subtitles: () => '',
       text_block: (node) => nodes.paragraph(node),
       affiliations: () => '',
@@ -795,17 +753,45 @@ export class JATSExporter {
         node.childCount == 0
           ? ['table-wrap-foot', ['fn-group', ['fn', ['p']]]]
           : ['table-wrap-foot', 0],
-      contributor: () => '',
-      affiliation: () => '',
+      contributor: (node) =>
+        this.buildContributorElement(node as ContributorNode),
+      affiliation: (node) =>
+        this.buildAffiliationElement(node as AffiliationNode),
       attribution: () => ['attrib', 0],
       bibliography_element: () => '',
       bibliography_item: () => '',
       comments: () => '',
-      keyword_group: () => '',
+      keyword_group: (node) => {
+        const attrs: { [key: string]: string } = {}
+        if (node.attrs.type) {
+          attrs['kwd-group-type'] = node.attrs.type
+        }
+        return ['kwd-group', attrs, 0]
+      },
       body: () => ['body', 0],
       abstracts: () => ['abstract', 0],
       backmatter: () => ['backmatter', 0],
-      supplement: () => '',
+      supplement: (node) => {
+        const $supplementaryMaterial = this.createElement(
+          'supplementary-material'
+        )
+        $supplementaryMaterial.setAttribute('id', normalizeID(node.attrs.id))
+        $supplementaryMaterial.setAttributeNS(
+          XLINK_NAMESPACE,
+          'href',
+          node.attrs.href ?? ''
+        )
+        $supplementaryMaterial.setAttribute(
+          'mimetype',
+          node.attrs.mimeType ?? ''
+        )
+        $supplementaryMaterial.setAttribute(
+          'mime-subtype',
+          node.attrs.mimeSubType ?? ''
+        )
+        this.appendCaption($supplementaryMaterial, node)
+        return $supplementaryMaterial
+      },
       supplements: () => '',
       bibliography_section: () => '',
       blockquote_element: () => ['disp-quote', { 'content-type': 'quote' }, 0],
@@ -830,14 +816,14 @@ export class JATSExporter {
           return ''
         }
 
-        const xref = this.createElement('xref')
-        xref.setAttribute('ref-type', 'bibr')
-        xref.setAttribute('rid', normalizeID(rids.join(' ')))
+        const $xref = this.createElement('xref')
+        $xref.setAttribute('ref-type', 'bibr')
+        $xref.setAttribute('rid', normalizeID(rids.join(' ')))
         const fragment = this.renderedCitations.get(node.attrs.id)
         if (fragment) {
-          xref.innerHTML = fragment
+          $xref.innerHTML = fragment
         }
-        return xref
+        return $xref
       },
       cross_reference: (node) => {
         const cross = node as CrossReferenceNode
@@ -857,43 +843,44 @@ export class JATSExporter {
           return text ?? ''
         }
 
-        const xref = this.createElement('xref')
+        const $xref = this.createElement('xref')
 
         const type = chooseRefType(target.type)
         if (type) {
-          xref.setAttribute('ref-type', type)
+          $xref.setAttribute('ref-type', type)
         }
 
-        xref.setAttribute('rid', normalizeID(rids.join(' ')))
-        xref.textContent = text ?? ''
+        $xref.setAttribute('rid', normalizeID(rids.join(' ')))
+        $xref.textContent = text ?? ''
 
-        return xref
+        return $xref
       },
       doc: () => '',
       equation: (node) => {
         return node.attrs.contents ? this.createEquation(node) : ''
       },
       general_table_footnote: (node) => {
-        const el = this.createElement('general-table-footnote')
-        el.setAttribute('id', normalizeID(node.attrs.id))
-        processChildNodes(el, node, schema.nodes.general_table_footnote)
-        return el
+        const $fragment = this.document.createDocumentFragment()
+        node.forEach((child) => {
+          $fragment.appendChild(this.serializeNode(child))
+        })
+        return $fragment
       },
       inline_equation: (node) => {
         if (!node.attrs.contents) {
           return ''
         }
-        const eqElement = this.createElement('inline-formula')
+        const $inlineFormula = this.createElement('inline-formula')
         const equation = this.createEquation(node, true)
-        eqElement.append(equation)
-        return eqElement
+        $inlineFormula.append(equation)
+        return $inlineFormula
       },
       equation_element: (node) => {
-        const eqElement = this.createElement('disp-formula')
-        eqElement.setAttribute('id', normalizeID(node.attrs.id))
-        appendLabels(eqElement, node)
-        processChildNodes(eqElement, node, schema.nodes.equation)
-        return eqElement
+        const $dispFormula = this.createElement('disp-formula')
+        $dispFormula.setAttribute('id', normalizeID(node.attrs.id))
+        appendLabels($dispFormula, node)
+        processChildNodes($dispFormula, node, schema.nodes.equation)
+        return $dispFormula
       },
       figure: (node) => createGraphic(node),
       figure_element: (node) =>
@@ -914,26 +901,44 @@ export class JATSExporter {
           ? ['fn-group', { id: normalizeID(node.attrs.id) }, ['fn', ['p']]]
           : ['fn-group', { id: normalizeID(node.attrs.id) }, 0],
       footnotes_section: (node) => {
-        const attrs: { [key: string]: string } = {
+        const $fnGroup = this.createElement('fn-group', undefined, {
           id: normalizeID(node.attrs.id),
-          'sec-type': 'endnotes', // chooseSecType(node.attrs.category),
+        })
+        const titleNode = this.getFirstChildOfType(
+          schema.nodes.section_title,
+          node
+        )
+        if (titleNode) {
+          $fnGroup.appendChild(this.serializeNode(titleNode))
         }
-
-        return ['sec', attrs, 0]
+        const footnotesNode = this.getFirstChildOfType(
+          schema.nodes.footnotes_element,
+          node
+        )
+        if (footnotesNode?.childCount) {
+          footnotesNode.forEach((footnote) => {
+            $fnGroup.appendChild(this.serializeNode(footnote))
+          })
+        } else {
+          const $fn = this.createElement('fn')
+          $fn.appendChild(this.createElement('p'))
+          $fnGroup.appendChild($fn)
+        }
+        return $fnGroup
       },
       hard_break: () => '',
       highlight_marker: () => '',
       inline_footnote: (node) => {
         const rids: string[] = node.attrs.rids
-        const xref = this.createElement('xref')
-        xref.setAttribute('ref-type', 'fn')
-        xref.setAttribute('rid', normalizeID(rids.join(' ')))
-        xref.textContent = rids
+        const $xref = this.createElement('xref')
+        $xref.setAttribute('ref-type', 'fn')
+        $xref.setAttribute('rid', normalizeID(rids.join(' ')))
+        $xref.textContent = rids
           .map((rid) => this.footnoteLabels.get(rid))
           .join(', ')
-        return xref
+        return $xref
       },
-      keyword: () => '',
+      keyword: () => ['kwd', 0],
       keywords_element: () => '',
       keywords: () => '',
       link: (node) => {
@@ -947,38 +952,38 @@ export class JATSExporter {
           return text
         }
 
-        const linkNode = this.createElement('ext-link')
-        linkNode.setAttribute('ext-link-type', 'uri')
-        linkNode.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
-        linkNode.textContent = text
+        const $extLink = this.createElement('ext-link')
+        $extLink.setAttribute('ext-link-type', 'uri')
+        $extLink.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.href)
+        $extLink.textContent = text
 
         if (node.attrs.title) {
-          linkNode.setAttributeNS(
+          $extLink.setAttributeNS(
             XLINK_NAMESPACE,
             'xlink:title',
             node.attrs.title
           )
         }
 
-        return linkNode
+        return $extLink
       },
       list_item: () => ['list-item', 0],
       listing: (node) => {
-        const code = this.createElement('code')
-        code.setAttribute('id', normalizeID(node.attrs.id))
-        code.setAttribute('language', node.attrs.languageKey)
-        code.textContent = node.attrs.contents
+        const $code = this.createElement('code')
+        $code.setAttribute('id', normalizeID(node.attrs.id))
+        $code.setAttribute('language', node.attrs.languageKey)
+        $code.textContent = node.attrs.contents
 
-        return code
+        return $code
       },
       listing_element: (node) =>
         createFigureElement(node, node.type.schema.nodes.listing),
       manuscript: (node) => ['article', { id: normalizeID(node.attrs.id) }, 0],
       missing_figure: () => {
-        const graphic = this.createElement('graphic')
-        graphic.setAttribute('specific-use', 'MISSING')
-        graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', '')
-        return graphic
+        const $graphic = this.createElement('graphic')
+        $graphic.setAttribute('specific-use', 'MISSING')
+        $graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', '')
+        return $graphic
       },
       paragraph: (node) => {
         if (!node.childCount) {
@@ -1017,15 +1022,7 @@ export class JATSExporter {
         }
         return ''
       },
-      graphical_abstract_section: (node) => {
-        const attrs: { [key: string]: string } = {
-          id: normalizeID(node.attrs.id),
-        }
-        if (node.attrs.category) {
-          attrs['sec-type'] = node.attrs.category
-        }
-        return ['sec', attrs, 0]
-      },
+      graphical_abstract_section: (node) => createAbstract(node),
       section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
@@ -1037,17 +1034,18 @@ export class JATSExporter {
 
         return ['sec', attrs, 0]
       },
+      abstract: (node) => createAbstract(node),
       section_label: () => ['label', 0],
       section_title: () => ['title', 0],
       section_title_plain: () => ['title', 0],
       table: (node) => ['table', { id: normalizeID(node.attrs.id) }, 0],
       table_element: (node) => {
-        const element = createTableElement(node)
-        element.setAttribute('position', 'anchor')
+        const $tableWrap = createTableElement(node)
+        $tableWrap.setAttribute('position', 'anchor')
         if (node.attrs.type) {
-          element.setAttribute('content-type', node.attrs.type)
+          $tableWrap.setAttribute('content-type', node.attrs.type)
         }
-        return element
+        return $tableWrap
       },
       table_cell: (node) => [
         'td',
@@ -1097,60 +1095,60 @@ export class JATSExporter {
 
     this.serializer = new DOMSerializer(nodes, marks)
     const appendChildIfPresent = (
-      parent: Element,
+      $parent: Element,
       tagName: string,
       textContent: string
     ) => {
       if (!textContent) {
         return
       }
-      const element = this.createElement(tagName)
-      element.textContent = textContent
-      parent.appendChild(element)
+      const $element = this.createElement(tagName)
+      $element.textContent = textContent
+      $parent.appendChild($element)
     }
     const processChildNodes = (
-      element: HTMLElement,
+      $element: Element,
       node: ManuscriptNode,
       contentNodeType: ManuscriptNodeType
     ) => {
       node.forEach((childNode) => {
         if (childNode.type === contentNodeType) {
           if (childNode.attrs.id) {
-            element.appendChild(this.serializeNode(childNode))
+            $element.appendChild(this.serializeNode(childNode))
           }
         } else if (childNode.type === node.type.schema.nodes.paragraph) {
-          element.appendChild(this.serializeNode(childNode))
+          $element.appendChild(this.serializeNode(childNode))
         } else if (childNode.type === node.type.schema.nodes.missing_figure) {
-          element.appendChild(this.serializeNode(childNode))
+          $element.appendChild(this.serializeNode(childNode))
         }
       })
     }
     const createElement = (node: ManuscriptNode, nodeName: string) => {
-      const element = this.createElement(nodeName)
-      element.setAttribute('id', normalizeID(node.attrs.id))
-      return element
+      const $element = this.createElement(nodeName)
+      $element.setAttribute('id', normalizeID(node.attrs.id))
+      return $element
     }
 
-    const appendLabels = (element: HTMLElement, node: ManuscriptNode) => {
+    const appendLabels = ($element: Element, node: ManuscriptNode) => {
       if (this.labelTargets) {
         const target = this.labelTargets.get(node.attrs.id)
 
         if (target) {
-          const label = this.createElement('label')
-          label.textContent = target.label
-          element.appendChild(label)
+          const $label = this.createElement('label')
+          $label.textContent = target.label
+          $element.appendChild($label)
         }
       }
     }
-    const appendAttributions = (element: HTMLElement, node: ManuscriptNode) => {
+    const appendAttributions = ($element: Element, node: ManuscriptNode) => {
       if (node.attrs.attribution) {
-        const attribution = this.createElement('attrib')
-        attribution.textContent = node.attrs.attribution.literal
-        element.appendChild(attribution)
+        const $attrib = this.createElement('attrib')
+        $attrib.textContent = node.attrs.attribution.literal
+        $element.appendChild($attrib)
       }
     }
 
-    const appendTable = (element: HTMLElement, node: ManuscriptNode) => {
+    const appendTable = ($element: Element, node: ManuscriptNode) => {
       const tableNode = this.getFirstChildOfType(schema.nodes.table, node)
       const colGroupNode = this.getFirstChildOfType(
         schema.nodes.table_colgroup,
@@ -1159,42 +1157,61 @@ export class JATSExporter {
       if (!tableNode) {
         return
       }
-      const table = this.serializeNode(tableNode)
-      const tbodyElement = this.createElement('tbody')
+      const $table = this.serializeNode(tableNode)
+      const $tbody = this.createElement('tbody')
 
-      while (table.firstChild) {
-        const child = table.firstChild
-        table.removeChild(child)
-        tbodyElement.appendChild(child)
+      while ($table.firstChild) {
+        const $child = $table.firstChild
+        $table.removeChild($child)
+        $tbody.appendChild($child)
       }
-      table.appendChild(tbodyElement)
+      $table.appendChild($tbody)
+      this.normalizeTable($table)
       if (colGroupNode) {
-        const colGroup = this.serializeNode(colGroupNode)
-        table.insertBefore(colGroup, table.firstChild)
+        const $colGroup = this.serializeNode(colGroupNode)
+        $table.insertBefore($colGroup, $table.firstChild)
       }
 
-      element.appendChild(table)
+      $element.appendChild($table)
     }
     const createBoxElement = (node: ManuscriptNode) => {
-      const element = createElement(node, 'boxed-text')
+      const $boxedText = createElement(node, 'boxed-text')
       if (node.attrs.type) {
-        element.setAttribute('content-type', node.attrs.type)
+        $boxedText.setAttribute('content-type', node.attrs.type)
       }
-      appendLabels(element, node)
+      appendLabels($boxedText, node)
       const child = node.firstChild
       if (child?.type === schema.nodes.caption_title) {
-        this.appendCaption(element, node)
+        this.appendCaption($boxedText, node)
       }
 
-      processChildNodes(element, node, node.type.schema.nodes.section)
-      return element
+      processChildNodes($boxedText, node, node.type.schema.nodes.section)
+      return $boxedText
     }
+
+    const abstractTypeAttrs = (category: string) =>
+      category && category !== 'abstract' ? { 'abstract-type': category } : {}
+
+    const createAbstract = (node: ManuscriptNode): DOMOutputSpec => [
+      'abstract',
+      abstractTypeAttrs(node.attrs.category),
+      0,
+    ]
+
+    const createTransAbstract = (node: ManuscriptNode): DOMOutputSpec => [
+      'trans-abstract',
+      {
+        [`${XML_NAMESPACE} lang`]: node.attrs.lang ?? '',
+        ...abstractTypeAttrs(node.attrs.category),
+      },
+      0,
+    ]
 
     const isChildOfNodeType = (
       targetID: string,
       type: NodeType,
       descend = false
-    ): boolean => {
+    ) => {
       const nodes = this.getChildrenOfType(type)
       return nodes.some((node) => {
         const result = findChildrenByAttr(
@@ -1219,116 +1236,116 @@ export class JATSExporter {
       if (!graphicNode) {
         return ''
       }
-      const graphicElement = createGraphic(graphicNode)
+      const $graphic = createGraphic(graphicNode)
       if (node.attrs.extLink) {
-        const extLink = this.appendElement(graphicElement, 'ext-link')
-        extLink.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.extLink)
+        const $extLink = this.appendElement($graphic, 'ext-link')
+        $extLink.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.extLink)
       }
-      this.appendCaption(graphicElement, node)
-      this.appendChildNodeOfType(graphicElement, node, schema.nodes.alt_text)
-      this.appendChildNodeOfType(graphicElement, node, schema.nodes.long_desc)
-      return graphicElement
+      this.appendCaption($graphic, node)
+      this.appendChildNodeOfType($graphic, node, schema.nodes.alt_text)
+      this.appendChildNodeOfType($graphic, node, schema.nodes.long_desc)
+      return $graphic
     }
 
     const createGraphic = (node: ManuscriptNode) => {
-      const graphic = this.createElement('graphic')
-      graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
+      const $graphic = this.createElement('graphic')
+      $graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
 
       const hero = findParentHeroImage(node.attrs.id)
       if (hero) {
-        graphic.setAttribute('content-type', hero.attrs.type || 'leading')
+        $graphic.setAttribute('content-type', hero.attrs.type || 'leading')
       } else if (
         !isChildOfNodeType(node.attrs.id, schema.nodes.figure_element) &&
         node.attrs.type
       ) {
-        graphic.setAttribute('content-type', node.attrs.type)
+        $graphic.setAttribute('content-type', node.attrs.type)
       }
-      return graphic
+      return $graphic
     }
     const createFigureElement = (
       node: ManuscriptNode,
       contentNodeType: ManuscriptNodeType
     ) => {
-      const element = createElement(node, 'fig')
+      const $fig = createElement(node, 'fig')
       const figNode = this.getFirstChildOfType(schema.nodes.figure, node)
       const figType = figNode?.attrs.type
       if (figType) {
-        element.setAttribute('fig-type', figType)
+        $fig.setAttribute('fig-type', figType)
       }
-      appendLabels(element, node)
-      this.appendCaption(element, node)
-      this.appendChildNodeOfType(element, node, schema.nodes.alt_text)
-      this.appendChildNodeOfType(element, node, schema.nodes.long_desc)
+      appendLabels($fig, node)
+      this.appendCaption($fig, node)
+      this.appendChildNodeOfType($fig, node, schema.nodes.alt_text)
+      this.appendChildNodeOfType($fig, node, schema.nodes.long_desc)
       this.appendChildNodeOfType(
-        element,
+        $fig,
         node,
         node.type.schema.nodes.footnotes_element
       )
-      processChildNodes(element, node, contentNodeType)
-      appendAttributions(element, node)
+      processChildNodes($fig, node, contentNodeType)
+      appendAttributions($fig, node)
       if (isExecutableNodeType(node.type)) {
-        processExecutableNode(node, element)
+        processExecutableNode(node, $fig)
       }
-      moveAltTextAndLongDescToGraphics(element)
-      return element
+      moveAltTextAndLongDescToGraphics($fig)
+      return $fig
     }
 
-    const moveAltTextAndLongDescToGraphics = (element: Element) => {
-      const altText = element.querySelector('alt-text')
-      const longDesc = element.querySelector('long-desc')
-      const graphics = element.querySelectorAll('graphic')
+    const moveAltTextAndLongDescToGraphics = ($element: Element) => {
+      const $altText = $element.querySelector('alt-text')
+      const $longDesc = $element.querySelector('long-desc')
+      const $graphics = $element.querySelectorAll('graphic')
 
-      if (graphics.length === 0) {
+      if ($graphics.length === 0) {
         return
       }
 
-      graphics.forEach((graphic) => {
-        if (longDesc) {
-          graphic.prepend(longDesc.cloneNode(true))
+      $graphics.forEach(($graphic) => {
+        if ($longDesc) {
+          $graphic.prepend($longDesc.cloneNode(true))
         }
-        if (altText) {
-          graphic.prepend(altText.cloneNode(true))
+        if ($altText) {
+          $graphic.prepend($altText.cloneNode(true))
         }
       })
 
-      altText?.remove()
-      longDesc?.remove()
+      $altText?.remove()
+      $longDesc?.remove()
     }
 
     const createTableElement = (node: ManuscriptNode) => {
       const nodeName = 'table-wrap'
-      const element = createElement(node, nodeName)
-      appendLabels(element, node)
-      this.appendCaption(element, node)
-      this.appendChildNodeOfType(element, node, schema.nodes.alt_text)
-      this.appendChildNodeOfType(element, node, schema.nodes.long_desc)
-      appendTable(element, node)
+      const $tableWrap = createElement(node, nodeName)
+      appendLabels($tableWrap, node)
+      this.appendCaption($tableWrap, node)
+      this.appendChildNodeOfType($tableWrap, node, schema.nodes.alt_text)
+      this.appendChildNodeOfType($tableWrap, node, schema.nodes.long_desc)
+      appendTable($tableWrap, node)
       this.appendChildNodeOfType(
-        element,
+        $tableWrap,
         node,
         node.type.schema.nodes.table_element_footer
       )
       if (isExecutableNodeType(node.type)) {
-        processExecutableNode(node, element)
+        processExecutableNode(node, $tableWrap)
       }
-      return element
+      return $tableWrap
     }
-    const processExecutableNode = (node: ManuscriptNode, element: Element) => {
+    const processExecutableNode = (node: ManuscriptNode, $element: Element) => {
       const listingNode = this.getFirstChildOfType(schema.nodes.listing, node)
 
       if (listingNode) {
         const { contents, languageKey } = listingNode.attrs
 
         if (contents && languageKey) {
-          const listing = this.createElement('fig')
-          listing.setAttribute('specific-use', 'source')
-          element.appendChild(listing)
+          const $fig = this.createElement('fig')
+          $fig.setAttribute('specific-use', 'source')
+          $element.appendChild($fig)
 
-          const code = this.createElement('code')
-          code.setAttribute('executable', 'true')
-          code.setAttribute('language', languageKey)
-          code.textContent = contents
-          listing.appendChild(code)
+          const $code = this.createElement('code')
+          $code.setAttribute('executable', 'true')
+          $code.setAttribute('language', languageKey)
+          $code.textContent = contents
+          $fig.appendChild($code)
         }
       }
     }
@@ -1336,22 +1353,22 @@ export class JATSExporter {
 
   private createEquation(node: ManuscriptNode, isInline = false) {
     if (node.attrs.format === 'tex') {
-      const texMath = this.createElement('tex-math')
-      texMath.setAttribute('notation', 'LaTeX')
-      texMath.setAttribute('version', 'MathJax')
+      const $texMath = this.createElement('tex-math')
+      $texMath.setAttribute('notation', 'LaTeX')
+      $texMath.setAttribute('version', 'MathJax')
       if (node.attrs.contents.includes('<![CDATA[')) {
-        texMath.innerHTML = node.attrs.contents
+        $texMath.innerHTML = node.attrs.contents
       } else {
-        texMath.innerHTML = `<![CDATA[ ${node.attrs.contents} ]]>`
+        $texMath.innerHTML = `<![CDATA[ ${node.attrs.contents} ]]>`
       }
-      return texMath
+      return $texMath
     } else {
       const math = this.nodeFromJATS(node.attrs.contents)
-      const mathml = math as Element
+      const $mathml = math as Element
       if (!isInline) {
-        mathml.setAttribute('id', normalizeID(node.attrs.id))
+        $mathml.setAttribute('id', normalizeID(node.attrs.id))
       }
-      return mathml
+      return $mathml
     }
   }
 
@@ -1360,213 +1377,227 @@ export class JATSExporter {
       document: this.document,
     })
 
-  private buildContributors = (articleMeta: Node) => {
-    const contributors = this.getChildrenOfType<ContributorNode>(
-      schema.nodes.contributor
-    ).sort(sortContributors)
-
+  private buildContributorGroup = (contributors: ContributorNode[]) => {
     if (!contributors.length) {
       return
     }
 
-    const labels = new Map<string, number>()
-    const createLabel = (id: string) => {
-      let label = labels.get(id)
-      if (!label) {
-        label = labels.size + 1
-        labels.set(id, label)
+    const affiliationIDs = contributors.flatMap((n) => n.attrs.affiliationIDs)
+    const affiliationOrder = new Map<string, number>()
+    affiliationIDs.forEach((id, index) => {
+      if (!affiliationOrder.has(id)) {
+        affiliationOrder.set(id, index)
       }
-      const sup = this.createElement('sup')
-      sup.textContent = String(label)
-      return sup
-    }
+    })
+
+    const affiliations = this.getChildrenOfType<AffiliationNode>(
+      schema.nodes.affiliation
+    )
+      .filter((a) => affiliationIDs.includes(a.attrs.id))
+      .sort(
+        (a, b) =>
+          (affiliationOrder.get(a.attrs.id) ?? Infinity) -
+          (affiliationOrder.get(b.attrs.id) ?? Infinity)
+      )
 
     const $contribGroup = this.createElement('contrib-group')
     $contribGroup.setAttribute('content-type', 'authors')
-    articleMeta.appendChild($contribGroup)
-
     contributors.forEach((contributor) => {
-      const $contrib = this.createElement('contrib')
-      $contrib.setAttribute('contrib-type', 'author')
-      $contrib.setAttribute('id', normalizeID(contributor.attrs.id))
+      $contribGroup.appendChild(this.serializeNode(contributor))
+    })
+    affiliations.forEach((affiliation) => {
+      $contribGroup.appendChild(this.serializeNode(affiliation))
+    })
+    return $contribGroup
+  }
 
-      if (contributor.attrs.isCorresponding) {
-        $contrib.setAttribute('corresp', 'yes')
+  private buildAuthorNotes = ($coiStatement?: Element) => {
+    const authorNotes = this.getFirstChildOfType<AuthorNotesNode>(
+      schema.nodes.author_notes
+    )
+    const $authorNotes = this.createElement('author-notes')
+    if (authorNotes) {
+      this.appendAuthorNotes($authorNotes, authorNotes)
+    }
+    if ($coiStatement) {
+      $authorNotes.appendChild($coiStatement)
+    }
+    return $authorNotes.hasChildNodes() ? $authorNotes : undefined
+  }
+
+  private computeContributorLabels = (contributors: ContributorNode[]) => {
+    const labels = new Map<string, number>()
+    const assign = (id: string) => {
+      if (!labels.has(id)) {
+        labels.set(id, labels.size + 1)
       }
+    }
+    contributors.forEach((contributor) => {
+      contributor.attrs.affiliationIDs?.forEach(assign)
+      contributor.attrs.footnoteIDs?.forEach(assign)
+      contributor.attrs.correspIDs?.forEach(assign)
+    })
+    return labels
+  }
 
-      if (contributor.attrs.role) {
-        this.appendElement($contrib, 'role', contributor.attrs.role)
+  private createLabelSup = (id: string) => {
+    const $sup = this.createElement('sup')
+    $sup.textContent = String(this.contributorLabels.get(id))
+    return $sup
+  }
+
+  private buildContributorElement = (contributor: ContributorNode) => {
+    const $contrib = this.createElement('contrib')
+    $contrib.setAttribute('contrib-type', 'author')
+    $contrib.setAttribute('id', normalizeID(contributor.attrs.id))
+
+    if (contributor.attrs.isCorresponding) {
+      $contrib.setAttribute('corresp', 'yes')
+    }
+
+    if (contributor.attrs.role) {
+      this.appendElement($contrib, 'role', contributor.attrs.role)
+    }
+
+    if (contributor.attrs.ORCID) {
+      const contribIDAttrs: Record<string, string> = {
+        'contrib-id-type': 'orcid',
       }
-
-      if (contributor.attrs.ORCID) {
-        const contribIdAttrs: Record<string, string> = {
-          'contrib-id-type': 'orcid',
-        }
-        if (contributor.attrs.isAuthenticated) {
-          contribIdAttrs['authenticated'] = 'true'
-        }
-        this.appendElement(
-          $contrib,
-          'contrib-id',
-          contributor.attrs.ORCID,
-          contribIdAttrs
-        )
+      if (contributor.attrs.isAuthenticated) {
+        contribIDAttrs['authenticated'] = 'true'
       }
+      this.appendElement(
+        $contrib,
+        'contrib-id',
+        contributor.attrs.ORCID,
+        contribIDAttrs
+      )
+    }
 
-      const $name = this.buildContributorName(contributor)
-      $contrib.appendChild($name)
+    const $name = this.buildContributorName(contributor)
+    $contrib.appendChild($name)
 
-      if (contributor.attrs.suffix) {
-        this.appendElement($name, 'suffix', contributor.attrs.suffix)
-      }
+    if (contributor.attrs.suffix) {
+      this.appendElement($name, 'suffix', contributor.attrs.suffix)
+    }
 
-      contributor.attrs.degrees?.forEach((degree) => {
-        this.appendElement($contrib, 'degrees', degree)
-      })
-
-      if (contributor.attrs.email) {
-        this.appendElement($contrib, 'email', contributor.attrs.email)
-      }
-
-      contributor.attrs.affiliationIDs?.forEach((rid) => {
-        const $xref = this.appendElement($contrib, 'xref', '', {
-          'ref-type': 'aff',
-          rid: normalizeID(rid),
-        })
-        $xref.appendChild(createLabel(rid))
-      })
-
-      contributor.attrs.footnoteIDs?.forEach((rid) => {
-        const $xref = this.appendElement($contrib, 'xref', '', {
-          'ref-type': 'fn',
-          rid: normalizeID(rid),
-        })
-        $xref.appendChild(createLabel(rid))
-      })
-
-      contributor.attrs.correspIDs?.forEach((rid) => {
-        const $xref = this.appendElement($contrib, 'xref', '', {
-          'ref-type': 'corresp',
-          rid: normalizeID(rid),
-        })
-        $xref.appendChild(createLabel(rid))
-      })
-
-      contributor.attrs.creditRoles?.forEach((credit) => {
-        const url = CreditRoleUrls.get(credit.vocabTerm)
-        if (!url) {
-          return
-        }
-        this.appendElement($contrib, 'role', credit.vocabTerm, {
-          'vocab-identifier': 'http://credit.niso.org/',
-          vocab: 'CRediT',
-          'vocab-term': credit.vocabTerm,
-          'vocab-term-identifier': url,
-        })
-      })
-      $contribGroup.appendChild($contrib)
+    contributor.attrs.degrees?.forEach((degree) => {
+      this.appendElement($contrib, 'degrees', degree)
     })
 
-    const affiliationIDs = contributors.flatMap((n) => n.attrs.affiliationIDs)
-    const sortAffiliations = (a: AffiliationNode, b: AffiliationNode) =>
-      affiliationIDs.indexOf(a.attrs.id) - affiliationIDs.indexOf(b.attrs.id)
-
-    this.getChildrenOfType<AffiliationNode>(schema.nodes.affiliation)
-      .filter((a) => affiliationIDs.includes(a.attrs.id))
-      .sort(sortAffiliations)
-      .forEach((affiliation) => {
-        const $content = []
-
-        if (affiliation.attrs.department) {
-          const $institution = this.createElement(
-            'institution',
-            affiliation.attrs.department,
-            {
-              'content-type': 'dept',
-            }
-          )
-          $content.push($institution)
-        }
-
-        if (affiliation.attrs.institution) {
-          const $institution = this.createElement(
-            'institution',
-            affiliation.attrs.institution
-          )
-          $content.push($institution)
-        }
-
-        if (affiliation.attrs.addressLine1) {
-          const $addrLine = this.createElement(
-            'addr-line',
-            affiliation.attrs.addressLine1
-          )
-          $content.push($addrLine)
-        }
-
-        if (affiliation.attrs.addressLine2) {
-          const $addrLine = this.createElement(
-            'addr-line',
-            affiliation.attrs.addressLine2
-          )
-          $content.push($addrLine)
-        }
-
-        if (affiliation.attrs.addressLine3) {
-          const $addrLine = this.createElement(
-            'addr-line',
-            affiliation.attrs.addressLine3
-          )
-          $content.push($addrLine)
-        }
-
-        if (affiliation.attrs.city) {
-          const $city = this.createElement('city', affiliation.attrs.city)
-          $content.push($city)
-        }
-
-        if (affiliation.attrs.county) {
-          const $state = this.createElement('state', affiliation.attrs.county)
-          $content.push($state)
-        }
-
-        if (affiliation.attrs.country) {
-          const $country = this.createElement(
-            'country',
-            affiliation.attrs.country
-          )
-          $content.push($country)
-        }
-
-        if (affiliation.attrs.postCode) {
-          const $postalCode = this.createElement(
-            'postal-code',
-            affiliation.attrs.postCode
-          )
-          $content.push($postalCode)
-        }
-
-        const $aff = this.createElement('aff')
-        $aff.setAttribute('id', normalizeID(affiliation.attrs.id))
-        $contribGroup.appendChild($aff)
-
-        const label = labels.get(affiliation.attrs.id)
-        if (label) {
-          this.appendElement($aff, 'label', String(label))
-        }
-
-        $content.forEach((node, i) => {
-          if (i > 0) {
-            $aff.appendChild(this.document.createTextNode(', '))
-          }
-          $aff.appendChild(node)
-        })
-      })
-
-    const $authorNotes = this.createAuthorNotesElement(contributors)
-    if ($authorNotes) {
-      articleMeta.insertBefore($authorNotes, $contribGroup.nextSibling)
+    if (contributor.attrs.email) {
+      this.appendElement($contrib, 'email', contributor.attrs.email)
     }
+
+    contributor.attrs.affiliationIDs?.forEach((rid) => {
+      const $xref = this.appendElement($contrib, 'xref', '', {
+        'ref-type': 'aff',
+        rid: normalizeID(rid),
+      })
+      $xref.appendChild(this.createLabelSup(rid))
+    })
+
+    contributor.attrs.footnoteIDs?.forEach((rid) => {
+      const $xref = this.appendElement($contrib, 'xref', '', {
+        'ref-type': 'fn',
+        rid: normalizeID(rid),
+      })
+      $xref.appendChild(this.createLabelSup(rid))
+    })
+
+    contributor.attrs.correspIDs?.forEach((rid) => {
+      const $xref = this.appendElement($contrib, 'xref', '', {
+        'ref-type': 'corresp',
+        rid: normalizeID(rid),
+      })
+      $xref.appendChild(this.createLabelSup(rid))
+    })
+
+    contributor.attrs.creditRoles?.forEach((credit) => {
+      const url = CreditRoleUrls.get(credit.vocabTerm)
+      if (!url) {
+        return
+      }
+      this.appendElement($contrib, 'role', credit.vocabTerm, {
+        'vocab-identifier': 'http://credit.niso.org/',
+        vocab: 'CRediT',
+        'vocab-term': credit.vocabTerm,
+        'vocab-term-identifier': url,
+      })
+    })
+
+    return $contrib
+  }
+
+  private buildAffiliationElement = (affiliation: AffiliationNode) => {
+    const $content: Element[] = []
+
+    if (affiliation.attrs.department) {
+      $content.push(
+        this.createElement('institution', affiliation.attrs.department, {
+          'content-type': 'dept',
+        })
+      )
+    }
+
+    if (affiliation.attrs.institution) {
+      $content.push(
+        this.createElement('institution', affiliation.attrs.institution)
+      )
+    }
+
+    if (affiliation.attrs.addressLine1) {
+      $content.push(
+        this.createElement('addr-line', affiliation.attrs.addressLine1)
+      )
+    }
+
+    if (affiliation.attrs.addressLine2) {
+      $content.push(
+        this.createElement('addr-line', affiliation.attrs.addressLine2)
+      )
+    }
+
+    if (affiliation.attrs.addressLine3) {
+      $content.push(
+        this.createElement('addr-line', affiliation.attrs.addressLine3)
+      )
+    }
+
+    if (affiliation.attrs.city) {
+      $content.push(this.createElement('city', affiliation.attrs.city))
+    }
+
+    if (affiliation.attrs.county) {
+      $content.push(this.createElement('state', affiliation.attrs.county))
+    }
+
+    if (affiliation.attrs.country) {
+      $content.push(this.createElement('country', affiliation.attrs.country))
+    }
+
+    if (affiliation.attrs.postCode) {
+      $content.push(
+        this.createElement('postal-code', affiliation.attrs.postCode)
+      )
+    }
+
+    const $aff = this.createElement('aff')
+    $aff.setAttribute('id', normalizeID(affiliation.attrs.id))
+
+    const label = this.contributorLabels.get(affiliation.attrs.id)
+    if (label) {
+      this.appendElement($aff, 'label', String(label))
+    }
+
+    $content.forEach((node, i) => {
+      if (i > 0) {
+        $aff.appendChild(this.document.createTextNode(', '))
+      }
+      $aff.appendChild(node)
+    })
+
+    return $aff
   }
 
   private buildContributorName = (contributor: ContributorNode) => {
@@ -1575,58 +1606,21 @@ export class JATSExporter {
       return this.createElement('string-name', given || family)
     }
 
-    const name = this.createElement('name')
+    const $name = this.createElement('name')
 
     if (contributor.attrs.family) {
-      this.appendElement(name, 'surname', contributor.attrs.family)
+      this.appendElement($name, 'surname', contributor.attrs.family)
     }
 
     if (contributor.attrs.given) {
-      this.appendElement(name, 'given-names', contributor.attrs.given)
+      this.appendElement($name, 'given-names', contributor.attrs.given)
     }
 
     if (contributor.attrs.prefix) {
-      this.appendElement(name, 'prefix', contributor.attrs.prefix)
+      this.appendElement($name, 'prefix', contributor.attrs.prefix)
     }
 
-    return name
-  }
-
-  private createAuthorNotesElement = (contributors: ContributorNode[]) => {
-    const authorNotes = this.getFirstChildOfType<AuthorNotesNode>(
-      schema.nodes.author_notes
-    )
-    if (!authorNotes || !authorNotes.childCount) {
-      return
-    }
-
-    const $authorNotes = this.createElement('author-notes')
-
-    const used = contributors.flatMap((c) => c.attrs.correspIDs)
-
-    authorNotes.descendants((node) => {
-      switch (node.type) {
-        case schema.nodes.paragraph: {
-          const $p = this.writeParagraph(node as ParagraphNode)
-          $authorNotes.append($p)
-          break
-        }
-        case schema.nodes.footnote: {
-          const $fn = this.writeFootnote(node as FootnoteNode)
-          $authorNotes.append($fn)
-          break
-        }
-        case schema.nodes.corresp: {
-          if (used.includes(node.attrs.id)) {
-            const $corresp = this.writeCorresp(node as CorrespNode)
-            $authorNotes.append($corresp)
-          }
-          break
-        }
-      }
-      return false
-    })
-    return $authorNotes.hasChildNodes() ? $authorNotes : undefined
+    return $name
   }
 
   private writeCorresp = (corresp: CorrespNode) => {
@@ -1663,460 +1657,195 @@ export class JATSExporter {
     return $fn
   }
 
-  private buildKeywords(articleMeta: Node) {
-    const keywordGroups = this.getChildrenOfType(schema.nodes.keyword_group)
-
-    keywordGroups.forEach((group) => {
-      const kwdGroup = this.createElement('kwd-group')
-      if (group.attrs.type) {
-        kwdGroup.setAttribute('kwd-group-type', group.attrs.type)
-      }
-      articleMeta.appendChild(kwdGroup)
-      group.content.forEach((keyword) => {
-        const kwd = this.createElement('kwd')
-        kwd.textContent = keyword.textContent
-        kwdGroup.appendChild(kwd)
-      })
-      articleMeta.appendChild(kwdGroup)
-    })
-  }
-
-  private fixBody = (body: Element) => {
-    this.manuscriptNode.descendants((node) => {
-      if (node.attrs.id) {
-        if (
-          isNodeType<TableElementFooterNode>(node, 'general_table_footnote')
-        ) {
-          const generalTableFootnote = body.querySelector(
-            `#${normalizeID(node.attrs.id)}`
-          )
-          if (generalTableFootnote) {
-            Array.from(generalTableFootnote.childNodes).forEach((cn) => {
-              generalTableFootnote.before(cn)
-            })
-            generalTableFootnote.remove()
-          }
+  private appendAuthorNotes = (
+    $authorNotes: Element,
+    authorNotes: AuthorNotesNode
+  ) => {
+    const correspIDs = new Set(
+      this.getChildrenOfType<ContributorNode>(schema.nodes.contributor).flatMap(
+        (contributor) => contributor.attrs.correspIDs
+      )
+    )
+    authorNotes.forEach((node) => {
+      switch (node.type) {
+        case schema.nodes.paragraph: {
+          $authorNotes.append(this.writeParagraph(node as ParagraphNode))
+          break
         }
-        // move captions to the top of tables
-        if (isNodeType<TableElementNode>(node, 'table_element')) {
-          const tableElement = body.querySelector(
-            `#${normalizeID(node.attrs.id)}`
-          )
-
-          if (tableElement) {
-            for (const childNode of tableElement.childNodes) {
-              switch (childNode.nodeName) {
-                case 'caption': {
-                  const label = tableElement.querySelector('label')
-
-                  tableElement.insertBefore(
-                    childNode,
-                    label ? label.nextSibling : tableElement.firstChild
-                  )
-                  break
-                }
-
-                case 'table': {
-                  this.fixTable(childNode)
-                  break
-                }
-              }
-            }
+        case schema.nodes.footnote: {
+          $authorNotes.append(this.writeFootnote(node as FootnoteNode))
+          break
+        }
+        case schema.nodes.corresp: {
+          if (correspIDs.has(node.attrs.id)) {
+            $authorNotes.append(this.writeCorresp(node as CorrespNode))
           }
+          break
         }
       }
     })
   }
 
-  private changeTag = (node: Element, tag: string) => {
-    const clone = this.createElement(tag)
-    for (const attr of node.attributes) {
-      clone.setAttributeNS(null, attr.name, attr.value)
+  private buildKeywords = (): Node[] =>
+    this.getChildrenOfType(schema.nodes.keyword_group).map((group) =>
+      this.serializeNode(group)
+    )
+
+  private changeTag = ($node: Element, tag: string) => {
+    const $clone = this.createElement(tag)
+    for (const attr of $node.attributes) {
+      $clone.setAttributeNS(null, attr.name, attr.value)
     }
-    while (node.firstChild) {
-      clone.appendChild(node.firstChild)
+    while ($node.firstChild) {
+      $clone.appendChild($node.firstChild)
     }
-    node.replaceWith(clone)
-    return clone
+    $node.replaceWith($clone)
+    return $clone
   }
 
-  private fixTable = (table: ChildNode) => {
-    let tbody: Element | undefined
+  private normalizeTable = ($table: Node) => {
+    let $tbody: Element | undefined
 
-    Array.from(table.childNodes).forEach((child) => {
-      if (child instanceof Element && child.tagName.toLowerCase() === 'tbody') {
-        tbody = child
+    Array.from($table.childNodes).forEach(($child) => {
+      if (
+        $child instanceof Element &&
+        $child.tagName.toLowerCase() === 'tbody'
+      ) {
+        $tbody = $child
       }
     })
 
-    if (!tbody) {
+    if (!$tbody) {
       return
     }
 
-    const tbodyRows = Array.from(tbody.childNodes)
-    const thead = this.createElement('thead')
+    const tbodyRows = Array.from($tbody.childNodes)
+    const $thead = this.createElement('thead')
 
-    tbodyRows.forEach((row, i) => {
-      const isRow = row instanceof Element && row.tagName.toLowerCase() === 'tr'
+    tbodyRows.forEach(($row, i) => {
+      const isRow =
+        $row instanceof Element && $row.tagName.toLowerCase() === 'tr'
       if (isRow) {
         // we assume that <th scope="col | colgroup"> always belongs to <thead>
-        const headerCell = (row as Element).querySelector(
+        const $headerCell = ($row as Element).querySelector(
           'th[scope="col"], th[scope="colgroup"]'
         )
-        if (i === 0 || headerCell) {
-          tbody?.removeChild(row)
-          const tableCells = (row as Element).querySelectorAll('td')
-          for (const td of tableCells) {
+        if (i === 0 || $headerCell) {
+          $tbody?.removeChild($row)
+          const $tableCells = ($row as Element).querySelectorAll('td')
+          for (const $td of $tableCells) {
             // for backwards compatibility since older docs use tds for header cells
-            this.changeTag(td, 'th')
+            this.changeTag($td, 'th')
           }
-          thead.appendChild(row)
+          $thead.appendChild($row)
         }
       }
     })
 
-    if (thead.hasChildNodes()) {
-      table.insertBefore(thead, tbody as Element)
+    if ($thead.hasChildNodes()) {
+      $table.insertBefore($thead, $tbody as Element)
     }
   }
 
-  private unwrapBody = (body: HTMLElement) => {
-    const container = body.querySelector(':scope > sec[sec-type="body"]')
-    if (!container) {
-      return
-    }
-    const sections = container.querySelectorAll(':scope > sec')
-    sections.forEach((section) => {
-      body.appendChild(section.cloneNode(true))
+  private buildAbstracts = () => {
+    const $abstracts: Element[] = []
+    const abstractsNode = this.getFirstChildOfType(schema.nodes.abstracts)
+    abstractsNode?.forEach((child) => {
+      const $abstract = this.serializeNode(child) as Element
+      if ($abstract.nodeName === 'abstract') {
+        $abstract
+          .querySelectorAll(':scope > title')
+          .forEach((title) => title.remove())
+      }
+      $abstracts.push($abstract)
     })
-    body.removeChild(container)
+    return $abstracts
   }
 
-  private removeBackContainer = (body: HTMLElement) => {
-    const container = body.querySelector(':scope > sec[sec-type="backmatter"]')
-    if (!container) {
-      return
+  sectionToFootnote = ($section: Element, fnType: string) => {
+    const $fn = this.createElement('fn')
+    $fn.setAttribute('fn-type', fnType)
+    const $title = $section.querySelector(':scope > title')
+    if ($title) {
+      const $label = this.createElement('label')
+      $label.textContent = $title.textContent
+      $section.removeChild($title)
+      $fn.append($label)
     }
-    body.removeChild(container)
+    $fn.append(...$section.children)
+    if ($section.parentNode) {
+      $section.parentNode.removeChild($section)
+    }
+    return $fn
   }
-  private moveAwards = (front: HTMLElement, body: HTMLElement) => {
-    const awardGroups = body.querySelectorAll(':scope > award-group')
-    if (!awardGroups.length) {
-      return
-    }
-    const fundingGroup = this.createElement('funding-group')
-    awardGroups.forEach((award) => {
-      fundingGroup.appendChild(award)
-    })
-    const articleMeta = front.querySelector(':scope > article-meta')
-
-    if (articleMeta) {
-      const insertBeforeElement = articleMeta.querySelector(
-        ':scope > support-group, :scope > conference, :scope > counts, :scope > custom-meta-group'
-      )
-      insertBeforeElement
-        ? articleMeta.insertBefore(fundingGroup, insertBeforeElement)
-        : articleMeta.appendChild(fundingGroup)
-    }
-  }
-
-  private moveAbstracts = (front: HTMLElement, body: HTMLElement) => {
-    const abstractSections = this.getAbstractSections(body)
-
-    for (const abstractSection of abstractSections) {
-      const node =
-        abstractSection.nodeName === 'trans-abstract'
-          ? this.createTransAbstractNode(abstractSection)
-          : this.createAbstractNode(abstractSection)
-      abstractSection.remove()
-      insertAbstractNode(front, node)
-    }
-  }
-
-  private getAbstractCategories(
-    abstractsNode: ManuscriptNode | undefined
-  ): string[] {
-    const categories: string[] = []
-    abstractsNode?.content.descendants((node) => {
-      categories.push(node.attrs.category)
-      return false
-    })
-    return categories
-  }
-
-  private getAbstractSections(body: HTMLElement) {
-    {
-      const abstractsNode = this.getFirstChildOfType(schema.nodes.abstracts)
-      const abstractCategories = this.getAbstractCategories(abstractsNode)
-      const sections = Array.from(
-        body.querySelectorAll(':scope > sec, :scope > trans-abstract')
-      )
-      return sections.filter((section) =>
-        this.isAbstractSection(section, abstractCategories)
-      )
-    }
-  }
-
-  private isAbstractSection(
-    section: Element,
-    abstractCategories: string[]
-  ): boolean {
-    const sectionType = section.getAttribute('sec-type')
-    return sectionType ? abstractCategories.includes(sectionType) : false
-  }
-
-  private createTransAbstractNode(transAbstract: Element): Element {
-    const transAbstractNode = this.createElement('trans-abstract')
-    transAbstractNode.setAttributeNS(
-      XML_NAMESPACE,
-      'lang',
-      transAbstract.getAttributeNS(XML_NAMESPACE, 'lang') ?? ''
-    )
-    this.setAbstractType(transAbstractNode, transAbstract)
-    transAbstractNode.append(...transAbstract.childNodes)
-    return transAbstractNode
-  }
-
-  private createAbstractNode(abstractSection: Element): Element {
-    const abstractNode = this.createElement('abstract')
-    for (const node of abstractSection.childNodes) {
-      if (node.nodeName !== 'title') {
-        abstractNode.appendChild(node.cloneNode(true))
-      }
-    }
-    this.setAbstractType(abstractNode, abstractSection)
-    return abstractNode
-  }
-
-  private setAbstractType(abstractNode: Element, abstractSection: Element) {
-    const sectionType = abstractSection.getAttribute('sec-type')
-    if (sectionType && sectionType !== 'abstract') {
-      const abstractType = sectionType.replace('abstract-', '')
-      abstractNode.setAttribute('abstract-type', abstractType)
-    }
-  }
-
-  private moveSectionsToBack = (back: HTMLElement, body: HTMLElement) => {
-    const availabilitySection = body.querySelector(
-      'sec[sec-type="availability"]'
-    )
-
-    if (availabilitySection) {
-      back.insertBefore(availabilitySection, back.firstChild)
-    }
-
-    const ethicsSection = body.querySelector('sec[sec-type="ethics-statement"]')
-    if (ethicsSection) {
-      back.appendChild(ethicsSection)
-    }
-
-    const section = body.querySelector('sec[sec-type="acknowledgements"]')
-
-    if (section) {
-      const ack = this.createElement('ack')
-
-      while (section.firstChild) {
-        ack.appendChild(section.firstChild)
-      }
-
-      if (section.parentNode) {
-        section.parentNode.removeChild(section)
-      }
-
-      back.insertBefore(ack, back.firstChild)
-    }
-    const appendicesSections = body.querySelectorAll(
-      'sec[sec-type="appendices"]'
-    )
-
-    if (appendicesSections) {
-      const appGroup = this.createElement('app-group')
-      appendicesSections.forEach((section) => {
-        if (section.parentNode) {
-          section.parentNode.removeChild(section)
-        }
-        const app = this.createElement('app')
-        app.appendChild(section)
-        appGroup.appendChild(app)
-      })
-      back.insertBefore(appGroup, back.firstChild)
-    }
-
-    const footNotes = []
-
-    const footnoteCategories = [
-      'con',
-      'conflict',
-      'deceased',
-      'equal',
-      'present-address',
-      'presented-at',
-      'previously-at',
-      'supplementary-material',
-      'supported-by',
-      'financial-disclosure',
-      'coi-statement',
-    ]
-
-    const sections = body.querySelectorAll('sec')
-    for (const currentSection of sections) {
-      const currentSectionType = currentSection.getAttribute('sec-type')
-      if (
-        currentSectionType &&
-        footnoteCategories.indexOf(currentSectionType) >= 0
-      ) {
-        footNotes.push(
-          this.sectionToFootnote(currentSection, currentSectionType)
-        )
-      }
-    }
-
-    if (footNotes.length > 0) {
-      const fnGroup = this.createElement('fn-group')
-      fnGroup.append(...footNotes)
-      back.append(fnGroup)
-    }
-  }
-
-  sectionToFootnote = (section: Element, fnType: string) => {
-    const footNote = this.createElement('fn')
-    footNote.setAttribute('fn-type', fnType)
-    const title = section.querySelector('title')
-    if (title) {
-      const footNoteTitle = this.createElement('label')
-      footNoteTitle.textContent = title.textContent
-      section.removeChild(title)
-      footNote.append(footNoteTitle)
-    }
-    footNote.append(...section.children)
-    if (section.parentNode) {
-      section.parentNode.removeChild(section)
-    }
-    return footNote
-  }
-  private moveFloatsGroup = (article: HTMLElement) => {
+  private buildFloatsGroup = () => {
     const heroImage = this.getFirstChildOfType(schema.nodes.hero_image)
     if (!heroImage) {
       return
     }
-    const floatsGroup = this.createElement('floats-group')
-    let figure: HTMLElement | null = null
+    const $floatsGroup = this.createElement('floats-group')
+    let $graphic: Element | null = null
     heroImage.descendants((node) => {
       if (node.type === schema.nodes.figure) {
-        figure = this.serializeNode(node) as HTMLElement
-        floatsGroup.appendChild(figure)
+        $graphic = this.serializeNode(node) as Element
+        $floatsGroup.appendChild($graphic)
       } else {
-        const serializedNode = this.serializeNode(node)
-        figure?.appendChild(serializedNode)
+        const $serializedNode = this.serializeNode(node)
+        $graphic?.appendChild($serializedNode)
       }
       return false
     })
 
-    if (floatsGroup.children.length > 0) {
-      article.appendChild(floatsGroup)
+    if ($floatsGroup.children.length > 0) {
+      return $floatsGroup
     }
   }
 
-  private moveCoiStatementToAuthorNotes(back: HTMLElement, front: HTMLElement) {
-    const fnGroups = back.querySelectorAll('fn-group')
-    fnGroups.forEach((fnGroup) => {
-      if (fnGroup) {
-        const coiStatement = fnGroup.querySelector(
-          'fn[fn-type="coi-statement"]'
-        )
-        if (coiStatement) {
-          const authorNotes = this.createElement('author-notes')
-          authorNotes.append(coiStatement)
-          const articleMeta = front.querySelector('article-meta')
-          if (articleMeta) {
-            const authorNoteEl = articleMeta.querySelector('author-notes')
-            if (authorNoteEl) {
-              authorNoteEl.append(...authorNotes.childNodes)
-            } else {
-              const appendableSelectors = [
-                'contrib-group',
-                'title-group',
-                'article-id',
-              ]
-              const appendable = [
-                ...(articleMeta as HTMLElement).querySelectorAll(
-                  appendableSelectors.join(', ')
-                ),
-              ]
-              for (let i = 0; i < appendableSelectors.length; i++) {
-                const sel = appendableSelectors[i]
-                const match = appendable.find((el) => el.matches(sel))
-                if (match) {
-                  articleMeta.insertBefore(authorNotes, match.nextSibling)
-                  break
-                }
-              }
-            }
-          }
-          if (!fnGroup.hasChildNodes()) {
-            fnGroup.remove()
-          }
-        }
-      }
-    })
-  }
-
-  private updateFootnoteTypes(front: HTMLElement, body: HTMLElement) {
-    const footnotes: Element[] = [...front.querySelectorAll('fn').values()]
-    footnotes.push(...body.querySelectorAll('fn'))
-    footnotes.forEach((fn) => {
-      const fnType = fn.getAttribute('fn-type')
-      if (fnType) {
-        fn.setAttribute('fn-type', fnType)
-      }
-    })
-  }
-
   private fillEmptyElements(
-    articleElement: Element,
+    $article: Element,
     selector: string,
     tagName = 'p'
   ) {
-    const emptyElements = Array.from(
-      articleElement.querySelectorAll(selector)
-    ).filter((element) => !element.innerHTML)
-    emptyElements.forEach((element) =>
-      element.appendChild(this.createElement(tagName))
+    const $empty = Array.from($article.querySelectorAll(selector)).filter(
+      ($el) => !$el.innerHTML
+    )
+    $empty.forEach(($element) =>
+      $element.appendChild(this.createElement(tagName))
     )
   }
-  private addParagraphsToSections(articleElement: Element) {
-    const sections = articleElement.querySelectorAll('sec')
+  private addParagraphsToSections($article: Element) {
+    const $sections = $article.querySelectorAll('sec, abstract')
     const TITLE_TAGS = new Set(['title', 'label', 'sec-meta'])
-    for (const section of sections) {
-      const hasContent = Array.from(section.children).some(
-        (child) => !TITLE_TAGS.has(child.tagName)
+    for (const $section of $sections) {
+      const hasContent = Array.from($section.children).some(
+        ($child) => !TITLE_TAGS.has($child.tagName)
       )
       if (hasContent) {
         continue
       }
-      const p = this.createElement('p')
-      const insertAfterElement =
-        section.querySelector(':scope > title') ??
-        section.querySelector(':scope > label') ??
-        section.querySelector(':scope > sec-meta')
+      const $p = this.createElement('p')
+      const $insertAfter =
+        $section.querySelector(':scope > title') ??
+        $section.querySelector(':scope > label') ??
+        $section.querySelector(':scope > sec-meta')
 
-      if (insertAfterElement) {
-        insertAfterElement.insertAdjacentElement('afterend', p)
+      if ($insertAfter) {
+        $insertAfter.insertAdjacentElement('afterend', $p)
       } else {
-        section.prepend(p)
+        $section.prepend($p)
       }
     }
   }
 
-  private fillEmptyFootnotes(articleElement: Element) {
-    this.fillEmptyElements(articleElement, 'fn')
+  private fillEmptyFootnotes($article: Element) {
+    this.fillEmptyElements($article, 'fn')
   }
 
-  private fillEmptyTableFooters(articleElement: Element) {
-    this.fillEmptyElements(articleElement, 'table-wrap-foot')
+  private fillEmptyTableFooters($article: Element) {
+    this.fillEmptyElements($article, 'table-wrap-foot')
   }
 
-  private fillEmptyListItem(articleElement: Element) {
-    this.fillEmptyElements(articleElement, 'list-item')
+  private fillEmptyListItem($article: Element) {
+    this.fillEmptyElements($article, 'list-item')
   }
 }
