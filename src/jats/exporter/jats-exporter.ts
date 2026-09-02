@@ -215,6 +215,9 @@ export class JATSExporter {
       'xmlns:xlink',
       XLINK_NAMESPACE
     )
+    this.labelTargets = buildTargets(
+      manuscriptNode.descendants.bind(manuscriptNode)
+    )
     const front = this.buildFront()
     article.appendChild(front)
     article.setAttribute(
@@ -225,9 +228,6 @@ export class JATSExporter {
       XML_NAMESPACE,
       'lang',
       manuscriptNode.attrs.primaryLanguageCode || 'en'
-    )
-    this.labelTargets = buildTargets(
-      manuscriptNode.descendants.bind(manuscriptNode)
     )
     this.footnoteLabels = generateFootnoteLabels(manuscriptNode)
     const body = this.buildBody()
@@ -461,6 +461,10 @@ export class JATSExporter {
         'mime-subtype',
         node.attrs.mimeSubType ?? ''
       )
+      const target = this.labelTargets.get(node.attrs.id)
+      if (target) {
+        supplementaryMaterial.append(this.createElement('label', target.label))
+      }
       this.appendCaption(supplementaryMaterial, node)
 
       articleMeta.append(supplementaryMaterial)
@@ -847,14 +851,23 @@ export class JATSExporter {
         }
 
         const rid = rids[0]
-        const text = cross.attrs.label || this.labelTargets.get(rid)?.label
+        const labelTarget = this.labelTargets.get(rid)
+        const isSupplement =
+          labelTarget?.type === schema.nodes.supplement.name
+        const text =
+          cross.attrs.label ||
+          (isSupplement
+            ? labelTarget?.caption || labelTarget?.label
+            : labelTarget?.label) ||
+          ''
 
         const target = findChildrenByAttr(
           this.manuscriptNode,
           (attrs) => attrs.id === rid
         )[0]?.node
+
         if (!target) {
-          return text ?? ''
+          return text
         }
 
         const xref = this.createElement('xref')
@@ -865,7 +878,7 @@ export class JATSExporter {
         }
 
         xref.setAttribute('rid', normalizeID(rids.join(' ')))
-        xref.textContent = text ?? ''
+        xref.textContent = text
 
         return xref
       },
