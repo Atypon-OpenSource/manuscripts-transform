@@ -851,7 +851,15 @@ export class JATSExporter {
         }
 
         const rid = rids[0]
-        const text = cross.attrs.label || this.labelTargets.get(rid)?.label
+        const labelTarget = this.labelTargets.get(rid)
+        const isSupplement =
+          labelTarget?.type === schema.nodes.supplement.name
+        const text =
+          cross.attrs.label ||
+          (isSupplement
+            ? labelTarget?.caption || labelTarget?.label
+            : labelTarget?.label) ||
+          ''
 
         const target = findChildrenByAttr(
           this.manuscriptNode,
@@ -859,7 +867,7 @@ export class JATSExporter {
         )[0]?.node
 
         if (!target) {
-          return text ?? ''
+          return text
         }
 
         const xref = this.createElement('xref')
@@ -870,7 +878,7 @@ export class JATSExporter {
         }
 
         xref.setAttribute('rid', normalizeID(rids.join(' ')))
-        xref.textContent = text ?? ''
+        xref.textContent = text
 
         return xref
       },
