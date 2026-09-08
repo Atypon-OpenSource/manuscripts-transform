@@ -16,6 +16,10 @@
 import { DOMParser, Fragment, ParseOptions, Schema } from 'prosemirror-model'
 
 import {
+  abstractTypeToCategory,
+  findMatchingCategory,
+} from '../../lib/section-categories'
+import {
   dateToTimestamp,
   getCreditRole,
   getHTMLContent,
@@ -46,38 +50,19 @@ export class JATSDOMParser {
     return this.parser.parse(doc, options)
   }
 
-  private isMatchingCategory(
-    secType: string | null,
-    titleNode: Element | null,
-    category: SectionCategory
-  ) {
-    if (
-      (secType && category.synonyms.includes(secType)) ||
-      category.id === secType
-    ) {
-      return true
-    }
-    if (titleNode && titleNode.nodeName === 'title' && titleNode.textContent) {
-      const textContent = titleNode.textContent.trim().toLowerCase()
-      if (category.synonyms.includes(textContent)) {
-        return true
-      }
-    }
-    return false
-  }
-
   private chooseSectionCategory(section: HTMLElement) {
     const secType = section.getAttribute('sec-type')
     const abstractType = section.getAttribute('abstract-type')
-    const effectiveSecType =
-      secType || (abstractType ? `abstract-${abstractType}` : null)
+    const effectiveSecType = secType ?? abstractType
     const titleNode = section.firstElementChild
+    const titleText =
+      titleNode?.nodeName === 'title' ? titleNode.textContent : null
 
-    for (const category of this.sectionCategories) {
-      if (this.isMatchingCategory(effectiveSecType, titleNode, category)) {
-        return category.id
-      }
-    }
+    return findMatchingCategory(
+      this.sectionCategories,
+      effectiveSecType,
+      titleText
+    )?.id
   }
 
   private parsePriority = (priority: string | null) => {
@@ -637,6 +622,10 @@ export class JATSDOMParser {
       ignore: true,
     },
     {
+      tag: 'statement',
+      ignore: true,
+    },
+    {
       tag: 'break',
       node: 'hard_break',
     },
@@ -995,10 +984,8 @@ export class JATSDOMParser {
       node: 'footnotes_section', // NOTE: higher priority than 'section'
       getAttrs: (node) => {
         const element = node as HTMLElement
-
         return {
           id: element.getAttribute('id'),
-          // category: chooseSectionCategory(element), // 'MPSectionCategory:endnotes',
         }
       },
     },
@@ -1024,7 +1011,7 @@ export class JATSDOMParser {
       },
     },
     {
-      tag: 'trans-abstract[sec-type="abstract-graphical"]',
+      tag: 'trans-abstract[abstract-type="graphical"]',
       node: 'trans_graphical_abstract',
       getAttrs: (node) => {
         const element = node as HTMLElement
@@ -1035,7 +1022,7 @@ export class JATSDOMParser {
       },
     },
     {
-      tag: 'trans-abstract[sec-type="abstract-key-image"]',
+      tag: 'trans-abstract[abstract-type="key-image"]',
       node: 'trans_graphical_abstract',
       getAttrs: (node) => {
         const element = node as HTMLElement
@@ -1095,7 +1082,7 @@ export class JATSDOMParser {
       getAttrs: (node) => this.parseRef(node as Element),
     },
     {
-      tag: 'sec[sec-type="abstract-graphical"]',
+      tag: 'abstract[abstract-type="graphical"]',
       node: 'graphical_abstract_section',
       getAttrs: (node) => {
         const element = node as HTMLElement
@@ -1105,12 +1092,25 @@ export class JATSDOMParser {
       },
     },
     {
-      tag: 'sec[sec-type="abstract-key-image"]',
+      tag: 'abstract[abstract-type="key-image"]',
       node: 'graphical_abstract_section',
       getAttrs: (node) => {
         const element = node as HTMLElement
         return {
           category: this.chooseSectionCategory(element),
+        }
+      },
+    },
+    {
+      tag: 'abstract',
+      node: 'abstract',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        return {
+          id: element.getAttribute('id'),
+          category:
+            this.chooseSectionCategory(element) ||
+            abstractTypeToCategory(element.getAttribute('abstract-type')),
         }
       },
     },
@@ -1179,7 +1179,7 @@ export class JATSDOMParser {
       tag: 'title',
       node: 'section_title',
       context:
-        'section/|footnotes_section/|bibliography_section/|keywords/|supplements/|author_notes/|graphical_abstract_section/|trans_abstract/|trans_graphical_abstract/',
+        'section/|footnotes_section/|bibliography_section/|keywords/|supplements/|author_notes/|abstract/|graphical_abstract_section/|trans_abstract/|trans_graphical_abstract/',
     },
     {
       tag: 'tr',
