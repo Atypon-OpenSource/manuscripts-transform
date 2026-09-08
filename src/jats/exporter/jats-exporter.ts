@@ -789,6 +789,7 @@ export class JATSExporter {
           'mime-subtype',
           node.attrs.mimeSubType ?? ''
         )
+        appendLabels($supplementaryMaterial, node)
         this.appendCaption($supplementaryMaterial, node)
         return $supplementaryMaterial
       },
