@@ -789,6 +789,7 @@ export class JATSExporter {
           'mime-subtype',
           node.attrs.mimeSubType ?? ''
         )
+        appendLabels($supplementaryMaterial, node)
         this.appendCaption($supplementaryMaterial, node)
         return $supplementaryMaterial
       },
@@ -833,14 +834,23 @@ export class JATSExporter {
         }
 
         const rid = rids[0]
-        const text = cross.attrs.label || this.labelTargets.get(rid)?.label
+        const labelTarget = this.labelTargets.get(rid)
+        const isSupplement =
+          labelTarget?.type === schema.nodes.supplement.name
+        const text =
+          cross.attrs.label ||
+          (isSupplement
+            ? labelTarget?.caption || labelTarget?.label
+            : labelTarget?.label) ||
+          ''
 
         const target = findChildrenByAttr(
           this.manuscriptNode,
           (attrs) => attrs.id === rid
         )[0]?.node
+
         if (!target) {
-          return text ?? ''
+          return text
         }
 
         const $xref = this.createElement('xref')
