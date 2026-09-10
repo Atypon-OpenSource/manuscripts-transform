@@ -34,5 +34,5 @@ export const attribution: NodeSpec = {
       context: 'blockquote_element/|pullquote_element/',
     },
   ],
-  toDOM: () => ['footer', 0],
+  toDOM: () => ['footer', { class: 'attribution' }, 0],
 }
