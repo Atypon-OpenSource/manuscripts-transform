@@ -277,7 +277,7 @@ export class JATSDOMParser {
   private getFigContent = (node: Node) => {
     const element = node as HTMLElement
     const content = [this.schema.nodes.figure.create(this.getFigAttrs(element))]
-    const attributions = element.querySelectorAll('attrib')
+    const attributions = element.querySelectorAll(':scope > attrib')
     Array.from(attributions).forEach((attribution) => {
       content.push(
         this.parse(attribution, {
@@ -620,9 +620,13 @@ export class JATSDOMParser {
     {
       tag: 'attrib',
       node: 'attribution',
+      // we use closest() instead of `context` as it matches ProseMirror's parse-time node stack, not real DOM ancestry.
+      // Non-matching <attrib> (e.g. in <verse-group>) falls to `skip: true` below.
       getAttrs: (node) => {
         const element = node as HTMLElement
-        const isInTargetContext = !!element.closest('fig, disp-quote')
+        const isInTargetContext = !!element.closest(
+          'fig, graphic:not(fig graphic), disp-quote'
+        )
         return isInTargetContext ? {} : false
       },
     },
