@@ -35,6 +35,7 @@ import {
   SectionCategory,
 } from '../../schema'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
+import findLastIndex from 'lodash/findLastIndex'
 
 export class JATSDOMParser {
   private parser: DOMParser
@@ -276,6 +277,14 @@ export class JATSDOMParser {
   private getFigContent = (node: Node) => {
     const element = node as HTMLElement
     const content = [this.schema.nodes.figure.create(this.getFigAttrs(element))]
+    const attributions = element.querySelectorAll('attrib')
+    Array.from(attributions).forEach((attribution) => {
+      content.push(
+        this.parse(attribution, {
+          topNode: this.schema.nodes.attribution.create(),
+        })
+      )
+    })
     const altText = element.querySelector('alt-text')
     if (altText) {
       const altTextNode = this.schema.nodes.alt_text.create()
@@ -608,10 +617,18 @@ export class JATSDOMParser {
         return Fragment.from(this.schema.text('_'))
       },
     },
-
     {
       tag: 'attrib',
       node: 'attribution',
+      getAttrs: (node) => {
+        const element = node as HTMLElement
+        const isInTargetContext = !!element.closest('fig, disp-quote')
+        return isInTargetContext ? {} : false
+      },
+    },
+    {
+      tag: 'attrib',
+      skip: true,
     },
     {
       tag: 'back',
@@ -859,7 +876,16 @@ export class JATSDOMParser {
           this.getCaptionContent(node)
         )
         const fig = this.getFigContent(element).content
-        return Fragment.from([...fig.slice(0, 1), caption, ...fig.slice(1)])
+        const attributionIndex = findLastIndex(
+          fig,
+          (node) => node.type === this.schema.nodes.attribution
+        )
+        const splitIndex = attributionIndex === -1 ? 1 : attributionIndex + 1
+        return Fragment.from([
+          ...fig.slice(0, splitIndex),
+          caption,
+          ...fig.slice(splitIndex),
+        ])
       },
       getAttrs: this.getFigAttrs,
     },
@@ -868,15 +894,8 @@ export class JATSDOMParser {
       node: 'figure_element',
       getAttrs: (node) => {
         const element = node as HTMLElement
-        const attrib = element.querySelector('attrib')
-        const attribution = attrib
-          ? {
-              literal: getTrimmedTextContent(attrib) ?? '',
-            }
-          : undefined
         return {
           id: element.getAttribute('id'),
-          attribution,
         }
       },
     },

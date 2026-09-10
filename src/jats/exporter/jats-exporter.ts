@@ -1151,11 +1151,15 @@ export class JATSExporter {
       }
     }
     const appendAttributions = ($element: Element, node: ManuscriptNode) => {
-      if (node.attrs.attribution) {
-        const $attrib = this.createElement('attrib')
-        $attrib.textContent = node.attrs.attribution.literal
-        $element.appendChild($attrib)
-      }
+      const attributions = this.getChildrenOfType(
+        schema.nodes.attribution,
+        node
+      )
+      attributions.forEach((attribution) => {
+        if (attribution.content.size > 0) {
+          $element.appendChild(this.serializeNode(attribution))
+        }
+      })
     }
 
     const appendTable = ($element: Element, node: ManuscriptNode) => {
@@ -1254,6 +1258,7 @@ export class JATSExporter {
       this.appendCaption($graphic, node)
       this.appendChildNodeOfType($graphic, node, schema.nodes.alt_text)
       this.appendChildNodeOfType($graphic, node, schema.nodes.long_desc)
+      appendAttributions($graphic, node)
       return $graphic
     }
 
@@ -1292,11 +1297,11 @@ export class JATSExporter {
         node.type.schema.nodes.footnotes_element
       )
       processChildNodes($fig, node, contentNodeType)
-      appendAttributions($fig, node)
       if (isExecutableNodeType(node.type)) {
         processExecutableNode(node, $fig)
       }
       moveAltTextAndLongDescToGraphics($fig)
+      appendAttributions($fig, node)
       return $fig
     }
 

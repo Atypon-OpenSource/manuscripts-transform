@@ -3163,7 +3163,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -18051,7 +18050,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -18279,7 +18277,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -18964,7 +18961,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -23392,7 +23388,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -27254,7 +27249,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -27410,7 +27404,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -31390,9 +31383,6 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
-                                    "attribution": Object {
-                                      "literal": "Source: Wikipedia.",
-                                    },
                                     "dataTracked": null,
                                     "id": "MPFigureElement:test",
                                   },
@@ -31494,9 +31484,6 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
-                                    "attribution": Object {
-                                      "literal": "Source: Wikipedia.",
-                                    },
                                     "dataTracked": null,
                                     "id": "fig1",
                                   },
@@ -33365,7 +33352,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -33445,7 +33431,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -35130,7 +35115,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -39016,7 +39000,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -39172,7 +39155,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -45227,7 +45209,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -51855,7 +51836,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -52372,7 +52352,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -52934,7 +52913,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -53590,7 +53568,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -54000,7 +53977,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -54504,7 +54480,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -54950,7 +54925,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },

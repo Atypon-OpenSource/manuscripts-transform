@@ -26,7 +26,7 @@ export interface HeroImageNode extends ManuscriptNode {
 }
 
 export const heroImage: NodeSpec = {
-  content: 'figure? alt_text long_desc',
+  content: 'figure? attribution* alt_text long_desc',
   attrs: {
     id: { default: '' },
     type: { default: 'leading' },
