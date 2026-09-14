@@ -35,7 +35,6 @@ import {
   SectionCategory,
 } from '../../schema'
 import { DEFAULT_PROFILE_ID } from './jats-comments'
-import findLastIndex from 'lodash/findLastIndex'
 
 export class JATSDOMParser {
   private parser: DOMParser
@@ -277,14 +276,10 @@ export class JATSDOMParser {
   private getFigContent = (node: Node) => {
     const element = node as HTMLElement
     const content = [this.schema.nodes.figure.create(this.getFigAttrs(element))]
-    const attributions = element.querySelectorAll(':scope > attrib')
-    Array.from(attributions).forEach((attribution) => {
-      content.push(
-        this.parse(attribution, {
-          topNode: this.schema.nodes.attribution.create(),
-        })
-      )
-    })
+    const attributions = Array.from(element.querySelectorAll(':scope > attrib'))
+    if (attributions.length > 0) {
+      content.push(this.mergeAttributions(attributions))
+    }
     const altText = element.querySelector('alt-text')
     if (altText) {
       const altTextNode = this.schema.nodes.alt_text.create()
@@ -306,6 +301,22 @@ export class JATSDOMParser {
     return Fragment.from(
       content.length > 0 ? content : this.schema.nodes.text_block.create()
     )
+  }
+
+  private mergeAttributions = (attribs: Element[]) => {
+    const doc = attribs[0].ownerDocument
+    const wrapper = doc.createElement('attrib')
+    attribs.forEach((attrib, index) => {
+      if (index > 0) {
+        wrapper.append(doc.createTextNode(' '))
+      }
+      wrapper.append(
+        ...Array.from(attrib.childNodes).map((n) => n.cloneNode(true))
+      )
+    })
+    return this.parse(wrapper, {
+      topNode: this.schema.nodes.attribution.create(),
+    })
   }
 
   private parseRefPages = (element: Element) => {
@@ -618,17 +629,8 @@ export class JATSDOMParser {
       },
     },
     {
-      tag: 'attrib',
+      tag: 'fig attrib, disp-quote attrib, graphic:not(fig graphic) attrib',
       node: 'attribution',
-      // we use closest() instead of `context` as it matches ProseMirror's parse-time node stack, not real DOM ancestry.
-      // Non-matching <attrib> (e.g. in <verse-group>) falls to `skip: true` below.
-      getAttrs: (node) => {
-        const element = node as HTMLElement
-        const isInTargetContext = !!element.closest(
-          'fig, graphic:not(fig graphic), disp-quote'
-        )
-        return isInTargetContext ? {} : false
-      },
     },
     {
       tag: 'attrib',
@@ -880,16 +882,7 @@ export class JATSDOMParser {
           this.getCaptionContent(node)
         )
         const fig = this.getFigContent(element).content
-        const attributionIndex = findLastIndex(
-          fig,
-          (node) => node.type === this.schema.nodes.attribution
-        )
-        const splitIndex = attributionIndex === -1 ? 1 : attributionIndex + 1
-        return Fragment.from([
-          ...fig.slice(0, splitIndex),
-          caption,
-          ...fig.slice(splitIndex),
-        ])
+        return Fragment.from([...fig.slice(0, 1), caption, ...fig.slice(1)])
       },
       getAttrs: this.getFigAttrs,
     },

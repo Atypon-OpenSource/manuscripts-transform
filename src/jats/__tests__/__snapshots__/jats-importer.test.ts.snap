@@ -31413,18 +31413,6 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
-                                      },
-                                      "content": Array [
-                                        Object {
-                                          "text": "Source: Wikipedia.",
-                                          "type": "text",
-                                        },
-                                      ],
-                                      "type": "attribution",
-                                    },
-                                    Object {
-                                      "attrs": Object {
-                                        "dataTracked": null,
                                         "placeholder": "Caption...",
                                       },
                                       "content": Array [
@@ -31454,6 +31442,18 @@ Object {
                                         },
                                       ],
                                       "type": "caption",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "Source: Wikipedia.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "attribution",
                                     },
                                     Object {
                                       "attrs": Object {
@@ -31512,18 +31512,6 @@ Object {
                                     Object {
                                       "attrs": Object {
                                         "dataTracked": null,
-                                      },
-                                      "content": Array [
-                                        Object {
-                                          "text": "Source: Wikipedia.",
-                                          "type": "text",
-                                        },
-                                      ],
-                                      "type": "attribution",
-                                    },
-                                    Object {
-                                      "attrs": Object {
-                                        "dataTracked": null,
                                         "placeholder": "Caption...",
                                       },
                                       "content": Array [
@@ -31553,6 +31541,18 @@ Object {
                                         },
                                       ],
                                       "type": "caption",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "Source: Wikipedia.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "attribution",
                                     },
                                     Object {
                                       "attrs": Object {

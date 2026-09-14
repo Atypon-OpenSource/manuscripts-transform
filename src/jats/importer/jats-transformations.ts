@@ -296,6 +296,37 @@ export const moveCaptionsToEnd = (body: Element) => {
   }
 }
 
+export const mergeAttributions = (
+  doc: Document,
+  body: Element,
+  createElement: CreateElement
+) => {
+  const attributions = [
+    ...body.querySelectorAll('fig > attrib, graphic:not(fig graphic) attrib'),
+  ]
+  const attribsByParent = new Map<Element, Element[]>()
+  attributions.forEach((attrib) => {
+    if (!attrib.parentElement) {
+      return
+    }
+    const group = attribsByParent.get(attrib.parentElement) ?? []
+    attribsByParent.set(attrib.parentElement, [...group, attrib])
+  })
+  attribsByParent.forEach((group, parent) => {
+    const merged = createElement('attrib')
+    group.forEach((attrib, index) => {
+      if (index > 0) {
+        merged.append(doc.createTextNode(' '))
+      }
+      merged.append(
+        ...Array.from(attrib.childNodes).map((n) => n.cloneNode(true))
+      )
+      removeNodeFromParent(attrib)
+    })
+    parent.appendChild(merged)
+  })
+}
+
 const prepareAbstract = (
   abstract: Element,
   createElement: CreateElement,
