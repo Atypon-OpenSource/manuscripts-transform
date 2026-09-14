@@ -1150,16 +1150,14 @@ export class JATSExporter {
         }
       }
     }
-    const appendAttributions = ($element: Element, node: ManuscriptNode) => {
-      const attributions = this.getChildrenOfType(
+    const appendAttribution = ($element: Element, node: ManuscriptNode) => {
+      const attribution = this.getFirstChildOfType(
         schema.nodes.attribution,
         node
       )
-      attributions.forEach((attribution) => {
-        if (attribution.content.size > 0) {
+      if (attribution && attribution.content.size > 0) {
           $element.appendChild(this.serializeNode(attribution))
-        }
-      })
+      }
     }
 
     const appendTable = ($element: Element, node: ManuscriptNode) => {
@@ -1258,7 +1256,7 @@ export class JATSExporter {
       this.appendCaption($graphic, node)
       this.appendChildNodeOfType($graphic, node, schema.nodes.alt_text)
       this.appendChildNodeOfType($graphic, node, schema.nodes.long_desc)
-      appendAttributions($graphic, node)
+      appendAttribution($graphic, node)
       return $graphic
     }
 
@@ -1301,7 +1299,7 @@ export class JATSExporter {
         processExecutableNode(node, $fig)
       }
       moveAltTextAndLongDescToGraphics($fig)
-      appendAttributions($fig, node)
+      appendAttribution($fig, node)
       return $fig
     }
 

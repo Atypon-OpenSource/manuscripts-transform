@@ -298,11 +298,10 @@ export const moveCaptionsToEnd = (body: Element) => {
 
 export const mergeAttributions = (
   doc: Document,
-  body: Element,
   createElement: CreateElement
 ) => {
   const attributions = [
-    ...body.querySelectorAll('fig > attrib, graphic:not(fig graphic) attrib'),
+    ...doc.querySelectorAll('fig > attrib, graphic:not(fig graphic) attrib'),
   ]
   const attribsByParent = new Map<Element, Element[]>()
   attributions.forEach((attrib) => {
@@ -316,7 +315,7 @@ export const mergeAttributions = (
     const merged = createElement('attrib')
     group.forEach((attrib, index) => {
       if (index > 0) {
-        merged.append(doc.createTextNode(' '))
+        merged.append(doc.createTextNode(', '))
       }
       merged.append(
         ...Array.from(attrib.childNodes).map((n) => n.cloneNode(true))

@@ -276,9 +276,10 @@ export class JATSDOMParser {
   private getFigContent = (node: Node) => {
     const element = node as HTMLElement
     const content = [this.schema.nodes.figure.create(this.getFigAttrs(element))]
-    const attributions = Array.from(element.querySelectorAll(':scope > attrib'))
-    if (attributions.length > 0) {
-      content.push(this.mergeAttributions(attributions))
+    const attribution = element.querySelector('attrib')
+    if (attribution) {
+      const attributionNode = this.schema.nodes.attribution.create()
+      content.push(this.parse(attribution, { topNode: attributionNode }))
     }
     const altText = element.querySelector('alt-text')
     if (altText) {
@@ -301,22 +302,6 @@ export class JATSDOMParser {
     return Fragment.from(
       content.length > 0 ? content : this.schema.nodes.text_block.create()
     )
-  }
-
-  private mergeAttributions = (attribs: Element[]) => {
-    const doc = attribs[0].ownerDocument
-    const wrapper = doc.createElement('attrib')
-    attribs.forEach((attrib, index) => {
-      if (index > 0) {
-        wrapper.append(doc.createTextNode(' '))
-      }
-      wrapper.append(
-        ...Array.from(attrib.childNodes).map((n) => n.cloneNode(true))
-      )
-    })
-    return this.parse(wrapper, {
-      topNode: this.schema.nodes.attribution.create(),
-    })
   }
 
   private parseRefPages = (element: Element) => {
