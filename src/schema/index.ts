@@ -30,6 +30,7 @@ import {
   tracked_insert,
   underline,
 } from './marks'
+import { abstract } from './nodes/abstract'
 import { abstracts } from './nodes/abstracts'
 import { affiliation } from './nodes/affiliation'
 import { affiliations } from './nodes/affiliations'
@@ -112,6 +113,7 @@ import { transGraphicalAbstract } from './nodes/trans_graphical_abstract'
 import { Marks, Nodes } from './types'
 
 export * from './groups'
+export * from './nodes/abstract'
 export * from './nodes/affiliation'
 export * from './nodes/affiliations'
 export * from './nodes/alt_text'
@@ -215,6 +217,7 @@ export const schema = new Schema<Nodes, Marks>({
     caption,
     caption_title: captionTitle,
     citation,
+    abstract,
     abstracts,
     body,
     backmatter,

@@ -84,6 +84,7 @@ export type Nodes =
   | 'listing'
   | 'listing_element'
   | 'manuscript'
+  | 'abstract'
   | 'abstracts'
   | 'body'
   | 'backmatter'

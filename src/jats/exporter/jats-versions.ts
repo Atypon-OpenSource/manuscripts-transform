@@ -14,35 +14,35 @@
  * limitations under the License.
  */
 
-interface VersionIds {
-  publicId: string
-  systemId: string
+interface VersionIDs {
+  publicID: string
+  systemID: string
 }
 
 export type Version = '1.1' | '1.2d1' | '1.2'
 
-const versions: { [key in Version]: VersionIds } = {
+const versions: { [key in Version]: VersionIDs } = {
   '1.1': {
-    publicId:
+    publicID:
       '-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD with OASIS Tables with MathML3 v1.1 20151215//EN',
-    systemId:
+    systemID:
       'http://jats.nlm.nih.gov/archiving/1.1/JATS-archive-oasis-article1-mathml3.dtd',
   },
   '1.2d1': {
-    publicId:
+    publicID:
       '-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD with OASIS Tables with MathML3 v1.2d1 20170631//EN',
-    systemId:
+    systemID:
       'http://jats.nlm.nih.gov/archiving/1.2d1/JATS-archive-oasis-article1-mathml3.dtd',
   },
   '1.2': {
-    publicId:
+    publicID:
       '-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD with OASIS Tables with MathML3 v1.2 20190208//EN',
-    systemId:
+    systemID:
       'http://jats.nlm.nih.gov/archiving/1.2/JATS-archive-oasis-article1-mathml3.dtd',
   },
 }
 
-export const selectVersionIds = (version: Version): VersionIds => {
+export const selectVersionIDs = (version: Version): VersionIDs => {
   if (!(version in versions)) {
     throw new Error(`Unknown version ${version}`)
   }
