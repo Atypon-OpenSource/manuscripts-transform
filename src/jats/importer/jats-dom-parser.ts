@@ -614,12 +614,10 @@ export class JATSDOMParser {
       },
     },
     {
-      tag: 'fig attrib, disp-quote attrib, graphic:not(fig graphic) attrib',
-      node: 'attribution',
-    },
-    {
       tag: 'attrib',
-      skip: true,
+      node: 'attribution',
+      context:
+        'figure_element/|image_element/|hero_image/|blockquote_element/|pullquote_element/',
     },
     {
       tag: 'back',
@@ -963,6 +961,11 @@ export class JATSDOMParser {
     {
       tag: 'p[content-type="headshots"]',
       node: 'headshot_grid',
+    },
+    {
+      tag: 'p',
+      node: 'text_block',
+      context: 'pullquote_element/|blockquote_element/',
     },
     {
       tag: 'p',
