@@ -302,7 +302,7 @@ export const mergeAttributions = (
 ) => {
   const parents = [
     ...doc.querySelectorAll(
-      'fig:has(> attrib), graphic:not(fig graphic):has( > attrib)'
+      'fig:has(> attrib), graphic:not(fig graphic):has(> attrib)'
     ),
   ]
 
@@ -311,7 +311,7 @@ export const mergeAttributions = (
     const attributions = parent.querySelectorAll(':scope > attrib')
     attributions.forEach((attrib, index) => {
       if (index > 0) {
-        merged.append(doc.createTextNode(', '))
+        merged.append(doc.createTextNode(' '))
       }
       merged.append(
         ...Array.from(attrib.childNodes).map((n) => n.cloneNode(true))
