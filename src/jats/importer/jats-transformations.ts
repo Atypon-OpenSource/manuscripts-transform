@@ -300,20 +300,16 @@ export const mergeAttributions = (
   doc: Document,
   createElement: CreateElement
 ) => {
-  const attributions = [
-    ...doc.querySelectorAll('fig > attrib, graphic:not(fig graphic) attrib'),
+  const parents = [
+    ...doc.querySelectorAll(
+      'fig:has(> attrib), graphic:not(fig graphic):has( > attrib)'
+    ),
   ]
-  const attribsByParent = new Map<Element, Element[]>()
-  attributions.forEach((attrib) => {
-    if (!attrib.parentElement) {
-      return
-    }
-    const group = attribsByParent.get(attrib.parentElement) ?? []
-    attribsByParent.set(attrib.parentElement, [...group, attrib])
-  })
-  attribsByParent.forEach((group, parent) => {
+
+  parents.forEach((parent) => {
     const merged = createElement('attrib')
-    group.forEach((attrib, index) => {
+    const attributions = parent.querySelectorAll(':scope > attrib')
+    attributions.forEach((attrib, index) => {
       if (index > 0) {
         merged.append(doc.createTextNode(', '))
       }
