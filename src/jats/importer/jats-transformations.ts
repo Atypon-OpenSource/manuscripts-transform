@@ -300,11 +300,7 @@ export const mergeAttributions = (
   doc: Document,
   createElement: CreateElement
 ) => {
-  const parents = [
-    ...doc.querySelectorAll(
-      'fig:has(> attrib), graphic:not(fig graphic):has(> attrib)'
-    ),
-  ]
+  const parents = [...doc.querySelectorAll(':has(> attrib)')]
 
   parents.forEach((parent) => {
     const merged = createElement('attrib')
