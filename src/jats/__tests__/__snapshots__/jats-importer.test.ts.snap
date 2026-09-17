@@ -3163,7 +3163,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -18051,7 +18050,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -18279,7 +18277,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -18964,7 +18961,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -23392,7 +23388,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -27254,7 +27249,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -27410,7 +27404,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -31390,9 +31383,6 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
-                                    "attribution": Object {
-                                      "literal": "Source: Wikipedia.",
-                                    },
                                     "dataTracked": null,
                                     "id": "MPFigureElement:test",
                                   },
@@ -31419,18 +31409,6 @@ Object {
                                         "type": "half-right",
                                       },
                                       "type": "figure",
-                                    },
-                                    Object {
-                                      "attrs": Object {
-                                        "dataTracked": null,
-                                      },
-                                      "content": Array [
-                                        Object {
-                                          "text": "Source: Wikipedia.",
-                                          "type": "text",
-                                        },
-                                      ],
-                                      "type": "attribution",
                                     },
                                     Object {
                                       "attrs": Object {
@@ -31467,6 +31445,18 @@ Object {
                                     },
                                     Object {
                                       "attrs": Object {
+                                        "dataTracked": null,
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "Source: Wikipedia.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "attribution",
+                                    },
+                                    Object {
+                                      "attrs": Object {
                                         "id": "MPAltText:test",
                                       },
                                       "type": "alt_text",
@@ -31494,9 +31484,6 @@ Object {
                                 },
                                 Object {
                                   "attrs": Object {
-                                    "attribution": Object {
-                                      "literal": "Source: Wikipedia.",
-                                    },
                                     "dataTracked": null,
                                     "id": "fig1",
                                   },
@@ -31521,18 +31508,6 @@ Object {
                                         "id": "MPMissingFigure:test",
                                       },
                                       "type": "missing_figure",
-                                    },
-                                    Object {
-                                      "attrs": Object {
-                                        "dataTracked": null,
-                                      },
-                                      "content": Array [
-                                        Object {
-                                          "text": "Source: Wikipedia.",
-                                          "type": "text",
-                                        },
-                                      ],
-                                      "type": "attribution",
                                     },
                                     Object {
                                       "attrs": Object {
@@ -31566,6 +31541,18 @@ Object {
                                         },
                                       ],
                                       "type": "caption",
+                                    },
+                                    Object {
+                                      "attrs": Object {
+                                        "dataTracked": null,
+                                      },
+                                      "content": Array [
+                                        Object {
+                                          "text": "Source: Wikipedia.",
+                                          "type": "text",
+                                        },
+                                      ],
+                                      "type": "attribution",
                                     },
                                     Object {
                                       "attrs": Object {
@@ -31868,7 +31855,7 @@ Object {
                   "type": "cross_reference",
                 },
                 Object {
-                  "text": ". Kinds of tables This is a table title continued paragraph Table_Head Table_Body* * Table_Footnote Block_Quote Source: Wikipedia Paragraph_Continued with a graphic in the middlewhere the paragraph continues.",
+                  "text": ". Kinds of tables This is a table title continued paragraph Table_Head Table_Body* * Table_Footnote Block_Quote Source: WikipediaParagraph_Continued with a graphic in the middlewhere the paragraph continues.",
                   "type": "text",
                 },
               ],
@@ -33365,7 +33352,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -33445,7 +33431,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -35144,7 +35129,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -39030,7 +39014,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -39186,7 +39169,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -45241,7 +45223,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
@@ -51869,7 +51850,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -52386,7 +52366,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -52948,7 +52927,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -53604,7 +53582,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -54014,7 +53991,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -54518,7 +54494,6 @@ Object {
                 },
                 Object {
                   "attrs": Object {
-                    "attribution": undefined,
                     "dataTracked": null,
                     "id": "MPFigureElement:test",
                   },
@@ -54964,7 +54939,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "attribution": undefined,
                 "dataTracked": null,
                 "id": "MPFigureElement:test",
               },
