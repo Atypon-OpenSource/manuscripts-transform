@@ -715,9 +715,17 @@ export class JATSExporter {
             if (extLink.href) {
               const extLinkElement = this.createElement('ext-link')
               extLinkElement.setAttribute('ext-link-type', extLink.type)
-              extLinkElement.setAttributeNS(XLINK_NAMESPACE, 'href', extLink.href)
+              extLinkElement.setAttributeNS(
+                XLINK_NAMESPACE,
+                'href',
+                extLink.href
+              )
               if (extLink.lang) {
-                extLinkElement.setAttributeNS(XML_NAMESPACE, 'lang', extLink.lang)
+                extLinkElement.setAttributeNS(
+                  XML_NAMESPACE,
+                  'lang',
+                  extLink.lang
+                )
               }
               if (extLink.label) {
                 extLinkElement.textContent = extLink.label
@@ -772,6 +780,7 @@ export class JATSExporter {
           : ['table-wrap-foot', 0],
       contributor: (node) =>
         this.buildContributorElement(node as ContributorNode),
+      bio: () => ['bio', 0],
       affiliation: (node) =>
         this.buildAffiliationElement(node as AffiliationNode),
       attribution: () => ['attrib', 0],
@@ -852,8 +861,7 @@ export class JATSExporter {
 
         const rid = rids[0]
         const labelTarget = this.labelTargets.get(rid)
-        const isSupplement =
-          labelTarget?.type === schema.nodes.supplement.name
+        const isSupplement = labelTarget?.type === schema.nodes.supplement.name
         const text =
           cross.attrs.label ||
           (isSupplement
