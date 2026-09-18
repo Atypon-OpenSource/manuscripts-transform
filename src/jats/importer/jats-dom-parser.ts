@@ -574,6 +574,10 @@ export class JATSDOMParser {
       },
     },
     {
+      tag: 'bio',
+      node: 'bio',
+    },
+    {
       tag: 'affiliations',
       node: 'affiliations',
     },
