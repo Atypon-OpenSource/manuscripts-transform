@@ -32,7 +32,6 @@ export const keywordsElement: NodeSpec = {
   content: 'keyword_group*',
   attrs: {
     id: { default: '' },
-    contents: { default: '' },
     dataTracked: { default: null },
   },
   group: 'block element',

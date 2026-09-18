@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2023 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,45 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { NodeSpec } from 'prosemirror-model'
 
 import { ManuscriptNode } from '../types'
 
-interface Attrs {
+export interface BioAttrs {
   id: string
 }
 
-export interface BibliographyElementNode extends ManuscriptNode {
-  attrs: Attrs
+export interface BioNode extends ManuscriptNode {
+  attrs: BioAttrs
 }
 
-export const bibliographyElement: NodeSpec = {
-  content: 'bibliography_item*',
+export const bio: NodeSpec = {
+  content: 'image_element? paragraph',
   attrs: {
     id: { default: '' },
     dataTracked: { default: null },
   },
-  selectable: false,
-  group: 'block element',
-  parseDOM: [
-    {
-      tag: 'div.csl-bib-body',
-      getAttrs: () => {
-        return {
-          contents: '',
-        }
+  group: 'block',
+  toDOM: (node) => {
+    const contributorNode = node as BioNode
+    return [
+      'div',
+      {
+        class: 'bio',
+        id: contributorNode.attrs.id,
       },
-    },
-  ],
-  toDOM: () => {
-    const dom = document.createElement('div')
-    dom.className = 'csl-bib-body'
-    return dom
+    ]
   },
 }
-
-export const isBibliographyElementNode = (
-  node: ManuscriptNode
-): node is BibliographyElementNode =>
-  node.type === node.type.schema.nodes.bibliography_element
+export const isBioNode = (node: ManuscriptNode): node is BioNode =>
+  node.type === node.type.schema.nodes.bio

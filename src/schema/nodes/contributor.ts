@@ -47,7 +47,7 @@ export interface ContributorNode extends ManuscriptNode {
 }
 
 export const contributor: NodeSpec = {
-  content: 'inline*',
+  content: 'bio?',
   atom: true,
   attrs: {
     id: { default: '' },
@@ -68,7 +68,6 @@ export const contributor: NodeSpec = {
     priority: { default: undefined },
     creditRoles: { default: [] },
     dataTracked: { default: null },
-    contents: { default: '' },
   },
   group: 'block',
   toDOM: (node) => {
