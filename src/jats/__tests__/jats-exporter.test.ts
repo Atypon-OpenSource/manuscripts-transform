@@ -15,6 +15,7 @@
  */
 
 import { Element as XMLElement, parseXml } from 'libxmljs2'
+import serializeToXML from 'w3c-xmlserializer'
 
 import { JATSExporter } from '../exporter/jats-exporter'
 import { Version } from '../exporter/jats-versions'
@@ -40,11 +41,11 @@ describe('JATS exporter', () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-example-full.xml')
     const node = parseJATSArticle(input, sectionCategories)
-    const result = await transformer.serializeToJATS(node, {
+    const document = await transformer.serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
     })
 
-    expect(result).toMatchSnapshot('jats-export')
+    expect(serializeToXML(document)).toMatchSnapshot('jats-export')
   })
 
   test('export with & and < in bibliography metadata', async () => {
@@ -61,23 +62,25 @@ describe('JATS exporter', () => {
 
     biblio!.attrs.title += ' & Sons 55 < 135'
 
-    const result = await transformer.serializeToJATS(node, {
+    const document = await transformer.serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
     })
 
-    expect(result).toMatchSnapshot('jats-export-with-xml-unsafe-in-biblios')
+    expect(serializeToXML(document)).toMatchSnapshot(
+      'jats-export-with-xml-unsafe-in-biblios'
+    )
   })
 
   test('export v1.1', async () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-example-full.xml')
     const node = parseJATSArticle(input, sectionCategories)
-    const result = await transformer.serializeToJATS(node, {
+    const document = await transformer.serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
       version: '1.1',
     })
 
-    expect(result).toMatchSnapshot('jats-export-1.1')
+    expect(serializeToXML(document)).toMatchSnapshot('jats-export-1.1')
   })
 
   test('export unknown version', async () => {
@@ -96,9 +99,10 @@ describe('JATS exporter', () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-tables-example.xml')
     const node = parseJATSArticle(input, sectionCategories)
-    const xml = await transformer.serializeToJATS(node, {
+    const document = await transformer.serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
     })
+    const xml = serializeToXML(document)
 
     const resultDoc = parseXMLWithDTD(xml)
     const tableWrapFoot = resultDoc.get('//table-wrap/table-wrap-foot')
@@ -111,11 +115,11 @@ describe('JATS exporter', () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-import.xml')
     const node = parseJATSArticle(input, sectionCategories)
-    const xml = await transformer.serializeToJATS(node, {
+    const document = await transformer.serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
     })
 
-    const { errors } = parseXMLWithDTD(xml)
+    const { errors } = parseXMLWithDTD(serializeToXML(document))
 
     expect(errors).toHaveLength(0)
   })
@@ -124,10 +128,10 @@ describe('JATS exporter', () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-document.xml')
     const node = parseJATSArticle(input, sectionCategories)
-    const xml = await transformer.serializeToJATS(node, {
+    const document = await transformer.serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
     })
-    const { errors } = parseXMLWithDTD(xml)
+    const { errors } = parseXMLWithDTD(serializeToXML(document))
 
     expect(errors).toHaveLength(0)
   })
@@ -136,11 +140,11 @@ describe('JATS exporter', () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-import.xml')
     const node = parseJATSArticle(input, sectionCategories)
-    const xml = await transformer.serializeToJATS(node, {
+    const document = await transformer.serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
     })
 
-    const output = parseXMLWithDTD(xml)
+    const output = parseXMLWithDTD(serializeToXML(document))
     const link = output.get<XMLElement>('//ext-link[@ext-link-type="uri"]')
     expect(link).not.toBeNull()
     expect(link!.text()).toBe('https//orcid.org/0000-0003-2217-5904')
@@ -159,11 +163,11 @@ describe('JATS exporter', () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-example-doc.xml')
     const node = parseJATSArticle(input, sectionCategories)
-    const xml = await transformer.serializeToJATS(node, {
+    const document = await transformer.serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
     })
 
-    const { errors } = parseXMLWithDTD(xml)
+    const { errors } = parseXMLWithDTD(serializeToXML(document))
 
     expect(errors).toHaveLength(0)
   })
@@ -172,10 +176,10 @@ describe('JATS exporter', () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-import.xml')
     const node = parseJATSArticle(input, sectionCategories)
-    const xml = await transformer.serializeToJATS(node, {
+    const document = await transformer.serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
     })
-    const resultDoc = parseXMLWithDTD(xml)
+    const resultDoc = parseXMLWithDTD(serializeToXML(document))
     const supplementaryMaterial = resultDoc.get('//supplementary-material')
     if (!supplementaryMaterial) {
       throw new Error('No supplementary material found')
@@ -215,9 +219,10 @@ describe('JATS exporter', () => {
         n.attrs.rids.forEach((rid: string) => citedIDs.add(rid))
       }
     })
-    const xml = await new JATSExporter().serializeToJATS(node, {
+    const document = await new JATSExporter().serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
     })
+    const xml = serializeToXML(document)
     const refCount = parseXMLWithDTD(xml).find('//ref-list/ref').length
     expect(refCount).toBe(bibliographyItemIDs.size)
     const { errors } = parseXMLWithDTD(xml)
@@ -228,9 +233,10 @@ describe('JATS exporter', () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-fn-group.xml')
     const node = parseJATSArticle(input, sectionCategories)
-    const xml = await transformer.serializeToJATS(node, {
+    const document = await transformer.serializeToJATS(node, {
       csl: DEFAULT_CSL_OPTIONS,
     })
+    const xml = serializeToXML(document)
     const footnoteCategories = [
       'con',
       'deceased',
