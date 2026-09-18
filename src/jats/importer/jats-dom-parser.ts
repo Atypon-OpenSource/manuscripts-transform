@@ -572,9 +572,6 @@ export class JATSDOMParser {
           email: getTrimmedTextContent(element, 'email') || '',
         }
       },
-      getContent: () => {
-        return Fragment.from(this.schema.text('_'))
-      },
     },
     {
       tag: 'affiliations',
@@ -772,7 +769,7 @@ export class JATSDOMParser {
             label: getTrimmedTextContent(extLinkElement) || undefined,
           }))
           .filter((extLink) => extLink.href) // Filter out entries without href
-        
+
         return {
           id: element.getAttribute('id'),
           href: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
