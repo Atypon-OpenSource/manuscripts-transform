@@ -15,6 +15,7 @@
  */
 
 import { parseXml } from 'libxmljs2'
+import serializeToXML from 'w3c-xmlserializer'
 
 import { JATSExporter } from '../exporter/jats-exporter'
 import { parseJATSArticle } from '../importer/parse-jats-article'
@@ -36,9 +37,10 @@ const roundtrip = async (filename: string) => {
   const node = parseJATSArticle(doc, sectionCategories)
 
   const exporter = new JATSExporter()
-  return await exporter.serializeToJATS(node, {
+  const document = await exporter.serializeToJATS(node, {
     csl: DEFAULT_CSL_OPTIONS,
   })
+  return serializeToXML(document)
 }
 
 describe('JATS roundtrip', () => {
