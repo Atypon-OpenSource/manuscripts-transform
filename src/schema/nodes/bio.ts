@@ -33,13 +33,14 @@ export const bio: NodeSpec = {
   },
   group: 'block',
   toDOM: (node) => {
-    const contributorNode = node as BioNode
+    const bioNode = node as BioNode
     return [
       'div',
       {
         class: 'bio',
-        id: contributorNode.attrs.id,
+        id: bioNode.attrs.id,
       },
+      0,
     ]
   },
 }
