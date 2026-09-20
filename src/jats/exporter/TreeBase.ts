@@ -14,49 +14,10 @@
  * limitations under the License.
  */
 
-import * as Citeproc from 'citeproc'
-import { DOMOutputSpec, DOMSerializer, type NodeType } from 'prosemirror-model'
+import { DOMSerializer, type NodeType } from 'prosemirror-model'
 import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
-import serializeToXML from 'w3c-xmlserializer'
 
-import { buildCiteprocCitation } from '../../lib/citeproc'
-import { CreditRoleUrls } from '../../lib/credit-roles'
-import { generateFootnoteLabels } from '../../lib/footnotes'
-import { FOOTNOTE_SECTION_CATEGORY_IDS } from '../../lib/section-categories'
-import {
-  sanitizeXmlString,
-  XLINK_NAMESPACE,
-  XML_NAMESPACE,
-} from '../../lib/xml'
-import {
-  ActualManuscriptNode,
-  AffiliationNode,
-  AuthorNotesNode,
-  AwardNode,
-  ExtLink,
-  CitationNode,
-  ContributorNode,
-  CorrespNode,
-  CrossReferenceNode,
-  FootnoteNode,
-  isBibliographyItemNode,
-  isCitationNode,
-  isNodeOfType,
-  ManuscriptMark,
-  ManuscriptNode,
-  ManuscriptNodeType,
-  Marks,
-  Nodes,
-  ParagraphNode,
-  QuoteImageNode,
-  schema,
-  BioNode,
-} from '../../schema'
-import { isExecutableNodeType } from '../../transformer'
-import { IDGenerator } from '../types'
-import { initJats, jatsVariableWrapper } from './citeproc'
-import { selectVersionIDs, Version } from './jats-versions'
-import { buildTargets, Target } from './labels'
+import { isNodeOfType, ManuscriptNode, ManuscriptNodeType } from '../../schema'
 import { normalizeID } from './lib'
 
 export class TreeBase {
