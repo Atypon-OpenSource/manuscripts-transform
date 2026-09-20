@@ -1301,9 +1301,9 @@ export class JATSExporter extends TreeBase {
     return $sup
   }
 
-  private buildBioElement = (bio: BioNode) => {
+  private buildBioElement = (bio?: BioNode) => {
     const $bio = this.createElement('bio')
-    if (!bio.firstChild) {
+    if (!bio || !bio.firstChild) {
       return null
     }
     bio.children.forEach((node) => {
@@ -1313,7 +1313,7 @@ export class JATSExporter extends TreeBase {
           break
         }
         case schema.nodes.image_element: {
-          $bio.append(this.createGraphic(node as FootnoteNode))
+          $bio.append(this.createImage(node))
           break
         }
         default:
@@ -1428,7 +1428,7 @@ export class JATSExporter extends TreeBase {
     })
 
     const bio = this.buildBioElement(
-      this.getChildrenOfType<BioNode>(schema.nodes.bio, contributor)[0]
+      this.getFirstChildOfType<BioNode>(schema.nodes.bio, contributor)
     )
     if (bio) {
       $contrib.appendChild(bio)
