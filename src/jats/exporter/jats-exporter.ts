@@ -56,7 +56,7 @@ import { IDGenerator } from '../types'
 import { initJats, jatsVariableWrapper } from './citeproc'
 import { selectVersionIDs, Version } from './jats-versions'
 import { buildTargets, Target } from './labels'
-import { TreeBase } from './TreeBase'
+import { JATSExporterBase } from './JATSExporterBase'
 import { chooseRefType, createDefaultIDGenerator, normalizeID } from './lib'
 
 interface Attrs {
@@ -78,7 +78,7 @@ export type ExportOptions = {
   csl: CSLOptions
 }
 
-export class JATSExporter extends TreeBase {
+export class JATSExporter extends JATSExporterBase {
   protected labelTargets: Map<string, Target>
   protected footnoteLabels: Map<string, string>
   protected manuscriptNode: ActualManuscriptNode

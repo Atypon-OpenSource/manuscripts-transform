@@ -20,7 +20,7 @@ import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
 import { isNodeOfType, ManuscriptNode, ManuscriptNodeType } from '../../schema'
 import { normalizeID } from './lib'
 
-export class TreeBase {
+export class JATSExporterBase {
   private nodesMap: Map<NodeType, ManuscriptNode[]> = new Map()
   protected manuscriptNode: ManuscriptNode
   protected document: Document
