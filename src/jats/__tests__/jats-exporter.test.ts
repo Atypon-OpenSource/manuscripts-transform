@@ -247,4 +247,40 @@ describe('JATS exporter', () => {
       expect(fn).not.toBeUndefined()
     }
   })
+
+  test('export contributor bio', async () => {
+    const transformer = new JATSExporter()
+    const input = await readAndParseFixture('jats-import.xml')
+    const node = parseJATSArticle(input, sectionCategories)
+    const xml = await transformer.serializeToJATS(node, {
+      csl: DEFAULT_CSL_OPTIONS,
+    })
+    const resultDoc = parseXMLWithDTD(xml)
+    expect(resultDoc.errors).toHaveLength(0)
+
+    const contribs = resultDoc.find<XMLElement>('//contrib-group/contrib')
+    expect(contribs).toHaveLength(2)
+    expect(contribs[0].find('bio')).toHaveLength(1)
+    expect(contribs[1].find('bio')).toHaveLength(0)
+
+    const graphic = resultDoc.get<XMLElement>('//contrib/bio/graphic')!
+    expect(graphic).not.toBeNull()
+    expect(graphic.attr('href')?.value()).toBe('agnete-hornnes.png')
+    expect(graphic.find('caption')).toHaveLength(0)
+    expect(
+      resultDoc.get<XMLElement>('//contrib/bio/graphic/alt-text')!.text()
+    ).toBe('Headshot of Agnete Hviid Hornnes')
+
+    const paragraph = resultDoc.get<XMLElement>('//contrib/bio/p')!
+    expect(paragraph.text()).toBe(
+      'Agnete is a Professor of Neurology at Herlev og Gentofte Hospital, specializing in stroke research.'
+    )
+    // Inline markup in the bio paragraph roundtrips through the DOMSerializer.
+    // TODO(LEAN-5987): the ticket specifies plain bio text; see the note next to
+    // the commented-out buildBioElement in the exporter. Flip this assertion if
+    // product decides bio text must be flattened on export.
+    expect(resultDoc.get<XMLElement>('//contrib/bio/p/italic')?.text()).toBe(
+      'Professor of Neurology'
+    )
+  })
 })

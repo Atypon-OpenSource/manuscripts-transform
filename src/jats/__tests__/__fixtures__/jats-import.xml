@@ -49,6 +49,13 @@
             vocab-term-identifier=
             "http://credit.niso.org/contributor-roles/writing-original-draft/"
             degree-contribution="lead">writer</role>
+          <bio>
+            <graphic xlink:href="agnete-hornnes.png">
+              <alt-text>Headshot of Agnete Hviid Hornnes</alt-text>
+            </graphic>
+            <p>Agnete is a <italic>Professor of Neurology</italic> at Herlev og
+              Gentofte Hospital, specializing in stroke research.</p>
+          </bio>
         </contrib>
         <contrib contrib-type="author">
           <name>

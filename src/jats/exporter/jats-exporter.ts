@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2026 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,8 @@
  */
 
 import * as Citeproc from 'citeproc'
-import { DOMOutputSpec, DOMSerializer, type NodeType } from 'prosemirror-model'
-import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
+import { DOMOutputSpec, DOMSerializer } from 'prosemirror-model'
+import { findChildrenByAttr } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
 
 import { buildCiteprocCitation } from '../../lib/citeproc'
@@ -41,7 +41,6 @@ import {
   FootnoteNode,
   isBibliographyItemNode,
   isCitationNode,
-  isNodeOfType,
   ManuscriptMark,
   ManuscriptNode,
   ManuscriptNodeType,
@@ -50,12 +49,15 @@ import {
   ParagraphNode,
   QuoteImageNode,
   schema,
+  BioNode,
 } from '../../schema'
 import { isExecutableNodeType } from '../../transformer'
 import { IDGenerator } from '../types'
 import { initJats, jatsVariableWrapper } from './citeproc'
 import { selectVersionIDs, Version } from './jats-versions'
 import { buildTargets, Target } from './labels'
+import { JATSExporterBase } from './JATSExporterBase'
+import { chooseRefType, createDefaultIDGenerator, normalizeID } from './lib'
 
 interface Attrs {
   [key: string]: string
@@ -67,56 +69,6 @@ type MarkSpecs = {
   [key in Marks]: (mark: ManuscriptMark, inline: boolean) => DOMOutputSpec
 }
 
-const normalizeID = (id: string) => id.replace(/:/g, '_')
-
-export const createCounter = () => {
-  const counts = new Map<string, number>()
-
-  return {
-    increment: (field: string) => {
-      const value = counts.get(field)
-      const newValue = value === undefined ? 1 : value + 1
-      counts.set(field, newValue)
-      return newValue
-    },
-  }
-}
-
-const createDefaultIDGenerator = (): IDGenerator => {
-  const counter = createCounter()
-
-  return async (element: Element) => {
-    const value = String(counter.increment(element.nodeName))
-
-    return `${element.localName}-${value}`
-  }
-}
-
-const chooseRefType = (type: ManuscriptNodeType): string | undefined => {
-  switch (type) {
-    case schema.nodes.figure:
-    case schema.nodes.figure_element:
-      return 'fig'
-
-    case schema.nodes.footnote:
-      return 'fn'
-
-    case schema.nodes.table:
-    case schema.nodes.table_element:
-      return 'table'
-
-    case schema.nodes.section:
-    case schema.nodes.abstract:
-      return 'sec'
-
-    case schema.nodes.equation:
-    case schema.nodes.equation_element:
-      return 'disp-formula'
-
-    case schema.nodes.supplement:
-      return 'supplementary-material'
-  }
-}
 export type CSLOptions = {
   style: string
   locale: string
@@ -126,42 +78,14 @@ export type ExportOptions = {
   csl: CSLOptions
 }
 
-export class JATSExporter {
-  protected document: Document
-  protected serializer: DOMSerializer
+export class JATSExporter extends JATSExporterBase {
   protected labelTargets: Map<string, Target>
   protected footnoteLabels: Map<string, string>
   protected manuscriptNode: ActualManuscriptNode
   private engine: Citeproc.Engine
   private renderedCitations: Map<string, string>
-  private nodesMap: Map<NodeType, ManuscriptNode[]> = new Map()
+
   private contributorLabels: Map<string, number> = new Map()
-
-  private populateNodesMap = () => {
-    this.manuscriptNode.descendants((node) => {
-      const type = node.type
-      const nodes = this.nodesMap.get(type) ?? []
-      nodes.push(node)
-      this.nodesMap.set(type, nodes)
-    })
-  }
-
-  protected getFirstChildOfType<T extends ManuscriptNode>(
-    type: NodeType,
-    node?: ManuscriptNode
-  ): T | undefined {
-    return this.getChildrenOfType<T>(type, node)[0]
-  }
-
-  protected getChildrenOfType<T extends ManuscriptNode>(
-    type: NodeType,
-    node?: ManuscriptNode
-  ): T[] {
-    const nodes = node
-      ? findChildrenByType(node, type).map(({ node }) => node)
-      : this.nodesMap.get(type)
-    return (nodes ?? []).filter((n): n is T => isNodeOfType<T>(n, type))
-  }
 
   public serializeToJATS = async (
     manuscriptNode: ActualManuscriptNode,
@@ -184,7 +108,6 @@ export class JATSExporter {
     )
 
     const $article = this.document.documentElement
-
     $article.setAttributeNS(
       'http://www.w3.org/2000/xmlns/',
       'xmlns:xlink',
@@ -629,43 +552,13 @@ export class JATSExporter {
     return $refList
   }
 
-  private createElement = (
-    tag: string,
-    content?: string,
-    attrs?: Record<string, string | undefined>
-  ) => {
-    const $element = this.document.createElement(tag)
-    if (content) {
-      $element.textContent = content
-    }
-    if (attrs) {
-      Object.entries(attrs).forEach(([k, v]) => {
-        if (v) {
-          $element.setAttribute(k, v)
-        }
-      })
-    }
-    return $element
-  }
-
-  private appendElement = (
-    $parent: Element,
-    tag: string,
-    content?: string,
-    attrs?: Record<string, string | undefined>
-  ) => {
-    const $element = this.createElement(tag, content, attrs)
-    $parent.appendChild($element)
-    return $element
-  }
-
   protected createSerializer = () => {
     const nodes: NodeSpecs = {
-      trans_abstract: (node) => createTransAbstract(node),
-      trans_graphical_abstract: (node) => createTransAbstract(node),
+      trans_abstract: (node) => this.createTransAbstract(node),
+      trans_graphical_abstract: (node) => this.createTransAbstract(node),
       hero_image: () => '',
       headshot_grid: () => ['p', { 'content-type': 'headshots' }, 0],
-      headshot_element: (node) => createImage(node),
+      headshot_element: (node) => this.createImage(node),
       headshot_image: () => '',
       alt_text: (node) => {
         if (node.textContent) {
@@ -690,7 +583,7 @@ export class JATSExporter {
         return $selfUri
       },
       attachments: () => '',
-      image_element: (node) => createImage(node),
+      image_element: (node) => this.createImage(node),
       embed: (node) => {
         const { id, href, mimetype, mimeSubtype, extLinks } = node.attrs
         if (!href) {
@@ -706,7 +599,7 @@ export class JATSExporter {
         if (mimeSubtype) {
           $media.setAttribute('mime-subtype', node.attrs.mimeSubtype)
         }
-        appendLabels($media, node)
+        this.appendLabels($media, node)
         this.appendChildNodeOfType($media, node, schema.nodes.alt_text)
         this.appendChildNodeOfType($media, node, schema.nodes.long_desc)
         this.appendCaption($media, node)
@@ -715,9 +608,17 @@ export class JATSExporter {
             if (extLink.href) {
               const extLinkElement = this.createElement('ext-link')
               extLinkElement.setAttribute('ext-link-type', extLink.type)
-              extLinkElement.setAttributeNS(XLINK_NAMESPACE, 'href', extLink.href)
+              extLinkElement.setAttributeNS(
+                XLINK_NAMESPACE,
+                'href',
+                extLink.href
+              )
               if (extLink.lang) {
-                extLinkElement.setAttributeNS(XML_NAMESPACE, 'lang', extLink.lang)
+                extLinkElement.setAttributeNS(
+                  XML_NAMESPACE,
+                  'lang',
+                  extLink.lang
+                )
               }
               if (extLink.label) {
                 extLinkElement.textContent = extLink.label
@@ -733,7 +634,7 @@ export class JATSExporter {
         const awardGroup = node as AwardNode
         const $awardGroup = this.createElement('award-group')
         $awardGroup.setAttribute('id', normalizeID(awardGroup.attrs.id))
-        appendChildIfPresent(
+        this.appendChildIfPresent(
           $awardGroup,
           'funding-source',
           awardGroup.attrs.source
@@ -741,9 +642,9 @@ export class JATSExporter {
         awardGroup.attrs.code
           ?.split(';')
           .forEach((code) =>
-            appendChildIfPresent($awardGroup, 'award-id', code)
+            this.appendChildIfPresent($awardGroup, 'award-id', code)
           )
-        appendChildIfPresent(
+        this.appendChildIfPresent(
           $awardGroup,
           'principal-award-recipient',
           awardGroup.attrs.recipient
@@ -751,7 +652,7 @@ export class JATSExporter {
 
         return $awardGroup
       },
-      box_element: (node) => createBoxElement(node),
+      box_element: (node) => this.createBoxElement(node),
       author_notes: () => '',
       corresp: () => '',
       title: () => ['article-title', 0],
@@ -772,6 +673,7 @@ export class JATSExporter {
           : ['table-wrap-foot', 0],
       contributor: (node) =>
         this.buildContributorElement(node as ContributorNode),
+      bio: () => ['bio', 0],
       affiliation: (node) =>
         this.buildAffiliationElement(node as AffiliationNode),
       attribution: () => ['attrib', 0],
@@ -806,7 +708,7 @@ export class JATSExporter {
           'mime-subtype',
           node.attrs.mimeSubType ?? ''
         )
-        appendLabels($supplementaryMaterial, node)
+        this.appendLabels($supplementaryMaterial, node)
         this.appendCaption($supplementaryMaterial, node)
         return $supplementaryMaterial
       },
@@ -852,8 +754,7 @@ export class JATSExporter {
 
         const rid = rids[0]
         const labelTarget = this.labelTargets.get(rid)
-        const isSupplement =
-          labelTarget?.type === schema.nodes.supplement.name
+        const isSupplement = labelTarget?.type === schema.nodes.supplement.name
         const text =
           cross.attrs.label ||
           (isSupplement
@@ -905,13 +806,13 @@ export class JATSExporter {
       equation_element: (node) => {
         const $dispFormula = this.createElement('disp-formula')
         $dispFormula.setAttribute('id', normalizeID(node.attrs.id))
-        appendLabels($dispFormula, node)
-        processChildNodes($dispFormula, node, schema.nodes.equation)
+        this.appendLabels($dispFormula, node)
+        this.processChildNodes($dispFormula, node, schema.nodes.equation)
         return $dispFormula
       },
-      figure: (node) => createGraphic(node),
+      figure: (node) => this.createGraphic(node),
       figure_element: (node) =>
-        createFigureElement(node, node.type.schema.nodes.figure),
+        this.createFigureElement(node, node.type.schema.nodes.figure),
       footnote: (node) => {
         const attrs: Attrs = {}
 
@@ -1004,7 +905,7 @@ export class JATSExporter {
         return $code
       },
       listing_element: (node) =>
-        createFigureElement(node, node.type.schema.nodes.listing),
+        this.createFigureElement(node, node.type.schema.nodes.listing),
       manuscript: (node) => ['article', { id: normalizeID(node.attrs.id) }, 0],
       missing_figure: () => {
         const $graphic = this.createElement('graphic')
@@ -1045,11 +946,11 @@ export class JATSExporter {
       quote_image: (node) => {
         const img = node as QuoteImageNode
         if (img.attrs.src) {
-          return createGraphic(node)
+          return this.createGraphic(node)
         }
         return ''
       },
-      graphical_abstract_section: (node) => createAbstract(node),
+      graphical_abstract_section: (node) => this.createAbstract(node),
       section: (node) => {
         const attrs: { [key: string]: string } = {
           id: normalizeID(node.attrs.id),
@@ -1061,13 +962,13 @@ export class JATSExporter {
 
         return ['sec', attrs, 0]
       },
-      abstract: (node) => createAbstract(node),
+      abstract: (node) => this.createAbstract(node),
       section_label: () => ['label', 0],
       section_title: () => ['title', 0],
       section_title_plain: () => ['title', 0],
       table: (node) => ['table', { id: normalizeID(node.attrs.id) }, 0],
       table_element: (node) => {
-        const $tableWrap = createTableElement(node)
+        const $tableWrap = this.createTableElement(node)
         $tableWrap.setAttribute('position', 'anchor')
         if (node.attrs.type) {
           $tableWrap.setAttribute('content-type', node.attrs.type)
@@ -1121,134 +1022,93 @@ export class JATSExporter {
     }
 
     this.serializer = new DOMSerializer(nodes, marks)
-    const appendChildIfPresent = (
-      $parent: Element,
-      tagName: string,
-      textContent: string
-    ) => {
-      if (!textContent) {
-        return
-      }
-      const $element = this.createElement(tagName)
-      $element.textContent = textContent
-      $parent.appendChild($element)
-    }
-    const processChildNodes = (
-      $element: Element,
-      node: ManuscriptNode,
-      contentNodeType: ManuscriptNodeType
-    ) => {
-      node.forEach((childNode) => {
-        if (childNode.type === contentNodeType) {
-          if (childNode.attrs.id) {
-            $element.appendChild(this.serializeNode(childNode))
-          }
-        } else if (childNode.type === node.type.schema.nodes.paragraph) {
-          $element.appendChild(this.serializeNode(childNode))
-        } else if (childNode.type === node.type.schema.nodes.missing_figure) {
-          $element.appendChild(this.serializeNode(childNode))
-        }
-      })
-    }
-    const createElement = (node: ManuscriptNode, nodeName: string) => {
-      const $element = this.createElement(nodeName)
-      $element.setAttribute('id', normalizeID(node.attrs.id))
-      return $element
-    }
+  }
 
-    const appendLabels = ($element: Element, node: ManuscriptNode) => {
-      if (this.labelTargets) {
-        const target = this.labelTargets.get(node.attrs.id)
+  appendLabels($element: Element, node: ManuscriptNode) {
+    if (this.labelTargets) {
+      const target = this.labelTargets.get(node.attrs.id)
 
-        if (target) {
-          const $label = this.createElement('label')
-          $label.textContent = target.label
-          $element.appendChild($label)
-        }
+      if (target) {
+        const $label = this.createElement('label')
+        $label.textContent = target.label
+        $element.appendChild($label)
       }
     }
-    const appendAttributions = ($element: Element, node: ManuscriptNode) => {
-      if (node.attrs.attribution) {
-        const $attrib = this.createElement('attrib')
-        $attrib.textContent = node.attrs.attribution.literal
-        $element.appendChild($attrib)
-      }
+  }
+  appendAttributions($element: Element, node: ManuscriptNode) {
+    if (node.attrs.attribution) {
+      const $attrib = this.createElement('attrib')
+      $attrib.textContent = node.attrs.attribution.literal
+      $element.appendChild($attrib)
+    }
+  }
+
+  appendTable($element: Element, node: ManuscriptNode) {
+    const tableNode = this.getFirstChildOfType(schema.nodes.table, node)
+    const colGroupNode = this.getFirstChildOfType(
+      schema.nodes.table_colgroup,
+      node
+    )
+    if (!tableNode) {
+      return
+    }
+    const $table = this.serializeNode(tableNode)
+    const $tbody = this.createElement('tbody')
+
+    while ($table.firstChild) {
+      const $child = $table.firstChild
+      $table.removeChild($child)
+      $tbody.appendChild($child)
+    }
+    $table.appendChild($tbody)
+    this.normalizeTable($table)
+    if (colGroupNode) {
+      const $colGroup = this.serializeNode(colGroupNode)
+      $table.insertBefore($colGroup, $table.firstChild)
     }
 
-    const appendTable = ($element: Element, node: ManuscriptNode) => {
-      const tableNode = this.getFirstChildOfType(schema.nodes.table, node)
-      const colGroupNode = this.getFirstChildOfType(
-        schema.nodes.table_colgroup,
-        node
-      )
-      if (!tableNode) {
-        return
-      }
-      const $table = this.serializeNode(tableNode)
-      const $tbody = this.createElement('tbody')
+    $element.appendChild($table)
+  }
 
-      while ($table.firstChild) {
-        const $child = $table.firstChild
-        $table.removeChild($child)
-        $tbody.appendChild($child)
-      }
-      $table.appendChild($tbody)
-      this.normalizeTable($table)
-      if (colGroupNode) {
-        const $colGroup = this.serializeNode(colGroupNode)
-        $table.insertBefore($colGroup, $table.firstChild)
-      }
-
-      $element.appendChild($table)
+  createBoxElement(node: ManuscriptNode) {
+    const $boxedText = this.createElementWithID(node, 'boxed-text')
+    if (node.attrs.type) {
+      $boxedText.setAttribute('content-type', node.attrs.type)
     }
-    const createBoxElement = (node: ManuscriptNode) => {
-      const $boxedText = createElement(node, 'boxed-text')
-      if (node.attrs.type) {
-        $boxedText.setAttribute('content-type', node.attrs.type)
-      }
-      appendLabels($boxedText, node)
-      const child = node.firstChild
-      if (child?.type === schema.nodes.caption_title) {
-        this.appendCaption($boxedText, node)
-      }
-
-      processChildNodes($boxedText, node, node.type.schema.nodes.section)
-      return $boxedText
+    this.appendLabels($boxedText, node)
+    const child = node.firstChild
+    if (child?.type === schema.nodes.caption_title) {
+      this.appendCaption($boxedText, node)
     }
 
-    const abstractTypeAttrs = (category: string) =>
-      category && category !== 'abstract' ? { 'abstract-type': category } : {}
+    this.processChildNodes($boxedText, node, node.type.schema.nodes.section)
+    return $boxedText
+  }
 
-    const createAbstract = (node: ManuscriptNode): DOMOutputSpec => [
-      'abstract',
-      abstractTypeAttrs(node.attrs.category),
-      0,
-    ]
+  abstractTypeAttrs(category: string) {
+    return category && category !== 'abstract'
+      ? { 'abstract-type': category }
+      : {}
+  }
 
-    const createTransAbstract = (node: ManuscriptNode): DOMOutputSpec => [
+  createAbstract(node: ManuscriptNode): DOMOutputSpec {
+    return ['abstract', this.abstractTypeAttrs(node.attrs.category), 0]
+  }
+
+  createTransAbstract(node: ManuscriptNode): DOMOutputSpec {
+    return [
       'trans-abstract',
       {
         [`${XML_NAMESPACE} lang`]: node.attrs.lang ?? '',
-        ...abstractTypeAttrs(node.attrs.category),
+        ...this.abstractTypeAttrs(node.attrs.category),
       },
       0,
     ]
+  }
 
-    const isChildOfNodeType = (
-      targetID: string,
-      type: NodeType,
-      descend = false
-    ) => {
-      const nodes = this.getChildrenOfType(type)
-      return nodes.some((node) => {
-        const result = findChildrenByAttr(
-          node,
-          (attrs) => attrs.id === targetID,
-          descend
-        )[0]
-        return !!result
-      })
-    }
+  private createGraphic(node: ManuscriptNode) {
+    const $graphic = this.createElement('graphic')
+    $graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
 
     const findParentHeroImage = (targetID: string) => {
       const heroes = this.getChildrenOfType(schema.nodes.hero_image)
@@ -1258,122 +1118,118 @@ export class JATSExporter {
       )
     }
 
-    const createImage = (node: ManuscriptNode) => {
-      const graphicNode = node.content.firstChild
-      if (!graphicNode) {
-        return ''
-      }
-      const $graphic = createGraphic(graphicNode)
-      if (node.attrs.extLink) {
-        const $extLink = this.appendElement($graphic, 'ext-link')
-        $extLink.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.extLink)
-      }
-      this.appendCaption($graphic, node)
-      this.appendChildNodeOfType($graphic, node, schema.nodes.alt_text)
-      this.appendChildNodeOfType($graphic, node, schema.nodes.long_desc)
-      return $graphic
+    const hero = findParentHeroImage(node.attrs.id)
+    if (hero) {
+      $graphic.setAttribute('content-type', hero.attrs.type || 'leading')
+    } else if (
+      !this.isChildOfNodeType(node.attrs.id, schema.nodes.figure_element) &&
+      node.attrs.type
+    ) {
+      $graphic.setAttribute('content-type', node.attrs.type)
+    }
+    return $graphic
+  }
+
+  createImage(node: ManuscriptNode) {
+    const graphicNode = node.content.firstChild
+    if (!graphicNode) {
+      return ''
+    }
+    const $graphic = this.createGraphic(graphicNode)
+    if (node.attrs.extLink) {
+      const $extLink = this.appendElement($graphic, 'ext-link')
+      $extLink.setAttributeNS(XLINK_NAMESPACE, 'href', node.attrs.extLink)
+    }
+    this.appendCaption($graphic, node)
+    this.appendChildNodeOfType($graphic, node, schema.nodes.alt_text)
+    this.appendChildNodeOfType($graphic, node, schema.nodes.long_desc)
+    return $graphic
+  }
+
+  createFigureElement(
+    node: ManuscriptNode,
+    contentNodeType: ManuscriptNodeType
+  ) {
+    const $fig = this.createElementWithID(node, 'fig')
+    const figNode = this.getFirstChildOfType(schema.nodes.figure, node)
+    const figType = figNode?.attrs.type
+    if (figType) {
+      $fig.setAttribute('fig-type', figType)
+    }
+    this.appendLabels($fig, node)
+    this.appendCaption($fig, node)
+    this.appendChildNodeOfType($fig, node, schema.nodes.alt_text)
+    this.appendChildNodeOfType($fig, node, schema.nodes.long_desc)
+    this.appendChildNodeOfType(
+      $fig,
+      node,
+      node.type.schema.nodes.footnotes_element
+    )
+    this.processChildNodes($fig, node, contentNodeType)
+    this.appendAttributions($fig, node)
+    if (isExecutableNodeType(node.type)) {
+      this.processExecutableNode(node, $fig)
+    }
+    this.moveAltTextAndLongDescToGraphics($fig)
+    return $fig
+  }
+
+  moveAltTextAndLongDescToGraphics($element: Element) {
+    const $altText = $element.querySelector('alt-text')
+    const $longDesc = $element.querySelector('long-desc')
+    const $graphics = $element.querySelectorAll('graphic')
+
+    if ($graphics.length === 0) {
+      return
     }
 
-    const createGraphic = (node: ManuscriptNode) => {
-      const $graphic = this.createElement('graphic')
-      $graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
-
-      const hero = findParentHeroImage(node.attrs.id)
-      if (hero) {
-        $graphic.setAttribute('content-type', hero.attrs.type || 'leading')
-      } else if (
-        !isChildOfNodeType(node.attrs.id, schema.nodes.figure_element) &&
-        node.attrs.type
-      ) {
-        $graphic.setAttribute('content-type', node.attrs.type)
+    $graphics.forEach(($graphic) => {
+      if ($longDesc) {
+        $graphic.prepend($longDesc.cloneNode(true))
       }
-      return $graphic
+      if ($altText) {
+        $graphic.prepend($altText.cloneNode(true))
+      }
+    })
+
+    $altText?.remove()
+    $longDesc?.remove()
+  }
+
+  createTableElement(node: ManuscriptNode) {
+    const nodeName = 'table-wrap'
+    const $tableWrap = this.createElementWithID(node, nodeName)
+    this.appendLabels($tableWrap, node)
+    this.appendCaption($tableWrap, node)
+    this.appendChildNodeOfType($tableWrap, node, schema.nodes.alt_text)
+    this.appendChildNodeOfType($tableWrap, node, schema.nodes.long_desc)
+    this.appendTable($tableWrap, node)
+    this.appendChildNodeOfType(
+      $tableWrap,
+      node,
+      node.type.schema.nodes.table_element_footer
+    )
+    if (isExecutableNodeType(node.type)) {
+      this.processExecutableNode(node, $tableWrap)
     }
-    const createFigureElement = (
-      node: ManuscriptNode,
-      contentNodeType: ManuscriptNodeType
-    ) => {
-      const $fig = createElement(node, 'fig')
-      const figNode = this.getFirstChildOfType(schema.nodes.figure, node)
-      const figType = figNode?.attrs.type
-      if (figType) {
-        $fig.setAttribute('fig-type', figType)
-      }
-      appendLabels($fig, node)
-      this.appendCaption($fig, node)
-      this.appendChildNodeOfType($fig, node, schema.nodes.alt_text)
-      this.appendChildNodeOfType($fig, node, schema.nodes.long_desc)
-      this.appendChildNodeOfType(
-        $fig,
-        node,
-        node.type.schema.nodes.footnotes_element
-      )
-      processChildNodes($fig, node, contentNodeType)
-      appendAttributions($fig, node)
-      if (isExecutableNodeType(node.type)) {
-        processExecutableNode(node, $fig)
-      }
-      moveAltTextAndLongDescToGraphics($fig)
-      return $fig
-    }
+    return $tableWrap
+  }
+  processExecutableNode(node: ManuscriptNode, $element: Element) {
+    const listingNode = this.getFirstChildOfType(schema.nodes.listing, node)
 
-    const moveAltTextAndLongDescToGraphics = ($element: Element) => {
-      const $altText = $element.querySelector('alt-text')
-      const $longDesc = $element.querySelector('long-desc')
-      const $graphics = $element.querySelectorAll('graphic')
+    if (listingNode) {
+      const { contents, languageKey } = listingNode.attrs
 
-      if ($graphics.length === 0) {
-        return
-      }
+      if (contents && languageKey) {
+        const $fig = this.createElement('fig')
+        $fig.setAttribute('specific-use', 'source')
+        $element.appendChild($fig)
 
-      $graphics.forEach(($graphic) => {
-        if ($longDesc) {
-          $graphic.prepend($longDesc.cloneNode(true))
-        }
-        if ($altText) {
-          $graphic.prepend($altText.cloneNode(true))
-        }
-      })
-
-      $altText?.remove()
-      $longDesc?.remove()
-    }
-
-    const createTableElement = (node: ManuscriptNode) => {
-      const nodeName = 'table-wrap'
-      const $tableWrap = createElement(node, nodeName)
-      appendLabels($tableWrap, node)
-      this.appendCaption($tableWrap, node)
-      this.appendChildNodeOfType($tableWrap, node, schema.nodes.alt_text)
-      this.appendChildNodeOfType($tableWrap, node, schema.nodes.long_desc)
-      appendTable($tableWrap, node)
-      this.appendChildNodeOfType(
-        $tableWrap,
-        node,
-        node.type.schema.nodes.table_element_footer
-      )
-      if (isExecutableNodeType(node.type)) {
-        processExecutableNode(node, $tableWrap)
-      }
-      return $tableWrap
-    }
-    const processExecutableNode = (node: ManuscriptNode, $element: Element) => {
-      const listingNode = this.getFirstChildOfType(schema.nodes.listing, node)
-
-      if (listingNode) {
-        const { contents, languageKey } = listingNode.attrs
-
-        if (contents && languageKey) {
-          const $fig = this.createElement('fig')
-          $fig.setAttribute('specific-use', 'source')
-          $element.appendChild($fig)
-
-          const $code = this.createElement('code')
-          $code.setAttribute('executable', 'true')
-          $code.setAttribute('language', languageKey)
-          $code.textContent = contents
-          $fig.appendChild($code)
-        }
+        const $code = this.createElement('code')
+        $code.setAttribute('executable', 'true')
+        $code.setAttribute('language', languageKey)
+        $code.textContent = contents
+        $fig.appendChild($code)
       }
     }
   }
@@ -1398,11 +1254,6 @@ export class JATSExporter {
       return $mathml
     }
   }
-
-  protected serializeNode = (node: ManuscriptNode) =>
-    this.serializer.serializeNode(node, {
-      document: this.document,
-    })
 
   private buildContributorGroup = (contributors: ContributorNode[]) => {
     if (!contributors.length) {
@@ -1472,6 +1323,31 @@ export class JATSExporter {
     $sup.textContent = String(this.contributorLabels.get(id))
     return $sup
   }
+
+  // This is a manual builder that is need  only if we need to use this.writeParagraph() to strip rich text
+  // The editor will not allow rich text but if any imported - it will be stripped (can it be imported though)?
+  //
+  // private buildBioElement = (bio?: BioNode) => {
+  //   const $bio = this.createElement('bio')
+  //   if (!bio || !bio.firstChild) {
+  //     return null
+  //   }
+  //   bio.children.forEach((node) => {
+  //     switch (node.type) {
+  //       case schema.nodes.paragraph: {
+  //         $bio.append(this.writeParagraph(node as ParagraphNode))
+  //         break
+  //       }
+  //       case schema.nodes.image_element: {
+  //         $bio.append(this.createImage(node))
+  //         break
+  //       }
+  //       default:
+  //         return
+  //     }
+  //   })
+  //   return $bio
+  // }
 
   private buildContributorElement = (contributor: ContributorNode) => {
     const $contrib = this.createElement('contrib')
@@ -1552,6 +1428,19 @@ export class JATSExporter {
         'vocab-term-identifier': url,
       })
     })
+
+    // This will be used instead of this.serializeNode(bio) if paragraphs need rich-text stripping
+    // const bio = this.buildBioElement(
+    //   this.getFirstChildOfType<BioNode>(schema.nodes.bio, contributor)
+    // )
+    // if (bio) {
+    //   $contrib.appendChild(bio)
+    // }
+
+    const bio = this.getFirstChildOfType<BioNode>(schema.nodes.bio, contributor)
+    if (bio?.childCount) {
+      $contrib.appendChild(this.serializeNode(bio))
+    }
 
     return $contrib
   }
@@ -1718,18 +1607,6 @@ export class JATSExporter {
       this.serializeNode(group)
     )
 
-  private changeTag = ($node: Element, tag: string) => {
-    const $clone = this.createElement(tag)
-    for (const attr of $node.attributes) {
-      $clone.setAttributeNS(null, attr.name, attr.value)
-    }
-    while ($node.firstChild) {
-      $clone.appendChild($node.firstChild)
-    }
-    $node.replaceWith($clone)
-    return $clone
-  }
-
   private normalizeTable = ($table: Node) => {
     let $tbody: Element | undefined
 
@@ -1828,18 +1705,6 @@ export class JATSExporter {
     }
   }
 
-  private fillEmptyElements(
-    $article: Element,
-    selector: string,
-    tagName = 'p'
-  ) {
-    const $empty = Array.from($article.querySelectorAll(selector)).filter(
-      ($el) => !$el.innerHTML
-    )
-    $empty.forEach(($element) =>
-      $element.appendChild(this.createElement(tagName))
-    )
-  }
   private addParagraphsToSections($article: Element) {
     const $sections = $article.querySelectorAll('sec, abstract')
     const TITLE_TAGS = new Set(['title', 'label', 'sec-meta'])
