@@ -41,7 +41,6 @@ import {
   FootnoteNode,
   isBibliographyItemNode,
   isCitationNode,
-  isNodeOfType,
   ManuscriptMark,
   ManuscriptNode,
   ManuscriptNodeType,
@@ -80,8 +79,6 @@ export type ExportOptions = {
 }
 
 export class JATSExporter extends TreeBase {
-  protected document: Document
-  protected serializer: DOMSerializer
   protected labelTargets: Map<string, Target>
   protected footnoteLabels: Map<string, string>
   protected manuscriptNode: ActualManuscriptNode
@@ -1072,6 +1069,7 @@ export class JATSExporter extends TreeBase {
 
     $element.appendChild($table)
   }
+
   createBoxElement(node: ManuscriptNode) {
     const $boxedText = this.createElementWithID(node, 'boxed-text')
     if (node.attrs.type) {
@@ -1092,6 +1090,7 @@ export class JATSExporter extends TreeBase {
       ? { 'abstract-type': category }
       : {}
   }
+
   createAbstract(node: ManuscriptNode): DOMOutputSpec {
     return ['abstract', this.abstractTypeAttrs(node.attrs.category), 0]
   }
@@ -1105,6 +1104,30 @@ export class JATSExporter extends TreeBase {
       },
       0,
     ]
+  }
+
+  private createGraphic(node: ManuscriptNode) {
+    const $graphic = this.createElement('graphic')
+    $graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
+
+    const findParentHeroImage = (targetID: string) => {
+      const heroes = this.getChildrenOfType(schema.nodes.hero_image)
+      return heroes.find(
+        (hero) =>
+          !!findChildrenByAttr(hero, (attrs) => attrs.id === targetID)[0]
+      )
+    }
+
+    const hero = findParentHeroImage(node.attrs.id)
+    if (hero) {
+      $graphic.setAttribute('content-type', hero.attrs.type || 'leading')
+    } else if (
+      !this.isChildOfNodeType(node.attrs.id, schema.nodes.figure_element) &&
+      node.attrs.type
+    ) {
+      $graphic.setAttribute('content-type', node.attrs.type)
+    }
+    return $graphic
   }
 
   createImage(node: ManuscriptNode) {
@@ -1301,51 +1324,30 @@ export class JATSExporter extends TreeBase {
     return $sup
   }
 
-  private buildBioElement = (bio?: BioNode) => {
-    const $bio = this.createElement('bio')
-    if (!bio || !bio.firstChild) {
-      return null
-    }
-    bio.children.forEach((node) => {
-      switch (node.type) {
-        case schema.nodes.paragraph: {
-          $bio.append(this.writeParagraph(node as ParagraphNode))
-          break
-        }
-        case schema.nodes.image_element: {
-          $bio.append(this.createImage(node))
-          break
-        }
-        default:
-          return
-      }
-    })
-    return $bio
-  }
-
-  private createGraphic(node: ManuscriptNode) {
-    const $graphic = this.createElement('graphic')
-    $graphic.setAttributeNS(XLINK_NAMESPACE, 'xlink:href', node.attrs.src)
-
-    const findParentHeroImage = (targetID: string) => {
-      const heroes = this.getChildrenOfType(schema.nodes.hero_image)
-      return heroes.find(
-        (hero) =>
-          !!findChildrenByAttr(hero, (attrs) => attrs.id === targetID)[0]
-      )
-    }
-
-    const hero = findParentHeroImage(node.attrs.id)
-    if (hero) {
-      $graphic.setAttribute('content-type', hero.attrs.type || 'leading')
-    } else if (
-      !this.isChildOfNodeType(node.attrs.id, schema.nodes.figure_element) &&
-      node.attrs.type
-    ) {
-      $graphic.setAttribute('content-type', node.attrs.type)
-    }
-    return $graphic
-  }
+  // This is a manual builder that is need  only if we need to use this.writeParagraph() to strip rich text
+  // The editor will not allow rich text but if any imported - it will be stripped (can it be imported though)?
+  //
+  // private buildBioElement = (bio?: BioNode) => {
+  //   const $bio = this.createElement('bio')
+  //   if (!bio || !bio.firstChild) {
+  //     return null
+  //   }
+  //   bio.children.forEach((node) => {
+  //     switch (node.type) {
+  //       case schema.nodes.paragraph: {
+  //         $bio.append(this.writeParagraph(node as ParagraphNode))
+  //         break
+  //       }
+  //       case schema.nodes.image_element: {
+  //         $bio.append(this.createImage(node))
+  //         break
+  //       }
+  //       default:
+  //         return
+  //     }
+  //   })
+  //   return $bio
+  // }
 
   private buildContributorElement = (contributor: ContributorNode) => {
     const $contrib = this.createElement('contrib')
@@ -1427,11 +1429,17 @@ export class JATSExporter extends TreeBase {
       })
     })
 
-    const bio = this.buildBioElement(
-      this.getFirstChildOfType<BioNode>(schema.nodes.bio, contributor)
-    )
-    if (bio) {
-      $contrib.appendChild(bio)
+    // This will be used instead of this.serializeNode(bio) if paragraphs need rich-text stripping
+    // const bio = this.buildBioElement(
+    //   this.getFirstChildOfType<BioNode>(schema.nodes.bio, contributor)
+    // )
+    // if (bio) {
+    //   $contrib.appendChild(bio)
+    // }
+
+    const bio = this.getFirstChildOfType<BioNode>(schema.nodes.bio, contributor)
+    if (bio?.childCount) {
+      $contrib.appendChild(this.serializeNode(bio))
     }
 
     return $contrib

@@ -131,7 +131,11 @@ export class TreeBase {
     })
   }
 
-  appendChildIfPresent($parent: Element, tagName: string, textContent: string) {
+  protected appendChildIfPresent(
+    $parent: Element,
+    tagName: string,
+    textContent: string
+  ) {
     if (!textContent) {
       return
     }
@@ -140,7 +144,7 @@ export class TreeBase {
     $parent.appendChild($element)
   }
 
-  processChildNodes = (
+  protected processChildNodes = (
     $element: Element,
     node: ManuscriptNode,
     contentNodeType: ManuscriptNodeType
