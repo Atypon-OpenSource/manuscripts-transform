@@ -232,6 +232,100 @@ Object {
 }
 `;
 
+exports[`JATS importer > bio > should parse bio with graphic and paragraph into the contributor node 1`] = `
+Object {
+  "attrs": Object {
+    "dataTracked": null,
+    "id": "MPBio:test",
+  },
+  "content": Array [
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "extLink": "",
+        "id": "MPImageElement:test",
+      },
+      "content": Array [
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "id": "MPFigure:test",
+            "src": "agnete-hornnes.png",
+            "type": "",
+          },
+          "type": "figure",
+        },
+        Object {
+          "attrs": Object {
+            "dataTracked": null,
+            "placeholder": "Caption...",
+          },
+          "content": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "type": "text_block",
+            },
+          ],
+          "type": "caption",
+        },
+        Object {
+          "attrs": Object {
+            "id": "MPAltText:test",
+          },
+          "content": Array [
+            Object {
+              "text": "Headshot of Agnete Hviid Hornnes",
+              "type": "text",
+            },
+          ],
+          "type": "alt_text",
+        },
+        Object {
+          "attrs": Object {
+            "id": "MPLongDesc:test",
+          },
+          "type": "long_desc",
+        },
+      ],
+      "type": "image_element",
+    },
+    Object {
+      "attrs": Object {
+        "dataTracked": null,
+        "id": "MPParagraph:test",
+        "placeholder": "",
+      },
+      "content": Array [
+        Object {
+          "text": "Agnete is a ",
+          "type": "text",
+        },
+        Object {
+          "marks": Array [
+            Object {
+              "attrs": Object {
+                "dataTracked": null,
+              },
+              "type": "italic",
+            },
+          ],
+          "text": "Professor of Neurology",
+          "type": "text",
+        },
+        Object {
+          "text": " at Herlev og Gentofte Hospital, specializing in stroke research.",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "bio",
+}
+`;
+
 exports[`JATS importer > comments > should parse abstract comment 1`] = `
 Array [
   Object {
@@ -296,7 +390,6 @@ Array [
       "affiliationIDs": Array [
         "MPAffiliation:test",
       ],
-      "contents": "",
       "correspIDs": Array [],
       "creditRoles": Array [
         Object {
@@ -324,8 +417,95 @@ Array [
     },
     "content": Array [
       Object {
-        "text": "_",
-        "type": "text",
+        "attrs": Object {
+          "dataTracked": null,
+          "id": "MPBio:test",
+        },
+        "content": Array [
+          Object {
+            "attrs": Object {
+              "dataTracked": null,
+              "extLink": "",
+              "id": "MPImageElement:test",
+            },
+            "content": Array [
+              Object {
+                "attrs": Object {
+                  "dataTracked": null,
+                  "id": "MPFigure:test",
+                  "src": "agnete-hornnes.png",
+                  "type": "",
+                },
+                "type": "figure",
+              },
+              Object {
+                "attrs": Object {
+                  "dataTracked": null,
+                  "placeholder": "Caption...",
+                },
+                "content": Array [
+                  Object {
+                    "attrs": Object {
+                      "dataTracked": null,
+                    },
+                    "type": "text_block",
+                  },
+                ],
+                "type": "caption",
+              },
+              Object {
+                "attrs": Object {
+                  "id": "MPAltText:test",
+                },
+                "content": Array [
+                  Object {
+                    "text": "Headshot of Agnete Hviid Hornnes",
+                    "type": "text",
+                  },
+                ],
+                "type": "alt_text",
+              },
+              Object {
+                "attrs": Object {
+                  "id": "MPLongDesc:test",
+                },
+                "type": "long_desc",
+              },
+            ],
+            "type": "image_element",
+          },
+          Object {
+            "attrs": Object {
+              "dataTracked": null,
+              "id": "MPParagraph:test",
+              "placeholder": "",
+            },
+            "content": Array [
+              Object {
+                "text": "Agnete is a ",
+                "type": "text",
+              },
+              Object {
+                "marks": Array [
+                  Object {
+                    "attrs": Object {
+                      "dataTracked": null,
+                    },
+                    "type": "italic",
+                  },
+                ],
+                "text": "Professor of Neurology",
+                "type": "text",
+              },
+              Object {
+                "text": " at Herlev og Gentofte Hospital, specializing in stroke research.",
+                "type": "text",
+              },
+            ],
+            "type": "paragraph",
+          },
+        ],
+        "type": "bio",
       },
     ],
     "type": "contributor",
@@ -336,7 +516,6 @@ Array [
       "affiliationIDs": Array [
         "MPAffiliation:test",
       ],
-      "contents": "",
       "correspIDs": Array [],
       "creditRoles": Array [],
       "dataTracked": null,
@@ -359,12 +538,6 @@ Array [
       "role": "",
       "suffix": undefined,
     },
-    "content": Array [
-      Object {
-        "text": "_",
-        "type": "text",
-      },
-    ],
     "type": "contributor",
   },
 ]
@@ -481,7 +654,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [
               "MPCorresp:test",
             ],
@@ -501,12 +673,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
         Object {
@@ -515,7 +681,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -533,12 +698,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
         Object {
@@ -547,7 +706,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -565,12 +723,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
         Object {
@@ -579,7 +731,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -597,12 +748,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
       ],
@@ -737,7 +882,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "contents": "",
             "dataTracked": null,
             "id": "MPKeywordsElement:test",
           },
@@ -2446,7 +2590,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "contents": "",
                 "dataTracked": null,
                 "id": "MPBibliographyElement:test",
               },
@@ -2710,7 +2853,6 @@ Object {
           "attrs": Object {
             "ORCID": undefined,
             "affiliationIDs": Array [],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -2728,12 +2870,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
       ],
@@ -4083,7 +4219,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "contents": "",
                 "dataTracked": null,
                 "id": "MPBibliographyElement:test",
               },
@@ -4275,7 +4410,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -4293,12 +4427,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
         Object {
@@ -4307,7 +4435,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -4325,12 +4452,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
         Object {
@@ -4339,7 +4460,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -4357,12 +4477,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
         Object {
@@ -4371,7 +4485,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -4389,12 +4502,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
         Object {
@@ -4403,7 +4510,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -4421,12 +4527,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
         Object {
@@ -4435,7 +4535,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -4453,12 +4552,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
         Object {
@@ -4467,7 +4560,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -4485,12 +4577,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
       ],
@@ -4627,7 +4713,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "contents": "",
             "dataTracked": null,
             "id": "MPKeywordsElement:test",
           },
@@ -19642,7 +19727,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "contents": "",
                 "dataTracked": null,
                 "id": "MPBibliographyElement:test",
               },
@@ -22111,7 +22195,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -22133,12 +22216,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
         Object {
@@ -22147,7 +22224,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -22170,12 +22246,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
       ],
@@ -22318,7 +22388,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "contents": "",
             "dataTracked": null,
             "id": "MPKeywordsElement:test",
           },
@@ -30822,7 +30891,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [
               "MPCorresp:test",
             ],
@@ -30844,12 +30912,6 @@ Object {
             "role": "Member, IEEE",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
       ],
@@ -31000,7 +31062,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "contents": "",
             "dataTracked": null,
             "id": "MPKeywordsElement:test",
           },
@@ -32476,7 +32537,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "contents": "",
                 "dataTracked": null,
                 "id": "MPBibliographyElement:test",
               },
@@ -32626,7 +32686,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [
               Object {
@@ -32654,8 +32713,95 @@ Object {
           },
           "content": Array [
             Object {
-              "text": "_",
-              "type": "text",
+              "attrs": Object {
+                "dataTracked": null,
+                "id": "MPBio:test",
+              },
+              "content": Array [
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "extLink": "",
+                    "id": "MPImageElement:test",
+                  },
+                  "content": Array [
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "id": "MPFigure:test",
+                        "src": "agnete-hornnes.png",
+                        "type": "",
+                      },
+                      "type": "figure",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "dataTracked": null,
+                        "placeholder": "Caption...",
+                      },
+                      "content": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "type": "text_block",
+                        },
+                      ],
+                      "type": "caption",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPAltText:test",
+                      },
+                      "content": Array [
+                        Object {
+                          "text": "Headshot of Agnete Hviid Hornnes",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "alt_text",
+                    },
+                    Object {
+                      "attrs": Object {
+                        "id": "MPLongDesc:test",
+                      },
+                      "type": "long_desc",
+                    },
+                  ],
+                  "type": "image_element",
+                },
+                Object {
+                  "attrs": Object {
+                    "dataTracked": null,
+                    "id": "MPParagraph:test",
+                    "placeholder": "",
+                  },
+                  "content": Array [
+                    Object {
+                      "text": "Agnete is a ",
+                      "type": "text",
+                    },
+                    Object {
+                      "marks": Array [
+                        Object {
+                          "attrs": Object {
+                            "dataTracked": null,
+                          },
+                          "type": "italic",
+                        },
+                      ],
+                      "text": "Professor of Neurology",
+                      "type": "text",
+                    },
+                    Object {
+                      "text": " at Herlev og Gentofte Hospital, specializing in stroke research.",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "bio",
             },
           ],
           "type": "contributor",
@@ -32666,7 +32812,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -32689,12 +32834,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
       ],
@@ -32864,7 +33003,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "contents": "",
             "dataTracked": null,
             "id": "MPKeywordsElement:test",
           },
@@ -42439,7 +42577,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "contents": "",
                 "dataTracked": null,
                 "id": "MPBibliographyElement:test",
               },
@@ -44842,7 +44979,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -44860,12 +44996,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
         Object {
@@ -44874,7 +45004,6 @@ Object {
             "affiliationIDs": Array [
               "MPAffiliation:test",
             ],
-            "contents": "",
             "correspIDs": Array [],
             "creditRoles": Array [],
             "dataTracked": null,
@@ -44892,12 +45021,6 @@ Object {
             "role": "",
             "suffix": undefined,
           },
-          "content": Array [
-            Object {
-              "text": "_",
-              "type": "text",
-            },
-          ],
           "type": "contributor",
         },
       ],
@@ -44979,7 +45102,6 @@ Object {
         },
         Object {
           "attrs": Object {
-            "contents": "",
             "dataTracked": null,
             "id": "MPKeywordsElement:test",
           },
@@ -57771,7 +57893,6 @@ Object {
             },
             Object {
               "attrs": Object {
-                "contents": "",
                 "dataTracked": null,
                 "id": "MPBibliographyElement:test",
               },

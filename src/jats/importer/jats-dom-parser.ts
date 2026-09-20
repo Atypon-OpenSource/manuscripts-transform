@@ -525,7 +525,7 @@ export class JATSDOMParser {
         const affiliationIDs: string[] = []
         const correspIDs: string[] = []
 
-        const xrefs = element.querySelectorAll('xref')
+        const xrefs = element.querySelectorAll(':scope > xref')
         for (const xref of xrefs) {
           const rid = xref.getAttribute('rid')
           const type = xref.getAttribute('ref-type')
@@ -571,6 +571,15 @@ export class JATSDOMParser {
           priority: this.parsePriority(element.getAttribute('priority')),
           email: getTrimmedTextContent(element, 'email') || '',
         }
+      },
+      getContent: (node) => {
+        const bio = (node as HTMLElement).querySelector('bio')
+        if (!bio) {
+          return Fragment.empty
+        }
+        return Fragment.from(
+          this.parse(bio, { topNode: this.schema.nodes.bio.create() })
+        )
       },
     },
     {
