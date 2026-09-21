@@ -190,21 +190,11 @@ export type ManuscriptTemplate = {
   hiddenNodeTypes?: string[]
 }
 
-export interface UserProfile {
-  _id: string
-  userID: string
-  connectID: string
-}
-
-export interface Project {
-  _id: string
-  owners: string[]
-  writers: string[]
-  editors?: string[]
-  annotators?: string[]
-  proofers?: string[]
-  viewers: string[]
-  updatedAt: number
+export interface User {
+  id: string
+  displayName: string
+  firstName?: string
+  lastName?: string
 }
 
 export interface Bundle {
