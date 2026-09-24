@@ -162,7 +162,7 @@ export class JATSExporter {
     return (nodes ?? []).filter((n): n is T => isNodeOfType<T>(n, type))
   }
 
-  public serializeToJATS = async (
+  public export = async (
     manuscriptNode: ActualManuscriptNode,
     options: ExportOptions
   ): Promise<Document> => {

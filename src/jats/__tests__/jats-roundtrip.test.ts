@@ -37,7 +37,7 @@ const roundtrip = async (filename: string) => {
   const node = parseJATSArticle(doc, sectionCategories)
 
   const exporter = new JATSExporter()
-  const document = await exporter.serializeToJATS(node, {
+  const document = await exporter.export(node, {
     csl: DEFAULT_CSL_OPTIONS,
   })
   return serializeToXML(document)
