@@ -190,21 +190,11 @@ export type ManuscriptTemplate = {
   hiddenNodeTypes?: string[]
 }
 
-export interface UserProfile {
-  _id: string
-  userID: string
-  connectID: string
-}
-
-export interface Project {
-  _id: string
-  owners: string[]
-  writers: string[]
-  editors?: string[]
-  annotators?: string[]
-  proofers?: string[]
-  viewers: string[]
-  updatedAt: number
+export interface User {
+  id: string
+  displayName: string
+  firstName?: string
+  lastName?: string
 }
 
 export interface Bundle {
@@ -212,23 +202,6 @@ export interface Bundle {
   csl: {
     _id: string
   }
-}
-
-export enum ManuscriptActions {
-  handleSuggestion = 'handleSuggestion',
-  rejectOwnSuggestion = 'rejectOwnSuggestion',
-  handleOwnComments = 'handleOwnComments',
-  handleOthersComments = 'handleOthersComments',
-  resolveOwnComment = 'resolveOwnComment',
-  resolveOthersComment = 'resolveOthersComment',
-  createComment = 'createComment',
-  canEditFiles = 'canEditFiles',
-  editArticle = 'editArticle',
-  formatArticle = 'formatArticle',
-  editMetadata = 'editMetadata',
-  editCitationsAndRefs = 'editCitationsAndRefs',
-  seeEditorToolbar = 'seeEditorToolbar',
-  seeReferencesButtons = 'seeReferencesButtons',
 }
 
 export type MarkRule = ParseRule & { mark: Marks | null }
