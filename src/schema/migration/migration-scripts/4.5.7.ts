@@ -36,7 +36,7 @@ class Migration457 implements MigrationScript {
       (n) => n.type === 'attribution'
     )
 
-    if (!attributionIndex || attributionIndex === -1) {
+    if (attributionIndex === undefined || attributionIndex === -1) {
       if (!node.content) {
         return node
       }
@@ -56,7 +56,7 @@ class Migration457 implements MigrationScript {
       .reduce(
         (n, attrib) => ({
           ...attrib,
-          content: [...(attrib.content || []), ...(n.content || [])],
+          content: [...(n.content || []), ...(attrib.content || [])],
         }),
         { type: 'attribution', attrs: {} }
       )
@@ -67,7 +67,7 @@ class Migration457 implements MigrationScript {
 
     const captionIndex = node.content?.findIndex((n) => n.type === 'caption')
 
-    if (!captionIndex || captionIndex === -1) {
+    if (captionIndex === undefined || captionIndex === -1) {
       return node
     }
 
