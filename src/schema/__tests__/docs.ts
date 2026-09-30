@@ -544,7 +544,34 @@ export const v2_3_20 = {
                     src: 'attachment:figure1',
                     contentType: 'image/png',
                     dataTracked: null,
+                    attribution: {
+                      literal: 'Source: Wikipedia.',
+                    },
                   },
+                },
+                {
+                  type: 'attribution',
+                  attrs: {
+                    dataTracked: null,
+                  },
+                  content: [
+                    {
+                      type: 'text',
+                      text: 'Source: Wikipedia.',
+                    },
+                  ],
+                },
+                {
+                  type: 'attribution',
+                  attrs: {
+                    dataTracked: null,
+                  },
+                  content: [
+                    {
+                      type: 'text',
+                      text: 'Source: Wiley Online Library.',
+                    },
+                  ],
                 },
                 {
                   type: 'figcaption',

@@ -66,6 +66,19 @@ export const addMissingCaptions = (
     }
   }
 }
+
+export const addMissingAttributions = (
+  doc: Document,
+  createElement: CreateElement
+) => {
+  const elements = doc.querySelectorAll('fig, graphic:not(fig graphic)')
+  for (const element of elements) {
+    if (!element.querySelector(':scope > attrib')) {
+      element.appendChild(createElement('attrib'))
+    }
+  }
+}
+
 export const createBoxedElementSection = (
   doc: Document,
   createElement: CreateElement
@@ -292,6 +305,16 @@ export const moveCaptionsToEnd = (body: Element) => {
       caption.parentNode.nodeName !== 'boxed-text'
     ) {
       caption.parentNode.appendChild(caption)
+    }
+  }
+}
+
+export const moveAttributionsToEnd = (body: Element) => {
+  const attributions = body.querySelectorAll('attrib')
+
+  for (const attribution of attributions) {
+    if (attribution.parentNode) {
+      attribution.parentNode.appendChild(attribution)
     }
   }
 }

@@ -19,6 +19,7 @@ import { markComments } from './jats-comments'
 import { JATSDOMParser } from './jats-dom-parser'
 import { updateDocumentIDs } from './jats-parser-utils'
 import {
+  addMissingAttributions,
   addMissingCaptions,
   createAbstracts,
   createAccessibilityItems,
@@ -31,6 +32,7 @@ import {
   createTitles,
   fixTables,
   moveAffiliations,
+  moveAttributionsToEnd,
   moveAuthorNotes,
   moveAwards,
   moveCaptionsToEnd,
@@ -49,6 +51,7 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
     return
   }
   addMissingCaptions(doc, createElement)
+  addMissingAttributions(doc, createElement)
   createBoxedElementSection(doc, createElement)
   createTitles(front, createElement)
   moveContributors(front, createElement)
@@ -67,6 +70,7 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   }
 
   moveCaptionsToEnd(body)
+  moveAttributionsToEnd(body)
   createBody(doc, body, createElement)
   createAbstracts(front, body, createElement, sectionCategories)
   createBackmatter(doc, body, sectionCategories, createElement)

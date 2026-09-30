@@ -231,7 +231,7 @@ export class JATSExporter {
     type: ManuscriptNodeType
   ) => {
     const childNode = this.getFirstChildOfType(type, node)
-    if (childNode) {
+    if (childNode && childNode.content.size > 0) {
       $element.appendChild(this.serializeNode(childNode))
     }
   }
@@ -1166,13 +1166,6 @@ export class JATSExporter {
         }
       }
     }
-    const appendAttributions = ($element: Element, node: ManuscriptNode) => {
-      if (node.attrs.attribution) {
-        const $attrib = this.createElement('attrib')
-        $attrib.textContent = node.attrs.attribution.literal
-        $element.appendChild($attrib)
-      }
-    }
 
     const appendTable = ($element: Element, node: ManuscriptNode) => {
       const tableNode = this.getFirstChildOfType(schema.nodes.table, node)
@@ -1270,6 +1263,7 @@ export class JATSExporter {
       this.appendCaption($graphic, node)
       this.appendChildNodeOfType($graphic, node, schema.nodes.alt_text)
       this.appendChildNodeOfType($graphic, node, schema.nodes.long_desc)
+      this.appendChildNodeOfType($graphic, node, schema.nodes.attribution)
       return $graphic
     }
 
@@ -1308,11 +1302,11 @@ export class JATSExporter {
         node.type.schema.nodes.footnotes_element
       )
       processChildNodes($fig, node, contentNodeType)
-      appendAttributions($fig, node)
       if (isExecutableNodeType(node.type)) {
         processExecutableNode(node, $fig)
       }
       moveAltTextAndLongDescToGraphics($fig)
+      this.appendChildNodeOfType($fig, node, schema.nodes.attribution)
       return $fig
     }
 
@@ -1816,6 +1810,9 @@ export class JATSExporter {
         $graphic = this.serializeNode(node) as Element
         $floatsGroup.appendChild($graphic)
       } else {
+        if (node.type === schema.nodes.attribution && node.content.size === 0) {
+          return
+        }
         const $serializedNode = this.serializeNode(node)
         $graphic?.appendChild($serializedNode)
       }

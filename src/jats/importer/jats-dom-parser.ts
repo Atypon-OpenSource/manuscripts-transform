@@ -276,6 +276,11 @@ export class JATSDOMParser {
   private getFigContent = (node: Node) => {
     const element = node as HTMLElement
     const content = [this.schema.nodes.figure.create(this.getFigAttrs(element))]
+    const attribution = element.querySelector('attrib')
+    if (attribution) {
+      const attributionNode = this.schema.nodes.attribution.create()
+      content.push(this.parse(attribution, { topNode: attributionNode }))
+    }
     const altText = element.querySelector('alt-text')
     if (altText) {
       const altTextNode = this.schema.nodes.alt_text.create()
@@ -608,10 +613,11 @@ export class JATSDOMParser {
         return Fragment.from(this.schema.text('_'))
       },
     },
-
     {
       tag: 'attrib',
       node: 'attribution',
+      context:
+        'figure_element/|image_element/|hero_image/|blockquote_element/|pullquote_element/',
     },
     {
       tag: 'back',
@@ -884,15 +890,8 @@ export class JATSDOMParser {
       node: 'figure_element',
       getAttrs: (node) => {
         const element = node as HTMLElement
-        const attrib = element.querySelector('attrib')
-        const attribution = attrib
-          ? {
-              literal: getTrimmedTextContent(attrib) ?? '',
-            }
-          : undefined
         return {
           id: element.getAttribute('id'),
-          attribution,
         }
       },
     },
@@ -978,6 +977,11 @@ export class JATSDOMParser {
     {
       tag: 'p[content-type="headshots"]',
       node: 'headshot_grid',
+    },
+    {
+      tag: 'p',
+      node: 'text_block',
+      context: 'pullquote_element/|blockquote_element/',
     },
     {
       tag: 'p',
