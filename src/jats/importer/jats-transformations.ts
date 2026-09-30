@@ -309,26 +309,14 @@ export const moveCaptionsToEnd = (body: Element) => {
   }
 }
 
-export const mergeAttributions = (
-  doc: Document,
-  createElement: CreateElement
-) => {
-  const parents = [...doc.querySelectorAll(':has(> attrib)')]
+export const moveAttributionsToEnd = (body: Element) => {
+  const attributions = body.querySelectorAll('attrib')
 
-  parents.forEach((parent) => {
-    const merged = createElement('attrib')
-    const attributions = parent.querySelectorAll(':scope > attrib')
-    attributions.forEach((attrib, index) => {
-      if (index > 0) {
-        merged.append(doc.createTextNode(' '))
-      }
-      merged.append(
-        ...Array.from(attrib.childNodes).map((n) => n.cloneNode(true))
-      )
-      removeNodeFromParent(attrib)
-    })
-    parent.appendChild(merged)
-  })
+  for (const attribution of attributions) {
+    if (attribution.parentNode) {
+      attribution.parentNode.appendChild(attribution)
+    }
+  }
 }
 
 const prepareAbstract = (

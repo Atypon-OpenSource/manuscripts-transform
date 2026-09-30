@@ -31,8 +31,8 @@ import {
   createSupplementaryMaterialsSection,
   createTitles,
   fixTables,
-  mergeAttributions,
   moveAffiliations,
+  moveAttributionsToEnd,
   moveAuthorNotes,
   moveAwards,
   moveCaptionsToEnd,
@@ -70,7 +70,7 @@ const processJATS = (doc: Document, sectionCategories: SectionCategory[]) => {
   }
 
   moveCaptionsToEnd(body)
-  mergeAttributions(doc, createElement)
+  moveAttributionsToEnd(body)
   createBody(doc, body, createElement)
   createAbstracts(front, body, createElement, sectionCategories)
   createBackmatter(doc, body, sectionCategories, createElement)
