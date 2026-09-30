@@ -17,12 +17,18 @@
 import { JSONProsemirrorNode } from '../../../types'
 import { MigrationScript } from '../migration-script'
 
+const attributionParents = new Set([
+  'figure_element',
+  'image_element',
+  'hero_image',
+])
+
 class Migration457 implements MigrationScript {
   fromVersion = '4.5.6'
   toVersion = '4.5.7'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
-    if (node.type !== 'figure_element') {
+    if (!attributionParents.has(node.type)) {
       return node
     }
 
@@ -31,7 +37,18 @@ class Migration457 implements MigrationScript {
     )
 
     if (!attributionIndex || attributionIndex === -1) {
-      return node
+      if (!node.content) {
+        return node
+      }
+      const altTextIndex = node.content.findIndex((c) => c.type === 'alt_text')
+      return {
+        ...node,
+        content: [
+          ...node.content.slice(0, altTextIndex),
+          { type: 'attribution', attrs: {} },
+          ...node.content.slice(altTextIndex),
+        ],
+      }
     }
 
     const attribution = node.content

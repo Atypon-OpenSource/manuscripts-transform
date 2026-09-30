@@ -66,6 +66,19 @@ export const addMissingCaptions = (
     }
   }
 }
+
+export const addMissingAttributions = (
+  doc: Document,
+  createElement: CreateElement
+) => {
+  const elements = doc.querySelectorAll('fig, graphic:not(fig graphic)')
+  for (const element of elements) {
+    if (!element.querySelector(':scope > attrib')) {
+      element.appendChild(createElement('attrib'))
+    }
+  }
+}
+
 export const createBoxedElementSection = (
   doc: Document,
   createElement: CreateElement
