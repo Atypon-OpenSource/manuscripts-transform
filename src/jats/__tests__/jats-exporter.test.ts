@@ -258,10 +258,11 @@ describe('JATS exporter', () => {
     const transformer = new JATSExporter()
     const input = await readAndParseFixture('jats-import.xml')
     const node = parseJATSArticle(input, sectionCategories)
-    const xml = await transformer.serializeToJATS(node, {
+    const xml = await transformer.export(node, {
       csl: DEFAULT_CSL_OPTIONS,
     })
-    const resultDoc = parseXMLWithDTD(xml)
+    const serialized = serializeToXML(xml)
+    const resultDoc = parseXMLWithDTD(serialized)
     expect(resultDoc.errors).toHaveLength(0)
 
     const contribs = resultDoc.find<XMLElement>('//contrib-group/contrib')
