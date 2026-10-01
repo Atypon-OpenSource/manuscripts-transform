@@ -33,7 +33,7 @@ const LEGACY_CONTENTS_NODES = new Set([
  * - the dead `contents` attribute is removed from the nodes listed above - this won't
  *   invalidate the doc actually so it's added only for hygiene
  */
-class Migration458 implements MigrationScript {
+class Migration459 implements MigrationScript {
   fromVersion = '4.5.7'
   toVersion = '4.5.8'
 
@@ -59,4 +59,4 @@ class Migration458 implements MigrationScript {
   }
 }
 
-export default Migration458
+export default Migration459
