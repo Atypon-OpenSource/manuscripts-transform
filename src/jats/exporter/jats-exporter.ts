@@ -15,14 +15,8 @@
  */
 
 import * as Citeproc from 'citeproc'
-<<<<<<< HEAD
 import { DOMOutputSpec, DOMSerializer } from 'prosemirror-model'
 import { findChildrenByAttr } from 'prosemirror-utils'
-import serializeToXML from 'w3c-xmlserializer'
-=======
-import { DOMOutputSpec, DOMSerializer, type NodeType } from 'prosemirror-model'
-import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
->>>>>>> d9afa85c34da42e2c109065698d43588b889022f
 
 import { buildCiteprocCitation } from '../../lib/citeproc'
 import { CreditRoleUrls } from '../../lib/credit-roles'

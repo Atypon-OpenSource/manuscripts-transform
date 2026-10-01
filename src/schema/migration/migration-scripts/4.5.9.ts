@@ -34,8 +34,8 @@ const LEGACY_CONTENTS_NODES = new Set([
  *   invalidate the doc actually so it's added only for hygiene
  */
 class Migration459 implements MigrationScript {
-  fromVersion = '4.5.7'
-  toVersion = '4.5.8'
+  fromVersion = '4.5.8'
+  toVersion = '4.5.9'
 
   migrateNode(node: JSONProsemirrorNode): JSONProsemirrorNode {
     if (
