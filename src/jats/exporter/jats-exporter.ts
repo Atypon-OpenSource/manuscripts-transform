@@ -15,9 +15,14 @@
  */
 
 import * as Citeproc from 'citeproc'
+<<<<<<< HEAD
 import { DOMOutputSpec, DOMSerializer } from 'prosemirror-model'
 import { findChildrenByAttr } from 'prosemirror-utils'
 import serializeToXML from 'w3c-xmlserializer'
+=======
+import { DOMOutputSpec, DOMSerializer, type NodeType } from 'prosemirror-model'
+import { findChildrenByAttr, findChildrenByType } from 'prosemirror-utils'
+>>>>>>> d9afa85c34da42e2c109065698d43588b889022f
 
 import { buildCiteprocCitation } from '../../lib/citeproc'
 import { CreditRoleUrls } from '../../lib/credit-roles'
@@ -87,10 +92,10 @@ export class JATSExporter extends JATSExporterBase {
 
   private contributorLabels: Map<string, number> = new Map()
 
-  public serializeToJATS = async (
+  public export = async (
     manuscriptNode: ActualManuscriptNode,
     options: ExportOptions
-  ): Promise<string> => {
+  ): Promise<Document> => {
     this.manuscriptNode = manuscriptNode
     this.populateNodesMap()
     this.initCiteprocEngine(options)
@@ -146,7 +151,7 @@ export class JATSExporter extends JATSExporterBase {
       $article.appendChild($floatsGroup)
     }
     await this.rewriteIDs()
-    return serializeToXML(this.document)
+    return this.document
   }
 
   private appendChildNodeOfType = (
@@ -539,9 +544,9 @@ export class JATSExporter extends JATSExporterBase {
     const [, bibliography] = this.engine.makeBibliography()
     const parser = new DOMParser()
     bibliography.forEach((item) => {
-      const fragment = `<template xmlns:xlink="${XLINK_NAMESPACE}">${sanitizeXmlString(
+      const fragment = `<wrapper xmlns:xlink="${XLINK_NAMESPACE}">${sanitizeXmlString(
         item
-      )}</template>`
+      )}</wrapper>`
       const $ref = parser
         .parseFromString(fragment, 'text/xml')
         .querySelector('ref')
