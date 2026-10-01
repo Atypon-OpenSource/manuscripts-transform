@@ -1,5 +1,5 @@
 /*!
- * © 2024 Atypon Systems LLC
+ * © 2026 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ import Migration4335 from './4.3.35'
 import Migration442 from './4.4.2'
 import Migration447 from './4.4.7'
 import Migration453 from './4.5.3'
-import Migration458 from './4.5.8'
+import Migration458 from './4.5.9'
 
 const migrations = [
   new Migration125(),
