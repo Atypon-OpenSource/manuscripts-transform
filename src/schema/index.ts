@@ -1,5 +1,5 @@
 /*!
- * © 2019 Atypon Systems LLC
+ * © 2026 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,6 +47,7 @@ import { backmatter } from './nodes/backmatter'
 import { bibliographyElement } from './nodes/bibliography_element'
 import { bibliographyItem } from './nodes/bibliography_item'
 import { bibliographySection } from './nodes/bibliography_section'
+import { bio } from './nodes/bio'
 import { blockquoteElement } from './nodes/blockquote_element'
 import { body } from './nodes/body'
 import { box_element } from './nodes/box_element'
@@ -128,6 +129,7 @@ export * from './nodes/awards'
 export * from './nodes/bibliography_element'
 export * from './nodes/bibliography_item'
 export * from './nodes/bibliography_section'
+export * from './nodes/bio'
 export * from './nodes/blockquote_element'
 export * from './nodes/box_element'
 export * from './nodes/caption'
@@ -213,6 +215,7 @@ export const schema = new Schema<Nodes, Marks>({
     bibliography_element: bibliographyElement,
     bibliography_section: bibliographySection,
     blockquote_element: blockquoteElement,
+    bio: bio,
     list: list,
     caption,
     caption_title: captionTitle,

@@ -1,5 +1,5 @@
 /*!
- * © 2020 Atypon Systems LLC
+ * © 2026 Atypon Systems LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -525,7 +525,7 @@ export class JATSDOMParser {
         const affiliationIDs: string[] = []
         const correspIDs: string[] = []
 
-        const xrefs = element.querySelectorAll('xref')
+        const xrefs = element.querySelectorAll(':scope > xref')
         for (const xref of xrefs) {
           const rid = xref.getAttribute('rid')
           const type = xref.getAttribute('ref-type')
@@ -572,9 +572,19 @@ export class JATSDOMParser {
           email: getTrimmedTextContent(element, 'email') || '',
         }
       },
-      getContent: () => {
-        return Fragment.from(this.schema.text('_'))
+      getContent: (node) => {
+        const bio = (node as HTMLElement).querySelector('bio')
+        if (!bio) {
+          return Fragment.empty
+        }
+        return Fragment.from(
+          this.parse(bio, { topNode: this.schema.nodes.bio.create() })
+        )
       },
+    },
+    {
+      tag: 'bio',
+      node: 'bio',
     },
     {
       tag: 'affiliations',
@@ -772,7 +782,7 @@ export class JATSDOMParser {
             label: getTrimmedTextContent(extLinkElement) || undefined,
           }))
           .filter((extLink) => extLink.href) // Filter out entries without href
-        
+
         return {
           id: element.getAttribute('id'),
           href: element.getAttributeNS(XLINK_NAMESPACE, 'href'),
