@@ -1323,31 +1323,6 @@ export class JATSExporter extends JATSExporterBase {
     return $sup
   }
 
-  // This is a manual builder that is need  only if we need to use this.writeParagraph() to strip rich text
-  // The editor will not allow rich text but if any imported - it will be stripped (can it be imported though)?
-  //
-  // private buildBioElement = (bio?: BioNode) => {
-  //   const $bio = this.createElement('bio')
-  //   if (!bio || !bio.firstChild) {
-  //     return null
-  //   }
-  //   bio.children.forEach((node) => {
-  //     switch (node.type) {
-  //       case schema.nodes.paragraph: {
-  //         $bio.append(this.writeParagraph(node as ParagraphNode))
-  //         break
-  //       }
-  //       case schema.nodes.image_element: {
-  //         $bio.append(this.createImage(node))
-  //         break
-  //       }
-  //       default:
-  //         return
-  //     }
-  //   })
-  //   return $bio
-  // }
-
   private buildContributorElement = (contributor: ContributorNode) => {
     const $contrib = this.createElement('contrib')
     $contrib.setAttribute('contrib-type', 'author')
@@ -1427,14 +1402,6 @@ export class JATSExporter extends JATSExporterBase {
         'vocab-term-identifier': url,
       })
     })
-
-    // This will be used instead of this.serializeNode(bio) if paragraphs need rich-text stripping
-    // const bio = this.buildBioElement(
-    //   this.getFirstChildOfType<BioNode>(schema.nodes.bio, contributor)
-    // )
-    // if (bio) {
-    //   $contrib.appendChild(bio)
-    // }
 
     const bio = this.getFirstChildOfType<BioNode>(schema.nodes.bio, contributor)
     if (bio?.childCount) {

@@ -282,10 +282,7 @@ describe('JATS exporter', () => {
     expect(paragraph.text()).toBe(
       'Agnete is a Professor of Neurology at Herlev og Gentofte Hospital, specializing in stroke research.'
     )
-    // Inline markup in the bio paragraph roundtrips through the DOMSerializer.
-    // TODO(LEAN-5987): the ticket specifies plain bio text; see the note next to
-    // the commented-out buildBioElement in the exporter. Flip this assertion if
-    // product decides bio text must be flattened on export.
+
     expect(resultDoc.get<XMLElement>('//contrib/bio/p/italic')?.text()).toBe(
       'Professor of Neurology'
     )

@@ -31,7 +31,7 @@ import Migration4335 from './4.3.35'
 import Migration442 from './4.4.2'
 import Migration447 from './4.4.7'
 import Migration453 from './4.5.3'
-import Migration458 from './4.5.9'
+import Migration459 from './4.5.9'
 
 const migrations = [
   new Migration125(),
@@ -51,7 +51,7 @@ const migrations = [
   new Migration442(),
   new Migration447(),
   new Migration453(),
-  new Migration458(),
+  new Migration459(),
 ]
 
 export default migrations
