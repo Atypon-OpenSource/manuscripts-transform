@@ -68,6 +68,43 @@ describe('JATS importer', () => {
       expect(contributorsNode).toHaveLength(0)
     })
   })
+  describe('bio', () => {
+    it('should parse bio with graphic and paragraph into the contributor node', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const node = parseJATSArticle(jats, sectionCategories)
+      changeIDs(node)
+      const [contributor] = findNodesByType(node, schema.nodes.contributor)
+
+      expect(contributor.childCount).toBe(1)
+      const bio = contributor.firstChild!
+      expect(bio.type).toBe(schema.nodes.bio)
+      expect(bio.childCount).toBe(2)
+
+      const image = findNodeByType(bio, schema.nodes.image_element)
+      expect(findNodeByType(image, schema.nodes.figure).attrs.src).toBe(
+        'agnete-hornnes.png'
+      )
+      expect(findNodeByType(image, schema.nodes.alt_text).textContent).toBe(
+        'Headshot of Agnete Hviid Hornnes'
+      )
+
+      // exact paragraph text proves name/email/xref metadata did not leak into the bio
+      const paragraph = bio.lastChild!
+      expect(paragraph.type).toBe(schema.nodes.paragraph)
+      expect(paragraph.textContent).toBe(
+        'Agnete is a Professor of Neurology at Herlev og Gentofte Hospital, specializing in stroke research.'
+      )
+      expect(bio).toMatchSnapshot()
+    })
+    it('should not add bio content to contributors without a bio element', async () => {
+      const jats = await readAndParseFixture('jats-import.xml')
+      const node = parseJATSArticle(jats, sectionCategories)
+      const [, contributor] = findNodesByType(node, schema.nodes.contributor)
+
+      expect(contributor.childCount).toBe(0)
+      expect(findNodesByType(node, schema.nodes.bio)).toHaveLength(1)
+    })
+  })
   describe('affiliations', () => {
     it('should correctly parse affiliation nodes', async () => {
       const jats = await readAndParseFixture('jats-import.xml')
