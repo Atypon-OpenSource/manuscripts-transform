@@ -182,6 +182,11 @@ export type SectionCategory = {
   isUnique: boolean
 }
 
+export type ValidationConfig = {
+  id: string
+  group: 'warning' | 'error'
+}
+
 export type ManuscriptTemplate = {
   _id: string
   bundle: string
@@ -189,6 +194,7 @@ export type ManuscriptTemplate = {
   sectionCategories: SectionCategory[]
   articleType: string
   hiddenNodeTypes?: string[]
+  validations: ValidationConfig[]
 }
 
 export interface UserProfile {
