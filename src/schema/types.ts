@@ -185,6 +185,7 @@ export type SectionCategory = {
 export type ValidationConfig = {
   id: string
   group: 'warning' | 'error'
+  sectionCategory?: string
 }
 
 export type ManuscriptTemplate = {
